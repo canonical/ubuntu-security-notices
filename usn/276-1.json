@@ -1,0 +1,45 @@
+{
+  "description": "Igor Bukanov discovered that the JavaScript engine did not properly\ndeclare some temporary variables. Under some rare circumstances, a\nmalicious mail with embedded JavaScript could exploit this to execute\narbitrary code with the privileges of the user.  (CVE-2006-0292,\nCVE-2006-1742)\n\nThe function XULDocument.persist() did not sufficiently validate the\nnames of attributes. An attacker could exploit this to inject\narbitrary XML code into the file 'localstore.rdf', which is read and\nevaluated at startup. This could include JavaScript commands that\nwould be run with the user's privileges. (CVE-2006-0296)\n\nDue to a flaw in the HTML tag parser a specific sequence of HTML tags\ncaused memory corruption. A malicious HTML email could exploit this to\ncrash the browser or even execute arbitrary code with the user's\nprivileges. (CVE-2006-0748)\n\nAn invalid ordering of table-related tags caused Thunderbird to use a\nnegative array index. A malicious HTML email could exploit this to\nexecute arbitrary code with the privileges of the user.\n(CVE-2006-0749)\n\nGeorgi Guninski discovered that forwarding mail in-line while using\nthe default HTML \"rich mail\" editor executed JavaScript embedded in\nthe email message. Forwarding mail in-line is not the default setting\nbut it is easily accessed through the \"Forward As\" menu item.\n(CVE-2006-0884)\n\nAs a privacy measure to prevent senders (primarily spammers) from\ntracking when email is read Thunderbird does not load remote content\nreferenced from an HTML mail message until a user tells it to do so.\nThis normally includes the content of frames and CSS files.  It was\ndiscovered that it was possible to bypass this restriction by\nindirectly including remote content through an intermediate inline CSS\nscript or frame. (CVE-2006-1045)\n\nGeorgi Guninski discovered that embedded XBL scripts could escalate\ntheir (normally reduced) privileges to get full privileges of the user\nif the email is viewed with \"Print Preview\". (CVE-2006-1727)\n\nThe crypto.generateCRMFRequest() function had a flaw which could be\nexploited to run arbitrary code with the user's privileges.\n(CVE-2006-1728)\n\nAn integer overflow was detected in the handling of the CSS property\n\"letter-spacing\". A malicious HTML email could exploit this to run\narbitrary code with the user's privileges. (CVE-2006-1730)\n\nThe methods valueOf.call() and .valueOf.apply() returned an object\nwhose privileges were not properly confined to those of the caller,\nwhich made them vulnerable to cross-site scripting attacks. A\nmalicious email with embedded JavaScript code could exploit this to\nmodify the contents or steal confidential data (such as passwords)\nfrom other opened web pages.  (CVE-2006-1731) The window.controllers\narray variable (CVE-2006-1732) and event handlers (CVE-2006-1741) were\nvulnerable to a similar attack.\n\nThe privileged built-in XBL bindings were not fully protected from web\ncontent and could be accessed by calling valueOf.call() and\nvalueOf.apply() on a method of that binding. A malicious email could\nexploit this to run arbitrary JavaScript code with the user's\nprivileges. (CVE-2006-1733)\n\nIt was possible to use the Object.watch() method to access an internal\nfunction object (the \"clone parent\"). A malicious email containing\nJavaScript code could exploit this to execute arbitrary code with the\nuser's privileges. (CVE-2006-1734)\n\nBy calling the XBL.method.eval() method in a special way it was\npossible to create JavaScript functions that would get compiled with\nthe wrong privileges. A malicious email could exploit this to execute\narbitrary JavaScript code with the user's privileges.  (CVE-2006-1735)\n\nSeveral crashes have been fixed which could be triggered by specially\ncrafted HTML content and involve memory corruption. These could\npotentially be exploited to execute arbitrary code with the user's\nprivileges. (CVE-2006-1737, CVE-2006-1738, CVE-2006-1739,\nCVE-2006-1790)\n\nThe \"enigmail\" plugin has been updated to work with the new\nThunderbird and Mozilla versions.",
+  "releases": {
+    "hoary": {
+      "binaries": {
+        "mozilla-thunderbird": {
+          "version": ""
+        }
+      }
+    },
+    "breezy": {
+      "binaries": {
+        "mozilla-thunderbird": {
+          "version": ""
+        }
+      }
+    }
+  },
+  "title": "Thunderbird vulnerabilities",
+  "timestamp": 1146681894,
+  "summary": "mozilla-thunderbird vulnerabilities",
+  "id": "USN-276-1",
+  "cves": [
+    "CVE-2006-0292",
+    "CVE-2006-0296",
+    "CVE-2006-0748",
+    "CVE-2006-0749",
+    "CVE-2006-0884",
+    "CVE-2006-1045",
+    "CVE-2006-1727",
+    "CVE-2006-1728",
+    "CVE-2006-1730",
+    "CVE-2006-1731",
+    "CVE-2006-1732",
+    "CVE-2006-1733",
+    "CVE-2006-1734",
+    "CVE-2006-1735",
+    "CVE-2006-1737",
+    "CVE-2006-1738",
+    "CVE-2006-1739",
+    "CVE-2006-1741",
+    "CVE-2006-1742",
+    "CVE-2006-1790"
+  ]
+}

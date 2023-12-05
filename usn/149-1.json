@@ -1,0 +1,107 @@
+{
+  "description": "Secunia.com reported that one of the recent security patches in\nFirefox reintroduced the frame injection patch that was originally\nknown as CAN-2004-0718. This allowed a malicious web site to spoof the\ncontents of other web sites. (CAN-2005-1937)\n\nIn several places the browser user interface did not correctly\ndistinguish between true user events, such as mouse clicks or\nkeystrokes, and synthetic events genenerated by web content. This\ncould be exploited by malicious web sites to generate e. g. mouse\nclicks that install malicious plugins. Synthetic events are now\nprevented from reaching the browser UI entirely. (CAN-2005-2260)\n\nScripts in XBL controls from web content continued to be run even when\nJavascript was disabled. This could be combined with most script-based\nexploits to attack people running vulnerable versions who thought\ndisabling Javascript would protect them. (CAN-2005-2261)\n\nMatthew Mastracci discovered a flaw in the addons installation\nlauncher. By forcing a page navigation immediately after calling the\ninstall method a callback function could end up running in the context\nof the new page selected by the attacker. This callback script could\nsteal data from the new page such as cookies or passwords, or perform\nactions on the user's behalf such as make a purchase if the user is\nalready logged into the target site. However, the default settings\nallow only http://addons.mozilla.org to bring up this install dialog.\nThis could only be exploited if users have added untrustworthy sites\nto the installation allowlist, and if a malicious site can convince\nyou to install from their site. (CAN-2005-2263)\n\nKohei Yoshino discovered a Javascript injection vulnerability in the\nsidebar. Sites can use the _search target to open links in the Firefox\nsidebar. A missing security check allowed the sidebar to inject\n\"data:\" URLs containing scripts into any page open in the browser.\nThis could be used to steal cookies, passwords or other sensitive\ndata. (CAN-2005-2264)\n\nThe function for version comparison in the addons installer did not\nproperly verify the type of its argument. By passing specially crafted\nJavascript objects to it, a malicious web site could crash the browser\nand possibly even execute arbitrary code with the privilege of the\nuser account Firefox runs in. (CAN-2005-2265)\n\nA child frame can call top.focus() even if the framing page comes from\na different origin and has overridden the focus() routine. Andreas\nSandblad discovered that the call is made in the context of the child\nframe. This could be exploited to steal cookies and passwords from the\nframed page, or take actions on behalf of a signed-in user. However,\nweb sites with above properties are not very common. (CAN-2005-2266)\n\nSeveral media players, for example Flash and QuickTime, support\nscripted content with the ability to open URLs in the default browser.\nThe default behavior for Firefox was to replace the currently open\nbrowser window's content with the externally opened content. Michael\nKrax discovered that if the external URL was a javascript: URL it\nwould run as if it came from the site that served the previous\ncontent, which could be used to steal sensitive information such as\nlogin cookies or passwords. If the media player content first caused a\nprivileged chrome: url to load then the subsequent javascript: url\ncould execute arbitrary code. (CAN-2005-2267)\n\nAlerts and prompts created by scripts in web pages were presented with\nthe generic title [JavaScript Application] which sometimes made it\ndifficult to know which site created them. A malicious page could\nexploit this by causing a prompt to appear in front of a trusted site\nin an attempt to extract information such as passwords from the user.\nIn the fixed version these prompts contain the hostname of the page\nwhich created it. (CAN-2005-2268)\n\nThe XHTML DOM node handler did not take namespaces into account when\nverifying node types based on their names. For example, an XHTML\ndocument could contain an <IMG> tag with malicious contents, which\nwould then be processed as the standard trusted HTML <img> tag. By\ntricking an user to view malicious web sites, this could be exploited\nto execute attacker-specified code with the full privileges of the\nuser. (CAN-2005-2269)\n\nIt was discovered that some objects were not created appropriately.\nThis allowed malicious web content scripts to trace back the creation\nchain until they found a privileged object and execute code with\nhigher privileges than allowed by the current site.  (CAN-2005-2270)",
+  "releases": {
+    "hoary": {
+      "binaries": {
+        "mozilla-firefox": {
+          "version": ""
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-firefox/mozilla-firefox_1.0.2.orig.tar.gz": {
+              "md5": "7e98ce4aefc5ea9b5f1f35b7a0c58f60",
+              "size": 41023585
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-firefox/mozilla-firefox_1.0.2-0ubuntu5.4.diff.gz": {
+              "md5": "7d129844042561aec3373c338ae50da6",
+              "size": 901156
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-firefox/mozilla-firefox_1.0.2-0ubuntu5.4.dsc": {
+              "md5": "91c2a87189e22af2dcc03e5e2cfc69db",
+              "size": 1058
+            }
+          }
+        },
+        "i386": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-firefox/mozilla-firefox-gnome-support_1.0.2-0ubuntu5.4_i386.deb": {
+              "md5": "21da121beb266f5f99973e7f7f9e327e",
+              "size": 53344
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-firefox/mozilla-firefox_1.0.2-0ubuntu5.4_i386.deb": {
+              "md5": "83ed14939ec232417f80a14165ec2261",
+              "size": 8793476
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/m/mozilla-firefox/mozilla-firefox-dom-inspector_1.0.2-0ubuntu5.4_i386.deb": {
+              "md5": "585a235429807cd05b0b0621fc3e9db3",
+              "size": 152370
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-firefox/mozilla-firefox-dev_1.0.2-0ubuntu5.4_i386.deb": {
+              "md5": "1fd464e44cc272526ac48634e7fd2b08",
+              "size": 2631766
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/universe/m/mozilla-firefox/mozilla-firefox-dom-inspector_1.0.2-0ubuntu5.4_amd64.deb": {
+              "md5": "1984a251769899721cb3524b4e7d34cf",
+              "size": 157476
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-firefox/mozilla-firefox-dev_1.0.2-0ubuntu5.4_amd64.deb": {
+              "md5": "331c9f3d9ae8a842130f889423cbae07",
+              "size": 2631798
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-firefox/mozilla-firefox_1.0.2-0ubuntu5.4_amd64.deb": {
+              "md5": "ce853daaf0039025b5a911345c519e87",
+              "size": 9764306
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-firefox/mozilla-firefox-gnome-support_1.0.2-0ubuntu5.4_amd64.deb": {
+              "md5": "4f6ebca89f5b503c3678354938b28d63",
+              "size": 56730
+            }
+          }
+        },
+        "powerpc": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-firefox/mozilla-firefox_1.0.2-0ubuntu5.4_powerpc.deb": {
+              "md5": "02e721acebbcb9106b4a806baf4e53be",
+              "size": 8455944
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/m/mozilla-firefox/mozilla-firefox-dom-inspector_1.0.2-0ubuntu5.4_powerpc.deb": {
+              "md5": "06ce5e6001caf2f419edd4c99d4c434c",
+              "size": 151184
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-firefox/mozilla-firefox-gnome-support_1.0.2-0ubuntu5.4_powerpc.deb": {
+              "md5": "ae0309f3ef3d5440716e58f9b722b2b7",
+              "size": 55982
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-firefox/mozilla-firefox-dev_1.0.2-0ubuntu5.4_powerpc.deb": {
+              "md5": "d4197428d1b5a923cb0855896740d2c2",
+              "size": 2631838
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "Firefox vulnerabilities",
+  "timestamp": 1121962431,
+  "summary": "mozilla-firefox vulnerabilities",
+  "id": "USN-149-1",
+  "cves": [
+    "CVE-2005-1937",
+    "CVE-2005-2260",
+    "CVE-2005-2261",
+    "CVE-2005-2263",
+    "CVE-2005-2264",
+    "CVE-2005-2265",
+    "CVE-2005-2266",
+    "CVE-2005-2267",
+    "CVE-2005-2268",
+    "CVE-2005-2269",
+    "CVE-2005-2270"
+  ]
+}

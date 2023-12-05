@@ -1,0 +1,61 @@
+{
+  "description": "USN-1704-1 fixed vulnerabilities in the Linux kernel. Due to an unrelated\nregression inotify/fanotify stopped working after upgrading. This update\nfixes the problem.\n\nWe apologize for the inconvenience.\n\nOriginal advisory details:\n\n Brad Spengler discovered a flaw in the Linux kernel's uname system call. An\n unprivileged user could exploit this flaw to read kernel stack memory.\n (CVE-2012-0957)\n \n Jon Howell reported a flaw in the Linux kernel's KVM (Kernel-based virtual\n machine) subsystem's handling of the XSAVE feature. On hosts, using qemu\n userspace, without the XSAVE feature an unprivileged local attacker could\n exploit this flaw to crash the system. (CVE-2012-4461)\n \n Dmitry Monakhov reported a race condition flaw the Linux ext4 filesystem\n that can expose stale data. An unprivileged user could exploit this flaw to\n cause an information leak. (CVE-2012-4508)\n \n A flaw was discovered in the Linux kernel's handling of script execution\n when module loading is enabled. A local attacker could exploit this flaw to\n cause a leak of kernel stack contents. (CVE-2012-4530)\n \n Rodrigo Freire discovered a flaw in the Linux kernel's TCP illinois\n congestion control algorithm. A local attacker could use this to cause a\n denial of service. (CVE-2012-4565)\n \n A flaw was discovered in the Linux kernel's handling of new hot-plugged\n memory. An unprivileged local user could exploit this flaw to cause a\n denial of service by crashing the system. (CVE-2012-5517)\n \n Florian Weimer discovered that hypervkvpd, which is distributed in the\n Linux kernel, was not correctly validating source addresses of netlink\n packets. An untrusted local user can cause a denial of service by causing\n hypervkvpd to exit. (CVE-2012-5532)\n",
+  "releases": {
+    "precise": {
+      "sources": {
+        "linux-lts-quantal": {
+          "version": "3.5.0-23.35~precise1",
+          "description": "Linux hardware enablement kernel from Quantal"
+        }
+      },
+      "binaries": {
+        "linux-image-3.5.0-23-generic": {
+          "version": "3.5.0-23.35~precise1"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/": {
+              "size": 5461484,
+              "md5": "8466eb3a13458fde3bd2ced19130a191"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/": {
+              "size": 12094890,
+              "md5": "8e018fa08b06a83e0b32b6bb10711130"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/": {
+              "size": 336084,
+              "md5": "886ae454b8936673a7b320c655729e53"
+            }
+          }
+        },
+        "i386": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/": {
+              "size": 77882,
+              "md5": "ea7f804e48a4fdaf283342b836af70ce"
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "Linux kernel (Quantal HWE) regression",
+  "timestamp": 1359733890.24769,
+  "summary": "linux-lts-quantal - Linux kernel hardware enablement from Quantal regression",
+  "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed. If\nyou use linux-restricted-modules, you have to update that package as\nwell to get modules which work with the new kernel version. Unless you\nmanually uninstalled the standard kernel metapackages (e.g. linux-generic,\nlinux-server, linux-powerpc), a standard system upgrade will automatically\nperform this as well.\n",
+  "cves": [
+    "https://launchpad.net/bugs/1101666"
+  ],
+  "id": "USN-1704-2",
+  "isummary": "USN-1704-1 introduced a regression in the Linux kernel.\n"
+}

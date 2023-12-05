@@ -1,0 +1,57 @@
+{
+  "description": "Libvirt in Ubuntu 10.04 LTS now no longer probes qemu disks for the image\nformat and defaults to 'raw' when the format is not specified in the XML.\nThis change in behavior breaks virt-install --import because virtinst in\nUbuntu 10.04 LTS did not allow for specifying a disk format and does not\nspecify a format in the XML. This update adds the 'format=' option when\nspecifying a disk. For example, to import an existing VM which uses a qcow2\ndisk format, use somthing like the following:\n\n  virt-install --connect=qemu:///session --name test-import --ram=256 \\\n    --disk path=<path to qcow2 image>,format=qcow2 --import\n\nFor more information, see man 1 virt-install.\n\nOriginal advisory details:\n\n It was discovered that libvirt would probe disk backing stores without\n consulting the defined format for the disk. A privileged attacker in the\n guest could exploit this to read arbitrary files on the host. This issue\n only affected Ubuntu 10.04 LTS. By default, guests are confined by an\n AppArmor profile which provided partial protection against this flaw.\n (CVE-2010-2237, CVE-2010-2238)\n \n It was discovered that libvirt would create new VMs without setting a\n backing store format. A privileged attacker in the guest could exploit this\n to read arbitrary files on the host. This issue did not affect Ubuntu 8.04\n LTS. In Ubuntu 9.10 and later guests are confined by an AppArmor profile\n which provided partial protection against this flaw. (CVE-2010-2239)\n \n Jeremy Nickurak discovered that libvirt created iptables rules with too\n lenient mappings of source ports. A privileged attacker in the guest could\n bypass intended restrictions to access privileged resources on the host.\n (CVE-2010-2242)\n",
+  "releases": {
+    "lucid": {
+      "sources": {
+        "virtinst": {
+          "version": "0.500.1-2ubuntu6.1",
+          "description": "Programs to create and clone virtual machines"
+        }
+      },
+      "binaries": {
+        "virtinst": {
+          "version": "0.500.1-2ubuntu6.1"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/v/virtinst/virtinst_0.500.1-2ubuntu6.1.diff.gz": {
+              "size": 11109,
+              "md5": "9e7424ceeab64e557fb589496aac69e9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/v/virtinst/virtinst_0.500.1-2ubuntu6.1.dsc": {
+              "size": 2155,
+              "md5": "58fffa8f010cd5d3c8b3a709da9e1311"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/v/virtinst/virtinst_0.500.1.orig.tar.gz": {
+              "size": 428911,
+              "md5": "f87ccfe2b77823c9e06d32e8b6f20424"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/v/virtinst/python-virtinst_0.500.1-2ubuntu6.1_all.deb": {
+              "size": 1564,
+              "md5": "402d23ff10bc82ffaec3554c883399ea"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/v/virtinst/virtinst_0.500.1-2ubuntu6.1_all.deb": {
+              "size": 230728,
+              "md5": "a958ec144ad1a7bdb3e4e1c25173fcdf"
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "Virtinst update",
+  "timestamp": 1287700035.807956,
+  "summary": "virtinst update",
+  "action": "In general, a standard system update will make all the necessary changes.\n",
+  "cves": [
+    "https://launchpad.net/bugs/655392"
+  ],
+  "id": "USN-1008-2",
+  "isummary": "Updated virtinst for use with the new libvirt.\n"
+}

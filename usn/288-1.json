@@ -1,0 +1,112 @@
+{
+  "description": "CVE-2006-2313:\n  Akio Ishida and Yasuo Ohgaki discovered a weakness in the handling of\n  invalidly-encoded multibyte text data. If a client application\n  processed untrusted input without respecting its encoding and applied\n  standard string escaping techniques (such as replacing a single quote\n  >>'<< with >>\\'<< or >>''<<), the PostgreSQL server could interpret the\n  resulting string in a way that allowed an attacker to inject arbitrary\n  SQL commands into the resulting SQL query. The PostgreSQL server has\n  been modified to reject such invalidly encoded strings now, which\n  completely fixes the problem for some 'safe' multibyte encodings like\n  UTF-8.\n\nCVE-2006-2314:\n  However, there are some less popular and client-only multibyte\n  encodings (such as SJIS, BIG5, GBK, GB18030, and UHC) which contain\n  valid multibyte characters that end with the byte 0x5c, which is the\n  representation of the backslash character >>\\<< in ASCII. Many client\n  libraries and applications use the non-standard, but popular way of\n  escaping the >>'<< character by replacing all occurences of it with\n  >>\\'<<. If a client application uses one of the affected encodings and\n  does not interpret multibyte characters, and an attacker supplies a\n  specially crafted byte sequence as an input string parameter, this\n  escaping method would then produce a validly-encoded character and\n  an excess >>'<< character which would end the string. All subsequent\n  characters would then be interpreted as SQL code, so the attacker\n  could execute arbitrary SQL commands.\n\n  To fix this vulnerability end-to-end, client-side applications must\n  be fixed to properly interpret multibyte encodings and use >>''<<\n  instead of >>\\'<<. However, as a precautionary measure, the sequence\n  >>\\'<< is now regarded as invalid when one of the affected client\n  encodings is in use. If you depend on the previous behaviour, you\n  can restore it by setting 'backslash_quote = on' in postgresql.conf.\n  However, please be aware that this could render you vulnerable\n  again.\n\n  This issue does not affect you if you only use single-byte (like\n  SQL_ASCII or the ISO-8859-X family) or unaffected multibyte (like\n  UTF-8) encodings.\n\nPlease see http://www.postgresql.org/docs/techdocs.50 for further\ndetails.\n\nThe psycopg and python-pgsql packages have been updated to\nconsistently use >>''<< for escaping quotes in strings.",
+  "releases": {
+    "hoary": {
+      "binaries": {
+        "postgresql-7.4": {
+          "version": ""
+        },
+        "python2.4-pgsql": {
+          "version": ""
+        },
+        "postgresql": {
+          "version": ""
+        },
+        "postgresql-8.0": {
+          "version": ""
+        },
+        "postgresql-contrib-7.4": {
+          "version": ""
+        },
+        "postgresql-contrib": {
+          "version": ""
+        },
+        "postgresql-client-7.4": {
+          "version": ""
+        },
+        "postgresql-contrib-8.0": {
+          "version": ""
+        },
+        "libpq3": {
+          "version": ""
+        },
+        "python2.3-psycopg": {
+          "version": ""
+        },
+        "postgresql-client-8.0": {
+          "version": ""
+        },
+        "libpq4": {
+          "version": ""
+        },
+        "python2.3-pgsql": {
+          "version": ""
+        },
+        "postgresql-client": {
+          "version": ""
+        },
+        "python2.4-psycopg": {
+          "version": ""
+        }
+      }
+    },
+    "breezy": {
+      "binaries": {
+        "postgresql-7.4": {
+          "version": ""
+        },
+        "python2.4-pgsql": {
+          "version": ""
+        },
+        "postgresql": {
+          "version": ""
+        },
+        "postgresql-8.0": {
+          "version": ""
+        },
+        "postgresql-contrib-7.4": {
+          "version": ""
+        },
+        "postgresql-contrib": {
+          "version": ""
+        },
+        "postgresql-client-7.4": {
+          "version": ""
+        },
+        "postgresql-contrib-8.0": {
+          "version": ""
+        },
+        "libpq3": {
+          "version": ""
+        },
+        "python2.3-psycopg": {
+          "version": ""
+        },
+        "postgresql-client-8.0": {
+          "version": ""
+        },
+        "libpq4": {
+          "version": ""
+        },
+        "python2.3-pgsql": {
+          "version": ""
+        },
+        "postgresql-client": {
+          "version": ""
+        },
+        "python2.4-psycopg": {
+          "version": ""
+        }
+      }
+    }
+  },
+  "title": "PostgreSQL server/client vulnerabilities",
+  "timestamp": 1148924162,
+  "summary": "postgresql-7.4/-8.0, postgresql, psycopg, ",
+  "id": "USN-288-1",
+  "cves": [
+    "python-pgsql vulnerabilities",
+    "CVE-2006-2313",
+    "CVE-2006-2314"
+  ]
+}

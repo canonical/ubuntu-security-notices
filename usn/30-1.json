@@ -1,0 +1,245 @@
+{
+  "description": "CAN-2004-0883, CAN-2004-0949:\n\n  During an audit of the smb file system implementation within Linux,\n  several vulnerabilities were discovered ranging from out of bounds\n  read accesses to kernel level buffer overflows.\n  \n  To exploit any of these vulnerabilities, an attacker needs control\n  over the answers of the connected Samba server. This could be\n  achieved by machine-in-the-middle attacks or by taking over the Samba\n  server with e. g. the recently disclosed vulnerability in Samba 3.x\n  (see CAN-2004-0882).\n  \n  While any of these vulnerabilities can be easily used as remote denial\n  of service exploits against Linux systems, it is unclear if it is\n  possible for a skilled local or remote attacker to use any of the\n  possible buffer overflows for arbitrary code execution in kernel\n  space. So these bugs may theoretically lead to privilege escalation\n  and total compromise of the whole system.\n\nhttp://isec.pl/vulnerabilities/isec-0017-binfmt_elf.txt:\n\n  Several flaws have been found in the Linux ELF binary loader's\n  handling of setuid binaries. Nowadays ELF is the standard format for\n  Linux executables and libraries. setuid binaries are programs that\n  have the \"setuid\" file permission bit set; they allow to execute a\n  program under a user id different from the calling user and are\n  mostly used to allow executing a program with root privileges to\n  normal users.\n\n  The vulnerabilities that were fixed in these updated kernel packages\n  could lead Denial of Service attacks. They also might lead to\n  execution of arbitrary code and privilege escalation on some\n  platforms if an attacker is able to run setuid programs under some\n  special system conditions (like very little remaining memory).\n\n  Another flaw could allow an attacker to read supposedly unreadable,\n  but executable suid binaries. The attacker can then use this to seek\n  faults within the executable.\n\nhttp://marc.theaimsgroup.com/?l=linux-kernel&m=109776571411003&w=2:\n\n  Bernard Gagnon discovered a memory leak in the mmap raw packet\n  socket implementation. When a client application (in ELF format)\n  core dumps, a region of memory stays allocated as a ring buffer.\n  This could be exploited by a malicious user who repeatedly crashes\n  certain types of applications until the memory is exhausted, thus\n  causing a Denial of Service.\n\nReverted 486 emulation patch:\n\n  Ubuntu kernels for the i386 platforms are compiled using the i486\n  instruction set for performance reasons. Former Ubuntu kernels\n  contained code which emulated the missing instructions on real 386\n  processors. However, several actual and potential security flaws\n  have been discovered in the code, and it was found to be\n  unsupportable. It might be possible to exploit these vulnerabilities\n  also on i486 and higher processors.\n\n  Therefore support for real i386 processors has ceased. This updated\n  kernel will only run on i486 and newer processors.\n\n  Other architectures supported by Ubuntu (amd64, powerpc) are not\n  affected.",
+  "releases": {
+    "warty": {
+      "binaries": {
+        "linux-image-2.6.8.1-3-686": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-3-power4": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-3-amd64-k8": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-3-686-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-3-k7": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-3-amd64-xeon": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-3-386": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-3-k7-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-3-powerpc-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-3-powerpc": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-3-amd64-generic": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-3-power3-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-3-amd64-k8-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-3-power4-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-3-power3": {
+          "version": ""
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-source-2.6.8.1_2.6.8.1-16.1.dsc": {
+              "md5": "bd3ecefdb8236a927ca0af02b575dc2d",
+              "size": 2119
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-source-2.6.8.1_2.6.8.1.orig.tar.gz": {
+              "md5": "79730a3ad4773ba65fab65515369df84",
+              "size": 44728688
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-source-2.6.8.1_2.6.8.1-16.1.diff.gz": {
+              "md5": "6c6205802319f9774bacae96e0215e9b",
+              "size": 3083854
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-doc-2.6.8.1_2.6.8.1-16.1_all.deb": {
+              "md5": "88fdd5612e0c91ea71e97640a0fb7b9a",
+              "size": 6158782
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-tree-2.6.8.1_2.6.8.1-16.1_all.deb": {
+              "md5": "74735830ea74efa3d062eb48d945a629",
+              "size": 305728
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-source-2.6.8.1_2.6.8.1-16.1_all.deb": {
+              "md5": "7b97d784e561b7cde26191882b6764b6",
+              "size": 36716930
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-patch-debian-2.6.8.1_2.6.8.1-16.1_all.deb": {
+              "md5": "7a1c68e4b85dd8b00faaf559a343d925",
+              "size": 1438690
+            }
+          }
+        },
+        "i386": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3-k7-smp_2.6.8.1-16.1_i386.deb": {
+              "md5": "f590ae7dd326f071c7ea478c8ea942bb",
+              "size": 269372
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3_2.6.8.1-16.1_i386.deb": {
+              "md5": "4eaa3e0d0a82754264b5f38b5f4b1647",
+              "size": 3216814
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3-k7_2.6.8.1-16.1_i386.deb": {
+              "md5": "b0127d780e15371c4ad80c43f3aaaa74",
+              "size": 272512
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-image-2.6.8.1-3-386_2.6.8.1-16.1_i386.deb": {
+              "md5": "2ac9ddfda9c306b52edd9f96769ee043",
+              "size": 15495148
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-image-2.6.8.1-3-686_2.6.8.1-16.1_i386.deb": {
+              "md5": "5a7638e3f39fb22de05a2fd1a7ccbf4b",
+              "size": 16504398
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3-686_2.6.8.1-16.1_i386.deb": {
+              "md5": "8e3d25985b2f7578bcd0f792681a6d59",
+              "size": 272350
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-image-2.6.8.1-3-686-smp_2.6.8.1-16.1_i386.deb": {
+              "md5": "f71d56afae0ced2a45eb7625cf022077",
+              "size": 16341528
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-image-2.6.8.1-3-k7-smp_2.6.8.1-16.1_i386.deb": {
+              "md5": "3bd7f0ce55842a1b8f4f3edf69bbc697",
+              "size": 16444912
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3-386_2.6.8.1-16.1_i386.deb": {
+              "md5": "f41d70a42ee38c74d49ef24f5c1d46cc",
+              "size": 274702
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3-686-smp_2.6.8.1-16.1_i386.deb": {
+              "md5": "fcf51ea7fa6358593a95ce16c0e6b566",
+              "size": 269116
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-image-2.6.8.1-3-k7_2.6.8.1-16.1_i386.deb": {
+              "md5": "2219c9c8ca315eaba1b03bb578c14076",
+              "size": 16573874
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-image-2.6.8.1-3-amd64-k8_2.6.8.1-16.1_amd64.deb": {
+              "md5": "77f4c1b4c34097b54b2fcee760ea0060",
+              "size": 14858776
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3_2.6.8.1-16.1_amd64.deb": {
+              "md5": "b5ccdb3732f81d90e4514ec88272b655",
+              "size": 3176044
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3-amd64-generic_2.6.8.1-16.1_amd64.deb": {
+              "md5": "a3b83c36daa55bd5da928aa9f0eeaa73",
+              "size": 246130
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3-amd64-k8_2.6.8.1-16.1_amd64.deb": {
+              "md5": "dcaee9f4c01adc03b6412a1572ee0bbd",
+              "size": 245240
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-image-2.6.8.1-3-amd64-xeon_2.6.8.1-16.1_amd64.deb": {
+              "md5": "55505fd066b07f357d635bb1afc3d782",
+              "size": 14677266
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3-amd64-xeon_2.6.8.1-16.1_amd64.deb": {
+              "md5": "cd9d74ff5e7f7f788c6a61776392c6e7",
+              "size": 239834
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-image-2.6.8.1-3-amd64-generic_2.6.8.1-16.1_amd64.deb": {
+              "md5": "a2ca8332e99848a722832debbc54656f",
+              "size": 14349546
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-image-2.6.8.1-3-amd64-k8-smp_2.6.8.1-16.1_amd64.deb": {
+              "md5": "194df314c04b0dff5533447ee3e60813",
+              "size": 14824052
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3-amd64-k8-smp_2.6.8.1-16.1_amd64.deb": {
+              "md5": "c52eb545c7d02dfb3daed6963d63de23",
+              "size": 241556
+            }
+          }
+        },
+        "powerpc": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-image-2.6.8.1-3-power4_2.6.8.1-16.1_powerpc.deb": {
+              "md5": "702c4de81e48ff65c5c434379d2eb770",
+              "size": 15917192
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3-powerpc_2.6.8.1-16.1_powerpc.deb": {
+              "md5": "0a0a0612917b8a47521f80ccfb8b3b24",
+              "size": 213070
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-image-2.6.8.1-3-powerpc_2.6.8.1-16.1_powerpc.deb": {
+              "md5": "b412f10fcdcb6e6ade95d7a7203bf7ba",
+              "size": 15966616
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3-power3_2.6.8.1-16.1_powerpc.deb": {
+              "md5": "e016ad7c0e83124384a8c9147fa88e80",
+              "size": 211752
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-image-2.6.8.1-3-powerpc-smp_2.6.8.1-16.1_powerpc.deb": {
+              "md5": "242eced9657e4929022631395d122025",
+              "size": 16284782
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3_2.6.8.1-16.1_powerpc.deb": {
+              "md5": "034e87b6d1147de130a0a57e18f86461",
+              "size": 3294420
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-image-2.6.8.1-3-power3_2.6.8.1-16.1_powerpc.deb": {
+              "md5": "150a04e8bbc4a6d17a18153748f090dc",
+              "size": 15938436
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-image-2.6.8.1-3-power3-smp_2.6.8.1-16.1_powerpc.deb": {
+              "md5": "3fad8b328bf30241e429c0d144818747",
+              "size": 16362792
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3-power4_2.6.8.1-16.1_powerpc.deb": {
+              "md5": "05ce6bd870c4fb39c5d679b0ba8ba2d7",
+              "size": 211446
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-image-2.6.8.1-3-power4-smp_2.6.8.1-16.1_powerpc.deb": {
+              "md5": "07c06af308187dc284ba32aa76962d46",
+              "size": 16344302
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3-powerpc-smp_2.6.8.1-16.1_powerpc.deb": {
+              "md5": "f927cb7855cea529445b8f2708ca2ac0",
+              "size": 211396
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3-power3-smp_2.6.8.1-16.1_powerpc.deb": {
+              "md5": "ac4d9d11672d6a2e0552d652f1269ff4",
+              "size": 210954
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-source-2.6.8.1/linux-headers-2.6.8.1-3-power4-smp_2.6.8.1-16.1_powerpc.deb": {
+              "md5": "a1d0ad910a32770e4966c4b7e7dc2a74",
+              "size": 210808
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "Linux kernel vulnerabilities",
+  "timestamp": 1100851925,
+  "summary": "linux-source-2.6.8.1 vulnerabilities",
+  "id": "USN-30-1",
+  "cves": [
+    "CVE-2004-0883",
+    "CVE-2004-0949",
+    "and others"
+  ]
+}

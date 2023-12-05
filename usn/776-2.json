@@ -1,0 +1,67 @@
+{
+  "description": "USN-776-1 fixed vulnerabilities in KVM. Due to an incorrect fix, a\nregression was introduced in Ubuntu 8.04 LTS that caused KVM to fail to\nboot virtual machines started via libvirt. This update fixes the problem.\nWe apologize for the inconvenience.\n\nOriginal advisory details:\n\n Avi Kivity discovered that KVM did not correctly handle certain disk\n formats. A local attacker could attach a malicious partition that would\n allow the guest VM to read files on the VM host. (CVE-2008-1945,\n CVE-2008-2004)\n\n Alfredo Ortega discovered that KVM's VNC protocol handler did not\n correctly validate certain messages. A remote attacker could send\n specially crafted VNC messages that would cause KVM to consume CPU\n resources, leading to a denial of service. (CVE-2008-2382)\n\n Jan Niehusmann discovered that KVM's Cirrus VGA implementation over VNC\n did not correctly handle certain bitblt operations. A local attacker could\n exploit this flaw to potentially execute arbitrary code on the VM host or\n crash KVM, leading to a denial of service. (CVE-2008-4539)\n\n It was discovered that KVM's VNC password checks did not use the correct\n length. A remote attacker could exploit this flaw to cause KVM to crash,\n leading to a denial of service. (CVE-2008-5714)\n",
+  "releases": {
+    "hardy": {
+      "sources": {
+        "kvm": {
+          "version": "1:62+dfsg-0ubuntu8.2"
+        }
+      },
+      "binaries": {
+        "kvm": {
+          "version": "1:62+dfsg-0ubuntu8.2"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/k/kvm/kvm_62+dfsg-0ubuntu8.2.diff.gz": {
+              "size": 43096,
+              "md5": "333b89921844b52e00b05172a49728e3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/k/kvm/kvm_62+dfsg.orig.tar.gz": {
+              "size": 3117412,
+              "md5": "b992a0ff585020cd5f586ac8046ad335"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/k/kvm/kvm_62+dfsg-0ubuntu8.2.dsc": {
+              "size": 1044,
+              "md5": "25c3b0f1abb252aeb6135f5dd8782b8e"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/universe/k/kvm/kvm-source_62+dfsg-0ubuntu8.2_all.deb": {
+              "size": 146586,
+              "md5": "020e3cf65f1e6ef6051aaf2b85bdfff8"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/k/kvm/kvm_62+dfsg-0ubuntu8.2_amd64.deb": {
+              "size": 770350,
+              "md5": "af69aba1e0a6ecd885ed13be5ddb32c1"
+            }
+          }
+        },
+        "i386": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/k/kvm/kvm_62+dfsg-0ubuntu8.2_i386.deb": {
+              "size": 709496,
+              "md5": "be95457ef9553f5197f8a23a67c4b713"
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "KVM regression",
+  "timestamp": 1242223949.18023,
+  "summary": "kvm regression",
+  "action": "After a standard system upgrade you need to restart all KVM VMs to effect\nthe necessary changes. \n",
+  "id": "USN-776-2",
+  "cves": [
+    "https://launchpad.net/bugs/375937"
+  ]
+}

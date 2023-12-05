@@ -1,0 +1,133 @@
+{
+  "description": "Jonas Sicking discovered that under some circumstances persisted XUL\nattributes are associated with the wrong URL. A malicious web site\ncould exploit this to execute arbitrary code with the privileges of\nthe user. (MFSA 2006-35, CVE-2006-2775)\n\nPaul Nickerson discovered that content-defined setters on an object\nprototype were getting called by privileged UI code. It was\ndemonstrated that this could be exploited to run arbitrary web script\nwith full user privileges (MFSA 2006-37, CVE-2006-2776).\n\nMikolaj Habryn discovered a buffer overflow in the crypto.signText()\nfunction. By sending an email with malicious JavaScript to an user,\nand that user enabled JavaScript in Thunderbird (which is not the\ndefault and not recommended), this could potentially be exploited to\nexecute arbitrary code with the user's privileges. (MFSA 2006-38,\nCVE-2006-2778)\n\nThe Mozilla developer team discovered several bugs that lead to\ncrashes with memory corruption. These might be exploitable by\nmalicious web sites to execute arbitrary code with the privileges of\nthe user. (MFSA 2006-32, CVE-2006-2779, CVE-2006-2780)\n\nMasatoshi Kimura discovered a memory corruption (double-free) when\nprocessing a large VCard with invalid base64 characters in it. By\nsending a maliciously crafted set of VCards to a user, this could\npotentially be exploited to execute arbitrary code with the user's\nprivileges. (MFSA 2006-40, CVE-2006-2781)\n\nMasatoshi Kimura found a way to bypass web input sanitizers which\nfilter out JavaScript. By inserting 'Unicode Byte-order-Mark (BOM)'\ncharacters into the HTML code (e. g. '<scr[BOM]ipt>'), these filters\nmight not recognize the tags anymore; however, Thunderbird would still\nexecute them since BOM markers are filtered out before processing a\nmail containing JavaScript. (MFSA 2006-42, CVE-2006-2783)\n\nKazuho Oku discovered various ways to perform HTTP response smuggling\nwhen used with certain proxy servers. Due to different interpretation\nof nonstandard HTTP headers in Thunderbird and the proxy server, a\nmalicious HTML email can exploit this to send back two responses to one\nrequest. The second response could be used to steal login cookies or\nother sensitive data from another opened web site. (MFSA 2006-33,\nCVE-2006-2786)\n\nIt was discovered that JavaScript run via EvalInSandbox() can escape\nthe sandbox. Malicious scripts received in emails containing\nJavaScript could use these privileges to execute arbitrary code with\nthe user's privileges. (MFSA 2006-31, CVE-2006-2787)\n\nThe \"enigmail\" plugin has been updated to work with the new\nThunderbird version.",
+  "releases": {
+    "dapper": {
+      "binaries": {
+        "mozilla-thunderbird": {
+          "version": "1.5.0.4-0ubuntu6.06"
+        },
+        "mozilla-thunderbird-enigmail": {
+          "version": "2:0.94-0ubuntu4.1"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/e/enigmail/enigmail_0.94-0ubuntu4.1.dsc": {
+              "size": 782,
+              "md5": "8fb6b5df3c43f49a66ccf53ba5668b30"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-thunderbird/mozilla-thunderbird_1.5.0.4.orig.tar.gz": {
+              "size": 35231284,
+              "md5": "243305d4d6723a45fcb1028caa3abca6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/e/enigmail/enigmail_0.94.orig.tar.gz": {
+              "size": 3126659,
+              "md5": "7e34cbe51f5a1faca2e26fa0edfd6a06"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-thunderbird/mozilla-thunderbird_1.5.0.4-0ubuntu6.06.dsc": {
+              "size": 958,
+              "md5": "e4f852b4bab77b9623cc341c20bc09d9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-thunderbird/mozilla-thunderbird_1.5.0.4-0ubuntu6.06.diff.gz": {
+              "size": 454199,
+              "md5": "909966693eff8a078ba864ad117ce739"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/e/enigmail/enigmail_0.94-0ubuntu4.1.diff.gz": {
+              "size": 20665,
+              "md5": "cdfe87eb65540f718072e34e02934992"
+            }
+          }
+        },
+        "i386": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-thunderbird/mozilla-thunderbird-inspector_1.5.0.4-0ubuntu6.06_i386.deb": {
+              "size": 186610,
+              "md5": "53006a42e988e1f6094c3205a94a70ec"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/e/enigmail/mozilla-thunderbird-enigmail_0.94-0ubuntu4.1_i386.deb": {
+              "size": 322588,
+              "md5": "8f6e39daed993d2f8aec8fd50878847d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-thunderbird/mozilla-thunderbird-dev_1.5.0.4-0ubuntu6.06_i386.deb": {
+              "size": 3516762,
+              "md5": "0d23ea5ccb664172eae44f152e68ccea"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-thunderbird/mozilla-thunderbird_1.5.0.4-0ubuntu6.06_i386.deb": {
+              "size": 10269436,
+              "md5": "515e159ef36b150458d9fe96a839fab1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-thunderbird/mozilla-thunderbird-typeaheadfind_1.5.0.4-0ubuntu6.06_i386.deb": {
+              "size": 53966,
+              "md5": "d30216cff318235c7111983113c55f0e"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-thunderbird/mozilla-thunderbird-typeaheadfind_1.5.0.4-0ubuntu6.06_amd64.deb": {
+              "size": 58462,
+              "md5": "b01403276bf1092b1ccf0cad7baa72f9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-thunderbird/mozilla-thunderbird-dev_1.5.0.4-0ubuntu6.06_amd64.deb": {
+              "size": 3524682,
+              "md5": "33dc00f09c6696c30931de5d6ac3c0a4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/e/enigmail/mozilla-thunderbird-enigmail_0.94-0ubuntu4.1_amd64.deb": {
+              "size": 335026,
+              "md5": "b1b887ea96c5e241bbe5467ff496afbc"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-thunderbird/mozilla-thunderbird_1.5.0.4-0ubuntu6.06_amd64.deb": {
+              "size": 11962546,
+              "md5": "0ddac2ea690038906b1ffcd6344b7f39"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-thunderbird/mozilla-thunderbird-inspector_1.5.0.4-0ubuntu6.06_amd64.deb": {
+              "size": 193242,
+              "md5": "b8590336a65d0291a23f867b82b26c3f"
+            }
+          }
+        },
+        "powerpc": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/e/enigmail/mozilla-thunderbird-enigmail_0.94-0ubuntu4.1_powerpc.deb": {
+              "size": 326082,
+              "md5": "5f737efbb2625db219376e7ade40a731"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-thunderbird/mozilla-thunderbird-dev_1.5.0.4-0ubuntu6.06_powerpc.deb": {
+              "size": 3521642,
+              "md5": "e1ac4e93a87b4ddaa6176da12c927884"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-thunderbird/mozilla-thunderbird_1.5.0.4-0ubuntu6.06_powerpc.deb": {
+              "size": 11536352,
+              "md5": "128dbafe11cebc0b64233272e351be9c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-thunderbird/mozilla-thunderbird-typeaheadfind_1.5.0.4-0ubuntu6.06_powerpc.deb": {
+              "size": 57556,
+              "md5": "660594aff823a3a77abeb2ee87693c4c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mozilla-thunderbird/mozilla-thunderbird-inspector_1.5.0.4-0ubuntu6.06_powerpc.deb": {
+              "size": 189958,
+              "md5": "6eae0743502e13782001bc3979388e83"
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "Thunderbird vulnerabilities",
+  "timestamp": 1150307148,
+  "summary": "mozilla-thunderbird vulnerabilities",
+  "action": "After a standard system upgrade you need to restart Thunderbird to\neffect the necessary changes.\n\nPlease note that Thunderbird 1.0.8 in Ubuntu 5.10 and Ubuntu 5.04 are\nalso affected by these problems. Updates for these Ubuntu releases\nwill be delayed due to upstream dropping support for this Thunderbird\nversion. We strongly advise that you disable JavaScript to disable the\nattack vectors for most vulnerabilities if you use one of these Ubuntu\nversions.",
+  "id": "USN-297-1",
+  "cves": [
+    "CVE-2006-2775",
+    "CVE-2006-2776",
+    "CVE-2006-2778",
+    "CVE-2006-2779",
+    "CVE-2006-2780",
+    "CVE-2006-2781",
+    "CVE-2006-2783",
+    "CVE-2006-2786",
+    "CVE-2006-2787"
+  ]
+}

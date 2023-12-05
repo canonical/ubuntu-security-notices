@@ -1,0 +1,107 @@
+{
+  "description": "Stefano Di Paola discovered three privilege escalation flaws in the MySQL\nserver:\n\n- If an authenticated user had INSERT privileges on the 'mysql' administrative\n  database, the CREATE FUNCTION command allowed that user to use libc functions\n  to execute arbitrary code with the privileges of the database server (user\n  'mysql'). (CAN-2005-0709)\n\n- If an authenticated user had INSERT privileges on the 'mysql' administrative\n  database, it was possible to load a library located in an arbitrary directory\n  by using INSERT INTO mysql.func instead of CREATE FUNCTION.  This allowed the\n  user to execute arbitrary code with the privileges of the database server (user\n  'mysql'). (CAN-2005-0710)\n\n- Temporary files belonging to tables created with CREATE TEMPORARY TABLE were\n  handled in an insecure way. This allowed any local computer user to overwrite\n  arbitrary files with the privileges of the database server. (CAN-2005-0711)\n\nMatt Brubeck discovered that the directory /usr/share/mysql/ was owned and\nwritable by the database server user 'mysql'. This directory contains scripts\nwhich are usually run by root. This allowed a local attacker who already has\nmysql privileges to gain full root access by modifying a script and tricking\nroot into executing it.",
+  "releases": {
+    "warty": {
+      "binaries": {
+        "mysql-server": {
+          "version": ""
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mysql-dfsg/mysql-dfsg_4.0.20-2ubuntu1.4.dsc": {
+              "size": 892,
+              "md5": "8410cb63b79655f10df1c2a797249350"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mysql-dfsg/mysql-dfsg_4.0.20.orig.tar.gz": {
+              "size": 9760117,
+              "md5": "f092867f6df2f50b34b8065312b9fb2b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mysql-dfsg/mysql-dfsg_4.0.20-2ubuntu1.4.diff.gz": {
+              "size": 174589,
+              "md5": "a7bbe440e9d8cbcf41e7dcbf33254ba5"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mysql-dfsg/mysql-common_4.0.20-2ubuntu1.4_all.deb": {
+              "size": 24600,
+              "md5": "8cce579993297755f7af60742b0c7738"
+            }
+          }
+        },
+        "powerpc": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mysql-dfsg/mysql-server_4.0.20-2ubuntu1.4_powerpc.deb": {
+              "size": 3770076,
+              "md5": "211d6d9fb5899f80dd216cc76b854148"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mysql-dfsg/libmysqlclient12_4.0.20-2ubuntu1.4_powerpc.deb": {
+              "size": 308292,
+              "md5": "a8ddf7818b3d7d4aa280eb862560f5ed"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mysql-dfsg/libmysqlclient-dev_4.0.20-2ubuntu1.4_powerpc.deb": {
+              "size": 3109952,
+              "md5": "e36cf9560a5d8f345801cacb0c2c2c58"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mysql-dfsg/mysql-client_4.0.20-2ubuntu1.4_powerpc.deb": {
+              "size": 452118,
+              "md5": "7037cde3771768530ea54d7565bd4a5e"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mysql-dfsg/libmysqlclient-dev_4.0.20-2ubuntu1.4_amd64.deb": {
+              "size": 2810480,
+              "md5": "35a6f5626620f1446a82ba657731c524"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mysql-dfsg/mysql-client_4.0.20-2ubuntu1.4_amd64.deb": {
+              "size": 422698,
+              "md5": "5c4fc21698901aa4d895eb8e14b06b54"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mysql-dfsg/libmysqlclient12_4.0.20-2ubuntu1.4_amd64.deb": {
+              "size": 304662,
+              "md5": "a4b2c340bcbad53aebe3736b131ab608"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mysql-dfsg/mysql-server_4.0.20-2ubuntu1.4_amd64.deb": {
+              "size": 3577580,
+              "md5": "ddddf044b09cc3860fbd18939ba4607f"
+            }
+          }
+        },
+        "i386": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mysql-dfsg/mysql-server_4.0.20-2ubuntu1.4_i386.deb": {
+              "size": 3486636,
+              "md5": "aa84280881da8c2fe826df5c30b7905e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mysql-dfsg/libmysqlclient12_4.0.20-2ubuntu1.4_i386.deb": {
+              "size": 287600,
+              "md5": "acd9b30e3e6ef2391cd36c208202b633"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mysql-dfsg/libmysqlclient-dev_4.0.20-2ubuntu1.4_i386.deb": {
+              "size": 2773926,
+              "md5": "c117672f9fed7ab0e3fe1232880f9262"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/m/mysql-dfsg/mysql-client_4.0.20-2ubuntu1.4_i386.deb": {
+              "size": 396652,
+              "md5": "0e753c494924f6d63a8a2ed772c86daa"
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "mySQL vulnerabilities",
+  "timestamp": 1110993227,
+  "summary": "mysql-dfsg vulnerabilities",
+  "id": "USN-96-1",
+  "cves": [
+    "CVE-2005-0709",
+    "CVE-2005-0710",
+    "CVE-2005-0711"
+  ]
+}

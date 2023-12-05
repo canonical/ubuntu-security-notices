@@ -1,0 +1,38 @@
+{
+  "description": "USN-3742-2 introduced mitigations in the Linux Hardware Enablement\n(HWE) kernel for Ubuntu 12.04 ESM to address L1 Terminal Fault (L1TF)\nvulnerabilities (CVE-2018-3620, CVE-2018-3646). Unfortunately, the\nupdate introduced regressions that caused kernel panics when booting\nin some environments as well as preventing Java applications from\nstarting. This update fixes the problems.\n\nWe apologize for the inconvenience.\n\nOriginal advisory details:\n\n It was discovered that memory present in the L1 data cache of an Intel CPU\n core may be exposed to a malicious process that is executing on the CPU\n core. This vulnerability is also known as L1 Terminal Fault (L1TF). A local\n attacker in a guest virtual machine could use this to expose sensitive\n information (memory from other guests or the host OS). (CVE-2018-3646)\n\n It was discovered that memory present in the L1 data cache of an Intel CPU\n core may be exposed to a malicious process that is executing on the CPU\n core. This vulnerability is also known as L1 Terminal Fault (L1TF). A local\n attacker could use this to expose sensitive information (memory from the\n kernel or other processes). (CVE-2018-3620)\n\n Andrey Konovalov discovered an out-of-bounds read in the POSIX\n timers subsystem in the Linux kernel. A local attacker could use\n this to cause a denial of service (system crash) or expose sensitive\n information. (CVE-2017-18344)\n\n Juha-Matti Tilli discovered that the TCP implementation in the Linux kernel\n performed algorithmically expensive operations in some situations when\n handling incoming packets. A remote attacker could use this to cause a\n denial of service. (CVE-2018-5390)\n\n Juha-Matti Tilli discovered that the IP implementation in the Linux kernel\n performed algorithmically expensive operations in some situations when\n handling incoming packet fragments. A remote attacker could use this to\n cause a denial of service. (CVE-2018-5391)\n",
+  "releases": {
+    "precise": {
+      "sources": {
+        "linux-lts-trusty": {
+          "version": "3.13.0-156.206~precise1",
+          "description": "Linux hardware enablement kernel from Trusty for Precise ESM"
+        }
+      },
+      "binaries": {
+        "linux-image-generic-lpae-lts-trusty": {
+          "version": "3.13.0.156.146"
+        },
+        "linux-image-3.13.0-156-generic-lpae": {
+          "version": "3.13.0-156.206~precise1"
+        },
+        "linux-image-generic-lts-trusty": {
+          "version": "3.13.0.156.146"
+        },
+        "linux-image-3.13.0-156-generic": {
+          "version": "3.13.0-156.206~precise1"
+        }
+      }
+    }
+  },
+  "title": "Linux kernel (Trusty HWE) regressions",
+  "timestamp": 1534814085.682507,
+  "summary": "linux-lts-trusty regressions",
+  "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
+  "cves": [
+    "https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1787258",
+    "https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1787127",
+    "https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/L1TF"
+  ],
+  "id": "USN-3742-3",
+  "isummary": "USN-3742-2 introduced regressions in the Linux Hardware Enablement\n(HWE) kernel for Ubuntu 12.04 ESM.\n"
+}

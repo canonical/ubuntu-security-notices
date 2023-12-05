@@ -1,0 +1,57 @@
+{
+  "description": "USN-1400-1 fixed vulnerabilities in Firefox. Firefox 11 started using\nGSettings to access the system proxy settings. If there is a GSettings\nproxy settings schema, Firefox will consume it. The GSettings proxy\nsettings schema that was shipped by default was unused by other\napplications and broke Firefox's ability to use system proxy settings. This\nupdate removes the unused schema. We apologize for the inconvenience.\n\nOriginal advisory details:\n\n Soroush Dalili discovered that Firefox did not adequately protect against\n dropping JavaScript links onto a frame. A remote attacker could, through\n cross-site scripting (XSS), exploit this to modify the contents or steal\n confidential data. (CVE-2012-0455)\n \n Atte Kettunen discovered a use-after-free vulnerability in Firefox's\n handling of SVG animations. An attacker could potentially exploit this to\n execute arbitrary code with the privileges of the user invoking Firefox.\n (CVE-2012-0457)\n \n Atte Kettunen discovered an out of bounds read vulnerability in Firefox's\n handling of SVG Filters. An attacker could potentially exploit this to make\n data from the user's memory accessible to the page content. (CVE-2012-0456)\n \n Mike Brooks discovered that using carriage return line feed (CRLF)\n injection, one could introduce a new Content Security Policy (CSP) rule\n which allows for cross-site scripting (XSS) on sites with a separate header\n injection vulnerability. With cross-site scripting vulnerabilities, if a\n user were tricked into viewing a specially crafted page, a remote attacker\n could exploit this to modify the contents, or steal confidential data,\n within the same domain. (CVE-2012-0451)\n \n Mariusz Mlynski discovered that the Home button accepted JavaScript links\n to set the browser Home page. An attacker could use this vulnerability to\n get the script URL loaded in the privileged about:sessionrestore context.\n (CVE-2012-0458)\n \n Daniel Glazman discovered that the Cascading Style Sheets (CSS)\n implementation is vulnerable to crashing due to modification of a keyframe\n followed by access to the cssText of the keyframe. If the user were tricked\n into opening a specially crafted web page, an attacker could exploit this\n to cause a denial of service via application crash, or potentially execute\n code with the privileges of the user invoking Firefox. (CVE-2012-0459)\n \n Matt Brubeck discovered that Firefox did not properly restrict access to\n the window.fullScreen object. If the user were tricked into opening a\n specially crafted web page, an attacker could potentially use this\n vulnerability to spoof the user interface. (CVE-2012-0460)\n \n Bob Clary, Christian Holler, Jesse Ruderman, Michael Bebenita, David\n Anderson, Jeff Walden, Vincenzo Iozzo, and Willem Pinckaers discovered\n memory safety issues affecting Firefox. If the user were tricked into\n opening a specially crafted page, an attacker could exploit these to\n cause a denial of service via application crash, or potentially execute\n code with the privileges of the user invoking Firefox. (CVE-2012-0461,\n CVE-2012-0462, CVE-2012-0464)\n",
+  "releases": {
+    "natty": {
+      "sources": {
+        "gsettings-desktop-schemas": {
+          "version": "3.0.0-0ubuntu1.1",
+          "description": "GSettings desktop-wide schemas"
+        }
+      },
+      "binaries": {
+        "gsettings-desktop-schemas": {
+          "version": "3.0.0-0ubuntu1.1"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/g/gsettings-desktop-schemas/gsettings-desktop-schemas_3.0.0-0ubuntu1.1.debian.tar.gz": {
+              "size": 2981,
+              "md5": "e0e74a71b26f3e20cbd50dc29f5fa804"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/g/gsettings-desktop-schemas/gsettings-desktop-schemas_3.0.0-0ubuntu1.1.dsc": {
+              "size": 1833,
+              "md5": "c43d2c6b70a6d1c56bb7daf968f41d74"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/g/gsettings-desktop-schemas/gsettings-desktop-schemas_3.0.0.orig.tar.gz": {
+              "size": 194827,
+              "md5": "ade50340e53aecb3c858cebd61ba46df"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/g/gsettings-desktop-schemas/gsettings-desktop-schemas-dev_3.0.0-0ubuntu1.1_all.deb": {
+              "size": 2760,
+              "md5": "57c8b7e102ab41defdc9f571cbd35de0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/g/gsettings-desktop-schemas/gsettings-desktop-schemas_3.0.0-0ubuntu1.1_all.deb": {
+              "size": 13762,
+              "md5": "86f1faec7bb05531426c1888ef3715a6"
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "GSettings desktop schemas regression",
+  "timestamp": 1334906181.157648,
+  "summary": "gsettings-desktop-schemas regression",
+  "action": "After a standard system update you need to restart Firefox to make\nall the necessary changes.\n",
+  "cves": [
+    "https://launchpad.net/bugs/956961"
+  ],
+  "id": "USN-1400-5",
+  "isummary": "Firefox's ability to use system proxy settings regressed.\n"
+}

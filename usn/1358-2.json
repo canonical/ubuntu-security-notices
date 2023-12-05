@@ -1,0 +1,2462 @@
+{
+  "description": "USN 1358-1 fixed multiple vulnerabilities in PHP. The fix for\nCVE-2012-0831 introduced a regression where the state of the\nmagic_quotes_gpc setting was not correctly reflected when calling\nthe ini_get() function.\n\nWe apologize for the inconvenience.\n\nOriginal advisory details:\n\n It was discovered that PHP computed hash values for form parameters\n without restricting the ability to trigger hash collisions predictably.\n This could allow a remote attacker to cause a denial of service by\n sending many crafted parameters. (CVE-2011-4885)\n \n ATTENTION: this update changes previous PHP behavior by\n limiting the number of external input variables to 1000.\n This may be increased by adding a \"max_input_vars\"\n directive to the php.ini configuration file. See\n http://www.php.net/manual/en/info.configuration.php#ini.max-input-vars\n for more information.\n \n Stefan Esser discovered that the fix to address the predictable hash\n collision issue, CVE-2011-4885, did not properly handle the situation\n where the limit was reached. This could allow a remote attacker to\n cause a denial of service or execute arbitrary code via a request\n containing a large number of variables. (CVE-2012-0830)\n \n It was discovered that PHP did not always check the return value of\n the zend_strndup function. This could allow a remote attacker to\n cause a denial of service. (CVE-2011-4153)\n \n It was discovered that PHP did not properly enforce libxslt security\n settings. This could allow a remote attacker to create arbitrary\n files via a crafted XSLT stylesheet that uses the libxslt output\n extension. (CVE-2012-0057)\n \n It was discovered that PHP did not properly enforce that PDORow\n objects could not be serialized and not be saved in a session. A\n remote attacker could use this to cause a denial of service via an\n application crash. (CVE-2012-0788)\n \n It was discovered that PHP allowed the magic_quotes_gpc setting to\n be disabled remotely. This could allow a remote attacker to bypass\n restrictions that could prevent an SQL injection. (CVE-2012-0831)\n \n USN 1126-1 addressed an issue where the /etc/cron.d/php5 cron job\n for PHP allowed local users to delete arbitrary files via a symlink\n attack on a directory under /var/lib/php5/. Emese Revfy discovered\n that the fix had not been applied to PHP for Ubuntu 10.04 LTS. This\n update corrects the issue. We apologize for the error. (CVE-2011-0441)\n",
+  "releases": {
+    "hardy": {
+      "sources": {
+        "php5": {
+          "version": "5.2.4-2ubuntu5.23",
+          "description": "HTML-embedded scripting language interpreter"
+        }
+      },
+      "binaries": {
+        "php5-cli": {
+          "version": "5.2.4-2ubuntu5.23"
+        },
+        "php5": {
+          "version": "5.2.4-2ubuntu5.23"
+        },
+        "libapache2-mod-php5": {
+          "version": "5.2.4-2ubuntu5.23"
+        },
+        "php5-cgi": {
+          "version": "5.2.4-2ubuntu5.23"
+        }
+      },
+      "archs": {
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php-pear_5.2.4-2ubuntu5.23_all.deb": {
+              "size": 363012,
+              "md5": "58fd94d7f3d8207eeaf6bd589c1a4af4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.2.4-2ubuntu5.23_all.deb": {
+              "size": 1078,
+              "md5": "b01822794c6317a9b39c1e35a051fdc1"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-mysql_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 74334,
+              "md5": "4beefb5e82b68576955465d3f1dfe207"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-mhash_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 5534,
+              "md5": "bee1d322cda467f1ff80165f25de8049"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/libapache2-mod-php5_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 2617324,
+              "md5": "58720f0f390bf8125d9ff1e237b9e9be"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cli_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 2574262,
+              "md5": "10b5f28801b63a6e352eb3a762c45f46"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xmlrpc_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 38622,
+              "md5": "5327a8ac87a6e9ae431b2269599d45d4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dev_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 368682,
+              "md5": "009250bad6c571599ab70a75cbc45307"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pgsql_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 55898,
+              "md5": "281ede1ffc5c449ecdd41bdac68904ff"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-odbc_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 37698,
+              "md5": "d6f3162e1b72a5222ee60445f750bd6f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-common_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 323540,
+              "md5": "e1426dec6ded2638d1ad8c647635bba2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xsl_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 14312,
+              "md5": "bb64f9f63c2a1151462b8b0926537c7f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gd_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 37334,
+              "md5": "322cfcc0075d4078c3879258ab730961"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cgi_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 5099550,
+              "md5": "6e3cb6174bfc6893277e3e9ae4ad534a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-sybase_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 28394,
+              "md5": "7c15c87f72185186aac7c58483b0650d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pspell_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 9526,
+              "md5": "682a1d51046c1f20e96bafb7d803c6d6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-sqlite_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 39564,
+              "md5": "b568c28a4321d1b3f6bb7598f4826657"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-tidy_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 17872,
+              "md5": "81de737d9a138a3785bb8b6620ce3c5c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-ldap_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 20244,
+              "md5": "efa645d6a8052bdff3d44568321fb904"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-curl_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 25018,
+              "md5": "a4d8519d24a380c3cf957c77eee47539"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gmp_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 17596,
+              "md5": "9379d41e1edbb3932456bbb741cd5451"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-snmp_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 12402,
+              "md5": "ec069fc129106e991d3470d85fca54f0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-recode_5.2.4-2ubuntu5.23_amd64.deb": {
+              "size": 5022,
+              "md5": "9c5d9c63862fcfeed387aab4e010278e"
+            }
+          }
+        },
+        "i386": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gd_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 32948,
+              "md5": "f8837a92b81a2e03827233c14de73a80"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-snmp_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 11716,
+              "md5": "295220e324f2b589e80160c89a73ce7c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-sqlite_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 34150,
+              "md5": "5e118c8cfeacb44101d95d7183cf9269"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/libapache2-mod-php5_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 2476166,
+              "md5": "d863133205035fae4d868dc47070fad9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xmlrpc_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 35674,
+              "md5": "37d1dc11dd315c0d3882ef259254c790"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-curl_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 23650,
+              "md5": "d38223c49137016a2086bbafb54985d7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-recode_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 4780,
+              "md5": "fe4cb4b7250a49f34bcf743e8358bea9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-odbc_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 33656,
+              "md5": "049dadc24317f29c95229d3c741359c8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pgsql_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 51304,
+              "md5": "add3e4acf8118f41dfe9d82bddba6403"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gmp_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 14760,
+              "md5": "4ecbf4aa2920136aa1ba87d6151a05f4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dev_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 367482,
+              "md5": "00b7438880e9888c979a9bcad802bda2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cgi_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 4920938,
+              "md5": "f4339dbc7ee8408b0b55de17debb25f8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-sybase_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 26250,
+              "md5": "9bcfdda0cfc4036a08efa22f76b3ce40"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xsl_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 13210,
+              "md5": "be3c6ab41ab2793a2aefcd7e27bd3738"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-ldap_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 18106,
+              "md5": "f1acc4ec8265cacc24937ba891cfaae7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-tidy_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 16274,
+              "md5": "59d815d3f183d791418d37ae55d4f95e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pspell_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 8616,
+              "md5": "d4aa067c7c99d9c5bab197f368174ad8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-mhash_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 5208,
+              "md5": "e6a24a7784dbb999b059638768665780"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-common_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 319084,
+              "md5": "cc69e9af082d26245ab70092c2d17126"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cli_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 2482036,
+              "md5": "9c9b8d0d8809c4a1d25ebc85af6c47d2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-mysql_5.2.4-2ubuntu5.23_i386.deb": {
+              "size": 65116,
+              "md5": "49773e4a2b1172ab131dba1bc8f5dcfc"
+            }
+          }
+        },
+        "powerpc": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-mysql_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 78016,
+              "md5": "49664e7829b064fb18ffbc2a91f60b3c"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pspell_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 11154,
+              "md5": "f007e3bfeee7e05c17f03d22b3af0737"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-ldap_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 21730,
+              "md5": "bda246fc7718006563393a705a974e25"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xmlrpc_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 40494,
+              "md5": "2f47cf2b197c8fdcef07adf6c0eba26f"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gd_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 38774,
+              "md5": "396cca3d3fd214e12250f53057f52488"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-curl_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 28230,
+              "md5": "a53500b28e08c9dceb9ce1da69ae2d29"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gmp_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 17624,
+              "md5": "f89a75320e6faf7816ffd43097adf356"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cli_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 2582064,
+              "md5": "c398f3c300c3c99fe3731d8f15014c30"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sybase_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 31364,
+              "md5": "ca92f47f3b7aba674f879a5f3c85eecf"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-tidy_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 20066,
+              "md5": "080ae7ba647e5f4dc253ed57be914f3b"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-recode_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 7182,
+              "md5": "d89e70e9e6ea437d4871c56a01603ff3"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-common_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 326712,
+              "md5": "3f16c404b3c5746667de431ed9a27119"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xsl_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 16324,
+              "md5": "eae31093dd6a5876b60e2c70629e61ba"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cgi_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 5119002,
+              "md5": "94f4d58025170e8ccf05d7773030c7c4"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dev_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 364860,
+              "md5": "ec3a824911d41dc8f4c016d3c72936de"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/libapache2-mod-php5_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 2628056,
+              "md5": "b69721012cfce0f479bdaf44a2e96409"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-mhash_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 7668,
+              "md5": "049c098092da6c7a20bd4df49e66d4b0"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pgsql_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 59734,
+              "md5": "6b611cf51007a7de2a9306b0451b7dde"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-odbc_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 41292,
+              "md5": "bc1cc2cd1bb81bbb4013878b6c818fb0"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-snmp_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 14236,
+              "md5": "6a698b3a93b55b4e981bc5bbc1d90017"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sqlite_5.2.4-2ubuntu5.23_powerpc.deb": {
+              "size": 42394,
+              "md5": "4f2dbbb84a9070970f776a6a477f5df6"
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.2.4.orig.tar.gz": {
+              "size": 9705468,
+              "md5": "0826e231c3148b29fd039d7a8c893ad3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.2.4-2ubuntu5.23.diff.gz": {
+              "size": 199618,
+              "md5": "c7f2ea68f6a4d4230d52e1fb609309ce"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.2.4-2ubuntu5.23.dsc": {
+              "size": 2607,
+              "md5": "cf2f9b36ed40cbfa45996132bf70bdef"
+            }
+          }
+        },
+        "sparc": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-common_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 320280,
+              "md5": "641fd52b0e7ec6071860ef259b7a91d3"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-curl_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 24272,
+              "md5": "b2183851c64929ade418a6a2cb59b6e6"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sqlite_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 32796,
+              "md5": "5deec41798f87546138a4fd6c8b78438"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gmp_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 14152,
+              "md5": "53d373e57674f962f9633045123fa8d8"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xsl_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 12676,
+              "md5": "5d9aabd30b3118c5950e6cbd8f8ae15c"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-mhash_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 5058,
+              "md5": "d5d59e9e131b411e9ec163ac8410b5e2"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-tidy_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 16346,
+              "md5": "e30703691eb66c1a2387307ca95903c5"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-mysql_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 63404,
+              "md5": "42da709340de6de05a66475c7be58cdd"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-ldap_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 17696,
+              "md5": "2168eed5359c14a0aae8a488d7d1b3eb"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pspell_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 8478,
+              "md5": "b1f0a7082514ff90471a0d9086ef49ba"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/libapache2-mod-php5_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 2496400,
+              "md5": "9ef334f90de20b3e6abe61507faff264"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xmlrpc_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 34840,
+              "md5": "953107a9f906ff431a2d4f85faba87b3"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cli_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 2465280,
+              "md5": "07dae7b6dd104109e685ef680d390f38"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dev_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 364822,
+              "md5": "b786d91e705996868d8d6a7e4ea77e8c"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sybase_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 24966,
+              "md5": "405b5a56de55b8d8df09a4defe0588ea"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-recode_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 4742,
+              "md5": "c28e6e7d0d6edb1c9e8af5495b649507"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gd_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 33606,
+              "md5": "8762e968206fd4bda956648e79d4ef2c"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-odbc_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 32420,
+              "md5": "6d6123e6a5295f0102a4c568f348ce95"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-snmp_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 11548,
+              "md5": "a8f0dd35d5ccafce27cddc7f53068156"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pgsql_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 49698,
+              "md5": "55dd64ac75d483ab40fd4a2ed0d4b2c2"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cgi_5.2.4-2ubuntu5.23_sparc.deb": {
+              "size": 4889010,
+              "md5": "5deaf0e90b927a9832128d89c66bf13c"
+            }
+          }
+        },
+        "lpia": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-common_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 320058,
+              "md5": "e301529e2fa7fd339ede8aece3be3647"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cli_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 2463202,
+              "md5": "8f7f731a8f9dabde6aed4e7657651176"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pspell_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 8636,
+              "md5": "2283d77cf0c0dcfcbd02fbe304b1ae65"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dev_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 364824,
+              "md5": "5017f252cbde5409d51e437b2786852c"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pgsql_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 50858,
+              "md5": "7140ff1fcbbf6a2216a8da11aa620102"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-mhash_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 5102,
+              "md5": "0b5db7d59696a739861b8cb78cda82a7"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sybase_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 26162,
+              "md5": "384107497b4ad9c4efc19cb618c2a2e1"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xsl_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 13092,
+              "md5": "5ea83eb6b3916b58967c892f8c2d16d6"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-curl_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 23280,
+              "md5": "e43b1cfe45c9eba09386f9a199e8f9bc"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cgi_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 4881540,
+              "md5": "138d3d2af57e101e30baa90a4161dbcc"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/libapache2-mod-php5_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 2454998,
+              "md5": "63dbc6c50cd4c5b1eb9874c1649f0db3"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-ldap_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 18104,
+              "md5": "5c471b0c5d311c7c448460f6672af0a6"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-recode_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 4720,
+              "md5": "e92d386fc154baa67f18c27881897a91"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-snmp_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 11574,
+              "md5": "1468dfc9f8b941cae3dabddfb23f451c"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gmp_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 15024,
+              "md5": "0fafc410d5e0759889c5bd9302152aa0"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sqlite_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 33744,
+              "md5": "d117cf9021bcd8418c56ea4f12221e64"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-odbc_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 33942,
+              "md5": "7c5c3cbd17373c81dc8e14279d37aa80"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gd_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 33138,
+              "md5": "7d24f267086a52e37d2278e7f776794a"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xmlrpc_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 35466,
+              "md5": "333ae42d3673ea3bfdf5b1375b5cbbdc"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-mysql_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 64304,
+              "md5": "0c12e509a02966864a138a62487c52bd"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-tidy_5.2.4-2ubuntu5.23_lpia.deb": {
+              "size": 16050,
+              "md5": "e80e09d480db7ee094a79a712a53e3d4"
+            }
+          }
+        }
+      }
+    },
+    "lucid": {
+      "sources": {
+        "php5": {
+          "version": "5.3.2-1ubuntu4.14",
+          "description": "HTML-embedded scripting language interpreter"
+        }
+      },
+      "binaries": {
+        "php5-cli": {
+          "version": "5.3.2-1ubuntu4.14"
+        },
+        "php5": {
+          "version": "5.3.2-1ubuntu4.14"
+        },
+        "libapache2-mod-php5": {
+          "version": "5.3.2-1ubuntu4.14"
+        },
+        "php5-cgi": {
+          "version": "5.3.2-1ubuntu4.14"
+        }
+      },
+      "archs": {
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php-pear_5.3.2-1ubuntu4.14_all.deb": {
+              "size": 354810,
+              "md5": "ee714df041a53ebc9554c72d257441df"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.3.2-1ubuntu4.14_all.deb": {
+              "size": 1114,
+              "md5": "2de9f0f74ca4285d8aec234f528d491a"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dbg_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 10391582,
+              "md5": "9dea5e0885ae1930f979c7a6f8ceb4b8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-odbc_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 35922,
+              "md5": "358782a89d4813cb33d51faca91a2e09"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gd_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 39202,
+              "md5": "63d9517a4699ee665b2e44425d62bdf3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-mysql_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 73120,
+              "md5": "5cbc0311cc744745934fd3098bba0bb9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-curl_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 27054,
+              "md5": "6bae641a3d24bd43a911464a5e25230e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-sybase_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 26396,
+              "md5": "c8102e75a0364bd0914994a74b9cf3fb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xmlrpc_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 34802,
+              "md5": "d1e6ca34d15c95bc3764ea13765ef178"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-ldap_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 19888,
+              "md5": "bc5eed86c451298d36ffda2df92b33ad"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-sqlite_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 55806,
+              "md5": "2517588dad060aebd7219e456be46f78"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pspell_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 8330,
+              "md5": "8aacf8c380a7f726f3b66cb606788860"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/libapache2-mod-php5filter_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 2989278,
+              "md5": "2caabf0947303c0d8be049f8537fe4cc"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cli_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 2908258,
+              "md5": "b9763b17d1fef8e82c0e2625a520f2af"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-enchant_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 8968,
+              "md5": "578f476ff3c54669cdffe5b4e67ea5fb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cgi_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 5808484,
+              "md5": "caffec94132ec8be2fa2c83f2eff0059"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-snmp_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 11366,
+              "md5": "52223bd65408ac9976882bdcf95a2195"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-recode_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 4384,
+              "md5": "f0868b01b13c5ad0f4522c2910e2d253"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-common_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 552572,
+              "md5": "be5462c45d23802a3db48729348c061c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xsl_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 14178,
+              "md5": "f29ad5c86675758c99d2e3e51870985e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-tidy_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 18348,
+              "md5": "d15058701fadd7e0d8b8cf31f2896831"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-intl_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 59504,
+              "md5": "76629e98d1d8ee1cacb20ed24548e932"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pgsql_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 56916,
+              "md5": "f74a8d912f923915c32fe3dd953adf3c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/libapache2-mod-php5_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 2990314,
+              "md5": "3256d3a9a804d9d4acb5761f3cc52aec"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gmp_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 16472,
+              "md5": "fadb5f8cb22432392ced3957520ea5b0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dev_5.3.2-1ubuntu4.14_amd64.deb": {
+              "size": 408996,
+              "md5": "747ea5ccad47fd9d7cd604fe30f14712"
+            }
+          }
+        },
+        "i386": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-snmp_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 10282,
+              "md5": "c8007f905817a7172103ecd3051a63b8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pgsql_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 52024,
+              "md5": "cc4299cdc45f9c85725d9587424fd009"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-ldap_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 17562,
+              "md5": "c95f0693e7c94629926274042e7a4b15"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gmp_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 14238,
+              "md5": "a5fd70bb883d5c99881e0184268369eb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-sqlite_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 47374,
+              "md5": "d2d1684ccab494eea810d96772fbd094"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pspell_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 7402,
+              "md5": "545cb7cca3fa8d5c7a60e1adf85bd130"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/libapache2-mod-php5filter_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 2835450,
+              "md5": "39e5f2d70c7073e9a587f7ad4296175a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cli_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 2817776,
+              "md5": "0aa6277fcc18f6b671e684e77d4b076e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dbg_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 10571000,
+              "md5": "0a578d5c8fc570ddd290076546a9c6fc"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-recode_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 4154,
+              "md5": "4578024a0285e1f90243ac4f3f9b0bf9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-sybase_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 23636,
+              "md5": "17c42864704a0bf8094f8d08bf8eb382"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cgi_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 5626648,
+              "md5": "9917ea5d02c69386e0299b5d192faec7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-common_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 547070,
+              "md5": "809e5c0e4c3a3c14bdc4cafb566e1789"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xsl_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 13060,
+              "md5": "1e01b08f15c6dab2581863f544543125"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/libapache2-mod-php5_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 2836790,
+              "md5": "f9c7860ea49d3b8dd8ce4a8b95ed23b4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-curl_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 25610,
+              "md5": "b40e1683535b9b9d8e1e2b0f7d9b9894"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-enchant_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 7774,
+              "md5": "88d4c80f544c5d6d38c448dea62a0490"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-intl_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 53876,
+              "md5": "fa270102b401029a1b1943918606df4d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gd_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 34874,
+              "md5": "f88082cd9860ae5f3f9e81ee233ddbfc"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xmlrpc_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 31942,
+              "md5": "adc0b6d8ba64f64643d112a87210a8a7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dev_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 405456,
+              "md5": "9833e67257dca1a887f56279dbfc99fd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-odbc_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 32160,
+              "md5": "69c16a7f2066a94016601ff40f97a7f2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-mysql_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 64226,
+              "md5": "9b3e6b14b6368e58d6194c666bc3e9c4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-tidy_5.3.2-1ubuntu4.14_i386.deb": {
+              "size": 16454,
+              "md5": "817adbd8c24ae4bfbd29043d219dce8b"
+            }
+          }
+        },
+        "powerpc": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pspell_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 7642,
+              "md5": "f79649437310e10111fc6d3d857d53dd"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xmlrpc_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 34090,
+              "md5": "e47c05df6fbfa32273633a2f3ef7b2c9"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dev_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 405504,
+              "md5": "a0d5ee1f9ce5bc02ef5b9605bf07c8ec"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/libapache2-mod-php5_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 2982990,
+              "md5": "31bb1c63d51fec20be9bc466859dfc6a"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-odbc_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 33966,
+              "md5": "1a18e89626e4acc5c8957c4a364facd5"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-mysql_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 68996,
+              "md5": "672e4d79abd603348803aeaf9147cc8f"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/libapache2-mod-php5filter_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 2982566,
+              "md5": "0c88010dd97098c26b79e7c139ac7c75"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-common_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 555232,
+              "md5": "069953f75153e06284e58a3b3b8cd752"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dbg_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 11220742,
+              "md5": "bf51503d465b8d7a7bd5c78a472decc8"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-ldap_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 19164,
+              "md5": "68a97b153f7285f0ffa449c6e6e4b5a1"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-enchant_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 8310,
+              "md5": "2de07975ff7367fe84c3dabbc871a0dd"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cli_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 2891976,
+              "md5": "07d3224695d4c0109b9a0d44fa1328e4"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-snmp_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 10734,
+              "md5": "b5be0430c0320aa8cd839e63722d409d"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-recode_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 4384,
+              "md5": "4985463b79d6151cc021598cd9e84064"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-intl_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 60598,
+              "md5": "ac4fe159ffdd5c712e506532f751ca64"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-curl_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 28374,
+              "md5": "d35baa9ab7b3b5accdedc9f8e405130e"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sqlite_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 51994,
+              "md5": "b5306da4aeb7274b63833a75c374d6dc"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-tidy_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 17840,
+              "md5": "3d0d52e403a3f56db77714d7b1a49257"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gmp_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 14340,
+              "md5": "7163a76270894d2157131cc2030d2af6"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pgsql_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 55490,
+              "md5": "2b90b14cb05198f6cf86214cfc7061f3"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gd_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 39964,
+              "md5": "77bc9ddadd864d73d06c015b83936315"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xsl_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 13950,
+              "md5": "8f41de09438ace5b7d587421483dbaed"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cgi_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 5775484,
+              "md5": "20bfa99ba2e05eb78941d98906acc187"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sybase_5.3.2-1ubuntu4.14_powerpc.deb": {
+              "size": 24770,
+              "md5": "1a48a53f1e1f0d921d14acaf44def883"
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.3.2-1ubuntu4.14.dsc": {
+              "size": 3170,
+              "md5": "0550f72d41d421aa203ddd2e30462a62"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.3.2-1ubuntu4.14.diff.gz": {
+              "size": 245816,
+              "md5": "afe2752b0ff322e09d38a8f5cb25d45f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.3.2.orig.tar.gz": {
+              "size": 13734462,
+              "md5": "4480d7c6d6b4a86de7b8ec8f0c2d1871"
+            }
+          }
+        },
+        "sparc": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-mysql_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 62086,
+              "md5": "9673d72bf8411f76312a765d2a0501e2"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/libapache2-mod-php5filter_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 2892858,
+              "md5": "2a3901602fe47dd8b5d6be1a8ea2e55e"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cgi_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 5645384,
+              "md5": "8e93b80a0d36586efd8e3afa51aa36f6"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cli_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 2825584,
+              "md5": "35a87a2060a2a8acbc0fa4702544c474"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sqlite_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 46632,
+              "md5": "f4d151bdd88de40edf3e22959e0ac9ca"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-odbc_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 30956,
+              "md5": "348d4cf689b09a5d7193ca179936d311"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gmp_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 13428,
+              "md5": "d78047c97704142e67b95fc6b0ba32ea"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xsl_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 12892,
+              "md5": "e862c110bd70db7b7751f2eb90f7d5a2"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pgsql_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 50548,
+              "md5": "a9bc7ed9c58e8f269c5af665ce7a5f6b"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-enchant_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 7494,
+              "md5": "7e067edf25e391007003f517a5cd9feb"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-ldap_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 17404,
+              "md5": "f55a9e73f606399f7dd9ae784e5fb3d5"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-tidy_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 16888,
+              "md5": "2ccfce89a6b011b2fcb5e04607f60099"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-snmp_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 10800,
+              "md5": "1c7a4fd0fa7c23f08a3e01820fba1010"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-recode_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 4144,
+              "md5": "77bae3b7216d157b111030ee459263b7"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gd_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 36770,
+              "md5": "2c145c5ce69bfc65b8085affa9686b63"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dev_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 405466,
+              "md5": "93bee7db68cc63c8c9105ac41b7e7303"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-intl_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 54054,
+              "md5": "84e793eacdcdc73fb0b461abf5016107"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-curl_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 27072,
+              "md5": "77a8a8c9a59ec90aeba687ab7c058a16"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sybase_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 22902,
+              "md5": "111425ffad5b193e7755a3ca9bac687f"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/libapache2-mod-php5_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 2894166,
+              "md5": "0533539fce38effe9a750e7288266863"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pspell_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 7220,
+              "md5": "1c45de4dd9e6245f6e10fec79021a8f1"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-common_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 551206,
+              "md5": "9bbb458ee4214412ae8505475b177d08"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dbg_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 10624542,
+              "md5": "f6b4a6eafeae15e4b9554d9d8f1b9ed0"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xmlrpc_5.3.2-1ubuntu4.14_sparc.deb": {
+              "size": 32176,
+              "md5": "23d68dfa6f90e333eecdfa60adb6a5dd"
+            }
+          }
+        },
+        "armel": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cli_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 2706276,
+              "md5": "0c2a932bd4c4e2f56eee444fb64d377b"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-snmp_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 10052,
+              "md5": "662c7038161290a0e68d4bdf0d185fc3"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/libapache2-mod-php5_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 2717688,
+              "md5": "a1f767c7913ef2c1a27d58b479edf4bb"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dev_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 406438,
+              "md5": "66555fef6a7f30863d8bb1ab5f7ef0f2"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-common_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 553346,
+              "md5": "5e8e081aff1fd00445c0548ba1b02860"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sqlite_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 43878,
+              "md5": "eab9d113389b1395243f63bf54d1ccdb"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-tidy_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 15626,
+              "md5": "ca01150c5d279e910a4c97a77dadd594"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gd_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 33108,
+              "md5": "5bc2fb8033e67fc69a533d63f13b178f"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pspell_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 7142,
+              "md5": "9dd7c21e0934dde9c056dfa6237b1ebd"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xmlrpc_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 28882,
+              "md5": "b6598e8b82e277d48f014325d0edbe20"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pgsql_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 48388,
+              "md5": "e46c91f29e3602dc196efb35d9c17171"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xsl_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 12122,
+              "md5": "29a258677d684bbdabc0b7cb4927b1ef"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cgi_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 5404896,
+              "md5": "4afd5e9fc23be93efa907b327c77089f"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-ldap_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 16800,
+              "md5": "e0ead8b7b48891ed4544eeb23daca1cd"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-recode_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 4040,
+              "md5": "33f4787967799d14083e513025022f95"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gmp_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 13564,
+              "md5": "a586ce2fa78e2dffe5cd1f8892410cc1"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-enchant_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 7520,
+              "md5": "763b40e35577157d63fa7526b93fbe99"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-mysql_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 59000,
+              "md5": "73ab2f5e121e653a65549afb69fa0724"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/libapache2-mod-php5filter_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 2716636,
+              "md5": "b89d3f64cf1c24c9bc77b0f83ea3fbaf"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-intl_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 51030,
+              "md5": "02aa0cc09b9d4fa1573143588e86d9dd"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sybase_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 21426,
+              "md5": "9b46b5d8ab5d547df60f74d35f7c1446"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-odbc_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 29834,
+              "md5": "c61eec51033bad28df800bac46549379"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dbg_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 11218468,
+              "md5": "da362523c5d650da1eb2989049ce3bc7"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-curl_5.3.2-1ubuntu4.14_armel.deb": {
+              "size": 24474,
+              "md5": "a396e0c266e364d728df5b2334e19183"
+            }
+          }
+        }
+      }
+    },
+    "maverick": {
+      "sources": {
+        "php5": {
+          "version": "5.3.3-1ubuntu9.10",
+          "description": "HTML-embedded scripting language interpreter"
+        }
+      },
+      "binaries": {
+        "php5-cli": {
+          "version": "5.3.3-1ubuntu9.10"
+        },
+        "php5": {
+          "version": "5.3.3-1ubuntu9.10"
+        },
+        "libapache2-mod-php5": {
+          "version": "5.3.3-1ubuntu9.10"
+        },
+        "php5-cgi": {
+          "version": "5.3.3-1ubuntu9.10"
+        }
+      },
+      "archs": {
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php-pear_5.3.3-1ubuntu9.10_all.deb": {
+              "size": 356912,
+              "md5": "bc0caeb8f8987c954efa66aafc3514a3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.3.3-1ubuntu9.10_all.deb": {
+              "size": 1122,
+              "md5": "58a13c2863718db2c47dc73893b9cb64"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-sybase_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 26030,
+              "md5": "b2b5c8b0aa44e0b2a4f0a78a86a60ed8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gd_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 38690,
+              "md5": "a97215785f7ff0c8759ff243e8d32975"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-enchant_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 8828,
+              "md5": "6ffa452e58df0659fcc0a1c0dff1cf05"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cgi_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 6032738,
+              "md5": "e7aa873c3aca701fb0fd89fa8eb83d5a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xmlrpc_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 34616,
+              "md5": "dca275bbc607dc0b741c7de4b2bb367d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-odbc_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 35352,
+              "md5": "b12d24dba3b3d4feb272d1944f75d972"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dev_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 418854,
+              "md5": "b90116a8c751611625b51ca453a63276"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xsl_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 13842,
+              "md5": "61fd6490cd9d80f274441bc61b1023ea"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-intl_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 58864,
+              "md5": "3d2cc0a0fb904e3851cef2bbfd5020a6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-fpm_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 3044140,
+              "md5": "4d0f38100b3f534a1fb86e2d682499cc"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pgsql_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 59086,
+              "md5": "720007f05dde0d4c39888a30d950cad8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-snmp_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 11164,
+              "md5": "78d928e2ccc3fcfb3d81afc5c984fed6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/libapache2-mod-php5_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 3107268,
+              "md5": "9a8d7e08036b95b5db9a3976e836e9a6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-ldap_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 19560,
+              "md5": "8ac0ef9c590ff17796d8ef85502fc20a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gmp_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 16210,
+              "md5": "00e7277ff8106d77486cb5f1f900a6d9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-recode_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 4292,
+              "md5": "47c23b2112a194e76f1de5f97642c01e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dbg_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 12419716,
+              "md5": "ed4f4b9770c03f6b6c425e00502e23f8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-mysql_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 75432,
+              "md5": "0bb21578eb180735cfa058d540f72439"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-sqlite_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 55000,
+              "md5": "752a7dfce3151255c91f263fec4515c5"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-tidy_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 18018,
+              "md5": "08d6244c9a894a94c166dfc85fa34ff6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-curl_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 26876,
+              "md5": "51e910150625df00ad907cafc08f1983"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/libapache2-mod-php5filter_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 3106538,
+              "md5": "1f8b2b5283f843211f307cdf3167306e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cli_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 3020048,
+              "md5": "b081a7dca33530d423270c4ddea2e279"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-common_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 568428,
+              "md5": "0756c412c65f7222c986c2d57e1345ac"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pspell_5.3.3-1ubuntu9.10_amd64.deb": {
+              "size": 8186,
+              "md5": "474c249ad5f0dfcb64e39f4ebb6eb138"
+            }
+          }
+        },
+        "powerpc": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sqlite_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 51068,
+              "md5": "c776a52c2033eebf29e0bb9869ec7b1a"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-odbc_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 33310,
+              "md5": "f77f8a1b54df9006957026c55780ae45"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dev_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 415954,
+              "md5": "11d11034359abfc4d39fed9e6dfb550a"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pspell_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 7504,
+              "md5": "823a009ac667fb3d22a43df2d351e9f0"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-curl_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 28146,
+              "md5": "b976b712866047bc860d745d7044b0a5"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-recode_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 4304,
+              "md5": "c66f9577108be4a6725ca8a3b091e6f3"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-ldap_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 18862,
+              "md5": "c0e55462382dc7f2e76c11fe07d12d69"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-tidy_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 17528,
+              "md5": "e1ba5724e65277dd1aee2caa7e0c6c4d"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dbg_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 13400646,
+              "md5": "49ea38d1c133e0b85beb102710112b57"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xmlrpc_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 33776,
+              "md5": "0e292b46112afc83e2e64b61cbae3800"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gmp_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 14098,
+              "md5": "5b095ecc8562f34cd6aec0aa6c86511f"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cgi_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 5987074,
+              "md5": "6d9c6b26a5f6f17e24d7f273aec5d903"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-fpm_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 3023088,
+              "md5": "eae2c7c791e320bc260bc986af67c23e"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/libapache2-mod-php5filter_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 3092414,
+              "md5": "d14e2180bfff9608e06843099b24542b"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-common_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 567242,
+              "md5": "f283380eb27064ef14971ba6f3e15488"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-sybase_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 24374,
+              "md5": "5dd8990f5de60e74febfeefd334b92e7"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gd_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 39416,
+              "md5": "09ef1389b7efc04ccc24e8d58c44eacb"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-enchant_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 8108,
+              "md5": "4b1aae601e4eecf0094392be0d7ef052"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-mysql_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 71476,
+              "md5": "364002677117a4a02c495b6020499c00"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-intl_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 59690,
+              "md5": "299e89a6db25f49170084edb27eb2f22"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-snmp_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 10530,
+              "md5": "99efb57a150cc0cd48fb9a756309a034"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cli_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 2997492,
+              "md5": "ff7e58be05632f7be28d3663148c3c46"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pgsql_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 57756,
+              "md5": "6bc0b6ef221bcb29e85de9d4fb6e50fc"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/libapache2-mod-php5_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 3093116,
+              "md5": "b1d38ba1c4f145a026402b6c5e774496"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xsl_5.3.3-1ubuntu9.10_powerpc.deb": {
+              "size": 13652,
+              "md5": "7e4ff0da6401a7928e9f2513f013f86f"
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.3.3-1ubuntu9.10.dsc": {
+              "size": 3272,
+              "md5": "51b345ac5c48258c8194b723b06b6140"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.3.3.orig.tar.gz": {
+              "size": 13921529,
+              "md5": "5adf1a537895c2ec933fddd48e78d8a2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.3.3-1ubuntu9.10.diff.gz": {
+              "size": 248751,
+              "md5": "277796d4e71b46628eb6fb1dd07c9c96"
+            }
+          }
+        },
+        "i386": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-enchant_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 7650,
+              "md5": "acb1cfdce34c6849069bd20fa51087a5"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-tidy_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 16140,
+              "md5": "341552cdbf6354557f6c342207bd4256"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-odbc_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 31554,
+              "md5": "d2531d10c3bab24cc66b58bb7952cdcc"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/libapache2-mod-php5filter_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 2945224,
+              "md5": "c73e4518256bd92605355741958c5fb4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xsl_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 12702,
+              "md5": "0f8dd558df8f4dc2f1aac23ebf2b73aa"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-curl_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 25284,
+              "md5": "5500ad98028bb9ac2e746cbd2023669e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-sqlite_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 45872,
+              "md5": "7c9ad35e12c23646c9a2f0ebc2e40c43"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dev_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 415912,
+              "md5": "a6f03ad78d2e3549ed6088312e5f2695"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xmlrpc_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 31650,
+              "md5": "a3a1b73c1aee011488088859e5497d2d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-sybase_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 23158,
+              "md5": "d32430c7f94c0c8de45686abc74a98f7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-fpm_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 2946846,
+              "md5": "bb4e3b0a06af53c29c1484ab17c42acb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/libapache2-mod-php5_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 2946082,
+              "md5": "eebcd23e1650d4b170901e97add8c0a1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gmp_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 13954,
+              "md5": "b99f37b2f3ce540969c49b4afa52d300"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-intl_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 53304,
+              "md5": "9fa7f9e23b192e227b5c4d5a7bc54142"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pgsql_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 53720,
+              "md5": "f75eebed9e5d69c3f2d598debcec389f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-recode_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 4094,
+              "md5": "9f7f79a63e5f792a57eeb22b406bd3c6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-ldap_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 17146,
+              "md5": "12c39aad628e2df5d59ed1662bb0c590"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-mysql_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 65714,
+              "md5": "9d882b4bdec5681e3eca6e16b7adada1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-snmp_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 10016,
+              "md5": "52779eb9ea6ca5f152b1d51d3eb9be79"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cgi_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 5838256,
+              "md5": "a46645f8d8c0e904eebf3219af43a355"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dbg_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 12630266,
+              "md5": "335b561480aeac729beb2fba31b4219a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-common_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 561354,
+              "md5": "613e7db78495d0d69c982e6c5bd6b674"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cli_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 2923816,
+              "md5": "562dbdedfef679a943dd82d01002fb9c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gd_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 34074,
+              "md5": "3cc1c39459b35101188c7102b38a1b4e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pspell_5.3.3-1ubuntu9.10_i386.deb": {
+              "size": 7244,
+              "md5": "2c993075df6ca6b25295946b8f9e3fee"
+            }
+          }
+        },
+        "armel": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pspell_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 7066,
+              "md5": "32186fc6b27f46dd5c5d2998c7547c64"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-common_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 566576,
+              "md5": "ad47da6b2abde7cd7a44fdfb57eab4af"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-intl_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 53504,
+              "md5": "69c28cfcdb448534ce9556c99c27af0d"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xmlrpc_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 30158,
+              "md5": "910b5c7a05664f2b29b607962e1c8b46"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-sybase_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 21908,
+              "md5": "afa5c3115e262aa4820dddc977c11059"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/libapache2-mod-php5filter_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 2998136,
+              "md5": "ed9552fb6591279339107a3bd16797c5"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sqlite_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 44568,
+              "md5": "2ebc80c7f4ad32ab2bcaf9b70691069d"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xsl_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 12114,
+              "md5": "709880769c77ecec2aa863aa6a113bd4"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pgsql_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 52926,
+              "md5": "b4a1f7c7f1f3b6dbe706027263a63e88"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-ldap_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 17466,
+              "md5": "1fd387804ef2705f781ad6198751f276"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gd_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 37348,
+              "md5": "10c1300e2393ee017b3db64254c0e527"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-mysql_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 63200,
+              "md5": "62d98a62759fb31dbc8ef2f7a2787465"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/libapache2-mod-php5_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 2998914,
+              "md5": "ccb394b3509a5dac47dcd4031966800e"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-recode_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 3908,
+              "md5": "c1484400c6cf7a23bc0d02612c2bd83d"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gmp_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 13562,
+              "md5": "ad0ba94bccf46fc14713170cb65b07b6"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-enchant_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 7598,
+              "md5": "3c4570dfe2de5d80ff0506717445d09d"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cgi_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 5965630,
+              "md5": "84f4c883f9e00d39a0037f05787610db"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dbg_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 13762700,
+              "md5": "d1a43a11891e15cc9ead1598afbaee4a"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dev_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 419342,
+              "md5": "5b8a5f31be4d274e14bcdf18b01cdea7"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-snmp_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 9834,
+              "md5": "18a218cce6b605dfaa3cc1f48cdb750d"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cli_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 2986770,
+              "md5": "cc372c622e85c2d35da88735f4686c52"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-tidy_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 15664,
+              "md5": "af77964da4cf7379c83b97fbefc5ba6f"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-odbc_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 30600,
+              "md5": "b2bcfb0941077e6258f7d3b40ad0c361"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-curl_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 25210,
+              "md5": "e516ef552c4aeba05c51637873c7f7bc"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-fpm_5.3.3-1ubuntu9.10_armel.deb": {
+              "size": 3009176,
+              "md5": "24680219fcee895c5940c05193fd9715"
+            }
+          }
+        }
+      }
+    },
+    "natty": {
+      "sources": {
+        "php5": {
+          "version": "5.3.5-1ubuntu7.7",
+          "description": "HTML-embedded scripting language interpreter"
+        }
+      },
+      "binaries": {
+        "php5-cli": {
+          "version": "5.3.5-1ubuntu7.7"
+        },
+        "php5": {
+          "version": "5.3.5-1ubuntu7.7"
+        },
+        "libapache2-mod-php5": {
+          "version": "5.3.5-1ubuntu7.7"
+        },
+        "php5-cgi": {
+          "version": "5.3.5-1ubuntu7.7"
+        }
+      },
+      "archs": {
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php-pear_5.3.5-1ubuntu7.7_all.deb": {
+              "size": 363114,
+              "md5": "b1150388dd82cf65b82b289adec9381d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.3.5-1ubuntu7.7_all.deb": {
+              "size": 1104,
+              "md5": "40e514329dd05874cc9a77dd39642ce1"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/libapache2-mod-php5_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 3139992,
+              "md5": "a113c23da57f669b9a082f874ac79ae5"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-ldap_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 19588,
+              "md5": "1552ffccf63ba64122f52f2ebfd273f4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-enchant_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 9046,
+              "md5": "e0524c91eca2a3810375a3e9d3819296"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dbg_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 13007306,
+              "md5": "b04e5d432038cafac9e9f36151f4a1c9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-fpm_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 3084122,
+              "md5": "14c1451e8eb92166e2192a1ca144d15a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-sqlite_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 54972,
+              "md5": "b456882727267fd71b299354a6b41fa1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gd_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 38830,
+              "md5": "4438912b2caff0b5e4d9c423cef70da1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dev_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 419052,
+              "md5": "f633240817529715826ab50d5725d2a1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-common_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 429824,
+              "md5": "bc5bf8c806f704d2dadaab4d374ff910"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-recode_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 4278,
+              "md5": "0ab53759dc401b382512ccc35a59f65a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-tidy_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 18042,
+              "md5": "b2abccf608c5d9eec40b1897dd222c09"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pspell_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 8290,
+              "md5": "c4d93b635e355b8832cc00a61352b316"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gmp_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 16378,
+              "md5": "119e8880aeb958e7ece98fd54e0156ab"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-sybase_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 26282,
+              "md5": "554b7b725110a8043991ed904ab31343"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pgsql_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 59628,
+              "md5": "7891b65bad69d3606ec0e36424849468"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cgi_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 6112762,
+              "md5": "dd35b7cc790fbe6802a463985e3f5953"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cli_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 3054644,
+              "md5": "40adc3a9cc43acb6fad8da956c9b6e18"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-intl_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 59912,
+              "md5": "6bfc9bb0703206de6df0114fb6e446bc"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xmlrpc_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 35232,
+              "md5": "40e5b911c53bda1102051ef2d9c2de32"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xsl_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 13884,
+              "md5": "b4fb73b87db83539078edc9484d8ad9c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-mysql_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 76540,
+              "md5": "4d277ce5d651d6e3163fbb8aa7eeafe8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/libapache2-mod-php5filter_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 3139478,
+              "md5": "ad809cbcfd90651caaf3ec5c1df7d00f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-curl_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 26932,
+              "md5": "43471240d6e435f2c69e1a9168fd9113"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-odbc_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 35946,
+              "md5": "e9c3d50b8f7c5ac00291c9c0a955e786"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-snmp_5.3.5-1ubuntu7.7_amd64.deb": {
+              "size": 10980,
+              "md5": "79313e501c381d583c96eb2282e9da7c"
+            }
+          }
+        },
+        "powerpc": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gd_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 38908,
+              "md5": "9e22723527d84a97fe13b11ef60c0beb"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sqlite_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 50664,
+              "md5": "7d26d4196e93ab41fdcda4fa82b156c8"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gmp_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 14058,
+              "md5": "6ad9bbc48064d69fecb4d671a5ddb3ca"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-intl_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 59726,
+              "md5": "13d46393ae3aaccd1044dc50f723665d"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pgsql_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 56126,
+              "md5": "5a89d23bd4759ea1dac2652d264ff48b"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xsl_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 13546,
+              "md5": "a6e13d4acb4968cc9dffd3b0f33dc078"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dev_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 419122,
+              "md5": "0b4943e09bc7b4d215223b23b907c8f1"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-tidy_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 17314,
+              "md5": "925889919b68da6c5ffe4d2c95500ddd"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-fpm_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 3036904,
+              "md5": "937d3ed7d9b29e758eec4bd709355457"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cgi_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 6021976,
+              "md5": "a9aaac5ea545d83150ff9b80310c5fda"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xmlrpc_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 33536,
+              "md5": "345bc0ed12895dbd299787383cd404ad"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/libapache2-mod-php5_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 3103840,
+              "md5": "90252062f5b7a9b483a285b0fe6c39ba"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cli_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 3007990,
+              "md5": "83b2105e151e7440fd60245c6e5d0666"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-recode_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 4268,
+              "md5": "41e1b143f264a9a7618f5152a75538f7"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-curl_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 27802,
+              "md5": "24ad3562a2276d80042392e312629850"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-odbc_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 33036,
+              "md5": "e6de13292cb84c2a802ea55f0b08b49c"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-ldap_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 18410,
+              "md5": "c1dcb4f67aacec8feaa870bbf387cf8f"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dbg_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 14048256,
+              "md5": "7092929e8985c6218ed877a0c1b0045b"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-mysql_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 70906,
+              "md5": "04fde74f34f766014f3d6085316faa91"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-sybase_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 24294,
+              "md5": "b746b5c56c67f107ea9fc7c8460b7083"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/libapache2-mod-php5filter_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 3102694,
+              "md5": "c749785e79dea87a53768deca9244e8f"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-common_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 425188,
+              "md5": "1948bccd17f8c34b2498e28bc5e21d26"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pspell_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 7512,
+              "md5": "404a06c1a1a5edc0d0f555d66be4eb30"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-snmp_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 10284,
+              "md5": "6418f560dfbb9392db4370210fa2cf06"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-enchant_5.3.5-1ubuntu7.7_powerpc.deb": {
+              "size": 8160,
+              "md5": "6cadeedf6ce99ef897a2abfd4af3efa9"
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.3.5.orig.tar.gz": {
+              "size": 13331432,
+              "md5": "1568bff29e1d2c742589dda540e7c2d7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.3.5-1ubuntu7.7.diff.gz": {
+              "size": 239904,
+              "md5": "7f0f329eee0e39ad35d7f73907df3736"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.3.5-1ubuntu7.7.dsc": {
+              "size": 3268,
+              "md5": "628d8f2059bbe338393d6a771be971e5"
+            }
+          }
+        },
+        "i386": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cgi_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 5894876,
+              "md5": "b74ea008adaaf6054b6da6221a0ba809"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-ldap_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 16950,
+              "md5": "53ef521de2b89f29659357fb54d0d73c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/libapache2-mod-php5_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 2966560,
+              "md5": "8566d410176dbb35b37bef4f9309c7f1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-recode_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 4038,
+              "md5": "dff61a50b2798a0dc70c189f75d01663"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-enchant_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 7688,
+              "md5": "6b363be9449ca5e59a1eb3afe0cca39c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-sqlite_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 46828,
+              "md5": "9b84e24b6910c795133566f9be450fa0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gd_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 33640,
+              "md5": "6e8bca700a67c397cae32f32ee89ea1e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xsl_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 12552,
+              "md5": "1f00e843f09d1eb0345497f25fac8ba8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-sybase_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 23152,
+              "md5": "71d062f56fc597c1ff5988b982ba9f86"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dev_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 420456,
+              "md5": "0dd7a11bb1e8727ed8f9336dbcb3f7f8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-fpm_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 2972372,
+              "md5": "5bb3217e72da9c0b18e311ed19d97088"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pspell_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 7176,
+              "md5": "588727ef7a4afb4ebb84f6d7e173b6a7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xmlrpc_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 31386,
+              "md5": "5640c68304b923adea6407c2988458bb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-common_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 417544,
+              "md5": "5314922c2de1b1aeaab5476be0893e99"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-intl_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 53370,
+              "md5": "58eb5f9bb33e3d9cf69fc71b0b1f1aa2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-odbc_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 30954,
+              "md5": "9cf3f5cdf184e888be938d14ff69ea85"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pgsql_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 53162,
+              "md5": "10fd1a0c9d3db3db4e9f5f7bc6107ce7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-tidy_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 16054,
+              "md5": "2aed657b87d3b8d8bee314b340943c10"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-snmp_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 9844,
+              "md5": "27e966b8ec9d136dc6eca5da55555271"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cli_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 2946076,
+              "md5": "3017a57e0bd8051279353920095adbea"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-mysql_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 65792,
+              "md5": "7f7d4f155ab7197c2fa08502217f0d6c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/libapache2-mod-php5filter_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 2965612,
+              "md5": "725cc5c10d010eaf7420727c3ab8bea2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gmp_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 13754,
+              "md5": "d9c85fc15f83845f92b9e8e2df794482"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-curl_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 25224,
+              "md5": "c1d9afa002b2a528ed7e88bf184b02fe"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dbg_5.3.5-1ubuntu7.7_i386.deb": {
+              "size": 13398674,
+              "md5": "804aaeebfccbb7697924765abced3057"
+            }
+          }
+        },
+        "armel": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-odbc_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 28664,
+              "md5": "d3753337fff9dfc56528ac84f48a61ff"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/libapache2-mod-php5filter_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 2812168,
+              "md5": "396e00c327012906974df467a6807ca7"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cgi_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 5602966,
+              "md5": "23f7445207fd80310528004f5f450d48"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-enchant_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 7414,
+              "md5": "ef0cb029ec226b2930a529007a605d0e"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-mysql_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 60416,
+              "md5": "41aeaaed75f15d503092b6bb1c71d444"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-intl_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 49354,
+              "md5": "71ed03025004479193729795e0bdb977"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dbg_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 13779436,
+              "md5": "4d5fd1fe681a19fbddccfc5cf938cb43"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-sybase_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 20542,
+              "md5": "10b07384277349ef7ad9b2979d4a0da6"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sqlite_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 41252,
+              "md5": "a3d6940c6c91bc27dd26ecbabaa9d40b"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cli_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 2801622,
+              "md5": "b1f67dcd05a2cf48fdaf05dfd76aaec0"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-recode_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 3828,
+              "md5": "0d01265eb077a48f5012cc44602f3226"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-common_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 424748,
+              "md5": "3db3e17fed81a18c086c1340b8cec4d3"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gd_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 32030,
+              "md5": "bf939b22f869ab0ecac68a9508cedd6c"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dev_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 420068,
+              "md5": "dbb81e16b29e52a6a63118ef33eee982"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-ldap_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 15864,
+              "md5": "f0caf34895f24e0367de0d3c8e4dd0a9"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-fpm_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 2824962,
+              "md5": "c4e4ba23a7150a09d721f92da67a36c3"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/libapache2-mod-php5_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 2812960,
+              "md5": "dfe593f623b2be6bef584370799275f3"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-curl_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 23636,
+              "md5": "d0480514425245b3b89785e67f5dd20f"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xsl_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 11280,
+              "md5": "a460d664ed60fd7211cf9333d45b593c"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pgsql_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 49334,
+              "md5": "506be9f484b5228f58cb805ebcb56a5e"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gmp_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 13536,
+              "md5": "18d19485ef0f299f1e34319bf0a595df"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pspell_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 6850,
+              "md5": "6617f0c51ae8e185c2e214e949c73f14"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-snmp_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 9042,
+              "md5": "549ab698c50b9741c1f22280a29c4952"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xmlrpc_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 27872,
+              "md5": "232db648511cd3a30f6fbc12bddba453"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-tidy_5.3.5-1ubuntu7.7_armel.deb": {
+              "size": 14600,
+              "md5": "913b7d28894e1dde2a75721f4f65044b"
+            }
+          }
+        }
+      }
+    },
+    "oneiric": {
+      "sources": {
+        "php5": {
+          "version": "5.3.6-13ubuntu3.6",
+          "description": "HTML-embedded scripting language interpreter"
+        }
+      },
+      "binaries": {
+        "php5-cli": {
+          "version": "5.3.6-13ubuntu3.6"
+        },
+        "php5": {
+          "version": "5.3.6-13ubuntu3.6"
+        },
+        "libapache2-mod-php5": {
+          "version": "5.3.6-13ubuntu3.6"
+        },
+        "php5-cgi": {
+          "version": "5.3.6-13ubuntu3.6"
+        }
+      },
+      "archs": {
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.3.6-13ubuntu3.6_all.deb": {
+              "size": 1108,
+              "md5": "dd93f992ff78be9081e1dee4c687ccf3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php-pear_5.3.6-13ubuntu3.6_all.deb": {
+              "size": 358418,
+              "md5": "492b6fd928e5bc16697897b28e268d6f"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pspell_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 8322,
+              "md5": "fe385cb1de0ac472427d84c6e2113d6a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-common_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 420562,
+              "md5": "dca6a23851320520ef862e29766ba1be"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xsl_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 14074,
+              "md5": "cf50a342fae90eca74933db0710c38b3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-sqlite_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 27404,
+              "md5": "7a19701d3643d7f719a74df0a3027a53"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gmp_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 16428,
+              "md5": "26b8df7c9943d5138750d9c070eb5e35"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-enchant_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 9082,
+              "md5": "ec8c50d73a8fc0ea83eabc5409e760b0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xmlrpc_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 35114,
+              "md5": "b6046703d69ad08d0f72174a2d92e1f3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-snmp_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 11004,
+              "md5": "87ed5c9f16fa5e47c2baacc3ea9bca56"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-odbc_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 35756,
+              "md5": "d7563c78aea08317753374e79a1da745"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-mysql_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 75854,
+              "md5": "be4e1a4eee1f6c52bd735907c58da8ca"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dev_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 420080,
+              "md5": "8fbfbad386f5c5de30d5838a49204540"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-intl_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 60252,
+              "md5": "bb43f91a9e0a69ff59730bd68f62a5ea"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-curl_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 27042,
+              "md5": "3399a8c8adec95e5c59e01ff3c87b481"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pgsql_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 58812,
+              "md5": "f059372bcbe9e4acea882c4ecbe7ecf0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dbg_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 13226390,
+              "md5": "6b8db916d13e728f9c19529fa6c91520"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cli_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 3050810,
+              "md5": "0f330a62a4bef6e8f6fc6205e4765ee1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-fpm_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 3081976,
+              "md5": "8e26c9230114ea7c5e9bc08a135169d4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cgi_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 6102798,
+              "md5": "1b53db477486b32ad5eba6ad9191066a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gd_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 38844,
+              "md5": "e3553783893f1951061e5590191b3124"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-sybase_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 26216,
+              "md5": "7171439ea3afdf7dec762ab6df9d10ab"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-tidy_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 18202,
+              "md5": "42942baab31ba3d620f4fe837c547861"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-ldap_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 19528,
+              "md5": "b7f93ab4bc933f0259b3b71dcc10bd3a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-recode_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 4324,
+              "md5": "50bfc9b0270e11b37f8f1a82343fc08e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/libapache2-mod-php5_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 3135644,
+              "md5": "dbaebc2cee153252ab40dcebf6d87678"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/libapache2-mod-php5filter_5.3.6-13ubuntu3.6_amd64.deb": {
+              "size": 3134394,
+              "md5": "f815fc3da32dcb7fe5617f86673c653d"
+            }
+          }
+        },
+        "powerpc": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-fpm_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 3006250,
+              "md5": "7279d566fcc90d6d0c1b76ef8cb353c1"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xsl_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 13470,
+              "md5": "8bc84f76a2928387784e139028b28ccf"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-snmp_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 10228,
+              "md5": "101e0b12cc355c9a40153a5c37bdbc51"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-sybase_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 24134,
+              "md5": "e884337cd51c9861f1b4e22ddb7e3acc"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pgsql_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 55200,
+              "md5": "eddc4bb40f78bc201f47a4e79402ae56"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gmp_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 13936,
+              "md5": "97e73dd431e4b0fe0d3d491829cc175b"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-odbc_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 32398,
+              "md5": "656228a1dfbd1b908d67440238c1a8ef"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-ldap_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 18374,
+              "md5": "3f99d7518dfe8e8dec6cd7d03f54a52d"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/libapache2-mod-php5filter_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 3075038,
+              "md5": "425b3627a06931070d0e5e366d8685ca"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dev_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 417102,
+              "md5": "de2c59e9263440639d77ebb13c7b2547"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xmlrpc_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 32848,
+              "md5": "e65ce7281f70a77a8fa4a84123f489b3"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-curl_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 27688,
+              "md5": "2e80701ba4e34f5dfe7f26f703427b2f"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/libapache2-mod-php5_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 3075858,
+              "md5": "28a083757a7517abdf818801584a7631"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-intl_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 59408,
+              "md5": "8f1a0c6cf863c8ccfb034cef356abe3c"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sqlite_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 25022,
+              "md5": "43cb46d9030a8ff530371134b2d6dbcb"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-mysql_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 70366,
+              "md5": "59c577d0730e338d57938cecf64e69d8"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-enchant_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 8122,
+              "md5": "e976115652d60472378eaf48cac71746"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-common_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 418970,
+              "md5": "99f0b278f20cdb19155e35ee22c2a38c"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dbg_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 14526392,
+              "md5": "6a029f93c262bf6462830f8380c32667"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-recode_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 4232,
+              "md5": "f7e5e93385ce4696bd93cf588ecf7d03"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gd_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 38588,
+              "md5": "250c960b130c665cd7699e9abc25291e"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pspell_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 7560,
+              "md5": "19d0474538934188a33c9e856dcbb848"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cli_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 2977998,
+              "md5": "14dacbe4da59e7d2c21baa67da5fa589"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cgi_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 5962524,
+              "md5": "af35dcfe26a41558502a978c221bdd00"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-tidy_5.3.6-13ubuntu3.6_powerpc.deb": {
+              "size": 17276,
+              "md5": "44ab061ba246f0f1e87f954f3bcad29c"
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.3.6.orig.tar.gz": {
+              "size": 14368718,
+              "md5": "88a2b00047bc53afbbbdf10ebe28a57e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.3.6-13ubuntu3.6.dsc": {
+              "size": 3261,
+              "md5": "8d0a110785d9cd7f4578b262b721cb53"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5_5.3.6-13ubuntu3.6.diff.gz": {
+              "size": 893538,
+              "md5": "27c9d7fcb6abcfe4ad7c2bfc78c79850"
+            }
+          }
+        },
+        "i386": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-odbc_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 34850,
+              "md5": "8af17054a57617789d0b882b1aa06d3a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-sqlite_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 26272,
+              "md5": "312aa87c5bb5f2914b04a0f3ffe0384f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/libapache2-mod-php5filter_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 3108008,
+              "md5": "e989caac3bc44f3d0bc04887a52e65f4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xsl_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 13642,
+              "md5": "76bad84b962e070803399b3a2aa8c4bb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-recode_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 4342,
+              "md5": "052318b30cc410a5f35fe2f24e0a27d5"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gmp_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 15278,
+              "md5": "2fa42200d9c534dc3531d1e281a54b06"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-enchant_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 8696,
+              "md5": "f794b6b2619af2d0f4c1a5f144537815"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cli_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 3085652,
+              "md5": "d8274ad8b01435356da9033c11d2a025"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-ldap_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 18518,
+              "md5": "2c232db8f6f1bf280b4bb76c4a3d74f3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-curl_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 27150,
+              "md5": "5738109b8fe87e77cec7b3bd070f95b6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-xmlrpc_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 35808,
+              "md5": "aad268fbe1ca93033972ee4cee849198"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dev_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 417060,
+              "md5": "6d77889183a367116efe21afe09f0d55"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-dbg_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 13678736,
+              "md5": "ec37736ec60a499a92304617ce870b82"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-snmp_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 10512,
+              "md5": "1a86c58f1a2500235217211470b955cc"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-sybase_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 25248,
+              "md5": "1a4e90c62d09cb54ade1baea8fefc2d2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-common_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 415816,
+              "md5": "bae6b41ae80664743d9123b981c9f9cc"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-fpm_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 3116270,
+              "md5": "18ce3e23163bd445269bbe0c39987b2c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/php5/php5-intl_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 59900,
+              "md5": "279a3f9fe1aca01271f0997bf35101a5"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pgsql_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 57562,
+              "md5": "ffe0a4c4fd29fc35ffa06619c4972dbe"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-gd_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 37522,
+              "md5": "b6764e585d7413892af5221633ee1b74"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-mysql_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 72598,
+              "md5": "19697ff6c12bbe6c22ffb90840951728"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-pspell_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 8108,
+              "md5": "74470b71b62ebaafd1ff76861ee8e64d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-cgi_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 6177000,
+              "md5": "a3e6a9589b66db9c1044bada87c4a8ef"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/php5-tidy_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 17900,
+              "md5": "398b0c2dca6e219ce6f76195598d2d6d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/php5/libapache2-mod-php5_5.3.6-13ubuntu3.6_i386.deb": {
+              "size": 3109232,
+              "md5": "65a9bf24c7bdc6577ec8a8ec3819e8cd"
+            }
+          }
+        },
+        "armel": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dev_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 420558,
+              "md5": "8b5dc8df944065f5bb6020a945e90129"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-recode_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 3844,
+              "md5": "3ef3c561b954d0042352dd17898e5a71"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-intl_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 49572,
+              "md5": "a6dea2d90768f7e3c9b512a13821133b"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gmp_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 13438,
+              "md5": "63f39b629465d3a4bca75e3ac9f862b2"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-sybase_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 20618,
+              "md5": "af31454e45ccffc77790c7e049cf41cf"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-fpm_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 2819824,
+              "md5": "be0ed31976d42345b321c79e1ef14b84"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-tidy_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 14674,
+              "md5": "61d428c4cc3ad928afa864b80db0b5ba"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-snmp_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 8936,
+              "md5": "9a42b0cb4b05d73a20cb9ae117acc96b"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-dbg_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 13951432,
+              "md5": "0f6651209684c283142634f6c6d9b0de"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-gd_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 31858,
+              "md5": "e8b1cdd9e5d8c6af0d9999b2cf2e3db9"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-curl_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 23572,
+              "md5": "37211c468bbc0baf2668904364e73bf5"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/libapache2-mod-php5filter_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 2805658,
+              "md5": "6d733c8ae057d41efdcec4cce6b1ddff"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cli_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 2793998,
+              "md5": "83578f5f66ea9d44bbd8f304ac387db9"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/libapache2-mod-php5_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 2805888,
+              "md5": "c3a5d999122ed62e37f256702f213a38"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pspell_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 6830,
+              "md5": "5028a065e238efdb667d4d40ee2297c2"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-sqlite_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 19704,
+              "md5": "acb172ba83fb986744e16d48d8f9da8e"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-common_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 413966,
+              "md5": "8f05df297039bc58579508c71b0080ee"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xmlrpc_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 27432,
+              "md5": "86aceeac92542a9a52b67ffad2c6f7cd"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-ldap_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 15804,
+              "md5": "54eedfe45b5901408130e2f5e8b33f96"
+            },
+            "http://ports.ubuntu.com/pool/universe/p/php5/php5-enchant_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 7416,
+              "md5": "8b11154aaaecaee34d3d9a429f0388a5"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-mysql_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 60712,
+              "md5": "977d2d919a416c20123d24c210a89a2e"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-pgsql_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 48620,
+              "md5": "1356df315d94973860134716c0001a55"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-xsl_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 11362,
+              "md5": "b77dbc593af46bd592033d2d6d0c341c"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-cgi_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 5588646,
+              "md5": "8a172afe8080e15018a7a5905fb5e73f"
+            },
+            "http://ports.ubuntu.com/pool/main/p/php5/php5-odbc_5.3.6-13ubuntu3.6_armel.deb": {
+              "size": 28434,
+              "md5": "23fcc109b3a54abb885b16f404d6bb44"
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "PHP regression",
+  "timestamp": 1329152898.802236,
+  "summary": "php5 regression",
+  "action": "In general, a standard system update will make all the necessary changes.\n",
+  "cves": [
+    "https://launchpad.net/bugs/930115"
+  ],
+  "id": "USN-1358-2",
+  "isummary": "USN 1358-1 introduced a regression in PHP.\n"
+}

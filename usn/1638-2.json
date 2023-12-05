@@ -1,0 +1,186 @@
+{
+  "description": "USN-1638-1 fixed vulnerabilities in Firefox. This update provides an\nupdated ubufox package for use with the latest Firefox.\n\nOriginal advisory details:\n\n Gary Kwong, Jesse Ruderman, Christian Holler, Bob Clary, Kyle Huey, Ed\n Morley, Chris Lord, Boris Zbarsky, Julian Seward, Bill McCloskey, and\n Andrew McCreight discovered multiple memory safety issues affecting\n Firefox. If the user were tricked into opening a specially crafted page, an\n attacker could possibly exploit these to cause a denial of service via\n application crash, or potentially execute code with the privileges of the\n user invoking Firefox. (CVE-2012-5842, CVE-2012-5843)\n \n Atte Kettunen discovered a buffer overflow while rendering GIF format\n images. An attacker could exploit this to possibly execute arbitrary code\n as the user invoking Firefox. (CVE-2012-4202)\n \n It was discovered that the evalInSandbox function's JavaScript sandbox\n context could be circumvented. An attacker could exploit this to perform a\n cross-site scripting (XSS) attack or steal a copy of a local file if the\n user has installed an add-on vulnerable to this attack. With cross-site\n scripting vulnerabilities, if a user were tricked into viewing a specially\n crafted page, a remote attacker could exploit this to modify the contents,\n or steal confidential data, within the same domain. (CVE-2012-4201)\n \n Jonathan Stephens discovered that combining vectors involving the setting\n of Cascading Style Sheets (CSS) properties in conjunction with SVG text\n could cause Firefox to crash. If a user were tricked into opening a\n malicious web page, an attacker could cause a denial of service via\n application crash or execute arbitrary code with the privliges of the user\n invoking the program. (CVE-2012-5836)\n \n It was discovered that if a javascript: URL is selected from the list of\n Firefox \"new tab\" page, the script will inherit the privileges of the\n privileged \"new tab\" page. This allows for the execution of locally\n installed programs if a user can be convinced to save a bookmark of a\n malicious javascript: URL. (CVE-2012-4203)\n \n Scott Bell discovered a memory corruption issue in the JavaScript engine.\n If a user were tricked into opening a malicious website, an attacker could\n exploit this to execute arbitrary JavaScript code within the context of\n another website or arbitrary code as the user invoking the program.\n (CVE-2012-4204)\n \n Gabor Krizsanits discovered that XMLHttpRequest objects created within\n sandboxes have the system principal instead of the sandbox principal. This\n can lead to cross-site request forgery (CSRF) or information theft via an\n add-on running untrusted code in a sandbox. (CVE-2012-4205)\n \n Peter Van der Beken discovered XrayWrapper implementation in Firefox does\n not consider the compartment during property filtering. An attacker could\n use this to bypass intended chrome-only restrictions on reading DOM object\n properties via a crafted web site. (CVE-2012-4208)\n \n Bobby Holley discovered that cross-origin wrappers were allowing write\n actions on objects when only read actions should have been properly\n allowed. This can lead to cross-site scripting (XSS) attacks. With\n cross-site scripting vulnerabilities, if a user were tricked into viewing a\n specially crafted page, a remote attacker could exploit this to modify the\n contents, or steal confidential data, within the same domain.\n (CVE-2012-5841)\n \n Masato Kinugawa discovered that when HZ-GB-2312 charset encoding is used\n for text, the \"~\" character will destroy another character near the chunk\n delimiter. This can lead to a cross-site scripting (XSS) attack in pages\n encoded in HZ-GB-2312. With cross-site scripting vulnerabilities, if a user\n were tricked into viewing a specially crafted page, a remote attacker could\n exploit these to modify the contents, or steal confidential data, within\n the same domain. (CVE-2012-4207)\n \n Mariusz Mlynski discovered that the location property can be accessed by\n binary plugins through top.location with a frame whose name attribute's\n value is set to \"top\". This can allow for possible cross-site scripting\n (XSS) attacks through plugins. With cross-site scripting vulnerabilities,\n if a user were tricked into viewing a specially crafted page, a remote\n attacker could exploit this to modify the contents, or steal confidential\n data, within the same domain. (CVE-2012-4209)\n \n Mariusz Mlynski discovered that when a maliciously crafted stylesheet is\n inspected in the Style Inspector, HTML and CSS can run in a chrome\n privileged context without being properly sanitized first. If a user were\n tricked into opening a malicious web page, an attacker could execute\n arbitrary code with the privliges of the user invoking the program.\n (CVE-2012-4210)\n \n Abhishek Arya discovered multiple use-after-free and buffer overflow issues\n in Firefox. If a user were tricked into opening a malicious page, an\n attacker could exploit these to execute arbitrary code as the user invoking\n the program. (CVE-2012-4214, CVE-2012-4215, CVE-2012-4216, CVE-2012-5829,\n CVE-2012-5839, CVE-2012-5840, CVE-2012-4212, CVE-2012-4213, CVE-2012-4217,\n CVE-2012-4218)\n \n Several memory corruption flaws were discovered in Firefox. If a user were\n tricked into opening a malicious page, an attacker could exploit these to\n execute arbitrary code as the user invoking the program. (CVE-2012-5830,\n CVE-2012-5833, CVE-2012-5835, CVE-2012-5838)\n",
+  "releases": {
+    "precise": {
+      "sources": {
+        "ubufox": {
+          "version": "2.6-0ubuntu0.12.04.1",
+          "description": "Ubuntu Firefox specific configuration defaults and apt support"
+        }
+      },
+      "binaries": {
+        "xul-ext-ubufox": {
+          "version": "2.6-0ubuntu0.12.04.1"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/ubufox_2.6-0ubuntu0.12.04.1.debian.tar.gz": {
+              "size": 12325,
+              "md5": "58bad7a39b0247ca7ee371c912089944"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/ubufox_2.6-0ubuntu0.12.04.1.dsc": {
+              "size": 1500,
+              "md5": "f546413c7590561bf2cec87686eb741b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/ubufox_2.6.orig.tar.gz": {
+              "size": 92160,
+              "md5": "34e9046ee6f2785b159535e0b177d011"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/xul-ext-ubufox_2.6-0ubuntu0.12.04.1_all.deb": {
+              "size": 58516,
+              "md5": "fad90bb0c6eb355bc2a65fe707ec8e23"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/u/ubufox/ubufox_2.6-0ubuntu0.12.04.1_all.deb": {
+              "size": 1202,
+              "md5": "40fa58b57f80634d71bfc0b59171b35c"
+            }
+          }
+        }
+      }
+    },
+    "lucid": {
+      "sources": {
+        "ubufox": {
+          "version": "2.6-0ubuntu0.10.04.1",
+          "description": "Ubuntu Firefox specific configuration defaults and apt support"
+        }
+      },
+      "binaries": {
+        "xul-ext-ubufox": {
+          "version": "2.6-0ubuntu0.10.04.1"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/ubufox_2.6-0ubuntu0.10.04.1.dsc": {
+              "size": 1500,
+              "md5": "777cc40349e0cf038ce02207579f8dd3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/ubufox_2.6.orig.tar.gz": {
+              "size": 92160,
+              "md5": "34e9046ee6f2785b159535e0b177d011"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/ubufox_2.6-0ubuntu0.10.04.1.debian.tar.gz": {
+              "size": 15586,
+              "md5": "e5b593dee222d088affbca26d87ca2bd"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/ubufox_2.6-0ubuntu0.10.04.1_all.deb": {
+              "size": 1200,
+              "md5": "0a496ea3ce68ff94945871318712932c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/xul-ext-ubufox_2.6-0ubuntu0.10.04.1_all.deb": {
+              "size": 70588,
+              "md5": "78e311d54d055c39dc7771c2fb60cb94"
+            }
+          }
+        }
+      }
+    },
+    "quantal": {
+      "sources": {
+        "ubufox": {
+          "version": "2.6-0ubuntu0.12.10.1",
+          "description": "Ubuntu Firefox specific configuration defaults and apt support"
+        }
+      },
+      "binaries": {
+        "xul-ext-ubufox": {
+          "version": "2.6-0ubuntu0.12.10.1"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/ubufox_2.6-0ubuntu0.12.10.1.debian.tar.gz": {
+              "size": 12702,
+              "md5": "4c0fe9efc7123ba51f1e41791ecc68ee"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/ubufox_2.6.orig.tar.gz": {
+              "size": 92160,
+              "md5": "34e9046ee6f2785b159535e0b177d011"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/ubufox_2.6-0ubuntu0.12.10.1.dsc": {
+              "size": 1487,
+              "md5": "bb1d1b216b9a299a18445e7555285645"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/universe/u/ubufox/ubufox_2.6-0ubuntu0.12.10.1_all.deb": {
+              "size": 1206,
+              "md5": "6c731a895e0bc86b995090593e54ecc2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/xul-ext-ubufox_2.6-0ubuntu0.12.10.1_all.deb": {
+              "size": 58536,
+              "md5": "db8c34994fb4c1501c82d543f7426283"
+            }
+          }
+        }
+      }
+    },
+    "oneiric": {
+      "sources": {
+        "ubufox": {
+          "version": "2.6-0ubuntu0.11.10.1",
+          "description": "Ubuntu Firefox specific configuration defaults and apt support"
+        }
+      },
+      "binaries": {
+        "xul-ext-ubufox": {
+          "version": "2.6-0ubuntu0.11.10.1"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/ubufox_2.6-0ubuntu0.11.10.1.dsc": {
+              "size": 1500,
+              "md5": "aea0c24981a46d26867a1cc2936ab149"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/ubufox_2.6.orig.tar.gz": {
+              "size": 92160,
+              "md5": "34e9046ee6f2785b159535e0b177d011"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/ubufox_2.6-0ubuntu0.11.10.1.debian.tar.gz": {
+              "size": 11841,
+              "md5": "76903196ccb97a43a0a926994e8e6cc8"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/ubufox_2.6-0ubuntu0.11.10.1_all.deb": {
+              "size": 1202,
+              "md5": "69ea34efbb7f111a2ce7bf94fb089bed"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/u/ubufox/xul-ext-ubufox_2.6-0ubuntu0.11.10.1_all.deb": {
+              "size": 59254,
+              "md5": "fd128cf9e3eb6fa8449d898d625ceb01"
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "ubufox update",
+  "timestamp": 1353534177.660995,
+  "summary": "ubufox update",
+  "action": "After a standard system update you need to restart Firefox to make\nall the necessary changes.\n",
+  "cves": [
+    "https://launchpad.net/bugs/1080211"
+  ],
+  "id": "USN-1638-2",
+  "isummary": "This update provides compatible ubufox packages for the latest Firefox.\n"
+}
