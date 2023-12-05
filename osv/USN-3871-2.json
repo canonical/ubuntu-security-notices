@@ -1,0 +1,68 @@
+{
+  "id": "USN-3871-2",
+  "summary": "linux regression",
+  "details": "USN-3871-1 fixed vulnerabilities in the Linux kernel for Ubuntu 18.04\nLTS. Unfortunately, that update introduced regressions with docking\nstation displays and mounting ext4 file systems with the meta_bg\noption enabled. This update fixes the problems.\n\nWe apologize for the inconvenience.\n\nOriginal advisory details:\n\n Wen Xu discovered that a use-after-free vulnerability existed in the ext4\n filesystem implementation in the Linux kernel. An attacker could use this\n to construct a malicious ext4 image that, when mounted, could cause a\n denial of service (system crash) or possibly execute arbitrary code.\n (CVE-2018-10876, CVE-2018-10879)\n\n Wen Xu discovered that a buffer overflow existed in the ext4 filesystem\n implementation in the Linux kernel. An attacker could use this to construct\n a malicious ext4 image that, when mounted, could cause a denial of service\n (system crash) or possibly execute arbitrary code. (CVE-2018-10877)\n\n Wen Xu discovered that an out-of-bounds write vulnerability existed in the\n ext4 filesystem implementation in the Linux kernel. An attacker could use\n this to construct a malicious ext4 image that, when mounted, could cause a\n denial of service (system crash) or possibly execute arbitrary code.\n (CVE-2018-10878, CVE-2018-10882)\n\n Wen Xu discovered that the ext4 filesystem implementation in the Linux\n kernel did not properly ensure that xattr information remained in inode\n bodies. An attacker could use this to construct a malicious ext4 image\n that, when mounted, could cause a denial of service (system crash).\n (CVE-2018-10880)\n\n Wen Xu discovered that the ext4 file system implementation in the Linux\n kernel could possibly perform an out of bounds write when updating the\n journal for an inline file. An attacker could use this to construct a\n malicious ext4 image that, when mounted, could cause a denial of service\n (system crash). (CVE-2018-10883)\n\n It was discovered that a race condition existed in the vsock address family\n implementation of the Linux kernel that could lead to a use-after-free\n condition. A local attacker in a guest virtual machine could use this to\n expose sensitive information (host machine kernel memory). (CVE-2018-14625)\n\n Cfir Cohen discovered that a use-after-free vulnerability existed in the\n KVM implementation of the Linux kernel, when handling interrupts in\n environments where nested virtualization is in use (nested KVM\n virtualization is not enabled by default in Ubuntu kernels). A local\n attacker in a guest VM could possibly use this to gain administrative\n privileges in a host machine. (CVE-2018-16882)\n\n Jann Horn discovered that the procfs file system implementation in the\n Linux kernel did not properly restrict the ability to inspect the kernel\n stack of an arbitrary task. A local attacker could use this to expose\n sensitive information. (CVE-2018-17972)\n\n Jann Horn discovered that the mremap() system call in the Linux kernel did\n not properly flush the TLB when completing, potentially leaving access to a\n physical page after it has been released to the page allocator. A local\n attacker could use this to cause a denial of service (system crash), expose\n sensitive information, or possibly execute arbitrary code. (CVE-2018-18281)\n\n Wei Wu discovered that the KVM implementation in the Linux kernel did not\n properly ensure that ioapics were initialized. A local attacker could use\n this to cause a denial of service (system crash). (CVE-2018-19407)\n\n It was discovered that the debug interface for the Linux kernel's HID\n subsystem did not properly perform bounds checking in some situations. An\n attacker with access to debugfs could use this to cause a denial of service\n or possibly gain additional privileges. (CVE-2018-9516)\n",
+  "aliases": [],
+  "related": [],
+  "published": "2019-01-31T20:20:52.234548Z",
+  "modified": "2019-01-31T20:20:52.234548Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.15.0-45.48"
+            }
+          ]
+        }
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-image-generic-lpae-hwe-16.04": "4.15.0.45.47",
+            "linux-image-virtual-hwe-16.04": "4.15.0.45.47",
+            "linux-image-generic-lpae-hwe-16.04-edge": "4.15.0.45.47",
+            "linux-image-4.15.0-45-generic": "4.15.0-45.48",
+            "linux-image-generic": "4.15.0.45.47",
+            "linux-image-virtual-hwe-16.04-edge": "4.15.0.45.47",
+            "linux-image-4.15.0-45-lowlatency": "4.15.0-45.48",
+            "linux-image-lowlatency-hwe-16.04-edge": "4.15.0.45.47",
+            "linux-image-4.15.0-45-snapdragon": "4.15.0-45.48",
+            "linux-image-lowlatency-hwe-16.04": "4.15.0.45.47",
+            "linux-image-virtual": "4.15.0.45.47",
+            "linux-image-generic-hwe-16.04-edge": "4.15.0.45.47",
+            "linux-image-generic-lpae": "4.15.0.45.47",
+            "linux-image-snapdragon": "4.15.0.45.47",
+            "linux-image-4.15.0-45-generic-lpae": "4.15.0-45.48",
+            "linux-image-lowlatency": "4.15.0.45.47",
+            "linux-image-generic-hwe-16.04": "4.15.0.45.47"
+          }
+        ],
+        "availability": "No subscription needed"
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-3871-2"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://launchpad.net/bugs/1813663"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://launchpad.net/bugs/1813727"
+    }
+  ]
+}

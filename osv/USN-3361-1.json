@@ -1,0 +1,248 @@
+{
+  "id": "USN-3361-1",
+  "summary": "linux-hwe vulnerabilities",
+  "details": "USN-3358-1 fixed vulnerabilities in the Linux kernel for Ubuntu 17.04.\nThis update provides the corresponding updates for the Linux Hardware\nEnablement (HWE) kernel from Ubuntu 17.04 for Ubuntu 16.04 LTS. Please\nnote that this update changes the Linux HWE kernel to the 4.10 based\nkernel from Ubuntu 17.04, superseding the 4.8 based HWE kernel from\nUbuntu 16.10.\n\nBen Harris discovered that the Linux kernel would strip extended privilege\nattributes of files when performing a failed unprivileged system call. A\nlocal attacker could use this to cause a denial of service. (CVE-2015-1350)\n\nRalf Spenneberg discovered that the ext4 implementation in the Linux kernel\ndid not properly validate meta block groups. An attacker with physical\naccess could use this to specially craft an ext4 image that causes a denial\nof service (system crash). (CVE-2016-10208)\n\nPeter Pi discovered that the colormap handling for frame buffer devices in\nthe Linux kernel contained an integer overflow. A local attacker could use\nthis to disclose sensitive information (kernel memory). (CVE-2016-8405)\n\nIt was discovered that an integer overflow existed in the InfiniBand RDMA\nover ethernet (RXE) transport implementation in the Linux kernel. A local\nattacker could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2016-8636)\n\nVlad Tsyrklevich discovered an integer overflow vulnerability in the VFIO\nPCI driver for the Linux kernel. A local attacker with access to a vfio PCI\ndevice file could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2016-9083, CVE-2016-9084)\n\nCAI Qian discovered that the sysctl implementation in the Linux kernel did\nnot properly perform reference counting in some situations. An unprivileged\nattacker could use this to cause a denial of service (system hang).\n(CVE-2016-9191)\n\nIt was discovered that the keyring implementation in the Linux kernel in\nsome situations did not prevent special internal keyrings from being joined\nby userspace keyrings. A privileged local attacker could use this to bypass\nmodule verification. (CVE-2016-9604)\n\nDmitry Vyukov, Andrey Konovalov, Florian Westphal, and Eric Dumazet\ndiscovered that the netfiler subsystem in the Linux kernel mishandled IPv6\npacket reassembly. A local user could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2016-9755)\n\nAndy Lutomirski and Willy Tarreau discovered that the KVM implementation in\nthe Linux kernel did not properly emulate instructions on the SS segment\nregister. A local attacker in a guest virtual machine could use this to\ncause a denial of service (guest OS crash) or possibly gain administrative\nprivileges in the guest OS. (CVE-2017-2583)\n\nDmitry Vyukov discovered that the KVM implementation in the Linux kernel\nimproperly emulated certain instructions. A local attacker could use this\nto obtain sensitive information (kernel memory). (CVE-2017-2584)\n\nDmitry Vyukov discovered that KVM implementation in the Linux kernel\nimproperly emulated the VMXON instruction. A local attacker in a guest OS\ncould use this to cause a denial of service (memory consumption) in the\nhost OS. (CVE-2017-2596)\n\nIt was discovered that SELinux in the Linux kernel did not properly handle\nempty writes to /proc/pid/attr. A local attacker could use this to cause a\ndenial of service (system crash). (CVE-2017-2618)\n\nDaniel Jiang discovered that a race condition existed in the ipv4 ping\nsocket implementation in the Linux kernel. A local privileged attacker\ncould use this to cause a denial of service (system crash). (CVE-2017-2671)\n\nIt was discovered that the freelist-randomization in the SLAB memory\nallocator allowed duplicate freelist entries. A local attacker could use\nthis to cause a denial of service (system crash). (CVE-2017-5546)\n\nIt was discovered that the KLSI KL5KUSB105 serial-to-USB device driver in\nthe Linux kernel did not properly initialize memory related to logging. A\nlocal attacker could use this to expose sensitive information (kernel\nmemory). (CVE-2017-5549)\n\nIt was discovered that a fencepost error existed in the pipe_advance()\nfunction in the Linux kernel. A local attacker could use this to expose\nsensitive information (kernel memory). (CVE-2017-5550)\n\nIt was discovered that the Linux kernel did not clear the setgid bit during\na setxattr call on a tmpfs filesystem. A local attacker could use this to\ngain elevated group privileges. (CVE-2017-5551)\n\nMurray McAllister discovered that an integer overflow existed in the\nVideoCore DRM driver of the Linux kernel. A local attacker could use this\nto cause a denial of service (system crash) or possibly execute arbitrary\ncode. (CVE-2017-5576)\n\nGareth Evans discovered that the shm IPC subsystem in the Linux kernel did\nnot properly restrict mapping page zero. A local privileged attacker could\nuse this to execute arbitrary code. (CVE-2017-5669)\n\nAndrey Konovalov discovered an out-of-bounds access in the IPv6 Generic\nRouting Encapsulation (GRE) tunneling implementation in the Linux kernel.\nAn attacker could use this to possibly expose sensitive information.\n(CVE-2017-5897)\n\nAndrey Konovalov discovered that the IPv4 implementation in the Linux\nkernel did not properly handle invalid IP options in some situations. An\nattacker could use this to cause a denial of service or possibly execute\narbitrary code. (CVE-2017-5970)\n\nDi Shen discovered that a race condition existed in the perf subsystem of\nthe Linux kernel. A local attacker could use this to cause a denial of\nservice or possibly gain administrative privileges. (CVE-2017-6001)\n\nDmitry Vyukov discovered that the Linux kernel did not properly handle TCP\npackets with the URG flag. A remote attacker could use this to cause a\ndenial of service. (CVE-2017-6214)\n\nAndrey Konovalov discovered that the LLC subsytem in the Linux kernel did\nnot properly set up a destructor in certain situations. A local attacker\ncould use this to cause a denial of service (system crash). (CVE-2017-6345)\n\nIt was discovered that a race condition existed in the AF_PACKET handling\ncode in the Linux kernel. A local attacker could use this to cause a denial\nof service (system crash) or possibly execute arbitrary code.\n(CVE-2017-6346)\n\nAndrey Konovalov discovered that the IP layer in the Linux kernel made\nimproper assumptions about internal data layout when performing checksums.\nA local attacker could use this to cause a denial of service (system crash)\nor possibly execute arbitrary code. (CVE-2017-6347)\n\nDmitry Vyukov discovered race conditions in the Infrared (IrDA) subsystem\nin the Linux kernel. A local attacker could use this to cause a denial of\nservice (deadlock). (CVE-2017-6348)\n\nDmitry Vyukov discovered that the generic SCSI (sg) subsystem in the Linux\nkernel contained a stack-based buffer overflow. A local attacker with\naccess to an sg device could use this to cause a denial of service (system\ncrash) or possibly execute arbitrary code. (CVE-2017-7187)\n\nIt was discovered that a NULL pointer dereference existed in the Direct\nRendering Manager (DRM) driver for VMWare devices in the Linux kernel. A\nlocal attacker could use this to cause a denial of service (system crash).\n(CVE-2017-7261)\n\nIt was discovered that the USB Cypress HID drivers for the Linux kernel did\nnot properly validate reported information from the device. An attacker\nwith physical access could use this to expose sensitive information (kernel\nmemory). (CVE-2017-7273)\n\nEric Biggers discovered a memory leak in the keyring implementation in the\nLinux kernel. A local attacker could use this to cause a denial of service\n(memory consumption). (CVE-2017-7472)\n\nIt was discovered that an information leak existed in the set_mempolicy and\nmbind compat syscalls in the Linux kernel. A local attacker could use this\nto expose sensitive information (kernel memory). (CVE-2017-7616)\n\nSabrina Dubroca discovered that the asynchronous cryptographic hash (ahash)\nimplementation in the Linux kernel did not properly handle a full request\nqueue. A local attacker could use this to cause a denial of service\n(infinite recursion). (CVE-2017-7618)\n\nTuomas Haanp\u00e4\u00e4 and Ari Kauppi discovered that the NFSv2 and NFSv3 server\nimplementations in the Linux kernel did not properly handle certain long\nRPC replies. A remote attacker could use this to cause a denial of service\n(system crash). (CVE-2017-7645)\n\nTommi Rantala and Brad Spengler discovered that the memory manager in the\nLinux kernel did not properly enforce the CONFIG_STRICT_DEVMEM protection\nmechanism. A local attacker with access to /dev/mem could use this to\nexpose sensitive information or possibly execute arbitrary code.\n(CVE-2017-7889)\n\nTuomas Haanp\u00e4\u00e4 and Ari Kauppi discovered that the NFSv2 and NFSv3 server\nimplementations in the Linux kernel did not properly check for the end of\nbuffer. A remote attacker could use this to craft requests that cause a\ndenial of service (system crash) or possibly execute arbitrary code.\n(CVE-2017-7895)\n\nIt was discovered that an integer underflow existed in the Edgeport USB\nSerial Converter device driver of the Linux kernel. An attacker with\nphysical access could use this to expose sensitive information (kernel\nmemory). (CVE-2017-8924)\n\nIt was discovered that the USB ZyXEL omni.net LCD PLUS driver in the Linux\nkernel did not properly perform reference counting. A local attacker could\nuse this to cause a denial of service (tty exhaustion). (CVE-2017-8925)\n\nJann Horn discovered that bpf in Linux kernel does not restrict the output\nof the print_bpf_insn function. A local attacker could use this to obtain\nsensitive address information. (CVE-2017-9150)\n",
+  "aliases": [],
+  "related": [
+    "CVE-2015-1350",
+    "CVE-2016-10208",
+    "CVE-2016-8405",
+    "CVE-2016-8636",
+    "CVE-2016-9083",
+    "CVE-2016-9084",
+    "CVE-2016-9191",
+    "CVE-2016-9604",
+    "CVE-2016-9755",
+    "CVE-2017-2583",
+    "CVE-2017-2584",
+    "CVE-2017-2596",
+    "CVE-2017-2618",
+    "CVE-2017-2671",
+    "CVE-2017-5546",
+    "CVE-2017-5549",
+    "CVE-2017-5550",
+    "CVE-2017-5551",
+    "CVE-2017-5576",
+    "CVE-2017-5669",
+    "CVE-2017-5897",
+    "CVE-2017-5970",
+    "CVE-2017-6001",
+    "CVE-2017-6214",
+    "CVE-2017-6345",
+    "CVE-2017-6346",
+    "CVE-2017-6347",
+    "CVE-2017-6348",
+    "CVE-2017-7187",
+    "CVE-2017-7261",
+    "CVE-2017-7273",
+    "CVE-2017-7472",
+    "CVE-2017-7616",
+    "CVE-2017-7618",
+    "CVE-2017-7645",
+    "CVE-2017-7889",
+    "CVE-2017-7895",
+    "CVE-2017-8924",
+    "CVE-2017-8925",
+    "CVE-2017-9150"
+  ],
+  "published": "2017-07-21T11:59:15.537079Z",
+  "modified": "2017-07-21T11:59:15.537079Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:16.04:LTS",
+        "name": "linux-hwe"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.10.0-27.30~16.04.2"
+            }
+          ]
+        }
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-image-4.10.0-27-generic": "4.10.0-27.30~16.04.2",
+            "linux-image-4.10.0-27-generic-lpae": "4.10.0-27.30~16.04.2",
+            "linux-image-extra-4.10.0-27-generic": "4.10.0-27.30~16.04.2",
+            "linux-image-4.10.0-27-lowlatency": "4.10.0-27.30~16.04.2"
+          }
+        ],
+        "availability": "No subscription needed"
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-3361-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2015-1350"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2016-10208"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2016-8405"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2016-8636"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2016-9083"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2016-9084"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2016-9191"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2016-9604"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2016-9755"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-2583"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-2584"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-2596"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-2618"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-2671"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-5546"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-5549"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-5550"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-5551"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-5576"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-5669"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-5897"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-5970"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-6001"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-6214"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-6345"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-6346"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-6347"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-6348"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-7187"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-7261"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-7273"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-7472"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-7616"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-7618"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-7645"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-7889"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-7895"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-8924"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-8925"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-9150"
+    }
+  ]
+}

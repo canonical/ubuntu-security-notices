@@ -1,0 +1,70 @@
+{
+  "id": "USN-5092-3",
+  "summary": "linux-azure, linux-azure-5.11 regression",
+  "details": "USN-5092-2 fixed vulnerabilities in Linux 5.11-based kernels.\nUnfortunately, for Linux kernels intended for use within Microsoft\nAzure environments, that update introduced a regression that could\ncause the kernel to fail to boot in large Azure instance types.\nThis update fixes the problem.\n\nWe apologize for the inconvenience.\n\nOriginal advisory details:\n\nValentina Palmiotti discovered that the io_uring subsystem in the Linux\nkernel could be coerced to free adjacent memory. A local attacker could use\nthis to execute arbitrary code. (CVE-2021-41073)\n\nOfek Kirzner, Adam Morrison, Benedict Schlueter, and Piotr Krysiuk\ndiscovered that the BPF verifier in the Linux kernel missed possible\nmispredicted branches due to type confusion, allowing a side-channel\nattack. An attacker could use this to expose sensitive information.\n(CVE-2021-33624)\n\nBenedict Schlueter discovered that the BPF subsystem in the Linux kernel\ndid not properly protect against Speculative Store Bypass (SSB) side-\nchannel attacks in some situations. A local attacker could possibly use\nthis to expose sensitive information. (CVE-2021-34556)\n\nPiotr Krysiuk discovered that the BPF subsystem in the Linux kernel did not\nproperly protect against Speculative Store Bypass (SSB) side-channel\nattacks in some situations. A local attacker could possibly use this to\nexpose sensitive information. (CVE-2021-35477)\n\nIt was discovered that the tracing subsystem in the Linux kernel did not\nproperly keep track of per-cpu ring buffer state. A privileged attacker\ncould use this to cause a denial of service. (CVE-2021-3679)\n\nIt was discovered that the Option USB High Speed Mobile device driver in\nthe Linux kernel did not properly handle error conditions. A physically\nproximate attacker could use this to cause a denial of service (system\ncrash) or possibly execute arbitrary code. (CVE-2021-37159)\n\nAlexey Kardashevskiy discovered that the KVM implementation for PowerPC\nsystems in the Linux kernel did not properly validate RTAS arguments in\nsome situations. An attacker in a guest vm could use this to cause a denial\nof service (host OS crash) or possibly execute arbitrary code.\n(CVE-2021-37576)\n\nIt was discovered that the Virtio console implementation in the Linux\nkernel did not properly validate input lengths in some situations. A local\nattacker could possibly use this to cause a denial of service (system\ncrash). (CVE-2021-38160)\n\nMichael Wakabayashi discovered that the NFSv4 client implementation in the\nLinux kernel did not properly order connection setup operations. An\nattacker controlling a remote NFS server could use this to cause a denial\nof service on the client. (CVE-2021-38199)\n\nIt was discovered that the Sun RPC implementation in the Linux kernel\ncontained an out-of-bounds access error. A remote attacker could possibly\nuse this to cause a denial of service (system crash). (CVE-2021-38201)\n\nIt was discovered that the MAX-3421 host USB device driver in the Linux\nkernel did not properly handle device removal events. A physically\nproximate attacker could use this to cause a denial of service (system\ncrash). (CVE-2021-38204)\n\nIt was discovered that the Xilinx 10/100 Ethernet Lite device driver in the\nLinux kernel could report pointer addresses in some situations. An attacker\ncould use this information to ease the exploitation of another\nvulnerability. (CVE-2021-38205)\n",
+  "aliases": [],
+  "related": [
+    "https://ubuntu.com/security/notices/USN-5092-2"
+  ],
+  "published": "2021-10-19T00:15:15.540267Z",
+  "modified": "2021-10-19T00:15:15.540267Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:20.04:LTS",
+        "name": "linux-azure-5.11"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.11.0-1019.20~20.04.1"
+            }
+          ]
+        }
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-image-unsigned-5.11.0-1019-azure": "5.11.0-1019.20~20.04.1",
+            "linux-tools-5.11.0-1019-azure": "5.11.0-1019.20~20.04.1",
+            "linux-image-azure-edge": "5.11.0.1019.20~20.04.18",
+            "linux-buildinfo-5.11.0-1019-azure": "5.11.0-1019.20~20.04.1",
+            "linux-azure-5.11-headers-5.11.0-1019": "5.11.0-1019.20~20.04.1",
+            "linux-cloud-tools-5.11.0-1019-azure": "5.11.0-1019.20~20.04.1",
+            "linux-modules-extra-azure-edge": "5.11.0.1019.20~20.04.18",
+            "linux-azure-5.11-tools-5.11.0-1019": "5.11.0-1019.20~20.04.1",
+            "linux-image-5.11.0-1019-azure": "5.11.0-1019.20~20.04.1",
+            "linux-modules-extra-5.11.0-1019-azure": "5.11.0-1019.20~20.04.1",
+            "linux-azure-edge": "5.11.0.1019.20~20.04.18",
+            "linux-azure-5.11-cloud-tools-5.11.0-1019": "5.11.0-1019.20~20.04.1",
+            "linux-tools-azure-edge": "5.11.0.1019.20~20.04.18",
+            "linux-modules-5.11.0-1019-azure": "5.11.0-1019.20~20.04.1",
+            "linux-cloud-tools-azure-edge": "5.11.0.1019.20~20.04.18",
+            "linux-headers-5.11.0-1019-azure": "5.11.0-1019.20~20.04.1",
+            "linux-headers-azure-edge": "5.11.0.1019.20~20.04.18"
+          }
+        ],
+        "availability": "No subscription needed"
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-5092-3"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://launchpad.net/bugs/1940564"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/https://ubuntu.com/security/notices/USN-5092-2"
+    }
+  ]
+}

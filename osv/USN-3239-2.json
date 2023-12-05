@@ -1,0 +1,120 @@
+{
+  "id": "USN-3239-2",
+  "summary": "eglibc, glibc regression",
+  "details": "USN-3239-1 fixed vulnerabilities in the GNU C Library. Unfortunately,\nthe fix for CVE-2015-5180 introduced an internal ABI change within\nthe resolver library. This update reverts the change. We apologize\nfor the inconvenience.\n\nPlease note that long-running services that were restarted to compensate\nfor the USN-3239-1 update may need to be restarted again.\n\nOriginal advisory details:\n\n It was discovered that the GNU C Library incorrectly handled the\n strxfrm() function. An attacker could use this issue to cause a denial\n of service or possibly execute arbitrary code. This issue only affected\n Ubuntu 12.04 LTS and Ubuntu 14.04 LTS. (CVE-2015-8982)\n \n It was discovered that an integer overflow existed in the\n _IO_wstr_overflow() function of the GNU C Library. An attacker could\n use this to cause a denial of service or possibly execute arbitrary\n code. This issue only affected Ubuntu 12.04 LTS and Ubuntu 14.04\n LTS. (CVE-2015-8983)\n \n It was discovered that the fnmatch() function in the GNU C Library\n did not properly handle certain malformed patterns. An attacker could\n use this to cause a denial of service. This issue only affected Ubuntu\n 12.04 LTS and Ubuntu 14.04 LTS. (CVE-2015-8984)\n \n Alexander Cherepanov discovered a stack-based buffer overflow in the\n glob implementation of the GNU C Library. An attacker could use this\n to specially craft a directory layout and cause a denial of service.\n (CVE-2016-1234)\n \n Florian Weimer discovered a NULL pointer dereference in the DNS\n resolver of the GNU C Library. An attacker could use this to cause\n a denial of service. (CVE-2015-5180)\n \n Michael Petlan discovered an unbounded stack allocation in the\n getaddrinfo() function of the GNU C Library. An attacker could use\n this to cause a denial of service. (CVE-2016-3706)\n \n Aldy Hernandez discovered an unbounded stack allocation in the sunrpc\n implementation in the GNU C Library. An attacker could use this to\n cause a denial of service. (CVE-2016-4429)\n \n Tim Ruehsen discovered that the getaddrinfo() implementation in the\n GNU C Library did not properly track memory allocations. An attacker\n could use this to cause a denial of service. This issue only affected\n Ubuntu 16.04 LTS. (CVE-2016-5417)\n \n Andreas Schwab discovered that the GNU C Library on ARM 32-bit\n platforms did not properly set up execution contexts. An attacker\n could use this to cause a denial of service. (CVE-2016-6323)\n",
+  "aliases": [],
+  "related": [],
+  "published": "2017-03-22T00:34:40.391065Z",
+  "modified": "2017-03-22T00:34:40.391065Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:14.04:LTS",
+        "name": "eglibc"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.19-0ubuntu6.11"
+            }
+          ]
+        }
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "libc6-i386": "2.19-0ubuntu6.11",
+            "libnss-dns-udeb": "2.19-0ubuntu6.11",
+            "libc6-ppc64": "2.19-0ubuntu6.11",
+            "libc-bin": "2.19-0ubuntu6.11",
+            "libc6-x32": "2.19-0ubuntu6.11",
+            "libc6-armel": "2.19-0ubuntu6.11",
+            "eglibc-source": "2.19-0ubuntu6.11",
+            "libc6-pic": "2.19-0ubuntu6.11",
+            "libc6-dev-ppc64": "2.19-0ubuntu6.11",
+            "libc6-dev-armel": "2.19-0ubuntu6.11",
+            "libnss-files-udeb": "2.19-0ubuntu6.11",
+            "glibc-doc": "2.19-0ubuntu6.11",
+            "nscd": "2.19-0ubuntu6.11",
+            "multiarch-support": "2.19-0ubuntu6.11",
+            "libc6-dev": "2.19-0ubuntu6.11",
+            "libc6-amd64": "2.19-0ubuntu6.11",
+            "libc6-dev-amd64": "2.19-0ubuntu6.11",
+            "libc6": "2.19-0ubuntu6.11",
+            "libc6-dev-x32": "2.19-0ubuntu6.11",
+            "libc6-udeb": "2.19-0ubuntu6.11",
+            "libc6-dev-i386": "2.19-0ubuntu6.11",
+            "libc-dev-bin": "2.19-0ubuntu6.11",
+            "libc6-prof": "2.19-0ubuntu6.11"
+          }
+        ],
+        "availability": "No subscription needed"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:16.04:LTS",
+        "name": "glibc"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.23-0ubuntu7"
+            }
+          ]
+        }
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "libc6-i386": "2.23-0ubuntu7",
+            "libc6-ppc64": "2.23-0ubuntu7",
+            "libc6-dev-s390": "2.23-0ubuntu7",
+            "glibc-source": "2.23-0ubuntu7",
+            "libc-bin": "2.23-0ubuntu7",
+            "libc6-x32": "2.23-0ubuntu7",
+            "libc6-s390": "2.23-0ubuntu7",
+            "libc6-armel": "2.23-0ubuntu7",
+            "libc6-pic": "2.23-0ubuntu7",
+            "libc6-dev-ppc64": "2.23-0ubuntu7",
+            "libc6-dev-armel": "2.23-0ubuntu7",
+            "glibc-doc": "2.23-0ubuntu7",
+            "multiarch-support": "2.23-0ubuntu7",
+            "libc6-dev": "2.23-0ubuntu7",
+            "libc6-amd64": "2.23-0ubuntu7",
+            "libc6-dev-amd64": "2.23-0ubuntu7",
+            "libc6": "2.23-0ubuntu7",
+            "locales-all": "2.23-0ubuntu7",
+            "libc6-dev-x32": "2.23-0ubuntu7",
+            "locales": "2.23-0ubuntu7",
+            "libc6-udeb": "2.23-0ubuntu7",
+            "libc6-dev-i386": "2.23-0ubuntu7",
+            "libc-dev-bin": "2.23-0ubuntu7",
+            "nscd": "2.23-0ubuntu7"
+          }
+        ],
+        "availability": "No subscription needed"
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-3239-2"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://bugs.launchpad.net/bugs/1674532"
+    }
+  ]
+}

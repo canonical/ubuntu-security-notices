@@ -1,0 +1,70 @@
+{
+  "id": "USN-5142-2",
+  "summary": "samba regressions",
+  "details": "USN-5142-1 fixed vulnerabilities in Samba. Some of the upstream changes\nintroduced regressions in name mapping and backups.\n\nPlease see the following upstream bugs for more information:\nhttps://bugzilla.samba.org/show_bug.cgi?id=14901\nhttps://bugzilla.samba.org/show_bug.cgi?id=14918\n\nThis update fixes the problem.\n\nOriginal advisory details:\n\n Stefan Metzmacher discovered that Samba incorrectly handled SMB1 client\n connections. A remote attacker could possibly use this issue to downgrade\n connections to plaintext authentication. (CVE-2016-2124)\n \n Andrew Bartlett discovered that Samba incorrectly mapping domain users to\n local users. An authenticated attacker could possibly use this issue to\n become root on domain members. (CVE-2020-25717)\n \n Andrew Bartlett discovered that Samba did not correctly sandbox Kerberos\n tickets issues by an RODC. An RODC could print administrator tickets,\n contrary to expectations. (CVE-2020-25718)\n \n Andrew Bartlett discovered that Samba incorrectly handled Kerberos tickets.\n Delegated administrators could possibly use this issue to impersonate\n accounts, leading to total domain compromise. (CVE-2020-25719)\n \n Andrew Bartlett discovered that Samba did not provide stable AD\n identifiers to Kerberos acceptors. (CVE-2020-25721)\n \n Andrew Bartlett discovered that Samba did not properly check sensitive\n attributes. An authenticated attacker could possibly use this issue to\n escalate privileges. (CVE-2020-25722)\n \n Stefan Metzmacher discovered that Samba incorrectly handled certain large\n DCE/RPC requests. A remote attacker could possibly use this issue to\n bypass signature requirements. (CVE-2021-23192)\n \n William Ross discovered that Samba incorrectly handled memory. A remote\n attacker could use this issue to cause Samba to crash, resulting in a\n denial of service, or possibly escalate privileges. (CVE-2021-3738)\n \n Joseph Sutton discovered that Samba incorrectly handled certain TGS\n requests. An authenticated attacker could possibly use this issue to cause\n Samba to crash, resulting in a denial of service. (CVE-2021-3671)\n \n The fix for CVE-2020-25717 results in possible behaviour changes that could\n affect certain environments. Please see the upstream advisory for more\n information:\n \n https://www.samba.org/samba/security/CVE-2020-25717.html\n",
+  "aliases": [],
+  "related": [],
+  "published": "2021-12-06T15:57:18.633301Z",
+  "modified": "2021-12-06T15:57:18.633301Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:20.04:LTS",
+        "name": "samba"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2:4.13.14+dfsg-0ubuntu0.20.04.3"
+            }
+          ]
+        }
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "samba-testsuite": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "samba": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "registry-tools": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "libpam-winbind": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "winbind": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "smbclient": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "libwbclient-dev": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "libsmbclient": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "python3-samba": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "samba-common-bin": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "libwbclient0": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "samba-dsdb-modules": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "samba-dev": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "libsmbclient-dev": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "samba-vfs-modules": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "samba-common": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "ctdb": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "samba-libs": "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+            "libnss-winbind": "2:4.13.14+dfsg-0ubuntu0.20.04.3"
+          }
+        ],
+        "availability": "No subscription needed"
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-5142-2"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://launchpad.net/bugs/1950363"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://launchpad.net/bugs/1952187"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "id": "USN-4008-2",
+  "summary": "apparmor update",
+  "details": "USN-4008-1 fixed multiple security issues in the Linux kernel. This update\nprovides the corresponding changes to AppArmor policy for correctly\noperating under the Linux kernel with fixes for CVE-2019-11190. Without\nthese changes, some profile transitions may be unintentionally denied due\nto missing mmap ('m') rules.\n\nOriginal advisory details:\n\n Robert \u015awi\u0119cki discovered that the Linux kernel did not properly apply\n Address Space Layout Randomization (ASLR) in some situations for setuid elf\n binaries. A local attacker could use this to improve the chances of\n exploiting an existing vulnerability in a setuid elf binary.\n (CVE-2019-11190)\n \n It was discovered that a null pointer dereference vulnerability existed in\n the LSI Logic MegaRAID driver in the Linux kernel. A local attacker could\n use this to cause a denial of service (system crash). (CVE-2019-11810)\n \n It was discovered that a race condition leading to a use-after-free existed\n in the Reliable Datagram Sockets (RDS) protocol implementation in the Linux\n kernel. The RDS protocol is disabled via blocklist by default in Ubuntu. If\n enabled, a local attacker could use this to cause a denial of service\n (system crash) or possibly execute arbitrary code. (CVE-2019-11815)\n \n Federico Manuel Bento discovered that the Linux kernel did not properly\n apply Address Space Layout Randomization (ASLR) in some situations for\n setuid a.out binaries. A local attacker could use this to improve the\n chances of exploiting an existing vulnerability in a setuid a.out binary.\n (CVE-2019-11191)\n \n As a hardening measure, this update disables a.out support.\n",
+  "aliases": [],
+  "related": [
+    "CVE-2019-11190"
+  ],
+  "published": "2019-06-05T21:43:51.296600Z",
+  "modified": "2019-06-05T21:43:51.296600Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:16.04:LTS",
+        "name": "apparmor"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.10.95-0ubuntu2.11"
+            }
+          ]
+        }
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "apparmor-docs": "2.10.95-0ubuntu2.11",
+            "python-apparmor": "2.10.95-0ubuntu2.11",
+            "libapparmor-dev": "2.10.95-0ubuntu2.11",
+            "libapparmor-perl": "2.10.95-0ubuntu2.11",
+            "libapparmor1": "2.10.95-0ubuntu2.11",
+            "apparmor-notify": "2.10.95-0ubuntu2.11",
+            "apparmor-profiles": "2.10.95-0ubuntu2.11",
+            "python3-libapparmor": "2.10.95-0ubuntu2.11",
+            "python-libapparmor": "2.10.95-0ubuntu2.11",
+            "libpam-apparmor": "2.10.95-0ubuntu2.11",
+            "apparmor-easyprof": "2.10.95-0ubuntu2.11",
+            "apparmor": "2.10.95-0ubuntu2.11",
+            "python3-apparmor": "2.10.95-0ubuntu2.11",
+            "apparmor-utils": "2.10.95-0ubuntu2.11",
+            "libapache2-mod-apparmor": "2.10.95-0ubuntu2.11",
+            "dh-apparmor": "2.10.95-0ubuntu2.11"
+          }
+        ],
+        "availability": "No subscription needed"
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-4008-2"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2019-11190"
+    }
+  ]
+}

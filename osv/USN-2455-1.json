@@ -1,0 +1,50 @@
+{
+  "id": "USN-2455-1",
+  "summary": "bsd-mailx vulnerability",
+  "details": "It was discovered that bsd-mailx contained a feature that allowed\nsyntactically valid email addresses to be treated as shell commands. A\nremote attacker could possibly use this issue with a valid email address to\nexecute arbitrary commands.\n\nThis functionality has now been disabled by default, and can be re-enabled\nwith the \"expandaddr\" configuration option. This update alone does not\nremove all possibilities of command execution. In environments where\nscripts use mailx to process arbitrary email addresses, it is recommended\nto modify them to use a \"--\" separator before the address to properly\nhandle those that begin with \"-\". In addition, specifying sendmail options\nafter the \"--\" separator is no longer supported, existing scripts may need\nto be modified to use the \"-a\" option instead.\n",
+  "aliases": [],
+  "related": [
+    "CVE-2014-7844"
+  ],
+  "published": "2015-01-07T20:26:56.474553Z",
+  "modified": "2015-01-07T20:26:56.474553Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:14.04:LTS",
+        "name": "bsd-mailx"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "8.1.2-0.20131005cvs-1ubuntu0.14.04.1"
+            }
+          ]
+        }
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "bsd-mailx": "8.1.2-0.20131005cvs-1ubuntu0.14.04.1"
+          }
+        ],
+        "availability": "No subscription needed"
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-2455-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2014-7844"
+    }
+  ]
+}
