@@ -1,0 +1,32 @@
+name:
+  Cron Job to convert USN to OSV and commit new files
+ 
+on:
+  # Triggers the workflow twice a day from Monday to Friday
+  schedule:
+    - cron: "0 */12 * * 1-5"
+ 
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    env: 
+      CI_COMMIT_USN_MESSAGE: CI Generate USN JSON files
+      CI_COMMIT_OSV_MESSAGE: CI Convert USN to OSV
+      CI_COMMIT_AUTHOR: Continuous Integration
+ 
+    steps:
+      - name: Fetch USN database pickle
+        run: wget -N https://people.canonical.com/~ubuntu-security/usn/database-all.pickle.bz2
+      - name: Generate USN JSON files
+        run: python3 scripts/generate-usns.py --db database-all.pickle -o usn/
+      - name: Convert USN to OSV
+        run: python3 ./scripts/usn2osv.py -i usn/ -o osv/
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "dodys@users.noreply.github.com"
+          git add usn/
+          git commit -m "${{ env.CI_COMMIT_USN_MESSAGE }}"
+          git add osv/
+          git commit -m "${{ env.CI_COMMIT_OSV_MESSAGE }}"
+          git push
