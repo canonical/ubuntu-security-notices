@@ -4,7 +4,7 @@ name:
 on:
   # Triggers the workflow twice a day from Monday to Friday
   schedule:
-    - cron: "* */12 * * 1-5"
+    - cron: "0 */12 * * 1-5"
  
 jobs:
   cron:
@@ -25,12 +25,28 @@ jobs:
         run: python3 scripts/generate-usns.py --db database-all.pickle -o usn/
       - name: Convert USN to OSV
         run: python3 ./scripts/usn2osv.py -i usn/ -o osv/
+      - name: Validate OSV files
+        run: |
+          wget https://raw.githubusercontent.com/ossf/osv-schema/main/validation/schema.json
+          sudo apt install python3-pip
+          pip3 install check-jsonschema
+          for file in osv/*.json; do
+            if ! ~/.local/bin/check-jsonschema -q --schemafile schema.json "$file"; then
+              echo "$file"
+              exit 1
+            fi
+          done
+          rm schema.json
       - name: Commit and push changes
         run: |
           git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
           git config --global user.email "${{ env.CI_COMMIT_AUTHOR_EMAIL }}"
           git add usn/
-          git commit -m "${{ env.CI_COMMIT_USN_MESSAGE }}"
+          if ! git diff-index --cached --name-only HEAD --quiet; then
+            git commit -m "${{ env.CI_COMMIT_USN_MESSAGE }}"
+          fi
           git add osv/
-          git commit -m "${{ env.CI_COMMIT_OSV_MESSAGE }}"
-          git push
+          if ! git diff-index --cached --name-only HEAD --quiet; then
+            git commit -m "${{ env.CI_COMMIT_OSV_MESSAGE }}"
+            git push
+          fi
