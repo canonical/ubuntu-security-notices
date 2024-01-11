@@ -8,7 +8,6 @@
 #
 
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
-from datetime import datetime
 
 import glob
 import json

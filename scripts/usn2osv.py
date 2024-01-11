@@ -232,7 +232,7 @@ def usn2osv(output_path, usn):
             # only create osv for supported releases
             continue
         else:
-            published = datetime.fromtimestamp(usn["timestamp"]).isoformat() + "Z"
+            published = datetime.utcfromtimestamp(usn["timestamp"]).isoformat() + "Z"
             modified = None
             if os.path.isfile(os.path.join(output_path, f"{usn['id']}.json")):
                 # if osv file already exists
