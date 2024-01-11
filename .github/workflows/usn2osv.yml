@@ -27,16 +27,20 @@ jobs:
         run: python3 ./scripts/usn2osv.py -i usn/ -o osv/
       - name: Validate OSV files
         run: |
-          wget https://raw.githubusercontent.com/ossf/osv-schema/main/validation/schema.json
-          sudo apt install python3-pip
-          pip3 install check-jsonschema
-          for file in osv/*.json; do
-            if ! ~/.local/bin/check-jsonschema -q --schemafile schema.json "$file"; then
-              echo "$file"
-              exit 1
-            fi
-          done
-          rm schema.json
+          if ! git diff-index --name-only HEAD --quiet; then
+            wget https://raw.githubusercontent.com/ossf/osv-schema/main/validation/schema.json
+            sudo apt install python3-pip
+            pip3 install check-jsonschema
+            for file in osv/*.json; do
+              if ! ~/.local/bin/check-jsonschema -q --schemafile schema.json "$file"; then
+                echo "$file"
+                exit 1
+              fi
+            done
+            rm schema.json
+          else
+            exit 0
+          fi
       - name: Commit and push changes
         run: |
           git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
