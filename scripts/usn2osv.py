@@ -96,12 +96,12 @@ class Affected:
         if "pocket" in binaries[binary]:
             if binaries[binary]["pocket"] != "security":
                 self.availability = "Available with Ubuntu Pro: https://ubuntu.com/pro"
-                if ":Pro" not in self.ecosystem:
-                    self.ecosystem = self.ecosystem + ":Pro"
+                if ":Pro:" not in self.ecosystem:
+                    self.ecosystem = self.ecosystem.replace(":", ":Pro:", 1)
         elif timestamp >= self.release["stamp"]:
             self.availability = "Available with Ubuntu Pro: https://ubuntu.com/pro"
-            if ":Pro" not in self.ecosystem:
-                self.ecosystem = self.ecosystem + ":Pro"
+            if ":Pro:" not in self.ecosystem:
+                self.ecosystem = self.ecosystem.replace(":", ":Pro:", 1)
         else:
             self.availability = "No subscription required"
 
