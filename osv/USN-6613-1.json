@@ -1,0 +1,404 @@
+{
+  "id": "USN-6613-1",
+  "summary": "ceph vulnerability",
+  "details": "Lucas Henry discovered that Ceph incorrectly handled specially\ncrafted POST requests. An uprivileged user could use this to \nbypass Ceph's authorization checks and upload a file to any bucket.\n",
+  "aliases": [],
+  "related": [
+    "CVE-2023-43040"
+  ],
+  "published": "2024-01-29T18:08:52.070328Z",
+  "modified": "2024-01-29T18:08:52.070328Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:18.04:LTS",
+        "name": "ceph"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "12.2.13-0ubuntu0.18.04.11+esm1"
+            }
+          ]
+        }
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "ceph": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "ceph-base": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "ceph-common": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "ceph-fuse": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "ceph-mds": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "ceph-mgr": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "ceph-mon": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "ceph-osd": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "ceph-resource-agents": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "ceph-test": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "libcephfs-dev": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "libcephfs-java": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "libcephfs-jni": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "libcephfs2": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "librados-dev": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "librados2": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "libradosstriper-dev": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "libradosstriper1": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "librbd-dev": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "librbd1": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "librgw-dev": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "librgw2": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "python-ceph": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "python-cephfs": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "python-rados": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "python-rbd": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "python-rgw": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "python3-ceph-argparse": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "python3-cephfs": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "python3-rados": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "python3-rbd": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "python3-rgw": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "rados-objclass-dev": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "radosgw": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "rbd-fuse": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "rbd-mirror": "12.2.13-0ubuntu0.18.04.11+esm1",
+            "rbd-nbd": "12.2.13-0ubuntu0.18.04.11+esm1"
+          }
+        ],
+        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:20.04:LTS",
+        "name": "ceph"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "15.2.17-0ubuntu0.20.04.6"
+            }
+          ]
+        }
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "ceph": "15.2.17-0ubuntu0.20.04.6",
+            "ceph-base": "15.2.17-0ubuntu0.20.04.6",
+            "ceph-common": "15.2.17-0ubuntu0.20.04.6",
+            "ceph-fuse": "15.2.17-0ubuntu0.20.04.6",
+            "ceph-immutable-object-cache": "15.2.17-0ubuntu0.20.04.6",
+            "ceph-mds": "15.2.17-0ubuntu0.20.04.6",
+            "ceph-mgr": "15.2.17-0ubuntu0.20.04.6",
+            "ceph-mgr-cephadm": "15.2.17-0ubuntu0.20.04.6",
+            "ceph-mgr-dashboard": "15.2.17-0ubuntu0.20.04.6",
+            "ceph-mgr-diskprediction-cloud": "15.2.17-0ubuntu0.20.04.6",
+            "ceph-mgr-diskprediction-local": "15.2.17-0ubuntu0.20.04.6",
+            "ceph-mgr-k8sevents": "15.2.17-0ubuntu0.20.04.6",
+            "ceph-mgr-modules-core": "15.2.17-0ubuntu0.20.04.6",
+            "ceph-mgr-rook": "15.2.17-0ubuntu0.20.04.6",
+            "ceph-mon": "15.2.17-0ubuntu0.20.04.6",
+            "ceph-osd": "15.2.17-0ubuntu0.20.04.6",
+            "ceph-resource-agents": "15.2.17-0ubuntu0.20.04.6",
+            "cephadm": "15.2.17-0ubuntu0.20.04.6",
+            "cephfs-shell": "15.2.17-0ubuntu0.20.04.6",
+            "libcephfs-dev": "15.2.17-0ubuntu0.20.04.6",
+            "libcephfs-java": "15.2.17-0ubuntu0.20.04.6",
+            "libcephfs-jni": "15.2.17-0ubuntu0.20.04.6",
+            "libcephfs2": "15.2.17-0ubuntu0.20.04.6",
+            "librados-dev": "15.2.17-0ubuntu0.20.04.6",
+            "librados2": "15.2.17-0ubuntu0.20.04.6",
+            "libradospp-dev": "15.2.17-0ubuntu0.20.04.6",
+            "libradosstriper-dev": "15.2.17-0ubuntu0.20.04.6",
+            "libradosstriper1": "15.2.17-0ubuntu0.20.04.6",
+            "librbd-dev": "15.2.17-0ubuntu0.20.04.6",
+            "librbd1": "15.2.17-0ubuntu0.20.04.6",
+            "librgw-dev": "15.2.17-0ubuntu0.20.04.6",
+            "librgw2": "15.2.17-0ubuntu0.20.04.6",
+            "python3-ceph": "15.2.17-0ubuntu0.20.04.6",
+            "python3-ceph-argparse": "15.2.17-0ubuntu0.20.04.6",
+            "python3-ceph-common": "15.2.17-0ubuntu0.20.04.6",
+            "python3-cephfs": "15.2.17-0ubuntu0.20.04.6",
+            "python3-rados": "15.2.17-0ubuntu0.20.04.6",
+            "python3-rbd": "15.2.17-0ubuntu0.20.04.6",
+            "python3-rgw": "15.2.17-0ubuntu0.20.04.6",
+            "rados-objclass-dev": "15.2.17-0ubuntu0.20.04.6",
+            "radosgw": "15.2.17-0ubuntu0.20.04.6",
+            "rbd-fuse": "15.2.17-0ubuntu0.20.04.6",
+            "rbd-mirror": "15.2.17-0ubuntu0.20.04.6",
+            "rbd-nbd": "15.2.17-0ubuntu0.20.04.6"
+          }
+        ],
+        "availability": "No subscription needed"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:22.04:LTS",
+        "name": "ceph"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "17.2.6-0ubuntu0.22.04.3"
+            }
+          ]
+        }
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "ceph": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-base": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-common": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-fuse": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-grafana-dashboards": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-immutable-object-cache": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-mds": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-mgr": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-mgr-cephadm": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-mgr-dashboard": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-mgr-diskprediction-local": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-mgr-k8sevents": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-mgr-modules-core": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-mgr-rook": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-mon": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-osd": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-prometheus-alerts": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-resource-agents": "17.2.6-0ubuntu0.22.04.3",
+            "ceph-volume": "17.2.6-0ubuntu0.22.04.3",
+            "cephadm": "17.2.6-0ubuntu0.22.04.3",
+            "cephfs-mirror": "17.2.6-0ubuntu0.22.04.3",
+            "cephfs-shell": "17.2.6-0ubuntu0.22.04.3",
+            "crimson-osd": "17.2.6-0ubuntu0.22.04.3",
+            "libcephfs-dev": "17.2.6-0ubuntu0.22.04.3",
+            "libcephfs-java": "17.2.6-0ubuntu0.22.04.3",
+            "libcephfs-jni": "17.2.6-0ubuntu0.22.04.3",
+            "libcephfs2": "17.2.6-0ubuntu0.22.04.3",
+            "librados-dev": "17.2.6-0ubuntu0.22.04.3",
+            "librados2": "17.2.6-0ubuntu0.22.04.3",
+            "libradospp-dev": "17.2.6-0ubuntu0.22.04.3",
+            "libradosstriper-dev": "17.2.6-0ubuntu0.22.04.3",
+            "libradosstriper1": "17.2.6-0ubuntu0.22.04.3",
+            "librbd-dev": "17.2.6-0ubuntu0.22.04.3",
+            "librbd1": "17.2.6-0ubuntu0.22.04.3",
+            "librgw-dev": "17.2.6-0ubuntu0.22.04.3",
+            "librgw2": "17.2.6-0ubuntu0.22.04.3",
+            "libsqlite3-mod-ceph": "17.2.6-0ubuntu0.22.04.3",
+            "libsqlite3-mod-ceph-dev": "17.2.6-0ubuntu0.22.04.3",
+            "python3-ceph": "17.2.6-0ubuntu0.22.04.3",
+            "python3-ceph-argparse": "17.2.6-0ubuntu0.22.04.3",
+            "python3-ceph-common": "17.2.6-0ubuntu0.22.04.3",
+            "python3-cephfs": "17.2.6-0ubuntu0.22.04.3",
+            "python3-rados": "17.2.6-0ubuntu0.22.04.3",
+            "python3-rbd": "17.2.6-0ubuntu0.22.04.3",
+            "python3-rgw": "17.2.6-0ubuntu0.22.04.3",
+            "rados-objclass-dev": "17.2.6-0ubuntu0.22.04.3",
+            "radosgw": "17.2.6-0ubuntu0.22.04.3",
+            "rbd-fuse": "17.2.6-0ubuntu0.22.04.3",
+            "rbd-mirror": "17.2.6-0ubuntu0.22.04.3",
+            "rbd-nbd": "17.2.6-0ubuntu0.22.04.3"
+          }
+        ],
+        "availability": "No subscription needed"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:23.10",
+        "name": "ceph"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "18.2.0-0ubuntu3.1"
+            }
+          ]
+        }
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "ceph": "18.2.0-0ubuntu3.1",
+            "ceph-base": "18.2.0-0ubuntu3.1",
+            "ceph-common": "18.2.0-0ubuntu3.1",
+            "ceph-fuse": "18.2.0-0ubuntu3.1",
+            "ceph-grafana-dashboards": "18.2.0-0ubuntu3.1",
+            "ceph-immutable-object-cache": "18.2.0-0ubuntu3.1",
+            "ceph-mds": "18.2.0-0ubuntu3.1",
+            "ceph-mgr": "18.2.0-0ubuntu3.1",
+            "ceph-mgr-cephadm": "18.2.0-0ubuntu3.1",
+            "ceph-mgr-dashboard": "18.2.0-0ubuntu3.1",
+            "ceph-mgr-diskprediction-local": "18.2.0-0ubuntu3.1",
+            "ceph-mgr-k8sevents": "18.2.0-0ubuntu3.1",
+            "ceph-mgr-modules-core": "18.2.0-0ubuntu3.1",
+            "ceph-mgr-rook": "18.2.0-0ubuntu3.1",
+            "ceph-mon": "18.2.0-0ubuntu3.1",
+            "ceph-osd": "18.2.0-0ubuntu3.1",
+            "ceph-prometheus-alerts": "18.2.0-0ubuntu3.1",
+            "ceph-resource-agents": "18.2.0-0ubuntu3.1",
+            "ceph-volume": "18.2.0-0ubuntu3.1",
+            "cephadm": "18.2.0-0ubuntu3.1",
+            "cephfs-mirror": "18.2.0-0ubuntu3.1",
+            "cephfs-shell": "18.2.0-0ubuntu3.1",
+            "crimson-osd": "18.2.0-0ubuntu3.1",
+            "libcephfs-dev": "18.2.0-0ubuntu3.1",
+            "libcephfs-java": "18.2.0-0ubuntu3.1",
+            "libcephfs-jni": "18.2.0-0ubuntu3.1",
+            "libcephfs2": "18.2.0-0ubuntu3.1",
+            "librados-dev": "18.2.0-0ubuntu3.1",
+            "librados2": "18.2.0-0ubuntu3.1",
+            "libradospp-dev": "18.2.0-0ubuntu3.1",
+            "libradosstriper-dev": "18.2.0-0ubuntu3.1",
+            "libradosstriper1": "18.2.0-0ubuntu3.1",
+            "librbd-dev": "18.2.0-0ubuntu3.1",
+            "librbd1": "18.2.0-0ubuntu3.1",
+            "librgw-dev": "18.2.0-0ubuntu3.1",
+            "librgw2": "18.2.0-0ubuntu3.1",
+            "libsqlite3-mod-ceph": "18.2.0-0ubuntu3.1",
+            "libsqlite3-mod-ceph-dev": "18.2.0-0ubuntu3.1",
+            "python3-ceph": "18.2.0-0ubuntu3.1",
+            "python3-ceph-argparse": "18.2.0-0ubuntu3.1",
+            "python3-ceph-common": "18.2.0-0ubuntu3.1",
+            "python3-cephfs": "18.2.0-0ubuntu3.1",
+            "python3-rados": "18.2.0-0ubuntu3.1",
+            "python3-rbd": "18.2.0-0ubuntu3.1",
+            "python3-rgw": "18.2.0-0ubuntu3.1",
+            "rados-objclass-dev": "18.2.0-0ubuntu3.1",
+            "radosgw": "18.2.0-0ubuntu3.1",
+            "rbd-fuse": "18.2.0-0ubuntu3.1",
+            "rbd-mirror": "18.2.0-0ubuntu3.1",
+            "rbd-nbd": "18.2.0-0ubuntu3.1"
+          }
+        ],
+        "availability": "No subscription needed"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:14.04:LTS",
+        "name": "ceph"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "0.80.11-0ubuntu1.14.04.4+esm2"
+            }
+          ]
+        }
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "ceph": "0.80.11-0ubuntu1.14.04.4+esm2",
+            "ceph-common": "0.80.11-0ubuntu1.14.04.4+esm2",
+            "ceph-fs-common": "0.80.11-0ubuntu1.14.04.4+esm2",
+            "ceph-fuse": "0.80.11-0ubuntu1.14.04.4+esm2",
+            "ceph-mds": "0.80.11-0ubuntu1.14.04.4+esm2",
+            "ceph-test": "0.80.11-0ubuntu1.14.04.4+esm2",
+            "libcephfs-dev": "0.80.11-0ubuntu1.14.04.4+esm2",
+            "libcephfs-jni": "0.80.11-0ubuntu1.14.04.4+esm2",
+            "libcephfs1": "0.80.11-0ubuntu1.14.04.4+esm2",
+            "librados-dev": "0.80.11-0ubuntu1.14.04.4+esm2",
+            "librados2": "0.80.11-0ubuntu1.14.04.4+esm2",
+            "librbd-dev": "0.80.11-0ubuntu1.14.04.4+esm2",
+            "librbd1": "0.80.11-0ubuntu1.14.04.4+esm2",
+            "python-ceph": "0.80.11-0ubuntu1.14.04.4+esm2",
+            "radosgw": "0.80.11-0ubuntu1.14.04.4+esm2",
+            "rbd-fuse": "0.80.11-0ubuntu1.14.04.4+esm2",
+            "rest-bench": "0.80.11-0ubuntu1.14.04.4+esm2"
+          }
+        ],
+        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:16.04:LTS",
+        "name": "ceph"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "10.2.11-0ubuntu0.16.04.3+esm1"
+            }
+          ]
+        }
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "ceph": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "ceph-common": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "ceph-fs-common": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "ceph-fuse": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "ceph-mds": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "ceph-resource-agents": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "ceph-test": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "libcephfs-dev": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "libcephfs-java": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "libcephfs-jni": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "libcephfs1": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "librados-dev": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "librados2": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "libradosstriper-dev": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "libradosstriper1": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "librbd-dev": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "librbd1": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "librgw-dev": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "librgw2": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "python-ceph": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "python-cephfs": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "python-rados": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "python-rbd": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "radosgw": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "rbd-fuse": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "rbd-mirror": "10.2.11-0ubuntu0.16.04.3+esm1",
+            "rbd-nbd": "10.2.11-0ubuntu0.16.04.3+esm1"
+          }
+        ],
+        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-6613-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-43040"
+    }
+  ]
+}
