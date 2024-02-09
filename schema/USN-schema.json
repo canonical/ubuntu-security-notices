@@ -1,50 +1,58 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/canonical/ubuntu-security-notices/main/usn/schema.json",
+  "$id": "https://raw.githubusercontent.com/canonical/ubuntu-security-notices/main/schema/USN-schema.json",
   "title": "Ubuntu Security Notice",
   "description": "A schema for describing a a security update in Ubuntu.",
   "type": "object",
   "properties": {
-    "schema_version": {
-      "type": "string"
-    },
     "id": {
+      "description": "The Security Notice id, e.g USN-0001-1",
       "type": "string"
     },
     "action": {
+      "description": "Instructions on how to upgrade",
       "type": "string"
     },
     "cves": {
+      "description": "A list of CVEs related to this Notice",
       "type": "array",
       "items": {
+        "description": "CVE ID in the form of CVE-YYYY-NNNN",
         "type": "string"
       }
     },
     "description": {
+      "description": "The description of the issue as written by the Security Team",
+      "type": "string"
+    },
+    "is_hidden": {
+      "description": "Temporary field used for testing purposes",
       "type": "string"
     },
     "isummary": {
+      "description": "Short description of the vulnerability",
       "type": "string"
     },
     "releases": {
+      "description": "An entry for each release name",
       "type": "object"
     },
     "summary": {
+      "description": "Source package name and type of update, e.g. python-django vulnerability",
       "type": "string"
     },
     "timestamp": {
+      "description": "Date in epoch format",
       "type": "number"
     },
     "title": {
+      "description": "Similar to summary, but using the Official project name instead of source package name",
       "type": "string"
     }
   },
   "required": [
-    "action",
-    "cves",
     "description",
     "id",
-    "isummary",
     "releases",
     "summary",
     "timestamp",
