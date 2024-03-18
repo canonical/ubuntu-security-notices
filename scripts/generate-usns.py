@@ -73,7 +73,7 @@ def load_usn_files(path):
 
 
 def prepend_usn_to_id(usn, usn_id):
-    if re.search(r"^[0-9]+-[0-9]$", usn_id):
+    if re.search(r"^[0-9]+-[0-9]+$", usn_id):
         usn[usn_id]["id"] = "USN-" + usn_id
 
 
