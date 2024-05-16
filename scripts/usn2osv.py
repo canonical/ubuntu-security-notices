@@ -210,11 +210,11 @@ def abort(message):
 
 
 def parse_sources(sources, release, binaries, timestamp):
-    affected = {}
+    affected = []
     for source in sources:
         num_sources = len(sources)
         fixed_version = sources[source]["version"]
-        affected = Affected(release, source, fixed_version, binaries, num_sources, timestamp)
+        affected.append(Affected(release, source, fixed_version, binaries, num_sources, timestamp))
 
     return affected
 
@@ -261,7 +261,7 @@ def usn2osv(output_path, usn):
                     usn["cves"],
                     modified,
                 )
-            osv.affected.append(affected)
+            osv.affected = osv.affected + affected
 
     if osv:
         write_osv(output_path, osv)
