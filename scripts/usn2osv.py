@@ -12,39 +12,13 @@ from datetime import datetime
 
 import glob
 import json
+import requests
 import os
 import sys
 
 USN_URL = "https://ubuntu.com/security/notices"
 CVE_URL = "https://ubuntu.com/security"
-
-supported_releases = {
-    "trusty": {
-        "name": "Ubuntu 14.04 LTS",
-        "stamp": 1556593200,
-    },
-    "xenial": {
-        "name": "Ubuntu 16.04 LTS",
-        "stamp": 1618963200,
-    },
-    "bionic": {
-        "name": "Ubuntu 18.04 LTS",
-        "stamp": 1685539024,
-    },
-    "focal": {
-        "name": "Ubuntu 20.04 LTS",
-        "stamp": 1587567600,
-    },
-    "jammy": {
-        "name": "Ubuntu 22.04 LTS",
-        "stamp": 1650693600,
-    },
-    "mantic": {
-        "name": "Ubuntu 23.10",
-        "stamp": 1697493600,
-    },
-}
-
+RELEASES_URL = "https://ubuntu.com/security/releases.json"
 
 class Affected:
     """Ubuntu specific info"""
@@ -209,6 +183,40 @@ def abort(message):
     sys.exit(1)
 
 
+def to_timestamp(date):
+    return datetime.strptime(date, "%Y-%m-%dT%H:%M:%S").timestamp()
+
+
+def get_supported_releases():
+    supported_releases = {}
+    today = datetime.today().timestamp()
+    try:
+        response = requests.get(RELEASES_URL).json()
+    except:
+        abort("ERROR: Failed to establish connection, continuing with local db")
+
+    for release in response["releases"]:
+        if release["codename"] == "upstream" or release["development"]:
+            continue
+
+        if to_timestamp(release["support_expires"]) > today:
+            supported_releases.update({
+                release["codename"]: {
+                    "name": ("Ubuntu " + release["version"] + " " + release["support_tag"]).strip(),
+                    "stamp": to_timestamp(release["release_date"])
+                }
+            })
+        elif to_timestamp(release["esm_expires"]) > today:
+            supported_releases.update({
+                release["codename"]: {
+                    "name": "Ubuntu " + release["version"] + " LTS",
+                    "stamp": to_timestamp(release["support_expires"])
+                }
+            })
+
+    return supported_releases
+
+
 def parse_sources(sources, release, binaries, timestamp):
     affected = []
     for source in sources:
@@ -224,7 +232,7 @@ def write_osv(path, osv):
         f.write(osv.toJson())
 
 
-def usn2osv(output_path, usn):
+def usn2osv(output_path, usn, supported_releases):
     osv = None
     releases = usn["releases"].keys()
     for release in releases:
@@ -275,10 +283,12 @@ def main():
     elif not os.path.isdir(options.output_dir):
         abort("%s is not a directory, exiting." % options.output_dir)
 
+    supported_releases = get_supported_releases()
+
     for filename in glob.glob(os.path.join(options.input_dir, "*.json")):
         with open(filename, "r") as f:
             usn = json.load(f)
-            usn2osv(options.output_dir, usn)
+            usn2osv(options.output_dir, usn, supported_releases)
 
     return 0
 
