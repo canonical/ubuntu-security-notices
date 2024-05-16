@@ -1,9 +1,13 @@
 {
   "id": "USN-2700-1",
   "summary": "linux vulnerabilities",
-  "details": "",
+  "details": "Andy Lutomirski discovered a flaw in the Linux kernel's handling of nested\nNMIs (non-maskable interrupts). An unprivileged local user could exploit\nthis flaw to cause a denial of service (system crash) or potentially\nescalate their privileges. (CVE-2015-3290)\n\nAndy Lutomirski discovered a flaw that allows user to cause the Linux\nkernel to ignore some NMIs (non-maskable interrupts). A local unprivileged\nuser could exploit this flaw to potentially cause the system to miss\nimportant NMIs resulting in unspecified effects. (CVE-2015-3291)\n\nAndy Lutomirski and Petr Matousek discovered that an NMI (non-maskable\ninterrupt) that interrupts userspace and encounters an IRET fault is\nincorrectly handled by the Linux kernel. An unprivileged local user could\nexploit this flaw to cause a denial of service (kernel OOPs), corruption,\nor potentially escalate privileges on the system. (CVE-2015-5157)\n",
   "aliases": [],
-  "related": [],
+  "related": [
+    "CVE-2015-3290",
+    "CVE-2015-3291",
+    "CVE-2015-5157"
+  ],
   "published": "2015-07-31T02:10:47.030463Z",
   "modified": "2015-07-31T02:10:47.030463Z",
   "affected": [
@@ -28,15 +32,15 @@
       "ecosystem_specific": {
         "binaries": [
           {
+            "linux-image-3.13.0-61-generic": "3.13.0-61.100",
             "linux-image-3.13.0-61-generic-lpae": "3.13.0-61.100",
             "linux-image-3.13.0-61-lowlatency": "3.13.0-61.100",
+            "linux-image-3.13.0-61-powerpc-e500": "3.13.0-61.100",
             "linux-image-3.13.0-61-powerpc-e500mc": "3.13.0-61.100",
+            "linux-image-3.13.0-61-powerpc-smp": "3.13.0-61.100",
             "linux-image-3.13.0-61-powerpc64-emb": "3.13.0-61.100",
             "linux-image-3.13.0-61-powerpc64-smp": "3.13.0-61.100",
-            "linux-image-extra-3.13.0-61-generic": "3.13.0-61.100",
-            "linux-image-3.13.0-61-powerpc-e500": "3.13.0-61.100",
-            "linux-image-3.13.0-61-generic": "3.13.0-61.100",
-            "linux-image-3.13.0-61-powerpc-smp": "3.13.0-61.100"
+            "linux-image-extra-3.13.0-61-generic": "3.13.0-61.100"
           }
         ],
         "availability": "No subscription needed"
@@ -47,6 +51,18 @@
     {
       "type": "ADVISORY",
       "url": "https://ubuntu.com/security/notices/USN-2700-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2015-3290"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2015-3291"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2015-5157"
     }
   ]
 }
