@@ -1,4 +1,647 @@
 {
+  "description": "Hyunwoo Kim discovered that the DVB Core driver in the Linux kernel\ncontained a race condition during device removal, leading to a use-after-\nfree vulnerability. A physically proximate attacker could use this to cause\na denial of service (system crash) or possibly execute arbitrary code.\n(CVE-2022-45886, CVE-2022-45919)\n\nHyunwoo Kim discovered that the Technotrend/Hauppauge USB DEC driver in the\nLinux kernel did not properly handle device removal events. A physically\nproximate attacker could use this to cause a denial of service (system\ncrash). (CVE-2022-45887)\n\nIt was discovered that the NTFS file system implementation in the Linux\nkernel did not properly validate MFT flags in certain situations. An\nattacker could use this to construct a malicious NTFS image that, when\nmounted and operated on, could cause a denial of service (system crash).\n(CVE-2022-48425)\n\nIt was discovered that the IPv6 implementation in the Linux kernel\ncontained a high rate of hash collisions in connection lookup table. A\nremote attacker could use this to cause a denial of service (excessive CPU\nconsumption). (CVE-2023-1206)\n\nDaniel Trujillo, Johannes Wikner, and Kaveh Razavi discovered that some AMD\nprocessors utilising speculative execution and branch prediction may allow\nunauthorised memory reads via a speculative side-channel attack. A local\nattacker could use this to expose sensitive information, including kernel\nmemory. (CVE-2023-20569)\n\nJana Hofmann, Emanuele Vannacci, Cedric Fournet, Boris Kopf, and Oleksii\nOleksenko discovered that some AMD processors could leak stale data from\ndivision operations in certain situations. A local attacker could possibly\nuse this to expose sensitive information. (CVE-2023-20588)\n\nIt was discovered that the ARM64 KVM implementation in the Linux kernel did\nnot properly restrict hypervisor memory access. An attacker in a guest VM\ncould use this to execute arbitrary code in the host OS. (CVE-2023-21264)\n\nIt was discovered that the IPv6 RPL protocol implementation in the Linux\nkernel did not properly handle user-supplied data. A remote attacker could\nuse this to cause a denial of service (system crash). (CVE-2023-2156)\n\nYu Hao and Weiteng Chen discovered that the Bluetooth HCI UART driver in\nthe Linux kernel contained a race condition, leading to a null pointer\ndereference vulnerability. A local attacker could use this to cause a\ndenial of service (system crash). (CVE-2023-31083)\n\nYang Lan discovered that the GFS2 file system implementation in the Linux\nkernel could attempt to dereference a null pointer in some situations. An\nattacker could use this to construct a malicious GFS2 image that, when\nmounted and operated on, could cause a denial of service (system crash).\n(CVE-2023-3212)\n\nRoss Lagerwall discovered that the Xen netback backend driver in the Linux\nkernel did not properly handle certain unusual packets from a\nparavirtualized network frontend, leading to a buffer overflow. An attacker\nin a guest VM could use this to cause a denial of service (host system\ncrash) or possibly execute arbitrary code. (CVE-2023-34319)\n\nLin Ma discovered that the Netlink Transformation (XFRM) subsystem in the\nLinux kernel contained a null pointer dereference vulnerability in some\nsituations. A local privileged attacker could use this to cause a denial of\nservice (system crash). (CVE-2023-3772)\n\nIt was discovered that the KSMBD implementation in the Linux kernel did not\nproperly validate buffer sizes in certain operations, leading to an integer\nunderflow and out-of-bounds read vulnerability. A remote attacker could use\nthis to cause a denial of service (system crash) or possibly expose\nsensitive information. (CVE-2023-38427)\n\nChih-Yen Chang discovered that the KSMBD implementation in the Linux kernel\ndid not properly validate SMB request protocol IDs, leading to a out-of-\nbounds read vulnerability. A remote attacker could possibly use this to\ncause a denial of service (system crash). (CVE-2023-38430)\n\nChih-Yen Chang discovered that the KSMBD implementation in the Linux kernel\ndid not properly validate packet header sizes in certain situations,\nleading to an out-of-bounds read vulnerability. A remote attacker could use\nthis to cause a denial of service (system crash) or possibly expose\nsensitive information. (CVE-2023-38431)\n\nChih-Yen Chang discovered that the KSMBD implementation in the Linux kernel\ndid not properly validate command payload size, leading to a out-of-bounds\nread vulnerability. A remote attacker could possibly use this to cause a\ndenial of service (system crash). (CVE-2023-38432)\n\nIt was discovered that the NFC implementation in the Linux kernel contained\na use-after-free vulnerability when performing peer-to-peer communication\nin certain conditions. A privileged attacker could use this to cause a\ndenial of service (system crash) or possibly expose sensitive information\n(kernel memory). (CVE-2023-3863)\n\nLaurence Wit discovered that the KSMBD implementation in the Linux kernel\ndid not properly validate a buffer size in certain situations, leading to\nan out-of-bounds read vulnerability. A remote attacker could use this to\ncause a denial of service (system crash) or possibly expose sensitive\ninformation. (CVE-2023-3865)\n\nLaurence Wit discovered that the KSMBD implementation in the Linux kernel\ncontained a null pointer dereference vulnerability when handling handling\nchained requests. A remote attacker could use this to cause a denial of\nservice (system crash). (CVE-2023-3866)\n\nIt was discovered that the KSMBD implementation in the Linux kernel did not\nproperly handle session setup requests, leading to an out-of-bounds read\nvulnerability. A remote attacker could use this to expose sensitive\ninformation. (CVE-2023-3867)\n\nIt was discovered that the bluetooth subsystem in the Linux kernel did not\nproperly handle L2CAP socket release, leading to a use-after-free\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-40283)\n\nIt was discovered that some network classifier implementations in the Linux\nkernel contained use-after-free vulnerabilities. A local attacker could use\nthis to cause a denial of service (system crash) or possibly execute\narbitrary code. (CVE-2023-4128)\n\nIt was discovered that the Siano USB MDTV receiver device driver in the\nLinux kernel did not properly handle device initialization failures in\ncertain situations, leading to a use-after-free vulnerability. A physically\nproximate attacker could use this cause a denial of service (system crash).\n(CVE-2023-4132)\n\nIt was discovered that a race condition existed in the Cypress touchscreen\ndriver in the Linux kernel during device removal, leading to a use-after-\nfree vulnerability. A physically proximate attacker could use this to cause\na denial of service (system crash) or possibly execute arbitrary code.\n(CVE-2023-4134)\n\nAndy Nguyen discovered that the KVM implementation for AMD processors in\nthe Linux kernel with Secure Encrypted Virtualization (SEV) contained a\nrace condition when accessing the GHCB page. A local attacker in a SEV\nguest VM could possibly use this to cause a denial of service (host system\ncrash). (CVE-2023-4155)\n\nIt was discovered that the TUN/TAP driver in the Linux kernel did not\nproperly initialize socket data. A local attacker could use this to cause a\ndenial of service (system crash). (CVE-2023-4194)\n\nBien Pham discovered that the netfiler subsystem in the Linux kernel\ncontained a race condition, leading to a use-after-free vulnerability. A\nlocal user could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2023-4244)\n\nMaxim Suhanov discovered that the exFAT file system implementation in the\nLinux kernel did not properly check a file name length, leading to an out-\nof-bounds write vulnerability. An attacker could use this to construct a\nmalicious exFAT image that, when mounted and operated on, could cause a\ndenial of service (system crash) or possibly execute arbitrary code.\n(CVE-2023-4273)\n\nKyle Zeng discovered that the networking stack implementation in the Linux\nkernel did not properly validate skb object size in certain conditions. An\nattacker could use this cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2023-42752)\n\nKyle Zeng discovered that the netfiler subsystem in the Linux kernel did\nnot properly calculate array offsets, leading to a out-of-bounds write\nvulnerability. A local user could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-42753)\n\nKyle Zeng discovered that the IPv4 Resource Reservation Protocol (RSVP)\nclassifier implementation in the Linux kernel contained an out-of-bounds\nread vulnerability. A local attacker could use this to cause a denial of\nservice (system crash). Please note that kernel packet classifier support\nfor RSVP has been removed to resolve this vulnerability. (CVE-2023-42755)\n\nKyle Zeng discovered that the netfilter subsystem in the Linux kernel\ncontained a race condition in IP set operations in certain situations. A\nlocal attacker could use this to cause a denial of service (system crash).\n(CVE-2023-42756)\n\nThelford Williams discovered that the Ceph file system messenger protocol\nimplementation in the Linux kernel did not properly validate frame segment\nlength in certain situation, leading to a buffer overflow vulnerability. A\nremote attacker could use this to cause a denial of service (system crash)\nor possibly execute arbitrary code. (CVE-2023-44466)\n\nLonial Con discovered that the netfilter subsystem in the Linux kernel\ncontained a memory leak when handling certain element flush operations. A\nlocal attacker could use this to expose sensitive information (kernel\nmemory). (CVE-2023-4569)\n\nBing-Jhong Billy Jheng discovered that the Unix domain socket\nimplementation in the Linux kernel contained a race condition in certain\nsituations, leading to a use-after-free vulnerability. A local attacker\ncould use this to cause a denial of service (system crash) or possibly\nexecute arbitrary code. (CVE-2023-4622)\n\nBudimir Markovic discovered that the qdisc implementation in the Linux\nkernel did not properly validate inner classes, leading to a use-after-free\nvulnerability. A local user could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-4623)\n\nAlex Birnberg discovered that the netfilter subsystem in the Linux kernel\ndid not properly validate register length, leading to an out-of- bounds\nwrite vulnerability. A local attacker could possibly use this to cause a\ndenial of service (system crash). (CVE-2023-4881)\n\nIt was discovered that the Quick Fair Queueing scheduler implementation in\nthe Linux kernel did not properly handle network packets in certain\nconditions, leading to a use after free vulnerability. A local attacker\ncould use this to cause a denial of service (system crash) or possibly\nexecute arbitrary code. (CVE-2023-4921)\n\nKevin Rich discovered that the netfilter subsystem in the Linux kernel did\nnot properly handle removal of rules from chain bindings in certain\ncircumstances, leading to a use-after-free vulnerability. A local attacker\ncould possibly use this to cause a denial of service (system crash) or\nexecute arbitrary code. (CVE-2023-5197)\n\n",
+  "releases": {
+    "jammy": {
+      "allbinaries": {
+        "linux-tools-nvidia-64k-6.2": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-tools-nvidia-6.2": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-modules-nvidia-fs-nvidia-6.2": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-image-6.2.0-1011-nvidia-64k": {
+          "pocket": "security",
+          "source": "linux-signed-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-image-nvidia-6.2": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-modules-nvidia-fs-6.2.0-1011-nvidia-64k": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-modules-nvidia-fs-6.2.0-1011-nvidia": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-nvidia-64k-6.2": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-modules-nvidia-fs-nvidia-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-headers-6.2.0-1011-nvidia": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-nvidia-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-nvidia-6.2": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-image-nvidia-64k-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-image-nvidia-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-tools-nvidia-64k-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-modules-nvidia-fs-nvidia-64k-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-nvidia-64k-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-modules-6.2.0-1011-nvidia-64k": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-tools-6.2.0-1011-nvidia": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-headers-nvidia-64k-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-nvidia-64k-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-tools-nvidia-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-nvidia-6.2-tools-host": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-modules-nvidia-fs-nvidia-64k-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-image-nvidia-64k-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-buildinfo-6.2.0-1011-nvidia": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-cloud-tools-nvidia-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-cloud-tools-nvidia-6.2": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-headers-nvidia-64k-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-nvidia-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-modules-nvidia-fs-nvidia-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-image-nvidia-64k-6.2": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-modules-6.2.0-1011-nvidia": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-tools-6.2.0-1011-nvidia-64k": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-image-unsigned-6.2.0-1011-nvidia": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-image-6.2.0-1011-nvidia": {
+          "pocket": "security",
+          "source": "linux-signed-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-buildinfo-6.2.0-1011-nvidia-64k": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-tools-nvidia-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-modules-nvidia-fs-nvidia-64k-6.2": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-headers-6.2.0-1011-nvidia-64k": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-nvidia-6.2-headers-6.2.0-1011": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-headers-nvidia-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-cloud-tools-nvidia-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-image-unsigned-6.2.0-1011-nvidia-64k": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-headers-nvidia-64k-6.2": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-nvidia-6.2-tools-6.2.0-1011": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-headers-nvidia-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-tools-nvidia-64k-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-headers-nvidia-6.2": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-modules-extra-6.2.0-1011-nvidia": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.2",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-image-nvidia-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.2",
+          "version": "6.2.0.1011.13"
+        }
+      },
+      "binaries": {
+        "linux-image-nvidia-hwe-22.04": {
+          "pocket": "security",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-image-6.2.0-1011-nvidia-64k": {
+          "pocket": "security",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-image-nvidia-6.2": {
+          "pocket": "security",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-image-nvidia-64k-6.2": {
+          "pocket": "security",
+          "version": "6.2.0.1011.13"
+        },
+        "linux-image-6.2.0-1011-nvidia": {
+          "pocket": "security",
+          "version": "6.2.0-1011.11"
+        },
+        "linux-image-nvidia-64k-hwe-22.04": {
+          "pocket": "security",
+          "version": "6.2.0.1011.13"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-nvidia-6.2_6.2.0-1011.11.diff.gz": {
+              "size": 12051565,
+              "md5": "af514c45debf77299051de073b228bde"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-nvidia-6.2/linux-signed-nvidia-6.2_6.2.0-1011.11.tar.xz": {
+              "size": 25540,
+              "md5": "380bfe4c8e0dfde9b22b47b2624e4958"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-meta-nvidia-6.2_6.2.0.1011.13.dsc": {
+              "size": 5059,
+              "md5": "10a994165ceba63b6d267abeb45bcdeb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-nvidia-6.2_6.2.0-1011.11.dsc": {
+              "size": 6440,
+              "md5": "c71cabc5bbc7f104b5f3b62860727420"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-nvidia-6.2/linux-signed-nvidia-6.2_6.2.0-1011.11.dsc": {
+              "size": 2322,
+              "md5": "0fcbd571cbba00385fff84e6f25117d0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-nvidia-6.2_6.2.0.orig.tar.gz": {
+              "size": 218562620,
+              "md5": "b9a9c9b6ffcd859118d26acf8f01d66f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-meta-nvidia-6.2_6.2.0.1011.13.tar.xz": {
+              "size": 17160,
+              "md5": "c2339c50616e3d5fdc4c0eeee3d76007"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-nvidia-6.2-tools-host_6.2.0-1011.11_all.deb": {
+              "size": 404446,
+              "md5": "b192cebed07e5a2e7638f618b829e223"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-nvidia-6.2-headers-6.2.0-1011_6.2.0-1011.11_all.deb": {
+              "size": 13347626,
+              "md5": "603cee3381d64a9c71a1b7a607248530"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-headers-6.2.0-1011-nvidia_6.2.0-1011.11_amd64.deb": {
+              "size": 3662460,
+              "md5": "ecd4b3454a463e9850284d48de47450a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-hwe-22.04_6.2.0.1011.13_amd64.deb": {
+              "size": 14686,
+              "md5": "a16b79967c1eefad594a2b132ced41fe"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-nvidia-6.2-tools-6.2.0-1011_6.2.0-1011.11_amd64.deb": {
+              "size": 7831914,
+              "md5": "015a9f2ee59e92db5157a923b32e703d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-hwe-22.04-edge_6.2.0.1011.13_amd64.deb": {
+              "size": 14742,
+              "md5": "0180174336ee7b5e4b4b3308d664f12d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-6.2_6.2.0.1011.13_amd64.deb": {
+              "size": 14804,
+              "md5": "586006915db2a6b25c587a6d63e80304"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-hwe-22.04_6.2.0.1011.13_amd64.deb": {
+              "size": 14680,
+              "md5": "7685d34f68d334cfda011753c2b04b86"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-6.2_6.2.0.1011.13_amd64.deb": {
+              "size": 14668,
+              "md5": "058bf1b80db2cc18a62cf6af7002134f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-nvidia-6.2/linux-image-6.2.0-1011-nvidia_6.2.0-1011.11_amd64.deb": {
+              "size": 13563718,
+              "md5": "6f2df2974a6d7cb012470c5dfd2fb037"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-image-unsigned-6.2.0-1011-nvidia_6.2.0-1011.11_amd64.deb": {
+              "size": 14213312,
+              "md5": "80852627d5fd382d726b6084ff0a6c5f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-hwe-22.04-edge_6.2.0.1011.13_amd64.deb": {
+              "size": 14822,
+              "md5": "f92d8a0ba2586c074d05fa029434fb92"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-hwe-22.04_6.2.0.1011.13_amd64.deb": {
+              "size": 14812,
+              "md5": "bd904c8686fa20e6e4dc68f4164b1582"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-hwe-22.04-edge_6.2.0.1011.13_amd64.deb": {
+              "size": 14680,
+              "md5": "41c855b8823d61d47da04a78a21d7d12"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-tools-6.2.0-1011-nvidia_6.2.0-1011.11_amd64.deb": {
+              "size": 404700,
+              "md5": "fa73bb318dc455c0db7476b5e8c91f9d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-buildinfo-6.2.0-1011-nvidia_6.2.0-1011.11_amd64.deb": {
+              "size": 864724,
+              "md5": "ea1d3f2b03c7c8855ddd12a380d44b9d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-modules-nvidia-fs-6.2.0-1011-nvidia_6.2.0-1011.11_amd64.deb": {
+              "size": 459676,
+              "md5": "fd5ad13aa271f10b3bbcb2df615d6e7d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-hwe-22.04_6.2.0.1011.13_amd64.deb": {
+              "size": 14730,
+              "md5": "030d6d93c7b1ebc54e4c566b7c5f5a48"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-hwe-22.04-edge_6.2.0.1011.13_amd64.deb": {
+              "size": 14688,
+              "md5": "087406033b92b378434e10d3720974ac"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-hwe-22.04_6.2.0.1011.13_amd64.deb": {
+              "size": 14670,
+              "md5": "f5daf4487d2e6fff73a2c9deaa26cfcb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-6.2_6.2.0.1011.13_amd64.deb": {
+              "size": 14720,
+              "md5": "e55c16845fec90fe8ca1998b8fc2d1d2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-modules-extra-6.2.0-1011-nvidia_6.2.0-1011.11_amd64.deb": {
+              "size": 74355276,
+              "md5": "05c5124bd29f0bbb91ce508809fea227"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-6.2_6.2.0.1011.13_amd64.deb": {
+              "size": 14662,
+              "md5": "72866bc764013651d7c7aa4629a6e355"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-modules-6.2.0-1011-nvidia_6.2.0-1011.11_amd64.deb": {
+              "size": 25052220,
+              "md5": "36ebea479d4555fe78260e50e240b321"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-hwe-22.04-edge_6.2.0.1011.13_amd64.deb": {
+              "size": 14692,
+              "md5": "98dd4e625a0103482b0b88e4dc4ca48e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-cloud-tools-nvidia-hwe-22.04-edge_6.2.0.1011.13_amd64.deb": {
+              "size": 14698,
+              "md5": "5970ec192486c2e9b12c6990ae215964"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-6.2_6.2.0.1011.13_amd64.deb": {
+              "size": 14710,
+              "md5": "949f564d5d69095c296b7f88d1a3a6d3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-cloud-tools-nvidia-6.2_6.2.0.1011.13_amd64.deb": {
+              "size": 14674,
+              "md5": "ff8a07443d27f92d4d5881e949504a0e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-cloud-tools-nvidia-hwe-22.04_6.2.0.1011.13_amd64.deb": {
+              "size": 14690,
+              "md5": "33091bf3a0a00bca0af2349c17e1ff01"
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-tools-6.2.0-1011-nvidia-64k_6.2.0-1011.11_arm64.deb": {
+              "size": 404704,
+              "md5": "fb10ad26cf02bb6db2a39e1e12cab76d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-image-unsigned-6.2.0-1011-nvidia-64k_6.2.0-1011.11_arm64.deb": {
+              "size": 17111232,
+              "md5": "64d1c3e0974455fe071bfbf7d2238975"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-64k-hwe-22.04_6.2.0.1011.13_arm64.deb": {
+              "size": 14680,
+              "md5": "c43408ef148f5fef9fbaca944e883595"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-6.2_6.2.0.1011.13_arm64.deb": {
+              "size": 14720,
+              "md5": "a5dce0fae8ce708fa3f431c8c545a28d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-buildinfo-6.2.0-1011-nvidia_6.2.0-1011.11_arm64.deb": {
+              "size": 881528,
+              "md5": "4cb7f5a911ca5a567600b5eb2d2204ba"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-modules-extra-6.2.0-1011-nvidia_6.2.0-1011.11_arm64.deb": {
+              "size": 74596506,
+              "md5": "faab254ad481d42ee702154283165ade"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-6.2_6.2.0.1011.13_arm64.deb": {
+              "size": 14668,
+              "md5": "8f73cbb0c75fb6ef02e0b4f10e7b7da2"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-modules-nvidia-fs-6.2.0-1011-nvidia_6.2.0-1011.11_arm64.deb": {
+              "size": 459564,
+              "md5": "79a17b272da1c0b0129b088f84def735"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-64k-hwe-22.04_6.2.0.1011.13_arm64.deb": {
+              "size": 14740,
+              "md5": "6c090f488778f685d4acb86d99fba876"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-modules-nvidia-fs-6.2.0-1011-nvidia-64k_6.2.0-1011.11_arm64.deb": {
+              "size": 459672,
+              "md5": "ed0a589bcf8f17961a68c7efe9c90403"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-64k-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
+              "size": 14688,
+              "md5": "5d91001a026280c13022242b05a28561"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-64k-6.2_6.2.0.1011.13_arm64.deb": {
+              "size": 14730,
+              "md5": "bc8b01acd703a97c693a4d0e877bf37c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-nvidia-6.2/linux-image-6.2.0-1011-nvidia_6.2.0-1011.11_arm64.deb": {
+              "size": 16434600,
+              "md5": "b419539a67d3c8c2ed805fb53917efc3"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-hwe-22.04_6.2.0.1011.13_arm64.deb": {
+              "size": 14670,
+              "md5": "ffb9e1d0e5b78b5fa6c6777ebfd77927"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-tools-6.2.0-1011-nvidia_6.2.0-1011.11_arm64.deb": {
+              "size": 404700,
+              "md5": "3573b412af6d87830aec0c6f93c55d43"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
+              "size": 14680,
+              "md5": "80542f6bcbb1a10f991c3261b45824e0"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-headers-6.2.0-1011-nvidia-64k_6.2.0-1011.11_arm64.deb": {
+              "size": 3146832,
+              "md5": "c8be1a7f82a0d6e7ec8d34d4a1e9d3f3"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-image-unsigned-6.2.0-1011-nvidia_6.2.0-1011.11_arm64.deb": {
+              "size": 17121472,
+              "md5": "644838cfa81412f2c05e71dc32819a7e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-64k-hwe-22.04_6.2.0.1011.13_arm64.deb": {
+              "size": 14702,
+              "md5": "c7e31323d4ae0f4bb93cc782e9f02b65"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
+              "size": 14688,
+              "md5": "9b72aed9afdc172740a9d613ec4de4ea"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-6.2_6.2.0.1011.13_arm64.deb": {
+              "size": 14662,
+              "md5": "fe392001d20c5b6f69b3e10e03500b93"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
+              "size": 14692,
+              "md5": "a084d5f95c09d28d5ed4446e73daad5f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-64k-hwe-22.04_6.2.0.1011.13_arm64.deb": {
+              "size": 14694,
+              "md5": "5488b608c122cfe455ebeeee27f2f546"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-6.2_6.2.0.1011.13_arm64.deb": {
+              "size": 14710,
+              "md5": "dbff2295494cbcf52c32a465aed79737"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-hwe-22.04_6.2.0.1011.13_arm64.deb": {
+              "size": 14680,
+              "md5": "418988705f0087c68f24e9915990a19c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-64k-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
+              "size": 14698,
+              "md5": "1cb8dd6def7eb137b218984d39defaeb"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-nvidia-6.2-tools-6.2.0-1011_6.2.0-1011.11_arm64.deb": {
+              "size": 7184358,
+              "md5": "aa7d7ad2f514a2ba005943f49293818e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-buildinfo-6.2.0-1011-nvidia-64k_6.2.0-1011.11_arm64.deb": {
+              "size": 881346,
+              "md5": "76f6d05048924069cd0f56f7a9fbd8fd"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-64k-6.2_6.2.0.1011.13_arm64.deb": {
+              "size": 14724,
+              "md5": "9ab81548df002940583d1a7ca769dbb9"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-64k-6.2_6.2.0.1011.13_arm64.deb": {
+              "size": 14678,
+              "md5": "67000819986a737004181483c9c5547f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
+              "size": 14742,
+              "md5": "fbdf10003b90dc15570a32b6539abe82"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-64k-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
+              "size": 14750,
+              "md5": "5abffdda3d49e1ed9f9b2683e5df8ef0"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-nvidia-6.2/linux-image-6.2.0-1011-nvidia-64k_6.2.0-1011.11_arm64.deb": {
+              "size": 16421220,
+              "md5": "311ba285d32cc08d394bf27ced33875d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-64k-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
+              "size": 14708,
+              "md5": "cdf1a4ec7f805d5f02966a8614bbd39d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-headers-6.2.0-1011-nvidia_6.2.0-1011.11_arm64.deb": {
+              "size": 3153832,
+              "md5": "fddd2b030f5f503a78d95a7de74a7882"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-64k-6.2_6.2.0.1011.13_arm64.deb": {
+              "size": 14670,
+              "md5": "3c001e1e85f31aae0cd8126c121cea7d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-64k-6.2_6.2.0.1011.13_arm64.deb": {
+              "size": 14724,
+              "md5": "bf35e62684c0848daa56ca46692c53cb"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-hwe-22.04_6.2.0.1011.13_arm64.deb": {
+              "size": 14730,
+              "md5": "192d7f7698d32e8cb5d3596524756e9f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-modules-6.2.0-1011-nvidia_6.2.0-1011.11_arm64.deb": {
+              "size": 24371626,
+              "md5": "62eb5bcec39e22bea67e3b3728afbb61"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
+              "size": 14788,
+              "md5": "e8100142e76c364de6b08f0ef0e8753c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-modules-6.2.0-1011-nvidia-64k_6.2.0-1011.11_arm64.deb": {
+              "size": 98189376,
+              "md5": "49e4f092b765dde8106b762456b8c63f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-hwe-22.04_6.2.0.1011.13_arm64.deb": {
+              "size": 14686,
+              "md5": "093d48c7361c008079e2a5d771ceb4b6"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-64k-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
+              "size": 14748,
+              "md5": "2fde0d3fe32aa8fbb5ceff774592a7c9"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-64k-hwe-22.04_6.2.0.1011.13_arm64.deb": {
+              "size": 14742,
+              "md5": "5e13d1755aee173882a0e0646f5bedf2"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-hwe-22.04_6.2.0.1011.13_arm64.deb": {
+              "size": 14780,
+              "md5": "b5190a4c9c8a40053ee8c2a95a67dda0"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-6.2_6.2.0.1011.13_arm64.deb": {
+              "size": 14770,
+              "md5": "195a58037aa3f3c6ea96b489dbc93a38"
+            }
+          }
+        }
+      },
+      "sources": {
+        "linux-nvidia-6.2": {
+          "version": "6.2.0-1011.11",
+          "description": "Linux kernel for NVIDIA systems"
+        }
+      }
+    }
+  },
+  "title": "Linux kernel (NVIDIA) vulnerabilities",
+  "timestamp": 1698788860.4158912,
+  "summary": "linux-nvidia-6.2 vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
   "cves": [
     "CVE-2022-45886",
@@ -42,649 +685,6 @@
     "CVE-2023-4921",
     "CVE-2023-5197"
   ],
-  "description": "Hyunwoo Kim discovered that the DVB Core driver in the Linux kernel\ncontained a race condition during device removal, leading to a use-after-\nfree vulnerability. A physically proximate attacker could use this to cause\na denial of service (system crash) or possibly execute arbitrary code.\n(CVE-2022-45886, CVE-2022-45919)\n\nHyunwoo Kim discovered that the Technotrend/Hauppauge USB DEC driver in the\nLinux kernel did not properly handle device removal events. A physically\nproximate attacker could use this to cause a denial of service (system\ncrash). (CVE-2022-45887)\n\nIt was discovered that the NTFS file system implementation in the Linux\nkernel did not properly validate MFT flags in certain situations. An\nattacker could use this to construct a malicious NTFS image that, when\nmounted and operated on, could cause a denial of service (system crash).\n(CVE-2022-48425)\n\nIt was discovered that the IPv6 implementation in the Linux kernel\ncontained a high rate of hash collisions in connection lookup table. A\nremote attacker could use this to cause a denial of service (excessive CPU\nconsumption). (CVE-2023-1206)\n\nDaniel Trujillo, Johannes Wikner, and Kaveh Razavi discovered that some AMD\nprocessors utilising speculative execution and branch prediction may allow\nunauthorised memory reads via a speculative side-channel attack. A local\nattacker could use this to expose sensitive information, including kernel\nmemory. (CVE-2023-20569)\n\nJana Hofmann, Emanuele Vannacci, Cedric Fournet, Boris Kopf, and Oleksii\nOleksenko discovered that some AMD processors could leak stale data from\ndivision operations in certain situations. A local attacker could possibly\nuse this to expose sensitive information. (CVE-2023-20588)\n\nIt was discovered that the ARM64 KVM implementation in the Linux kernel did\nnot properly restrict hypervisor memory access. An attacker in a guest VM\ncould use this to execute arbitrary code in the host OS. (CVE-2023-21264)\n\nIt was discovered that the IPv6 RPL protocol implementation in the Linux\nkernel did not properly handle user-supplied data. A remote attacker could\nuse this to cause a denial of service (system crash). (CVE-2023-2156)\n\nYu Hao and Weiteng Chen discovered that the Bluetooth HCI UART driver in\nthe Linux kernel contained a race condition, leading to a null pointer\ndereference vulnerability. A local attacker could use this to cause a\ndenial of service (system crash). (CVE-2023-31083)\n\nYang Lan discovered that the GFS2 file system implementation in the Linux\nkernel could attempt to dereference a null pointer in some situations. An\nattacker could use this to construct a malicious GFS2 image that, when\nmounted and operated on, could cause a denial of service (system crash).\n(CVE-2023-3212)\n\nRoss Lagerwall discovered that the Xen netback backend driver in the Linux\nkernel did not properly handle certain unusual packets from a\nparavirtualized network frontend, leading to a buffer overflow. An attacker\nin a guest VM could use this to cause a denial of service (host system\ncrash) or possibly execute arbitrary code. (CVE-2023-34319)\n\nLin Ma discovered that the Netlink Transformation (XFRM) subsystem in the\nLinux kernel contained a null pointer dereference vulnerability in some\nsituations. A local privileged attacker could use this to cause a denial of\nservice (system crash). (CVE-2023-3772)\n\nIt was discovered that the KSMBD implementation in the Linux kernel did not\nproperly validate buffer sizes in certain operations, leading to an integer\nunderflow and out-of-bounds read vulnerability. A remote attacker could use\nthis to cause a denial of service (system crash) or possibly expose\nsensitive information. (CVE-2023-38427)\n\nChih-Yen Chang discovered that the KSMBD implementation in the Linux kernel\ndid not properly validate SMB request protocol IDs, leading to a out-of-\nbounds read vulnerability. A remote attacker could possibly use this to\ncause a denial of service (system crash). (CVE-2023-38430)\n\nChih-Yen Chang discovered that the KSMBD implementation in the Linux kernel\ndid not properly validate packet header sizes in certain situations,\nleading to an out-of-bounds read vulnerability. A remote attacker could use\nthis to cause a denial of service (system crash) or possibly expose\nsensitive information. (CVE-2023-38431)\n\nChih-Yen Chang discovered that the KSMBD implementation in the Linux kernel\ndid not properly validate command payload size, leading to a out-of-bounds\nread vulnerability. A remote attacker could possibly use this to cause a\ndenial of service (system crash). (CVE-2023-38432)\n\nIt was discovered that the NFC implementation in the Linux kernel contained\na use-after-free vulnerability when performing peer-to-peer communication\nin certain conditions. A privileged attacker could use this to cause a\ndenial of service (system crash) or possibly expose sensitive information\n(kernel memory). (CVE-2023-3863)\n\nLaurence Wit discovered that the KSMBD implementation in the Linux kernel\ndid not properly validate a buffer size in certain situations, leading to\nan out-of-bounds read vulnerability. A remote attacker could use this to\ncause a denial of service (system crash) or possibly expose sensitive\ninformation. (CVE-2023-3865)\n\nLaurence Wit discovered that the KSMBD implementation in the Linux kernel\ncontained a null pointer dereference vulnerability when handling handling\nchained requests. A remote attacker could use this to cause a denial of\nservice (system crash). (CVE-2023-3866)\n\nIt was discovered that the KSMBD implementation in the Linux kernel did not\nproperly handle session setup requests, leading to an out-of-bounds read\nvulnerability. A remote attacker could use this to expose sensitive\ninformation. (CVE-2023-3867)\n\nIt was discovered that the bluetooth subsystem in the Linux kernel did not\nproperly handle L2CAP socket release, leading to a use-after-free\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-40283)\n\nIt was discovered that some network classifier implementations in the Linux\nkernel contained use-after-free vulnerabilities. A local attacker could use\nthis to cause a denial of service (system crash) or possibly execute\narbitrary code. (CVE-2023-4128)\n\nIt was discovered that the Siano USB MDTV receiver device driver in the\nLinux kernel did not properly handle device initialization failures in\ncertain situations, leading to a use-after-free vulnerability. A physically\nproximate attacker could use this cause a denial of service (system crash).\n(CVE-2023-4132)\n\nIt was discovered that a race condition existed in the Cypress touchscreen\ndriver in the Linux kernel during device removal, leading to a use-after-\nfree vulnerability. A physically proximate attacker could use this to cause\na denial of service (system crash) or possibly execute arbitrary code.\n(CVE-2023-4134)\n\nAndy Nguyen discovered that the KVM implementation for AMD processors in\nthe Linux kernel with Secure Encrypted Virtualization (SEV) contained a\nrace condition when accessing the GHCB page. A local attacker in a SEV\nguest VM could possibly use this to cause a denial of service (host system\ncrash). (CVE-2023-4155)\n\nIt was discovered that the TUN/TAP driver in the Linux kernel did not\nproperly initialize socket data. A local attacker could use this to cause a\ndenial of service (system crash). (CVE-2023-4194)\n\nBien Pham discovered that the netfiler subsystem in the Linux kernel\ncontained a race condition, leading to a use-after-free vulnerability. A\nlocal user could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2023-4244)\n\nMaxim Suhanov discovered that the exFAT file system implementation in the\nLinux kernel did not properly check a file name length, leading to an out-\nof-bounds write vulnerability. An attacker could use this to construct a\nmalicious exFAT image that, when mounted and operated on, could cause a\ndenial of service (system crash) or possibly execute arbitrary code.\n(CVE-2023-4273)\n\nKyle Zeng discovered that the networking stack implementation in the Linux\nkernel did not properly validate skb object size in certain conditions. An\nattacker could use this cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2023-42752)\n\nKyle Zeng discovered that the netfiler subsystem in the Linux kernel did\nnot properly calculate array offsets, leading to a out-of-bounds write\nvulnerability. A local user could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-42753)\n\nKyle Zeng discovered that the IPv4 Resource Reservation Protocol (RSVP)\nclassifier implementation in the Linux kernel contained an out-of-bounds\nread vulnerability. A local attacker could use this to cause a denial of\nservice (system crash). Please note that kernel packet classifier support\nfor RSVP has been removed to resolve this vulnerability. (CVE-2023-42755)\n\nKyle Zeng discovered that the netfilter subsystem in the Linux kernel\ncontained a race condition in IP set operations in certain situations. A\nlocal attacker could use this to cause a denial of service (system crash).\n(CVE-2023-42756)\n\nThelford Williams discovered that the Ceph file system messenger protocol\nimplementation in the Linux kernel did not properly validate frame segment\nlength in certain situation, leading to a buffer overflow vulnerability. A\nremote attacker could use this to cause a denial of service (system crash)\nor possibly execute arbitrary code. (CVE-2023-44466)\n\nLonial Con discovered that the netfilter subsystem in the Linux kernel\ncontained a memory leak when handling certain element flush operations. A\nlocal attacker could use this to expose sensitive information (kernel\nmemory). (CVE-2023-4569)\n\nBing-Jhong Billy Jheng discovered that the Unix domain socket\nimplementation in the Linux kernel contained a race condition in certain\nsituations, leading to a use-after-free vulnerability. A local attacker\ncould use this to cause a denial of service (system crash) or possibly\nexecute arbitrary code. (CVE-2023-4622)\n\nBudimir Markovic discovered that the qdisc implementation in the Linux\nkernel did not properly validate inner classes, leading to a use-after-free\nvulnerability. A local user could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-4623)\n\nAlex Birnberg discovered that the netfilter subsystem in the Linux kernel\ndid not properly validate register length, leading to an out-of- bounds\nwrite vulnerability. A local attacker could possibly use this to cause a\ndenial of service (system crash). (CVE-2023-4881)\n\nIt was discovered that the Quick Fair Queueing scheduler implementation in\nthe Linux kernel did not properly handle network packets in certain\nconditions, leading to a use after free vulnerability. A local attacker\ncould use this to cause a denial of service (system crash) or possibly\nexecute arbitrary code. (CVE-2023-4921)\n\nKevin Rich discovered that the netfilter subsystem in the Linux kernel did\nnot properly handle removal of rules from chain bindings in certain\ncircumstances, leading to a use-after-free vulnerability. A local attacker\ncould possibly use this to cause a denial of service (system crash) or\nexecute arbitrary code. (CVE-2023-5197)\n\n",
   "id": "USN-6466-1",
-  "isummary": "Several security issues were fixed in the Linux kernel.\n",
-  "releases": {
-    "jammy": {
-      "allbinaries": {
-        "linux-buildinfo-6.2.0-1011-nvidia": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-buildinfo-6.2.0-1011-nvidia-64k": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-cloud-tools-nvidia-6.2": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-cloud-tools-nvidia-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-cloud-tools-nvidia-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-headers-6.2.0-1011-nvidia": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-headers-6.2.0-1011-nvidia-64k": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-headers-nvidia-6.2": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-headers-nvidia-64k-6.2": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-headers-nvidia-64k-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-headers-nvidia-64k-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-headers-nvidia-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-headers-nvidia-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-image-6.2.0-1011-nvidia": {
-          "pocket": "security",
-          "source": "linux-signed-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-image-6.2.0-1011-nvidia-64k": {
-          "pocket": "security",
-          "source": "linux-signed-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-image-nvidia-6.2": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-image-nvidia-64k-6.2": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-image-nvidia-64k-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-image-nvidia-64k-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-image-nvidia-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-image-nvidia-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-image-unsigned-6.2.0-1011-nvidia": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-image-unsigned-6.2.0-1011-nvidia-64k": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-modules-6.2.0-1011-nvidia": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-modules-6.2.0-1011-nvidia-64k": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-modules-extra-6.2.0-1011-nvidia": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-modules-nvidia-fs-6.2.0-1011-nvidia": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-modules-nvidia-fs-6.2.0-1011-nvidia-64k": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-modules-nvidia-fs-nvidia-6.2": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-modules-nvidia-fs-nvidia-64k-6.2": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-modules-nvidia-fs-nvidia-64k-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-modules-nvidia-fs-nvidia-64k-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-modules-nvidia-fs-nvidia-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-modules-nvidia-fs-nvidia-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-nvidia-6.2": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-nvidia-6.2-headers-6.2.0-1011": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-nvidia-6.2-tools-6.2.0-1011": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-nvidia-6.2-tools-host": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-nvidia-64k-6.2": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-nvidia-64k-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-nvidia-64k-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-nvidia-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-nvidia-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-tools-6.2.0-1011-nvidia": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-tools-6.2.0-1011-nvidia-64k": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.2",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-tools-nvidia-6.2": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-tools-nvidia-64k-6.2": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-tools-nvidia-64k-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-tools-nvidia-64k-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-tools-nvidia-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-tools-nvidia-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.2",
-          "version": "6.2.0.1011.13"
-        }
-      },
-      "archs": {
-        "all": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-nvidia-6.2-headers-6.2.0-1011_6.2.0-1011.11_all.deb": {
-              "md5": "603cee3381d64a9c71a1b7a607248530",
-              "size": 13347626
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-nvidia-6.2-tools-host_6.2.0-1011.11_all.deb": {
-              "md5": "b192cebed07e5a2e7638f618b829e223",
-              "size": 404446
-            }
-          }
-        },
-        "amd64": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-cloud-tools-nvidia-6.2_6.2.0.1011.13_amd64.deb": {
-              "md5": "ff8a07443d27f92d4d5881e949504a0e",
-              "size": 14674
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-cloud-tools-nvidia-hwe-22.04-edge_6.2.0.1011.13_amd64.deb": {
-              "md5": "5970ec192486c2e9b12c6990ae215964",
-              "size": 14698
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-cloud-tools-nvidia-hwe-22.04_6.2.0.1011.13_amd64.deb": {
-              "md5": "33091bf3a0a00bca0af2349c17e1ff01",
-              "size": 14690
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-6.2_6.2.0.1011.13_amd64.deb": {
-              "md5": "72866bc764013651d7c7aa4629a6e355",
-              "size": 14662
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-hwe-22.04-edge_6.2.0.1011.13_amd64.deb": {
-              "md5": "41c855b8823d61d47da04a78a21d7d12",
-              "size": 14680
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-hwe-22.04_6.2.0.1011.13_amd64.deb": {
-              "md5": "f5daf4487d2e6fff73a2c9deaa26cfcb",
-              "size": 14670
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-6.2_6.2.0.1011.13_amd64.deb": {
-              "md5": "586006915db2a6b25c587a6d63e80304",
-              "size": 14804
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-hwe-22.04-edge_6.2.0.1011.13_amd64.deb": {
-              "md5": "f92d8a0ba2586c074d05fa029434fb92",
-              "size": 14822
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-hwe-22.04_6.2.0.1011.13_amd64.deb": {
-              "md5": "bd904c8686fa20e6e4dc68f4164b1582",
-              "size": 14812
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-6.2_6.2.0.1011.13_amd64.deb": {
-              "md5": "e55c16845fec90fe8ca1998b8fc2d1d2",
-              "size": 14720
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-hwe-22.04-edge_6.2.0.1011.13_amd64.deb": {
-              "md5": "0180174336ee7b5e4b4b3308d664f12d",
-              "size": 14742
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-hwe-22.04_6.2.0.1011.13_amd64.deb": {
-              "md5": "030d6d93c7b1ebc54e4c566b7c5f5a48",
-              "size": 14730
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-6.2_6.2.0.1011.13_amd64.deb": {
-              "md5": "949f564d5d69095c296b7f88d1a3a6d3",
-              "size": 14710
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-hwe-22.04-edge_6.2.0.1011.13_amd64.deb": {
-              "md5": "98dd4e625a0103482b0b88e4dc4ca48e",
-              "size": 14692
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-hwe-22.04_6.2.0.1011.13_amd64.deb": {
-              "md5": "a16b79967c1eefad594a2b132ced41fe",
-              "size": 14686
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-6.2_6.2.0.1011.13_amd64.deb": {
-              "md5": "058bf1b80db2cc18a62cf6af7002134f",
-              "size": 14668
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-hwe-22.04-edge_6.2.0.1011.13_amd64.deb": {
-              "md5": "087406033b92b378434e10d3720974ac",
-              "size": 14688
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-hwe-22.04_6.2.0.1011.13_amd64.deb": {
-              "md5": "7685d34f68d334cfda011753c2b04b86",
-              "size": 14680
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-buildinfo-6.2.0-1011-nvidia_6.2.0-1011.11_amd64.deb": {
-              "md5": "ea1d3f2b03c7c8855ddd12a380d44b9d",
-              "size": 864724
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-headers-6.2.0-1011-nvidia_6.2.0-1011.11_amd64.deb": {
-              "md5": "ecd4b3454a463e9850284d48de47450a",
-              "size": 3662460
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-image-unsigned-6.2.0-1011-nvidia_6.2.0-1011.11_amd64.deb": {
-              "md5": "80852627d5fd382d726b6084ff0a6c5f",
-              "size": 14213312
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-modules-6.2.0-1011-nvidia_6.2.0-1011.11_amd64.deb": {
-              "md5": "36ebea479d4555fe78260e50e240b321",
-              "size": 25052220
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-modules-extra-6.2.0-1011-nvidia_6.2.0-1011.11_amd64.deb": {
-              "md5": "05c5124bd29f0bbb91ce508809fea227",
-              "size": 74355276
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-modules-nvidia-fs-6.2.0-1011-nvidia_6.2.0-1011.11_amd64.deb": {
-              "md5": "fd5ad13aa271f10b3bbcb2df615d6e7d",
-              "size": 459676
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-nvidia-6.2-tools-6.2.0-1011_6.2.0-1011.11_amd64.deb": {
-              "md5": "015a9f2ee59e92db5157a923b32e703d",
-              "size": 7831914
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-tools-6.2.0-1011-nvidia_6.2.0-1011.11_amd64.deb": {
-              "md5": "fa73bb318dc455c0db7476b5e8c91f9d",
-              "size": 404700
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-nvidia-6.2/linux-image-6.2.0-1011-nvidia_6.2.0-1011.11_amd64.deb": {
-              "md5": "6f2df2974a6d7cb012470c5dfd2fb037",
-              "size": 13563718
-            }
-          }
-        },
-        "arm64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-6.2_6.2.0.1011.13_arm64.deb": {
-              "md5": "fe392001d20c5b6f69b3e10e03500b93",
-              "size": 14662
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-64k-6.2_6.2.0.1011.13_arm64.deb": {
-              "md5": "3c001e1e85f31aae0cd8126c121cea7d",
-              "size": 14670
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-64k-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
-              "md5": "5d91001a026280c13022242b05a28561",
-              "size": 14688
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-64k-hwe-22.04_6.2.0.1011.13_arm64.deb": {
-              "md5": "c43408ef148f5fef9fbaca944e883595",
-              "size": 14680
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
-              "md5": "80542f6bcbb1a10f991c3261b45824e0",
-              "size": 14680
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-headers-nvidia-hwe-22.04_6.2.0.1011.13_arm64.deb": {
-              "md5": "ffb9e1d0e5b78b5fa6c6777ebfd77927",
-              "size": 14670
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-6.2_6.2.0.1011.13_arm64.deb": {
-              "md5": "195a58037aa3f3c6ea96b489dbc93a38",
-              "size": 14770
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-64k-6.2_6.2.0.1011.13_arm64.deb": {
-              "md5": "9ab81548df002940583d1a7ca769dbb9",
-              "size": 14724
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-64k-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
-              "md5": "2fde0d3fe32aa8fbb5ceff774592a7c9",
-              "size": 14748
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-64k-hwe-22.04_6.2.0.1011.13_arm64.deb": {
-              "md5": "6c090f488778f685d4acb86d99fba876",
-              "size": 14740
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
-              "md5": "e8100142e76c364de6b08f0ef0e8753c",
-              "size": 14788
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-image-nvidia-hwe-22.04_6.2.0.1011.13_arm64.deb": {
-              "md5": "b5190a4c9c8a40053ee8c2a95a67dda0",
-              "size": 14780
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-6.2_6.2.0.1011.13_arm64.deb": {
-              "md5": "a5dce0fae8ce708fa3f431c8c545a28d",
-              "size": 14720
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-64k-6.2_6.2.0.1011.13_arm64.deb": {
-              "md5": "bc8b01acd703a97c693a4d0e877bf37c",
-              "size": 14730
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-64k-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
-              "md5": "5abffdda3d49e1ed9f9b2683e5df8ef0",
-              "size": 14750
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-64k-hwe-22.04_6.2.0.1011.13_arm64.deb": {
-              "md5": "5e13d1755aee173882a0e0646f5bedf2",
-              "size": 14742
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
-              "md5": "fbdf10003b90dc15570a32b6539abe82",
-              "size": 14742
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-modules-nvidia-fs-nvidia-hwe-22.04_6.2.0.1011.13_arm64.deb": {
-              "md5": "192d7f7698d32e8cb5d3596524756e9f",
-              "size": 14730
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-6.2_6.2.0.1011.13_arm64.deb": {
-              "md5": "dbff2295494cbcf52c32a465aed79737",
-              "size": 14710
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-64k-6.2_6.2.0.1011.13_arm64.deb": {
-              "md5": "bf35e62684c0848daa56ca46692c53cb",
-              "size": 14724
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-64k-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
-              "md5": "cdf1a4ec7f805d5f02966a8614bbd39d",
-              "size": 14708
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-64k-hwe-22.04_6.2.0.1011.13_arm64.deb": {
-              "md5": "c7e31323d4ae0f4bb93cc782e9f02b65",
-              "size": 14702
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
-              "md5": "a084d5f95c09d28d5ed4446e73daad5f",
-              "size": 14692
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-nvidia-hwe-22.04_6.2.0.1011.13_arm64.deb": {
-              "md5": "093d48c7361c008079e2a5d771ceb4b6",
-              "size": 14686
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-6.2_6.2.0.1011.13_arm64.deb": {
-              "md5": "8f73cbb0c75fb6ef02e0b4f10e7b7da2",
-              "size": 14668
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-64k-6.2_6.2.0.1011.13_arm64.deb": {
-              "md5": "67000819986a737004181483c9c5547f",
-              "size": 14678
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-64k-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
-              "md5": "1cb8dd6def7eb137b218984d39defaeb",
-              "size": 14698
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-64k-hwe-22.04_6.2.0.1011.13_arm64.deb": {
-              "md5": "5488b608c122cfe455ebeeee27f2f546",
-              "size": 14694
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-hwe-22.04-edge_6.2.0.1011.13_arm64.deb": {
-              "md5": "9b72aed9afdc172740a9d613ec4de4ea",
-              "size": 14688
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.2/linux-tools-nvidia-hwe-22.04_6.2.0.1011.13_arm64.deb": {
-              "md5": "418988705f0087c68f24e9915990a19c",
-              "size": 14680
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-buildinfo-6.2.0-1011-nvidia-64k_6.2.0-1011.11_arm64.deb": {
-              "md5": "76f6d05048924069cd0f56f7a9fbd8fd",
-              "size": 881346
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-buildinfo-6.2.0-1011-nvidia_6.2.0-1011.11_arm64.deb": {
-              "md5": "4cb7f5a911ca5a567600b5eb2d2204ba",
-              "size": 881528
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-headers-6.2.0-1011-nvidia-64k_6.2.0-1011.11_arm64.deb": {
-              "md5": "c8be1a7f82a0d6e7ec8d34d4a1e9d3f3",
-              "size": 3146832
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-headers-6.2.0-1011-nvidia_6.2.0-1011.11_arm64.deb": {
-              "md5": "fddd2b030f5f503a78d95a7de74a7882",
-              "size": 3153832
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-image-unsigned-6.2.0-1011-nvidia-64k_6.2.0-1011.11_arm64.deb": {
-              "md5": "64d1c3e0974455fe071bfbf7d2238975",
-              "size": 17111232
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-image-unsigned-6.2.0-1011-nvidia_6.2.0-1011.11_arm64.deb": {
-              "md5": "644838cfa81412f2c05e71dc32819a7e",
-              "size": 17121472
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-modules-6.2.0-1011-nvidia-64k_6.2.0-1011.11_arm64.deb": {
-              "md5": "49e4f092b765dde8106b762456b8c63f",
-              "size": 98189376
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-modules-6.2.0-1011-nvidia_6.2.0-1011.11_arm64.deb": {
-              "md5": "62eb5bcec39e22bea67e3b3728afbb61",
-              "size": 24371626
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-modules-extra-6.2.0-1011-nvidia_6.2.0-1011.11_arm64.deb": {
-              "md5": "faab254ad481d42ee702154283165ade",
-              "size": 74596506
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-modules-nvidia-fs-6.2.0-1011-nvidia-64k_6.2.0-1011.11_arm64.deb": {
-              "md5": "ed0a589bcf8f17961a68c7efe9c90403",
-              "size": 459672
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-modules-nvidia-fs-6.2.0-1011-nvidia_6.2.0-1011.11_arm64.deb": {
-              "md5": "79a17b272da1c0b0129b088f84def735",
-              "size": 459564
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-nvidia-6.2-tools-6.2.0-1011_6.2.0-1011.11_arm64.deb": {
-              "md5": "aa7d7ad2f514a2ba005943f49293818e",
-              "size": 7184358
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-tools-6.2.0-1011-nvidia-64k_6.2.0-1011.11_arm64.deb": {
-              "md5": "fb10ad26cf02bb6db2a39e1e12cab76d",
-              "size": 404704
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.2/linux-tools-6.2.0-1011-nvidia_6.2.0-1011.11_arm64.deb": {
-              "md5": "3573b412af6d87830aec0c6f93c55d43",
-              "size": 404700
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-nvidia-6.2/linux-image-6.2.0-1011-nvidia-64k_6.2.0-1011.11_arm64.deb": {
-              "md5": "311ba285d32cc08d394bf27ced33875d",
-              "size": 16421220
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-nvidia-6.2/linux-image-6.2.0-1011-nvidia_6.2.0-1011.11_arm64.deb": {
-              "md5": "b419539a67d3c8c2ed805fb53917efc3",
-              "size": 16434600
-            }
-          }
-        },
-        "source": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-meta-nvidia-6.2_6.2.0.1011.13.dsc": {
-              "md5": "10a994165ceba63b6d267abeb45bcdeb",
-              "size": 5059
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.2/linux-meta-nvidia-6.2_6.2.0.1011.13.tar.xz": {
-              "md5": "c2339c50616e3d5fdc4c0eeee3d76007",
-              "size": 17160
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-nvidia-6.2_6.2.0-1011.11.diff.gz": {
-              "md5": "af514c45debf77299051de073b228bde",
-              "size": 12051565
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-nvidia-6.2_6.2.0-1011.11.dsc": {
-              "md5": "c71cabc5bbc7f104b5f3b62860727420",
-              "size": 6440
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.2/linux-nvidia-6.2_6.2.0.orig.tar.gz": {
-              "md5": "b9a9c9b6ffcd859118d26acf8f01d66f",
-              "size": 218562620
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-nvidia-6.2/linux-signed-nvidia-6.2_6.2.0-1011.11.dsc": {
-              "md5": "0fcbd571cbba00385fff84e6f25117d0",
-              "size": 2322
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-nvidia-6.2/linux-signed-nvidia-6.2_6.2.0-1011.11.tar.xz": {
-              "md5": "380bfe4c8e0dfde9b22b47b2624e4958",
-              "size": 25540
-            }
-          }
-        }
-      },
-      "binaries": {
-        "linux-image-6.2.0-1011-nvidia": {
-          "pocket": "security",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-image-6.2.0-1011-nvidia-64k": {
-          "pocket": "security",
-          "version": "6.2.0-1011.11"
-        },
-        "linux-image-nvidia-6.2": {
-          "pocket": "security",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-image-nvidia-64k-6.2": {
-          "pocket": "security",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-image-nvidia-64k-hwe-22.04": {
-          "pocket": "security",
-          "version": "6.2.0.1011.13"
-        },
-        "linux-image-nvidia-hwe-22.04": {
-          "pocket": "security",
-          "version": "6.2.0.1011.13"
-        }
-      },
-      "sources": {
-        "linux-nvidia-6.2": {
-          "description": "Linux kernel for NVIDIA systems",
-          "version": "6.2.0-1011.11"
-        }
-      }
-    }
-  },
-  "summary": "linux-nvidia-6.2 vulnerabilities",
-  "timestamp": 1698788860.4158912,
-  "title": "Linux kernel (NVIDIA) vulnerabilities"
+  "isummary": "Several security issues were fixed in the Linux kernel.\n"
 }

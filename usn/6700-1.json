@@ -1,76 +1,34 @@
 {
-  "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
-  "cves": [
-    "CVE-2022-20567",
-    "CVE-2023-34256",
-    "CVE-2023-39197",
-    "CVE-2023-51781",
-    "CVE-2024-0775",
-    "CVE-2024-1086",
-    "CVE-2024-24855"
-  ],
   "description": "It was discovered that the Layer 2 Tunneling Protocol (L2TP) implementation\nin the Linux kernel contained a race condition when releasing PPPoL2TP\nsockets in certain conditions, leading to a use-after-free vulnerability.\nA local attacker could use this to cause a denial of service (system crash)\nor possibly execute arbitrary code. (CVE-2022-20567)\n\nIt was discovered that the ext4 file system implementation in the Linux\nkernel did not properly handle block device modification while it is\nmounted. A privileged attacker could use this to cause a denial of service\n(system crash) or possibly expose sensitive information. (CVE-2023-34256)\n\nEric Dumazet discovered that the netfilter subsystem in the Linux kernel\ndid not properly handle DCCP conntrack buffers in certain situations,\nleading to an out-of-bounds read vulnerability. An attacker could possibly\nuse this to expose sensitive information (kernel memory). (CVE-2023-39197)\n\nIt was discovered that a race condition existed in the AppleTalk networking\nsubsystem of the Linux kernel, leading to a use-after-free vulnerability. A\nlocal attacker could use this to cause a denial of service (system crash)\nor possibly execute arbitrary code. (CVE-2023-51781)\n\nIt was discovered that the ext4 file system implementation in the Linux\nkernel did not properly handle the remount operation in certain cases,\nleading to a use-after-free vulnerability. A local attacker could use this\nto cause a denial of service (system crash) or possibly expose sensitive\ninformation. (CVE-2024-0775)\n\nNotselwyn discovered that the netfilter subsystem in the Linux kernel did\nnot properly handle verdict parameters in certain cases, leading to a use-\nafter-free vulnerability. A local attacker could use this to cause a denial\nof service (system crash) or possibly execute arbitrary code.\n(CVE-2024-1086)\n\nIt was discovered that a race condition existed in the SCSI Emulex\nLightPulse Fibre Channel driver in the Linux kernel when unregistering FCF\nand re-scanning an HBA FCF table, leading to a null pointer dereference\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash). (CVE-2024-24855)\n\n",
-  "id": "USN-6700-1",
-  "isummary": "Several security issues were fixed in the Linux kernel.\n",
   "releases": {
     "trusty": {
       "allbinaries": {
-        "linux-aws": {
+        "linux-image-4.4.0-252-generic": {
+          "pocket": "esm-infra",
+          "source": "linux-signed-lts-xenial",
+          "version": "4.4.0-252.286~14.04.1"
+        },
+        "linux-image-virtual-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta-lts-xenial",
+          "version": "4.4.0.252.219"
+        },
+        "linux-tools-aws": {
           "pocket": "esm-infra",
           "source": "linux-meta-aws",
           "version": "4.4.0.1129.126"
-        },
-        "linux-aws-cloud-tools-4.4.0-1129": {
-          "pocket": "esm-infra",
-          "source": "linux-aws",
-          "version": "4.4.0-1129.135"
         },
         "linux-aws-headers-4.4.0-1129": {
           "pocket": "esm-infra",
           "source": "linux-aws",
           "version": "4.4.0-1129.135"
         },
-        "linux-aws-tools-4.4.0-1129": {
-          "pocket": "esm-infra",
-          "source": "linux-aws",
-          "version": "4.4.0-1129.135"
-        },
-        "linux-buildinfo-4.4.0-1129-aws": {
-          "pocket": "esm-infra",
-          "source": "linux-aws",
-          "version": "4.4.0-1129.135"
-        },
-        "linux-buildinfo-4.4.0-252-generic": {
-          "pocket": "esm-infra",
-          "source": "linux-lts-xenial",
-          "version": "4.4.0-252.286~14.04.1"
-        },
-        "linux-buildinfo-4.4.0-252-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux-lts-xenial",
-          "version": "4.4.0-252.286~14.04.1"
-        },
-        "linux-cloud-tools-4.4.0-1129-aws": {
-          "pocket": "esm-infra",
-          "source": "linux-aws",
-          "version": "4.4.0-1129.135"
-        },
-        "linux-cloud-tools-4.4.0-252-generic": {
-          "pocket": "esm-infra",
-          "source": "linux-lts-xenial",
-          "version": "4.4.0-252.286~14.04.1"
-        },
-        "linux-cloud-tools-4.4.0-252-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux-lts-xenial",
-          "version": "4.4.0-252.286~14.04.1"
-        },
-        "linux-cloud-tools-generic-lts-xenial": {
+        "linux-tools-virtual-lts-xenial": {
           "pocket": "esm-infra",
           "source": "linux-meta-lts-xenial",
           "version": "4.4.0.252.219"
         },
-        "linux-cloud-tools-lowlatency-lts-xenial": {
+        "linux-image-generic-lts-xenial": {
           "pocket": "esm-infra",
           "source": "linux-meta-lts-xenial",
           "version": "4.4.0.252.219"
@@ -80,12 +38,17 @@
           "source": "linux-meta-lts-xenial",
           "version": "4.4.0.252.219"
         },
-        "linux-generic-lts-xenial": {
+        "linux-headers-4.4.0-252-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux-lts-xenial",
+          "version": "4.4.0-252.286~14.04.1"
+        },
+        "linux-tools-generic-lts-xenial": {
           "pocket": "esm-infra",
           "source": "linux-meta-lts-xenial",
           "version": "4.4.0.252.219"
         },
-        "linux-headers-4.4.0-1129-aws": {
+        "linux-buildinfo-4.4.0-1129-aws": {
           "pocket": "esm-infra",
           "source": "linux-aws",
           "version": "4.4.0-1129.135"
@@ -95,87 +58,7 @@
           "source": "linux-lts-xenial",
           "version": "4.4.0-252.286~14.04.1"
         },
-        "linux-headers-4.4.0-252-generic": {
-          "pocket": "esm-infra",
-          "source": "linux-lts-xenial",
-          "version": "4.4.0-252.286~14.04.1"
-        },
-        "linux-headers-4.4.0-252-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux-lts-xenial",
-          "version": "4.4.0-252.286~14.04.1"
-        },
-        "linux-headers-aws": {
-          "pocket": "esm-infra",
-          "source": "linux-meta-aws",
-          "version": "4.4.0.1129.126"
-        },
-        "linux-headers-generic-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta-lts-xenial",
-          "version": "4.4.0.252.219"
-        },
-        "linux-headers-lowlatency-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta-lts-xenial",
-          "version": "4.4.0.252.219"
-        },
-        "linux-headers-virtual-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta-lts-xenial",
-          "version": "4.4.0.252.219"
-        },
-        "linux-image-4.4.0-1129-aws": {
-          "pocket": "esm-infra",
-          "source": "linux-aws",
-          "version": "4.4.0-1129.135"
-        },
-        "linux-image-4.4.0-252-generic": {
-          "pocket": "esm-infra",
-          "source": "linux-signed-lts-xenial",
-          "version": "4.4.0-252.286~14.04.1"
-        },
-        "linux-image-4.4.0-252-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux-signed-lts-xenial",
-          "version": "4.4.0-252.286~14.04.1"
-        },
-        "linux-image-aws": {
-          "pocket": "esm-infra",
-          "source": "linux-meta-aws",
-          "version": "4.4.0.1129.126"
-        },
-        "linux-image-extra-virtual-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta-lts-xenial",
-          "version": "4.4.0.252.219"
-        },
-        "linux-image-generic-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta-lts-xenial",
-          "version": "4.4.0.252.219"
-        },
-        "linux-image-lowlatency-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta-lts-xenial",
-          "version": "4.4.0.252.219"
-        },
-        "linux-image-unsigned-4.4.0-252-generic": {
-          "pocket": "esm-infra",
-          "source": "linux-lts-xenial",
-          "version": "4.4.0-252.286~14.04.1"
-        },
-        "linux-image-unsigned-4.4.0-252-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux-lts-xenial",
-          "version": "4.4.0-252.286~14.04.1"
-        },
-        "linux-image-virtual-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta-lts-xenial",
-          "version": "4.4.0.252.219"
-        },
-        "linux-lowlatency-lts-xenial": {
+        "linux-signed-image-lowlatency-lts-xenial": {
           "pocket": "esm-infra",
           "source": "linux-meta-lts-xenial",
           "version": "4.4.0.252.219"
@@ -185,27 +68,72 @@
           "source": "linux-lts-xenial",
           "version": "4.4.0-252.286~14.04.1"
         },
-        "linux-lts-xenial-tools-4.4.0-252": {
+        "linux-tools-lowlatency-lts-xenial": {
           "pocket": "esm-infra",
-          "source": "linux-lts-xenial",
-          "version": "4.4.0-252.286~14.04.1"
+          "source": "linux-meta-lts-xenial",
+          "version": "4.4.0.252.219"
+        },
+        "linux-image-extra-virtual-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta-lts-xenial",
+          "version": "4.4.0.252.219"
         },
         "linux-modules-4.4.0-1129-aws": {
           "pocket": "esm-infra",
           "source": "linux-aws",
           "version": "4.4.0-1129.135"
         },
-        "linux-modules-4.4.0-252-generic": {
+        "linux-image-unsigned-4.4.0-252-generic": {
           "pocket": "esm-infra",
           "source": "linux-lts-xenial",
           "version": "4.4.0-252.286~14.04.1"
         },
-        "linux-modules-4.4.0-252-lowlatency": {
+        "linux-headers-generic-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta-lts-xenial",
+          "version": "4.4.0.252.219"
+        },
+        "linux-virtual-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta-lts-xenial",
+          "version": "4.4.0.252.219"
+        },
+        "linux-cloud-tools-4.4.0-252-generic": {
           "pocket": "esm-infra",
           "source": "linux-lts-xenial",
           "version": "4.4.0-252.286~14.04.1"
         },
-        "linux-modules-extra-4.4.0-252-generic": {
+        "linux-signed-lowlatency-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta-lts-xenial",
+          "version": "4.4.0.252.219"
+        },
+        "linux-headers-4.4.0-1129-aws": {
+          "pocket": "esm-infra",
+          "source": "linux-aws",
+          "version": "4.4.0-1129.135"
+        },
+        "linux-lowlatency-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta-lts-xenial",
+          "version": "4.4.0.252.219"
+        },
+        "linux-buildinfo-4.4.0-252-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux-lts-xenial",
+          "version": "4.4.0-252.286~14.04.1"
+        },
+        "linux-aws-cloud-tools-4.4.0-1129": {
+          "pocket": "esm-infra",
+          "source": "linux-aws",
+          "version": "4.4.0-1129.135"
+        },
+        "linux-aws": {
+          "pocket": "esm-infra",
+          "source": "linux-meta-aws",
+          "version": "4.4.0.1129.126"
+        },
+        "linux-image-unsigned-4.4.0-252-lowlatency": {
           "pocket": "esm-infra",
           "source": "linux-lts-xenial",
           "version": "4.4.0-252.286~14.04.1"
@@ -215,67 +143,123 @@
           "source": "linux-meta-lts-xenial",
           "version": "4.4.0.252.219"
         },
+        "linux-headers-lowlatency-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta-lts-xenial",
+          "version": "4.4.0.252.219"
+        },
+        "linux-generic-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta-lts-xenial",
+          "version": "4.4.0.252.219"
+        },
+        "linux-buildinfo-4.4.0-252-generic": {
+          "pocket": "esm-infra",
+          "source": "linux-lts-xenial",
+          "version": "4.4.0-252.286~14.04.1"
+        },
+        "linux-image-lowlatency-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta-lts-xenial",
+          "version": "4.4.0.252.219"
+        },
+        "linux-modules-4.4.0-252-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux-lts-xenial",
+          "version": "4.4.0-252.286~14.04.1"
+        },
+        "linux-headers-aws": {
+          "pocket": "esm-infra",
+          "source": "linux-meta-aws",
+          "version": "4.4.0.1129.126"
+        },
+        "linux-cloud-tools-generic-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta-lts-xenial",
+          "version": "4.4.0.252.219"
+        },
+        "linux-image-aws": {
+          "pocket": "esm-infra",
+          "source": "linux-meta-aws",
+          "version": "4.4.0.1129.126"
+        },
+        "linux-aws-tools-4.4.0-1129": {
+          "pocket": "esm-infra",
+          "source": "linux-aws",
+          "version": "4.4.0-1129.135"
+        },
         "linux-signed-image-generic-lts-xenial": {
           "pocket": "esm-infra",
           "source": "linux-meta-lts-xenial",
           "version": "4.4.0.252.219"
         },
-        "linux-signed-image-lowlatency-lts-xenial": {
+        "linux-image-4.4.0-252-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux-signed-lts-xenial",
+          "version": "4.4.0-252.286~14.04.1"
+        },
+        "linux-headers-virtual-lts-xenial": {
           "pocket": "esm-infra",
           "source": "linux-meta-lts-xenial",
           "version": "4.4.0.252.219"
-        },
-        "linux-signed-lowlatency-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta-lts-xenial",
-          "version": "4.4.0.252.219"
-        },
-        "linux-tools-4.4.0-1129-aws": {
-          "pocket": "esm-infra",
-          "source": "linux-aws",
-          "version": "4.4.0-1129.135"
         },
         "linux-tools-4.4.0-252-generic": {
           "pocket": "esm-infra",
           "source": "linux-lts-xenial",
           "version": "4.4.0-252.286~14.04.1"
         },
+        "linux-modules-4.4.0-252-generic": {
+          "pocket": "esm-infra",
+          "source": "linux-lts-xenial",
+          "version": "4.4.0-252.286~14.04.1"
+        },
+        "linux-tools-4.4.0-1129-aws": {
+          "pocket": "esm-infra",
+          "source": "linux-aws",
+          "version": "4.4.0-1129.135"
+        },
         "linux-tools-4.4.0-252-lowlatency": {
           "pocket": "esm-infra",
           "source": "linux-lts-xenial",
           "version": "4.4.0-252.286~14.04.1"
         },
-        "linux-tools-aws": {
+        "linux-cloud-tools-4.4.0-1129-aws": {
           "pocket": "esm-infra",
-          "source": "linux-meta-aws",
-          "version": "4.4.0.1129.126"
+          "source": "linux-aws",
+          "version": "4.4.0-1129.135"
         },
-        "linux-tools-generic-lts-xenial": {
+        "linux-headers-4.4.0-252-generic": {
+          "pocket": "esm-infra",
+          "source": "linux-lts-xenial",
+          "version": "4.4.0-252.286~14.04.1"
+        },
+        "linux-cloud-tools-lowlatency-lts-xenial": {
           "pocket": "esm-infra",
           "source": "linux-meta-lts-xenial",
           "version": "4.4.0.252.219"
         },
-        "linux-tools-lowlatency-lts-xenial": {
+        "linux-image-4.4.0-1129-aws": {
           "pocket": "esm-infra",
-          "source": "linux-meta-lts-xenial",
-          "version": "4.4.0.252.219"
+          "source": "linux-aws",
+          "version": "4.4.0-1129.135"
         },
-        "linux-tools-virtual-lts-xenial": {
+        "linux-modules-extra-4.4.0-252-generic": {
           "pocket": "esm-infra",
-          "source": "linux-meta-lts-xenial",
-          "version": "4.4.0.252.219"
+          "source": "linux-lts-xenial",
+          "version": "4.4.0-252.286~14.04.1"
         },
-        "linux-virtual-lts-xenial": {
+        "linux-cloud-tools-4.4.0-252-lowlatency": {
           "pocket": "esm-infra",
-          "source": "linux-meta-lts-xenial",
-          "version": "4.4.0.252.219"
+          "source": "linux-lts-xenial",
+          "version": "4.4.0-252.286~14.04.1"
+        },
+        "linux-lts-xenial-tools-4.4.0-252": {
+          "pocket": "esm-infra",
+          "source": "linux-lts-xenial",
+          "version": "4.4.0-252.286~14.04.1"
         }
       },
       "binaries": {
-        "linux-image-4.4.0-1129-aws": {
-          "pocket": "esm-infra",
-          "version": "4.4.0-1129.135"
-        },
         "linux-image-4.4.0-252-generic": {
           "pocket": "esm-infra",
           "version": "4.4.0-252.286~14.04.1"
@@ -284,17 +268,21 @@
           "pocket": "esm-infra",
           "version": "4.4.0-252.286~14.04.1"
         },
-        "linux-image-aws": {
+        "linux-image-lowlatency-lts-xenial": {
           "pocket": "esm-infra",
-          "version": "4.4.0.1129.126"
+          "version": "4.4.0.252.219"
+        },
+        "linux-image-4.4.0-1129-aws": {
+          "pocket": "esm-infra",
+          "version": "4.4.0-1129.135"
         },
         "linux-image-generic-lts-xenial": {
           "pocket": "esm-infra",
           "version": "4.4.0.252.219"
         },
-        "linux-image-lowlatency-lts-xenial": {
+        "linux-image-aws": {
           "pocket": "esm-infra",
-          "version": "4.4.0.252.219"
+          "version": "4.4.0.1129.126"
         },
         "linux-image-virtual-lts-xenial": {
           "pocket": "esm-infra",
@@ -302,104 +290,34 @@
         }
       },
       "sources": {
-        "linux-aws": {
-          "description": "Linux kernel for Amazon Web Services (AWS) systems",
-          "version": "4.4.0-1129.135"
-        },
         "linux-lts-xenial": {
-          "description": "Linux hardware enablement kernel from Xenial for Trusty",
-          "version": "4.4.0-252.286~14.04.1"
+          "version": "4.4.0-252.286~14.04.1",
+          "description": "Linux hardware enablement kernel from Xenial for Trusty"
+        },
+        "linux-aws": {
+          "version": "4.4.0-1129.135",
+          "description": "Linux kernel for Amazon Web Services (AWS) systems"
         }
       }
     },
     "xenial": {
       "allbinaries": {
-        "linux-buildinfo-4.4.0-1130-kvm": {
-          "pocket": "esm-infra",
-          "source": "linux-kvm",
-          "version": "4.4.0-1130.140"
-        },
-        "linux-buildinfo-4.4.0-252-generic": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-buildinfo-4.4.0-252-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-cloud-tools-4.4.0-1130-kvm": {
-          "pocket": "esm-infra",
-          "source": "linux-kvm",
-          "version": "4.4.0-1130.140"
-        },
-        "linux-cloud-tools-4.4.0-252": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-cloud-tools-4.4.0-252-generic": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-cloud-tools-4.4.0-252-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-cloud-tools-common": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-cloud-tools-generic": {
+        "linux-signed-image-generic-lts-utopic": {
           "pocket": "esm-infra",
           "source": "linux-meta",
           "version": "4.4.0.252.258"
         },
-        "linux-cloud-tools-generic-lts-utopic": {
+        "linux-tools-common": {
           "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-cloud-tools-generic-lts-vivid": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
+          "source": "linux",
+          "version": "4.4.0-252.286"
         },
         "linux-cloud-tools-generic-lts-wily": {
           "pocket": "esm-infra",
           "source": "linux-meta",
           "version": "4.4.0.252.258"
         },
-        "linux-cloud-tools-generic-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-cloud-tools-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-cloud-tools-lowlatency-lts-utopic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-cloud-tools-lowlatency-lts-vivid": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-cloud-tools-lowlatency-lts-wily": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-cloud-tools-lowlatency-lts-xenial": {
+        "linux-cloud-tools-virtual-lts-xenial": {
           "pocket": "esm-infra",
           "source": "linux-meta",
           "version": "4.4.0.252.258"
@@ -414,197 +332,7 @@
           "source": "linux-meta",
           "version": "4.4.0.252.258"
         },
-        "linux-cloud-tools-virtual-lts-vivid": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-cloud-tools-virtual-lts-wily": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-cloud-tools-virtual-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-crashdump": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-doc": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-generic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-generic-lts-utopic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-generic-lts-vivid": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-generic-lts-wily": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-generic-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-headers-4.4.0-1130-kvm": {
-          "pocket": "esm-infra",
-          "source": "linux-kvm",
-          "version": "4.4.0-1130.140"
-        },
-        "linux-headers-4.4.0-252": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-headers-4.4.0-252-generic": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-headers-4.4.0-252-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-headers-generic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-headers-generic-lts-utopic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-headers-generic-lts-vivid": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-headers-generic-lts-wily": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-headers-generic-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-headers-kvm": {
-          "pocket": "esm-infra",
-          "source": "linux-meta-kvm",
-          "version": "4.4.0.1130.127"
-        },
-        "linux-headers-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-headers-lowlatency-lts-utopic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-headers-lowlatency-lts-vivid": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-headers-lowlatency-lts-wily": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-headers-lowlatency-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-headers-virtual": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-headers-virtual-lts-utopic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-headers-virtual-lts-vivid": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-headers-virtual-lts-wily": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-headers-virtual-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-hwe-generic-trusty": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-hwe-virtual-trusty": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-4.4.0-1130-kvm": {
-          "pocket": "esm-infra",
-          "source": "linux-kvm",
-          "version": "4.4.0-1130.140"
-        },
-        "linux-image-4.4.0-252-generic": {
-          "pocket": "esm-infra",
-          "source": "linux-signed",
-          "version": "4.4.0-252.286"
-        },
-        "linux-image-4.4.0-252-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux-signed",
-          "version": "4.4.0-252.286"
-        },
-        "linux-image-extra-virtual": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-extra-virtual-lts-utopic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-extra-virtual-lts-vivid": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-extra-virtual-lts-wily": {
+        "linux-tools-generic-lts-vivid": {
           "pocket": "esm-infra",
           "source": "linux-meta",
           "version": "4.4.0.252.258"
@@ -614,312 +342,17 @@
           "source": "linux-meta",
           "version": "4.4.0.252.258"
         },
-        "linux-image-generic": {
+        "linux-image-extra-virtual-lts-wily": {
           "pocket": "esm-infra",
           "source": "linux-meta",
           "version": "4.4.0.252.258"
         },
-        "linux-image-generic-lts-utopic": {
+        "linux-headers-generic-lts-wily": {
           "pocket": "esm-infra",
           "source": "linux-meta",
           "version": "4.4.0.252.258"
         },
-        "linux-image-generic-lts-vivid": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-generic-lts-wily": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-generic-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-hwe-generic-trusty": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-hwe-virtual-trusty": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-kvm": {
-          "pocket": "esm-infra",
-          "source": "linux-meta-kvm",
-          "version": "4.4.0.1130.127"
-        },
-        "linux-image-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-lowlatency-lts-utopic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-lowlatency-lts-vivid": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-lowlatency-lts-wily": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-lowlatency-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-unsigned-4.4.0-252-generic": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-image-unsigned-4.4.0-252-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-image-virtual": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-virtual-lts-utopic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-virtual-lts-vivid": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-virtual-lts-wily": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-virtual-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-kvm": {
-          "pocket": "esm-infra",
-          "source": "linux-meta-kvm",
-          "version": "4.4.0.1130.127"
-        },
-        "linux-kvm-cloud-tools-4.4.0-1130": {
-          "pocket": "esm-infra",
-          "source": "linux-kvm",
-          "version": "4.4.0-1130.140"
-        },
-        "linux-kvm-headers-4.4.0-1130": {
-          "pocket": "esm-infra",
-          "source": "linux-kvm",
-          "version": "4.4.0-1130.140"
-        },
-        "linux-kvm-tools-4.4.0-1130": {
-          "pocket": "esm-infra",
-          "source": "linux-kvm",
-          "version": "4.4.0-1130.140"
-        },
-        "linux-libc-dev": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-lowlatency-lts-utopic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-lowlatency-lts-vivid": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-lowlatency-lts-wily": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-lowlatency-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-modules-4.4.0-1130-kvm": {
-          "pocket": "esm-infra",
-          "source": "linux-kvm",
-          "version": "4.4.0-1130.140"
-        },
-        "linux-modules-4.4.0-252-generic": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-modules-4.4.0-252-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-modules-extra-4.4.0-252-generic": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-signed-generic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-signed-generic-lts-utopic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-signed-generic-lts-vivid": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-signed-generic-lts-wily": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-signed-generic-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-signed-image-generic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-signed-image-generic-lts-utopic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-signed-image-generic-lts-vivid": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-signed-image-generic-lts-wily": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-signed-image-generic-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-signed-image-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-signed-image-lowlatency-lts-wily": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-signed-image-lowlatency-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-signed-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-signed-lowlatency-lts-wily": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-signed-lowlatency-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-source": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-source-4.4.0": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-tools-4.4.0-1130-kvm": {
-          "pocket": "esm-infra",
-          "source": "linux-kvm",
-          "version": "4.4.0-1130.140"
-        },
-        "linux-tools-4.4.0-252": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-tools-4.4.0-252-generic": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-tools-4.4.0-252-lowlatency": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-tools-common": {
-          "pocket": "esm-infra",
-          "source": "linux",
-          "version": "4.4.0-252.286"
-        },
-        "linux-tools-generic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-tools-generic-lts-utopic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-tools-generic-lts-vivid": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-tools-generic-lts-wily": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-tools-generic-lts-xenial": {
+        "linux-headers-lowlatency-lts-wily": {
           "pocket": "esm-infra",
           "source": "linux-meta",
           "version": "4.4.0.252.258"
@@ -929,12 +362,87 @@
           "source": "linux",
           "version": "4.4.0-252.286"
         },
-        "linux-tools-kvm": {
+        "linux-kvm": {
           "pocket": "esm-infra",
           "source": "linux-meta-kvm",
           "version": "4.4.0.1130.127"
         },
+        "linux-tools-virtual-lts-vivid": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-source-4.4.0": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-image-virtual": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-cloud-tools-4.4.0-252-generic": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-tools-virtual-lts-wily": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-lowlatency-lts-vivid": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-doc": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-cloud-tools-4.4.0-252": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-tools-lowlatency-lts-vivid": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-cloud-tools-generic-lts-utopic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-headers-virtual-lts-vivid": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-lowlatency-lts-wily": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-generic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
         "linux-tools-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-signed-generic-lts-vivid": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-lowlatency-lts-xenial": {
           "pocket": "esm-infra",
           "source": "linux-meta",
           "version": "4.4.0.252.258"
@@ -944,52 +452,27 @@
           "source": "linux-meta",
           "version": "4.4.0.252.258"
         },
-        "linux-tools-lowlatency-lts-vivid": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-tools-lowlatency-lts-wily": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-tools-lowlatency-lts-xenial": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-tools-lts-utopic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-tools-virtual": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-tools-virtual-lts-utopic": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-tools-virtual-lts-vivid": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
-        "linux-tools-virtual-lts-wily": {
-          "pocket": "esm-infra",
-          "source": "linux-meta",
-          "version": "4.4.0.252.258"
-        },
         "linux-tools-virtual-lts-xenial": {
           "pocket": "esm-infra",
           "source": "linux-meta",
           "version": "4.4.0.252.258"
         },
-        "linux-virtual": {
+        "linux-cloud-tools-lowlatency-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-modules-extra-4.4.0-252-generic": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-image-extra-virtual-lts-vivid": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-generic-lts-wily": {
           "pocket": "esm-infra",
           "source": "linux-meta",
           "version": "4.4.0.252.258"
@@ -999,12 +482,172 @@
           "source": "linux-meta",
           "version": "4.4.0.252.258"
         },
+        "linux-signed-generic-lts-wily": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-cloud-tools-lowlatency-lts-wily": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-libc-dev": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-image-extra-virtual-lts-utopic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-signed-generic-lts-utopic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-cloud-tools-4.4.0-1130-kvm": {
+          "pocket": "esm-infra",
+          "source": "linux-kvm",
+          "version": "4.4.0-1130.140"
+        },
+        "linux-tools-lowlatency-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-headers-generic-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-virtual-lts-vivid": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-crashdump": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
         "linux-virtual-lts-vivid": {
           "pocket": "esm-infra",
           "source": "linux-meta",
           "version": "4.4.0.252.258"
         },
-        "linux-virtual-lts-wily": {
+        "linux-signed-lowlatency-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-signed-image-generic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-signed-lowlatency-lts-wily": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-lowlatency-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-signed-generic-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-source": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-headers-lowlatency-lts-vivid": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-cloud-tools-lowlatency-lts-vivid": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-generic-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-4.4.0-1130-kvm": {
+          "pocket": "esm-infra",
+          "source": "linux-kvm",
+          "version": "4.4.0-1130.140"
+        },
+        "linux-headers-kvm": {
+          "pocket": "esm-infra",
+          "source": "linux-meta-kvm",
+          "version": "4.4.0.1130.127"
+        },
+        "linux-cloud-tools-generic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-hwe-generic-trusty": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-virtual": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-tools-virtual": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-cloud-tools-generic-lts-vivid": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-tools-generic-lts-utopic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-headers-4.4.0-252-generic": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-signed-image-generic-lts-vivid": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-virtual-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-lowlatency-lts-utopic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-extra-virtual": {
           "pocket": "esm-infra",
           "source": "linux-meta",
           "version": "4.4.0.252.258"
@@ -1013,22 +656,375 @@
           "pocket": "esm-infra",
           "source": "linux-meta",
           "version": "4.4.0.252.258"
-        }
-      },
-      "binaries": {
-        "linux-image-4.4.0-1130-kvm": {
+        },
+        "linux-cloud-tools-virtual-lts-vivid": {
           "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-cloud-tools-generic-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-signed-image-generic-lts-wily": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-headers-4.4.0-252-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-tools-4.4.0-1130-kvm": {
+          "pocket": "esm-infra",
+          "source": "linux-kvm",
           "version": "4.4.0-1130.140"
+        },
+        "linux-headers-4.4.0-252": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-signed-image-lowlatency-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-buildinfo-4.4.0-1130-kvm": {
+          "pocket": "esm-infra",
+          "source": "linux-kvm",
+          "version": "4.4.0-1130.140"
+        },
+        "linux-image-generic-lts-vivid": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-generic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-tools-generic-lts-wily": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-tools-virtual-lts-utopic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-buildinfo-4.4.0-252-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-kvm-tools-4.4.0-1130": {
+          "pocket": "esm-infra",
+          "source": "linux-kvm",
+          "version": "4.4.0-1130.140"
+        },
+        "linux-kvm-headers-4.4.0-1130": {
+          "pocket": "esm-infra",
+          "source": "linux-kvm",
+          "version": "4.4.0-1130.140"
+        },
+        "linux-headers-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-lowlatency-lts-vivid": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-modules-4.4.0-1130-kvm": {
+          "pocket": "esm-infra",
+          "source": "linux-kvm",
+          "version": "4.4.0-1130.140"
+        },
+        "linux-generic-lts-wily": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-hwe-virtual-trusty": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-signed-image-generic-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-generic-lts-vivid": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-tools-lowlatency-lts-wily": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-headers-virtual-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-cloud-tools-4.4.0-252-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-modules-4.4.0-252-generic": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-headers-lowlatency-lts-utopic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-cloud-tools-common": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-hwe-generic-trusty": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-tools-generic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
         },
         "linux-image-4.4.0-252-generic": {
           "pocket": "esm-infra",
+          "source": "linux-signed",
           "version": "4.4.0-252.286"
+        },
+        "linux-headers-generic-lts-utopic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-cloud-tools-virtual-lts-wily": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-cloud-tools-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-kvm-cloud-tools-4.4.0-1130": {
+          "pocket": "esm-infra",
+          "source": "linux-kvm",
+          "version": "4.4.0-1130.140"
+        },
+        "linux-lowlatency-lts-utopic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-tools-generic-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-signed-image-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-generic-lts-utopic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-virtual-lts-wily": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-tools-4.4.0-252": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-image-unsigned-4.4.0-252-generic": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-lowlatency-lts-wily": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-virtual-lts-utopic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-headers-generic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-cloud-tools-lowlatency-lts-utopic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-tools-lts-utopic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-modules-4.4.0-252-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-image-unsigned-4.4.0-252-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-generic-lts-utopic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-headers-lowlatency-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-tools-kvm": {
+          "pocket": "esm-infra",
+          "source": "linux-meta-kvm",
+          "version": "4.4.0.1130.127"
+        },
+        "linux-buildinfo-4.4.0-252-generic": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-signed-image-lowlatency-lts-wily": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-headers-generic-lts-vivid": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-headers-virtual": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-generic-lts-xenial": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-kvm": {
+          "pocket": "esm-infra",
+          "source": "linux-meta-kvm",
+          "version": "4.4.0.1130.127"
+        },
+        "linux-virtual-lts-wily": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-4.4.0-252-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux-signed",
+          "version": "4.4.0-252.286"
+        },
+        "linux-headers-virtual-lts-utopic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-headers-virtual-lts-wily": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-tools-4.4.0-252-generic": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-signed-generic": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-tools-4.4.0-252-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux",
+          "version": "4.4.0-252.286"
+        },
+        "linux-hwe-virtual-trusty": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-signed-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        },
+        "linux-headers-4.4.0-1130-kvm": {
+          "pocket": "esm-infra",
+          "source": "linux-kvm",
+          "version": "4.4.0-1130.140"
+        },
+        "linux-image-lowlatency": {
+          "pocket": "esm-infra",
+          "source": "linux-meta",
+          "version": "4.4.0.252.258"
+        }
+      },
+      "binaries": {
+        "linux-image-4.4.0-252-generic": {
+          "pocket": "esm-infra",
+          "version": "4.4.0-252.286"
+        },
+        "linux-image-lowlatency-lts-xenial": {
+          "pocket": "esm-infra",
+          "version": "4.4.0.252.258"
         },
         "linux-image-4.4.0-252-lowlatency": {
           "pocket": "esm-infra",
           "version": "4.4.0-252.286"
         },
         "linux-image-generic": {
+          "pocket": "esm-infra",
+          "version": "4.4.0.252.258"
+        },
+        "linux-image-4.4.0-1130-kvm": {
+          "pocket": "esm-infra",
+          "version": "4.4.0-1130.140"
+        },
+        "linux-image-virtual": {
           "pocket": "esm-infra",
           "version": "4.4.0.252.258"
         },
@@ -1044,32 +1040,36 @@
           "pocket": "esm-infra",
           "version": "4.4.0.252.258"
         },
-        "linux-image-lowlatency-lts-xenial": {
-          "pocket": "esm-infra",
-          "version": "4.4.0.252.258"
-        },
-        "linux-image-virtual": {
-          "pocket": "esm-infra",
-          "version": "4.4.0.252.258"
-        },
         "linux-image-virtual-lts-xenial": {
           "pocket": "esm-infra",
           "version": "4.4.0.252.258"
         }
       },
       "sources": {
-        "linux": {
-          "description": "Linux kernel",
-          "version": "4.4.0-252.286"
-        },
         "linux-kvm": {
-          "description": "Linux kernel for cloud environments",
-          "version": "4.4.0-1130.140"
+          "version": "4.4.0-1130.140",
+          "description": "Linux kernel for cloud environments"
+        },
+        "linux": {
+          "version": "4.4.0-252.286",
+          "description": "Linux kernel"
         }
       }
     }
   },
-  "summary": "linux, linux-aws, linux-kvm, linux-lts-xenial vulnerabilities",
+  "title": "Linux kernel vulnerabilities",
   "timestamp": 1710806245.4149697,
-  "title": "Linux kernel vulnerabilities"
+  "summary": "linux, linux-aws, linux-kvm, linux-lts-xenial vulnerabilities",
+  "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
+  "cves": [
+    "CVE-2022-20567",
+    "CVE-2023-34256",
+    "CVE-2023-39197",
+    "CVE-2023-51781",
+    "CVE-2024-0775",
+    "CVE-2024-1086",
+    "CVE-2024-24855"
+  ],
+  "id": "USN-6700-1",
+  "isummary": "Several security issues were fixed in the Linux kernel.\n"
 }
