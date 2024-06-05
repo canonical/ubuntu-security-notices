@@ -63,11 +63,19 @@ def load_database(filename):
     return database
 
 
-def load_usn_files(path):
-    db = {}
+def list_usn_files(path):
+    usn_files = []
     for filename in glob.glob(os.path.join(path, "*.json")):
-        with open(filename, "r") as f:
-            db.update(json.load(f))
+        usn_files.append(filename)
+
+    return usn_files
+
+
+def load_usn_file(path, usn_id):
+    db = {}
+    filename = os.path.join(path, f"{usn_id}.json")
+    with open(filename, "r") as f:
+        db = json.load(f)
 
     return db
 
@@ -90,17 +98,24 @@ def main():
     elif not os.path.isdir(options.output_dir):
         abort("%s is not a directory, exiting." % options.output_dir)
 
-    current_db = load_usn_files(options.output_dir)
-
     database = load_database(options.db)
 
     for usn_id in database.keys():
-        prepend_usn_to_id(database, usn_id)
-        if database[usn_id]["id"] in current_db.keys():
-            if current_db[usn_id] != database[usn_id]:
+        if os.path.exists(os.path.join(options.output_dir, f"{database[usn_id]['id']}.json")):
+            usn_file = load_usn_file(options.output_dir, usn_id)
+            prepend_usn_to_id(database, usn_id)
+            if usn_file != database[usn_id]:
                 write_json(options.output_dir, database[usn_id], usn_id)
         else:
+            prepend_usn_to_id(database, usn_id)
             write_json(options.output_dir, database[usn_id], usn_id)
+
+    usn_files = list_usn_files(options.output_dir)
+    for file in usn_files:
+        usn_id = file.split('/')[1].split('.')[0]
+        if usn_id not in database.keys():
+            print(f"{usn_id} deleted from database")
+            os.remove(file)
 
     return 0
 

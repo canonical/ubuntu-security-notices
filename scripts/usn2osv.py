@@ -290,6 +290,12 @@ def main():
             usn = json.load(f)
             usn2osv(options.output_dir, usn, supported_releases)
 
+    for filename in glob.glob(os.path.join(options.output_dir, "*.json")):
+        usn_file = os.path.join(options.input_dir, filename.split('USN-')[1])
+        if not os.path.exists(usn_file):
+            print(f"{usn_file} does not existing, deleting file {filename}")
+            os.remove(filename)
+
     return 0
 
 
