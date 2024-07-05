@@ -1,0 +1,587 @@
+{
+  "description": "Ziming Zhang discovered that the DRM driver for VMware Virtual GPU did not\nproperly handle certain error conditions, leading to a NULL pointer\ndereference. A local attacker could possibly trigger this vulnerability to\ncause a denial of service. (CVE-2022-38096)\n\nZheng Wang discovered that the Broadcom FullMAC WLAN driver in the Linux\nkernel contained a race condition during device removal, leading to a use-\nafter-free vulnerability. A physically proximate attacker could possibly\nuse this to cause a denial of service (system crash). (CVE-2023-47233)\n\nIt was discovered that the ATA over Ethernet (AoE) driver in the Linux\nkernel contained a race condition, leading to a use-after-free\nvulnerability. An attacker could use this to cause a denial of service or\npossibly execute arbitrary code. (CVE-2023-6270)\n\nIt was discovered that the Atheros 802.11ac wireless driver did not\nproperly validate certain data structures, leading to a NULL pointer\ndereference. An attacker could possibly use this to cause a denial of\nservice. (CVE-2023-7042)\n\nIt was discovered that the Intel Data Streaming and Intel Analytics\nAccelerator drivers in the Linux kernel allowed direct access to the\ndevices for unprivileged users and virtual machines. A local attacker could\nuse this to cause a denial of service. (CVE-2024-21823)\n\nGui-Dong Han discovered that the software RAID driver in the Linux kernel\ncontained a race condition, leading to an integer overflow vulnerability. A\nprivileged attacker could possibly use this to cause a denial of service\n(system crash). (CVE-2024-23307)\n\nBai Jiaju discovered that the Xceive XC4000 silicon tuner device driver in\nthe Linux kernel contained a race condition, leading to an integer overflow\nvulnerability. An attacker could possibly use this to cause a denial of\nservice (system crash). (CVE-2024-24861)\n\nChenyuan Yang discovered that the Unsorted Block Images (UBI) flash device\nvolume management subsystem did not properly validate logical eraseblock\nsizes in certain situations. An attacker could possibly use this to cause a\ndenial of service (system crash). (CVE-2024-25739)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM32 architecture;\n  - PowerPC architecture;\n  - x86 architecture;\n  - Block layer subsystem;\n  - ACPI drivers;\n  - Bluetooth drivers;\n  - Clock framework and drivers;\n  - CPU frequency scaling framework;\n  - Cryptographic API;\n  - DPLL subsystem;\n  - ARM SCMI message protocol;\n  - EFI core;\n  - GPU drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - LED subsystem;\n  - Multiple devices driver;\n  - Media drivers;\n  - MMC subsystem;\n  - Network drivers;\n  - NTB driver;\n  - NVME drivers;\n  - PCI subsystem;\n  - Powercap sysfs driver;\n  - SCSI drivers;\n  - Freescale SoC drivers;\n  - SPI subsystem;\n  - Media staging drivers;\n  - Thermal drivers;\n  - TTY drivers;\n  - USB subsystem;\n  - DesignWare USB3 driver;\n  - VFIO drivers;\n  - Backlight driver;\n  - Virtio drivers;\n  - Xen hypervisor drivers;\n  - File systems infrastructure;\n  - BTRFS file system;\n  - debug file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - FAT file system;\n  - Network file system client;\n  - NILFS2 file system;\n  - Overlay file system;\n  - Pstore file system;\n  - Diskquota system;\n  - SMB network file system;\n  - UBI file system;\n  - io_uring subsystem;\n  - BPF subsystem;\n  - Core kernel;\n  - PCI iomap interfaces;\n  - Memory management;\n  - Bluetooth subsystem;\n  - Networking core;\n  - HSR network protocol;\n  - IPv4 networking;\n  - IPv6 networking;\n  - MAC80211 subsystem;\n  - IEEE 802.15.4 subsystem;\n  - Netfilter;\n  - Packet sockets;\n  - Network traffic control;\n  - Sun RPC protocol;\n  - ALSA SH drivers;\n  - SOF drivers;\n  - USB sound devices;\n  - KVM core;\n(CVE-2024-27032, CVE-2024-26868, CVE-2024-26879, CVE-2024-27033,\nCVE-2024-26943, CVE-2024-27040, CVE-2024-26950, CVE-2023-52650,\nCVE-2023-52649, CVE-2023-52644, CVE-2024-26899, CVE-2024-27432,\nCVE-2024-35806, CVE-2024-26871, CVE-2024-35845, CVE-2024-35799,\nCVE-2024-26945, CVE-2024-35805, CVE-2024-27041, CVE-2024-26860,\nCVE-2024-26930, CVE-2024-26941, CVE-2024-26960, CVE-2024-27034,\nCVE-2024-26891, CVE-2024-35793, CVE-2024-26963, CVE-2024-27029,\nCVE-2024-26890, CVE-2024-27074, CVE-2024-27079, CVE-2024-27053,\nCVE-2024-27070, CVE-2024-35821, CVE-2024-27067, CVE-2024-27051,\nCVE-2024-27026, CVE-2024-26961, CVE-2024-27050, CVE-2024-26939,\nCVE-2024-26897, CVE-2024-26878, CVE-2024-27433, CVE-2024-26885,\nCVE-2024-35810, CVE-2024-35829, CVE-2024-26965, CVE-2024-26875,\nCVE-2024-26966, CVE-2024-27078, CVE-2024-35874, CVE-2023-52661,\nCVE-2024-35794, CVE-2024-35787, CVE-2024-26874, CVE-2024-27054,\nCVE-2024-26940, CVE-2024-26859, CVE-2024-27044, CVE-2024-26948,\nCVE-2024-26882, CVE-2023-52653, CVE-2024-27071, CVE-2024-27065,\nCVE-2024-26877, CVE-2024-26929, CVE-2024-27064, CVE-2024-35803,\nCVE-2024-27066, CVE-2024-27028, CVE-2024-27072, CVE-2024-26876,\nCVE-2024-27039, CVE-2024-27435, CVE-2024-27434, CVE-2024-26812,\nCVE-2024-27030, CVE-2024-26816, CVE-2024-26873, CVE-2024-35808,\nCVE-2024-27389, CVE-2024-27075, CVE-2024-27038, CVE-2024-35828,\nCVE-2024-26946, CVE-2024-26655, CVE-2023-52662, CVE-2024-27077,\nCVE-2024-27076, CVE-2024-35795, CVE-2024-26933, CVE-2024-35789,\nCVE-2024-26972, CVE-2023-52663, CVE-2024-27031, CVE-2024-27069,\nCVE-2024-26813, CVE-2023-52659, CVE-2024-26862, CVE-2024-26962,\nCVE-2024-26654, CVE-2024-26815, CVE-2024-26978, CVE-2024-26976,\nCVE-2024-26893, CVE-2024-35809, CVE-2024-27027, CVE-2024-26864,\nCVE-2024-27048, CVE-2024-27046, CVE-2024-26869, CVE-2024-35827,\nCVE-2024-26951, CVE-2024-26942, CVE-2024-26870, CVE-2024-27437,\nCVE-2024-26931, CVE-2024-27036, CVE-2022-48669, CVE-2024-26898,\nCVE-2024-26970, CVE-2024-26886, CVE-2024-26944, CVE-2024-26865,\nCVE-2024-26896, CVE-2024-26895, CVE-2024-26947, CVE-2024-26880,\nCVE-2024-35811, CVE-2024-26975, CVE-2024-27391, CVE-2024-35796,\nCVE-2024-27043, CVE-2024-26949, CVE-2024-26653, CVE-2024-35814,\nCVE-2024-26964, CVE-2023-52652, CVE-2024-27047, CVE-2024-35830,\nCVE-2024-26900, CVE-2024-26810, CVE-2024-26956, CVE-2024-35817,\nCVE-2024-26887, CVE-2024-26809, CVE-2024-27045, CVE-2024-26656,\nCVE-2024-26971, CVE-2024-26866, CVE-2024-26861, CVE-2024-26968,\nCVE-2024-26881, CVE-2024-27063, CVE-2024-35807, CVE-2024-35797,\nCVE-2024-35822, CVE-2024-35813, CVE-2024-27073, CVE-2024-26954,\nCVE-2024-26888, CVE-2024-26955, CVE-2024-26894, CVE-2024-35844,\nCVE-2024-26958, CVE-2024-26952, CVE-2024-35798, CVE-2024-26969,\nCVE-2024-26967, CVE-2024-35800, CVE-2024-35819, CVE-2024-26937,\nCVE-2024-26927, CVE-2024-26883, CVE-2024-26934, CVE-2024-27392,\nCVE-2024-27068, CVE-2024-26889, CVE-2024-26892, CVE-2024-27390,\nCVE-2024-26657, CVE-2024-27388, CVE-2024-27049, CVE-2024-26935,\nCVE-2024-35831, CVE-2024-26884, CVE-2024-26938, CVE-2024-27037,\nCVE-2024-26977, CVE-2024-26953, CVE-2024-26973, CVE-2024-26932,\nCVE-2024-26901, CVE-2024-35843, CVE-2024-26872, CVE-2024-26959,\nCVE-2024-27035, CVE-2024-35826, CVE-2024-27436, CVE-2024-26651,\nCVE-2024-26957, CVE-2024-26863, CVE-2024-27042, CVE-2024-26814,\nCVE-2023-52647, CVE-2024-27080, CVE-2024-27052, CVE-2024-27058,\nCVE-2024-35801, CVE-2023-52648)\n",
+  "releases": {
+    "noble": {
+      "allbinaries": {
+        "linux-modules-extra-6.8.0-1006-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-headers-oracle": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-modules-6.8.0-1006-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-image-oracle": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-tools-6.8.0-1006-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-image-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-image-unsigned-6.8.0-1006-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-tools-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-modules-6.8.0-1006-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-oracle-headers-6.8.0-1006": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-image-6.8.0-1006-oracle": {
+          "pocket": "security",
+          "source": "linux-signed-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-tools-6.8.0-1006-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-modules-iwlwifi-6.8.0-1006-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-tools-oracle": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-headers-6.8.0-1006-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-headers-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-buildinfo-6.8.0-1006-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-headers-6.8.0-1006-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-oracle-tools-6.8.0-1006": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-image-6.8.0-1006-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-signed-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-image-unsigned-6.8.0-1006-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-oracle": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-modules-extra-6.8.0-1006-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-modules-iwlwifi-oracle": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-buildinfo-6.8.0-1006-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.8.0-1006.6"
+        }
+      },
+      "binaries": {
+        "linux-image-6.8.0-1006-oracle": {
+          "pocket": "security",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-image-6.8.0-1006-oracle-64k": {
+          "pocket": "security",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-image-oracle": {
+          "pocket": "security",
+          "version": "6.8.0-1006.6"
+        },
+        "linux-image-oracle-64k": {
+          "pocket": "security",
+          "version": "6.8.0-1006.6"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-meta-oracle_6.8.0-1006.6.dsc": {
+              "size": 2235,
+              "md5": "642939d3d277b18dc72eb7d1a686c3bb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oracle/linux-signed-oracle_6.8.0-1006.6.tar.xz": {
+              "size": 16484,
+              "md5": "6e5cb512e49df379c392dacdf17bfb6c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle_6.8.0-1006.6.diff.gz": {
+              "size": 1849540,
+              "md5": "39e4ecbbf30fe9c2f72ba08264556d14"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oracle/linux-signed-oracle_6.8.0-1006.6.dsc": {
+              "size": 2153,
+              "md5": "1523b86301486c66584a49d7eec0c75e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle_6.8.0.orig.tar.gz": {
+              "size": 230060117,
+              "md5": "3ce3b99b065c7c0507b82ad0f330e2fd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-meta-oracle_6.8.0-1006.6.tar.xz": {
+              "size": 9680,
+              "md5": "2a04d1de0cab0cb16238438837be416b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle_6.8.0-1006.6.dsc": {
+              "size": 5989,
+              "md5": "8e9310900f8bd402e1ac8b196fe3cfdd"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle-headers-6.8.0-1006_6.8.0-1006.6_all.deb": {
+              "size": 13450080,
+              "md5": "d6978e1e82d5c3033372e18cf8e5f175"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-buildinfo-6.8.0-1006-oracle_6.8.0-1006.6_amd64.deb": {
+              "size": 517206,
+              "md5": "294855a4dbfcdbe4dfc766eb5976192c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-headers-oracle_6.8.0-1006.6_amd64.deb": {
+              "size": 6160,
+              "md5": "5bbfa08e3f45335bbd3c6371ef26958e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-tools-6.8.0-1006-oracle_6.8.0-1006.6_amd64.deb": {
+              "size": 1798,
+              "md5": "9c7b51809fb40f666e3ff422b7a0e122"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-modules-6.8.0-1006-oracle_6.8.0-1006.6_amd64.deb": {
+              "size": 37826752,
+              "md5": "b856c8fa794107d54968f568928335ba"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-tools-oracle_6.8.0-1006.6_amd64.deb": {
+              "size": 6160,
+              "md5": "b5a44e59d4a6c1d0b4dab66111fcb7ae"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-oracle_6.8.0-1006.6_amd64.deb": {
+              "size": 1740,
+              "md5": "ea396f0ba46a284e04b1d0c2f96ee307"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-modules-extra-6.8.0-1006-oracle_6.8.0-1006.6_amd64.deb": {
+              "size": 113531072,
+              "md5": "bd9a40e5f6f017b85896b14558caaed2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle-tools-6.8.0-1006_6.8.0-1006.6_amd64.deb": {
+              "size": 3708506,
+              "md5": "90e049fc413f62f5b461e53166ef9886"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-image-unsigned-6.8.0-1006-oracle_6.8.0-1006.6_amd64.deb": {
+              "size": 14827712,
+              "md5": "9556d44381031a56cf691241c52701cb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-modules-iwlwifi-oracle_6.8.0-1006.6_amd64.deb": {
+              "size": 6230,
+              "md5": "5ed772663ba5f3ea239116dfc88414cd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-modules-iwlwifi-6.8.0-1006-oracle_6.8.0-1006.6_amd64.deb": {
+              "size": 1628352,
+              "md5": "851f5a725849c9efdab937349c99f121"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-headers-6.8.0-1006-oracle_6.8.0-1006.6_amd64.deb": {
+              "size": 3459564,
+              "md5": "4a0e9d6848796222f68f0f6052f27df8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oracle/linux-image-6.8.0-1006-oracle_6.8.0-1006.6_amd64.deb": {
+              "size": 14511844,
+              "md5": "b1010f12e917797179e8fe04915b33e3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-image-oracle_6.8.0-1006.6_amd64.deb": {
+              "size": 6248,
+              "md5": "d193fb4b54ac11abd65e75a48f960192"
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-oracle-tools-6.8.0-1006_6.8.0-1006.6_arm64.deb": {
+              "size": 2516436,
+              "md5": "c1bab08b4e599826823cd61dd99a47cd"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-tools-oracle-64k_6.8.0-1006.6_arm64.deb": {
+              "size": 6176,
+              "md5": "fbd2f436cf3f8d458bfab0bd3a6d8f8d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-headers-oracle-64k_6.8.0-1006.6_arm64.deb": {
+              "size": 6162,
+              "md5": "d02d6a36df983695b1b9dbf3687e4ff9"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-oracle-64k_6.8.0-1006.6_arm64.deb": {
+              "size": 1738,
+              "md5": "8b154b1d9562228ad6797490f726ae1c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-headers-6.8.0-1006-oracle_6.8.0-1006.6_arm64.deb": {
+              "size": 3024958,
+              "md5": "f9af675f1ec964cf176f73371fba33d2"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-oracle/linux-image-6.8.0-1006-oracle_6.8.0-1006.6_arm64.deb": {
+              "size": 17950066,
+              "md5": "b5cafd6a4845c24cd1cbedd11ea0e98c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-headers-oracle_6.8.0-1006.6_arm64.deb": {
+              "size": 6160,
+              "md5": "b0edf44a5b1b09f793bd2eabcf7018b1"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-modules-extra-6.8.0-1006-oracle-64k_6.8.0-1006.6_arm64.deb": {
+              "size": 121835712,
+              "md5": "bb2434fd92899d528e562d8b359851e3"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-image-oracle_6.8.0-1006.6_arm64.deb": {
+              "size": 6232,
+              "md5": "cbd5fc7c63a49f066239826db4761f04"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-modules-6.8.0-1006-oracle_6.8.0-1006.6_arm64.deb": {
+              "size": 32829632,
+              "md5": "9a97b4a7d63ccf0582ecdf4c5e4f2b8e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-modules-extra-6.8.0-1006-oracle_6.8.0-1006.6_arm64.deb": {
+              "size": 121784512,
+              "md5": "821621e9cd067741db39a1d84021bf31"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-headers-6.8.0-1006-oracle-64k_6.8.0-1006.6_arm64.deb": {
+              "size": 3026338,
+              "md5": "2db7ff21ddc21ddc3c1a8b74ebd5b161"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-image-unsigned-6.8.0-1006-oracle_6.8.0-1006.6_arm64.deb": {
+              "size": 18319552,
+              "md5": "cd576aad71cd607b3387da07bac4e2db"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-oracle_6.8.0-1006.6_arm64.deb": {
+              "size": 1740,
+              "md5": "b886d27cd015c6672564e197279588f0"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-tools-6.8.0-1006-oracle_6.8.0-1006.6_arm64.deb": {
+              "size": 1712,
+              "md5": "25be1f8a35ff597a93a1f4ab5b9d92d5"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-buildinfo-6.8.0-1006-oracle-64k_6.8.0-1006.6_arm64.deb": {
+              "size": 540658,
+              "md5": "7024637a941984483b94c7edd5ced349"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-image-oracle-64k_6.8.0-1006.6_arm64.deb": {
+              "size": 6242,
+              "md5": "40f8fd3a5fb63ac1454cf5e439cb179e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-buildinfo-6.8.0-1006-oracle_6.8.0-1006.6_arm64.deb": {
+              "size": 540504,
+              "md5": "fadbfaec53f616623b65a48921aafb15"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-tools-6.8.0-1006-oracle-64k_6.8.0-1006.6_arm64.deb": {
+              "size": 1720,
+              "md5": "a16dfb2802ad37d9c874bed120490dd4"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-tools-oracle_6.8.0-1006.6_arm64.deb": {
+              "size": 6160,
+              "md5": "34a8f9f3fd58118433e899c2952a41ad"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-image-unsigned-6.8.0-1006-oracle-64k_6.8.0-1006.6_arm64.deb": {
+              "size": 18329792,
+              "md5": "8829e4e5bd18e480772657088c9bcfc2"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-modules-6.8.0-1006-oracle-64k_6.8.0-1006.6_arm64.deb": {
+              "size": 32778432,
+              "md5": "d3f9f695df01717b121e3f4a3fda8582"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-oracle/linux-image-6.8.0-1006-oracle-64k_6.8.0-1006.6_arm64.deb": {
+              "size": 17947726,
+              "md5": "bd1563213aa2f3b96afcca12135d438e"
+            }
+          }
+        }
+      },
+      "sources": {
+        "linux-oracle": {
+          "version": "6.8.0-1006.6",
+          "description": "Linux kernel for Oracle Cloud systems"
+        }
+      }
+    }
+  },
+  "title": "Linux kernel (Oracle) vulnerabilities",
+  "timestamp": 1720106981.0572555,
+  "summary": "linux-oracle vulnerabilities",
+  "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
+  "cves": [
+    "CVE-2022-38096",
+    "CVE-2022-48669",
+    "CVE-2023-47233",
+    "CVE-2023-52644",
+    "CVE-2023-52647",
+    "CVE-2023-52648",
+    "CVE-2023-52649",
+    "CVE-2023-52650",
+    "CVE-2023-52652",
+    "CVE-2023-52653",
+    "CVE-2023-52659",
+    "CVE-2023-52661",
+    "CVE-2023-52662",
+    "CVE-2023-52663",
+    "CVE-2023-6270",
+    "CVE-2023-7042",
+    "CVE-2024-21823",
+    "CVE-2024-23307",
+    "CVE-2024-24861",
+    "CVE-2024-25739",
+    "CVE-2024-26651",
+    "CVE-2024-26653",
+    "CVE-2024-26654",
+    "CVE-2024-26655",
+    "CVE-2024-26656",
+    "CVE-2024-26657",
+    "CVE-2024-26809",
+    "CVE-2024-26810",
+    "CVE-2024-26812",
+    "CVE-2024-26813",
+    "CVE-2024-26814",
+    "CVE-2024-26815",
+    "CVE-2024-26816",
+    "CVE-2024-26859",
+    "CVE-2024-26860",
+    "CVE-2024-26861",
+    "CVE-2024-26862",
+    "CVE-2024-26863",
+    "CVE-2024-26864",
+    "CVE-2024-26865",
+    "CVE-2024-26866",
+    "CVE-2024-26868",
+    "CVE-2024-26869",
+    "CVE-2024-26870",
+    "CVE-2024-26871",
+    "CVE-2024-26872",
+    "CVE-2024-26873",
+    "CVE-2024-26874",
+    "CVE-2024-26875",
+    "CVE-2024-26876",
+    "CVE-2024-26877",
+    "CVE-2024-26878",
+    "CVE-2024-26879",
+    "CVE-2024-26880",
+    "CVE-2024-26881",
+    "CVE-2024-26882",
+    "CVE-2024-26883",
+    "CVE-2024-26884",
+    "CVE-2024-26885",
+    "CVE-2024-26886",
+    "CVE-2024-26887",
+    "CVE-2024-26888",
+    "CVE-2024-26889",
+    "CVE-2024-26890",
+    "CVE-2024-26891",
+    "CVE-2024-26892",
+    "CVE-2024-26893",
+    "CVE-2024-26894",
+    "CVE-2024-26895",
+    "CVE-2024-26896",
+    "CVE-2024-26897",
+    "CVE-2024-26898",
+    "CVE-2024-26899",
+    "CVE-2024-26900",
+    "CVE-2024-26901",
+    "CVE-2024-26927",
+    "CVE-2024-26929",
+    "CVE-2024-26930",
+    "CVE-2024-26931",
+    "CVE-2024-26932",
+    "CVE-2024-26933",
+    "CVE-2024-26934",
+    "CVE-2024-26935",
+    "CVE-2024-26937",
+    "CVE-2024-26938",
+    "CVE-2024-26939",
+    "CVE-2024-26940",
+    "CVE-2024-26941",
+    "CVE-2024-26942",
+    "CVE-2024-26943",
+    "CVE-2024-26944",
+    "CVE-2024-26945",
+    "CVE-2024-26946",
+    "CVE-2024-26947",
+    "CVE-2024-26948",
+    "CVE-2024-26949",
+    "CVE-2024-26950",
+    "CVE-2024-26951",
+    "CVE-2024-26952",
+    "CVE-2024-26953",
+    "CVE-2024-26954",
+    "CVE-2024-26955",
+    "CVE-2024-26956",
+    "CVE-2024-26957",
+    "CVE-2024-26958",
+    "CVE-2024-26959",
+    "CVE-2024-26960",
+    "CVE-2024-26961",
+    "CVE-2024-26962",
+    "CVE-2024-26963",
+    "CVE-2024-26964",
+    "CVE-2024-26965",
+    "CVE-2024-26966",
+    "CVE-2024-26967",
+    "CVE-2024-26968",
+    "CVE-2024-26969",
+    "CVE-2024-26970",
+    "CVE-2024-26971",
+    "CVE-2024-26972",
+    "CVE-2024-26973",
+    "CVE-2024-26975",
+    "CVE-2024-26976",
+    "CVE-2024-26977",
+    "CVE-2024-26978",
+    "CVE-2024-27026",
+    "CVE-2024-27027",
+    "CVE-2024-27028",
+    "CVE-2024-27029",
+    "CVE-2024-27030",
+    "CVE-2024-27031",
+    "CVE-2024-27032",
+    "CVE-2024-27033",
+    "CVE-2024-27034",
+    "CVE-2024-27035",
+    "CVE-2024-27036",
+    "CVE-2024-27037",
+    "CVE-2024-27038",
+    "CVE-2024-27039",
+    "CVE-2024-27040",
+    "CVE-2024-27041",
+    "CVE-2024-27042",
+    "CVE-2024-27043",
+    "CVE-2024-27044",
+    "CVE-2024-27045",
+    "CVE-2024-27046",
+    "CVE-2024-27047",
+    "CVE-2024-27048",
+    "CVE-2024-27049",
+    "CVE-2024-27050",
+    "CVE-2024-27051",
+    "CVE-2024-27052",
+    "CVE-2024-27053",
+    "CVE-2024-27054",
+    "CVE-2024-27058",
+    "CVE-2024-27063",
+    "CVE-2024-27064",
+    "CVE-2024-27065",
+    "CVE-2024-27066",
+    "CVE-2024-27067",
+    "CVE-2024-27068",
+    "CVE-2024-27069",
+    "CVE-2024-27070",
+    "CVE-2024-27071",
+    "CVE-2024-27072",
+    "CVE-2024-27073",
+    "CVE-2024-27074",
+    "CVE-2024-27075",
+    "CVE-2024-27076",
+    "CVE-2024-27077",
+    "CVE-2024-27078",
+    "CVE-2024-27079",
+    "CVE-2024-27080",
+    "CVE-2024-27388",
+    "CVE-2024-27389",
+    "CVE-2024-27390",
+    "CVE-2024-27391",
+    "CVE-2024-27392",
+    "CVE-2024-27432",
+    "CVE-2024-27433",
+    "CVE-2024-27434",
+    "CVE-2024-27435",
+    "CVE-2024-27436",
+    "CVE-2024-27437",
+    "CVE-2024-35787",
+    "CVE-2024-35789",
+    "CVE-2024-35793",
+    "CVE-2024-35794",
+    "CVE-2024-35795",
+    "CVE-2024-35796",
+    "CVE-2024-35797",
+    "CVE-2024-35798",
+    "CVE-2024-35799",
+    "CVE-2024-35800",
+    "CVE-2024-35801",
+    "CVE-2024-35803",
+    "CVE-2024-35805",
+    "CVE-2024-35806",
+    "CVE-2024-35807",
+    "CVE-2024-35808",
+    "CVE-2024-35809",
+    "CVE-2024-35810",
+    "CVE-2024-35811",
+    "CVE-2024-35813",
+    "CVE-2024-35814",
+    "CVE-2024-35817",
+    "CVE-2024-35819",
+    "CVE-2024-35821",
+    "CVE-2024-35822",
+    "CVE-2024-35826",
+    "CVE-2024-35827",
+    "CVE-2024-35828",
+    "CVE-2024-35829",
+    "CVE-2024-35830",
+    "CVE-2024-35831",
+    "CVE-2024-35843",
+    "CVE-2024-35844",
+    "CVE-2024-35845",
+    "CVE-2024-35874"
+  ],
+  "id": "USN-6878-1",
+  "isummary": "Several security issues were fixed in the Linux kernel.\n"
+}
