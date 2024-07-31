@@ -1,0 +1,2855 @@
+{
+    "metadata": {
+        "@context": "https://openvex.dev/ns/v0.2.0",
+        "@id": "https://github.com/canonical/ubuntu-security-notices/blob/main/vex/usn/USN-3044-1",
+        "author": "Canonical Ltd.",
+        "timestamp": "2024-07-31T20:28:28.235151",
+        "version": 1
+    },
+    "statements": [
+        {
+            "vulnerability": {
+                "@id": "https://ubuntu.com/security/notices/USN-3044-1",
+                "name": "USN-3044-1",
+                "description": "Gustavo Grieco discovered an out-of-bounds read during XML parsing in some circumstances. If a user were tricked in to opening a specially crafted website, an attacker could potentially exploit this to cause a denial of service via application crash, or obtain sensitive information. (CVE-2016-0718)  Toni Huttunen discovered that once a favicon is requested from a site, the remote server can keep the network connection open even after the page is closed. A remote attacked could potentially exploit this to track users, resulting in information disclosure. (CVE-2016-2830)  Christian Holler, Tyson Smith, Boris Zbarsky, Byron Campen, Julian Seward, Carsten Book, Gary Kwong, Jesse Ruderman, Andrew McCreight, and Phil Ringnalda discovered multiple memory safety issues in Firefox. If a user were tricked in to opening a specially crafted website, an attacker could potentially exploit these to cause a denial of service via application crash, or execute arbitrary code. (CVE-2016-2835, CVE-2016-2836)  A buffer overflow was discovered in the ClearKey Content Decryption Module (CDM) during video playback. If a user were tricked in to opening a specially crafted website, an attacker could potentially exploit this to cause a denial of service via plugin process crash, or, in combination with another vulnerability to escape the GMP sandbox, execute arbitrary code. (CVE-2016-2837)  Atte Kettunen discovered a buffer overflow when rendering SVG content in some circumstances. If a user were tricked in to opening a specially crafted website, an attacker could potentially exploit this to cause a denial of service via application crash, or execute arbitrary code. (CVE-2016-2838)  Bert Massop discovered a crash in Cairo with version 0.10 of FFmpeg. If a user were tricked in to opening a specially crafted website, an attacker could potentially exploit this to execute arbitrary code. (CVE-2016-2839)  Catalin Dumitru discovered that URLs of resources loaded after a navigation start could be leaked to the following page via the Resource Timing API. An attacker could potentially exploit this to obtain sensitive information. (CVE-2016-5250)  Firas Salem discovered an issue with non-ASCII and emoji characters in data: URLs. An attacker could potentially exploit this to spoof the addressbar contents. (CVE-2016-5251)  Georg Koppen discovered a stack buffer underflow during 2D graphics rendering in some circumstances. If a user were tricked in to opening a specially crafted website, an attacker could potentially exploit this to cause a denial of service via application crash, or execute arbitrary code. (CVE-2016-5252)  Abhishek Arya discovered a use-after-free when the alt key is used with top-level menus. If a user were tricked in to opening a specially crafted website, an attacker could potentially exploit this to cause a denial of service via application crash, or execute arbitrary code. (CVE-2016-5254)  Jukka Jyl\u00e4nki discovered a crash during garbage collection. If a user were tricked in to opening a specially crafted website, an attacker could potentially exploit this to execute arbitrary code. (CVE-2016-5255)  Looben Yang discovered a use-after-free in WebRTC. If a user were tricked in to opening a specially crafted website, an attacker could potentially exploit this to cause a denial of service via application crash, or execute arbitrary code. (CVE-2016-5258)  Looben Yang discovered a use-after-free when working with nested sync events in service workers. If a user were tricked in to opening a specially crafted website, an attacker could potentially exploit this to cause a denial of service via application crash, or execute arbitrary code. (CVE-2016-5259)  Mike Kaply discovered that plain-text passwords can be stored in session restore if an input field type is changed from \"password\" to \"text\" during a session, leading to information disclosure. (CVE-2016-5260)  Samuel Gro\u00df discovered an integer overflow in WebSockets during data buffering in some circumstances. If a user were tricked in to opening a specially crafted website, an attacker could potentially exploit this to cause a denial of service via application crash, or execute arbitrary code. (CVE-2016-5261)  Nikita Arykov discovered that JavaScript event handlers on a <marquee> element can execute in a sandboxed iframe without the allow-scripts flag set. If a user were tricked in to opening a specially crafted website, an attacker could potentially exploit this to conduct cross-site scripting (XSS) attacks. (CVE-2016-5262)  A type confusion bug was discovered in display transformation during rendering. If a user were tricked in to opening a specially crafted website, an attacker could potentially exploit this to cause a denial of service via application crash, or execute arbitrary code. (CVE-2016-5263)  A use-after-free was discovered when applying effects to SVG elements in some circumstances. If a user were tricked in to opening a specially crafted website, an attacker could potentially exploit this to cause a denial of service via application crash, or execute arbitrary code. (CVE-2016-5264)  Abdulrahman Alqabandi discovered a same-origin policy violation relating to local HTML files and saved shortcut files. An attacker could potentially exploit this to obtain sensitive information. (CVE-2016-5265)  Rafael Gieschke discovered an information disclosure issue related to drag and drop. An attacker could potentially exploit this to obtain sensitive information. (CVE-2016-5266)  A text injection issue was discovered with about: URLs. An attacker could potentially exploit this to spoof internal error pages. (CVE-2016-5268)",
+                "aliases": [
+                    "CVE-2016-0718",
+                    "CVE-2016-2830",
+                    "CVE-2016-2835",
+                    "CVE-2016-2836",
+                    "CVE-2016-2837",
+                    "CVE-2016-2838",
+                    "CVE-2016-2839",
+                    "CVE-2016-5250",
+                    "CVE-2016-5251",
+                    "CVE-2016-5252",
+                    "CVE-2016-5254",
+                    "CVE-2016-5255",
+                    "CVE-2016-5258",
+                    "CVE-2016-5259",
+                    "CVE-2016-5260",
+                    "CVE-2016-5261",
+                    "CVE-2016-5262",
+                    "CVE-2016-5263",
+                    "CVE-2016-5264",
+                    "CVE-2016-5265",
+                    "CVE-2016-5266",
+                    "CVE-2016-5268"
+                ]
+            },
+            "timestamp": "2016-08-05 14:39:55.524086",
+            "products": [
+                {
+                    "@id": "pkg:deb/ubuntu/firefox@48.0+build2-0ubuntu0.14.04.1?arch=src?distro=ubuntu/trusty"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbg@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbg@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbg@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbg@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbg@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbgsym@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbgsym@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbgsym@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbgsym@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbgsym@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dev@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dev@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dev@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dev@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dev@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-globalmenu@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-globalmenu@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-globalmenu@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-globalmenu@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-globalmenu@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-af@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-af@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-af@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-af@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-af@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-an@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-an@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-an@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-an@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-an@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ar@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ar@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ar@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ar@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ar@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-as@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-as@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-as@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-as@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-as@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ast@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ast@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ast@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ast@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ast@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-az@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-az@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-az@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-az@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-az@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-be@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-be@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-be@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-be@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-be@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bg@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bg@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bg@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bg@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bg@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bn@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bn@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bn@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bn@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bn@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-br@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-br@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-br@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-br@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-br@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bs@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bs@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bs@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bs@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bs@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ca@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ca@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ca@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ca@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ca@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cak@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cak@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cak@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cak@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cak@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cs@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cs@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cs@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cs@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cs@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-csb@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-csb@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-csb@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-csb@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-csb@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cy@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cy@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cy@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cy@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cy@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-da@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-da@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-da@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-da@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-da@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-de@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-de@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-de@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-de@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-de@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-el@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-el@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-el@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-el@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-el@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-en@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-en@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-en@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-en@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-en@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eo@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eo@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eo@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eo@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eo@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-es@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-es@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-es@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-es@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-es@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-et@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-et@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-et@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-et@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-et@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eu@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eu@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eu@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eu@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eu@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fa@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fa@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fa@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fa@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fa@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fi@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fi@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fi@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fi@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fi@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fr@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fr@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fr@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fr@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fr@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fy@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fy@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fy@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fy@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fy@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ga@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ga@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ga@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ga@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ga@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gd@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gd@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gd@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gd@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gd@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gl@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gl@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gl@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gl@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gl@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gn@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gn@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gn@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gn@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gn@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gu@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gu@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gu@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gu@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gu@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-he@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-he@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-he@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-he@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-he@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hi@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hi@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hi@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hi@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hi@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hr@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hr@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hr@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hr@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hr@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hsb@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hsb@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hsb@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hsb@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hsb@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hu@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hu@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hu@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hu@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hu@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hy@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hy@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hy@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hy@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hy@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-id@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-id@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-id@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-id@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-id@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-is@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-is@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-is@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-is@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-is@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-it@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-it@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-it@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-it@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-it@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ja@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ja@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ja@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ja@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ja@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ka@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ka@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ka@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ka@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ka@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kk@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kk@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kk@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kk@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kk@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-km@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-km@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-km@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-km@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-km@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kn@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kn@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kn@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kn@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kn@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ko@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ko@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ko@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ko@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ko@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ku@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ku@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ku@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ku@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ku@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lg@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lg@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lg@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lg@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lg@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lt@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lt@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lt@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lt@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lt@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lv@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lv@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lv@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lv@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lv@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mai@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mai@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mai@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mai@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mai@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mk@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mk@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mk@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mk@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mk@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ml@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ml@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ml@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ml@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ml@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mn@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mn@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mn@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mn@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mn@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mr@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mr@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mr@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mr@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mr@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ms@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ms@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ms@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ms@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ms@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nb@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nb@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nb@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nb@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nb@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nl@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nl@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nl@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nl@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nl@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nn@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nn@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nn@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nn@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nn@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nso@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nso@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nso@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nso@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nso@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-oc@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-oc@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-oc@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-oc@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-oc@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-or@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-or@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-or@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-or@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-or@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pa@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pa@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pa@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pa@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pa@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pl@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pl@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pl@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pl@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pl@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pt@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pt@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pt@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pt@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pt@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ro@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ro@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ro@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ro@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ro@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ru@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ru@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ru@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ru@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ru@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-si@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-si@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-si@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-si@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-si@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sk@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sk@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sk@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sk@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sk@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sl@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sl@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sl@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sl@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sl@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sq@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sq@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sq@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sq@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sq@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sr@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sr@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sr@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sr@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sr@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sv@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sv@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sv@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sv@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sv@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sw@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sw@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sw@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sw@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sw@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ta@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ta@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ta@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ta@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ta@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-te@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-te@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-te@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-te@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-te@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-th@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-th@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-th@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-th@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-th@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-tr@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-tr@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-tr@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-tr@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-tr@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uk@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uk@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uk@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uk@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uk@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uz@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uz@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uz@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uz@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uz@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-vi@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-vi@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-vi@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-vi@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-vi@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-xh@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-xh@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-xh@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-xh@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-xh@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hans@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hans@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hans@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hans@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hans@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hant@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hant@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hant@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hant@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hant@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zu@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zu@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zu@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zu@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zu@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-mozsymbols@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-mozsymbols@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-testsuite@48.0+build2-0ubuntu0.14.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-testsuite@48.0+build2-0ubuntu0.14.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-testsuite@48.0+build2-0ubuntu0.14.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-testsuite@48.0+build2-0ubuntu0.14.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-testsuite@48.0+build2-0ubuntu0.14.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox@48.0+build2-0ubuntu0.16.04.1?arch=src?distro=ubuntu/xenial"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbg@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbg@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbg@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbg@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbg@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbgsym@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbgsym@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbgsym@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbgsym@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dbgsym@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dev@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dev@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dev@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dev@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-dev@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-globalmenu@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-globalmenu@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-globalmenu@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-globalmenu@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-globalmenu@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-af@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-af@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-af@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-af@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-af@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-an@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-an@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-an@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-an@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-an@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ar@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ar@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ar@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ar@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ar@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-as@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-as@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-as@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-as@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-as@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ast@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ast@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ast@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ast@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ast@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-az@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-az@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-az@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-az@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-az@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-be@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-be@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-be@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-be@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-be@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bg@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bg@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bg@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bg@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bg@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bn@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bn@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bn@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bn@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bn@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-br@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-br@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-br@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-br@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-br@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bs@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bs@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bs@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bs@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-bs@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ca@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ca@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ca@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ca@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ca@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cak@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cak@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cak@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cak@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cak@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cs@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cs@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cs@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cs@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cs@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-csb@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-csb@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-csb@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-csb@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-csb@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cy@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cy@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cy@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cy@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-cy@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-da@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-da@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-da@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-da@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-da@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-de@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-de@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-de@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-de@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-de@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-el@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-el@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-el@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-el@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-el@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-en@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-en@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-en@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-en@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-en@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eo@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eo@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eo@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eo@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eo@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-es@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-es@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-es@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-es@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-es@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-et@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-et@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-et@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-et@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-et@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eu@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eu@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eu@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eu@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-eu@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fa@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fa@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fa@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fa@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fa@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fi@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fi@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fi@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fi@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fi@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fr@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fr@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fr@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fr@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fr@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fy@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fy@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fy@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fy@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-fy@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ga@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ga@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ga@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ga@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ga@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gd@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gd@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gd@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gd@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gd@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gl@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gl@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gl@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gl@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gl@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gn@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gn@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gn@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gn@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gn@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gu@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gu@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gu@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gu@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-gu@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-he@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-he@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-he@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-he@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-he@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hi@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hi@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hi@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hi@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hi@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hr@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hr@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hr@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hr@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hr@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hsb@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hsb@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hsb@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hsb@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hsb@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hu@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hu@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hu@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hu@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hu@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hy@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hy@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hy@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hy@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-hy@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-id@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-id@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-id@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-id@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-id@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-is@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-is@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-is@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-is@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-is@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-it@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-it@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-it@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-it@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-it@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ja@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ja@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ja@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ja@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ja@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ka@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ka@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ka@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ka@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ka@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kk@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kk@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kk@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kk@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kk@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-km@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-km@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-km@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-km@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-km@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kn@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kn@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kn@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kn@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-kn@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ko@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ko@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ko@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ko@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ko@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ku@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ku@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ku@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ku@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ku@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lg@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lg@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lg@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lg@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lg@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lt@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lt@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lt@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lt@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lt@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lv@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lv@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lv@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lv@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-lv@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mai@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mai@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mai@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mai@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mai@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mk@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mk@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mk@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mk@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mk@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ml@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ml@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ml@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ml@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ml@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mn@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mn@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mn@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mn@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mn@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mr@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mr@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mr@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mr@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-mr@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ms@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ms@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ms@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ms@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ms@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nb@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nb@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nb@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nb@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nb@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nl@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nl@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nl@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nl@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nl@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nn@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nn@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nn@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nn@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nn@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nso@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nso@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nso@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nso@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-nso@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-oc@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-oc@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-oc@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-oc@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-oc@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-or@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-or@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-or@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-or@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-or@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pa@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pa@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pa@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pa@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pa@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pl@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pl@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pl@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pl@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pl@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pt@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pt@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pt@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pt@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-pt@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ro@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ro@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ro@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ro@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ro@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ru@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ru@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ru@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ru@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ru@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-si@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-si@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-si@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-si@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-si@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sk@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sk@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sk@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sk@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sk@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sl@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sl@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sl@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sl@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sl@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sq@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sq@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sq@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sq@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sq@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sr@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sr@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sr@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sr@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sr@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sv@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sv@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sv@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sv@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sv@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sw@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sw@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sw@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sw@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-sw@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ta@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ta@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ta@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ta@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-ta@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-te@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-te@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-te@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-te@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-te@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-th@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-th@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-th@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-th@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-th@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-tr@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-tr@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-tr@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-tr@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-tr@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uk@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uk@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uk@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uk@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uk@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uz@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uz@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uz@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uz@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-uz@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-vi@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-vi@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-vi@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-vi@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-vi@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-xh@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-xh@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-xh@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-xh@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-xh@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hans@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hans@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hans@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hans@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hans@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hant@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hant@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hant@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hant@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zh-hant@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zu@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zu@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zu@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zu@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-locale-zu@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-mozsymbols@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-mozsymbols@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-testsuite@48.0+build2-0ubuntu0.16.04.1?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-testsuite@48.0+build2-0ubuntu0.16.04.1?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-testsuite@48.0+build2-0ubuntu0.16.04.1?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-testsuite@48.0+build2-0ubuntu0.16.04.1?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firefox-testsuite@48.0+build2-0ubuntu0.16.04.1?arch=ppc64el"
+                }
+            ],
+            "status": "fixed",
+            "status_notes": "Firefox could be made to crash or run programs as your login if it opened a malicious website."
+        }
+    ]
+}
