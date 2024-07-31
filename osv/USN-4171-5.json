@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-4171-5",
   "summary": "apport regression",
   "details": "USN-4171-1 fixed vulnerabilities in Apport. This caused a regression in\nautopkgtest and python2 compatibility.  This update fixes the problem.\n\nWe apologize for the inconvenience.\n\nOriginal advisory details:\n\n Kevin Backhouse discovered Apport would read its user-controlled settings\n file as the root user. This could be used by a local attacker to possibly\n crash Apport or have other unspecified consequences. (CVE-2019-11481)\n \n Sander Bos discovered a race-condition in Apport during core dump\n creation. This could be used by a local attacker to generate a crash report\n for a privileged process that is readable by an unprivileged user.\n (CVE-2019-11482)\n \n Sander Bos discovered Apport mishandled crash dumps originating from\n containers. This could be used by a local attacker to generate a crash\n report for a privileged process that is readable by an unprivileged user.\n (CVE-2019-11483)\n \n Sander Bos discovered Apport mishandled lock-file creation. This could be\n used by a local attacker to cause a denial of service against Apport.\n (CVE-2019-11485)\n \n Kevin Backhouse discovered Apport read various process-specific files with\n elevated privileges during crash dump generation. This could could be used\n by a local attacker to generate a crash report for a privileged process\n that is readable by an unprivileged user. (CVE-2019-15790)\n",
@@ -9,45 +10,9 @@
   "affected": [
     {
       "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "apport"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "2.20.9-0ubuntu7.12"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "python-apport": "2.20.9-0ubuntu7.12",
-            "python3-problem-report": "2.20.9-0ubuntu7.12",
-            "apport-kde": "2.20.9-0ubuntu7.12",
-            "apport-retrace": "2.20.9-0ubuntu7.12",
-            "apport-valgrind": "2.20.9-0ubuntu7.12",
-            "python3-apport": "2.20.9-0ubuntu7.12",
-            "dh-apport": "2.20.9-0ubuntu7.12",
-            "apport-gtk": "2.20.9-0ubuntu7.12",
-            "apport": "2.20.9-0ubuntu7.12",
-            "python-problem-report": "2.20.9-0ubuntu7.12",
-            "apport-noui": "2.20.9-0ubuntu7.12"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
         "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "apport"
+        "name": "apport",
+        "purl": "pkg:deb/ubuntu/apport@2.20.1-0ubuntu2.22?arch=src?distro=xenial"
       },
       "ranges": [
         {
@@ -62,23 +27,129 @@
           ]
         }
       ],
+      "versions": [
+        "2.19.1-0ubuntu3",
+        "2.19.2-0ubuntu1",
+        "2.19.2-0ubuntu2",
+        "2.19.2-0ubuntu3",
+        "2.19.2-0ubuntu4",
+        "2.19.2-0ubuntu5",
+        "2.19.2-0ubuntu6",
+        "2.19.2-0ubuntu8",
+        "2.19.2-0ubuntu9",
+        "2.19.3-0ubuntu1",
+        "2.19.3-0ubuntu2",
+        "2.19.3-0ubuntu3",
+        "2.19.4-0ubuntu1",
+        "2.19.4-0ubuntu2",
+        "2.20-0ubuntu2",
+        "2.20-0ubuntu3",
+        "2.20.1-0ubuntu1",
+        "2.20.1-0ubuntu2",
+        "2.20.1-0ubuntu2.1",
+        "2.20.1-0ubuntu2.2",
+        "2.20.1-0ubuntu2.4",
+        "2.20.1-0ubuntu2.5",
+        "2.20.1-0ubuntu2.6",
+        "2.20.1-0ubuntu2.9",
+        "2.20.1-0ubuntu2.10",
+        "2.20.1-0ubuntu2.12",
+        "2.20.1-0ubuntu2.13",
+        "2.20.1-0ubuntu2.14",
+        "2.20.1-0ubuntu2.15",
+        "2.20.1-0ubuntu2.16",
+        "2.20.1-0ubuntu2.17",
+        "2.20.1-0ubuntu2.18",
+        "2.20.1-0ubuntu2.19",
+        "2.20.1-0ubuntu2.20",
+        "2.20.1-0ubuntu2.21"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "python-apport": "2.20.1-0ubuntu2.22",
-            "python3-problem-report": "2.20.1-0ubuntu2.22",
+            "apport": "2.20.1-0ubuntu2.22",
+            "apport-gtk": "2.20.1-0ubuntu2.22",
             "apport-kde": "2.20.1-0ubuntu2.22",
+            "apport-noui": "2.20.1-0ubuntu2.22",
             "apport-retrace": "2.20.1-0ubuntu2.22",
             "apport-valgrind": "2.20.1-0ubuntu2.22",
-            "python3-apport": "2.20.1-0ubuntu2.22",
             "dh-apport": "2.20.1-0ubuntu2.22",
-            "apport-gtk": "2.20.1-0ubuntu2.22",
-            "apport": "2.20.1-0ubuntu2.22",
+            "python-apport": "2.20.1-0ubuntu2.22",
             "python-problem-report": "2.20.1-0ubuntu2.22",
-            "apport-noui": "2.20.1-0ubuntu2.22"
+            "python3-apport": "2.20.1-0ubuntu2.22",
+            "python3-problem-report": "2.20.1-0ubuntu2.22"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "apport",
+        "purl": "pkg:deb/ubuntu/apport@2.20.9-0ubuntu7.12?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.20.9-0ubuntu7.12"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "2.20.7-0ubuntu3",
+        "2.20.7-0ubuntu3.1",
+        "2.20.7-0ubuntu4",
+        "2.20.8-0ubuntu1",
+        "2.20.8-0ubuntu2",
+        "2.20.8-0ubuntu3",
+        "2.20.8-0ubuntu4",
+        "2.20.8-0ubuntu5",
+        "2.20.8-0ubuntu6",
+        "2.20.8-0ubuntu7",
+        "2.20.8-0ubuntu8",
+        "2.20.8-0ubuntu9",
+        "2.20.8-0ubuntu10",
+        "2.20.9-0ubuntu1",
+        "2.20.9-0ubuntu2",
+        "2.20.9-0ubuntu4",
+        "2.20.9-0ubuntu5",
+        "2.20.9-0ubuntu6",
+        "2.20.9-0ubuntu7",
+        "2.20.9-0ubuntu7.1",
+        "2.20.9-0ubuntu7.2",
+        "2.20.9-0ubuntu7.3",
+        "2.20.9-0ubuntu7.4",
+        "2.20.9-0ubuntu7.5",
+        "2.20.9-0ubuntu7.6",
+        "2.20.9-0ubuntu7.7",
+        "2.20.9-0ubuntu7.8",
+        "2.20.9-0ubuntu7.9",
+        "2.20.9-0ubuntu7.11"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "apport": "2.20.9-0ubuntu7.12",
+            "apport-gtk": "2.20.9-0ubuntu7.12",
+            "apport-kde": "2.20.9-0ubuntu7.12",
+            "apport-noui": "2.20.9-0ubuntu7.12",
+            "apport-retrace": "2.20.9-0ubuntu7.12",
+            "apport-valgrind": "2.20.9-0ubuntu7.12",
+            "dh-apport": "2.20.9-0ubuntu7.12",
+            "python-apport": "2.20.9-0ubuntu7.12",
+            "python-problem-report": "2.20.9-0ubuntu7.12",
+            "python3-apport": "2.20.9-0ubuntu7.12",
+            "python3-problem-report": "2.20.9-0ubuntu7.12"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],

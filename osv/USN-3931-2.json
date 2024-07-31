@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-3931-2",
   "summary": "linux-hwe, linux-aws-hwe, linux-azure, linux-gcp, linux-oracle vulnerabilities",
   "details": "USN-3931-1 fixed vulnerabilities in the Linux kernel for Ubuntu 18.04\nLTS. This update provides the corresponding updates for the Linux\nHardware Enablement (HWE) kernel from Ubuntu 18.04 LTS for Ubuntu\n16.04 LTS and for the Linux Azure kernel for Ubuntu 14.04 LTS.\n\nM. Vefa Bicakci and Andy Lutomirski discovered that the kernel did not\nproperly set up all arguments to an error handler callback used when\nrunning as a paravirtualized guest. An unprivileged attacker in a\nparavirtualized guest VM could use this to cause a denial of service (guest\nVM crash). (CVE-2018-14678)\n\nIt was discovered that the KVM implementation in the Linux kernel on ARM\n64bit processors did not properly handle some ioctls. An attacker with the\nprivilege to create KVM-based virtual machines could use this to cause a\ndenial of service (host system crash) or execute arbitrary code in the\nhost. (CVE-2018-18021)\n\nMathias Payer and Hui Peng discovered a use-after-free vulnerability in the\nAdvanced Linux Sound Architecture (ALSA) subsystem. A physically proximate\nattacker could use this to cause a denial of service (system crash).\n(CVE-2018-19824)\n\nShlomi Oberman, Yuli Shapiro, and Ran Menscher discovered an information\nleak in the Bluetooth implementation of the Linux kernel. An attacker\nwithin Bluetooth range could use this to expose sensitive information\n(kernel memory). (CVE-2019-3459, CVE-2019-3460)\n\nJann Horn discovered that the KVM implementation in the Linux kernel\ncontained a use-after-free vulnerability. An attacker in a guest VM with\naccess to /dev/kvm could use this to cause a denial of service (guest VM\ncrash). (CVE-2019-6974)\n\nJim Mattson and Felix Wilhelm discovered a use-after-free vulnerability in\nthe KVM subsystem of the Linux kernel, when using nested virtual machines.\nA local attacker in a guest VM could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code in the host system.\n(CVE-2019-7221)\n\nFelix Wilhelm discovered that an information leak vulnerability existed in\nthe KVM subsystem of the Linux kernel, when nested virtualization is used.\nA local attacker could use this to expose sensitive information (host\nsystem memory to a guest VM). (CVE-2019-7222)\n\nJann Horn discovered that the eBPF implementation in the Linux kernel was\ninsufficiently hardened against Spectre V1 attacks. A local attacker could\nuse this to expose sensitive information. (CVE-2019-7308)\n\nIt was discovered that a use-after-free vulnerability existed in the user-\nspace API for crypto (af_alg) implementation in the Linux kernel. A local\nattacker could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2019-8912)\n\nIt was discovered that the Linux kernel did not properly deallocate memory\nwhen handling certain errors while reading files. A local attacker could\nuse this to cause a denial of service (excessive memory consumption).\n(CVE-2019-8980)\n\nJann Horn discovered that the mmap implementation in the Linux kernel did\nnot properly check for the mmap minimum address in some situations. A local\nattacker could use this to assist exploiting a kernel NULL pointer\ndereference vulnerability. (CVE-2019-9213)\n",
@@ -23,7 +24,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:14.04:LTS",
-        "name": "linux-azure"
+        "name": "linux-azure",
+        "purl": "pkg:deb/ubuntu/linux-azure@4.15.0-1041.45~14.04.1?arch=src?distro=trusty"
       },
       "ranges": [
         {
@@ -38,20 +40,41 @@
           ]
         }
       ],
+      "versions": [
+        "4.15.0-1023.24~14.04.1",
+        "4.15.0-1030.31~14.04.1",
+        "4.15.0-1031.32~14.04.1",
+        "4.15.0-1032.33~14.04.2",
+        "4.15.0-1035.36~14.04.2",
+        "4.15.0-1036.38~14.04.2",
+        "4.15.0-1037.39~14.04.2",
+        "4.15.0-1039.41~14.04.2",
+        "4.15.0-1040.44~14.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-azure": "4.15.0.1041.28",
-            "linux-image-4.15.0-1041-azure": "4.15.0-1041.45~14.04.1"
+            "linux-azure-cloud-tools-4.15.0-1041": "4.15.0-1041.45~14.04.1",
+            "linux-azure-headers-4.15.0-1041": "4.15.0-1041.45~14.04.1",
+            "linux-azure-tools-4.15.0-1041": "4.15.0-1041.45~14.04.1",
+            "linux-buildinfo-4.15.0-1041-azure": "4.15.0-1041.45~14.04.1",
+            "linux-cloud-tools-4.15.0-1041-azure": "4.15.0-1041.45~14.04.1",
+            "linux-headers-4.15.0-1041-azure": "4.15.0-1041.45~14.04.1",
+            "linux-image-unsigned-4.15.0-1041-azure": "4.15.0-1041.45~14.04.1",
+            "linux-image-unsigned-4.15.0-1041-azure-dbgsym": "4.15.0-1041.45~14.04.1",
+            "linux-modules-4.15.0-1041-azure": "4.15.0-1041.45~14.04.1",
+            "linux-modules-extra-4.15.0-1041-azure": "4.15.0-1041.45~14.04.1",
+            "linux-tools-4.15.0-1041-azure": "4.15.0-1041.45~14.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "linux-aws-hwe"
+        "name": "linux-aws-hwe",
+        "purl": "pkg:deb/ubuntu/linux-aws-hwe@4.15.0-1035.37~16.04.1?arch=src?distro=xenial"
       },
       "ranges": [
         {
@@ -66,111 +89,35 @@
           ]
         }
       ],
+      "versions": [
+        "4.15.0-1030.31~16.04.1",
+        "4.15.0-1031.33~16.04.1",
+        "4.15.0-1032.34~16.04.1",
+        "4.15.0-1033.35~16.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
+            "linux-aws-headers-4.15.0-1035": "4.15.0-1035.37~16.04.1",
+            "linux-aws-hwe-cloud-tools-4.15.0-1035": "4.15.0-1035.37~16.04.1",
+            "linux-aws-hwe-tools-4.15.0-1035": "4.15.0-1035.37~16.04.1",
+            "linux-buildinfo-4.15.0-1035-aws": "4.15.0-1035.37~16.04.1",
+            "linux-cloud-tools-4.15.0-1035-aws": "4.15.0-1035.37~16.04.1",
+            "linux-headers-4.15.0-1035-aws": "4.15.0-1035.37~16.04.1",
             "linux-image-4.15.0-1035-aws": "4.15.0-1035.37~16.04.1",
-            "linux-image-aws-hwe": "4.15.0.1035.35"
+            "linux-image-4.15.0-1035-aws-dbgsym": "4.15.0-1035.37~16.04.1",
+            "linux-modules-4.15.0-1035-aws": "4.15.0-1035.37~16.04.1",
+            "linux-tools-4.15.0-1035-aws": "4.15.0-1035.37~16.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "linux-hwe"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-47.50~16.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-virtual-hwe-16.04": "4.15.0.47.68",
-            "linux-image-4.15.0-47-generic-lpae": "4.15.0-47.50~16.04.1",
-            "linux-image-lowlatency-hwe-16.04": "4.15.0.47.68",
-            "linux-image-4.15.0-47-lowlatency": "4.15.0-47.50~16.04.1",
-            "linux-image-generic-hwe-16.04": "4.15.0.47.68",
-            "linux-image-oem": "4.15.0.47.68",
-            "linux-image-4.15.0-47-generic": "4.15.0-47.50~16.04.1",
-            "linux-image-generic-lpae-hwe-16.04": "4.15.0.47.68"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "linux-gcp"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-1029.31~16.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-gke": "4.15.0.1029.43",
-            "linux-image-gcp": "4.15.0.1029.43",
-            "linux-image-4.15.0-1029-gcp": "4.15.0-1029.31~16.04.1"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "linux-oracle"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-1010.12~16.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-4.15.0-1010-oracle": "4.15.0-1010.12~16.04.1",
-            "linux-image-oracle": "4.15.0.1010.4"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "linux-azure"
+        "name": "linux-azure",
+        "purl": "pkg:deb/ubuntu/linux-azure@4.15.0-1041.45?arch=src?distro=xenial"
       },
       "ranges": [
         {
@@ -185,14 +132,330 @@
           ]
         }
       ],
+      "versions": [
+        "4.11.0-1009.9",
+        "4.11.0-1011.11",
+        "4.11.0-1013.13",
+        "4.11.0-1014.14",
+        "4.11.0-1015.15",
+        "4.11.0-1016.16",
+        "4.13.0-1005.7",
+        "4.13.0-1006.8",
+        "4.13.0-1007.9",
+        "4.13.0-1009.12",
+        "4.13.0-1011.14",
+        "4.13.0-1012.15",
+        "4.13.0-1014.17",
+        "4.13.0-1016.19",
+        "4.13.0-1018.21",
+        "4.15.0-1013.13~16.04.2",
+        "4.15.0-1014.14~16.04.1",
+        "4.15.0-1018.18~16.04.1",
+        "4.15.0-1019.19~16.04.1",
+        "4.15.0-1021.21~16.04.1",
+        "4.15.0-1022.22~16.04.1",
+        "4.15.0-1023.24~16.04.1",
+        "4.15.0-1025.26~16.04.1",
+        "4.15.0-1028.29~16.04.1",
+        "4.15.0-1030.31~16.04.1",
+        "4.15.0-1031.32~16.04.1",
+        "4.15.0-1032.33~16.04.1",
+        "4.15.0-1035.36~16.04.1",
+        "4.15.0-1036.38~16.04.1",
+        "4.15.0-1037.39~16.04.1",
+        "4.15.0-1039.43",
+        "4.15.0-1040.44"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-4.15.0-1041-azure": "4.15.0-1041.45",
-            "linux-image-azure": "4.15.0.1041.45"
+            "linux-azure-cloud-tools-4.15.0-1041": "4.15.0-1041.45",
+            "linux-azure-headers-4.15.0-1041": "4.15.0-1041.45",
+            "linux-azure-tools-4.15.0-1041": "4.15.0-1041.45",
+            "linux-buildinfo-4.15.0-1041-azure": "4.15.0-1041.45",
+            "linux-cloud-tools-4.15.0-1041-azure": "4.15.0-1041.45",
+            "linux-headers-4.15.0-1041-azure": "4.15.0-1041.45",
+            "linux-image-unsigned-4.15.0-1041-azure": "4.15.0-1041.45",
+            "linux-image-unsigned-4.15.0-1041-azure-dbgsym": "4.15.0-1041.45",
+            "linux-modules-4.15.0-1041-azure": "4.15.0-1041.45",
+            "linux-modules-extra-4.15.0-1041-azure": "4.15.0-1041.45",
+            "linux-tools-4.15.0-1041-azure": "4.15.0-1041.45"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:16.04:LTS",
+        "name": "linux-gcp",
+        "purl": "pkg:deb/ubuntu/linux-gcp@4.15.0-1029.31~16.04.1?arch=src?distro=xenial"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.15.0-1029.31~16.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.10.0-1004.4",
+        "4.10.0-1006.6",
+        "4.10.0-1007.7",
+        "4.10.0-1008.8",
+        "4.10.0-1009.9",
+        "4.13.0-1002.5",
+        "4.13.0-1006.9",
+        "4.13.0-1007.10",
+        "4.13.0-1008.11",
+        "4.13.0-1011.15",
+        "4.13.0-1012.16",
+        "4.13.0-1013.17",
+        "4.13.0-1015.19",
+        "4.13.0-1017.21",
+        "4.13.0-1019.23",
+        "4.15.0-1014.14~16.04.1",
+        "4.15.0-1015.15~16.04.1",
+        "4.15.0-1017.18~16.04.1",
+        "4.15.0-1018.19~16.04.2",
+        "4.15.0-1019.20~16.04.1",
+        "4.15.0-1021.22~16.04.1",
+        "4.15.0-1023.24~16.04.1",
+        "4.15.0-1024.25~16.04.2",
+        "4.15.0-1025.26~16.04.1",
+        "4.15.0-1026.27~16.04.1",
+        "4.15.0-1027.28~16.04.1",
+        "4.15.0-1028.29~16.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-4.15.0-1029-gcp": "4.15.0-1029.31~16.04.1",
+            "linux-gcp-headers-4.15.0-1029": "4.15.0-1029.31~16.04.1",
+            "linux-gcp-tools-4.15.0-1029": "4.15.0-1029.31~16.04.1",
+            "linux-headers-4.15.0-1029-gcp": "4.15.0-1029.31~16.04.1",
+            "linux-image-unsigned-4.15.0-1029-gcp": "4.15.0-1029.31~16.04.1",
+            "linux-image-unsigned-4.15.0-1029-gcp-dbgsym": "4.15.0-1029.31~16.04.1",
+            "linux-modules-4.15.0-1029-gcp": "4.15.0-1029.31~16.04.1",
+            "linux-modules-extra-4.15.0-1029-gcp": "4.15.0-1029.31~16.04.1",
+            "linux-tools-4.15.0-1029-gcp": "4.15.0-1029.31~16.04.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:16.04:LTS",
+        "name": "linux-hwe",
+        "purl": "pkg:deb/ubuntu/linux-hwe@4.15.0-47.50~16.04.1?arch=src?distro=xenial"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.15.0-47.50~16.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.8.0-36.36~16.04.1",
+        "4.8.0-39.42~16.04.1",
+        "4.8.0-41.44~16.04.1",
+        "4.8.0-42.45~16.04.1",
+        "4.8.0-44.47~16.04.1",
+        "4.8.0-45.48~16.04.1",
+        "4.8.0-46.49~16.04.1",
+        "4.8.0-49.52~16.04.1",
+        "4.8.0-51.54~16.04.1",
+        "4.8.0-52.55~16.04.1",
+        "4.8.0-53.56~16.04.1",
+        "4.8.0-54.57~16.04.1",
+        "4.8.0-56.61~16.04.1",
+        "4.8.0-58.63~16.04.1",
+        "4.10.0-27.30~16.04.2",
+        "4.10.0-28.32~16.04.2",
+        "4.10.0-30.34~16.04.1",
+        "4.10.0-32.36~16.04.1",
+        "4.10.0-33.37~16.04.1",
+        "4.10.0-35.39~16.04.1",
+        "4.10.0-37.41~16.04.1",
+        "4.10.0-38.42~16.04.1",
+        "4.10.0-40.44~16.04.1",
+        "4.10.0-42.46~16.04.1",
+        "4.13.0-26.29~16.04.2",
+        "4.13.0-31.34~16.04.1",
+        "4.13.0-32.35~16.04.1",
+        "4.13.0-36.40~16.04.1",
+        "4.13.0-37.42~16.04.1",
+        "4.13.0-38.43~16.04.1",
+        "4.13.0-39.44~16.04.1",
+        "4.13.0-41.46~16.04.1",
+        "4.13.0-43.48~16.04.1",
+        "4.13.0-45.50~16.04.1",
+        "4.15.0-24.26~16.04.1",
+        "4.15.0-29.31~16.04.1",
+        "4.15.0-30.32~16.04.1",
+        "4.15.0-32.35~16.04.1",
+        "4.15.0-33.36~16.04.1",
+        "4.15.0-34.37~16.04.1",
+        "4.15.0-36.39~16.04.1",
+        "4.15.0-38.41~16.04.1",
+        "4.15.0-39.42~16.04.1",
+        "4.15.0-42.45~16.04.1",
+        "4.15.0-43.46~16.04.1",
+        "4.15.0-45.48~16.04.1",
+        "4.15.0-46.49~16.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "block-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "block-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "crypto-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "crypto-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "dasd-extra-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "dasd-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "fat-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "fat-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "fb-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "firewire-core-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "floppy-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "fs-core-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "fs-core-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "fs-secondary-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "fs-secondary-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "input-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "input-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "ipmi-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "ipmi-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "irda-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "irda-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "kernel-image-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "kernel-image-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "linux-buildinfo-4.15.0-47-generic": "4.15.0-47.50~16.04.1",
+            "linux-buildinfo-4.15.0-47-generic-lpae": "4.15.0-47.50~16.04.1",
+            "linux-buildinfo-4.15.0-47-lowlatency": "4.15.0-47.50~16.04.1",
+            "linux-cloud-tools-4.15.0-47-generic": "4.15.0-47.50~16.04.1",
+            "linux-cloud-tools-4.15.0-47-lowlatency": "4.15.0-47.50~16.04.1",
+            "linux-headers-4.15.0-47": "4.15.0-47.50~16.04.1",
+            "linux-headers-4.15.0-47-generic": "4.15.0-47.50~16.04.1",
+            "linux-headers-4.15.0-47-generic-lpae": "4.15.0-47.50~16.04.1",
+            "linux-headers-4.15.0-47-lowlatency": "4.15.0-47.50~16.04.1",
+            "linux-hwe-cloud-tools-4.15.0-47": "4.15.0-47.50~16.04.1",
+            "linux-hwe-tools-4.15.0-47": "4.15.0-47.50~16.04.1",
+            "linux-hwe-udebs-generic": "4.15.0-47.50~16.04.1",
+            "linux-hwe-udebs-generic-lpae": "4.15.0-47.50~16.04.1",
+            "linux-image-4.15.0-47-generic": "4.15.0-47.50~16.04.1",
+            "linux-image-4.15.0-47-generic-dbgsym": "4.15.0-47.50~16.04.1",
+            "linux-image-4.15.0-47-generic-lpae": "4.15.0-47.50~16.04.1",
+            "linux-image-4.15.0-47-generic-lpae-dbgsym": "4.15.0-47.50~16.04.1",
+            "linux-image-4.15.0-47-lowlatency": "4.15.0-47.50~16.04.1",
+            "linux-image-4.15.0-47-lowlatency-dbgsym": "4.15.0-47.50~16.04.1",
+            "linux-image-unsigned-4.15.0-47-generic": "4.15.0-47.50~16.04.1",
+            "linux-image-unsigned-4.15.0-47-generic-dbgsym": "4.15.0-47.50~16.04.1",
+            "linux-image-unsigned-4.15.0-47-lowlatency": "4.15.0-47.50~16.04.1",
+            "linux-image-unsigned-4.15.0-47-lowlatency-dbgsym": "4.15.0-47.50~16.04.1",
+            "linux-modules-4.15.0-47-generic": "4.15.0-47.50~16.04.1",
+            "linux-modules-4.15.0-47-generic-lpae": "4.15.0-47.50~16.04.1",
+            "linux-modules-4.15.0-47-lowlatency": "4.15.0-47.50~16.04.1",
+            "linux-modules-extra-4.15.0-47-generic": "4.15.0-47.50~16.04.1",
+            "linux-source-4.15.0": "4.15.0-47.50~16.04.1",
+            "linux-tools-4.15.0-47-generic": "4.15.0-47.50~16.04.1",
+            "linux-tools-4.15.0-47-generic-lpae": "4.15.0-47.50~16.04.1",
+            "linux-tools-4.15.0-47-lowlatency": "4.15.0-47.50~16.04.1",
+            "md-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "md-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "message-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "mouse-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "mouse-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "multipath-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "multipath-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "nfs-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "nfs-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "nic-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "nic-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "nic-pcmcia-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "nic-shared-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "nic-shared-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "nic-usb-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "nic-usb-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "parport-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "parport-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "pata-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "pcmcia-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "pcmcia-storage-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "plip-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "plip-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "ppp-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "ppp-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "sata-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "sata-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "scsi-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "scsi-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "serial-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "storage-core-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "storage-core-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "usb-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "usb-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1",
+            "virtio-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "vlan-modules-4.15.0-47-generic-di": "4.15.0-47.50~16.04.1",
+            "vlan-modules-4.15.0-47-generic-lpae-di": "4.15.0-47.50~16.04.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:16.04:LTS",
+        "name": "linux-oracle",
+        "purl": "pkg:deb/ubuntu/linux-oracle@4.15.0-1010.12~16.04.1?arch=src?distro=xenial"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.15.0-1010.12~16.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.15.0-1007.9~16.04.1",
+        "4.15.0-1008.10~16.04.1",
+        "4.15.0-1009.11~16.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-4.15.0-1010-oracle": "4.15.0-1010.12~16.04.1",
+            "linux-headers-4.15.0-1010-oracle": "4.15.0-1010.12~16.04.1",
+            "linux-image-unsigned-4.15.0-1010-oracle": "4.15.0-1010.12~16.04.1",
+            "linux-image-unsigned-4.15.0-1010-oracle-dbgsym": "4.15.0-1010.12~16.04.1",
+            "linux-modules-4.15.0-1010-oracle": "4.15.0-1010.12~16.04.1",
+            "linux-modules-extra-4.15.0-1010-oracle": "4.15.0-1010.12~16.04.1",
+            "linux-oracle-headers-4.15.0-1010": "4.15.0-1010.12~16.04.1",
+            "linux-oracle-tools-4.15.0-1010": "4.15.0-1010.12~16.04.1",
+            "linux-tools-4.15.0-1010-oracle": "4.15.0-1010.12~16.04.1"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],

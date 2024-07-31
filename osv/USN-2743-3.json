@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-2743-3",
   "summary": "unity-firefox-extension, webapps-greasemonkey, webaccounts-browser-extension update",
   "details": "USN-2743-1 fixed vulnerabilities in Firefox. Future Firefox updates will\nrequire all addons be signed and unity-firefox-extension, webapps-greasemonkey\nand webaccounts-browser-extension will not go through the signing process.\nBecause these addons currently break search engine installations (LP:\n#1069793), this update permanently disables the addons by removing them from\nthe system.\n\nWe apologize for any inconvenience.\n\nOriginal advisory details:\n\n Andrew Osmond, Olli Pettay, Andrew Sutherland, Christian Holler, David\n Major, Andrew McCreight, Cameron McCormack, Bob Clary and Randell Jesup\n discovered multiple memory safety issues in Firefox. If a user were\n tricked in to opening a specially crafted website, an attacker could\n potentially exploit these to cause a denial of service via application\n crash, or execute arbitrary code with the privileges of the user invoking\n Firefox. (CVE-2015-4500, CVE-2015-4501)\n \n Andr\u00e9 Bargull discovered that when a web page creates a scripted proxy\n for the window with a handler defined a certain way, a reference to the\n inner window will be passed, rather than that of the outer window.\n (CVE-2015-4502)\n \n Felix Gr\u00f6bert discovered an out-of-bounds read in the QCMS color\n management library in some circumstances. If a user were tricked in to\n opening a specially crafted website, an attacker could potentially exploit\n this to cause a denial of service via application crash, or obtain\n sensitive information. (CVE-2015-4504)\n \n Khalil Zhani discovered a buffer overflow when parsing VP9 content in some\n circumstances. If a user were tricked in to opening a specially crafted\n website, an attacker could potentially exploit this to cause a denial of\n service via application crash, or execute arbitrary code with the\n privileges of the user invoking Firefox. (CVE-2015-4506)\n \n Spandan Veggalam discovered a crash while using the debugger API in some\n circumstances. If a user were tricked in to opening a specially crafted\n website whilst using the debugger, an attacker could potentially exploit\n this to execute arbitrary code with the privileges of the user invoking\n Firefox. (CVE-2015-4507)\n \n Juho Nurminen discovered that the URL bar could display the wrong URL in\n reader mode in some circumstances. If a user were tricked in to opening a\n specially crafted website, an attacker could potentially exploit this to\n conduct URL spoofing attacks. (CVE-2015-4508)\n \n A use-after-free was discovered when manipulating HTML media content in\n some circumstances. If a user were tricked in to opening a specially\n crafted website, an attacker could potentially exploit this to cause a\n denial of service via application crash, or execute arbitrary code with\n the privileges of the user invoking Firefox. (CVE-2015-4509)\n \n Looben Yang discovered a use-after-free when using a shared worker with\n IndexedDB in some circumstances. If a user were tricked in to opening a\n specially crafted website, an attacker could potentially exploit this to\n cause a denial of service via application crash, or execute arbitrary code\n with the privileges of the user invoking Firefox. (CVE-2015-4510)\n \n Francisco Alonso discovered an out-of-bounds read during 2D canvas\n rendering in some circumstances. If a user were tricked in to opening a\n specially crafted website, an attacker could potentially exploit this to\n obtain sensitive information. (CVE-2015-4512)\n \n Jeff Walden discovered that changes could be made to immutable properties\n in some circumstances. If a user were tricked in to opening a specially\n crafted website, an attacker could potentially exploit this to execute\n arbitrary script in a privileged scope. (CVE-2015-4516)\n \n Ronald Crane reported multiple vulnerabilities. If a user were tricked in\n to opening a specially crafted website, an attacker could potentially\n exploit these to cause a denial of service via application crash, or\n execute arbitrary code with the privileges of the user invoking Firefox.\n (CVE-2015-4517, CVE-2015-4521, CVE-2015-4522, CVE-2015-7174,\n CVE-2015-7175, CVE-2015-7176, CVE-2015-7177, CVE-2015-7180)\n \n Mario Gomes discovered that dragging and dropping an image after a\n redirect exposes the redirected URL to scripts. An attacker could\n potentially exploit this to obtain sensitive information. (CVE-2015-4519)\n \n Ehsan Akhgari discovered 2 issues with CORS preflight requests. An\n attacker could potentially exploit these to bypass CORS restrictions.\n (CVE-2015-4520)\n",
@@ -10,36 +11,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:14.04:LTS",
-        "name": "webaccounts-browser-extension"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "0.5-0ubuntu2.14.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "webaccounts-chromium-extension": "0.5-0ubuntu2.14.04.1",
-            "webaccounts-extension-common": "0.5-0ubuntu2.14.04.1",
-            "xul-ext-webaccounts": "0.5-0ubuntu2.14.04.1"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:14.04:LTS",
-        "name": "unity-firefox-extension"
+        "name": "unity-firefox-extension",
+        "purl": "pkg:deb/ubuntu/unity-firefox-extension@3.0.0+14.04.20140416-0ubuntu1.14.04.1?arch=src?distro=trusty"
       },
       "ranges": [
         {
@@ -54,6 +27,14 @@
           ]
         }
       ],
+      "versions": [
+        "2.4.8+13.10.20130920-0ubuntu1",
+        "3.0.0+14.04.20140130.1-0ubuntu1",
+        "3.0.0+14.04.20140205-0ubuntu1",
+        "3.0.0+14.04.20140220-0ubuntu1",
+        "3.0.0+14.04.20140411-0ubuntu1",
+        "3.0.0+14.04.20140416-0ubuntu1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
@@ -61,13 +42,49 @@
             "xul-ext-unity": "3.0.0+14.04.20140416-0ubuntu1.14.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:14.04:LTS",
-        "name": "webapps-greasemonkey"
+        "name": "webaccounts-browser-extension",
+        "purl": "pkg:deb/ubuntu/webaccounts-browser-extension@0.5-0ubuntu2.14.04.1?arch=src?distro=trusty"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "0.5-0ubuntu2.14.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "0.5-0ubuntu1",
+        "0.5-0ubuntu2"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "webaccounts-chromium-extension": "0.5-0ubuntu2.14.04.1",
+            "webaccounts-extension-common": "0.5-0ubuntu2.14.04.1",
+            "webaccounts-extension-common-dbgsym": "0.5-0ubuntu2.14.04.1",
+            "xul-ext-webaccounts": "0.5-0ubuntu2.14.04.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:14.04:LTS",
+        "name": "webapps-greasemonkey",
+        "purl": "pkg:deb/ubuntu/webapps-greasemonkey@2.3.6+13.10.20130920.1-0ubuntu1.2?arch=src?distro=trusty"
       },
       "ranges": [
         {
@@ -82,13 +99,17 @@
           ]
         }
       ],
+      "versions": [
+        "2.3.6+13.10.20130920.1-0ubuntu1",
+        "2.3.6+13.10.20130920.1-0ubuntu1.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "xul-ext-websites-integration": "2.3.6+13.10.20130920.1-0ubuntu1.2"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -99,11 +120,11 @@
     },
     {
       "type": "REPORT",
-      "url": "https://launchpad.net/bugs/1498681"
+      "url": "https://launchpad.net/bugs/1069793"
     },
     {
       "type": "REPORT",
-      "url": "https://launchpad.net/bugs/1069793"
+      "url": "https://launchpad.net/bugs/1498681"
     }
   ]
 }

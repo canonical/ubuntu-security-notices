@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-3364-3",
   "summary": "linux-aws, linux-gke vulnerabilities",
   "details": "It was discovered that the Linux kernel did not properly initialize a Wake-\non-Lan data structure. A local attacker could use this to expose sensitive\ninformation (kernel memory). (CVE-2014-9900)\n\nIt was discovered that the Linux kernel did not properly restrict access to\n/proc/iomem. A local attacker could use this to expose sensitive\ninformation. (CVE-2015-8944)\n\nAlexander Potapenko discovered a race condition in the Advanced Linux Sound\nArchitecture (ALSA) subsystem in the Linux kernel. A local attacker could\nuse this to expose sensitive information (kernel memory).\n(CVE-2017-1000380)\n\nLi Qiang discovered that the DRM driver for VMware Virtual GPUs in the\nLinux kernel did not properly validate some ioctl arguments. A local\nattacker could use this to cause a denial of service (system crash).\n(CVE-2017-7346)\n\nJann Horn discovered that bpf in Linux kernel does not restrict the output\nof the print_bpf_insn function. A local attacker could use this to obtain\nsensitive address information. (CVE-2017-9150)\n\nMurray McAllister discovered that the DRM driver for VMware Virtual GPUs in\nthe Linux kernel did not properly initialize memory. A local attacker could\nuse this to expose sensitive information (kernel memory). (CVE-2017-9605)\n",
@@ -6,10 +7,10 @@
   "related": [
     "CVE-2014-9900",
     "CVE-2015-8944",
-    "CVE-2017-1000380",
     "CVE-2017-7346",
     "CVE-2017-9150",
-    "CVE-2017-9605"
+    "CVE-2017-9605",
+    "CVE-2017-1000380"
   ],
   "published": "2017-07-25T23:09:15.040077Z",
   "modified": "2017-07-25T23:09:15.040077Z",
@@ -17,35 +18,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "linux-gke"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.4.0-1022.22"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-extra-4.4.0-1022-gke": "4.4.0-1022.22",
-            "linux-image-4.4.0-1022-gke": "4.4.0-1022.22"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "linux-aws"
+        "name": "linux-aws",
+        "purl": "pkg:deb/ubuntu/linux-aws@4.4.0-1026.35?arch=src?distro=xenial"
       },
       "ranges": [
         {
@@ -60,13 +34,88 @@
           ]
         }
       ],
+      "versions": [
+        "4.4.0-1001.10",
+        "4.4.0-1003.12",
+        "4.4.0-1004.13",
+        "4.4.0-1007.16",
+        "4.4.0-1009.18",
+        "4.4.0-1011.20",
+        "4.4.0-1012.21",
+        "4.4.0-1013.22",
+        "4.4.0-1016.25",
+        "4.4.0-1017.26",
+        "4.4.0-1018.27",
+        "4.4.0-1020.29",
+        "4.4.0-1022.31"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-4.4.0-1026-aws": "4.4.0-1026.35"
+            "linux-aws-cloud-tools-4.4.0-1026": "4.4.0-1026.35",
+            "linux-aws-cloud-tools-4.4.0-1026-dbgsym": "4.4.0-1026.35",
+            "linux-aws-headers-4.4.0-1026": "4.4.0-1026.35",
+            "linux-aws-tools-4.4.0-1026": "4.4.0-1026.35",
+            "linux-aws-tools-4.4.0-1026-dbgsym": "4.4.0-1026.35",
+            "linux-cloud-tools-4.4.0-1026-aws": "4.4.0-1026.35",
+            "linux-headers-4.4.0-1026-aws": "4.4.0-1026.35",
+            "linux-image-4.4.0-1026-aws": "4.4.0-1026.35",
+            "linux-image-4.4.0-1026-aws-dbgsym": "4.4.0-1026.35",
+            "linux-tools-4.4.0-1026-aws": "4.4.0-1026.35"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:16.04:LTS",
+        "name": "linux-gke",
+        "purl": "pkg:deb/ubuntu/linux-gke@4.4.0-1022.22?arch=src?distro=xenial"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.4.0-1022.22"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.4.0-1003.3",
+        "4.4.0-1005.6",
+        "4.4.0-1006.6",
+        "4.4.0-1008.8",
+        "4.4.0-1009.9",
+        "4.4.0-1010.10",
+        "4.4.0-1012.12",
+        "4.4.0-1013.13",
+        "4.4.0-1014.14",
+        "4.4.0-1016.16",
+        "4.4.0-1018.18"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-cloud-tools-4.4.0-1022-gke": "4.4.0-1022.22",
+            "linux-gke-cloud-tools-4.4.0-1022": "4.4.0-1022.22",
+            "linux-gke-cloud-tools-4.4.0-1022-dbgsym": "4.4.0-1022.22",
+            "linux-gke-headers-4.4.0-1022": "4.4.0-1022.22",
+            "linux-gke-tools-4.4.0-1022": "4.4.0-1022.22",
+            "linux-gke-tools-4.4.0-1022-dbgsym": "4.4.0-1022.22",
+            "linux-headers-4.4.0-1022-gke": "4.4.0-1022.22",
+            "linux-image-4.4.0-1022-gke": "4.4.0-1022.22",
+            "linux-image-4.4.0-1022-gke-dbgsym": "4.4.0-1022.22",
+            "linux-image-extra-4.4.0-1022-gke": "4.4.0-1022.22",
+            "linux-tools-4.4.0-1022-gke": "4.4.0-1022.22"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],
@@ -85,10 +134,6 @@
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2017-1000380"
-    },
-    {
-      "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2017-7346"
     },
     {
@@ -98,6 +143,10 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2017-9605"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-1000380"
     }
   ]
 }

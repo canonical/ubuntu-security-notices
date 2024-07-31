@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-5564-1",
   "summary": "linux-intel-iotg vulnerabilities",
   "details": "Zhenpeng Lin discovered that the network packet scheduler implementation in\nthe Linux kernel did not properly remove all references to a route filter\nbefore freeing it in some situations. A local attacker could use this to\ncause a denial of service (system crash) or execute arbitrary code.\n(CVE-2022-2588)\n\nIt was discovered that the netfilter subsystem of the Linux kernel did not\nprevent one nft object from referencing an nft set in another nft table,\nleading to a use-after-free vulnerability. A local attacker could use this\nto cause a denial of service (system crash) or execute arbitrary code.\n(CVE-2022-2586)\n\nIt was discovered that the implementation of POSIX timers in the Linux\nkernel did not properly clean up timers in some situations. A local\nattacker could use this to cause a denial of service (system crash) or\nexecute arbitrary code. (CVE-2022-2585)\n\nIt was discovered that the eBPF implementation in the Linux kernel did not\nproperly prevent writes to kernel objects in BPF_BTF_LOAD commands. A\nprivileged local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2022-0500)\n\nMinh Yuan discovered that the floppy disk driver in the Linux kernel\ncontained a race condition, leading to a use-after-free vulnerability. A\nlocal attacker could possibly use this to cause a denial of service (system\ncrash) or execute arbitrary code. (CVE-2022-1652)\n\nIt was discovered that the Atheros ath9k wireless device driver in the\nLinux kernel did not properly handle some error conditions, leading to a\nuse-after-free vulnerability. A local attacker could use this to cause a\ndenial of service (system crash) or possibly execute arbitrary code.\n(CVE-2022-1679)\n\nIt was discovered that the Marvell NFC device driver implementation in the\nLinux kernel did not properly perform memory cleanup operations in some\nsituations, leading to a use-after-free vulnerability. A local attacker\ncould possibly use this to cause a denial of service (system crash) or\nexecute arbitrary code. (CVE-2022-1734)\n\nYongkang Jia discovered that the KVM hypervisor implementation in the Linux\nkernel did not properly handle guest TLB mapping invalidation requests in\nsome situations. An attacker in a guest VM could use this to cause a denial\nof service (system crash) in the host OS. (CVE-2022-1789)\n\nDuoming Zhou discovered a race condition in the NFC subsystem in the Linux\nkernel, leading to a use-after-free vulnerability. A privileged local\nattacker could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2022-1974)\n\nDuoming Zhou discovered that the NFC subsystem in the Linux kernel did not\nproperly prevent context switches from occurring during certain atomic\ncontext operations. A privileged local attacker could use this to cause a\ndenial of service (system crash). (CVE-2022-1975)\n\nFelix Fu discovered that the Sun RPC implementation in the Linux kernel did\nnot properly handle socket states, leading to a use-after-free\nvulnerability. A remote attacker could possibly use this to cause a denial\nof service (system crash) or execute arbitrary code. (CVE-2022-28893)\n\nJohannes Wikner and Kaveh Razavi discovered that for some AMD x86-64\nprocessors, the branch predictor could by mis-trained for return\ninstructions in certain circumstances. A local attacker could possibly use\nthis to expose sensitive information. (CVE-2022-29900)\n\nJohannes Wikner and Kaveh Razavi discovered that for some Intel x86-64\nprocessors, the Linux kernel's protections against speculative branch\ntarget injection attacks were insufficient in some circumstances. A local\nattacker could possibly use this to expose sensitive information.\n(CVE-2022-29901)\n\nMinh Yuan discovered that the floppy driver in the Linux kernel contained a\nrace condition in some situations, leading to a use-after-free\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2022-33981)\n\nArthur Mongodin discovered that the netfilter subsystem in the Linux kernel\ndid not properly perform data validation. A local attacker could use this\nto escalate privileges in certain situations. (CVE-2022-34918)\n\n",
@@ -26,7 +27,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-intel-iotg"
+        "name": "linux-intel-iotg",
+        "purl": "pkg:deb/ubuntu/linux-intel-iotg@5.15.0-1013.17?arch=src?distro=jammy"
       },
       "ranges": [
         {
@@ -41,31 +43,32 @@
           ]
         }
       ],
+      "versions": [
+        "5.15.0-1004.6",
+        "5.15.0-1008.11",
+        "5.15.0-1010.14"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-intel-iotg-cloud-tools-common": "5.15.0-1013.17",
             "linux-buildinfo-5.15.0-1013-intel-iotg": "5.15.0-1013.17",
-            "linux-tools-intel-iotg": "5.15.0.1013.13",
-            "linux-headers-intel-iotg": "5.15.0.1013.13",
-            "linux-modules-5.15.0-1013-intel-iotg": "5.15.0-1013.17",
-            "linux-intel-iotg-tools-5.15.0-1013": "5.15.0-1013.17",
-            "linux-headers-5.15.0-1013-intel-iotg": "5.15.0-1013.17",
-            "linux-intel-iotg": "5.15.0.1013.13",
-            "linux-tools-5.15.0-1013-intel-iotg": "5.15.0-1013.17",
-            "linux-intel-iotg-cloud-tools-5.15.0-1013": "5.15.0-1013.17",
-            "linux-modules-extra-5.15.0-1013-intel-iotg": "5.15.0-1013.17",
-            "linux-image-unsigned-5.15.0-1013-intel-iotg": "5.15.0-1013.17",
             "linux-cloud-tools-5.15.0-1013-intel-iotg": "5.15.0-1013.17",
-            "linux-image-5.15.0-1013-intel-iotg": "5.15.0-1013.17",
-            "linux-intel-iotg-tools-host": "5.15.0-1013.17",
-            "linux-intel-iotg-tools-common": "5.15.0-1013.17",
-            "linux-image-intel-iotg": "5.15.0.1013.13",
+            "linux-headers-5.15.0-1013-intel-iotg": "5.15.0-1013.17",
+            "linux-image-unsigned-5.15.0-1013-intel-iotg": "5.15.0-1013.17",
+            "linux-image-unsigned-5.15.0-1013-intel-iotg-dbgsym": "5.15.0-1013.17",
+            "linux-intel-iotg-cloud-tools-5.15.0-1013": "5.15.0-1013.17",
+            "linux-intel-iotg-cloud-tools-common": "5.15.0-1013.17",
             "linux-intel-iotg-headers-5.15.0-1013": "5.15.0-1013.17",
-            "linux-modules-iwlwifi-5.15.0-1013-intel-iotg": "5.15.0-1013.17"
+            "linux-intel-iotg-tools-5.15.0-1013": "5.15.0-1013.17",
+            "linux-intel-iotg-tools-common": "5.15.0-1013.17",
+            "linux-intel-iotg-tools-host": "5.15.0-1013.17",
+            "linux-modules-5.15.0-1013-intel-iotg": "5.15.0-1013.17",
+            "linux-modules-extra-5.15.0-1013-intel-iotg": "5.15.0-1013.17",
+            "linux-modules-iwlwifi-5.15.0-1013-intel-iotg": "5.15.0-1013.17",
+            "linux-tools-5.15.0-1013-intel-iotg": "5.15.0-1013.17"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],

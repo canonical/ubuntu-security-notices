@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-4752-1",
   "summary": "linux-oem-5.6 vulnerabilities",
   "details": "Daniele Antonioli, Nils Ole Tippenhauer, and Kasper Rasmussen discovered\nthat legacy pairing and secure-connections pairing authentication in the\nBluetooth protocol could allow an unauthenticated user to complete\nauthentication without pairing credentials via adjacent access. A\nphysically proximate attacker could use this to impersonate a previously\npaired Bluetooth device. (CVE-2020-10135)\n\nJay Shin discovered that the ext4 file system implementation in the Linux\nkernel did not properly handle directory access with broken indexing,\nleading to an out-of-bounds read vulnerability. A local attacker could use\nthis to cause a denial of service (system crash). (CVE-2020-14314)\n\nIt was discovered that the block layer implementation in the Linux kernel\ndid not properly perform reference counting in some situations, leading to\na use-after-free vulnerability. A local attacker could use this to cause a\ndenial of service (system crash). (CVE-2020-15436)\n\nIt was discovered that the serial port driver in the Linux kernel did not\nproperly initialize a pointer in some situations. A local attacker could\npossibly use this to cause a denial of service (system crash).\n(CVE-2020-15437)\n\nAndy Nguyen discovered that the Bluetooth HCI event packet parser in the\nLinux kernel did not properly handle event advertisements of certain sizes,\nleading to a heap-based buffer overflow. A physically proximate remote\nattacker could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2020-24490)\n\nIt was discovered that the NFS client implementation in the Linux kernel\ndid not properly perform bounds checking before copying security labels in\nsome situations. A local attacker could use this to cause a denial of\nservice (system crash) or possibly execute arbitrary code. (CVE-2020-25212)\n\nIt was discovered that the Rados block device (rbd) driver in the Linux\nkernel did not properly perform privilege checks for access to rbd devices\nin some situations. A local attacker could use this to map or unmap rbd\nblock devices. (CVE-2020-25284)\n\nIt was discovered that the block layer subsystem in the Linux kernel did\nnot properly handle zero-length requests. A local attacker could use this\nto cause a denial of service. (CVE-2020-25641)\n\nIt was discovered that the HDLC PPP implementation in the Linux kernel did\nnot properly validate input in some situations. A local attacker could use\nthis to cause a denial of service (system crash) or possibly execute\narbitrary code. (CVE-2020-25643)\n\nKiyin (\u5c39\u4eae) discovered that the perf subsystem in the Linux kernel did\nnot properly deallocate memory in some situations. A privileged attacker\ncould use this to cause a denial of service (kernel memory exhaustion).\n(CVE-2020-25704)\n\nIt was discovered that the KVM hypervisor in the Linux kernel did not\nproperly handle interrupts in certain situations. A local attacker in a\nguest VM could possibly use this to cause a denial of service (host system\ncrash). (CVE-2020-27152)\n\nIt was discovered that the jfs file system implementation in the Linux\nkernel contained an out-of-bounds read vulnerability. A local attacker\ncould use this to possibly cause a denial of service (system crash).\n(CVE-2020-27815)\n\nIt was discovered that an information leak existed in the syscall\nimplementation in the Linux kernel on 32 bit systems. A local attacker\ncould use this to expose sensitive information (kernel memory).\n(CVE-2020-28588)\n\nIt was discovered that the framebuffer implementation in the Linux kernel\ndid not properly perform range checks in certain situations. A local\nattacker could use this to expose sensitive information (kernel memory).\n(CVE-2020-28915)\n\nJann Horn discovered a race condition in the copy-on-write implementation\nin the Linux kernel when handling hugepages. A local attacker could use\nthis to gain unintended write access to read-only memory pages.\n(CVE-2020-29368)\n\nJann Horn discovered that the mmap implementation in the Linux kernel\ncontained a race condition when handling munmap() operations, leading to a\nread-after-free vulnerability. A local attacker could use this to cause a\ndenial of service (system crash) or possibly expose sensitive information.\n(CVE-2020-29369)\n\nJann Horn discovered that the romfs file system in the Linux kernel did not\nproperly validate file system meta-data, leading to an out-of-bounds read.\nAn attacker could use this to construct a malicious romfs image that, when\nmounted, exposed sensitive information (kernel memory). (CVE-2020-29371)\n\nJann Horn discovered that the tty subsystem of the Linux kernel did not use\nconsistent locking in some situations, leading to a read-after-free\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash) or possibly expose sensitive information (kernel memory).\n(CVE-2020-29660)\n\nJann Horn discovered a race condition in the tty subsystem of the Linux\nkernel in the locking for the TIOCSPGRP ioctl(), leading to a use-after-\nfree vulnerability. A local attacker could use this to cause a denial of\nservice (system crash) or possibly execute arbitrary code. (CVE-2020-29661)\n\nIt was discovered that a race condition existed that caused the Linux\nkernel to not properly restrict exit signal delivery. A local attacker\ncould possibly use this to send signals to arbitrary processes.\n(CVE-2020-35508)\n",
@@ -31,7 +32,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-oem-5.6"
+        "name": "linux-oem-5.6",
+        "purl": "pkg:deb/ubuntu/linux-oem-5.6@5.6.0-1048.52?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -46,14 +48,45 @@
           ]
         }
       ],
+      "versions": [
+        "5.6.0-1007.7",
+        "5.6.0-1008.8",
+        "5.6.0-1010.10",
+        "5.6.0-1011.11",
+        "5.6.0-1013.13",
+        "5.6.0-1017.17",
+        "5.6.0-1018.18",
+        "5.6.0-1020.20",
+        "5.6.0-1021.21",
+        "5.6.0-1023.23",
+        "5.6.0-1026.26",
+        "5.6.0-1027.27",
+        "5.6.0-1028.28",
+        "5.6.0-1031.32",
+        "5.6.0-1032.33",
+        "5.6.0-1033.35",
+        "5.6.0-1034.36",
+        "5.6.0-1035.37",
+        "5.6.0-1036.39",
+        "5.6.0-1039.43",
+        "5.6.0-1042.46",
+        "5.6.0-1047.51"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-oem-20.04": "5.6.0.1048.44",
-            "linux-image-5.6.0-1048-oem": "5.6.0-1048.52"
+            "linux-buildinfo-5.6.0-1048-oem": "5.6.0-1048.52",
+            "linux-headers-5.6.0-1048-oem": "5.6.0-1048.52",
+            "linux-image-unsigned-5.6.0-1048-oem": "5.6.0-1048.52",
+            "linux-image-unsigned-5.6.0-1048-oem-dbgsym": "5.6.0-1048.52",
+            "linux-modules-5.6.0-1048-oem": "5.6.0-1048.52",
+            "linux-oem-5.6-headers-5.6.0-1048": "5.6.0-1048.52",
+            "linux-oem-5.6-tools-5.6.0-1048": "5.6.0-1048.52",
+            "linux-oem-5.6-tools-host": "5.6.0-1048.52",
+            "linux-tools-5.6.0-1048-oem": "5.6.0-1048.52"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],

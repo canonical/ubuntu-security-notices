@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-4184-1",
   "summary": "linux, linux-aws, linux-azure, linux-gcp, linux-gke-5.0, linux-hwe, linux-kvm, linux-oem-osp1, linux-oracle, linux-raspi2 vulnerabilities",
   "details": "Stephan van Schaik, Alyssa Milburn, Sebastian \u00d6sterlund, Pietro Frigo,\nKaveh Razavi, Herbert Bos, Cristiano Giuffrida, Giorgi Maisuradze, Moritz\nLipp, Michael Schwarz, Daniel Gruss, and Jo Van Bulck discovered that Intel\nprocessors using Transactional Synchronization Extensions (TSX) could\nexpose memory contents previously stored in microarchitectural buffers to a\nmalicious process that is executing on the same CPU core. A local attacker\ncould use this to expose sensitive information. (CVE-2019-11135)\n\nIt was discovered that the Intel i915 graphics chipsets allowed userspace\nto modify page table entries via writes to MMIO from the Blitter Command\nStreamer and expose kernel memory information. A local attacker could use\nthis to expose sensitive information or possibly elevate privileges.\n(CVE-2019-0155)\n\nDeepak Gupta discovered that on certain Intel processors, the Linux kernel\ndid not properly perform invalidation on page table updates by virtual\nguest operating systems. A local attacker in a guest VM could use this to\ncause a denial of service (host system crash). (CVE-2018-12207)\n\nIt was discovered that the Intel i915 graphics chipsets could cause a\nsystem hang when userspace performed a read from GT memory mapped input\noutput (MMIO) when the product is in certain low power states. A local\nattacker could use this to cause a denial of service. (CVE-2019-0154)\n\nHui Peng discovered that the Atheros AR6004 USB Wi-Fi device driver for the\nLinux kernel did not properly validate endpoint descriptors returned by the\ndevice. A physically proximate attacker could use this to cause a denial of\nservice (system crash). (CVE-2019-15098)\n\nJann Horn discovered a reference count underflow in the shiftfs\nimplementation in the Linux kernel. A local attacker could use this to\ncause a denial of service (system crash) or possibly execute arbitrary\ncode. (CVE-2019-15791)\n\nJann Horn discovered a type confusion vulnerability in the shiftfs\nimplementation in the Linux kernel. A local attacker could use this to\ncause a denial of service (system crash) or possibly execute arbitrary\ncode. (CVE-2019-15792)\n\nJann Horn discovered that the shiftfs implementation in the Linux kernel\ndid not use the correct file system uid/gid when the user namespace of a\nlower file system is not in the init user namespace. A local attacker could\nuse this to possibly bypass DAC permissions or have some other unspecified\nimpact. (CVE-2019-15793)\n\nOri Nimron discovered that the AX25 network protocol implementation in the\nLinux kernel did not properly perform permissions checks. A local attacker\ncould use this to create a raw socket. (CVE-2019-17052)\n\nOri Nimron discovered that the IEEE 802.15.4 Low-Rate Wireless network\nprotocol implementation in the Linux kernel did not properly perform\npermissions checks. A local attacker could use this to create a raw socket.\n(CVE-2019-17053)\n\nOri Nimron discovered that the Appletalk network protocol implementation in\nthe Linux kernel did not properly perform permissions checks. A local\nattacker could use this to create a raw socket. (CVE-2019-17054)\n\nOri Nimron discovered that the modular ISDN network protocol implementation\nin the Linux kernel did not properly perform permissions checks. A local\nattacker could use this to create a raw socket. (CVE-2019-17055)\n\nOri Nimron discovered that the Near field Communication (NFC) network\nprotocol implementation in the Linux kernel did not properly perform\npermissions checks. A local attacker could use this to create a raw socket.\n(CVE-2019-17056)\n\nNico Waisman discovered that a buffer overflow existed in the Realtek Wi-Fi\ndriver for the Linux kernel when handling Notice of Absence frames. A\nphysically proximate attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2019-17666)\n",
@@ -17,8 +18,7 @@
     "CVE-2019-17054",
     "CVE-2019-17055",
     "CVE-2019-17056",
-    "CVE-2019-17666",
-    "https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/TAA_MCEPSC_i915"
+    "CVE-2019-17666"
   ],
   "published": "2019-11-13T00:45:14.198936Z",
   "modified": "2019-11-13T00:45:14.198936Z",
@@ -26,69 +26,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-hwe"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.0.0-35.38~18.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-5.0.0-35-generic": "5.0.0-35.38~18.04.1",
-            "linux-image-snapdragon-hwe-18.04": "5.0.0.35.93",
-            "linux-image-lowlatency-hwe-18.04": "5.0.0.35.93",
-            "linux-image-virtual-hwe-18.04": "5.0.0.35.93",
-            "linux-image-generic-lpae-hwe-18.04": "5.0.0.35.93",
-            "linux-image-5.0.0-35-generic-lpae": "5.0.0-35.38~18.04.1",
-            "linux-image-5.0.0-35-lowlatency": "5.0.0-35.38~18.04.1",
-            "linux-image-generic-hwe-18.04": "5.0.0.35.93"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-gcp"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.0.0-1025.26~18.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-5.0.0-1025-gcp": "5.0.0-1025.26~18.04.1",
-            "linux-image-gcp": "5.0.0.1025.29"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-azure"
+        "name": "linux-azure",
+        "purl": "pkg:deb/ubuntu/linux-azure@5.0.0-1025.27~18.04.1?arch=src?distro=bionic"
       },
       "ranges": [
         {
@@ -103,48 +42,68 @@
           ]
         }
       ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-5.0.0-1025-azure": "5.0.0-1025.27~18.04.1",
-            "linux-image-azure": "5.0.0.1025.36"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-oem-osp1"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.0.0-1027.31"
-            }
-          ]
-        }
+      "versions": [
+        "4.15.0-1002.2",
+        "4.15.0-1003.3",
+        "4.15.0-1004.4",
+        "4.15.0-1008.8",
+        "4.15.0-1009.9",
+        "4.15.0-1012.12",
+        "4.15.0-1013.13",
+        "4.15.0-1014.14",
+        "4.15.0-1018.18",
+        "4.15.0-1019.19",
+        "4.15.0-1021.21",
+        "4.15.0-1022.23",
+        "4.15.0-1023.24",
+        "4.15.0-1025.26",
+        "4.15.0-1028.29",
+        "4.15.0-1030.31",
+        "4.15.0-1031.32",
+        "4.15.0-1032.33",
+        "4.15.0-1035.36",
+        "4.15.0-1036.38",
+        "4.15.0-1037.39",
+        "4.18.0-1011.11~18.04.1",
+        "4.18.0-1013.13~18.04.1",
+        "4.18.0-1014.14~18.04.1",
+        "4.18.0-1018.18~18.04.1",
+        "4.18.0-1019.19~18.04.1",
+        "4.18.0-1020.20~18.04.1",
+        "4.18.0-1023.24~18.04.1",
+        "4.18.0-1024.25~18.04.1",
+        "4.18.0-1025.27~18.04.1",
+        "5.0.0-1014.14~18.04.1",
+        "5.0.0-1016.17~18.04.1",
+        "5.0.0-1018.19~18.04.1",
+        "5.0.0-1020.21~18.04.1",
+        "5.0.0-1022.23~18.04.1",
+        "5.0.0-1023.24~18.04.1"
       ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-oem-osp1": "5.0.0.1027.31",
-            "linux-image-5.0.0-1027-oem-osp1": "5.0.0-1027.31"
+            "linux-azure-cloud-tools-5.0.0-1025": "5.0.0-1025.27~18.04.1",
+            "linux-azure-headers-5.0.0-1025": "5.0.0-1025.27~18.04.1",
+            "linux-azure-tools-5.0.0-1025": "5.0.0-1025.27~18.04.1",
+            "linux-buildinfo-5.0.0-1025-azure": "5.0.0-1025.27~18.04.1",
+            "linux-cloud-tools-5.0.0-1025-azure": "5.0.0-1025.27~18.04.1",
+            "linux-headers-5.0.0-1025-azure": "5.0.0-1025.27~18.04.1",
+            "linux-image-unsigned-5.0.0-1025-azure": "5.0.0-1025.27~18.04.1",
+            "linux-image-unsigned-5.0.0-1025-azure-dbgsym": "5.0.0-1025.27~18.04.1",
+            "linux-modules-5.0.0-1025-azure": "5.0.0-1025.27~18.04.1",
+            "linux-modules-extra-5.0.0-1025-azure": "5.0.0-1025.27~18.04.1",
+            "linux-tools-5.0.0-1025-azure": "5.0.0-1025.27~18.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-gke-5.0"
+        "name": "linux-gcp",
+        "purl": "pkg:deb/ubuntu/linux-gcp@5.0.0-1025.26~18.04.1?arch=src?distro=bionic"
       },
       "ranges": [
         {
@@ -159,14 +118,314 @@
           ]
         }
       ],
+      "versions": [
+        "4.15.0-1001.1",
+        "4.15.0-1003.3",
+        "4.15.0-1005.5",
+        "4.15.0-1006.6",
+        "4.15.0-1008.8",
+        "4.15.0-1009.9",
+        "4.15.0-1010.10",
+        "4.15.0-1014.14",
+        "4.15.0-1015.15",
+        "4.15.0-1017.18",
+        "4.15.0-1018.19",
+        "4.15.0-1019.20",
+        "4.15.0-1021.22",
+        "4.15.0-1023.24",
+        "4.15.0-1024.25",
+        "4.15.0-1025.26",
+        "4.15.0-1026.27",
+        "4.15.0-1027.28",
+        "4.15.0-1028.29",
+        "4.15.0-1029.31",
+        "4.15.0-1030.32",
+        "4.15.0-1032.34",
+        "4.15.0-1033.35",
+        "4.15.0-1034.36",
+        "4.15.0-1036.38",
+        "4.15.0-1037.39",
+        "4.15.0-1040.42",
+        "4.15.0-1042.45",
+        "4.15.0-1044.70",
+        "5.0.0-1020.20~18.04.1",
+        "5.0.0-1021.21~18.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-gke-5.0": "5.0.0.1025.14",
-            "linux-image-5.0.0-1025-gke": "5.0.0-1025.26~18.04.1"
+            "linux-buildinfo-5.0.0-1025-gcp": "5.0.0-1025.26~18.04.1",
+            "linux-gcp-headers-5.0.0-1025": "5.0.0-1025.26~18.04.1",
+            "linux-gcp-tools-5.0.0-1025": "5.0.0-1025.26~18.04.1",
+            "linux-headers-5.0.0-1025-gcp": "5.0.0-1025.26~18.04.1",
+            "linux-image-unsigned-5.0.0-1025-gcp": "5.0.0-1025.26~18.04.1",
+            "linux-image-unsigned-5.0.0-1025-gcp-dbgsym": "5.0.0-1025.26~18.04.1",
+            "linux-modules-5.0.0-1025-gcp": "5.0.0-1025.26~18.04.1",
+            "linux-modules-extra-5.0.0-1025-gcp": "5.0.0-1025.26~18.04.1",
+            "linux-tools-5.0.0-1025-gcp": "5.0.0-1025.26~18.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-gke-5.0",
+        "purl": "pkg:deb/ubuntu/linux-gke-5.0@5.0.0-1025.26~18.04.1?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.0.0-1025.26~18.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.0.0-1011.11~18.04.1",
+        "5.0.0-1013.13~18.04.1",
+        "5.0.0-1015.15~18.04.1",
+        "5.0.0-1017.17~18.04.1",
+        "5.0.0-1020.20~18.04.1",
+        "5.0.0-1022.22~18.04.3",
+        "5.0.0-1023.23~18.04.2"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-5.0.0-1025-gke": "5.0.0-1025.26~18.04.1",
+            "linux-gke-5.0-headers-5.0.0-1025": "5.0.0-1025.26~18.04.1",
+            "linux-gke-5.0-tools-5.0.0-1025": "5.0.0-1025.26~18.04.1",
+            "linux-headers-5.0.0-1025-gke": "5.0.0-1025.26~18.04.1",
+            "linux-image-unsigned-5.0.0-1025-gke": "5.0.0-1025.26~18.04.1",
+            "linux-image-unsigned-5.0.0-1025-gke-dbgsym": "5.0.0-1025.26~18.04.1",
+            "linux-modules-5.0.0-1025-gke": "5.0.0-1025.26~18.04.1",
+            "linux-modules-extra-5.0.0-1025-gke": "5.0.0-1025.26~18.04.1",
+            "linux-tools-5.0.0-1025-gke": "5.0.0-1025.26~18.04.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-hwe",
+        "purl": "pkg:deb/ubuntu/linux-hwe@5.0.0-35.38~18.04.1?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.0.0-35.38~18.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.18.0-13.14~18.04.1",
+        "4.18.0-14.15~18.04.1",
+        "4.18.0-15.16~18.04.1",
+        "4.18.0-16.17~18.04.1",
+        "4.18.0-17.18~18.04.1",
+        "4.18.0-18.19~18.04.1",
+        "4.18.0-20.21~18.04.1",
+        "4.18.0-21.22~18.04.1",
+        "4.18.0-22.23~18.04.1",
+        "4.18.0-24.25~18.04.1",
+        "4.18.0-25.26~18.04.1",
+        "5.0.0-23.24~18.04.1",
+        "5.0.0-25.26~18.04.1",
+        "5.0.0-27.28~18.04.1",
+        "5.0.0-29.31~18.04.1",
+        "5.0.0-31.33~18.04.1",
+        "5.0.0-32.34~18.04.2"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "block-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "block-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "crypto-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "crypto-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "dasd-extra-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "dasd-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "fat-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "fat-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "fb-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "firewire-core-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "floppy-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "fs-core-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "fs-core-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "fs-secondary-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "fs-secondary-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "input-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "input-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "ipmi-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "ipmi-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "kernel-image-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "kernel-image-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "linux-buildinfo-5.0.0-35-generic": "5.0.0-35.38~18.04.1",
+            "linux-buildinfo-5.0.0-35-generic-lpae": "5.0.0-35.38~18.04.1",
+            "linux-buildinfo-5.0.0-35-lowlatency": "5.0.0-35.38~18.04.1",
+            "linux-cloud-tools-5.0.0-35-generic": "5.0.0-35.38~18.04.1",
+            "linux-cloud-tools-5.0.0-35-lowlatency": "5.0.0-35.38~18.04.1",
+            "linux-headers-5.0.0-35": "5.0.0-35.38~18.04.1",
+            "linux-headers-5.0.0-35-generic": "5.0.0-35.38~18.04.1",
+            "linux-headers-5.0.0-35-generic-lpae": "5.0.0-35.38~18.04.1",
+            "linux-headers-5.0.0-35-lowlatency": "5.0.0-35.38~18.04.1",
+            "linux-hwe-cloud-tools-5.0.0-35": "5.0.0-35.38~18.04.1",
+            "linux-hwe-tools-5.0.0-35": "5.0.0-35.38~18.04.1",
+            "linux-hwe-udebs-generic": "5.0.0-35.38~18.04.1",
+            "linux-hwe-udebs-generic-lpae": "5.0.0-35.38~18.04.1",
+            "linux-image-5.0.0-35-generic": "5.0.0-35.38~18.04.1",
+            "linux-image-5.0.0-35-generic-dbgsym": "5.0.0-35.38~18.04.1",
+            "linux-image-5.0.0-35-generic-lpae": "5.0.0-35.38~18.04.1",
+            "linux-image-5.0.0-35-generic-lpae-dbgsym": "5.0.0-35.38~18.04.1",
+            "linux-image-5.0.0-35-lowlatency": "5.0.0-35.38~18.04.1",
+            "linux-image-5.0.0-35-lowlatency-dbgsym": "5.0.0-35.38~18.04.1",
+            "linux-image-unsigned-5.0.0-35-generic": "5.0.0-35.38~18.04.1",
+            "linux-image-unsigned-5.0.0-35-generic-dbgsym": "5.0.0-35.38~18.04.1",
+            "linux-image-unsigned-5.0.0-35-lowlatency": "5.0.0-35.38~18.04.1",
+            "linux-image-unsigned-5.0.0-35-lowlatency-dbgsym": "5.0.0-35.38~18.04.1",
+            "linux-modules-5.0.0-35-generic": "5.0.0-35.38~18.04.1",
+            "linux-modules-5.0.0-35-generic-lpae": "5.0.0-35.38~18.04.1",
+            "linux-modules-5.0.0-35-lowlatency": "5.0.0-35.38~18.04.1",
+            "linux-modules-extra-5.0.0-35-generic": "5.0.0-35.38~18.04.1",
+            "linux-source-5.0.0": "5.0.0-35.38~18.04.1",
+            "linux-tools-5.0.0-35-generic": "5.0.0-35.38~18.04.1",
+            "linux-tools-5.0.0-35-generic-lpae": "5.0.0-35.38~18.04.1",
+            "linux-tools-5.0.0-35-lowlatency": "5.0.0-35.38~18.04.1",
+            "md-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "md-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "message-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "mouse-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "mouse-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "multipath-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "multipath-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "nfs-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "nfs-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "nic-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "nic-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "nic-pcmcia-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "nic-shared-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "nic-shared-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "nic-usb-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "nic-usb-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "parport-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "parport-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "pata-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "pcmcia-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "pcmcia-storage-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "plip-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "plip-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "ppp-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "ppp-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "sata-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "sata-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "scsi-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "scsi-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "serial-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "storage-core-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "storage-core-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "usb-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "usb-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1",
+            "virtio-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "vlan-modules-5.0.0-35-generic-di": "5.0.0-35.38~18.04.1",
+            "vlan-modules-5.0.0-35-generic-lpae-di": "5.0.0-35.38~18.04.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-oem-osp1",
+        "purl": "pkg:deb/ubuntu/linux-oem-osp1@5.0.0-1027.31?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.0.0-1027.31"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.0.0-1010.11",
+        "5.0.0-1012.13",
+        "5.0.0-1015.16",
+        "5.0.0-1018.20",
+        "5.0.0-1020.22",
+        "5.0.0-1022.24",
+        "5.0.0-1024.27",
+        "5.0.0-1025.28"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "block-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "crypto-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "fat-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "fb-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "firewire-core-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "floppy-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "fs-core-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "fs-secondary-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "input-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "ipmi-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "kernel-image-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "linux-buildinfo-5.0.0-1027-oem-osp1": "5.0.0-1027.31",
+            "linux-headers-5.0.0-1027-oem-osp1": "5.0.0-1027.31",
+            "linux-image-unsigned-5.0.0-1027-oem-osp1": "5.0.0-1027.31",
+            "linux-image-unsigned-5.0.0-1027-oem-osp1-dbgsym": "5.0.0-1027.31",
+            "linux-modules-5.0.0-1027-oem-osp1": "5.0.0-1027.31",
+            "linux-oem-osp1-headers-5.0.0-1027": "5.0.0-1027.31",
+            "linux-oem-osp1-tools-5.0.0-1027": "5.0.0-1027.31",
+            "linux-oem-osp1-tools-host": "5.0.0-1027.31",
+            "linux-tools-5.0.0-1027-oem-osp1": "5.0.0-1027.31",
+            "linux-udebs-oem-osp1": "5.0.0-1027.31",
+            "md-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "message-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "mouse-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "multipath-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "nfs-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "nic-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "nic-pcmcia-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "nic-shared-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "nic-usb-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "parport-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "pata-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "pcmcia-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "pcmcia-storage-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "plip-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "ppp-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "sata-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "scsi-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "serial-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "storage-core-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "usb-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "virtio-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31",
+            "vlan-modules-5.0.0-1027-oem-osp1-di": "5.0.0-1027.31"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],
@@ -230,10 +489,6 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2019-17666"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/TAA_MCEPSC_i915"
     }
   ]
 }

@@ -1,12 +1,13 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-6651-1",
   "summary": "linux, linux-aws, linux-gcp, linux-hwe-6.5, linux-laptop, linux-oracle, linux-raspi, linux-starfive vulnerabilities",
   "details": "It was discovered that a race condition existed in the ATM (Asynchronous\nTransfer Mode) subsystem of the Linux kernel, leading to a use-after-free\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-51780)\n\nIt was discovered that a race condition existed in the AppleTalk networking\nsubsystem of the Linux kernel, leading to a use-after-free vulnerability. A\nlocal attacker could use this to cause a denial of service (system crash)\nor possibly execute arbitrary code. (CVE-2023-51781)\n\nZhenghan Wang discovered that the generic ID allocator implementation in\nthe Linux kernel did not properly check for null bitmap when releasing IDs.\nA local attacker could use this to cause a denial of service (system\ncrash). (CVE-2023-6915)\n\nRobert Morris discovered that the CIFS network file system implementation\nin the Linux kernel did not properly validate certain server commands\nfields, leading to an out-of-bounds read vulnerability. An attacker could\nuse this to cause a denial of service (system crash) or possibly expose\nsensitive information. (CVE-2024-0565)\n\nJann Horn discovered that the io_uring subsystem in the Linux kernel did\nnot properly handle the release of certain buffer rings. A local attacker\ncould use this to cause a denial of service (system crash) or possibly\nexecute arbitrary code. (CVE-2024-0582)\n\nJann Horn discovered that the TLS subsystem in the Linux kernel did not\nproperly handle spliced messages, leading to an out-of-bounds write\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2024-0646)\n\n",
   "aliases": [],
   "related": [
+    "CVE-2023-6915",
     "CVE-2023-51780",
     "CVE-2023-51781",
-    "CVE-2023-6915",
     "CVE-2024-0565",
     "CVE-2024-0582",
     "CVE-2024-0646"
@@ -17,7 +18,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-hwe-6.5"
+        "name": "linux-hwe-6.5",
+        "purl": "pkg:deb/ubuntu/linux-hwe-6.5@6.5.0-21.21~22.04.1?arch=src?distro=jammy"
       },
       "ranges": [
         {
@@ -32,28 +34,20 @@
           ]
         }
       ],
+      "versions": [
+        "6.5.0-14.14~22.04.1",
+        "6.5.0-15.15~22.04.1",
+        "6.5.0-17.17~22.04.1",
+        "6.5.0-18.18~22.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "linux-buildinfo-6.5.0-21-generic": "6.5.0-21.21~22.04.1",
             "linux-buildinfo-6.5.0-21-generic-64k": "6.5.0-21.21~22.04.1",
             "linux-cloud-tools-6.5.0-21-generic": "6.5.0-21.21~22.04.1",
-            "linux-cloud-tools-generic-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-cloud-tools-generic-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
-            "linux-cloud-tools-virtual-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-cloud-tools-virtual-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
-            "linux-generic-64k-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-generic-64k-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
-            "linux-generic-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-generic-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
             "linux-headers-6.5.0-21-generic": "6.5.0-21.21~22.04.1",
             "linux-headers-6.5.0-21-generic-64k": "6.5.0-21.21~22.04.1",
-            "linux-headers-generic-64k-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-headers-generic-64k-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
-            "linux-headers-generic-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-headers-generic-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
-            "linux-headers-virtual-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-headers-virtual-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
             "linux-hwe-6.5-cloud-tools-6.5.0-21": "6.5.0-21.21~22.04.1",
             "linux-hwe-6.5-cloud-tools-common": "6.5.0-21.21~22.04.1",
             "linux-hwe-6.5-headers-6.5.0-21": "6.5.0-21.21~22.04.1",
@@ -61,53 +55,30 @@
             "linux-hwe-6.5-tools-common": "6.5.0-21.21~22.04.1",
             "linux-hwe-6.5-tools-host": "6.5.0-21.21~22.04.1",
             "linux-image-6.5.0-21-generic": "6.5.0-21.21~22.04.1",
-            "linux-image-6.5.0-21-generic-64k": "6.5.0-21.21~22.04.1",
-            "linux-image-extra-virtual-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-image-extra-virtual-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
-            "linux-image-generic-64k-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-image-generic-64k-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
-            "linux-image-generic-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-image-generic-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
-            "linux-image-uc-6.5.0-21-generic": "6.5.0-21.21~22.04.1",
-            "linux-image-uc-6.5.0-21-generic-64k": "6.5.0-21.21~22.04.1",
-            "linux-image-uc-generic-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-image-uc-generic-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
+            "linux-image-6.5.0-21-generic-dbgsym": "6.5.0-21.21~22.04.1",
             "linux-image-unsigned-6.5.0-21-generic": "6.5.0-21.21~22.04.1",
             "linux-image-unsigned-6.5.0-21-generic-64k": "6.5.0-21.21~22.04.1",
-            "linux-image-virtual-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-image-virtual-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
+            "linux-image-unsigned-6.5.0-21-generic-64k-dbgsym": "6.5.0-21.21~22.04.1",
+            "linux-image-unsigned-6.5.0-21-generic-dbgsym": "6.5.0-21.21~22.04.1",
             "linux-modules-6.5.0-21-generic": "6.5.0-21.21~22.04.1",
             "linux-modules-6.5.0-21-generic-64k": "6.5.0-21.21~22.04.1",
             "linux-modules-extra-6.5.0-21-generic": "6.5.0-21.21~22.04.1",
             "linux-modules-ipu6-6.5.0-21-generic": "6.5.0-21.21~22.04.1",
-            "linux-modules-ipu6-generic-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-modules-ipu6-generic-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
             "linux-modules-ivsc-6.5.0-21-generic": "6.5.0-21.21~22.04.1",
-            "linux-modules-ivsc-generic-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-modules-ivsc-generic-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
             "linux-modules-iwlwifi-6.5.0-21-generic": "6.5.0-21.21~22.04.1",
-            "linux-modules-iwlwifi-generic-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-modules-iwlwifi-generic-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
             "linux-source-6.5.0": "6.5.0-21.21~22.04.1",
             "linux-tools-6.5.0-21-generic": "6.5.0-21.21~22.04.1",
-            "linux-tools-6.5.0-21-generic-64k": "6.5.0-21.21~22.04.1",
-            "linux-tools-generic-64k-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-tools-generic-64k-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
-            "linux-tools-generic-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-tools-generic-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
-            "linux-tools-virtual-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-tools-virtual-hwe-22.04-edge": "6.5.0.21.21~22.04.11",
-            "linux-virtual-hwe-22.04": "6.5.0.21.21~22.04.11",
-            "linux-virtual-hwe-22.04-edge": "6.5.0.21.21~22.04.11"
+            "linux-tools-6.5.0-21-generic-64k": "6.5.0-21.21~22.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:23.10",
-        "name": "linux"
+        "name": "linux",
+        "purl": "pkg:deb/ubuntu/linux@6.5.0-21.21?arch=src?distro=mantic"
       },
       "ranges": [
         {
@@ -122,6 +93,19 @@
           ]
         }
       ],
+      "versions": [
+        "6.2.0-20.20",
+        "6.2.0-21.21",
+        "6.3.0-7.7",
+        "6.5.0-5.5",
+        "6.5.0-7.7",
+        "6.5.0-9.9",
+        "6.5.0-10.10",
+        "6.5.0-13.13",
+        "6.5.0-14.14",
+        "6.5.0-15.15",
+        "6.5.0-17.17"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
@@ -130,131 +114,40 @@
             "linux-cloud-tools-6.5.0-21": "6.5.0-21.21",
             "linux-cloud-tools-6.5.0-21-generic": "6.5.0-21.21",
             "linux-cloud-tools-common": "6.5.0-21.21",
-            "linux-cloud-tools-generic": "6.5.0.21.20",
-            "linux-cloud-tools-generic-hwe-22.04": "6.5.0.21.20",
-            "linux-cloud-tools-generic-hwe-22.04-edge": "6.5.0.21.20",
-            "linux-cloud-tools-virtual": "6.5.0.21.20",
-            "linux-cloud-tools-virtual-hwe-22.04": "6.5.0.21.20",
-            "linux-cloud-tools-virtual-hwe-22.04-edge": "6.5.0.21.20",
-            "linux-crashdump": "6.5.0.21.20",
             "linux-doc": "6.5.0-21.21",
-            "linux-generic": "6.5.0.21.20",
-            "linux-generic-64k": "6.5.0.21.20",
-            "linux-generic-64k-hwe-22.04": "6.5.0.21.20",
-            "linux-generic-64k-hwe-22.04-edge": "6.5.0.21.20",
-            "linux-generic-hwe-22.04": "6.5.0.21.20",
-            "linux-generic-hwe-22.04-edge": "6.5.0.21.20",
-            "linux-generic-lpae": "6.5.0.21.20",
             "linux-headers-6.5.0-21": "6.5.0-21.21",
             "linux-headers-6.5.0-21-generic": "6.5.0-21.21",
             "linux-headers-6.5.0-21-generic-64k": "6.5.0-21.21",
-            "linux-headers-generic": "6.5.0.21.20",
-            "linux-headers-generic-64k": "6.5.0.21.20",
-            "linux-headers-generic-64k-hwe-22.04": "6.5.0.21.20",
-            "linux-headers-generic-64k-hwe-22.04-edge": "6.5.0.21.20",
-            "linux-headers-generic-hwe-22.04": "6.5.0.21.20",
-            "linux-headers-generic-hwe-22.04-edge": "6.5.0.21.20",
-            "linux-headers-generic-lpae": "6.5.0.21.20",
-            "linux-headers-kvm": "6.5.0.21.20",
-            "linux-headers-oem-20.04": "6.5.0.21.20",
-            "linux-headers-oem-20.04b": "6.5.0.21.20",
-            "linux-headers-oem-20.04c": "6.5.0.21.20",
-            "linux-headers-oem-20.04d": "6.5.0.21.20",
-            "linux-headers-oem-22.04": "6.5.0.21.20",
-            "linux-headers-virtual": "6.5.0.21.20",
-            "linux-headers-virtual-hwe-22.04": "6.5.0.21.20",
-            "linux-headers-virtual-hwe-22.04-edge": "6.5.0.21.20",
             "linux-image-6.5.0-21-generic": "6.5.0-21.21",
-            "linux-image-6.5.0-21-generic-64k": "6.5.0-21.21",
-            "linux-image-extra-virtual": "6.5.0.21.20",
-            "linux-image-extra-virtual-hwe-22.04": "6.5.0.21.20",
-            "linux-image-extra-virtual-hwe-22.04-edge": "6.5.0.21.20",
-            "linux-image-generic": "6.5.0.21.20",
-            "linux-image-generic-64k": "6.5.0.21.20",
-            "linux-image-generic-64k-hwe-22.04": "6.5.0.21.20",
-            "linux-image-generic-64k-hwe-22.04-edge": "6.5.0.21.20",
-            "linux-image-generic-hwe-22.04": "6.5.0.21.20",
-            "linux-image-generic-hwe-22.04-edge": "6.5.0.21.20",
-            "linux-image-generic-lpae": "6.5.0.21.20",
-            "linux-image-kvm": "6.5.0.21.20",
-            "linux-image-oem-20.04": "6.5.0.21.20",
-            "linux-image-oem-20.04b": "6.5.0.21.20",
-            "linux-image-oem-20.04c": "6.5.0.21.20",
-            "linux-image-oem-20.04d": "6.5.0.21.20",
-            "linux-image-oem-22.04": "6.5.0.21.20",
-            "linux-image-uc-6.5.0-21-generic": "6.5.0-21.21",
-            "linux-image-uc-6.5.0-21-generic-64k": "6.5.0-21.21",
-            "linux-image-uc-generic": "6.5.0.21.20",
-            "linux-image-uc-generic-hwe-22.04": "6.5.0.21.20",
-            "linux-image-uc-generic-hwe-22.04-edge": "6.5.0.21.20",
+            "linux-image-6.5.0-21-generic-dbgsym": "6.5.0-21.21",
             "linux-image-unsigned-6.5.0-21-generic": "6.5.0-21.21",
             "linux-image-unsigned-6.5.0-21-generic-64k": "6.5.0-21.21",
-            "linux-image-virtual": "6.5.0.21.20",
-            "linux-image-virtual-hwe-22.04": "6.5.0.21.20",
-            "linux-image-virtual-hwe-22.04-edge": "6.5.0.21.20",
-            "linux-kvm": "6.5.0.21.20",
+            "linux-image-unsigned-6.5.0-21-generic-64k-dbgsym": "6.5.0-21.21",
+            "linux-image-unsigned-6.5.0-21-generic-dbgsym": "6.5.0-21.21",
             "linux-lib-rust-6.5.0-21-generic": "6.5.0-21.21",
             "linux-libc-dev": "6.5.0-21.21",
             "linux-modules-6.5.0-21-generic": "6.5.0-21.21",
             "linux-modules-6.5.0-21-generic-64k": "6.5.0-21.21",
             "linux-modules-extra-6.5.0-21-generic": "6.5.0-21.21",
             "linux-modules-ipu6-6.5.0-21-generic": "6.5.0-21.21",
-            "linux-modules-ipu6-generic": "6.5.0.21.20",
-            "linux-modules-ipu6-generic-hwe-22.04": "6.5.0.21.20",
-            "linux-modules-ipu6-generic-hwe-22.04-edge": "6.5.0.21.20",
-            "linux-modules-ipu6-oem-22.04": "6.5.0.21.20",
             "linux-modules-ivsc-6.5.0-21-generic": "6.5.0-21.21",
-            "linux-modules-ivsc-generic": "6.5.0.21.20",
-            "linux-modules-ivsc-generic-hwe-22.04": "6.5.0.21.20",
-            "linux-modules-ivsc-generic-hwe-22.04-edge": "6.5.0.21.20",
-            "linux-modules-ivsc-oem-22.04": "6.5.0.21.20",
             "linux-modules-iwlwifi-6.5.0-21-generic": "6.5.0-21.21",
-            "linux-modules-iwlwifi-generic": "6.5.0.21.20",
-            "linux-modules-iwlwifi-generic-hwe-22.04": "6.5.0.21.20",
-            "linux-modules-iwlwifi-generic-hwe-22.04-edge": "6.5.0.21.20",
-            "linux-modules-iwlwifi-oem-20.04": "6.5.0.21.20",
-            "linux-modules-iwlwifi-oem-20.04d": "6.5.0.21.20",
-            "linux-modules-iwlwifi-oem-22.04": "6.5.0.21.20",
-            "linux-oem-20.04": "6.5.0.21.20",
-            "linux-oem-20.04b": "6.5.0.21.20",
-            "linux-oem-20.04c": "6.5.0.21.20",
-            "linux-oem-20.04d": "6.5.0.21.20",
-            "linux-oem-22.04": "6.5.0.21.20",
-            "linux-source": "6.5.0.21.20",
             "linux-source-6.5.0": "6.5.0-21.21",
             "linux-tools-6.5.0-21": "6.5.0-21.21",
             "linux-tools-6.5.0-21-generic": "6.5.0-21.21",
             "linux-tools-6.5.0-21-generic-64k": "6.5.0-21.21",
             "linux-tools-common": "6.5.0-21.21",
-            "linux-tools-generic": "6.5.0.21.20",
-            "linux-tools-generic-64k": "6.5.0.21.20",
-            "linux-tools-generic-64k-hwe-22.04": "6.5.0.21.20",
-            "linux-tools-generic-64k-hwe-22.04-edge": "6.5.0.21.20",
-            "linux-tools-generic-hwe-22.04": "6.5.0.21.20",
-            "linux-tools-generic-hwe-22.04-edge": "6.5.0.21.20",
-            "linux-tools-generic-lpae": "6.5.0.21.20",
-            "linux-tools-host": "6.5.0-21.21",
-            "linux-tools-kvm": "6.5.0.21.20",
-            "linux-tools-oem-20.04": "6.5.0.21.20",
-            "linux-tools-oem-20.04b": "6.5.0.21.20",
-            "linux-tools-oem-20.04c": "6.5.0.21.20",
-            "linux-tools-oem-20.04d": "6.5.0.21.20",
-            "linux-tools-oem-22.04": "6.5.0.21.20",
-            "linux-tools-virtual": "6.5.0.21.20",
-            "linux-tools-virtual-hwe-22.04": "6.5.0.21.20",
-            "linux-tools-virtual-hwe-22.04-edge": "6.5.0.21.20",
-            "linux-virtual": "6.5.0.21.20",
-            "linux-virtual-hwe-22.04": "6.5.0.21.20",
-            "linux-virtual-hwe-22.04-edge": "6.5.0.21.20"
+            "linux-tools-host": "6.5.0-21.21"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:23.10",
-        "name": "linux-aws"
+        "name": "linux-aws",
+        "purl": "pkg:deb/ubuntu/linux-aws@6.5.0-1014.14?arch=src?distro=mantic"
       },
       "ranges": [
         {
@@ -269,34 +162,42 @@
           ]
         }
       ],
+      "versions": [
+        "6.2.0-1003.3",
+        "6.2.0-1004.4",
+        "6.5.0-1005.5",
+        "6.5.0-1007.7",
+        "6.5.0-1008.8",
+        "6.5.0-1009.9",
+        "6.5.0-1010.10",
+        "6.5.0-1011.11",
+        "6.5.0-1012.12",
+        "6.5.0-1013.13"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-aws": "6.5.0.1014.14",
             "linux-aws-cloud-tools-6.5.0-1014": "6.5.0-1014.14",
             "linux-aws-headers-6.5.0-1014": "6.5.0-1014.14",
             "linux-aws-tools-6.5.0-1014": "6.5.0-1014.14",
             "linux-buildinfo-6.5.0-1014-aws": "6.5.0-1014.14",
             "linux-cloud-tools-6.5.0-1014-aws": "6.5.0-1014.14",
             "linux-headers-6.5.0-1014-aws": "6.5.0-1014.14",
-            "linux-headers-aws": "6.5.0.1014.14",
-            "linux-image-6.5.0-1014-aws": "6.5.0-1014.14",
-            "linux-image-aws": "6.5.0.1014.14",
             "linux-image-unsigned-6.5.0-1014-aws": "6.5.0-1014.14",
+            "linux-image-unsigned-6.5.0-1014-aws-dbgsym": "6.5.0-1014.14",
             "linux-modules-6.5.0-1014-aws": "6.5.0-1014.14",
             "linux-modules-extra-6.5.0-1014-aws": "6.5.0-1014.14",
-            "linux-modules-extra-aws": "6.5.0.1014.14",
-            "linux-tools-6.5.0-1014-aws": "6.5.0-1014.14",
-            "linux-tools-aws": "6.5.0.1014.14"
+            "linux-tools-6.5.0-1014-aws": "6.5.0-1014.14"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:23.10",
-        "name": "linux-gcp"
+        "name": "linux-gcp",
+        "purl": "pkg:deb/ubuntu/linux-gcp@6.5.0-1014.14?arch=src?distro=mantic"
       },
       "ranges": [
         {
@@ -311,34 +212,41 @@
           ]
         }
       ],
+      "versions": [
+        "6.2.0-1005.5",
+        "6.2.0-1006.6",
+        "6.5.0-1004.4",
+        "6.5.0-1006.6",
+        "6.5.0-1007.7",
+        "6.5.0-1008.8",
+        "6.5.0-1009.9",
+        "6.5.0-1010.10",
+        "6.5.0-1011.11",
+        "6.5.0-1013.13"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "linux-buildinfo-6.5.0-1014-gcp": "6.5.0-1014.14",
-            "linux-gcp": "6.5.0.1014.14",
             "linux-gcp-headers-6.5.0-1014": "6.5.0-1014.14",
             "linux-gcp-tools-6.5.0-1014": "6.5.0-1014.14",
             "linux-headers-6.5.0-1014-gcp": "6.5.0-1014.14",
-            "linux-headers-gcp": "6.5.0.1014.14",
-            "linux-image-6.5.0-1014-gcp": "6.5.0-1014.14",
-            "linux-image-gcp": "6.5.0.1014.14",
             "linux-image-unsigned-6.5.0-1014-gcp": "6.5.0-1014.14",
+            "linux-image-unsigned-6.5.0-1014-gcp-dbgsym": "6.5.0-1014.14",
             "linux-modules-6.5.0-1014-gcp": "6.5.0-1014.14",
             "linux-modules-extra-6.5.0-1014-gcp": "6.5.0-1014.14",
-            "linux-modules-extra-gcp": "6.5.0.1014.14",
             "linux-modules-iwlwifi-6.5.0-1014-gcp": "6.5.0-1014.14",
-            "linux-modules-iwlwifi-gcp": "6.5.0.1014.14",
-            "linux-tools-6.5.0-1014-gcp": "6.5.0-1014.14",
-            "linux-tools-gcp": "6.5.0.1014.14"
+            "linux-tools-6.5.0-1014-gcp": "6.5.0-1014.14"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:23.10",
-        "name": "linux-laptop"
+        "name": "linux-laptop",
+        "purl": "pkg:deb/ubuntu/linux-laptop@6.5.0-1010.13?arch=src?distro=mantic"
       },
       "ranges": [
         {
@@ -353,29 +261,36 @@
           ]
         }
       ],
+      "versions": [
+        "6.5.0-1003.6",
+        "6.5.0-1004.7",
+        "6.5.0-1005.8",
+        "6.5.0-1006.9",
+        "6.5.0-1007.10",
+        "6.5.0-1008.11",
+        "6.5.0-1009.12"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "linux-buildinfo-6.5.0-1010-laptop": "6.5.0-1010.13",
             "linux-headers-6.5.0-1010-laptop": "6.5.0-1010.13",
-            "linux-headers-laptop-23.10": "6.5.0.1010.13",
             "linux-image-6.5.0-1010-laptop": "6.5.0-1010.13",
-            "linux-image-laptop-23.10": "6.5.0.1010.13",
-            "linux-laptop-23.10": "6.5.0.1010.13",
+            "linux-image-6.5.0-1010-laptop-dbgsym": "6.5.0-1010.13",
             "linux-laptop-headers-6.5.0-1010": "6.5.0-1010.13",
             "linux-laptop-tools-6.5.0-1010": "6.5.0-1010.13",
             "linux-modules-6.5.0-1010-laptop": "6.5.0-1010.13",
-            "linux-tools-6.5.0-1010-laptop": "6.5.0-1010.13",
-            "linux-tools-laptop-23.10": "6.5.0.1010.13"
+            "linux-tools-6.5.0-1010-laptop": "6.5.0-1010.13"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:23.10",
-        "name": "linux-oracle"
+        "name": "linux-oracle",
+        "purl": "pkg:deb/ubuntu/linux-oracle@6.5.0-1016.16?arch=src?distro=mantic"
       },
       "ranges": [
         {
@@ -390,33 +305,41 @@
           ]
         }
       ],
+      "versions": [
+        "6.2.0-1003.3",
+        "6.2.0-1004.4",
+        "6.5.0-1005.5",
+        "6.5.0-1009.9",
+        "6.5.0-1010.10",
+        "6.5.0-1011.11",
+        "6.5.0-1012.12",
+        "6.5.0-1013.13",
+        "6.5.0-1014.14",
+        "6.5.0-1015.15"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "linux-buildinfo-6.5.0-1016-oracle": "6.5.0-1016.16",
             "linux-headers-6.5.0-1016-oracle": "6.5.0-1016.16",
-            "linux-headers-oracle": "6.5.0.1016.16",
-            "linux-image-6.5.0-1016-oracle": "6.5.0-1016.16",
-            "linux-image-oracle": "6.5.0.1016.16",
             "linux-image-unsigned-6.5.0-1016-oracle": "6.5.0-1016.16",
+            "linux-image-unsigned-6.5.0-1016-oracle-dbgsym": "6.5.0-1016.16",
             "linux-modules-6.5.0-1016-oracle": "6.5.0-1016.16",
             "linux-modules-extra-6.5.0-1016-oracle": "6.5.0-1016.16",
             "linux-modules-iwlwifi-6.5.0-1016-oracle": "6.5.0-1016.16",
-            "linux-modules-iwlwifi-oracle": "6.5.0.1016.16",
-            "linux-oracle": "6.5.0.1016.16",
             "linux-oracle-headers-6.5.0-1016": "6.5.0-1016.16",
             "linux-oracle-tools-6.5.0-1016": "6.5.0-1016.16",
-            "linux-tools-6.5.0-1016-oracle": "6.5.0-1016.16",
-            "linux-tools-oracle": "6.5.0.1016.16"
+            "linux-tools-6.5.0-1016-oracle": "6.5.0-1016.16"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:23.10",
-        "name": "linux-raspi"
+        "name": "linux-raspi",
+        "purl": "pkg:deb/ubuntu/linux-raspi@6.5.0-1011.14?arch=src?distro=mantic"
       },
       "ranges": [
         {
@@ -431,36 +354,40 @@
           ]
         }
       ],
+      "versions": [
+        "6.2.0-1004.5",
+        "6.5.0-1002.2",
+        "6.5.0-1003.4",
+        "6.5.0-1004.6",
+        "6.5.0-1005.7",
+        "6.5.0-1006.8",
+        "6.5.0-1007.9",
+        "6.5.0-1008.11",
+        "6.5.0-1009.12",
+        "6.5.0-1010.13"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "linux-buildinfo-6.5.0-1011-raspi": "6.5.0-1011.14",
             "linux-headers-6.5.0-1011-raspi": "6.5.0-1011.14",
-            "linux-headers-raspi": "6.5.0.1011.12",
-            "linux-headers-raspi-nolpae": "6.5.0.1011.12",
             "linux-image-6.5.0-1011-raspi": "6.5.0-1011.14",
-            "linux-image-raspi": "6.5.0.1011.12",
-            "linux-image-raspi-nolpae": "6.5.0.1011.12",
+            "linux-image-6.5.0-1011-raspi-dbgsym": "6.5.0-1011.14",
             "linux-modules-6.5.0-1011-raspi": "6.5.0-1011.14",
             "linux-modules-extra-6.5.0-1011-raspi": "6.5.0-1011.14",
-            "linux-modules-extra-raspi": "6.5.0.1011.12",
-            "linux-modules-extra-raspi-nolpae": "6.5.0.1011.12",
-            "linux-raspi": "6.5.0.1011.12",
             "linux-raspi-headers-6.5.0-1011": "6.5.0-1011.14",
-            "linux-raspi-nolpae": "6.5.0.1011.12",
             "linux-raspi-tools-6.5.0-1011": "6.5.0-1011.14",
-            "linux-tools-6.5.0-1011-raspi": "6.5.0-1011.14",
-            "linux-tools-raspi": "6.5.0.1011.12",
-            "linux-tools-raspi-nolpae": "6.5.0.1011.12"
+            "linux-tools-6.5.0-1011-raspi": "6.5.0-1011.14"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:23.10",
-        "name": "linux-starfive"
+        "name": "linux-starfive",
+        "purl": "pkg:deb/ubuntu/linux-starfive@6.5.0-1008.9?arch=src?distro=mantic"
       },
       "ranges": [
         {
@@ -475,24 +402,30 @@
           ]
         }
       ],
+      "versions": [
+        "5.19.0-1014.16",
+        "6.5.0-1002.3",
+        "6.5.0-1003.4",
+        "6.5.0-1004.5",
+        "6.5.0-1005.6",
+        "6.5.0-1006.7",
+        "6.5.0-1007.8"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "linux-buildinfo-6.5.0-1008-starfive": "6.5.0-1008.9",
             "linux-headers-6.5.0-1008-starfive": "6.5.0-1008.9",
-            "linux-headers-starfive": "6.5.0.1008.10",
             "linux-image-6.5.0-1008-starfive": "6.5.0-1008.9",
-            "linux-image-starfive": "6.5.0.1008.10",
+            "linux-image-6.5.0-1008-starfive-dbgsym": "6.5.0-1008.9",
             "linux-modules-6.5.0-1008-starfive": "6.5.0-1008.9",
             "linux-modules-extra-6.5.0-1008-starfive": "6.5.0-1008.9",
-            "linux-starfive": "6.5.0.1008.10",
             "linux-starfive-headers-6.5.0-1008": "6.5.0-1008.9",
             "linux-starfive-tools-6.5.0-1008": "6.5.0-1008.9",
-            "linux-tools-6.5.0-1008-starfive": "6.5.0-1008.9",
-            "linux-tools-starfive": "6.5.0.1008.10"
+            "linux-tools-6.5.0-1008-starfive": "6.5.0-1008.9"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -503,15 +436,15 @@
     },
     {
       "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-6915"
+    },
+    {
+      "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-51780"
     },
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-51781"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-6915"
     },
     {
       "type": "REPORT",

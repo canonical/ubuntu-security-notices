@@ -1,12 +1,11 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-6330-1",
   "summary": "linux-gcp-5.15 vulnerabilities",
   "details": "Daniel Moghimi discovered that some Intel(R) Processors did not properly\nclear microarchitectural state after speculative execution of various\ninstructions. A local unprivileged user could use this to obtain to\nsensitive information. (CVE-2022-40982)\n\nTavis Ormandy discovered that some AMD processors did not properly handle\nspeculative execution of certain vector register instructions. A local\nattacker could use this to expose sensitive information. (CVE-2023-20593)\n\nYe Zhang and Nicolas Wu discovered that the io_uring subsystem in the Linux\nkernel did not properly handle locking for rings with IOPOLL, leading to a\ndouble-free vulnerability. A local attacker could use this to cause a\ndenial of service (system crash) or possibly execute arbitrary code.\n(CVE-2023-21400)\n\nIt was discovered that the universal 32bit network packet classifier\nimplementation in the Linux kernel did not properly perform reference\ncounting in some situations, leading to a use-after-free vulnerability. A\nlocal attacker could use this to cause a denial of service (system crash)\nor possibly execute arbitrary code. (CVE-2023-3609)\n\nIt was discovered that the netfilter subsystem in the Linux kernel did not\nproperly handle certain error conditions, leading to a use-after-free\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-3610)\n\nIt was discovered that the Quick Fair Queueing network scheduler\nimplementation in the Linux kernel contained an out-of-bounds write\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-3611)\n\nIt was discovered that the network packet classifier with\nnetfilter/firewall marks implementation in the Linux kernel did not\nproperly handle reference counting, leading to a use-after-free\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-3776)\n\nKevin Rich discovered that the netfilter subsystem in the Linux kernel did\nnot properly handle table rules flush in certain circumstances. A local\nattacker could possibly use this to cause a denial of service (system\ncrash) or execute arbitrary code. (CVE-2023-3777)\n\nKevin Rich discovered that the netfilter subsystem in the Linux kernel did\nnot properly handle rule additions to bound chains in certain\ncircumstances. A local attacker could possibly use this to cause a denial\nof service (system crash) or execute arbitrary code. (CVE-2023-3995)\n\nIt was discovered that the netfilter subsystem in the Linux kernel did not\nproperly handle PIPAPO element removal, leading to a use-after-free\nvulnerability. A local attacker could possibly use this to cause a denial\nof service (system crash) or execute arbitrary code. (CVE-2023-4004)\n\nKevin Rich discovered that the netfilter subsystem in the Linux kernel did\nnot properly handle bound chain deactivation in certain circumstances. A\nlocal attacker could possibly use this to cause a denial of service (system\ncrash) or execute arbitrary code. (CVE-2023-4015)\n\n",
   "aliases": [],
   "related": [
     "CVE-2022-40982",
-    "CVE-2023-20593",
-    "CVE-2023-21400",
     "CVE-2023-3609",
     "CVE-2023-3610",
     "CVE-2023-3611",
@@ -14,7 +13,9 @@
     "CVE-2023-3777",
     "CVE-2023-3995",
     "CVE-2023-4004",
-    "CVE-2023-4015"
+    "CVE-2023-4015",
+    "CVE-2023-20593",
+    "CVE-2023-21400"
   ],
   "published": "2023-08-31T22:19:45.766257Z",
   "modified": "2023-08-31T22:19:45.766257Z",
@@ -22,7 +23,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-gcp-5.15"
+        "name": "linux-gcp-5.15",
+        "purl": "pkg:deb/ubuntu/linux-gcp-5.15@5.15.0-1040.48~20.04.1?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -37,32 +39,46 @@
           ]
         }
       ],
+      "versions": [
+        "5.15.0-1006.9~20.04.1",
+        "5.15.0-1012.17~20.04.1",
+        "5.15.0-1013.18~20.04.1",
+        "5.15.0-1016.21~20.04.1",
+        "5.15.0-1017.23~20.04.2",
+        "5.15.0-1018.24~20.04.1",
+        "5.15.0-1021.28~20.04.1",
+        "5.15.0-1022.29~20.04.1",
+        "5.15.0-1025.32~20.04.2",
+        "5.15.0-1026.33~20.04.1",
+        "5.15.0-1027.34~20.04.1",
+        "5.15.0-1029.36~20.04.1",
+        "5.15.0-1030.37~20.04.1",
+        "5.15.0-1031.38~20.04.1",
+        "5.15.0-1032.40~20.04.1",
+        "5.15.0-1033.41~20.04.1",
+        "5.15.0-1034.42~20.04.1",
+        "5.15.0-1035.43~20.04.1",
+        "5.15.0-1036.44~20.04.1",
+        "5.15.0-1037.45~20.04.1",
+        "5.15.0-1038.46~20.04.1",
+        "5.15.0-1039.47~20.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "linux-buildinfo-5.15.0-1040-gcp": "5.15.0-1040.48~20.04.1",
-            "linux-gcp": "5.15.0.1040.48~20.04.1",
             "linux-gcp-5.15-headers-5.15.0-1040": "5.15.0-1040.48~20.04.1",
             "linux-gcp-5.15-tools-5.15.0-1040": "5.15.0-1040.48~20.04.1",
-            "linux-gcp-edge": "5.15.0.1040.48~20.04.1",
             "linux-headers-5.15.0-1040-gcp": "5.15.0-1040.48~20.04.1",
-            "linux-headers-gcp": "5.15.0.1040.48~20.04.1",
-            "linux-headers-gcp-edge": "5.15.0.1040.48~20.04.1",
-            "linux-image-5.15.0-1040-gcp": "5.15.0-1040.48~20.04.1",
-            "linux-image-gcp": "5.15.0.1040.48~20.04.1",
-            "linux-image-gcp-edge": "5.15.0.1040.48~20.04.1",
             "linux-image-unsigned-5.15.0-1040-gcp": "5.15.0-1040.48~20.04.1",
+            "linux-image-unsigned-5.15.0-1040-gcp-dbgsym": "5.15.0-1040.48~20.04.1",
             "linux-modules-5.15.0-1040-gcp": "5.15.0-1040.48~20.04.1",
             "linux-modules-extra-5.15.0-1040-gcp": "5.15.0-1040.48~20.04.1",
-            "linux-modules-extra-gcp": "5.15.0.1040.48~20.04.1",
-            "linux-modules-extra-gcp-edge": "5.15.0.1040.48~20.04.1",
             "linux-modules-iwlwifi-5.15.0-1040-gcp": "5.15.0-1040.48~20.04.1",
-            "linux-tools-5.15.0-1040-gcp": "5.15.0-1040.48~20.04.1",
-            "linux-tools-gcp": "5.15.0.1040.48~20.04.1",
-            "linux-tools-gcp-edge": "5.15.0.1040.48~20.04.1"
+            "linux-tools-5.15.0-1040-gcp": "5.15.0-1040.48~20.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -74,14 +90,6 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2022-40982"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-20593"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-21400"
     },
     {
       "type": "REPORT",
@@ -114,6 +122,14 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-4015"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-20593"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-21400"
     }
   ]
 }

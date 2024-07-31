@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-3047-1",
   "summary": "qemu, qemu-kvm vulnerabilities",
   "details": "Li Qiang discovered that QEMU incorrectly handled 53C9X Fast SCSI\ncontroller emulation. A privileged attacker inside the guest could use this\nissue to cause QEMU to crash, resulting in a denial of service, or possibly\nexecute arbitrary code on the host. In the default installation, when QEMU\nis used with libvirt, attackers would be isolated by the libvirt AppArmor\nprofile. This issue only applied to Ubuntu 14.04 LTS and Ubuntu 16.04 LTS.\n(CVE-2016-4439, CVE-2016-4441, CVE-2016-5238, CVE-2016-5338, CVE-2016-6351)\n\nLi Qiang and Qinghao Tang discovered that QEMU incorrectly handled the\nVMWare VGA module. A privileged attacker inside the guest could use this\nissue to cause QEMU to crash, resulting in a denial of service, or possibly\nto obtain sensitive host memory. (CVE-2016-4453, CVE-2016-4454)\n\nLi Qiang discovered that QEMU incorrectly handled VMWARE PVSCSI paravirtual\nSCSI bus emulation support. A privileged attacker inside the guest could\nuse this issue to cause QEMU to crash, resulting in a denial of service.\nThis issue only applied to Ubuntu 14.04 LTS and Ubuntu 16.04 LTS.\n(CVE-2016-4952)\n\nLi Qiang discovered that QEMU incorrectly handled MegaRAID SAS 8708EM2 Host\nBus Adapter emulation support. A privileged attacker inside the guest could\nuse this issue to cause QEMU to crash, resulting in a denial of service, or\npossibly to obtain sensitive host memory. This issue only applied to Ubuntu\n14.04 LTS and Ubuntu 16.04 LTS. (CVE-2016-5105, CVE-2016-5106,\nCVE-2016-5107, CVE-2016-5337)\n\nIt was discovered that QEMU incorrectly handled certain iSCSI asynchronous\nI/O ioctl calls. An attacker inside the guest could use this issue to cause\nQEMU to crash, resulting in a denial of service, or possibly execute\narbitrary code on the host. In the default installation, when QEMU is used\nwith libvirt, attackers would be isolated by the libvirt AppArmor profile.\nThis issue only applied to Ubuntu 14.04 LTS and Ubuntu 16.04 LTS.\n(CVE-2016-5126)\n\nZhenhao Hong discovered that QEMU incorrectly handled the Virtio module. A\nprivileged attacker inside the guest could use this issue to cause QEMU to\ncrash, resulting in a denial of service. (CVE-2016-5403)\n",
@@ -25,7 +26,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:14.04:LTS",
-        "name": "qemu"
+        "name": "qemu",
+        "purl": "pkg:deb/ubuntu/qemu@2.0.0+dfsg-2ubuntu1.26?arch=src?distro=trusty"
       },
       "ranges": [
         {
@@ -40,35 +42,98 @@
           ]
         }
       ],
+      "versions": [
+        "1.5.0+dfsg-3ubuntu5",
+        "1.5.0+dfsg-3ubuntu6",
+        "1.6.0+dfsg-2ubuntu1",
+        "1.6.0+dfsg-2ubuntu2",
+        "1.6.0+dfsg-2ubuntu3",
+        "1.6.0+dfsg-2ubuntu4",
+        "1.7.0+dfsg-2ubuntu1",
+        "1.7.0+dfsg-2ubuntu2",
+        "1.7.0+dfsg-2ubuntu3",
+        "1.7.0+dfsg-2ubuntu4",
+        "1.7.0+dfsg-2ubuntu5",
+        "1.7.0+dfsg-2ubuntu7",
+        "1.7.0+dfsg-2ubuntu8",
+        "1.7.0+dfsg-2ubuntu9",
+        "1.7.0+dfsg-3ubuntu1~ppa1",
+        "1.7.0+dfsg-3ubuntu1",
+        "1.7.0+dfsg-3ubuntu2",
+        "1.7.0+dfsg-3ubuntu3",
+        "1.7.0+dfsg-3ubuntu4",
+        "1.7.0+dfsg-3ubuntu5",
+        "1.7.0+dfsg-3ubuntu6",
+        "1.7.0+dfsg-3ubuntu7",
+        "2.0.0~rc1+dfsg-0ubuntu1",
+        "2.0.0~rc1+dfsg-0ubuntu2",
+        "2.0.0~rc1+dfsg-0ubuntu3",
+        "2.0.0~rc1+dfsg-0ubuntu3.1",
+        "2.0.0+dfsg-2ubuntu1",
+        "2.0.0+dfsg-2ubuntu1.1",
+        "2.0.0+dfsg-2ubuntu1.2",
+        "2.0.0+dfsg-2ubuntu1.3",
+        "2.0.0+dfsg-2ubuntu1.5",
+        "2.0.0+dfsg-2ubuntu1.6",
+        "2.0.0+dfsg-2ubuntu1.7",
+        "2.0.0+dfsg-2ubuntu1.8",
+        "2.0.0+dfsg-2ubuntu1.9",
+        "2.0.0+dfsg-2ubuntu1.10",
+        "2.0.0+dfsg-2ubuntu1.11",
+        "2.0.0+dfsg-2ubuntu1.13",
+        "2.0.0+dfsg-2ubuntu1.14",
+        "2.0.0+dfsg-2ubuntu1.15",
+        "2.0.0+dfsg-2ubuntu1.16",
+        "2.0.0+dfsg-2ubuntu1.17",
+        "2.0.0+dfsg-2ubuntu1.18",
+        "2.0.0+dfsg-2ubuntu1.19",
+        "2.0.0+dfsg-2ubuntu1.20",
+        "2.0.0+dfsg-2ubuntu1.21",
+        "2.0.0+dfsg-2ubuntu1.22",
+        "2.0.0+dfsg-2ubuntu1.24",
+        "2.0.0+dfsg-2ubuntu1.25"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "qemu-system-common": "2.0.0+dfsg-2ubuntu1.26",
-            "qemu-user-static": "2.0.0+dfsg-2ubuntu1.26",
-            "qemu-system-misc": "2.0.0+dfsg-2ubuntu1.26",
-            "qemu-system-arm": "2.0.0+dfsg-2ubuntu1.26",
-            "qemu-kvm": "2.0.0+dfsg-2ubuntu1.26",
-            "qemu-user": "2.0.0+dfsg-2ubuntu1.26",
-            "qemu-keymaps": "2.0.0+dfsg-2ubuntu1.26",
-            "qemu-system": "2.0.0+dfsg-2ubuntu1.26",
-            "qemu-utils": "2.0.0+dfsg-2ubuntu1.26",
-            "qemu-system-aarch64": "2.0.0+dfsg-2ubuntu1.26",
-            "qemu-system-sparc": "2.0.0+dfsg-2ubuntu1.26",
-            "qemu-system-x86": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu": "2.0.0+dfsg-2ubuntu1.26",
             "qemu-common": "2.0.0+dfsg-2ubuntu1.26",
             "qemu-guest-agent": "2.0.0+dfsg-2ubuntu1.26",
-            "qemu": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-guest-agent-dbgsym": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-keymaps": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-kvm": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-system": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-system-aarch64": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-system-arm": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-system-arm-dbgsym": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-system-common": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-system-common-dbgsym": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-system-mips": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-system-mips-dbgsym": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-system-misc": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-system-misc-dbgsym": "2.0.0+dfsg-2ubuntu1.26",
             "qemu-system-ppc": "2.0.0+dfsg-2ubuntu1.26",
-            "qemu-system-mips": "2.0.0+dfsg-2ubuntu1.26"
+            "qemu-system-ppc-dbgsym": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-system-sparc": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-system-sparc-dbgsym": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-system-x86": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-system-x86-dbgsym": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-user": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-user-dbgsym": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-user-static": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-user-static-dbgsym": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-utils": "2.0.0+dfsg-2ubuntu1.26",
+            "qemu-utils-dbgsym": "2.0.0+dfsg-2ubuntu1.26"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "qemu"
+        "name": "qemu",
+        "purl": "pkg:deb/ubuntu/qemu@1:2.5+dfsg-5ubuntu10.3?arch=src?distro=xenial"
       },
       "ranges": [
         {
@@ -83,30 +148,63 @@
           ]
         }
       ],
+      "versions": [
+        "1:2.3+dfsg-5ubuntu9",
+        "1:2.3+dfsg-5ubuntu10",
+        "1:2.4+dfsg-4ubuntu1",
+        "1:2.4+dfsg-4ubuntu2",
+        "1:2.4+dfsg-4ubuntu3",
+        "1:2.4+dfsg-5ubuntu3",
+        "1:2.5+dfsg-1ubuntu2",
+        "1:2.5+dfsg-1ubuntu3",
+        "1:2.5+dfsg-1ubuntu4",
+        "1:2.5+dfsg-1ubuntu5",
+        "1:2.5+dfsg-5ubuntu1",
+        "1:2.5+dfsg-5ubuntu2",
+        "1:2.5+dfsg-5ubuntu4",
+        "1:2.5+dfsg-5ubuntu6",
+        "1:2.5+dfsg-5ubuntu7",
+        "1:2.5+dfsg-5ubuntu10",
+        "1:2.5+dfsg-5ubuntu10.1",
+        "1:2.5+dfsg-5ubuntu10.2"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "qemu-system-common": "1:2.5+dfsg-5ubuntu10.3",
-            "qemu-user-static": "1:2.5+dfsg-5ubuntu10.3",
-            "qemu-system-s390x": "1:2.5+dfsg-5ubuntu10.3",
-            "qemu-block-extra": "1:2.5+dfsg-5ubuntu10.3",
-            "qemu-kvm": "1:2.5+dfsg-5ubuntu10.3",
-            "qemu-user": "1:2.5+dfsg-5ubuntu10.3",
-            "qemu-guest-agent": "1:2.5+dfsg-5ubuntu10.3",
-            "qemu-system": "1:2.5+dfsg-5ubuntu10.3",
-            "qemu-utils": "1:2.5+dfsg-5ubuntu10.3",
-            "qemu-system-aarch64": "1:2.5+dfsg-5ubuntu10.3",
-            "qemu-system-mips": "1:2.5+dfsg-5ubuntu10.3",
-            "qemu-user-binfmt": "1:2.5+dfsg-5ubuntu10.3",
-            "qemu-system-x86": "1:2.5+dfsg-5ubuntu10.3",
-            "qemu-system-arm": "1:2.5+dfsg-5ubuntu10.3",
-            "qemu-system-sparc": "1:2.5+dfsg-5ubuntu10.3",
             "qemu": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-block-extra": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-block-extra-dbgsym": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-guest-agent": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-guest-agent-dbgsym": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-kvm": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-system": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-system-aarch64": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-system-arm": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-system-arm-dbgsym": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-system-common": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-system-common-dbgsym": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-system-mips": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-system-mips-dbgsym": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-system-misc": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-system-misc-dbgsym": "1:2.5+dfsg-5ubuntu10.3",
             "qemu-system-ppc": "1:2.5+dfsg-5ubuntu10.3",
-            "qemu-system-misc": "1:2.5+dfsg-5ubuntu10.3"
+            "qemu-system-ppc-dbgsym": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-system-s390x": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-system-s390x-dbgsym": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-system-sparc": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-system-sparc-dbgsym": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-system-x86": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-system-x86-dbgsym": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-user": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-user-binfmt": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-user-dbgsym": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-user-static": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-user-static-dbgsym": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-utils": "1:2.5+dfsg-5ubuntu10.3",
+            "qemu-utils-dbgsym": "1:2.5+dfsg-5ubuntu10.3"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],

@@ -1,9 +1,11 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-3871-3",
   "summary": "linux-aws, linux-gcp, linux-kvm, linux-oem, linux-raspi2 vulnerabilities",
   "details": "Wen Xu discovered that a use-after-free vulnerability existed in the ext4\nfilesystem implementation in the Linux kernel. An attacker could use this\nto construct a malicious ext4 image that, when mounted, could cause a\ndenial of service (system crash) or possibly execute arbitrary code.\n(CVE-2018-10876, CVE-2018-10879)\n\nWen Xu discovered that a buffer overflow existed in the ext4 filesystem\nimplementation in the Linux kernel. An attacker could use this to construct\na malicious ext4 image that, when mounted, could cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2018-10877)\n\nWen Xu discovered that an out-of-bounds write vulnerability existed in the\next4 filesystem implementation in the Linux kernel. An attacker could use\nthis to construct a malicious ext4 image that, when mounted, could cause a\ndenial of service (system crash) or possibly execute arbitrary code.\n(CVE-2018-10878, CVE-2018-10882)\n\nWen Xu discovered that the ext4 filesystem implementation in the Linux\nkernel did not properly ensure that xattr information remained in inode\nbodies. An attacker could use this to construct a malicious ext4 image\nthat, when mounted, could cause a denial of service (system crash).\n(CVE-2018-10880)\n\nWen Xu discovered that the ext4 file system implementation in the Linux\nkernel could possibly perform an out of bounds write when updating the\njournal for an inline file. An attacker could use this to construct a\nmalicious ext4 image that, when mounted, could cause a denial of service\n(system crash). (CVE-2018-10883)\n\nIt was discovered that a race condition existed in the vsock address family\nimplementation of the Linux kernel that could lead to a use-after-free\ncondition. A local attacker in a guest virtual machine could use this to\nexpose sensitive information (host machine kernel memory). (CVE-2018-14625)\n\nCfir Cohen discovered that a use-after-free vulnerability existed in the\nKVM implementation of the Linux kernel, when handling interrupts in\nenvironments where nested virtualization is in use (nested KVM\nvirtualization is not enabled by default in Ubuntu kernels). A local\nattacker in a guest VM could possibly use this to gain administrative\nprivileges in a host machine. (CVE-2018-16882)\n\nJann Horn discovered that the procfs file system implementation in the\nLinux kernel did not properly restrict the ability to inspect the kernel\nstack of an arbitrary task. A local attacker could use this to expose\nsensitive information. (CVE-2018-17972)\n\nJann Horn discovered that the mremap() system call in the Linux kernel did\nnot properly flush the TLB when completing, potentially leaving access to a\nphysical page after it has been released to the page allocator. A local\nattacker could use this to cause a denial of service (system crash), expose\nsensitive information, or possibly execute arbitrary code. (CVE-2018-18281)\n\nWei Wu discovered that the KVM implementation in the Linux kernel did not\nproperly ensure that ioapics were initialized. A local attacker could use\nthis to cause a denial of service (system crash). (CVE-2018-19407)\n\nIt was discovered that the debug interface for the Linux kernel's HID\nsubsystem did not properly perform bounds checking in some situations. An\nattacker with access to debugfs could use this to cause a denial of service\nor possibly gain additional privileges. (CVE-2018-9516)\n",
   "aliases": [],
   "related": [
+    "CVE-2018-9516",
     "CVE-2018-10876",
     "CVE-2018-10877",
     "CVE-2018-10878",
@@ -15,8 +17,7 @@
     "CVE-2018-16882",
     "CVE-2018-17972",
     "CVE-2018-18281",
-    "CVE-2018-19407",
-    "CVE-2018-9516"
+    "CVE-2018-19407"
   ],
   "published": "2019-02-04T23:00:32.430723Z",
   "modified": "2019-02-04T23:00:32.430723Z",
@@ -24,120 +25,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-raspi2"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-1031.33"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-4.15.0-1031-raspi2": "4.15.0-1031.33",
-            "linux-image-raspi2": "4.15.0.1031.29"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-oem"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-1033.38"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-4.15.0-1033-oem": "4.15.0-1033.38",
-            "linux-image-oem": "4.15.0.1033.38"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-gcp"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-1027.28"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-4.15.0-1027-gcp": "4.15.0-1027.28",
-            "linux-image-gke": "4.15.0.1027.29",
-            "linux-image-gcp": "4.15.0.1027.29"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-kvm"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-1029.29"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-4.15.0-1029-kvm": "4.15.0-1029.29",
-            "linux-image-kvm": "4.15.0.1029.29"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-aws"
+        "name": "linux-aws",
+        "purl": "pkg:deb/ubuntu/linux-aws@4.15.0-1032.34?arch=src?distro=bionic"
       },
       "ranges": [
         {
@@ -152,14 +41,296 @@
           ]
         }
       ],
+      "versions": [
+        "4.15.0-1001.1",
+        "4.15.0-1003.3",
+        "4.15.0-1005.5",
+        "4.15.0-1006.6",
+        "4.15.0-1007.7",
+        "4.15.0-1009.9",
+        "4.15.0-1010.10",
+        "4.15.0-1011.11",
+        "4.15.0-1016.16",
+        "4.15.0-1017.17",
+        "4.15.0-1019.19",
+        "4.15.0-1020.20",
+        "4.15.0-1021.21",
+        "4.15.0-1023.23",
+        "4.15.0-1025.25",
+        "4.15.0-1027.27",
+        "4.15.0-1029.30",
+        "4.15.0-1031.33"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
+            "linux-aws-cloud-tools-4.15.0-1032": "4.15.0-1032.34",
+            "linux-aws-headers-4.15.0-1032": "4.15.0-1032.34",
+            "linux-aws-tools-4.15.0-1032": "4.15.0-1032.34",
+            "linux-buildinfo-4.15.0-1032-aws": "4.15.0-1032.34",
+            "linux-cloud-tools-4.15.0-1032-aws": "4.15.0-1032.34",
+            "linux-headers-4.15.0-1032-aws": "4.15.0-1032.34",
             "linux-image-4.15.0-1032-aws": "4.15.0-1032.34",
-            "linux-image-aws": "4.15.0.1032.31"
+            "linux-image-4.15.0-1032-aws-dbgsym": "4.15.0-1032.34",
+            "linux-modules-4.15.0-1032-aws": "4.15.0-1032.34",
+            "linux-tools-4.15.0-1032-aws": "4.15.0-1032.34"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-gcp",
+        "purl": "pkg:deb/ubuntu/linux-gcp@4.15.0-1027.28?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.15.0-1027.28"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.15.0-1001.1",
+        "4.15.0-1003.3",
+        "4.15.0-1005.5",
+        "4.15.0-1006.6",
+        "4.15.0-1008.8",
+        "4.15.0-1009.9",
+        "4.15.0-1010.10",
+        "4.15.0-1014.14",
+        "4.15.0-1015.15",
+        "4.15.0-1017.18",
+        "4.15.0-1018.19",
+        "4.15.0-1019.20",
+        "4.15.0-1021.22",
+        "4.15.0-1023.24",
+        "4.15.0-1024.25",
+        "4.15.0-1025.26",
+        "4.15.0-1026.27"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-4.15.0-1027-gcp": "4.15.0-1027.28",
+            "linux-gcp-headers-4.15.0-1027": "4.15.0-1027.28",
+            "linux-gcp-tools-4.15.0-1027": "4.15.0-1027.28",
+            "linux-headers-4.15.0-1027-gcp": "4.15.0-1027.28",
+            "linux-image-unsigned-4.15.0-1027-gcp": "4.15.0-1027.28",
+            "linux-image-unsigned-4.15.0-1027-gcp-dbgsym": "4.15.0-1027.28",
+            "linux-modules-4.15.0-1027-gcp": "4.15.0-1027.28",
+            "linux-modules-extra-4.15.0-1027-gcp": "4.15.0-1027.28",
+            "linux-tools-4.15.0-1027-gcp": "4.15.0-1027.28"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-kvm",
+        "purl": "pkg:deb/ubuntu/linux-kvm@4.15.0-1029.29?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.15.0-1029.29"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.15.0-1002.2",
+        "4.15.0-1003.3",
+        "4.15.0-1004.4",
+        "4.15.0-1006.6",
+        "4.15.0-1008.8",
+        "4.15.0-1010.10",
+        "4.15.0-1011.11",
+        "4.15.0-1012.12",
+        "4.15.0-1016.16",
+        "4.15.0-1017.17",
+        "4.15.0-1019.19",
+        "4.15.0-1020.20",
+        "4.15.0-1021.21",
+        "4.15.0-1023.23",
+        "4.15.0-1025.25",
+        "4.15.0-1026.26",
+        "4.15.0-1027.27",
+        "4.15.0-1028.28"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-4.15.0-1029-kvm": "4.15.0-1029.29",
+            "linux-headers-4.15.0-1029-kvm": "4.15.0-1029.29",
+            "linux-image-4.15.0-1029-kvm": "4.15.0-1029.29",
+            "linux-image-4.15.0-1029-kvm-dbgsym": "4.15.0-1029.29",
+            "linux-kvm-headers-4.15.0-1029": "4.15.0-1029.29",
+            "linux-kvm-tools-4.15.0-1029": "4.15.0-1029.29",
+            "linux-modules-4.15.0-1029-kvm": "4.15.0-1029.29",
+            "linux-tools-4.15.0-1029-kvm": "4.15.0-1029.29"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-oem",
+        "purl": "pkg:deb/ubuntu/linux-oem@4.15.0-1033.38?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.15.0-1033.38"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.15.0-1002.3",
+        "4.15.0-1004.5",
+        "4.15.0-1006.9",
+        "4.15.0-1008.11",
+        "4.15.0-1009.12",
+        "4.15.0-1012.15",
+        "4.15.0-1013.16",
+        "4.15.0-1015.18",
+        "4.15.0-1017.20",
+        "4.15.0-1018.21",
+        "4.15.0-1021.24",
+        "4.15.0-1024.29",
+        "4.15.0-1026.31",
+        "4.15.0-1028.33",
+        "4.15.0-1030.35"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "block-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "crypto-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "fat-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "fb-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "firewire-core-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "floppy-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "fs-core-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "fs-secondary-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "input-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "ipmi-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "irda-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "kernel-image-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "linux-buildinfo-4.15.0-1033-oem": "4.15.0-1033.38",
+            "linux-headers-4.15.0-1033-oem": "4.15.0-1033.38",
+            "linux-image-unsigned-4.15.0-1033-oem": "4.15.0-1033.38",
+            "linux-image-unsigned-4.15.0-1033-oem-dbgsym": "4.15.0-1033.38",
+            "linux-modules-4.15.0-1033-oem": "4.15.0-1033.38",
+            "linux-oem-headers-4.15.0-1033": "4.15.0-1033.38",
+            "linux-oem-tools-4.15.0-1033": "4.15.0-1033.38",
+            "linux-tools-4.15.0-1033-oem": "4.15.0-1033.38",
+            "linux-udebs-oem": "4.15.0-1033.38",
+            "md-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "message-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "mouse-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "multipath-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "nfs-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "nic-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "nic-pcmcia-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "nic-shared-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "nic-usb-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "parport-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "pata-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "pcmcia-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "pcmcia-storage-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "plip-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "ppp-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "sata-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "scsi-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "serial-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "storage-core-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "usb-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "virtio-modules-4.15.0-1033-oem-di": "4.15.0-1033.38",
+            "vlan-modules-4.15.0-1033-oem-di": "4.15.0-1033.38"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-raspi2",
+        "purl": "pkg:deb/ubuntu/linux-raspi2@4.15.0-1031.33?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.15.0-1031.33"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.13.0-1005.5",
+        "4.13.0-1006.6",
+        "4.13.0-1008.8",
+        "4.15.0-1006.7",
+        "4.15.0-1009.10",
+        "4.15.0-1010.11",
+        "4.15.0-1011.12",
+        "4.15.0-1012.13",
+        "4.15.0-1013.14",
+        "4.15.0-1017.18",
+        "4.15.0-1018.19",
+        "4.15.0-1020.22",
+        "4.15.0-1021.23",
+        "4.15.0-1022.24",
+        "4.15.0-1024.26",
+        "4.15.0-1026.28",
+        "4.15.0-1027.29",
+        "4.15.0-1028.30",
+        "4.15.0-1029.31",
+        "4.15.0-1030.32"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-4.15.0-1031-raspi2": "4.15.0-1031.33",
+            "linux-headers-4.15.0-1031-raspi2": "4.15.0-1031.33",
+            "linux-image-4.15.0-1031-raspi2": "4.15.0-1031.33",
+            "linux-image-4.15.0-1031-raspi2-dbgsym": "4.15.0-1031.33",
+            "linux-modules-4.15.0-1031-raspi2": "4.15.0-1031.33",
+            "linux-raspi2-headers-4.15.0-1031": "4.15.0-1031.33",
+            "linux-raspi2-tools-4.15.0-1031": "4.15.0-1031.33",
+            "linux-tools-4.15.0-1031-raspi2": "4.15.0-1031.33"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],
@@ -167,6 +338,10 @@
     {
       "type": "ADVISORY",
       "url": "https://ubuntu.com/security/notices/USN-3871-3"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2018-9516"
     },
     {
       "type": "REPORT",
@@ -215,10 +390,6 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2018-19407"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2018-9516"
     }
   ]
 }

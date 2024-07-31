@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-2935-2",
   "summary": "pam regression",
   "details": "USN-2935-1 fixed vulnerabilities in PAM. The updates contained a packaging\nchange that prevented upgrades in certain multiarch environments. This\nupdate fixes the problem.\n\nWe apologize for the inconvenience.\n\nOriginal advisory details:\n\n It was discovered that the PAM pam_userdb module incorrectly used a\n case-insensitive method when comparing hashed passwords. A local attacker\n could possibly use this issue to make brute force attacks easier. This\n issue only affected Ubuntu 12.04 LTS and Ubuntu 14.04 LTS. (CVE-2013-7041)\n \n Sebastian Krahmer discovered that the PAM pam_timestamp module incorrectly\n performed filtering. A local attacker could use this issue to create\n arbitrary files, or possibly bypass authentication. This issue only\n affected Ubuntu 12.04 LTS and Ubuntu 14.04 LTS. (CVE-2014-2583)\n \n Sebastien Macke discovered that the PAM pam_unix module incorrectly handled\n large passwords. A local attacker could possibly use this issue in certain\n environments to enumerate usernames or cause a denial of service.\n (CVE-2015-3238)\n",
@@ -10,7 +11,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:14.04:LTS",
-        "name": "pam"
+        "name": "pam",
+        "purl": "pkg:deb/ubuntu/pam@1.1.8-1ubuntu2.2?arch=src?distro=trusty"
       },
       "ranges": [
         {
@@ -25,19 +27,31 @@
           ]
         }
       ],
+      "versions": [
+        "1.1.3-8ubuntu3",
+        "1.1.3-10ubuntu1",
+        "1.1.3-11ubuntu1",
+        "1.1.8-1ubuntu1",
+        "1.1.8-1ubuntu2",
+        "1.1.8-1ubuntu2.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "libpam-runtime": "1.1.8-1ubuntu2.2",
-            "libpam0g-dev": "1.1.8-1ubuntu2.2",
+            "libpam-cracklib": "1.1.8-1ubuntu2.2",
+            "libpam-cracklib-dbgsym": "1.1.8-1ubuntu2.2",
+            "libpam-doc": "1.1.8-1ubuntu2.2",
             "libpam-modules": "1.1.8-1ubuntu2.2",
             "libpam-modules-bin": "1.1.8-1ubuntu2.2",
-            "libpam-doc": "1.1.8-1ubuntu2.2",
-            "libpam-cracklib": "1.1.8-1ubuntu2.2",
-            "libpam0g": "1.1.8-1ubuntu2.2"
+            "libpam-modules-bin-dbgsym": "1.1.8-1ubuntu2.2",
+            "libpam-modules-dbgsym": "1.1.8-1ubuntu2.2",
+            "libpam-runtime": "1.1.8-1ubuntu2.2",
+            "libpam0g": "1.1.8-1ubuntu2.2",
+            "libpam0g-dbgsym": "1.1.8-1ubuntu2.2",
+            "libpam0g-dev": "1.1.8-1ubuntu2.2"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],

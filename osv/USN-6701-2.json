@@ -1,18 +1,19 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-6701-2",
   "summary": "linux-gcp, linux-gcp-4.15 vulnerabilities",
   "details": "Ruihan Li discovered that the bluetooth subsystem in the Linux kernel did\nnot properly perform permissions checks when handling HCI sockets. A\nphysically proximate attacker could use this to cause a denial of service\n(bluetooth communication). (CVE-2023-2002)\n\nIt was discovered that the NVIDIA Tegra XUSB pad controller driver in the\nLinux kernel did not properly handle return values in certain error\nconditions. A local attacker could use this to cause a denial of service\n(system crash). (CVE-2023-23000)\n\nIt was discovered that Spectre-BHB mitigations were missing for Ampere\nprocessors. A local attacker could potentially use this to expose sensitive\ninformation. (CVE-2023-3006)\n\nIt was discovered that the ext4 file system implementation in the Linux\nkernel did not properly handle block device modification while it is\nmounted. A privileged attacker could use this to cause a denial of service\n(system crash) or possibly expose sensitive information. (CVE-2023-34256)\n\nEric Dumazet discovered that the netfilter subsystem in the Linux kernel\ndid not properly handle DCCP conntrack buffers in certain situations,\nleading to an out-of-bounds read vulnerability. An attacker could possibly\nuse this to expose sensitive information (kernel memory). (CVE-2023-39197)\n\nIt was discovered that the Siano USB MDTV receiver device driver in the\nLinux kernel did not properly handle device initialization failures in\ncertain situations, leading to a use-after-free vulnerability. A physically\nproximate attacker could use this cause a denial of service (system crash).\n(CVE-2023-4132)\n\nPratyush Yadav discovered that the Xen network backend implementation in\nthe Linux kernel did not properly handle zero length data request, leading\nto a null pointer dereference vulnerability. An attacker in a guest VM\ncould possibly use this to cause a denial of service (host domain crash).\n(CVE-2023-46838)\n\nIt was discovered that a race condition existed in the AppleTalk networking\nsubsystem of the Linux kernel, leading to a use-after-free vulnerability. A\nlocal attacker could use this to cause a denial of service (system crash)\nor possibly execute arbitrary code. (CVE-2023-51781)\n\nAlon Zahavi discovered that the NVMe-oF/TCP subsystem of the Linux kernel\ndid not properly handle connect command payloads in certain situations,\nleading to an out-of-bounds read vulnerability. A remote attacker could use\nthis to expose sensitive information (kernel memory). (CVE-2023-6121)\n\nIt was discovered that the ext4 file system implementation in the Linux\nkernel did not properly handle the remount operation in certain cases,\nleading to a use-after-free vulnerability. A local attacker could use this\nto cause a denial of service (system crash) or possibly expose sensitive\ninformation. (CVE-2024-0775)\n\nNotselwyn discovered that the netfilter subsystem in the Linux kernel did\nnot properly handle verdict parameters in certain cases, leading to a use-\nafter-free vulnerability. A local attacker could use this to cause a denial\nof service (system crash) or possibly execute arbitrary code.\n(CVE-2024-1086)\n\nIt was discovered that a race condition existed in the SCSI Emulex\nLightPulse Fibre Channel driver in the Linux kernel when unregistering FCF\nand re-scanning an HBA FCF table, leading to a null pointer dereference\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash). (CVE-2024-24855)\n",
   "aliases": [],
   "related": [
     "CVE-2023-2002",
-    "CVE-2023-23000",
     "CVE-2023-3006",
+    "CVE-2023-4132",
+    "CVE-2023-6121",
+    "CVE-2023-23000",
     "CVE-2023-34256",
     "CVE-2023-39197",
-    "CVE-2023-4132",
     "CVE-2023-46838",
     "CVE-2023-51781",
-    "CVE-2023-6121",
     "CVE-2024-0775",
     "CVE-2024-1086",
     "CVE-2024-24855"
@@ -22,48 +23,9 @@
   "affected": [
     {
       "package": {
-        "ecosystem": "Ubuntu:Pro:18.04:LTS",
-        "name": "linux-gcp-4.15"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-1160.177"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-buildinfo-4.15.0-1160-gcp": "4.15.0-1160.177",
-            "linux-gcp-4.15-headers-4.15.0-1160": "4.15.0-1160.177",
-            "linux-gcp-4.15-tools-4.15.0-1160": "4.15.0-1160.177",
-            "linux-gcp-lts-18.04": "4.15.0.1160.173",
-            "linux-headers-4.15.0-1160-gcp": "4.15.0-1160.177",
-            "linux-headers-gcp-lts-18.04": "4.15.0.1160.173",
-            "linux-image-4.15.0-1160-gcp": "4.15.0-1160.177",
-            "linux-image-gcp-lts-18.04": "4.15.0.1160.173",
-            "linux-image-unsigned-4.15.0-1160-gcp": "4.15.0-1160.177",
-            "linux-modules-4.15.0-1160-gcp": "4.15.0-1160.177",
-            "linux-modules-extra-4.15.0-1160-gcp": "4.15.0-1160.177",
-            "linux-modules-extra-gcp-lts-18.04": "4.15.0.1160.173",
-            "linux-tools-4.15.0-1160-gcp": "4.15.0-1160.177",
-            "linux-tools-gcp-lts-18.04": "4.15.0.1160.173"
-          }
-        ],
-        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
-      }
-    },
-    {
-      "package": {
         "ecosystem": "Ubuntu:Pro:16.04:LTS",
-        "name": "linux-gcp"
+        "name": "linux-gcp",
+        "purl": "pkg:deb/ubuntu/linux-gcp@4.15.0-1160.177~16.04.1?arch=src?distro=esm-infra/xenial"
       },
       "ranges": [
         {
@@ -78,31 +40,235 @@
           ]
         }
       ],
+      "versions": [
+        "4.10.0-1004.4",
+        "4.10.0-1006.6",
+        "4.10.0-1007.7",
+        "4.10.0-1008.8",
+        "4.10.0-1009.9",
+        "4.13.0-1002.5",
+        "4.13.0-1006.9",
+        "4.13.0-1007.10",
+        "4.13.0-1008.11",
+        "4.13.0-1011.15",
+        "4.13.0-1012.16",
+        "4.13.0-1013.17",
+        "4.13.0-1015.19",
+        "4.13.0-1017.21",
+        "4.13.0-1019.23",
+        "4.15.0-1014.14~16.04.1",
+        "4.15.0-1015.15~16.04.1",
+        "4.15.0-1017.18~16.04.1",
+        "4.15.0-1018.19~16.04.2",
+        "4.15.0-1019.20~16.04.1",
+        "4.15.0-1021.22~16.04.1",
+        "4.15.0-1023.24~16.04.1",
+        "4.15.0-1024.25~16.04.2",
+        "4.15.0-1025.26~16.04.1",
+        "4.15.0-1026.27~16.04.1",
+        "4.15.0-1027.28~16.04.1",
+        "4.15.0-1028.29~16.04.1",
+        "4.15.0-1029.31~16.04.1",
+        "4.15.0-1030.32~16.04.1",
+        "4.15.0-1032.34~16.04.1",
+        "4.15.0-1033.35~16.04.1",
+        "4.15.0-1034.36~16.04.1",
+        "4.15.0-1036.38~16.04.1",
+        "4.15.0-1037.39~16.04.1",
+        "4.15.0-1040.42~16.04.1",
+        "4.15.0-1041.43",
+        "4.15.0-1042.44",
+        "4.15.0-1044.46",
+        "4.15.0-1046.49",
+        "4.15.0-1047.50",
+        "4.15.0-1049.52",
+        "4.15.0-1050.53",
+        "4.15.0-1052.56",
+        "4.15.0-1055.59",
+        "4.15.0-1058.62",
+        "4.15.0-1060.64",
+        "4.15.0-1061.65",
+        "4.15.0-1071.81~16.04.1",
+        "4.15.0-1077.87~16.04.1",
+        "4.15.0-1078.88~16.04.1",
+        "4.15.0-1080.90~16.04.1",
+        "4.15.0-1081.92~16.04.1",
+        "4.15.0-1083.94~16.04.1",
+        "4.15.0-1084.95~16.04.1",
+        "4.15.0-1086.98~16.04.1",
+        "4.15.0-1087.100~16.04.1",
+        "4.15.0-1088.101~16.04.1",
+        "4.15.0-1090.103~16.04.1",
+        "4.15.0-1091.104~16.04.1",
+        "4.15.0-1092.105~16.04.1",
+        "4.15.0-1093.106~16.04.1",
+        "4.15.0-1094.107~16.04.1",
+        "4.15.0-1095.108~16.04.1",
+        "4.15.0-1096.109~16.04.1",
+        "4.15.0-1097.110~16.04.1",
+        "4.15.0-1098.111~16.04.1",
+        "4.15.0-1099.112~16.04.1",
+        "4.15.0-1100.113~16.04.1",
+        "4.15.0-1103.116~16.04.1",
+        "4.15.0-1106.120~16.04.1",
+        "4.15.0-1107.121~16.04.1",
+        "4.15.0-1108.122~16.04.1",
+        "4.15.0-1109.123~16.04.1",
+        "4.15.0-1110.124~16.04.1",
+        "4.15.0-1111.125~16.04.1",
+        "4.15.0-1112.126~16.04.1",
+        "4.15.0-1114.128~16.04.1",
+        "4.15.0-1115.129~16.04.1",
+        "4.15.0-1116.130~16.04.1",
+        "4.15.0-1118.132~16.04.1",
+        "4.15.0-1119.133~16.04.1",
+        "4.15.0-1120.134~16.04.1",
+        "4.15.0-1121.135~16.04.1",
+        "4.15.0-1122.136~16.04.1",
+        "4.15.0-1124.138~16.04.1",
+        "4.15.0-1127.142~16.04.1",
+        "4.15.0-1130.146~16.04.1",
+        "4.15.0-1131.147~16.04.1",
+        "4.15.0-1134.150~16.04.2",
+        "4.15.0-1135.151~16.04.2",
+        "4.15.0-1136.152~16.04.1",
+        "4.15.0-1137.153~16.04.1",
+        "4.15.0-1138.154~16.04.1",
+        "4.15.0-1141.157~16.04.2",
+        "4.15.0-1142.158~16.04.1",
+        "4.15.0-1143.159~16.04.1",
+        "4.15.0-1146.162~16.04.1",
+        "4.15.0-1147.163~16.04.1",
+        "4.15.0-1148.164~16.04.1",
+        "4.15.0-1149.165~16.04.1",
+        "4.15.0-1150.166~16.04.1",
+        "4.15.0-1151.167~16.04.1",
+        "4.15.0-1152.168~16.04.1",
+        "4.15.0-1153.170~16.04.1",
+        "4.15.0-1154.171~16.04.1",
+        "4.15.0-1155.172~16.04.1",
+        "4.15.0-1156.173~16.04.1",
+        "4.15.0-1157.174~16.04.1",
+        "4.15.0-1158.175~16.04.1",
+        "4.15.0-1159.176~16.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "linux-buildinfo-4.15.0-1160-gcp": "4.15.0-1160.177~16.04.1",
-            "linux-gcp": "4.15.0.1160.150",
             "linux-gcp-headers-4.15.0-1160": "4.15.0-1160.177~16.04.1",
             "linux-gcp-tools-4.15.0-1160": "4.15.0-1160.177~16.04.1",
-            "linux-gke": "4.15.0.1160.150",
             "linux-headers-4.15.0-1160-gcp": "4.15.0-1160.177~16.04.1",
-            "linux-headers-gcp": "4.15.0.1160.150",
-            "linux-headers-gke": "4.15.0.1160.150",
-            "linux-image-4.15.0-1160-gcp": "4.15.0-1160.177~16.04.1",
-            "linux-image-gcp": "4.15.0.1160.150",
-            "linux-image-gke": "4.15.0.1160.150",
             "linux-image-unsigned-4.15.0-1160-gcp": "4.15.0-1160.177~16.04.1",
+            "linux-image-unsigned-4.15.0-1160-gcp-dbgsym": "4.15.0-1160.177~16.04.1",
             "linux-modules-4.15.0-1160-gcp": "4.15.0-1160.177~16.04.1",
             "linux-modules-extra-4.15.0-1160-gcp": "4.15.0-1160.177~16.04.1",
-            "linux-modules-extra-gcp": "4.15.0.1160.150",
-            "linux-modules-extra-gke": "4.15.0.1160.150",
-            "linux-tools-4.15.0-1160-gcp": "4.15.0-1160.177~16.04.1",
-            "linux-tools-gcp": "4.15.0.1160.150",
-            "linux-tools-gke": "4.15.0.1160.150"
+            "linux-tools-4.15.0-1160-gcp": "4.15.0-1160.177~16.04.1"
           }
         ],
-        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+        "availability": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:18.04:LTS",
+        "name": "linux-gcp-4.15",
+        "purl": "pkg:deb/ubuntu/linux-gcp-4.15@4.15.0-1160.177?arch=src?distro=esm-infra/bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.15.0-1160.177"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.15.0-1071.81",
+        "4.15.0-1077.87",
+        "4.15.0-1078.88",
+        "4.15.0-1080.90",
+        "4.15.0-1081.92",
+        "4.15.0-1083.94",
+        "4.15.0-1084.95",
+        "4.15.0-1086.98",
+        "4.15.0-1087.100",
+        "4.15.0-1088.101",
+        "4.15.0-1090.103",
+        "4.15.0-1091.104",
+        "4.15.0-1092.105",
+        "4.15.0-1093.106",
+        "4.15.0-1094.107",
+        "4.15.0-1095.108",
+        "4.15.0-1096.109",
+        "4.15.0-1097.110",
+        "4.15.0-1098.111",
+        "4.15.0-1099.112",
+        "4.15.0-1100.113",
+        "4.15.0-1103.116",
+        "4.15.0-1106.120",
+        "4.15.0-1107.121",
+        "4.15.0-1108.122",
+        "4.15.0-1109.123",
+        "4.15.0-1110.124",
+        "4.15.0-1111.125",
+        "4.15.0-1112.126",
+        "4.15.0-1114.128",
+        "4.15.0-1115.129",
+        "4.15.0-1116.130",
+        "4.15.0-1118.132",
+        "4.15.0-1119.133",
+        "4.15.0-1120.134",
+        "4.15.0-1121.135",
+        "4.15.0-1122.136",
+        "4.15.0-1124.138",
+        "4.15.0-1127.142",
+        "4.15.0-1130.146",
+        "4.15.0-1131.147",
+        "4.15.0-1134.150",
+        "4.15.0-1135.151",
+        "4.15.0-1136.152",
+        "4.15.0-1137.153",
+        "4.15.0-1138.154",
+        "4.15.0-1141.157",
+        "4.15.0-1142.158",
+        "4.15.0-1143.159",
+        "4.15.0-1145.161",
+        "4.15.0-1146.162",
+        "4.15.0-1147.163",
+        "4.15.0-1148.164",
+        "4.15.0-1149.165",
+        "4.15.0-1150.166",
+        "4.15.0-1151.167",
+        "4.15.0-1152.168",
+        "4.15.0-1153.170",
+        "4.15.0-1154.171",
+        "4.15.0-1155.172",
+        "4.15.0-1156.173",
+        "4.15.0-1157.174",
+        "4.15.0-1158.175",
+        "4.15.0-1159.176"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-4.15.0-1160-gcp": "4.15.0-1160.177",
+            "linux-gcp-4.15-headers-4.15.0-1160": "4.15.0-1160.177",
+            "linux-gcp-4.15-tools-4.15.0-1160": "4.15.0-1160.177",
+            "linux-headers-4.15.0-1160-gcp": "4.15.0-1160.177",
+            "linux-image-unsigned-4.15.0-1160-gcp": "4.15.0-1160.177",
+            "linux-image-unsigned-4.15.0-1160-gcp-dbgsym": "4.15.0-1160.177",
+            "linux-modules-4.15.0-1160-gcp": "4.15.0-1160.177",
+            "linux-modules-extra-4.15.0-1160-gcp": "4.15.0-1160.177",
+            "linux-tools-4.15.0-1160-gcp": "4.15.0-1160.177"
+          }
+        ],
+        "availability": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro"
       }
     }
   ],
@@ -117,11 +283,19 @@
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-23000"
+      "url": "https://ubuntu.com/security/CVE-2023-3006"
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-3006"
+      "url": "https://ubuntu.com/security/CVE-2023-4132"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-6121"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-23000"
     },
     {
       "type": "REPORT",
@@ -133,19 +307,11 @@
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-4132"
-    },
-    {
-      "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-46838"
     },
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-51781"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-6121"
     },
     {
       "type": "REPORT",

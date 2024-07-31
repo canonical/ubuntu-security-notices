@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-5142-3",
   "summary": "samba regression",
   "details": "USN-5142-1 fixed vulnerabilities in Samba. Some of the upstream changes\nintroduced a regression in Kerberos authentication in certain environments.\n\nPlease see the following upstream bug for more information:\nhttps://bugzilla.samba.org/show_bug.cgi?id=14922\n\nThis update fixes the problem.\n\nOriginal advisory details:\n\n Stefan Metzmacher discovered that Samba incorrectly handled SMB1 client\n connections. A remote attacker could possibly use this issue to downgrade\n connections to plaintext authentication. (CVE-2016-2124)\n \n Andrew Bartlett discovered that Samba incorrectly mapping domain users to\n local users. An authenticated attacker could possibly use this issue to\n become root on domain members. (CVE-2020-25717)\n \n Andrew Bartlett discovered that Samba did not correctly sandbox Kerberos\n tickets issues by an RODC. An RODC could print administrator tickets,\n contrary to expectations. (CVE-2020-25718)\n \n Andrew Bartlett discovered that Samba incorrectly handled Kerberos tickets.\n Delegated administrators could possibly use this issue to impersonate\n accounts, leading to total domain compromise. (CVE-2020-25719)\n \n Andrew Bartlett discovered that Samba did not provide stable AD\n identifiers to Kerberos acceptors. (CVE-2020-25721)\n \n Andrew Bartlett discovered that Samba did not properly check sensitive\n attributes. An authenticated attacker could possibly use this issue to\n escalate privileges. (CVE-2020-25722)\n \n Stefan Metzmacher discovered that Samba incorrectly handled certain large\n DCE/RPC requests. A remote attacker could possibly use this issue to\n bypass signature requirements. (CVE-2021-23192)\n \n William Ross discovered that Samba incorrectly handled memory. A remote\n attacker could use this issue to cause Samba to crash, resulting in a\n denial of service, or possibly escalate privileges. (CVE-2021-3738)\n \n Joseph Sutton discovered that Samba incorrectly handled certain TGS\n requests. An authenticated attacker could possibly use this issue to cause\n Samba to crash, resulting in a denial of service. (CVE-2021-3671)\n \n The fix for CVE-2020-25717 results in possible behaviour changes that could\n affect certain environments. Please see the upstream advisory for more\n information:\n \n https://www.samba.org/samba/security/CVE-2020-25717.html\n",
@@ -10,7 +11,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "samba"
+        "name": "samba",
+        "purl": "pkg:deb/ubuntu/samba@2:4.13.14+dfsg-0ubuntu0.20.04.4?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -25,31 +27,68 @@
           ]
         }
       ],
+      "versions": [
+        "2:4.10.7+dfsg-0ubuntu2",
+        "2:4.10.7+dfsg-0ubuntu3",
+        "2:4.11.1+dfsg-3ubuntu1",
+        "2:4.11.1+dfsg-3ubuntu2",
+        "2:4.11.1+dfsg-3ubuntu4",
+        "2:4.11.5+dfsg-1ubuntu1",
+        "2:4.11.5+dfsg-1ubuntu2",
+        "2:4.11.6+dfsg-0ubuntu1",
+        "2:4.11.6+dfsg-0ubuntu1.1",
+        "2:4.11.6+dfsg-0ubuntu1.2",
+        "2:4.11.6+dfsg-0ubuntu1.3",
+        "2:4.11.6+dfsg-0ubuntu1.4",
+        "2:4.11.6+dfsg-0ubuntu1.5",
+        "2:4.11.6+dfsg-0ubuntu1.6",
+        "2:4.11.6+dfsg-0ubuntu1.8",
+        "2:4.11.6+dfsg-0ubuntu1.9",
+        "2:4.11.6+dfsg-0ubuntu1.10",
+        "2:4.13.14+dfsg-0ubuntu0.20.04.1",
+        "2:4.13.14+dfsg-0ubuntu0.20.04.2",
+        "2:4.13.14+dfsg-0ubuntu0.20.04.3"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "samba-testsuite": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
-            "samba": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
-            "registry-tools": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
-            "libpam-winbind": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
-            "winbind": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
-            "smbclient": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
-            "libwbclient-dev": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
-            "libsmbclient": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
-            "python3-samba": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
-            "samba-common-bin": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
-            "libwbclient0": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
-            "samba-dsdb-modules": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
-            "samba-dev": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
-            "libsmbclient-dev": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
-            "samba-vfs-modules": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
-            "samba-common": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
             "ctdb": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "ctdb-dbgsym": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "libnss-winbind": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "libnss-winbind-dbgsym": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "libpam-winbind": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "libpam-winbind-dbgsym": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "libsmbclient": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "libsmbclient-dbgsym": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "libsmbclient-dev": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "libwbclient-dev": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "libwbclient0": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "libwbclient0-dbgsym": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "python3-samba": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "python3-samba-dbgsym": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "registry-tools": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "registry-tools-dbgsym": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "samba": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "samba-common": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "samba-common-bin": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "samba-common-bin-dbgsym": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "samba-dbgsym": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "samba-dev": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "samba-dsdb-modules": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "samba-dsdb-modules-dbgsym": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
             "samba-libs": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
-            "libnss-winbind": "2:4.13.14+dfsg-0ubuntu0.20.04.4"
+            "samba-libs-dbgsym": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "samba-testsuite": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "samba-testsuite-dbgsym": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "samba-vfs-modules": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "samba-vfs-modules-dbgsym": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "smbclient": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "smbclient-dbgsym": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "winbind": "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+            "winbind-dbgsym": "2:4.13.14+dfsg-0ubuntu0.20.04.4"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],

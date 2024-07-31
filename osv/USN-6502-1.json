@@ -1,14 +1,15 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-6502-1",
   "summary": "linux, linux-aws, linux-aws-6.2, linux-hwe-6.2, linux-kvm, linux-lowlatency, linux-lowlatency-hwe-6.2, linux-raspi, linux-starfive vulnerabilities",
   "details": "\nIvan D Barrera, Christopher Bednarz, Mustafa Ismail, and Shiraz Saleem\ndiscovered that the InfiniBand RDMA driver in the Linux kernel did not\nproperly check for zero-length STAG or MR registration. A remote attacker\ncould possibly use this to execute arbitrary code. (CVE-2023-25775)\n\nYu Hao discovered that the UBI driver in the Linux kernel did not properly\ncheck for MTD with zero erasesize during device attachment. A local\nprivileged attacker could use this to cause a denial of service (system\ncrash). (CVE-2023-31085)\n\nManfred Rudigier discovered that the Intel(R) PCI-Express Gigabit (igb)\nEthernet driver in the Linux kernel did not properly validate received\nframes that are larger than the set MTU size, leading to a buffer overflow\nvulnerability. An attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-45871)\n\nMaxim Levitsky discovered that the KVM nested virtualization (SVM)\nimplementation for AMD processors in the Linux kernel did not properly\nhandle x2AVIC MSRs. An attacker in a guest VM could use this to cause a\ndenial of service (host kernel crash). (CVE-2023-5090)\n\nIt was discovered that the SMB network file sharing protocol implementation\nin the Linux kernel did not properly handle certain error conditions,\nleading to a use-after-free vulnerability. A local attacker could use this\nto cause a denial of service (system crash) or possibly execute arbitrary\ncode. (CVE-2023-5345)\n\n",
   "aliases": [],
   "related": [
+    "CVE-2023-5090",
+    "CVE-2023-5345",
     "CVE-2023-25775",
     "CVE-2023-31085",
-    "CVE-2023-45871",
-    "CVE-2023-5090",
-    "CVE-2023-5345"
+    "CVE-2023-45871"
   ],
   "published": "2023-11-21T19:16:50.048353Z",
   "modified": "2023-11-21T19:16:50.048353Z",
@@ -16,7 +17,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-aws-6.2"
+        "name": "linux-aws-6.2",
+        "purl": "pkg:deb/ubuntu/linux-aws-6.2@6.2.0-1016.16~22.04.1?arch=src?distro=jammy"
       },
       "ranges": [
         {
@@ -31,34 +33,43 @@
           ]
         }
       ],
+      "versions": [
+        "6.2.0-1005.5~22.04.1",
+        "6.2.0-1006.6~22.04.1",
+        "6.2.0-1007.7~22.04.1",
+        "6.2.0-1008.8~22.04.1",
+        "6.2.0-1009.9~22.04.3",
+        "6.2.0-1010.10~22.04.1",
+        "6.2.0-1011.11~22.04.1",
+        "6.2.0-1012.12~22.04.1",
+        "6.2.0-1013.13~22.04.1",
+        "6.2.0-1014.14~22.04.1",
+        "6.2.0-1015.15~22.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-aws": "6.2.0.1016.16~22.04.1",
             "linux-aws-6.2-cloud-tools-6.2.0-1016": "6.2.0-1016.16~22.04.1",
             "linux-aws-6.2-headers-6.2.0-1016": "6.2.0-1016.16~22.04.1",
             "linux-aws-6.2-tools-6.2.0-1016": "6.2.0-1016.16~22.04.1",
             "linux-buildinfo-6.2.0-1016-aws": "6.2.0-1016.16~22.04.1",
             "linux-cloud-tools-6.2.0-1016-aws": "6.2.0-1016.16~22.04.1",
             "linux-headers-6.2.0-1016-aws": "6.2.0-1016.16~22.04.1",
-            "linux-headers-aws": "6.2.0.1016.16~22.04.1",
-            "linux-image-6.2.0-1016-aws": "6.2.0-1016.16~22.04.1",
-            "linux-image-aws": "6.2.0.1016.16~22.04.1",
             "linux-image-unsigned-6.2.0-1016-aws": "6.2.0-1016.16~22.04.1",
+            "linux-image-unsigned-6.2.0-1016-aws-dbgsym": "6.2.0-1016.16~22.04.1",
             "linux-modules-6.2.0-1016-aws": "6.2.0-1016.16~22.04.1",
             "linux-modules-extra-6.2.0-1016-aws": "6.2.0-1016.16~22.04.1",
-            "linux-modules-extra-aws": "6.2.0.1016.16~22.04.1",
-            "linux-tools-6.2.0-1016-aws": "6.2.0-1016.16~22.04.1",
-            "linux-tools-aws": "6.2.0.1016.16~22.04.1"
+            "linux-tools-6.2.0-1016-aws": "6.2.0-1016.16~22.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-hwe-6.2"
+        "name": "linux-hwe-6.2",
+        "purl": "pkg:deb/ubuntu/linux-hwe-6.2@6.2.0-37.38~22.04.1?arch=src?distro=jammy"
       },
       "ranges": [
         {
@@ -73,6 +84,16 @@
           ]
         }
       ],
+      "versions": [
+        "6.2.0-25.25~22.04.2",
+        "6.2.0-26.26~22.04.1",
+        "6.2.0-31.31~22.04.1",
+        "6.2.0-32.32~22.04.1",
+        "6.2.0-33.33~22.04.1",
+        "6.2.0-34.34~22.04.1",
+        "6.2.0-35.35~22.04.1",
+        "6.2.0-36.37~22.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
@@ -80,27 +101,9 @@
             "linux-buildinfo-6.2.0-37-generic-64k": "6.2.0-37.38~22.04.1",
             "linux-buildinfo-6.2.0-37-generic-lpae": "6.2.0-37.38~22.04.1",
             "linux-cloud-tools-6.2.0-37-generic": "6.2.0-37.38~22.04.1",
-            "linux-cloud-tools-generic-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-cloud-tools-generic-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
-            "linux-cloud-tools-virtual-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-cloud-tools-virtual-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
-            "linux-generic-64k-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-generic-64k-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
-            "linux-generic-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-generic-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
-            "linux-generic-lpae-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-generic-lpae-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
             "linux-headers-6.2.0-37-generic": "6.2.0-37.38~22.04.1",
             "linux-headers-6.2.0-37-generic-64k": "6.2.0-37.38~22.04.1",
             "linux-headers-6.2.0-37-generic-lpae": "6.2.0-37.38~22.04.1",
-            "linux-headers-generic-64k-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-headers-generic-64k-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
-            "linux-headers-generic-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-headers-generic-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
-            "linux-headers-generic-lpae-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-headers-generic-lpae-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
-            "linux-headers-virtual-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-headers-virtual-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
             "linux-hwe-6.2-cloud-tools-6.2.0-37": "6.2.0-37.38~22.04.1",
             "linux-hwe-6.2-cloud-tools-common": "6.2.0-37.38~22.04.1",
             "linux-hwe-6.2-headers-6.2.0-37": "6.2.0-37.38~22.04.1",
@@ -108,60 +111,34 @@
             "linux-hwe-6.2-tools-common": "6.2.0-37.38~22.04.1",
             "linux-hwe-6.2-tools-host": "6.2.0-37.38~22.04.1",
             "linux-image-6.2.0-37-generic": "6.2.0-37.38~22.04.1",
-            "linux-image-6.2.0-37-generic-64k": "6.2.0-37.38~22.04.1",
+            "linux-image-6.2.0-37-generic-dbgsym": "6.2.0-37.38~22.04.1",
             "linux-image-6.2.0-37-generic-lpae": "6.2.0-37.38~22.04.1",
-            "linux-image-extra-virtual-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-image-extra-virtual-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
-            "linux-image-generic-64k-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-image-generic-64k-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
-            "linux-image-generic-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-image-generic-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
-            "linux-image-generic-lpae-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-image-generic-lpae-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
-            "linux-image-uc-6.2.0-37-generic": "6.2.0-37.38~22.04.1",
-            "linux-image-uc-6.2.0-37-generic-64k": "6.2.0-37.38~22.04.1",
-            "linux-image-uc-generic-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-image-uc-generic-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
+            "linux-image-6.2.0-37-generic-lpae-dbgsym": "6.2.0-37.38~22.04.1",
             "linux-image-unsigned-6.2.0-37-generic": "6.2.0-37.38~22.04.1",
             "linux-image-unsigned-6.2.0-37-generic-64k": "6.2.0-37.38~22.04.1",
-            "linux-image-virtual-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-image-virtual-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
+            "linux-image-unsigned-6.2.0-37-generic-64k-dbgsym": "6.2.0-37.38~22.04.1",
+            "linux-image-unsigned-6.2.0-37-generic-dbgsym": "6.2.0-37.38~22.04.1",
             "linux-modules-6.2.0-37-generic": "6.2.0-37.38~22.04.1",
             "linux-modules-6.2.0-37-generic-64k": "6.2.0-37.38~22.04.1",
             "linux-modules-6.2.0-37-generic-lpae": "6.2.0-37.38~22.04.1",
             "linux-modules-extra-6.2.0-37-generic": "6.2.0-37.38~22.04.1",
             "linux-modules-ipu6-6.2.0-37-generic": "6.2.0-37.38~22.04.1",
-            "linux-modules-ipu6-generic-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-modules-ipu6-generic-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
             "linux-modules-ivsc-6.2.0-37-generic": "6.2.0-37.38~22.04.1",
-            "linux-modules-ivsc-generic-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-modules-ivsc-generic-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
             "linux-modules-iwlwifi-6.2.0-37-generic": "6.2.0-37.38~22.04.1",
-            "linux-modules-iwlwifi-generic-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-modules-iwlwifi-generic-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
             "linux-source-6.2.0": "6.2.0-37.38~22.04.1",
             "linux-tools-6.2.0-37-generic": "6.2.0-37.38~22.04.1",
             "linux-tools-6.2.0-37-generic-64k": "6.2.0-37.38~22.04.1",
-            "linux-tools-6.2.0-37-generic-lpae": "6.2.0-37.38~22.04.1",
-            "linux-tools-generic-64k-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-tools-generic-64k-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
-            "linux-tools-generic-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-tools-generic-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
-            "linux-tools-generic-lpae-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-tools-generic-lpae-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
-            "linux-tools-virtual-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-tools-virtual-hwe-22.04-edge": "6.2.0.37.38~22.04.15",
-            "linux-virtual-hwe-22.04": "6.2.0.37.38~22.04.15",
-            "linux-virtual-hwe-22.04-edge": "6.2.0.37.38~22.04.15"
+            "linux-tools-6.2.0-37-generic-lpae": "6.2.0-37.38~22.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-lowlatency-hwe-6.2"
+        "name": "linux-lowlatency-hwe-6.2",
+        "purl": "pkg:deb/ubuntu/linux-lowlatency-hwe-6.2@6.2.0-1017.17~22.04.1?arch=src?distro=jammy"
       },
       "ranges": [
         {
@@ -176,32 +153,28 @@
           ]
         }
       ],
+      "versions": [
+        "6.2.0-1008.8~22.04.1",
+        "6.2.0-1009.9~22.04.1",
+        "6.2.0-1011.11~22.04.1",
+        "6.2.0-1012.12~22.04.1",
+        "6.2.0-1013.13~22.04.1",
+        "6.2.0-1014.14~22.04.1",
+        "6.2.0-1015.15~22.04.1",
+        "6.2.0-1016.16~22.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "linux-buildinfo-6.2.0-1017-lowlatency": "6.2.0-1017.17~22.04.1",
             "linux-buildinfo-6.2.0-1017-lowlatency-64k": "6.2.0-1017.17~22.04.1",
             "linux-cloud-tools-6.2.0-1017-lowlatency": "6.2.0-1017.17~22.04.1",
-            "linux-cloud-tools-lowlatency-hwe-22.04": "6.2.0.1017.17~22.04.14",
-            "linux-cloud-tools-lowlatency-hwe-22.04-edge": "6.2.0.1017.17~22.04.14",
             "linux-headers-6.2.0-1017-lowlatency": "6.2.0-1017.17~22.04.1",
             "linux-headers-6.2.0-1017-lowlatency-64k": "6.2.0-1017.17~22.04.1",
-            "linux-headers-lowlatency-64k-hwe-22.04": "6.2.0.1017.17~22.04.14",
-            "linux-headers-lowlatency-64k-hwe-22.04-edge": "6.2.0.1017.17~22.04.14",
-            "linux-headers-lowlatency-hwe-22.04": "6.2.0.1017.17~22.04.14",
-            "linux-headers-lowlatency-hwe-22.04-edge": "6.2.0.1017.17~22.04.14",
-            "linux-image-6.2.0-1017-lowlatency": "6.2.0-1017.17~22.04.1",
-            "linux-image-6.2.0-1017-lowlatency-64k": "6.2.0-1017.17~22.04.1",
-            "linux-image-lowlatency-64k-hwe-22.04": "6.2.0.1017.17~22.04.14",
-            "linux-image-lowlatency-64k-hwe-22.04-edge": "6.2.0.1017.17~22.04.14",
-            "linux-image-lowlatency-hwe-22.04": "6.2.0.1017.17~22.04.14",
-            "linux-image-lowlatency-hwe-22.04-edge": "6.2.0.1017.17~22.04.14",
             "linux-image-unsigned-6.2.0-1017-lowlatency": "6.2.0-1017.17~22.04.1",
             "linux-image-unsigned-6.2.0-1017-lowlatency-64k": "6.2.0-1017.17~22.04.1",
-            "linux-lowlatency-64k-hwe-22.04": "6.2.0.1017.17~22.04.14",
-            "linux-lowlatency-64k-hwe-22.04-edge": "6.2.0.1017.17~22.04.14",
-            "linux-lowlatency-hwe-22.04": "6.2.0.1017.17~22.04.14",
-            "linux-lowlatency-hwe-22.04-edge": "6.2.0.1017.17~22.04.14",
+            "linux-image-unsigned-6.2.0-1017-lowlatency-64k-dbgsym": "6.2.0-1017.17~22.04.1",
+            "linux-image-unsigned-6.2.0-1017-lowlatency-dbgsym": "6.2.0-1017.17~22.04.1",
             "linux-lowlatency-hwe-6.2-cloud-tools-6.2.0-1017": "6.2.0-1017.17~22.04.1",
             "linux-lowlatency-hwe-6.2-cloud-tools-common": "6.2.0-1017.17~22.04.1",
             "linux-lowlatency-hwe-6.2-headers-6.2.0-1017": "6.2.0-1017.17~22.04.1",
@@ -211,23 +184,13 @@
             "linux-modules-6.2.0-1017-lowlatency": "6.2.0-1017.17~22.04.1",
             "linux-modules-6.2.0-1017-lowlatency-64k": "6.2.0-1017.17~22.04.1",
             "linux-modules-ipu6-6.2.0-1017-lowlatency": "6.2.0-1017.17~22.04.1",
-            "linux-modules-ipu6-lowlatency-hwe-22.04": "6.2.0.1017.17~22.04.14",
-            "linux-modules-ipu6-lowlatency-hwe-22.04-edge": "6.2.0.1017.17~22.04.14",
             "linux-modules-ivsc-6.2.0-1017-lowlatency": "6.2.0-1017.17~22.04.1",
-            "linux-modules-ivsc-lowlatency-hwe-22.04": "6.2.0.1017.17~22.04.14",
-            "linux-modules-ivsc-lowlatency-hwe-22.04-edge": "6.2.0.1017.17~22.04.14",
             "linux-modules-iwlwifi-6.2.0-1017-lowlatency": "6.2.0-1017.17~22.04.1",
-            "linux-modules-iwlwifi-lowlatency-hwe-22.04": "6.2.0.1017.17~22.04.14",
-            "linux-modules-iwlwifi-lowlatency-hwe-22.04-edge": "6.2.0.1017.17~22.04.14",
             "linux-tools-6.2.0-1017-lowlatency": "6.2.0-1017.17~22.04.1",
-            "linux-tools-6.2.0-1017-lowlatency-64k": "6.2.0-1017.17~22.04.1",
-            "linux-tools-lowlatency-64k-hwe-22.04": "6.2.0.1017.17~22.04.14",
-            "linux-tools-lowlatency-64k-hwe-22.04-edge": "6.2.0.1017.17~22.04.14",
-            "linux-tools-lowlatency-hwe-22.04": "6.2.0.1017.17~22.04.14",
-            "linux-tools-lowlatency-hwe-22.04-edge": "6.2.0.1017.17~22.04.14"
+            "linux-tools-6.2.0-1017-lowlatency-64k": "6.2.0-1017.17~22.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -235,6 +198,14 @@
     {
       "type": "ADVISORY",
       "url": "https://ubuntu.com/security/notices/USN-6502-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-5090"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-5345"
     },
     {
       "type": "REPORT",
@@ -247,14 +218,6 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-45871"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-5090"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-5345"
     }
   ]
 }

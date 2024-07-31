@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-2449-1",
   "summary": "ntp vulnerabilities",
   "details": "Neel Mehta discovered that NTP generated weak authentication keys. A remote\nattacker could possibly use this issue to brute force the authentication\nkey and send requests if permitted by IP restrictions. (CVE-2014-9293)\n\nStephen Roettger discovered that NTP generated weak MD5 keys. A remote\nattacker could possibly use this issue to brute force the MD5 key and spoof\na client or server. (CVE-2014-9294)\n\nStephen Roettger discovered that NTP contained buffer overflows in the\ncrypto_recv(), ctl_putdata() and configure() functions. In non-default\nconfigurations, a remote attacker could use these issues to cause NTP to\ncrash, resulting in a denial of service, or possibly execute arbitrary\ncode. The default compiler options for affected releases should reduce the\nvulnerability to a denial of service. In addition, attackers would be\nisolated by the NTP AppArmor profile. (CVE-2014-9295)\n\nStephen Roettger discovered that NTP incorrectly continued processing when\nhandling certain errors. (CVE-2014-9296)\n",
@@ -15,7 +16,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:14.04:LTS",
-        "name": "ntp"
+        "name": "ntp",
+        "purl": "pkg:deb/ubuntu/ntp@1:4.2.6.p5+dfsg-3ubuntu2.14.04.1?arch=src?distro=trusty"
       },
       "ranges": [
         {
@@ -30,6 +32,9 @@
           ]
         }
       ],
+      "versions": [
+        "1:4.2.6.p5+dfsg-3ubuntu2"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
@@ -38,7 +43,7 @@
             "ntpdate": "1:4.2.6.p5+dfsg-3ubuntu2.14.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],

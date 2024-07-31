@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-5912-1",
   "summary": "linux, linux-aws, linux-aws-5.15, linux-azure, linux-azure-5.15, linux-azure-fde, linux-gcp, linux-gcp-5.15, linux-gke, linux-gke-5.15, linux-hwe-5.15, linux-lowlatency, linux-lowlatency-hwe-5.15, linux-oracle, linux-oracle-5.15 vulnerabilities",
   "details": "It was discovered that the Upper Level Protocol (ULP) subsystem in the\nLinux kernel did not properly handle sockets entering the LISTEN state in\ncertain protocols, leading to a use-after-free vulnerability. A local\nattacker could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2023-0461)\n\nDavide Ornaghi discovered that the netfilter subsystem in the Linux kernel\ndid not properly handle VLAN headers in some situations. A local attacker\ncould use this to cause a denial of service (system crash) or possibly\nexecute arbitrary code. (CVE-2023-0179)\n\nIt was discovered that the NVMe driver in the Linux kernel did not properly\nhandle reset events in some situations. A local attacker could use this to\ncause a denial of service (system crash). (CVE-2022-3169)\n\nMaxim Levitsky discovered that the KVM nested virtualization (SVM)\nimplementation for AMD processors in the Linux kernel did not properly\nhandle nested shutdown execution. An attacker in a guest vm could use this\nto cause a denial of service (host kernel crash) (CVE-2022-3344)\n\nGwangun Jung discovered a race condition in the IPv4 implementation in the\nLinux kernel when deleting multipath routes, resulting in an out-of-bounds\nread. An attacker could use this to cause a denial of service (system\ncrash) or possibly expose sensitive information (kernel memory).\n(CVE-2022-3435)\n\nIt was discovered that a race condition existed in the Kernel Connection\nMultiplexor (KCM) socket implementation in the Linux kernel when releasing\nsockets in certain situations. A local attacker could use this to cause a\ndenial of service (system crash). (CVE-2022-3521)\n\nIt was discovered that the Netronome Ethernet driver in the Linux kernel\ncontained a use-after-free vulnerability. A local attacker could use this\nto cause a denial of service (system crash) or possibly execute arbitrary\ncode. (CVE-2022-3545)\n\nIt was discovered that the Intel i915 graphics driver in the Linux kernel\ndid not perform a GPU TLB flush in some situations. A local attacker could\nuse this to cause a denial of service or possibly execute arbitrary code.\n(CVE-2022-4139)\n\nIt was discovered that a race condition existed in the Xen network backend\ndriver in the Linux kernel when handling dropped packets in certain\ncircumstances. An attacker could use this to cause a denial of service\n(kernel deadlock). (CVE-2022-42328, CVE-2022-42329)\n\nIt was discovered that the NFSD implementation in the Linux kernel\ncontained a use-after-free vulnerability. A remote attacker could possibly\nuse this to cause a denial of service (system crash) or execute arbitrary\ncode. (CVE-2022-4379)\n\nIt was discovered that a race condition existed in the x86 KVM subsystem\nimplementation in the Linux kernel when nested virtualization and the TDP\nMMU are enabled. An attacker in a guest vm could use this to cause a denial\nof service (host OS crash). (CVE-2022-45869)\n\nIt was discovered that the Atmel WILC1000 driver in the Linux kernel did\nnot properly validate the number of channels, leading to an out-of-bounds\nwrite vulnerability. An attacker could use this to cause a denial of\nservice (system crash) or possibly execute arbitrary code. (CVE-2022-47518)\n\nIt was discovered that the Atmel WILC1000 driver in the Linux kernel did\nnot properly validate specific attributes, leading to an out-of-bounds\nwrite vulnerability. An attacker could use this to cause a denial of\nservice (system crash) or possibly execute arbitrary code. (CVE-2022-47519)\n\nIt was discovered that the Atmel WILC1000 driver in the Linux kernel did\nnot properly validate offsets, leading to an out-of-bounds read\nvulnerability. An attacker could use this to cause a denial of service\n(system crash). (CVE-2022-47520)\n\nIt was discovered that the Atmel WILC1000 driver in the Linux kernel did\nnot properly validate specific attributes, leading to a heap-based buffer\noverflow. An attacker could use this to cause a denial of service (system\ncrash) or possibly execute arbitrary code. (CVE-2022-47521)\n\nLin Ma discovered a race condition in the io_uring subsystem in the Linux\nkernel, leading to a null pointer dereference vulnerability. A local\nattacker could use this to cause a denial of service (system crash).\n(CVE-2023-0468)\n\nIt was discovered that the file system writeback functionality in the Linux\nkernel contained a user-after-free vulnerability. A local attacker could\npossibly use this to cause a denial of service (system crash) or execute\narbitrary code. (CVE-2023-26605)\n",
@@ -10,9 +11,9 @@
     "CVE-2022-3521",
     "CVE-2022-3545",
     "CVE-2022-4139",
+    "CVE-2022-4379",
     "CVE-2022-42328",
     "CVE-2022-42329",
-    "CVE-2022-4379",
     "CVE-2022-45869",
     "CVE-2022-47518",
     "CVE-2022-47519",
@@ -28,460 +29,9 @@
   "affected": [
     {
       "package": {
-        "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-azure"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-1034.41"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-cloud-tools-azure": "5.15.0.1034.30",
-            "linux-image-unsigned-5.15.0-1034-azure": "5.15.0-1034.41",
-            "linux-tools-azure": "5.15.0.1034.30",
-            "linux-modules-5.15.0-1034-azure": "5.15.0-1034.41",
-            "linux-azure-tools-5.15.0-1034": "5.15.0-1034.41",
-            "linux-azure-headers-5.15.0-1034": "5.15.0-1034.41",
-            "linux-modules-extra-5.15.0-1034-azure": "5.15.0-1034.41",
-            "linux-modules-extra-azure": "5.15.0.1034.30",
-            "linux-cloud-tools-5.15.0-1034-azure": "5.15.0-1034.41",
-            "linux-cloud-tools-azure-lts-22.04": "5.15.0.1034.30",
-            "linux-buildinfo-5.15.0-1034-azure": "5.15.0-1034.41",
-            "linux-azure-lts-22.04": "5.15.0.1034.30",
-            "linux-image-azure-lts-22.04": "5.15.0.1034.30",
-            "linux-image-5.15.0-1034-azure": "5.15.0-1034.41",
-            "linux-azure": "5.15.0.1034.30",
-            "linux-image-azure": "5.15.0.1034.30",
-            "linux-modules-extra-azure-lts-22.04": "5.15.0.1034.30",
-            "linux-tools-azure-lts-22.04": "5.15.0.1034.30",
-            "linux-tools-5.15.0-1034-azure": "5.15.0-1034.41",
-            "linux-azure-cloud-tools-5.15.0-1034": "5.15.0-1034.41",
-            "linux-headers-azure-lts-22.04": "5.15.0.1034.30",
-            "linux-headers-5.15.0-1034-azure": "5.15.0-1034.41",
-            "linux-headers-azure": "5.15.0.1034.30"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-azure-fde"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-1034.41.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-5.15.0-1034-azure-fde": "5.15.0-1034.41.1",
-            "linux-cloud-tools-azure-fde-edge": "5.15.0.1034.41.11",
-            "linux-tools-azure-fde-edge": "5.15.0.1034.41.11",
-            "linux-tools-azure-fde": "5.15.0.1034.41.11",
-            "linux-image-unsigned-5.15.0-1034-azure-fde": "5.15.0-1034.41.1",
-            "linux-headers-azure-fde-edge": "5.15.0.1034.41.11",
-            "linux-image-azure-fde": "5.15.0.1034.41.11",
-            "linux-modules-extra-azure-fde-edge": "5.15.0.1034.41.11",
-            "linux-image-azure-fde-edge": "5.15.0.1034.41.11",
-            "linux-azure-fde": "5.15.0.1034.41.11",
-            "linux-cloud-tools-azure-fde": "5.15.0.1034.41.11",
-            "linux-azure-fde-edge": "5.15.0.1034.41.11",
-            "linux-modules-extra-azure-fde": "5.15.0.1034.41.11",
-            "linux-headers-azure-fde": "5.15.0.1034.41.11"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-lowlatency"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-67.74"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-cloud-tools-lowlatency-hwe-20.04": "5.15.0.67.72",
-            "linux-lowlatency-headers-5.15.0-67": "5.15.0-67.74",
-            "linux-headers-lowlatency-64k": "5.15.0.67.72",
-            "linux-buildinfo-5.15.0-67-lowlatency": "5.15.0-67.74",
-            "linux-lowlatency-tools-5.15.0-67": "5.15.0-67.74",
-            "linux-image-lowlatency-hwe-20.04-edge": "5.15.0.67.72",
-            "linux-tools-lowlatency-64k": "5.15.0.67.72",
-            "linux-lowlatency-cloud-tools-common": "5.15.0-67.74",
-            "linux-tools-lowlatency": "5.15.0.67.72",
-            "linux-tools-lowlatency-64k-hwe-20.04": "5.15.0.67.72",
-            "linux-lowlatency-hwe-20.04": "5.15.0.67.72",
-            "linux-headers-5.15.0-67-lowlatency-64k": "5.15.0-67.74",
-            "linux-headers-lowlatency-hwe-20.04": "5.15.0.67.72",
-            "linux-image-lowlatency-hwe-20.04": "5.15.0.67.72",
-            "linux-tools-lowlatency-hwe-20.04-edge": "5.15.0.67.72",
-            "linux-lowlatency-hwe-20.04-edge": "5.15.0.67.72",
-            "linux-image-unsigned-5.15.0-67-lowlatency": "5.15.0-67.74",
-            "linux-image-5.15.0-67-lowlatency-64k": "5.15.0-67.74",
-            "linux-cloud-tools-5.15.0-67-lowlatency": "5.15.0-67.74",
-            "linux-headers-lowlatency-hwe-20.04-edge": "5.15.0.67.72",
-            "linux-buildinfo-5.15.0-67-lowlatency-64k": "5.15.0-67.74",
-            "linux-image-lowlatency-64k": "5.15.0.67.72",
-            "linux-modules-iwlwifi-5.15.0-67-lowlatency": "5.15.0-67.74",
-            "linux-lowlatency-tools-host": "5.15.0-67.74",
-            "linux-lowlatency": "5.15.0.67.72",
-            "linux-tools-lowlatency-64k-hwe-20.04-edge": "5.15.0.67.72",
-            "linux-modules-5.15.0-67-lowlatency-64k": "5.15.0-67.74",
-            "linux-image-unsigned-5.15.0-67-lowlatency-64k": "5.15.0-67.74",
-            "linux-image-5.15.0-67-lowlatency": "5.15.0-67.74",
-            "linux-lowlatency-64k-hwe-20.04-edge": "5.15.0.67.72",
-            "linux-lowlatency-cloud-tools-5.15.0-67": "5.15.0-67.74",
-            "linux-tools-lowlatency-hwe-20.04": "5.15.0.67.72",
-            "linux-headers-lowlatency-64k-hwe-20.04": "5.15.0.67.72",
-            "linux-image-lowlatency-64k-hwe-20.04": "5.15.0.67.72",
-            "linux-lowlatency-64k-hwe-20.04": "5.15.0.67.72",
-            "linux-lowlatency-tools-common": "5.15.0-67.74",
-            "linux-headers-5.15.0-67-lowlatency": "5.15.0-67.74",
-            "linux-cloud-tools-lowlatency": "5.15.0.67.72",
-            "linux-lowlatency-64k": "5.15.0.67.72",
-            "linux-tools-5.15.0-67-lowlatency": "5.15.0-67.74",
-            "linux-modules-5.15.0-67-lowlatency": "5.15.0-67.74",
-            "linux-headers-lowlatency-64k-hwe-20.04-edge": "5.15.0.67.72",
-            "linux-cloud-tools-lowlatency-hwe-20.04-edge": "5.15.0.67.72",
-            "linux-headers-lowlatency": "5.15.0.67.72",
-            "linux-tools-5.15.0-67-lowlatency-64k": "5.15.0-67.74",
-            "linux-image-lowlatency-64k-hwe-20.04-edge": "5.15.0.67.72",
-            "linux-image-lowlatency": "5.15.0.67.72"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-67.74"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-tools-common": "5.15.0-67.74",
-            "linux-headers-oem-20.04": "5.15.0.67.65",
-            "linux-cloud-tools-virtual": "5.15.0.67.65",
-            "linux-cloud-tools-5.15.0-67": "5.15.0-67.74",
-            "linux-cloud-tools-generic-hwe-20.04": "5.15.0.67.65",
-            "linux-headers-generic-lpae": "5.15.0.67.65",
-            "linux-tools-5.15.0-67-generic": "5.15.0-67.74",
-            "linux-generic-64k": "5.15.0.67.65",
-            "linux-tools-host": "5.15.0-67.74",
-            "linux-modules-iwlwifi-5.15.0-67-generic": "5.15.0-67.74",
-            "linux-tools-generic-64k": "5.15.0.67.65",
-            "linux-image-virtual": "5.15.0.67.65",
-            "linux-cloud-tools-virtual-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-doc": "5.15.0-67.74",
-            "linux-headers-generic-hwe-20.04": "5.15.0.67.65",
-            "linux-image-virtual-hwe-20.04": "5.15.0.67.65",
-            "linux-image-generic-64k": "5.15.0.67.65",
-            "linux-image-generic": "5.15.0.67.65",
-            "linux-tools-generic-64k-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-modules-5.15.0-67-generic-lpae": "5.15.0-67.74",
-            "linux-image-generic-lpae-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-headers-generic-lpae-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-image-extra-virtual-hwe-20.04": "5.15.0.67.65",
-            "linux-cloud-tools-generic-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-virtual-hwe-20.04": "5.15.0.67.65",
-            "linux-tools-5.15.0-67": "5.15.0-67.74",
-            "linux-modules-extra-5.15.0-67-generic": "5.15.0-67.74",
-            "linux-headers-generic-64k-hwe-20.04": "5.15.0.67.65",
-            "linux-image-extra-virtual-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-generic-64k-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-headers-5.15.0-67": "5.15.0-67.74",
-            "linux-virtual-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-crashdump": "5.15.0.67.65",
-            "linux-tools-oem-20.04": "5.15.0.67.65",
-            "linux-modules-iwlwifi-generic": "5.15.0.67.65",
-            "linux-image-virtual-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-source": "5.15.0.67.65",
-            "linux-headers-generic-lpae-hwe-20.04": "5.15.0.67.65",
-            "linux-tools-generic-lpae": "5.15.0.67.65",
-            "linux-cloud-tools-generic": "5.15.0.67.65",
-            "linux-tools-generic-lpae-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-virtual": "5.15.0.67.65",
-            "linux-tools-generic-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-generic-hwe-20.04": "5.15.0.67.65",
-            "linux-modules-5.15.0-67-generic": "5.15.0-67.74",
-            "linux-cloud-tools-virtual-hwe-20.04": "5.15.0.67.65",
-            "linux-headers-5.15.0-67-generic-64k": "5.15.0-67.74",
-            "linux-image-5.15.0-67-generic-lpae": "5.15.0-67.74",
-            "linux-tools-virtual": "5.15.0.67.65",
-            "linux-buildinfo-5.15.0-67-generic-lpae": "5.15.0-67.74",
-            "linux-source-5.15.0": "5.15.0-67.74",
-            "linux-image-generic-64k-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-headers-generic-64k": "5.15.0.67.65",
-            "linux-oem-20.04": "5.15.0.67.65",
-            "linux-headers-5.15.0-67-generic-lpae": "5.15.0-67.74",
-            "linux-headers-virtual-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-image-unsigned-5.15.0-67-generic": "5.15.0-67.74",
-            "linux-image-oem-20.04": "5.15.0.67.65",
-            "linux-generic-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-tools-generic-lpae-hwe-20.04": "5.15.0.67.65",
-            "linux-tools-5.15.0-67-generic-64k": "5.15.0-67.74",
-            "linux-generic-lpae-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-cloud-tools-common": "5.15.0-67.74",
-            "linux-image-generic-lpae": "5.15.0.67.65",
-            "linux-tools-generic-hwe-20.04": "5.15.0.67.65",
-            "linux-generic": "5.15.0.67.65",
-            "linux-headers-generic-64k-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-image-extra-virtual": "5.15.0.67.65",
-            "linux-headers-generic-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-tools-5.15.0-67-generic-lpae": "5.15.0-67.74",
-            "linux-image-unsigned-5.15.0-67-generic-64k": "5.15.0-67.74",
-            "linux-tools-generic": "5.15.0.67.65",
-            "linux-generic-lpae": "5.15.0.67.65",
-            "linux-headers-5.15.0-67-generic": "5.15.0-67.74",
-            "linux-tools-virtual-hwe-20.04": "5.15.0.67.65",
-            "linux-image-5.15.0-67-generic": "5.15.0-67.74",
-            "linux-image-generic-hwe-20.04": "5.15.0.67.65",
-            "linux-headers-generic": "5.15.0.67.65",
-            "linux-tools-generic-64k-hwe-20.04": "5.15.0.67.65",
-            "linux-tools-virtual-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-image-generic-hwe-20.04-edge": "5.15.0.67.65",
-            "linux-modules-5.15.0-67-generic-64k": "5.15.0-67.74",
-            "linux-buildinfo-5.15.0-67-generic-64k": "5.15.0-67.74",
-            "linux-generic-64k-hwe-20.04": "5.15.0.67.65",
-            "linux-libc-dev": "5.15.0-67.74",
-            "linux-image-generic-64k-hwe-20.04": "5.15.0.67.65",
-            "linux-cloud-tools-5.15.0-67-generic": "5.15.0-67.74",
-            "linux-headers-virtual": "5.15.0.67.65",
-            "linux-buildinfo-5.15.0-67-generic": "5.15.0-67.74",
-            "linux-image-5.15.0-67-generic-64k": "5.15.0-67.74",
-            "linux-headers-virtual-hwe-20.04": "5.15.0.67.65",
-            "linux-image-generic-lpae-hwe-20.04": "5.15.0.67.65",
-            "linux-generic-lpae-hwe-20.04": "5.15.0.67.65"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-aws"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-1031.35"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-cloud-tools-5.15.0-1031-aws": "5.15.0-1031.35",
-            "linux-aws-lts-22.04": "5.15.0.1031.29",
-            "linux-tools-5.15.0-1031-aws": "5.15.0-1031.35",
-            "linux-headers-aws": "5.15.0.1031.29",
-            "linux-image-aws": "5.15.0.1031.29",
-            "linux-modules-extra-aws-lts-22.04": "5.15.0.1031.29",
-            "linux-aws-headers-5.15.0-1031": "5.15.0-1031.35",
-            "linux-aws": "5.15.0.1031.29",
-            "linux-image-aws-lts-22.04": "5.15.0.1031.29",
-            "linux-aws-cloud-tools-5.15.0-1031": "5.15.0-1031.35",
-            "linux-modules-extra-aws": "5.15.0.1031.29",
-            "linux-image-unsigned-5.15.0-1031-aws": "5.15.0-1031.35",
-            "linux-headers-5.15.0-1031-aws": "5.15.0-1031.35",
-            "linux-modules-extra-5.15.0-1031-aws": "5.15.0-1031.35",
-            "linux-tools-aws": "5.15.0.1031.29",
-            "linux-image-5.15.0-1031-aws": "5.15.0-1031.35",
-            "linux-tools-aws-lts-22.04": "5.15.0.1031.29",
-            "linux-buildinfo-5.15.0-1031-aws": "5.15.0-1031.35",
-            "linux-modules-5.15.0-1031-aws": "5.15.0-1031.35",
-            "linux-headers-aws-lts-22.04": "5.15.0.1031.29",
-            "linux-aws-tools-5.15.0-1031": "5.15.0-1031.35"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-oracle"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-1030.36"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-5.15.0-1030-oracle": "5.15.0-1030.36",
-            "linux-buildinfo-5.15.0-1030-oracle": "5.15.0-1030.36",
-            "linux-modules-5.15.0-1030-oracle": "5.15.0-1030.36",
-            "linux-headers-oracle": "5.15.0.1030.25",
-            "linux-headers-5.15.0-1030-oracle": "5.15.0-1030.36",
-            "linux-image-unsigned-5.15.0-1030-oracle": "5.15.0-1030.36",
-            "linux-oracle-headers-5.15.0-1030": "5.15.0-1030.36",
-            "linux-modules-extra-5.15.0-1030-oracle": "5.15.0-1030.36",
-            "linux-tools-5.15.0-1030-oracle": "5.15.0-1030.36",
-            "linux-image-oracle": "5.15.0.1030.25",
-            "linux-tools-oracle": "5.15.0.1030.25",
-            "linux-oracle-tools-5.15.0-1030": "5.15.0-1030.36",
-            "linux-oracle": "5.15.0.1030.25"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-gke"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-1028.33"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-modules-5.15.0-1028-gke": "5.15.0-1028.33",
-            "linux-gke-5.15": "5.15.0.1028.27",
-            "linux-tools-gke-5.15": "5.15.0.1028.27",
-            "linux-image-unsigned-5.15.0-1028-gke": "5.15.0-1028.33",
-            "linux-image-gke-5.15": "5.15.0.1028.27",
-            "linux-gke-tools-5.15.0-1028": "5.15.0-1028.33",
-            "linux-image-5.15.0-1028-gke": "5.15.0-1028.33",
-            "linux-tools-gke": "5.15.0.1028.27",
-            "linux-gke-headers-5.15.0-1028": "5.15.0-1028.33",
-            "linux-gke": "5.15.0.1028.27",
-            "linux-buildinfo-5.15.0-1028-gke": "5.15.0-1028.33",
-            "linux-image-gke": "5.15.0.1028.27",
-            "linux-modules-extra-5.15.0-1028-gke": "5.15.0-1028.33",
-            "linux-headers-5.15.0-1028-gke": "5.15.0-1028.33",
-            "linux-headers-gke": "5.15.0.1028.27",
-            "linux-tools-5.15.0-1028-gke": "5.15.0-1028.33",
-            "linux-modules-iwlwifi-5.15.0-1028-gke": "5.15.0-1028.33",
-            "linux-headers-gke-5.15": "5.15.0.1028.27"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-gcp"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-1030.37"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-tools-5.15.0-1030-gcp": "5.15.0-1030.37",
-            "linux-image-unsigned-5.15.0-1030-gcp": "5.15.0-1030.37",
-            "linux-image-5.15.0-1030-gcp": "5.15.0-1030.37",
-            "linux-buildinfo-5.15.0-1030-gcp": "5.15.0-1030.37",
-            "linux-headers-gcp": "5.15.0.1030.25",
-            "linux-gcp": "5.15.0.1030.25",
-            "linux-modules-iwlwifi-5.15.0-1030-gcp": "5.15.0-1030.37",
-            "linux-gcp-tools-5.15.0-1030": "5.15.0-1030.37",
-            "linux-modules-5.15.0-1030-gcp": "5.15.0-1030.37",
-            "linux-image-gcp": "5.15.0.1030.25",
-            "linux-modules-extra-gcp": "5.15.0.1030.25",
-            "linux-headers-5.15.0-1030-gcp": "5.15.0-1030.37",
-            "linux-tools-gcp": "5.15.0.1030.25",
-            "linux-modules-extra-5.15.0-1030-gcp": "5.15.0-1030.37",
-            "linux-gcp-headers-5.15.0-1030": "5.15.0-1030.37"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-aws-5.15"
+        "name": "linux-aws-5.15",
+        "purl": "pkg:deb/ubuntu/linux-aws-5.15@5.15.0-1031.35~20.04.1?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -496,82 +46,44 @@
           ]
         }
       ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-cloud-tools-5.15.0-1031-aws": "5.15.0-1031.35~20.04.1",
-            "linux-headers-aws-edge": "5.15.0.1031.35~20.04.20",
-            "linux-headers-aws": "5.15.0.1031.35~20.04.20",
-            "linux-image-aws": "5.15.0.1031.35~20.04.20",
-            "linux-modules-extra-aws-edge": "5.15.0.1031.35~20.04.20",
-            "linux-tools-aws-edge": "5.15.0.1031.35~20.04.20",
-            "linux-image-aws-edge": "5.15.0.1031.35~20.04.20",
-            "linux-aws-edge": "5.15.0.1031.35~20.04.20",
-            "linux-aws": "5.15.0.1031.35~20.04.20",
-            "linux-aws-5.15-cloud-tools-5.15.0-1031": "5.15.0-1031.35~20.04.1",
-            "linux-image-unsigned-5.15.0-1031-aws": "5.15.0-1031.35~20.04.1",
-            "linux-headers-5.15.0-1031-aws": "5.15.0-1031.35~20.04.1",
-            "linux-tools-aws": "5.15.0.1031.35~20.04.20",
-            "linux-image-5.15.0-1031-aws": "5.15.0-1031.35~20.04.1",
-            "linux-modules-extra-5.15.0-1031-aws": "5.15.0-1031.35~20.04.1",
-            "linux-modules-extra-aws": "5.15.0.1031.35~20.04.20",
-            "linux-aws-5.15-tools-5.15.0-1031": "5.15.0-1031.35~20.04.1",
-            "linux-buildinfo-5.15.0-1031-aws": "5.15.0-1031.35~20.04.1",
-            "linux-tools-5.15.0-1031-aws": "5.15.0-1031.35~20.04.1",
-            "linux-aws-5.15-headers-5.15.0-1031": "5.15.0-1031.35~20.04.1",
-            "linux-modules-5.15.0-1031-aws": "5.15.0-1031.35~20.04.1"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-oracle-5.15"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-1030.36~20.04.1"
-            }
-          ]
-        }
+      "versions": [
+        "5.15.0-1014.18~20.04.1",
+        "5.15.0-1015.19~20.04.1",
+        "5.15.0-1017.21~20.04.1",
+        "5.15.0-1019.23~20.04.1",
+        "5.15.0-1020.24~20.04.1",
+        "5.15.0-1021.25~20.04.1",
+        "5.15.0-1022.26~20.04.1",
+        "5.15.0-1023.27~20.04.1",
+        "5.15.0-1026.30~20.04.2",
+        "5.15.0-1027.31~20.04.1",
+        "5.15.0-1028.32~20.04.1",
+        "5.15.0-1030.34~20.04.1"
       ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-buildinfo-5.15.0-1030-oracle": "5.15.0-1030.36~20.04.1",
-            "linux-modules-5.15.0-1030-oracle": "5.15.0-1030.36~20.04.1",
-            "linux-headers-oracle": "5.15.0.1030.36~20.04.1",
-            "linux-tools-oracle": "5.15.0.1030.36~20.04.1",
-            "linux-oracle-5.15-tools-5.15.0-1030": "5.15.0-1030.36~20.04.1",
-            "linux-image-unsigned-5.15.0-1030-oracle": "5.15.0-1030.36~20.04.1",
-            "linux-tools-5.15.0-1030-oracle": "5.15.0-1030.36~20.04.1",
-            "linux-tools-oracle-edge": "5.15.0.1030.36~20.04.1",
-            "linux-oracle-5.15-headers-5.15.0-1030": "5.15.0-1030.36~20.04.1",
-            "linux-oracle-edge": "5.15.0.1030.36~20.04.1",
-            "linux-image-oracle-edge": "5.15.0.1030.36~20.04.1",
-            "linux-headers-5.15.0-1030-oracle": "5.15.0-1030.36~20.04.1",
-            "linux-image-5.15.0-1030-oracle": "5.15.0-1030.36~20.04.1",
-            "linux-modules-extra-5.15.0-1030-oracle": "5.15.0-1030.36~20.04.1",
-            "linux-headers-oracle-edge": "5.15.0.1030.36~20.04.1",
-            "linux-image-oracle": "5.15.0.1030.36~20.04.1",
-            "linux-oracle": "5.15.0.1030.36~20.04.1"
+            "linux-aws-5.15-cloud-tools-5.15.0-1031": "5.15.0-1031.35~20.04.1",
+            "linux-aws-5.15-headers-5.15.0-1031": "5.15.0-1031.35~20.04.1",
+            "linux-aws-5.15-tools-5.15.0-1031": "5.15.0-1031.35~20.04.1",
+            "linux-buildinfo-5.15.0-1031-aws": "5.15.0-1031.35~20.04.1",
+            "linux-cloud-tools-5.15.0-1031-aws": "5.15.0-1031.35~20.04.1",
+            "linux-headers-5.15.0-1031-aws": "5.15.0-1031.35~20.04.1",
+            "linux-image-unsigned-5.15.0-1031-aws": "5.15.0-1031.35~20.04.1",
+            "linux-image-unsigned-5.15.0-1031-aws-dbgsym": "5.15.0-1031.35~20.04.1",
+            "linux-modules-5.15.0-1031-aws": "5.15.0-1031.35~20.04.1",
+            "linux-modules-extra-5.15.0-1031-aws": "5.15.0-1031.35~20.04.1",
+            "linux-tools-5.15.0-1031-aws": "5.15.0-1031.35~20.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-azure-5.15"
+        "name": "linux-azure-5.15",
+        "purl": "pkg:deb/ubuntu/linux-azure-5.15@5.15.0-1034.41~20.04.1?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -586,41 +98,46 @@
           ]
         }
       ],
+      "versions": [
+        "5.15.0-1007.8~20.04.1",
+        "5.15.0-1008.9~20.04.1",
+        "5.15.0-1013.16~20.04.1",
+        "5.15.0-1014.17~20.04.1",
+        "5.15.0-1017.20~20.04.1",
+        "5.15.0-1019.24~20.04.1",
+        "5.15.0-1020.25~20.04.1",
+        "5.15.0-1021.26~20.04.1",
+        "5.15.0-1022.27~20.04.1",
+        "5.15.0-1023.29~20.04.1",
+        "5.15.0-1029.36~20.04.1",
+        "5.15.0-1030.37~20.04.1",
+        "5.15.0-1031.38~20.04.1",
+        "5.15.0-1033.40~20.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-azure-5.15-tools-5.15.0-1034": "5.15.0-1034.41~20.04.1",
-            "linux-tools-azure-edge": "5.15.0.1034.41~20.04.24",
-            "linux-cloud-tools-azure": "5.15.0.1034.41~20.04.24",
-            "linux-image-unsigned-5.15.0-1034-azure": "5.15.0-1034.41~20.04.1",
-            "linux-image-azure-edge": "5.15.0.1034.41~20.04.24",
-            "linux-modules-5.15.0-1034-azure": "5.15.0-1034.41~20.04.1",
-            "linux-cloud-tools-azure-edge": "5.15.0.1034.41~20.04.24",
-            "linux-modules-extra-azure": "5.15.0.1034.41~20.04.24",
-            "linux-cloud-tools-5.15.0-1034-azure": "5.15.0-1034.41~20.04.1",
-            "linux-buildinfo-5.15.0-1034-azure": "5.15.0-1034.41~20.04.1",
-            "linux-azure-5.15-headers-5.15.0-1034": "5.15.0-1034.41~20.04.1",
-            "linux-image-5.15.0-1034-azure": "5.15.0-1034.41~20.04.1",
-            "linux-azure": "5.15.0.1034.41~20.04.24",
-            "linux-image-azure": "5.15.0.1034.41~20.04.24",
-            "linux-tools-5.15.0-1034-azure": "5.15.0-1034.41~20.04.1",
-            "linux-headers-azure-edge": "5.15.0.1034.41~20.04.24",
-            "linux-azure-edge": "5.15.0.1034.41~20.04.24",
-            "linux-tools-azure": "5.15.0.1034.41~20.04.24",
-            "linux-modules-extra-azure-edge": "5.15.0.1034.41~20.04.24",
-            "linux-modules-extra-5.15.0-1034-azure": "5.15.0-1034.41~20.04.1",
-            "linux-headers-5.15.0-1034-azure": "5.15.0-1034.41~20.04.1",
             "linux-azure-5.15-cloud-tools-5.15.0-1034": "5.15.0-1034.41~20.04.1",
-            "linux-headers-azure": "5.15.0.1034.41~20.04.24"
+            "linux-azure-5.15-headers-5.15.0-1034": "5.15.0-1034.41~20.04.1",
+            "linux-azure-5.15-tools-5.15.0-1034": "5.15.0-1034.41~20.04.1",
+            "linux-buildinfo-5.15.0-1034-azure": "5.15.0-1034.41~20.04.1",
+            "linux-cloud-tools-5.15.0-1034-azure": "5.15.0-1034.41~20.04.1",
+            "linux-headers-5.15.0-1034-azure": "5.15.0-1034.41~20.04.1",
+            "linux-image-unsigned-5.15.0-1034-azure": "5.15.0-1034.41~20.04.1",
+            "linux-image-unsigned-5.15.0-1034-azure-dbgsym": "5.15.0-1034.41~20.04.1",
+            "linux-modules-5.15.0-1034-azure": "5.15.0-1034.41~20.04.1",
+            "linux-modules-extra-5.15.0-1034-azure": "5.15.0-1034.41~20.04.1",
+            "linux-tools-5.15.0-1034-azure": "5.15.0-1034.41~20.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-gcp-5.15"
+        "name": "linux-gcp-5.15",
+        "purl": "pkg:deb/ubuntu/linux-gcp-5.15@5.15.0-1030.37~20.04.1?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -635,131 +152,43 @@
           ]
         }
       ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-tools-5.15.0-1030-gcp": "5.15.0-1030.37~20.04.1",
-            "linux-image-unsigned-5.15.0-1030-gcp": "5.15.0-1030.37~20.04.1",
-            "linux-image-gcp-edge": "5.15.0.1030.37~20.04.1",
-            "linux-image-5.15.0-1030-gcp": "5.15.0-1030.37~20.04.1",
-            "linux-buildinfo-5.15.0-1030-gcp": "5.15.0-1030.37~20.04.1",
-            "linux-headers-gcp-edge": "5.15.0.1030.37~20.04.1",
-            "linux-tools-gcp": "5.15.0.1030.37~20.04.1",
-            "linux-modules-extra-gcp-edge": "5.15.0.1030.37~20.04.1",
-            "linux-gcp": "5.15.0.1030.37~20.04.1",
-            "linux-headers-5.15.0-1030-gcp": "5.15.0-1030.37~20.04.1",
-            "linux-tools-gcp-edge": "5.15.0.1030.37~20.04.1",
-            "linux-headers-gcp": "5.15.0.1030.37~20.04.1",
-            "linux-modules-iwlwifi-5.15.0-1030-gcp": "5.15.0-1030.37~20.04.1",
-            "linux-modules-5.15.0-1030-gcp": "5.15.0-1030.37~20.04.1",
-            "linux-image-gcp": "5.15.0.1030.37~20.04.1",
-            "linux-gcp-5.15-tools-5.15.0-1030": "5.15.0-1030.37~20.04.1",
-            "linux-gcp-5.15-headers-5.15.0-1030": "5.15.0-1030.37~20.04.1",
-            "linux-modules-extra-gcp": "5.15.0.1030.37~20.04.1",
-            "linux-modules-extra-5.15.0-1030-gcp": "5.15.0-1030.37~20.04.1",
-            "linux-gcp-edge": "5.15.0.1030.37~20.04.1"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-hwe-5.15"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-67.74~20.04.1"
-            }
-          ]
-        }
+      "versions": [
+        "5.15.0-1006.9~20.04.1",
+        "5.15.0-1012.17~20.04.1",
+        "5.15.0-1013.18~20.04.1",
+        "5.15.0-1016.21~20.04.1",
+        "5.15.0-1017.23~20.04.2",
+        "5.15.0-1018.24~20.04.1",
+        "5.15.0-1021.28~20.04.1",
+        "5.15.0-1022.29~20.04.1",
+        "5.15.0-1025.32~20.04.2",
+        "5.15.0-1026.33~20.04.1",
+        "5.15.0-1027.34~20.04.1",
+        "5.15.0-1029.36~20.04.1"
       ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-tools-generic-lpae-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-cloud-tools-generic-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-image-virtual-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-tools-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
-            "linux-modules-iwlwifi-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
-            "linux-headers-virtual-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-modules-iwlwifi-generic-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-cloud-tools-virtual-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-headers-generic-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-image-virtual-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-tools-5.15.0-67-generic-64k": "5.15.0-67.74~20.04.1",
-            "linux-tools-generic-64k-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-image-generic-lpae-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-hwe-5.15-cloud-tools-5.15.0-67": "5.15.0-67.74~20.04.1",
-            "linux-headers-generic-lpae-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-image-extra-virtual-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-cloud-tools-generic-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-virtual-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-modules-extra-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
-            "linux-image-generic-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-headers-generic-64k-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-hwe-5.15-source-5.15.0": "5.15.0-67.74~20.04.1",
-            "linux-generic-64k-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-generic-lpae-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-virtual-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-image-extra-virtual-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-headers-generic-lpae-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-tools-generic-lpae-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-tools-generic-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-generic-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-modules-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
-            "linux-cloud-tools-virtual-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-headers-5.15.0-67-generic-64k": "5.15.0-67.74~20.04.1",
-            "linux-image-5.15.0-67-generic-lpae": "5.15.0-67.74~20.04.1",
-            "linux-image-generic-64k-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-hwe-5.15-tools-common": "5.15.0-67.74~20.04.1",
-            "linux-headers-5.15.0-67-generic-lpae": "5.15.0-67.74~20.04.1",
-            "linux-image-unsigned-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
-            "linux-generic-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-tools-5.15.0-67-generic-lpae": "5.15.0-67.74~20.04.1",
-            "linux-modules-5.15.0-67-generic-lpae": "5.15.0-67.74~20.04.1",
-            "linux-generic-lpae-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-tools-generic-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-headers-generic-64k-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-headers-generic-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-image-unsigned-5.15.0-67-generic-64k": "5.15.0-67.74~20.04.1",
-            "linux-hwe-5.15-headers-5.15.0-67": "5.15.0-67.74~20.04.1",
-            "linux-headers-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
-            "linux-image-generic-lpae-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-tools-virtual-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-image-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
-            "linux-tools-generic-64k-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-hwe-5.15-tools-host": "5.15.0-67.74~20.04.1",
-            "linux-hwe-5.15-tools-5.15.0-67": "5.15.0-67.74~20.04.1",
-            "linux-tools-virtual-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-image-generic-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-modules-5.15.0-67-generic-64k": "5.15.0-67.74~20.04.1",
-            "linux-buildinfo-5.15.0-67-generic-64k": "5.15.0-67.74~20.04.1",
-            "linux-generic-64k-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-image-generic-64k-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-cloud-tools-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
-            "linux-buildinfo-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
-            "linux-modules-iwlwifi-generic-hwe-20.04-edge": "5.15.0.67.74~20.04.28",
-            "linux-hwe-5.15-cloud-tools-common": "5.15.0-67.74~20.04.1",
-            "linux-image-5.15.0-67-generic-64k": "5.15.0-67.74~20.04.1",
-            "linux-headers-virtual-hwe-20.04": "5.15.0.67.74~20.04.28",
-            "linux-buildinfo-5.15.0-67-generic-lpae": "5.15.0-67.74~20.04.1"
+            "linux-buildinfo-5.15.0-1030-gcp": "5.15.0-1030.37~20.04.1",
+            "linux-gcp-5.15-headers-5.15.0-1030": "5.15.0-1030.37~20.04.1",
+            "linux-gcp-5.15-tools-5.15.0-1030": "5.15.0-1030.37~20.04.1",
+            "linux-headers-5.15.0-1030-gcp": "5.15.0-1030.37~20.04.1",
+            "linux-image-unsigned-5.15.0-1030-gcp": "5.15.0-1030.37~20.04.1",
+            "linux-image-unsigned-5.15.0-1030-gcp-dbgsym": "5.15.0-1030.37~20.04.1",
+            "linux-modules-5.15.0-1030-gcp": "5.15.0-1030.37~20.04.1",
+            "linux-modules-extra-5.15.0-1030-gcp": "5.15.0-1030.37~20.04.1",
+            "linux-modules-iwlwifi-5.15.0-1030-gcp": "5.15.0-1030.37~20.04.1",
+            "linux-tools-5.15.0-1030-gcp": "5.15.0-1030.37~20.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-gke-5.15"
+        "name": "linux-gke-5.15",
+        "purl": "pkg:deb/ubuntu/linux-gke-5.15@5.15.0-1028.33~20.04.1?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -774,36 +203,39 @@
           ]
         }
       ],
+      "versions": [
+        "5.15.0-1011.14~20.04.1",
+        "5.15.0-1014.17~20.04.1",
+        "5.15.0-1015.18~20.04.1",
+        "5.15.0-1016.19~20.04.1",
+        "5.15.0-1019.23~20.04.1",
+        "5.15.0-1020.25~20.04.1",
+        "5.15.0-1023.28~20.04.2",
+        "5.15.0-1027.32~20.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-modules-5.15.0-1028-gke": "5.15.0-1028.33~20.04.1",
-            "linux-gke-5.15": "5.15.0.1028.33~20.04.1",
-            "linux-tools-gke-5.15": "5.15.0.1028.33~20.04.1",
-            "linux-image-unsigned-5.15.0-1028-gke": "5.15.0-1028.33~20.04.1",
-            "linux-tools-5.15.0-1028-gke": "5.15.0-1028.33~20.04.1",
-            "linux-image-gke-5.15": "5.15.0.1028.33~20.04.1",
-            "linux-gke-5.15-tools-5.15.0-1028": "5.15.0-1028.33~20.04.1",
-            "linux-image-5.15.0-1028-gke": "5.15.0-1028.33~20.04.1",
-            "linux-gke-5.15-headers-5.15.0-1028": "5.15.0-1028.33~20.04.1",
-            "linux-tools-gke-edge": "5.15.0.1028.33~20.04.1",
-            "linux-modules-extra-5.15.0-1028-gke": "5.15.0-1028.33~20.04.1",
-            "linux-headers-5.15.0-1028-gke": "5.15.0-1028.33~20.04.1",
-            "linux-headers-gke-edge": "5.15.0.1028.33~20.04.1",
             "linux-buildinfo-5.15.0-1028-gke": "5.15.0-1028.33~20.04.1",
-            "linux-image-gke-edge": "5.15.0.1028.33~20.04.1",
-            "linux-gke-edge": "5.15.0.1028.33~20.04.1",
-            "linux-headers-gke-5.15": "5.15.0.1028.33~20.04.1",
-            "linux-modules-iwlwifi-5.15.0-1028-gke": "5.15.0-1028.33~20.04.1"
+            "linux-gke-5.15-headers-5.15.0-1028": "5.15.0-1028.33~20.04.1",
+            "linux-gke-5.15-tools-5.15.0-1028": "5.15.0-1028.33~20.04.1",
+            "linux-headers-5.15.0-1028-gke": "5.15.0-1028.33~20.04.1",
+            "linux-image-unsigned-5.15.0-1028-gke": "5.15.0-1028.33~20.04.1",
+            "linux-image-unsigned-5.15.0-1028-gke-dbgsym": "5.15.0-1028.33~20.04.1",
+            "linux-modules-5.15.0-1028-gke": "5.15.0-1028.33~20.04.1",
+            "linux-modules-extra-5.15.0-1028-gke": "5.15.0-1028.33~20.04.1",
+            "linux-modules-iwlwifi-5.15.0-1028-gke": "5.15.0-1028.33~20.04.1",
+            "linux-tools-5.15.0-1028-gke": "5.15.0-1028.33~20.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-lowlatency-hwe-5.15"
+        "name": "linux-hwe-5.15",
+        "purl": "pkg:deb/ubuntu/linux-hwe-5.15@5.15.0-67.74~20.04.1?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -818,50 +250,654 @@
           ]
         }
       ],
+      "versions": [
+        "5.15.0-33.34~20.04.1",
+        "5.15.0-41.44~20.04.1",
+        "5.15.0-43.46~20.04.1",
+        "5.15.0-46.49~20.04.1",
+        "5.15.0-48.54~20.04.1",
+        "5.15.0-50.56~20.04.1",
+        "5.15.0-52.58~20.04.1",
+        "5.15.0-53.59~20.04.1",
+        "5.15.0-56.62~20.04.1",
+        "5.15.0-57.63~20.04.1",
+        "5.15.0-58.64~20.04.1",
+        "5.15.0-60.66~20.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-cloud-tools-lowlatency-hwe-20.04": "5.15.0.67.74~20.04.25",
-            "linux-cloud-tools-5.15.0-67-lowlatency": "5.15.0-67.74~20.04.1",
-            "linux-buildinfo-5.15.0-67-lowlatency": "5.15.0-67.74~20.04.1",
-            "linux-image-lowlatency-hwe-20.04-edge": "5.15.0.67.74~20.04.25",
-            "linux-tools-lowlatency-64k-hwe-20.04": "5.15.0.67.74~20.04.25",
-            "linux-lowlatency-hwe-20.04": "5.15.0.67.74~20.04.25",
-            "linux-headers-5.15.0-67-lowlatency-64k": "5.15.0-67.74~20.04.1",
-            "linux-headers-lowlatency-hwe-20.04": "5.15.0.67.74~20.04.25",
-            "linux-image-lowlatency-hwe-20.04": "5.15.0.67.74~20.04.25",
-            "linux-tools-lowlatency-hwe-20.04-edge": "5.15.0.67.74~20.04.25",
-            "linux-lowlatency-hwe-20.04-edge": "5.15.0.67.74~20.04.25",
-            "linux-image-5.15.0-67-lowlatency-64k": "5.15.0-67.74~20.04.1",
-            "linux-headers-lowlatency-hwe-20.04-edge": "5.15.0.67.74~20.04.25",
-            "linux-lowlatency-hwe-5.15-tools-host": "5.15.0-67.74~20.04.1",
-            "linux-buildinfo-5.15.0-67-lowlatency-64k": "5.15.0-67.74~20.04.1",
-            "linux-modules-iwlwifi-5.15.0-67-lowlatency": "5.15.0-67.74~20.04.1",
-            "linux-lowlatency-hwe-5.15-headers-5.15.0-67": "5.15.0-67.74~20.04.1",
-            "linux-lowlatency-hwe-5.15-tools-common": "5.15.0-67.74~20.04.1",
-            "linux-tools-lowlatency-64k-hwe-20.04-edge": "5.15.0.67.74~20.04.25",
-            "linux-modules-5.15.0-67-lowlatency-64k": "5.15.0-67.74~20.04.1",
-            "linux-image-unsigned-5.15.0-67-lowlatency-64k": "5.15.0-67.74~20.04.1",
-            "linux-image-5.15.0-67-lowlatency": "5.15.0-67.74~20.04.1",
-            "linux-lowlatency-64k-hwe-20.04-edge": "5.15.0.67.74~20.04.25",
-            "linux-lowlatency-hwe-5.15-tools-5.15.0-67": "5.15.0-67.74~20.04.1",
-            "linux-tools-lowlatency-hwe-20.04": "5.15.0.67.74~20.04.25",
-            "linux-headers-lowlatency-64k-hwe-20.04": "5.15.0.67.74~20.04.25",
-            "linux-lowlatency-hwe-5.15-cloud-tools-5.15.0-67": "5.15.0-67.74~20.04.1",
-            "linux-lowlatency-64k-hwe-20.04": "5.15.0.67.74~20.04.25",
-            "linux-headers-5.15.0-67-lowlatency": "5.15.0-67.74~20.04.1",
-            "linux-image-unsigned-5.15.0-67-lowlatency": "5.15.0-67.74~20.04.1",
-            "linux-lowlatency-hwe-5.15-cloud-tools-common": "5.15.0-67.74~20.04.1",
-            "linux-tools-5.15.0-67-lowlatency": "5.15.0-67.74~20.04.1",
-            "linux-modules-5.15.0-67-lowlatency": "5.15.0-67.74~20.04.1",
-            "linux-cloud-tools-lowlatency-hwe-20.04-edge": "5.15.0.67.74~20.04.25",
-            "linux-image-lowlatency-64k-hwe-20.04-edge": "5.15.0.67.74~20.04.25",
-            "linux-tools-5.15.0-67-lowlatency-64k": "5.15.0-67.74~20.04.1",
-            "linux-headers-lowlatency-64k-hwe-20.04-edge": "5.15.0.67.74~20.04.25",
-            "linux-image-lowlatency-64k-hwe-20.04": "5.15.0.67.74~20.04.25"
+            "linux-buildinfo-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
+            "linux-buildinfo-5.15.0-67-generic-64k": "5.15.0-67.74~20.04.1",
+            "linux-buildinfo-5.15.0-67-generic-lpae": "5.15.0-67.74~20.04.1",
+            "linux-cloud-tools-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
+            "linux-headers-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
+            "linux-headers-5.15.0-67-generic-64k": "5.15.0-67.74~20.04.1",
+            "linux-headers-5.15.0-67-generic-lpae": "5.15.0-67.74~20.04.1",
+            "linux-hwe-5.15-cloud-tools-5.15.0-67": "5.15.0-67.74~20.04.1",
+            "linux-hwe-5.15-cloud-tools-common": "5.15.0-67.74~20.04.1",
+            "linux-hwe-5.15-headers-5.15.0-67": "5.15.0-67.74~20.04.1",
+            "linux-hwe-5.15-source-5.15.0": "5.15.0-67.74~20.04.1",
+            "linux-hwe-5.15-tools-5.15.0-67": "5.15.0-67.74~20.04.1",
+            "linux-hwe-5.15-tools-common": "5.15.0-67.74~20.04.1",
+            "linux-hwe-5.15-tools-host": "5.15.0-67.74~20.04.1",
+            "linux-image-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
+            "linux-image-5.15.0-67-generic-dbgsym": "5.15.0-67.74~20.04.1",
+            "linux-image-5.15.0-67-generic-lpae": "5.15.0-67.74~20.04.1",
+            "linux-image-5.15.0-67-generic-lpae-dbgsym": "5.15.0-67.74~20.04.1",
+            "linux-image-unsigned-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
+            "linux-image-unsigned-5.15.0-67-generic-64k": "5.15.0-67.74~20.04.1",
+            "linux-image-unsigned-5.15.0-67-generic-64k-dbgsym": "5.15.0-67.74~20.04.1",
+            "linux-image-unsigned-5.15.0-67-generic-dbgsym": "5.15.0-67.74~20.04.1",
+            "linux-modules-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
+            "linux-modules-5.15.0-67-generic-64k": "5.15.0-67.74~20.04.1",
+            "linux-modules-5.15.0-67-generic-lpae": "5.15.0-67.74~20.04.1",
+            "linux-modules-extra-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
+            "linux-modules-iwlwifi-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
+            "linux-tools-5.15.0-67-generic": "5.15.0-67.74~20.04.1",
+            "linux-tools-5.15.0-67-generic-64k": "5.15.0-67.74~20.04.1",
+            "linux-tools-5.15.0-67-generic-lpae": "5.15.0-67.74~20.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:20.04:LTS",
+        "name": "linux-lowlatency-hwe-5.15",
+        "purl": "pkg:deb/ubuntu/linux-lowlatency-hwe-5.15@5.15.0-67.74~20.04.1?arch=src?distro=focal"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.15.0-67.74~20.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.15.0-33.34~20.04.1",
+        "5.15.0-42.45~20.04.1",
+        "5.15.0-43.46~20.04.1",
+        "5.15.0-46.49~20.04.1",
+        "5.15.0-48.54~20.04.1",
+        "5.15.0-50.56~20.04.1",
+        "5.15.0-52.58~20.04.1",
+        "5.15.0-53.59~20.04.1",
+        "5.15.0-56.62~20.04.1",
+        "5.15.0-58.64~20.04.1",
+        "5.15.0-60.66~20.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-5.15.0-67-lowlatency": "5.15.0-67.74~20.04.1",
+            "linux-buildinfo-5.15.0-67-lowlatency-64k": "5.15.0-67.74~20.04.1",
+            "linux-cloud-tools-5.15.0-67-lowlatency": "5.15.0-67.74~20.04.1",
+            "linux-headers-5.15.0-67-lowlatency": "5.15.0-67.74~20.04.1",
+            "linux-headers-5.15.0-67-lowlatency-64k": "5.15.0-67.74~20.04.1",
+            "linux-image-unsigned-5.15.0-67-lowlatency": "5.15.0-67.74~20.04.1",
+            "linux-image-unsigned-5.15.0-67-lowlatency-64k": "5.15.0-67.74~20.04.1",
+            "linux-image-unsigned-5.15.0-67-lowlatency-64k-dbgsym": "5.15.0-67.74~20.04.1",
+            "linux-image-unsigned-5.15.0-67-lowlatency-dbgsym": "5.15.0-67.74~20.04.1",
+            "linux-lowlatency-hwe-5.15-cloud-tools-5.15.0-67": "5.15.0-67.74~20.04.1",
+            "linux-lowlatency-hwe-5.15-cloud-tools-common": "5.15.0-67.74~20.04.1",
+            "linux-lowlatency-hwe-5.15-headers-5.15.0-67": "5.15.0-67.74~20.04.1",
+            "linux-lowlatency-hwe-5.15-tools-5.15.0-67": "5.15.0-67.74~20.04.1",
+            "linux-lowlatency-hwe-5.15-tools-common": "5.15.0-67.74~20.04.1",
+            "linux-lowlatency-hwe-5.15-tools-host": "5.15.0-67.74~20.04.1",
+            "linux-modules-5.15.0-67-lowlatency": "5.15.0-67.74~20.04.1",
+            "linux-modules-5.15.0-67-lowlatency-64k": "5.15.0-67.74~20.04.1",
+            "linux-modules-iwlwifi-5.15.0-67-lowlatency": "5.15.0-67.74~20.04.1",
+            "linux-tools-5.15.0-67-lowlatency": "5.15.0-67.74~20.04.1",
+            "linux-tools-5.15.0-67-lowlatency-64k": "5.15.0-67.74~20.04.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:20.04:LTS",
+        "name": "linux-oracle-5.15",
+        "purl": "pkg:deb/ubuntu/linux-oracle-5.15@5.15.0-1030.36~20.04.1?arch=src?distro=focal"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.15.0-1030.36~20.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.15.0-1007.9~20.04.1",
+        "5.15.0-1013.17~20.04.1",
+        "5.15.0-1016.20~20.04.1",
+        "5.15.0-1017.22~20.04.1",
+        "5.15.0-1018.23~20.04.1",
+        "5.15.0-1019.24~20.04.1",
+        "5.15.0-1021.27~20.04.1",
+        "5.15.0-1022.28~20.04.1",
+        "5.15.0-1025.31~20.04.2",
+        "5.15.0-1027.33~20.04.1",
+        "5.15.0-1029.35~20.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-5.15.0-1030-oracle": "5.15.0-1030.36~20.04.1",
+            "linux-headers-5.15.0-1030-oracle": "5.15.0-1030.36~20.04.1",
+            "linux-image-unsigned-5.15.0-1030-oracle": "5.15.0-1030.36~20.04.1",
+            "linux-image-unsigned-5.15.0-1030-oracle-dbgsym": "5.15.0-1030.36~20.04.1",
+            "linux-modules-5.15.0-1030-oracle": "5.15.0-1030.36~20.04.1",
+            "linux-modules-extra-5.15.0-1030-oracle": "5.15.0-1030.36~20.04.1",
+            "linux-oracle-5.15-headers-5.15.0-1030": "5.15.0-1030.36~20.04.1",
+            "linux-oracle-5.15-tools-5.15.0-1030": "5.15.0-1030.36~20.04.1",
+            "linux-tools-5.15.0-1030-oracle": "5.15.0-1030.36~20.04.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:22.04:LTS",
+        "name": "linux",
+        "purl": "pkg:deb/ubuntu/linux@5.15.0-67.74?arch=src?distro=jammy"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.15.0-67.74"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.13.0-19.19",
+        "5.15.0-17.17",
+        "5.15.0-18.18",
+        "5.15.0-22.22",
+        "5.15.0-23.23",
+        "5.15.0-25.25",
+        "5.15.0-27.28",
+        "5.15.0-30.31",
+        "5.15.0-33.34",
+        "5.15.0-35.36",
+        "5.15.0-37.39",
+        "5.15.0-39.42",
+        "5.15.0-40.43",
+        "5.15.0-41.44",
+        "5.15.0-43.46",
+        "5.15.0-46.49",
+        "5.15.0-47.51",
+        "5.15.0-48.54",
+        "5.15.0-50.56",
+        "5.15.0-52.58",
+        "5.15.0-53.59",
+        "5.15.0-56.62",
+        "5.15.0-57.63",
+        "5.15.0-58.64",
+        "5.15.0-60.66"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-5.15.0-67-generic": "5.15.0-67.74",
+            "linux-buildinfo-5.15.0-67-generic-64k": "5.15.0-67.74",
+            "linux-buildinfo-5.15.0-67-generic-lpae": "5.15.0-67.74",
+            "linux-cloud-tools-5.15.0-67": "5.15.0-67.74",
+            "linux-cloud-tools-5.15.0-67-generic": "5.15.0-67.74",
+            "linux-cloud-tools-common": "5.15.0-67.74",
+            "linux-doc": "5.15.0-67.74",
+            "linux-headers-5.15.0-67": "5.15.0-67.74",
+            "linux-headers-5.15.0-67-generic": "5.15.0-67.74",
+            "linux-headers-5.15.0-67-generic-64k": "5.15.0-67.74",
+            "linux-headers-5.15.0-67-generic-lpae": "5.15.0-67.74",
+            "linux-image-5.15.0-67-generic": "5.15.0-67.74",
+            "linux-image-5.15.0-67-generic-dbgsym": "5.15.0-67.74",
+            "linux-image-5.15.0-67-generic-lpae": "5.15.0-67.74",
+            "linux-image-5.15.0-67-generic-lpae-dbgsym": "5.15.0-67.74",
+            "linux-image-unsigned-5.15.0-67-generic": "5.15.0-67.74",
+            "linux-image-unsigned-5.15.0-67-generic-64k": "5.15.0-67.74",
+            "linux-image-unsigned-5.15.0-67-generic-64k-dbgsym": "5.15.0-67.74",
+            "linux-image-unsigned-5.15.0-67-generic-dbgsym": "5.15.0-67.74",
+            "linux-libc-dev": "5.15.0-67.74",
+            "linux-modules-5.15.0-67-generic": "5.15.0-67.74",
+            "linux-modules-5.15.0-67-generic-64k": "5.15.0-67.74",
+            "linux-modules-5.15.0-67-generic-lpae": "5.15.0-67.74",
+            "linux-modules-extra-5.15.0-67-generic": "5.15.0-67.74",
+            "linux-modules-iwlwifi-5.15.0-67-generic": "5.15.0-67.74",
+            "linux-source-5.15.0": "5.15.0-67.74",
+            "linux-tools-5.15.0-67": "5.15.0-67.74",
+            "linux-tools-5.15.0-67-generic": "5.15.0-67.74",
+            "linux-tools-5.15.0-67-generic-64k": "5.15.0-67.74",
+            "linux-tools-5.15.0-67-generic-lpae": "5.15.0-67.74",
+            "linux-tools-common": "5.15.0-67.74",
+            "linux-tools-host": "5.15.0-67.74"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:22.04:LTS",
+        "name": "linux-aws",
+        "purl": "pkg:deb/ubuntu/linux-aws@5.15.0-1031.35?arch=src?distro=jammy"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.15.0-1031.35"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.13.0-1005.6",
+        "5.15.0-1002.4",
+        "5.15.0-1003.5",
+        "5.15.0-1004.6",
+        "5.15.0-1005.7",
+        "5.15.0-1008.10",
+        "5.15.0-1009.11",
+        "5.15.0-1011.14",
+        "5.15.0-1013.17",
+        "5.15.0-1014.18",
+        "5.15.0-1015.19",
+        "5.15.0-1017.21",
+        "5.15.0-1019.23",
+        "5.15.0-1020.24",
+        "5.15.0-1021.25",
+        "5.15.0-1022.26",
+        "5.15.0-1023.27",
+        "5.15.0-1026.30",
+        "5.15.0-1027.31",
+        "5.15.0-1028.32",
+        "5.15.0-1030.34"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-aws-cloud-tools-5.15.0-1031": "5.15.0-1031.35",
+            "linux-aws-headers-5.15.0-1031": "5.15.0-1031.35",
+            "linux-aws-tools-5.15.0-1031": "5.15.0-1031.35",
+            "linux-buildinfo-5.15.0-1031-aws": "5.15.0-1031.35",
+            "linux-cloud-tools-5.15.0-1031-aws": "5.15.0-1031.35",
+            "linux-headers-5.15.0-1031-aws": "5.15.0-1031.35",
+            "linux-image-unsigned-5.15.0-1031-aws": "5.15.0-1031.35",
+            "linux-image-unsigned-5.15.0-1031-aws-dbgsym": "5.15.0-1031.35",
+            "linux-modules-5.15.0-1031-aws": "5.15.0-1031.35",
+            "linux-modules-extra-5.15.0-1031-aws": "5.15.0-1031.35",
+            "linux-tools-5.15.0-1031-aws": "5.15.0-1031.35"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:22.04:LTS",
+        "name": "linux-azure",
+        "purl": "pkg:deb/ubuntu/linux-azure@5.15.0-1034.41?arch=src?distro=jammy"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.15.0-1034.41"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.13.0-1006.7",
+        "5.15.0-1001.2",
+        "5.15.0-1002.3",
+        "5.15.0-1003.4",
+        "5.15.0-1005.6",
+        "5.15.0-1007.8",
+        "5.15.0-1008.9",
+        "5.15.0-1010.12",
+        "5.15.0-1012.15",
+        "5.15.0-1013.16",
+        "5.15.0-1014.17",
+        "5.15.0-1017.20",
+        "5.15.0-1019.24",
+        "5.15.0-1020.25",
+        "5.15.0-1021.26",
+        "5.15.0-1022.27",
+        "5.15.0-1023.29",
+        "5.15.0-1024.30",
+        "5.15.0-1029.36",
+        "5.15.0-1030.37",
+        "5.15.0-1031.38",
+        "5.15.0-1033.40"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-azure-cloud-tools-5.15.0-1034": "5.15.0-1034.41",
+            "linux-azure-headers-5.15.0-1034": "5.15.0-1034.41",
+            "linux-azure-tools-5.15.0-1034": "5.15.0-1034.41",
+            "linux-buildinfo-5.15.0-1034-azure": "5.15.0-1034.41",
+            "linux-cloud-tools-5.15.0-1034-azure": "5.15.0-1034.41",
+            "linux-headers-5.15.0-1034-azure": "5.15.0-1034.41",
+            "linux-image-unsigned-5.15.0-1034-azure": "5.15.0-1034.41",
+            "linux-image-unsigned-5.15.0-1034-azure-dbgsym": "5.15.0-1034.41",
+            "linux-modules-5.15.0-1034-azure": "5.15.0-1034.41",
+            "linux-modules-extra-5.15.0-1034-azure": "5.15.0-1034.41",
+            "linux-tools-5.15.0-1034-azure": "5.15.0-1034.41"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:22.04:LTS",
+        "name": "linux-azure-fde",
+        "purl": "pkg:deb/ubuntu/linux-azure-fde@5.15.0-1034.41.1?arch=src?distro=jammy"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.15.0-1034.41.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.15.0-1019.24.1",
+        "5.15.0-1024.30.1",
+        "5.15.0-1029.36.1",
+        "5.15.0-1030.37.1",
+        "5.15.0-1031.38.1",
+        "5.15.0-1033.40.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-image-unsigned-5.15.0-1034-azure-fde": "5.15.0-1034.41.1",
+            "linux-image-unsigned-5.15.0-1034-azure-fde-dbgsym": "5.15.0-1034.41.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:22.04:LTS",
+        "name": "linux-gcp",
+        "purl": "pkg:deb/ubuntu/linux-gcp@5.15.0-1030.37?arch=src?distro=jammy"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.15.0-1030.37"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.13.0-1005.6",
+        "5.15.0-1001.3",
+        "5.15.0-1002.5",
+        "5.15.0-1003.6",
+        "5.15.0-1004.7",
+        "5.15.0-1005.8",
+        "5.15.0-1006.9",
+        "5.15.0-1008.12",
+        "5.15.0-1010.15",
+        "5.15.0-1013.18",
+        "5.15.0-1016.21",
+        "5.15.0-1017.23",
+        "5.15.0-1018.24",
+        "5.15.0-1019.25",
+        "5.15.0-1021.28",
+        "5.15.0-1022.29",
+        "5.15.0-1025.32",
+        "5.15.0-1026.33",
+        "5.15.0-1027.34",
+        "5.15.0-1029.36"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-5.15.0-1030-gcp": "5.15.0-1030.37",
+            "linux-gcp-headers-5.15.0-1030": "5.15.0-1030.37",
+            "linux-gcp-tools-5.15.0-1030": "5.15.0-1030.37",
+            "linux-headers-5.15.0-1030-gcp": "5.15.0-1030.37",
+            "linux-image-unsigned-5.15.0-1030-gcp": "5.15.0-1030.37",
+            "linux-image-unsigned-5.15.0-1030-gcp-dbgsym": "5.15.0-1030.37",
+            "linux-modules-5.15.0-1030-gcp": "5.15.0-1030.37",
+            "linux-modules-extra-5.15.0-1030-gcp": "5.15.0-1030.37",
+            "linux-modules-iwlwifi-5.15.0-1030-gcp": "5.15.0-1030.37",
+            "linux-tools-5.15.0-1030-gcp": "5.15.0-1030.37"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:22.04:LTS",
+        "name": "linux-gke",
+        "purl": "pkg:deb/ubuntu/linux-gke@5.15.0-1028.33?arch=src?distro=jammy"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.15.0-1028.33"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.15.0-1002.2",
+        "5.15.0-1003.3",
+        "5.15.0-1004.5",
+        "5.15.0-1005.6",
+        "5.15.0-1006.7",
+        "5.15.0-1008.10",
+        "5.15.0-1010.13",
+        "5.15.0-1011.14",
+        "5.15.0-1014.17",
+        "5.15.0-1015.18",
+        "5.15.0-1016.19",
+        "5.15.0-1017.20",
+        "5.15.0-1019.23",
+        "5.15.0-1020.25",
+        "5.15.0-1023.28",
+        "5.15.0-1024.29",
+        "5.15.0-1027.32"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-5.15.0-1028-gke": "5.15.0-1028.33",
+            "linux-gke-headers-5.15.0-1028": "5.15.0-1028.33",
+            "linux-gke-tools-5.15.0-1028": "5.15.0-1028.33",
+            "linux-headers-5.15.0-1028-gke": "5.15.0-1028.33",
+            "linux-image-unsigned-5.15.0-1028-gke": "5.15.0-1028.33",
+            "linux-image-unsigned-5.15.0-1028-gke-dbgsym": "5.15.0-1028.33",
+            "linux-modules-5.15.0-1028-gke": "5.15.0-1028.33",
+            "linux-modules-extra-5.15.0-1028-gke": "5.15.0-1028.33",
+            "linux-modules-iwlwifi-5.15.0-1028-gke": "5.15.0-1028.33",
+            "linux-tools-5.15.0-1028-gke": "5.15.0-1028.33"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:22.04:LTS",
+        "name": "linux-lowlatency",
+        "purl": "pkg:deb/ubuntu/linux-lowlatency@5.15.0-67.74?arch=src?distro=jammy"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.15.0-67.74"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.15.0-22.22",
+        "5.15.0-23.23",
+        "5.15.0-24.24",
+        "5.15.0-27.28",
+        "5.15.0-30.31",
+        "5.15.0-33.34",
+        "5.15.0-35.36",
+        "5.15.0-37.39",
+        "5.15.0-39.42",
+        "5.15.0-40.43",
+        "5.15.0-41.44",
+        "5.15.0-43.46",
+        "5.15.0-46.49",
+        "5.15.0-47.53",
+        "5.15.0-48.54",
+        "5.15.0-50.56",
+        "5.15.0-52.58",
+        "5.15.0-53.59",
+        "5.15.0-56.62",
+        "5.15.0-57.63",
+        "5.15.0-58.64",
+        "5.15.0-60.66"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-5.15.0-67-lowlatency": "5.15.0-67.74",
+            "linux-buildinfo-5.15.0-67-lowlatency-64k": "5.15.0-67.74",
+            "linux-cloud-tools-5.15.0-67-lowlatency": "5.15.0-67.74",
+            "linux-headers-5.15.0-67-lowlatency": "5.15.0-67.74",
+            "linux-headers-5.15.0-67-lowlatency-64k": "5.15.0-67.74",
+            "linux-image-unsigned-5.15.0-67-lowlatency": "5.15.0-67.74",
+            "linux-image-unsigned-5.15.0-67-lowlatency-64k": "5.15.0-67.74",
+            "linux-image-unsigned-5.15.0-67-lowlatency-64k-dbgsym": "5.15.0-67.74",
+            "linux-image-unsigned-5.15.0-67-lowlatency-dbgsym": "5.15.0-67.74",
+            "linux-lowlatency-cloud-tools-5.15.0-67": "5.15.0-67.74",
+            "linux-lowlatency-cloud-tools-common": "5.15.0-67.74",
+            "linux-lowlatency-headers-5.15.0-67": "5.15.0-67.74",
+            "linux-lowlatency-tools-5.15.0-67": "5.15.0-67.74",
+            "linux-lowlatency-tools-common": "5.15.0-67.74",
+            "linux-lowlatency-tools-host": "5.15.0-67.74",
+            "linux-modules-5.15.0-67-lowlatency": "5.15.0-67.74",
+            "linux-modules-5.15.0-67-lowlatency-64k": "5.15.0-67.74",
+            "linux-modules-iwlwifi-5.15.0-67-lowlatency": "5.15.0-67.74",
+            "linux-tools-5.15.0-67-lowlatency": "5.15.0-67.74",
+            "linux-tools-5.15.0-67-lowlatency-64k": "5.15.0-67.74"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:22.04:LTS",
+        "name": "linux-oracle",
+        "purl": "pkg:deb/ubuntu/linux-oracle@5.15.0-1030.36?arch=src?distro=jammy"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.15.0-1030.36"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.13.0-1008.10",
+        "5.15.0-1001.3",
+        "5.15.0-1002.4",
+        "5.15.0-1003.5",
+        "5.15.0-1006.8",
+        "5.15.0-1007.9",
+        "5.15.0-1009.12",
+        "5.15.0-1011.15",
+        "5.15.0-1013.17",
+        "5.15.0-1016.20",
+        "5.15.0-1017.22",
+        "5.15.0-1018.23",
+        "5.15.0-1019.24",
+        "5.15.0-1021.27",
+        "5.15.0-1022.28",
+        "5.15.0-1025.31",
+        "5.15.0-1026.32",
+        "5.15.0-1027.33",
+        "5.15.0-1029.35"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-5.15.0-1030-oracle": "5.15.0-1030.36",
+            "linux-headers-5.15.0-1030-oracle": "5.15.0-1030.36",
+            "linux-image-unsigned-5.15.0-1030-oracle": "5.15.0-1030.36",
+            "linux-image-unsigned-5.15.0-1030-oracle-dbgsym": "5.15.0-1030.36",
+            "linux-modules-5.15.0-1030-oracle": "5.15.0-1030.36",
+            "linux-modules-extra-5.15.0-1030-oracle": "5.15.0-1030.36",
+            "linux-oracle-headers-5.15.0-1030": "5.15.0-1030.36",
+            "linux-oracle-tools-5.15.0-1030": "5.15.0-1030.36",
+            "linux-tools-5.15.0-1030-oracle": "5.15.0-1030.36"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],
@@ -896,15 +932,15 @@
     },
     {
       "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2022-4379"
+    },
+    {
+      "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2022-42328"
     },
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2022-42329"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2022-4379"
     },
     {
       "type": "REPORT",

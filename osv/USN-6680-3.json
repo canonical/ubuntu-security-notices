@@ -1,14 +1,15 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-6680-3",
   "summary": "linux-aws, linux-aws-6.5 vulnerabilities",
   "details": "\u9ec4\u601d\u806a discovered that the NFC Controller Interface (NCI) implementation in\nthe Linux kernel did not properly handle certain memory allocation failure\nconditions, leading to a null pointer dereference vulnerability. A local\nattacker could use this to cause a denial of service (system crash).\n(CVE-2023-46343)\n\nIt was discovered that a race condition existed in the Bluetooth subsystem\nof the Linux kernel, leading to a use-after-free vulnerability. A local\nattacker could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2023-51779)\n\nIt was discovered that a race condition existed in the Rose X.25 protocol\nimplementation in the Linux kernel, leading to a use-after- free\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-51782)\n\nAlon Zahavi discovered that the NVMe-oF/TCP subsystem of the Linux kernel\ndid not properly handle connect command payloads in certain situations,\nleading to an out-of-bounds read vulnerability. A remote attacker could use\nthis to expose sensitive information (kernel memory). (CVE-2023-6121)\n\nJann Horn discovered that the io_uring subsystem in the Linux kernel\ncontained an out-of-bounds access vulnerability. A local attacker could use\nthis to cause a denial of service (system crash). (CVE-2023-6560)\n\nDan Carpenter discovered that the netfilter subsystem in the Linux kernel\ndid not store data in properly sized memory locations. A local user could\nuse this to cause a denial of service (system crash). (CVE-2024-0607)\n\nSupraja Sridhara, Benedict Schl\u00fcter, Mark Kuhne, Andrin Bertschi, and\nShweta Shinde discovered that the Confidential Computing framework in the\nLinux kernel for x86 platforms did not properly handle 32-bit emulation on\nTDX and SEV. An attacker with access to the VMM could use this to cause a\ndenial of service (guest crash) or possibly execute arbitrary code.\n(CVE-2024-25744)\n",
   "aliases": [],
   "related": [
+    "CVE-2023-6121",
+    "CVE-2023-6560",
     "CVE-2023-46343",
     "CVE-2023-51779",
     "CVE-2023-51782",
-    "CVE-2023-6121",
-    "CVE-2023-6560",
     "CVE-2024-0607",
     "CVE-2024-25744"
   ],
@@ -18,7 +19,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-aws-6.5"
+        "name": "linux-aws-6.5",
+        "purl": "pkg:deb/ubuntu/linux-aws-6.5@6.5.0-1015.15~22.04.1?arch=src?distro=jammy"
       },
       "ranges": [
         {
@@ -33,39 +35,37 @@
           ]
         }
       ],
+      "versions": [
+        "6.5.0-1008.8~22.04.1",
+        "6.5.0-1010.10~22.04.1",
+        "6.5.0-1011.11~22.04.1",
+        "6.5.0-1012.12~22.04.1",
+        "6.5.0-1014.14~22.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-aws": "6.5.0.1015.15~22.04.1",
             "linux-aws-6.5-cloud-tools-6.5.0-1015": "6.5.0-1015.15~22.04.1",
             "linux-aws-6.5-headers-6.5.0-1015": "6.5.0-1015.15~22.04.1",
             "linux-aws-6.5-tools-6.5.0-1015": "6.5.0-1015.15~22.04.1",
-            "linux-aws-edge": "6.5.0.1015.15~22.04.1",
             "linux-buildinfo-6.5.0-1015-aws": "6.5.0-1015.15~22.04.1",
             "linux-cloud-tools-6.5.0-1015-aws": "6.5.0-1015.15~22.04.1",
             "linux-headers-6.5.0-1015-aws": "6.5.0-1015.15~22.04.1",
-            "linux-headers-aws": "6.5.0.1015.15~22.04.1",
-            "linux-headers-aws-edge": "6.5.0.1015.15~22.04.1",
-            "linux-image-6.5.0-1015-aws": "6.5.0-1015.15~22.04.1",
-            "linux-image-aws": "6.5.0.1015.15~22.04.1",
-            "linux-image-aws-edge": "6.5.0.1015.15~22.04.1",
             "linux-image-unsigned-6.5.0-1015-aws": "6.5.0-1015.15~22.04.1",
+            "linux-image-unsigned-6.5.0-1015-aws-dbgsym": "6.5.0-1015.15~22.04.1",
             "linux-modules-6.5.0-1015-aws": "6.5.0-1015.15~22.04.1",
             "linux-modules-extra-6.5.0-1015-aws": "6.5.0-1015.15~22.04.1",
-            "linux-modules-extra-aws": "6.5.0.1015.15~22.04.1",
-            "linux-modules-extra-aws-edge": "6.5.0.1015.15~22.04.1",
-            "linux-tools-6.5.0-1015-aws": "6.5.0-1015.15~22.04.1",
-            "linux-tools-aws": "6.5.0.1015.15~22.04.1",
-            "linux-tools-aws-edge": "6.5.0.1015.15~22.04.1"
+            "linux-tools-6.5.0-1015-aws": "6.5.0-1015.15~22.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:23.10",
-        "name": "linux-aws"
+        "name": "linux-aws",
+        "purl": "pkg:deb/ubuntu/linux-aws@6.5.0-1015.15?arch=src?distro=mantic"
       },
       "ranges": [
         {
@@ -80,28 +80,36 @@
           ]
         }
       ],
+      "versions": [
+        "6.2.0-1003.3",
+        "6.2.0-1004.4",
+        "6.5.0-1005.5",
+        "6.5.0-1007.7",
+        "6.5.0-1008.8",
+        "6.5.0-1009.9",
+        "6.5.0-1010.10",
+        "6.5.0-1011.11",
+        "6.5.0-1012.12",
+        "6.5.0-1013.13",
+        "6.5.0-1014.14"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-aws": "6.5.0.1015.15",
             "linux-aws-cloud-tools-6.5.0-1015": "6.5.0-1015.15",
             "linux-aws-headers-6.5.0-1015": "6.5.0-1015.15",
             "linux-aws-tools-6.5.0-1015": "6.5.0-1015.15",
             "linux-buildinfo-6.5.0-1015-aws": "6.5.0-1015.15",
             "linux-cloud-tools-6.5.0-1015-aws": "6.5.0-1015.15",
             "linux-headers-6.5.0-1015-aws": "6.5.0-1015.15",
-            "linux-headers-aws": "6.5.0.1015.15",
-            "linux-image-6.5.0-1015-aws": "6.5.0-1015.15",
-            "linux-image-aws": "6.5.0.1015.15",
             "linux-image-unsigned-6.5.0-1015-aws": "6.5.0-1015.15",
+            "linux-image-unsigned-6.5.0-1015-aws-dbgsym": "6.5.0-1015.15",
             "linux-modules-6.5.0-1015-aws": "6.5.0-1015.15",
             "linux-modules-extra-6.5.0-1015-aws": "6.5.0-1015.15",
-            "linux-modules-extra-aws": "6.5.0.1015.15",
-            "linux-tools-6.5.0-1015-aws": "6.5.0-1015.15",
-            "linux-tools-aws": "6.5.0.1015.15"
+            "linux-tools-6.5.0-1015-aws": "6.5.0-1015.15"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -109,6 +117,14 @@
     {
       "type": "ADVISORY",
       "url": "https://ubuntu.com/security/notices/USN-6680-3"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-6121"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-6560"
     },
     {
       "type": "REPORT",
@@ -121,14 +137,6 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-51782"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-6121"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-6560"
     },
     {
       "type": "REPORT",

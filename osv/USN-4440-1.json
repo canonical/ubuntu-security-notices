@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-4440-1",
   "summary": "linux-hwe, linux-aws-5.3, linux-azure-5.3, linux-gcp-5.3, linux-gke-5.3, linux-hwe, linux-oracle-5.3, linux-raspi2-5.3 vulnerabilities",
   "details": "It was discovered that the network block device (nbd) implementation in the\nLinux kernel did not properly check for error conditions in some\nsituations. An attacker could possibly use this to cause a denial of\nservice (system crash). (CVE-2019-16089)\n\nIt was discovered that the kernel->user space relay implementation in the\nLinux kernel did not properly check return values in some situations. A\nlocal attacker could possibly use this to cause a denial of service (system\ncrash). (CVE-2019-19462)\n\nChuhong Yuan discovered that go7007 USB audio device driver in the Linux\nkernel did not properly deallocate memory in some failure conditions. A\nphysically proximate attacker could use this to cause a denial of service\n(memory exhaustion). (CVE-2019-20810)\n\nJason A. Donenfeld discovered that the ACPI implementation in the Linux\nkernel did not properly restrict loading SSDT code from an EFI variable. A\nprivileged attacker could use this to bypass Secure Boot lockdown\nrestrictions and execute arbitrary code in the kernel. (CVE-2019-20908)\n\nIt was discovered that the elf handling code in the Linux kernel did not\ninitialize memory before using it in certain situations. A local attacker\ncould use this to possibly expose sensitive information (kernel memory).\n(CVE-2020-10732)\n\nFan Yang discovered that the mremap implementation in the Linux kernel did\nnot properly handle DAX Huge Pages. A local attacker with access to DAX\nstorage could use this to gain administrative privileges. (CVE-2020-10757)\n\nIt was discovered that the Linux kernel did not correctly apply Speculative\nStore Bypass Disable (SSBD) mitigations in certain situations. A local\nattacker could possibly use this to expose sensitive information.\n(CVE-2020-10766)\n\nIt was discovered that the Linux kernel did not correctly apply Indirect\nBranch Predictor Barrier (IBPB) mitigations in certain situations. A local\nattacker could possibly use this to expose sensitive information.\n(CVE-2020-10767)\n\nIt was discovered that the Linux kernel could incorrectly enable Indirect\nBranch Speculation after it has been disabled for a process via a prctl()\ncall. A local attacker could possibly use this to expose sensitive\ninformation. (CVE-2020-10768)\n\nMauricio Faria de Oliveira discovered that the aufs implementation in the\nLinux kernel improperly managed inode reference counts in the\nvfsub_dentry_open() method. A local attacker could use this vulnerability\nto cause a denial of service. (CVE-2020-11935)\n\nIt was discovered that the Virtual Terminal keyboard driver in the Linux\nkernel contained an integer overflow. A local attacker could possibly use\nthis to have an unspecified impact. (CVE-2020-13974)\n\nJason A. Donenfeld discovered that the ACPI implementation in the Linux\nkernel did not properly restrict loading ACPI tables via configfs. A\nprivileged attacker could use this to bypass Secure Boot lockdown\nrestrictions and execute arbitrary code in the kernel. (CVE-2020-15780)\n",
@@ -23,149 +24,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-azure-5.3"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.3.0-1034.35~18.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-5.3.0-1034-azure": "5.3.0-1034.35~18.04.1",
-            "linux-image-azure": "5.3.0.1034.30"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-gcp-5.3"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.3.0-1032.34~18.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-gcp": "5.3.0.1032.26",
-            "linux-image-5.3.0-1032-gcp": "5.3.0-1032.34~18.04.1"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-gke-5.3"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.3.0-1032.34~18.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-gke-5.3": "5.3.0.1032.17",
-            "linux-image-5.3.0-1032-gke": "5.3.0-1032.34~18.04.1"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-oracle-5.3"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.3.0-1030.32~18.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-5.3.0-1030-oracle": "5.3.0-1030.32~18.04.1",
-            "linux-image-oracle": "5.3.0.1030.27"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-hwe"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.3.0-64.58~18.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-gkeop-5.3": "5.3.0.64.120",
-            "linux-image-5.3.0-64-generic": "5.3.0-64.58~18.04.1",
-            "linux-image-5.3.0-64-generic-lpae": "5.3.0-64.58~18.04.1",
-            "linux-image-5.3.0-64-lowlatency": "5.3.0-64.58~18.04.1"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-aws-5.3"
+        "name": "linux-aws-5.3",
+        "purl": "pkg:deb/ubuntu/linux-aws-5.3@5.3.0-1032.34~18.04.2?arch=src?distro=bionic"
       },
       "ranges": [
         {
@@ -180,20 +40,384 @@
           ]
         }
       ],
+      "versions": [
+        "5.3.0-1016.17~18.04.1",
+        "5.3.0-1017.18~18.04.1",
+        "5.3.0-1019.21~18.04.1",
+        "5.3.0-1023.25~18.04.1",
+        "5.3.0-1028.30~18.04.1",
+        "5.3.0-1030.32~18.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
+            "linux-aws-5.3-cloud-tools-5.3.0-1032": "5.3.0-1032.34~18.04.2",
+            "linux-aws-5.3-headers-5.3.0-1032": "5.3.0-1032.34~18.04.2",
+            "linux-aws-5.3-tools-5.3.0-1032": "5.3.0-1032.34~18.04.2",
+            "linux-buildinfo-5.3.0-1032-aws": "5.3.0-1032.34~18.04.2",
+            "linux-cloud-tools-5.3.0-1032-aws": "5.3.0-1032.34~18.04.2",
+            "linux-headers-5.3.0-1032-aws": "5.3.0-1032.34~18.04.2",
             "linux-image-5.3.0-1032-aws": "5.3.0-1032.34~18.04.2",
-            "linux-image-aws": "5.3.0.1032.31"
+            "linux-image-5.3.0-1032-aws-dbgsym": "5.3.0-1032.34~18.04.2",
+            "linux-modules-5.3.0-1032-aws": "5.3.0-1032.34~18.04.2",
+            "linux-modules-extra-5.3.0-1032-aws": "5.3.0-1032.34~18.04.2",
+            "linux-tools-5.3.0-1032-aws": "5.3.0-1032.34~18.04.2"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-raspi2-5.3"
+        "name": "linux-azure-5.3",
+        "purl": "pkg:deb/ubuntu/linux-azure-5.3@5.3.0-1034.35~18.04.1?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.3.0-1034.35~18.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.3.0-1007.8~18.04.1",
+        "5.3.0-1008.9~18.04.1",
+        "5.3.0-1009.10~18.04.1",
+        "5.3.0-1010.11~18.04.1",
+        "5.3.0-1012.13~18.04.1",
+        "5.3.0-1013.14~18.04.1",
+        "5.3.0-1016.17~18.04.1",
+        "5.3.0-1018.19~18.04.1",
+        "5.3.0-1019.20~18.04.1",
+        "5.3.0-1020.21~18.04.1",
+        "5.3.0-1022.23~18.04.1",
+        "5.3.0-1028.29~18.04.1",
+        "5.3.0-1031.32~18.04.1",
+        "5.3.0-1032.33~18.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-azure-5.3-cloud-tools-5.3.0-1034": "5.3.0-1034.35~18.04.1",
+            "linux-azure-5.3-headers-5.3.0-1034": "5.3.0-1034.35~18.04.1",
+            "linux-azure-5.3-tools-5.3.0-1034": "5.3.0-1034.35~18.04.1",
+            "linux-buildinfo-5.3.0-1034-azure": "5.3.0-1034.35~18.04.1",
+            "linux-cloud-tools-5.3.0-1034-azure": "5.3.0-1034.35~18.04.1",
+            "linux-headers-5.3.0-1034-azure": "5.3.0-1034.35~18.04.1",
+            "linux-image-unsigned-5.3.0-1034-azure": "5.3.0-1034.35~18.04.1",
+            "linux-image-unsigned-5.3.0-1034-azure-dbgsym": "5.3.0-1034.35~18.04.1",
+            "linux-modules-5.3.0-1034-azure": "5.3.0-1034.35~18.04.1",
+            "linux-modules-extra-5.3.0-1034-azure": "5.3.0-1034.35~18.04.1",
+            "linux-tools-5.3.0-1034-azure": "5.3.0-1034.35~18.04.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-gcp-5.3",
+        "purl": "pkg:deb/ubuntu/linux-gcp-5.3@5.3.0-1032.34~18.04.1?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.3.0-1032.34~18.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.3.0-1008.9~18.04.1",
+        "5.3.0-1009.10~18.04.1",
+        "5.3.0-1010.11~18.04.1",
+        "5.3.0-1012.13~18.04.1",
+        "5.3.0-1014.15~18.04.1",
+        "5.3.0-1016.17~18.04.1",
+        "5.3.0-1017.18~18.04.1",
+        "5.3.0-1018.19~18.04.1",
+        "5.3.0-1020.22~18.04.1",
+        "5.3.0-1026.28~18.04.1",
+        "5.3.0-1029.31~18.04.1",
+        "5.3.0-1030.32~18.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-5.3.0-1032-gcp": "5.3.0-1032.34~18.04.1",
+            "linux-gcp-5.3-headers-5.3.0-1032": "5.3.0-1032.34~18.04.1",
+            "linux-gcp-5.3-tools-5.3.0-1032": "5.3.0-1032.34~18.04.1",
+            "linux-headers-5.3.0-1032-gcp": "5.3.0-1032.34~18.04.1",
+            "linux-image-unsigned-5.3.0-1032-gcp": "5.3.0-1032.34~18.04.1",
+            "linux-image-unsigned-5.3.0-1032-gcp-dbgsym": "5.3.0-1032.34~18.04.1",
+            "linux-modules-5.3.0-1032-gcp": "5.3.0-1032.34~18.04.1",
+            "linux-modules-extra-5.3.0-1032-gcp": "5.3.0-1032.34~18.04.1",
+            "linux-tools-5.3.0-1032-gcp": "5.3.0-1032.34~18.04.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-gke-5.3",
+        "purl": "pkg:deb/ubuntu/linux-gke-5.3@5.3.0-1032.34~18.04.1?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.3.0-1032.34~18.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.3.0-1011.12~18.04.1",
+        "5.3.0-1012.13~18.04.1",
+        "5.3.0-1014.15~18.04.1",
+        "5.3.0-1016.17~18.04.1",
+        "5.3.0-1017.18~18.04.1",
+        "5.3.0-1018.19~18.04.1",
+        "5.3.0-1020.22~18.04.1",
+        "5.3.0-1026.28~18.04.1",
+        "5.3.0-1030.32~18.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-5.3.0-1032-gke": "5.3.0-1032.34~18.04.1",
+            "linux-gke-5.3-headers-5.3.0-1032": "5.3.0-1032.34~18.04.1",
+            "linux-gke-5.3-tools-5.3.0-1032": "5.3.0-1032.34~18.04.1",
+            "linux-headers-5.3.0-1032-gke": "5.3.0-1032.34~18.04.1",
+            "linux-image-unsigned-5.3.0-1032-gke": "5.3.0-1032.34~18.04.1",
+            "linux-image-unsigned-5.3.0-1032-gke-dbgsym": "5.3.0-1032.34~18.04.1",
+            "linux-modules-5.3.0-1032-gke": "5.3.0-1032.34~18.04.1",
+            "linux-modules-extra-5.3.0-1032-gke": "5.3.0-1032.34~18.04.1",
+            "linux-tools-5.3.0-1032-gke": "5.3.0-1032.34~18.04.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-hwe",
+        "purl": "pkg:deb/ubuntu/linux-hwe@5.3.0-64.58~18.04.1?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.3.0-64.58~18.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.18.0-13.14~18.04.1",
+        "4.18.0-14.15~18.04.1",
+        "4.18.0-15.16~18.04.1",
+        "4.18.0-16.17~18.04.1",
+        "4.18.0-17.18~18.04.1",
+        "4.18.0-18.19~18.04.1",
+        "4.18.0-20.21~18.04.1",
+        "4.18.0-21.22~18.04.1",
+        "4.18.0-22.23~18.04.1",
+        "4.18.0-24.25~18.04.1",
+        "4.18.0-25.26~18.04.1",
+        "5.0.0-23.24~18.04.1",
+        "5.0.0-25.26~18.04.1",
+        "5.0.0-27.28~18.04.1",
+        "5.0.0-29.31~18.04.1",
+        "5.0.0-31.33~18.04.1",
+        "5.0.0-32.34~18.04.2",
+        "5.0.0-35.38~18.04.1",
+        "5.0.0-36.39~18.04.1",
+        "5.0.0-37.40~18.04.1",
+        "5.3.0-26.28~18.04.1",
+        "5.3.0-28.30~18.04.1",
+        "5.3.0-40.32~18.04.1",
+        "5.3.0-42.34~18.04.1",
+        "5.3.0-45.37~18.04.1",
+        "5.3.0-46.38~18.04.1",
+        "5.3.0-51.44~18.04.2",
+        "5.3.0-53.47~18.04.1",
+        "5.3.0-59.53~18.04.1",
+        "5.3.0-61.55~18.04.1",
+        "5.3.0-62.56~18.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "block-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "block-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "crypto-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "crypto-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "dasd-extra-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "dasd-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "fat-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "fat-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "fb-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "firewire-core-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "floppy-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "fs-core-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "fs-core-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "fs-secondary-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "fs-secondary-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "input-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "input-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "ipmi-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "ipmi-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "kernel-image-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "kernel-image-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "linux-buildinfo-5.3.0-64-generic": "5.3.0-64.58~18.04.1",
+            "linux-buildinfo-5.3.0-64-generic-lpae": "5.3.0-64.58~18.04.1",
+            "linux-buildinfo-5.3.0-64-lowlatency": "5.3.0-64.58~18.04.1",
+            "linux-cloud-tools-5.3.0-64-generic": "5.3.0-64.58~18.04.1",
+            "linux-cloud-tools-5.3.0-64-lowlatency": "5.3.0-64.58~18.04.1",
+            "linux-headers-5.3.0-64": "5.3.0-64.58~18.04.1",
+            "linux-headers-5.3.0-64-generic": "5.3.0-64.58~18.04.1",
+            "linux-headers-5.3.0-64-generic-lpae": "5.3.0-64.58~18.04.1",
+            "linux-headers-5.3.0-64-lowlatency": "5.3.0-64.58~18.04.1",
+            "linux-hwe-cloud-tools-5.3.0-64": "5.3.0-64.58~18.04.1",
+            "linux-hwe-tools-5.3.0-64": "5.3.0-64.58~18.04.1",
+            "linux-hwe-udebs-generic": "5.3.0-64.58~18.04.1",
+            "linux-hwe-udebs-generic-lpae": "5.3.0-64.58~18.04.1",
+            "linux-image-5.3.0-64-generic": "5.3.0-64.58~18.04.1",
+            "linux-image-5.3.0-64-generic-dbgsym": "5.3.0-64.58~18.04.1",
+            "linux-image-5.3.0-64-generic-lpae": "5.3.0-64.58~18.04.1",
+            "linux-image-5.3.0-64-generic-lpae-dbgsym": "5.3.0-64.58~18.04.1",
+            "linux-image-5.3.0-64-lowlatency": "5.3.0-64.58~18.04.1",
+            "linux-image-5.3.0-64-lowlatency-dbgsym": "5.3.0-64.58~18.04.1",
+            "linux-image-unsigned-5.3.0-64-generic": "5.3.0-64.58~18.04.1",
+            "linux-image-unsigned-5.3.0-64-generic-dbgsym": "5.3.0-64.58~18.04.1",
+            "linux-image-unsigned-5.3.0-64-lowlatency": "5.3.0-64.58~18.04.1",
+            "linux-image-unsigned-5.3.0-64-lowlatency-dbgsym": "5.3.0-64.58~18.04.1",
+            "linux-modules-5.3.0-64-generic": "5.3.0-64.58~18.04.1",
+            "linux-modules-5.3.0-64-generic-lpae": "5.3.0-64.58~18.04.1",
+            "linux-modules-5.3.0-64-lowlatency": "5.3.0-64.58~18.04.1",
+            "linux-modules-extra-5.3.0-64-generic": "5.3.0-64.58~18.04.1",
+            "linux-source-5.3.0": "5.3.0-64.58~18.04.1",
+            "linux-tools-5.3.0-64-generic": "5.3.0-64.58~18.04.1",
+            "linux-tools-5.3.0-64-generic-lpae": "5.3.0-64.58~18.04.1",
+            "linux-tools-5.3.0-64-lowlatency": "5.3.0-64.58~18.04.1",
+            "md-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "md-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "message-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "mouse-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "mouse-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "multipath-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "multipath-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "nfs-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "nfs-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "nic-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "nic-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "nic-pcmcia-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "nic-shared-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "nic-shared-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "nic-usb-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "nic-usb-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "parport-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "parport-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "pata-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "pcmcia-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "pcmcia-storage-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "plip-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "plip-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "ppp-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "ppp-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "sata-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "sata-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "scsi-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "scsi-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "serial-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "storage-core-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "storage-core-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "usb-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "usb-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1",
+            "virtio-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "vlan-modules-5.3.0-64-generic-di": "5.3.0-64.58~18.04.1",
+            "vlan-modules-5.3.0-64-generic-lpae-di": "5.3.0-64.58~18.04.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-oracle-5.3",
+        "purl": "pkg:deb/ubuntu/linux-oracle-5.3@5.3.0-1030.32~18.04.1?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.3.0-1030.32~18.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.3.0-1011.12~18.04.1",
+        "5.3.0-1013.14~18.04.1",
+        "5.3.0-1014.15~18.04.1",
+        "5.3.0-1016.18~18.04.1",
+        "5.3.0-1018.20~18.04.1",
+        "5.3.0-1024.26~18.04.1",
+        "5.3.0-1027.29~18.04.1",
+        "5.3.0-1028.30~18.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-5.3.0-1030-oracle": "5.3.0-1030.32~18.04.1",
+            "linux-headers-5.3.0-1030-oracle": "5.3.0-1030.32~18.04.1",
+            "linux-image-unsigned-5.3.0-1030-oracle": "5.3.0-1030.32~18.04.1",
+            "linux-image-unsigned-5.3.0-1030-oracle-dbgsym": "5.3.0-1030.32~18.04.1",
+            "linux-modules-5.3.0-1030-oracle": "5.3.0-1030.32~18.04.1",
+            "linux-modules-extra-5.3.0-1030-oracle": "5.3.0-1030.32~18.04.1",
+            "linux-oracle-5.3-headers-5.3.0-1030": "5.3.0-1030.32~18.04.1",
+            "linux-oracle-5.3-tools-5.3.0-1030": "5.3.0-1030.32~18.04.1",
+            "linux-tools-5.3.0-1030-oracle": "5.3.0-1030.32~18.04.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-raspi2-5.3",
+        "purl": "pkg:deb/ubuntu/linux-raspi2-5.3@5.3.0-1030.32~18.04.2?arch=src?distro=bionic"
       },
       "ranges": [
         {
@@ -208,14 +432,31 @@
           ]
         }
       ],
+      "versions": [
+        "5.3.0-1017.19~18.04.1",
+        "5.3.0-1018.20~18.04.1",
+        "5.3.0-1019.21~18.04.1",
+        "5.3.0-1021.23~18.04.1",
+        "5.3.0-1022.24~18.04.1",
+        "5.3.0-1023.25~18.04.1",
+        "5.3.0-1026.28~18.04.1",
+        "5.3.0-1027.29~18.04.1",
+        "5.3.0-1028.30~18.04.2"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
+            "linux-buildinfo-5.3.0-1030-raspi2": "5.3.0-1030.32~18.04.2",
+            "linux-headers-5.3.0-1030-raspi2": "5.3.0-1030.32~18.04.2",
             "linux-image-5.3.0-1030-raspi2": "5.3.0-1030.32~18.04.2",
-            "linux-image-raspi2-hwe-18.04": "5.3.0.1030.20"
+            "linux-image-5.3.0-1030-raspi2-dbgsym": "5.3.0-1030.32~18.04.2",
+            "linux-modules-5.3.0-1030-raspi2": "5.3.0-1030.32~18.04.2",
+            "linux-raspi2-5.3-headers-5.3.0-1030": "5.3.0-1030.32~18.04.2",
+            "linux-raspi2-5.3-tools-5.3.0-1030": "5.3.0-1030.32~18.04.2",
+            "linux-tools-5.3.0-1030-raspi2": "5.3.0-1030.32~18.04.2"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],

@@ -1,11 +1,10 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-3342-2",
   "summary": "linux-hwe vulnerabilities",
   "details": "USN-3342-1 fixed vulnerabilities in the Linux kernel for Ubuntu 16.10.\nThis update provides the corresponding updates for the Linux Hardware\nEnablement (HWE) kernel from Ubuntu 16.10 for Ubuntu 16.04 LTS.\n\nUSN-3333-1 fixed a vulnerability in the Linux kernel. However, that\nfix introduced regressions for some Java applications. This update\naddresses the issue. We apologize for the inconvenience.\n\nIt was discovered that a use-after-free flaw existed in the filesystem\nencryption subsystem in the Linux kernel. A local attacker could use this\nto cause a denial of service (system crash). (CVE-2017-7374)\n\nRoee Hay discovered that the parallel port printer driver in the Linux\nkernel did not properly bounds check passed arguments. A local attacker\nwith write access to the kernel command line arguments could use this to\nexecute arbitrary code. (CVE-2017-1000363)\n\nIngo Molnar discovered that the VideoCore DRM driver in the Linux kernel\ndid not return an error after detecting certain overflows. A local attacker\ncould exploit this issue to cause a denial of service (OOPS).\n(CVE-2017-5577)\n\nLi Qiang discovered that an integer overflow vulnerability existed in the\nDirect Rendering Manager (DRM) driver for VMWare devices in the Linux\nkernel. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2017-7294)\n\nIt was discovered that a double-free vulnerability existed in the IPv4\nstack of the Linux kernel. An attacker could use this to cause a denial of\nservice (system crash). (CVE-2017-8890)\n\nAndrey Konovalov discovered an IPv6 out-of-bounds read error in the Linux\nkernel's IPv6 stack. A local attacker could cause a denial of service or\npotentially other unspecified problems. (CVE-2017-9074)\n\nAndrey Konovalov discovered a flaw in the handling of inheritance in the\nLinux kernel's IPv6 stack. A local user could exploit this issue to cause a\ndenial of service or possibly other unspecified problems. (CVE-2017-9075)\n\nIt was discovered that dccp v6 in the Linux kernel mishandled inheritance.\nA local attacker could exploit this issue to cause a denial of service or\npotentially other unspecified problems. (CVE-2017-9076)\n\nIt was discovered that the transmission control protocol (tcp) v6 in the\nLinux kernel mishandled inheritance. A local attacker could exploit this\nissue to cause a denial of service or potentially other unspecified\nproblems. (CVE-2017-9077)\n\nIt was discovered that the IPv6 stack in the Linux kernel was performing\nits over write consistency check after the data was actually overwritten. A\nlocal attacker could exploit this flaw to cause a denial of service (system\ncrash). (CVE-2017-9242)\n",
   "aliases": [],
   "related": [
-    "https://www.ubuntu.com/usn/usn-3333-1",
-    "CVE-2017-1000363",
     "CVE-2017-5577",
     "CVE-2017-7294",
     "CVE-2017-7374",
@@ -14,7 +13,8 @@
     "CVE-2017-9075",
     "CVE-2017-9076",
     "CVE-2017-9077",
-    "CVE-2017-9242"
+    "CVE-2017-9242",
+    "CVE-2017-1000363"
   ],
   "published": "2017-06-29T17:56:02.217349Z",
   "modified": "2017-06-29T17:56:02.217349Z",
@@ -22,7 +22,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "linux-hwe"
+        "name": "linux-hwe",
+        "purl": "pkg:deb/ubuntu/linux-hwe@4.8.0-58.63~16.04.1?arch=src?distro=xenial"
       },
       "ranges": [
         {
@@ -37,16 +38,110 @@
           ]
         }
       ],
+      "versions": [
+        "4.8.0-36.36~16.04.1",
+        "4.8.0-39.42~16.04.1",
+        "4.8.0-41.44~16.04.1",
+        "4.8.0-42.45~16.04.1",
+        "4.8.0-44.47~16.04.1",
+        "4.8.0-45.48~16.04.1",
+        "4.8.0-46.49~16.04.1",
+        "4.8.0-49.52~16.04.1",
+        "4.8.0-51.54~16.04.1",
+        "4.8.0-52.55~16.04.1",
+        "4.8.0-53.56~16.04.1",
+        "4.8.0-54.57~16.04.1",
+        "4.8.0-56.61~16.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-extra-4.8.0-58-generic": "4.8.0-58.63~16.04.1",
-            "linux-image-4.8.0-58-generic-lpae": "4.8.0-58.63~16.04.1",
+            "block-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "block-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "crypto-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "crypto-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "dasd-extra-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "dasd-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "fat-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "fat-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "fb-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "firewire-core-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "floppy-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "fs-core-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "fs-core-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "fs-secondary-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "fs-secondary-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "input-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "input-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "ipmi-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "ipmi-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "irda-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "irda-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "kernel-image-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "kernel-image-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "linux-cloud-tools-4.8.0-58-generic": "4.8.0-58.63~16.04.1",
+            "linux-cloud-tools-4.8.0-58-lowlatency": "4.8.0-58.63~16.04.1",
+            "linux-headers-4.8.0-58": "4.8.0-58.63~16.04.1",
+            "linux-headers-4.8.0-58-generic": "4.8.0-58.63~16.04.1",
+            "linux-headers-4.8.0-58-generic-lpae": "4.8.0-58.63~16.04.1",
+            "linux-headers-4.8.0-58-lowlatency": "4.8.0-58.63~16.04.1",
+            "linux-hwe-cloud-tools-4.8.0-58": "4.8.0-58.63~16.04.1",
+            "linux-hwe-cloud-tools-4.8.0-58-dbgsym": "4.8.0-58.63~16.04.1",
+            "linux-hwe-tools-4.8.0-58": "4.8.0-58.63~16.04.1",
+            "linux-hwe-tools-4.8.0-58-dbgsym": "4.8.0-58.63~16.04.1",
+            "linux-hwe-udebs-generic": "4.8.0-58.63~16.04.1",
+            "linux-hwe-udebs-generic-lpae": "4.8.0-58.63~16.04.1",
             "linux-image-4.8.0-58-generic": "4.8.0-58.63~16.04.1",
-            "linux-image-4.8.0-58-lowlatency": "4.8.0-58.63~16.04.1"
+            "linux-image-4.8.0-58-generic-dbgsym": "4.8.0-58.63~16.04.1",
+            "linux-image-4.8.0-58-generic-lpae": "4.8.0-58.63~16.04.1",
+            "linux-image-4.8.0-58-generic-lpae-dbgsym": "4.8.0-58.63~16.04.1",
+            "linux-image-4.8.0-58-lowlatency": "4.8.0-58.63~16.04.1",
+            "linux-image-4.8.0-58-lowlatency-dbgsym": "4.8.0-58.63~16.04.1",
+            "linux-image-extra-4.8.0-58-generic": "4.8.0-58.63~16.04.1",
+            "linux-source-4.8.0": "4.8.0-58.63~16.04.1",
+            "linux-tools-4.8.0-58-generic": "4.8.0-58.63~16.04.1",
+            "linux-tools-4.8.0-58-generic-lpae": "4.8.0-58.63~16.04.1",
+            "linux-tools-4.8.0-58-lowlatency": "4.8.0-58.63~16.04.1",
+            "md-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "md-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "message-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "mouse-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "mouse-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "multipath-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "multipath-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "nfs-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "nfs-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "nic-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "nic-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "nic-pcmcia-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "nic-shared-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "nic-shared-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "nic-usb-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "nic-usb-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "parport-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "parport-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "pata-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "pcmcia-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "pcmcia-storage-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "plip-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "plip-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "ppp-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "ppp-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "sata-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "sata-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "scsi-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "scsi-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "serial-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "storage-core-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "storage-core-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "usb-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "usb-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1",
+            "virtio-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "vlan-modules-4.8.0-58-generic-di": "4.8.0-58.63~16.04.1",
+            "vlan-modules-4.8.0-58-generic-lpae-di": "4.8.0-58.63~16.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -54,18 +149,6 @@
     {
       "type": "ADVISORY",
       "url": "https://ubuntu.com/security/notices/USN-3342-2"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://launchpad.net/bugs/1699772"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/https://www.ubuntu.com/usn/usn-3333-1"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2017-1000363"
     },
     {
       "type": "REPORT",
@@ -102,6 +185,14 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2017-9242"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-1000363"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://launchpad.net/bugs/1699772"
     }
   ]
 }

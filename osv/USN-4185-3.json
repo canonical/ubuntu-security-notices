@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-4185-3",
   "summary": "linux, linux-hwe, linux-oem vulnerability and regression",
   "details": "USN-4185-1 fixed vulnerabilities in the Linux kernel. It was discovered\nthat the kernel fix for CVE-2019-0155 (i915 missing Blitter Command\nStreamer check) was incomplete on 64-bit Intel x86 systems. Also, the\nupdate introduced a regression that broke KVM guests where extended\npage tables (EPT) are disabled or not supported. This update addresses\nboth issues.\n\nWe apologize for the inconvenience.\n\nOriginal advisory details:\n\n Stephan van Schaik, Alyssa Milburn, Sebastian \u00d6sterlund, Pietro Frigo,\n Kaveh Razavi, Herbert Bos, Cristiano Giuffrida, Giorgi Maisuradze, Moritz\n Lipp, Michael Schwarz, Daniel Gruss, and Jo Van Bulck discovered that Intel\n processors using Transactional Synchronization Extensions (TSX) could\n expose memory contents previously stored in microarchitectural buffers to a\n malicious process that is executing on the same CPU core. A local attacker\n could use this to expose sensitive information. (CVE-2019-11135)\n\n It was discovered that the Intel i915 graphics chipsets allowed userspace\n to modify page table entries via writes to MMIO from the Blitter Command\n Streamer and expose kernel memory information. A local attacker could use\n this to expose sensitive information or possibly elevate privileges.\n (CVE-2019-0155)\n\n Deepak Gupta discovered that on certain Intel processors, the Linux kernel\n did not properly perform invalidation on page table updates by virtual\n guest operating systems. A local attacker in a guest VM could use this to\n cause a denial of service (host system crash). (CVE-2018-12207)\n\n It was discovered that the Intel i915 graphics chipsets could cause a\n system hang when userspace performed a read from GT memory mapped input\n output (MMIO) when the product is in certain low power states. A local\n attacker could use this to cause a denial of service. (CVE-2019-0154)\n\n Hui Peng discovered that the Atheros AR6004 USB Wi-Fi device driver for the\n Linux kernel did not properly validate endpoint descriptors returned by the\n device. A physically proximate attacker could use this to cause a denial of\n service (system crash). (CVE-2019-15098)\n\n Ori Nimron discovered that the AX25 network protocol implementation in the\n Linux kernel did not properly perform permissions checks. A local attacker\n could use this to create a raw socket. (CVE-2019-17052)\n\n Ori Nimron discovered that the IEEE 802.15.4 Low-Rate Wireless network\n protocol implementation in the Linux kernel did not properly perform\n permissions checks. A local attacker could use this to create a raw socket.\n (CVE-2019-17053)\n\n Ori Nimron discovered that the Appletalk network protocol implementation in\n the Linux kernel did not properly perform permissions checks. A local\n attacker could use this to create a raw socket. (CVE-2019-17054)\n\n Ori Nimron discovered that the modular ISDN network protocol implementation\n in the Linux kernel did not properly perform permissions checks. A local\n attacker could use this to create a raw socket. (CVE-2019-17055)\n\n Ori Nimron discovered that the Near field Communication (NFC) network\n protocol implementation in the Linux kernel did not properly perform\n permissions checks. A local attacker could use this to create a raw socket.\n (CVE-2019-17056)\n\n Nico Waisman discovered that a buffer overflow existed in the Realtek Wi-Fi\n driver for the Linux kernel when handling Notice of Absence frames. A\n physically proximate attacker could use this to cause a denial of service\n (system crash) or possibly execute arbitrary code. (CVE-2019-17666)\n",
@@ -11,77 +12,9 @@
   "affected": [
     {
       "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-oem"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-1064.73"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-oem": "4.15.0.1064.68",
-            "linux-image-4.15.0-1064-oem": "4.15.0-1064.73"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-70.79"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-virtual-hwe-16.04": "4.15.0.70.72",
-            "linux-image-generic-lpae-hwe-16.04-edge": "4.15.0.70.72",
-            "linux-image-4.15.0-70-generic": "4.15.0-70.79",
-            "linux-image-generic-lpae": "4.15.0.70.72",
-            "linux-image-virtual-hwe-16.04-edge": "4.15.0.70.72",
-            "linux-image-4.15.0-70-lowlatency": "4.15.0-70.79",
-            "linux-image-lowlatency-hwe-16.04-edge": "4.15.0.70.72",
-            "linux-image-lowlatency-hwe-16.04": "4.15.0.70.72",
-            "linux-image-virtual": "4.15.0.70.72",
-            "linux-image-generic-lpae-hwe-16.04": "4.15.0.70.72",
-            "linux-image-generic": "4.15.0.70.72",
-            "linux-image-4.15.0-70-generic-lpae": "4.15.0-70.79",
-            "linux-image-lowlatency": "4.15.0.70.72",
-            "linux-image-generic-hwe-16.04": "4.15.0.70.72",
-            "linux-image-generic-hwe-16.04-edge": "4.15.0.70.72"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
         "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "linux-hwe"
+        "name": "linux-hwe",
+        "purl": "pkg:deb/ubuntu/linux-hwe@4.15.0-70.79~16.04.1?arch=src?distro=xenial"
       },
       "ranges": [
         {
@@ -96,20 +29,431 @@
           ]
         }
       ],
+      "versions": [
+        "4.8.0-36.36~16.04.1",
+        "4.8.0-39.42~16.04.1",
+        "4.8.0-41.44~16.04.1",
+        "4.8.0-42.45~16.04.1",
+        "4.8.0-44.47~16.04.1",
+        "4.8.0-45.48~16.04.1",
+        "4.8.0-46.49~16.04.1",
+        "4.8.0-49.52~16.04.1",
+        "4.8.0-51.54~16.04.1",
+        "4.8.0-52.55~16.04.1",
+        "4.8.0-53.56~16.04.1",
+        "4.8.0-54.57~16.04.1",
+        "4.8.0-56.61~16.04.1",
+        "4.8.0-58.63~16.04.1",
+        "4.10.0-27.30~16.04.2",
+        "4.10.0-28.32~16.04.2",
+        "4.10.0-30.34~16.04.1",
+        "4.10.0-32.36~16.04.1",
+        "4.10.0-33.37~16.04.1",
+        "4.10.0-35.39~16.04.1",
+        "4.10.0-37.41~16.04.1",
+        "4.10.0-38.42~16.04.1",
+        "4.10.0-40.44~16.04.1",
+        "4.10.0-42.46~16.04.1",
+        "4.13.0-26.29~16.04.2",
+        "4.13.0-31.34~16.04.1",
+        "4.13.0-32.35~16.04.1",
+        "4.13.0-36.40~16.04.1",
+        "4.13.0-37.42~16.04.1",
+        "4.13.0-38.43~16.04.1",
+        "4.13.0-39.44~16.04.1",
+        "4.13.0-41.46~16.04.1",
+        "4.13.0-43.48~16.04.1",
+        "4.13.0-45.50~16.04.1",
+        "4.15.0-24.26~16.04.1",
+        "4.15.0-29.31~16.04.1",
+        "4.15.0-30.32~16.04.1",
+        "4.15.0-32.35~16.04.1",
+        "4.15.0-33.36~16.04.1",
+        "4.15.0-34.37~16.04.1",
+        "4.15.0-36.39~16.04.1",
+        "4.15.0-38.41~16.04.1",
+        "4.15.0-39.42~16.04.1",
+        "4.15.0-42.45~16.04.1",
+        "4.15.0-43.46~16.04.1",
+        "4.15.0-45.48~16.04.1",
+        "4.15.0-46.49~16.04.1",
+        "4.15.0-47.50~16.04.1",
+        "4.15.0-48.51~16.04.1",
+        "4.15.0-50.54~16.04.1",
+        "4.15.0-51.55~16.04.1",
+        "4.15.0-52.56~16.04.1",
+        "4.15.0-54.58~16.04.1",
+        "4.15.0-55.60~16.04.2",
+        "4.15.0-58.64~16.04.1",
+        "4.15.0-60.67~16.04.1",
+        "4.15.0-62.69~16.04.1",
+        "4.15.0-64.73~16.04.1",
+        "4.15.0-65.74~16.04.1",
+        "4.15.0-66.75~16.04.1",
+        "4.15.0-69.78~16.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-virtual-hwe-16.04": "4.15.0.70.90",
+            "block-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "block-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "crypto-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "crypto-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "dasd-extra-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "dasd-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "fat-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "fat-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "fb-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "firewire-core-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "floppy-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "fs-core-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "fs-core-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "fs-secondary-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "fs-secondary-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "input-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "input-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "ipmi-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "ipmi-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "irda-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "irda-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "kernel-image-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "kernel-image-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "linux-buildinfo-4.15.0-70-generic": "4.15.0-70.79~16.04.1",
+            "linux-buildinfo-4.15.0-70-generic-lpae": "4.15.0-70.79~16.04.1",
+            "linux-buildinfo-4.15.0-70-lowlatency": "4.15.0-70.79~16.04.1",
+            "linux-cloud-tools-4.15.0-70-generic": "4.15.0-70.79~16.04.1",
+            "linux-cloud-tools-4.15.0-70-lowlatency": "4.15.0-70.79~16.04.1",
+            "linux-headers-4.15.0-70": "4.15.0-70.79~16.04.1",
+            "linux-headers-4.15.0-70-generic": "4.15.0-70.79~16.04.1",
+            "linux-headers-4.15.0-70-generic-lpae": "4.15.0-70.79~16.04.1",
+            "linux-headers-4.15.0-70-lowlatency": "4.15.0-70.79~16.04.1",
+            "linux-hwe-cloud-tools-4.15.0-70": "4.15.0-70.79~16.04.1",
+            "linux-hwe-tools-4.15.0-70": "4.15.0-70.79~16.04.1",
+            "linux-hwe-udebs-generic": "4.15.0-70.79~16.04.1",
+            "linux-hwe-udebs-generic-lpae": "4.15.0-70.79~16.04.1",
             "linux-image-4.15.0-70-generic": "4.15.0-70.79~16.04.1",
-            "linux-image-4.15.0-70-lowlatency": "4.15.0-70.79~16.04.1",
-            "linux-image-generic-hwe-16.04": "4.15.0.70.90",
-            "linux-image-oem": "4.15.0.70.90",
-            "linux-image-lowlatency-hwe-16.04": "4.15.0.70.90",
+            "linux-image-4.15.0-70-generic-dbgsym": "4.15.0-70.79~16.04.1",
             "linux-image-4.15.0-70-generic-lpae": "4.15.0-70.79~16.04.1",
-            "linux-image-generic-lpae-hwe-16.04": "4.15.0.70.90"
+            "linux-image-4.15.0-70-generic-lpae-dbgsym": "4.15.0-70.79~16.04.1",
+            "linux-image-4.15.0-70-lowlatency": "4.15.0-70.79~16.04.1",
+            "linux-image-4.15.0-70-lowlatency-dbgsym": "4.15.0-70.79~16.04.1",
+            "linux-image-unsigned-4.15.0-70-generic": "4.15.0-70.79~16.04.1",
+            "linux-image-unsigned-4.15.0-70-generic-dbgsym": "4.15.0-70.79~16.04.1",
+            "linux-image-unsigned-4.15.0-70-lowlatency": "4.15.0-70.79~16.04.1",
+            "linux-image-unsigned-4.15.0-70-lowlatency-dbgsym": "4.15.0-70.79~16.04.1",
+            "linux-modules-4.15.0-70-generic": "4.15.0-70.79~16.04.1",
+            "linux-modules-4.15.0-70-generic-lpae": "4.15.0-70.79~16.04.1",
+            "linux-modules-4.15.0-70-lowlatency": "4.15.0-70.79~16.04.1",
+            "linux-modules-extra-4.15.0-70-generic": "4.15.0-70.79~16.04.1",
+            "linux-source-4.15.0": "4.15.0-70.79~16.04.1",
+            "linux-tools-4.15.0-70-generic": "4.15.0-70.79~16.04.1",
+            "linux-tools-4.15.0-70-generic-lpae": "4.15.0-70.79~16.04.1",
+            "linux-tools-4.15.0-70-lowlatency": "4.15.0-70.79~16.04.1",
+            "md-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "md-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "message-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "mouse-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "mouse-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "multipath-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "multipath-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "nfs-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "nfs-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "nic-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "nic-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "nic-pcmcia-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "nic-shared-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "nic-shared-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "nic-usb-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "nic-usb-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "parport-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "parport-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "pata-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "pcmcia-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "pcmcia-storage-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "plip-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "plip-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "ppp-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "ppp-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "sata-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "sata-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "scsi-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "scsi-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "serial-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "storage-core-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "storage-core-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "usb-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "usb-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1",
+            "virtio-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "vlan-modules-4.15.0-70-generic-di": "4.15.0-70.79~16.04.1",
+            "vlan-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79~16.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux",
+        "purl": "pkg:deb/ubuntu/linux@4.15.0-70.79?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.15.0-70.79"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.13.0-16.19",
+        "4.13.0-17.20",
+        "4.13.0-25.29",
+        "4.13.0-32.35",
+        "4.15.0-10.11",
+        "4.15.0-12.13",
+        "4.15.0-13.14",
+        "4.15.0-15.16",
+        "4.15.0-19.20",
+        "4.15.0-20.21",
+        "4.15.0-22.24",
+        "4.15.0-23.25",
+        "4.15.0-24.26",
+        "4.15.0-29.31",
+        "4.15.0-30.32",
+        "4.15.0-32.35",
+        "4.15.0-33.36",
+        "4.15.0-34.37",
+        "4.15.0-36.39",
+        "4.15.0-38.41",
+        "4.15.0-39.42",
+        "4.15.0-42.45",
+        "4.15.0-43.46",
+        "4.15.0-44.47",
+        "4.15.0-45.48",
+        "4.15.0-46.49",
+        "4.15.0-47.50",
+        "4.15.0-48.51",
+        "4.15.0-50.54",
+        "4.15.0-51.55",
+        "4.15.0-52.56",
+        "4.15.0-54.58",
+        "4.15.0-55.60",
+        "4.15.0-58.64",
+        "4.15.0-60.67",
+        "4.15.0-62.69",
+        "4.15.0-64.73",
+        "4.15.0-65.74",
+        "4.15.0-66.75",
+        "4.15.0-69.78"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "block-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "block-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "crypto-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "crypto-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "dasd-extra-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "dasd-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "fat-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "fat-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "fb-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "firewire-core-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "floppy-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "fs-core-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "fs-core-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "fs-secondary-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "fs-secondary-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "input-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "input-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "ipmi-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "ipmi-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "irda-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "irda-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "kernel-image-4.15.0-70-generic-di": "4.15.0-70.79",
+            "kernel-image-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "linux-buildinfo-4.15.0-70-generic": "4.15.0-70.79",
+            "linux-buildinfo-4.15.0-70-generic-lpae": "4.15.0-70.79",
+            "linux-buildinfo-4.15.0-70-lowlatency": "4.15.0-70.79",
+            "linux-cloud-tools-4.15.0-70": "4.15.0-70.79",
+            "linux-cloud-tools-4.15.0-70-generic": "4.15.0-70.79",
+            "linux-cloud-tools-4.15.0-70-lowlatency": "4.15.0-70.79",
+            "linux-cloud-tools-common": "4.15.0-70.79",
+            "linux-doc": "4.15.0-70.79",
+            "linux-headers-4.15.0-70": "4.15.0-70.79",
+            "linux-headers-4.15.0-70-generic": "4.15.0-70.79",
+            "linux-headers-4.15.0-70-generic-lpae": "4.15.0-70.79",
+            "linux-headers-4.15.0-70-lowlatency": "4.15.0-70.79",
+            "linux-image-4.15.0-70-generic": "4.15.0-70.79",
+            "linux-image-4.15.0-70-generic-dbgsym": "4.15.0-70.79",
+            "linux-image-4.15.0-70-generic-lpae": "4.15.0-70.79",
+            "linux-image-4.15.0-70-generic-lpae-dbgsym": "4.15.0-70.79",
+            "linux-image-4.15.0-70-lowlatency": "4.15.0-70.79",
+            "linux-image-4.15.0-70-lowlatency-dbgsym": "4.15.0-70.79",
+            "linux-image-unsigned-4.15.0-70-generic": "4.15.0-70.79",
+            "linux-image-unsigned-4.15.0-70-generic-dbgsym": "4.15.0-70.79",
+            "linux-image-unsigned-4.15.0-70-lowlatency": "4.15.0-70.79",
+            "linux-image-unsigned-4.15.0-70-lowlatency-dbgsym": "4.15.0-70.79",
+            "linux-libc-dev": "4.15.0-70.79",
+            "linux-modules-4.15.0-70-generic": "4.15.0-70.79",
+            "linux-modules-4.15.0-70-generic-lpae": "4.15.0-70.79",
+            "linux-modules-4.15.0-70-lowlatency": "4.15.0-70.79",
+            "linux-modules-extra-4.15.0-70-generic": "4.15.0-70.79",
+            "linux-source-4.15.0": "4.15.0-70.79",
+            "linux-tools-4.15.0-70": "4.15.0-70.79",
+            "linux-tools-4.15.0-70-generic": "4.15.0-70.79",
+            "linux-tools-4.15.0-70-generic-lpae": "4.15.0-70.79",
+            "linux-tools-4.15.0-70-lowlatency": "4.15.0-70.79",
+            "linux-tools-common": "4.15.0-70.79",
+            "linux-tools-host": "4.15.0-70.79",
+            "linux-udebs-generic": "4.15.0-70.79",
+            "linux-udebs-generic-lpae": "4.15.0-70.79",
+            "md-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "md-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "message-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "mouse-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "mouse-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "multipath-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "multipath-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "nfs-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "nfs-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "nic-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "nic-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "nic-pcmcia-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "nic-shared-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "nic-shared-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "nic-usb-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "nic-usb-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "parport-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "parport-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "pata-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "pcmcia-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "pcmcia-storage-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "plip-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "plip-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "ppp-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "ppp-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "sata-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "sata-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "scsi-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "scsi-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "serial-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "storage-core-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "storage-core-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "usb-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "usb-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79",
+            "virtio-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "vlan-modules-4.15.0-70-generic-di": "4.15.0-70.79",
+            "vlan-modules-4.15.0-70-generic-lpae-di": "4.15.0-70.79"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-oem",
+        "purl": "pkg:deb/ubuntu/linux-oem@4.15.0-1064.73?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.15.0-1064.73"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.15.0-1002.3",
+        "4.15.0-1004.5",
+        "4.15.0-1006.9",
+        "4.15.0-1008.11",
+        "4.15.0-1009.12",
+        "4.15.0-1012.15",
+        "4.15.0-1013.16",
+        "4.15.0-1015.18",
+        "4.15.0-1017.20",
+        "4.15.0-1018.21",
+        "4.15.0-1021.24",
+        "4.15.0-1024.29",
+        "4.15.0-1026.31",
+        "4.15.0-1028.33",
+        "4.15.0-1030.35",
+        "4.15.0-1033.38",
+        "4.15.0-1034.39",
+        "4.15.0-1035.40",
+        "4.15.0-1036.41",
+        "4.15.0-1038.43",
+        "4.15.0-1039.44",
+        "4.15.0-1043.48",
+        "4.15.0-1045.50",
+        "4.15.0-1050.57",
+        "4.15.0-1056.65",
+        "4.15.0-1057.66",
+        "4.15.0-1059.68",
+        "4.15.0-1063.72"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "block-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "crypto-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "fat-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "fb-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "firewire-core-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "floppy-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "fs-core-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "fs-secondary-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "input-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "ipmi-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "irda-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "kernel-image-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "linux-buildinfo-4.15.0-1064-oem": "4.15.0-1064.73",
+            "linux-headers-4.15.0-1064-oem": "4.15.0-1064.73",
+            "linux-image-unsigned-4.15.0-1064-oem": "4.15.0-1064.73",
+            "linux-image-unsigned-4.15.0-1064-oem-dbgsym": "4.15.0-1064.73",
+            "linux-modules-4.15.0-1064-oem": "4.15.0-1064.73",
+            "linux-oem-headers-4.15.0-1064": "4.15.0-1064.73",
+            "linux-oem-tools-4.15.0-1064": "4.15.0-1064.73",
+            "linux-tools-4.15.0-1064-oem": "4.15.0-1064.73",
+            "linux-udebs-oem": "4.15.0-1064.73",
+            "md-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "message-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "mouse-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "multipath-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "nfs-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "nic-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "nic-pcmcia-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "nic-shared-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "nic-usb-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "parport-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "pata-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "pcmcia-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "pcmcia-storage-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "plip-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "ppp-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "sata-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "scsi-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "serial-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "storage-core-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "usb-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "virtio-modules-4.15.0-1064-oem-di": "4.15.0-1064.73",
+            "vlan-modules-4.15.0-1064-oem-di": "4.15.0-1064.73"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],

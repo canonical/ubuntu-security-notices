@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-5633-1",
   "summary": "linux-gcp, linux-gke, linux-raspi vulnerabilities",
   "details": "\nIt was discovered that the framebuffer driver on the Linux kernel did not\nverify size limits when changing font or screen size, leading to an out-of-\nbounds write. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2021-33655)\n\nDuoming Zhou discovered that race conditions existed in the timer handling\nimplementation of the Linux kernel's Rose X.25 protocol layer, resulting in\nuse-after-free vulnerabilities. A local attacker could use this to cause a\ndenial of service (system crash). (CVE-2022-2318)\n\nRoger Pau Monn\u00e9 discovered that the Xen virtual block driver in the Linux\nkernel did not properly initialize memory pages to be used for shared\ncommunication with the backend. A local attacker could use this to expose\nsensitive information (guest kernel memory). (CVE-2022-26365)\n\nRoger Pau Monn\u00e9 discovered that the Xen paravirtualization frontend in the\nLinux kernel did not properly initialize memory pages to be used for shared\ncommunication with the backend. A local attacker could use this to expose\nsensitive information (guest kernel memory). (CVE-2022-33740)\n\nIt was discovered that the Xen paravirtualization frontend in the Linux\nkernel incorrectly shared unrelated data when communicating with certain\nbackends. A local attacker could use this to cause a denial of service\n(guest crash) or expose sensitive information (guest kernel memory).\n(CVE-2022-33741, CVE-2022-33742)\n\nJan Beulich discovered that the Xen network device frontend driver in the\nLinux kernel incorrectly handled socket buffers (skb) references when\ncommunicating with certain backends. A local attacker could use this to\ncause a denial of service (guest crash). (CVE-2022-33743)\n\nOleksandr Tyshchenko discovered that the Xen paravirtualization platform in\nthe Linux kernel on ARM platforms contained a race condition in certain\nsituations. An attacker in a guest VM could use this to cause a denial of\nservice in the host OS. (CVE-2022-33744)\n\nIt was discovered that the virtio RPMSG bus driver in the Linux kernel\ncontained a double-free vulnerability in certain error conditions. A local\nattacker could possibly use this to cause a denial of service (system\ncrash). (CVE-2022-34494, CVE-2022-34495)\n\nDomingo Dirutigliano and Nicola Guerrera discovered that the netfilter\nsubsystem in the Linux kernel did not properly handle rules that truncated\npackets below the packet header size. When such rules are in place, a\nremote attacker could possibly use this to cause a denial of service\n(system crash). (CVE-2022-36946)\n\n",
@@ -22,57 +23,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-raspi"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-1015.17"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-buildinfo-5.15.0-1015-raspi-nolpae": "5.15.0-1015.17",
-            "linux-image-5.15.0-1015-raspi-nolpae": "5.15.0-1015.17",
-            "linux-buildinfo-5.15.0-1015-raspi": "5.15.0-1015.17",
-            "linux-tools-raspi": "5.15.0.1015.14",
-            "linux-tools-raspi-nolpae": "5.15.0.1015.14",
-            "linux-headers-raspi-nolpae": "5.15.0.1015.14",
-            "linux-modules-extra-5.15.0-1015-raspi-nolpae": "5.15.0-1015.17",
-            "linux-image-raspi-nolpae": "5.15.0.1015.14",
-            "linux-modules-5.15.0-1015-raspi": "5.15.0-1015.17",
-            "linux-raspi-nolpae": "5.15.0.1015.14",
-            "linux-headers-5.15.0-1015-raspi": "5.15.0-1015.17",
-            "linux-headers-raspi": "5.15.0.1015.14",
-            "linux-image-raspi": "5.15.0.1015.14",
-            "linux-modules-extra-raspi": "5.15.0.1015.14",
-            "linux-tools-5.15.0-1015-raspi-nolpae": "5.15.0-1015.17",
-            "linux-tools-5.15.0-1015-raspi": "5.15.0-1015.17",
-            "linux-modules-5.15.0-1015-raspi-nolpae": "5.15.0-1015.17",
-            "linux-headers-5.15.0-1015-raspi-nolpae": "5.15.0-1015.17",
-            "linux-raspi-headers-5.15.0-1015": "5.15.0-1015.17",
-            "linux-raspi-tools-5.15.0-1015": "5.15.0-1015.17",
-            "linux-raspi": "5.15.0.1015.14",
-            "linux-modules-extra-5.15.0-1015-raspi": "5.15.0-1015.17",
-            "linux-image-5.15.0-1015-raspi": "5.15.0-1015.17",
-            "linux-modules-extra-raspi-nolpae": "5.15.0.1015.14"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-gcp"
+        "name": "linux-gcp",
+        "purl": "pkg:deb/ubuntu/linux-gcp@5.15.0-1018.24?arch=src?distro=jammy"
       },
       "ranges": [
         {
@@ -87,33 +39,43 @@
           ]
         }
       ],
+      "versions": [
+        "5.13.0-1005.6",
+        "5.15.0-1001.3",
+        "5.15.0-1002.5",
+        "5.15.0-1003.6",
+        "5.15.0-1004.7",
+        "5.15.0-1005.8",
+        "5.15.0-1006.9",
+        "5.15.0-1008.12",
+        "5.15.0-1010.15",
+        "5.15.0-1013.18",
+        "5.15.0-1016.21",
+        "5.15.0-1017.23"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-gcp-headers-5.15.0-1018": "5.15.0-1018.24",
-            "linux-modules-5.15.0-1018-gcp": "5.15.0-1018.24",
-            "linux-image-unsigned-5.15.0-1018-gcp": "5.15.0-1018.24",
-            "linux-image-5.15.0-1018-gcp": "5.15.0-1018.24",
-            "linux-tools-gcp": "5.15.0.1018.16",
             "linux-buildinfo-5.15.0-1018-gcp": "5.15.0-1018.24",
-            "linux-gcp": "5.15.0.1018.16",
-            "linux-tools-5.15.0-1018-gcp": "5.15.0-1018.24",
-            "linux-headers-gcp": "5.15.0.1018.16",
-            "linux-modules-iwlwifi-5.15.0-1018-gcp": "5.15.0-1018.24",
+            "linux-gcp-headers-5.15.0-1018": "5.15.0-1018.24",
             "linux-gcp-tools-5.15.0-1018": "5.15.0-1018.24",
-            "linux-image-gcp": "5.15.0.1018.16",
-            "linux-modules-extra-gcp": "5.15.0.1018.16",
             "linux-headers-5.15.0-1018-gcp": "5.15.0-1018.24",
-            "linux-modules-extra-5.15.0-1018-gcp": "5.15.0-1018.24"
+            "linux-image-unsigned-5.15.0-1018-gcp": "5.15.0-1018.24",
+            "linux-image-unsigned-5.15.0-1018-gcp-dbgsym": "5.15.0-1018.24",
+            "linux-modules-5.15.0-1018-gcp": "5.15.0-1018.24",
+            "linux-modules-extra-5.15.0-1018-gcp": "5.15.0-1018.24",
+            "linux-modules-iwlwifi-5.15.0-1018-gcp": "5.15.0-1018.24",
+            "linux-tools-5.15.0-1018-gcp": "5.15.0-1018.24"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-gke"
+        "name": "linux-gke",
+        "purl": "pkg:deb/ubuntu/linux-gke@5.15.0-1016.19?arch=src?distro=jammy"
       },
       "ranges": [
         {
@@ -128,30 +90,90 @@
           ]
         }
       ],
+      "versions": [
+        "5.15.0-1002.2",
+        "5.15.0-1003.3",
+        "5.15.0-1004.5",
+        "5.15.0-1005.6",
+        "5.15.0-1006.7",
+        "5.15.0-1008.10",
+        "5.15.0-1010.13",
+        "5.15.0-1011.14",
+        "5.15.0-1014.17",
+        "5.15.0-1015.18"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-5.15.0-1016-gke": "5.15.0-1016.19",
-            "linux-tools-gke": "5.15.0.1016.18",
-            "linux-headers-gke-5.15": "5.15.0.1016.18",
-            "linux-tools-gke-5.15": "5.15.0.1016.18",
-            "linux-gke": "5.15.0.1016.18",
-            "linux-headers-5.15.0-1016-gke": "5.15.0-1016.19",
-            "linux-modules-5.15.0-1016-gke": "5.15.0-1016.19",
-            "linux-image-gke": "5.15.0.1016.18",
-            "linux-gke-tools-5.15.0-1016": "5.15.0-1016.19",
-            "linux-modules-extra-5.15.0-1016-gke": "5.15.0-1016.19",
-            "linux-headers-gke": "5.15.0.1016.18",
-            "linux-gke-5.15": "5.15.0.1016.18",
-            "linux-gke-headers-5.15.0-1016": "5.15.0-1016.19",
-            "linux-modules-iwlwifi-5.15.0-1016-gke": "5.15.0-1016.19",
-            "linux-image-gke-5.15": "5.15.0.1016.18",
             "linux-buildinfo-5.15.0-1016-gke": "5.15.0-1016.19",
-            "linux-tools-5.15.0-1016-gke": "5.15.0-1016.19",
-            "linux-image-unsigned-5.15.0-1016-gke": "5.15.0-1016.19"
+            "linux-gke-headers-5.15.0-1016": "5.15.0-1016.19",
+            "linux-gke-tools-5.15.0-1016": "5.15.0-1016.19",
+            "linux-headers-5.15.0-1016-gke": "5.15.0-1016.19",
+            "linux-image-unsigned-5.15.0-1016-gke": "5.15.0-1016.19",
+            "linux-image-unsigned-5.15.0-1016-gke-dbgsym": "5.15.0-1016.19",
+            "linux-modules-5.15.0-1016-gke": "5.15.0-1016.19",
+            "linux-modules-extra-5.15.0-1016-gke": "5.15.0-1016.19",
+            "linux-modules-iwlwifi-5.15.0-1016-gke": "5.15.0-1016.19",
+            "linux-tools-5.15.0-1016-gke": "5.15.0-1016.19"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:22.04:LTS",
+        "name": "linux-raspi",
+        "purl": "pkg:deb/ubuntu/linux-raspi@5.15.0-1015.17?arch=src?distro=jammy"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.15.0-1015.17"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.13.0-1008.9",
+        "5.15.0-1002.2",
+        "5.15.0-1003.3",
+        "5.15.0-1004.4",
+        "5.15.0-1005.5",
+        "5.15.0-1006.6",
+        "5.15.0-1008.8",
+        "5.15.0-1011.13",
+        "5.15.0-1012.14",
+        "5.15.0-1013.15",
+        "5.15.0-1014.16"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-5.15.0-1015-raspi": "5.15.0-1015.17",
+            "linux-buildinfo-5.15.0-1015-raspi-nolpae": "5.15.0-1015.17",
+            "linux-headers-5.15.0-1015-raspi": "5.15.0-1015.17",
+            "linux-headers-5.15.0-1015-raspi-nolpae": "5.15.0-1015.17",
+            "linux-image-5.15.0-1015-raspi": "5.15.0-1015.17",
+            "linux-image-5.15.0-1015-raspi-dbgsym": "5.15.0-1015.17",
+            "linux-image-5.15.0-1015-raspi-nolpae": "5.15.0-1015.17",
+            "linux-image-5.15.0-1015-raspi-nolpae-dbgsym": "5.15.0-1015.17",
+            "linux-modules-5.15.0-1015-raspi": "5.15.0-1015.17",
+            "linux-modules-5.15.0-1015-raspi-nolpae": "5.15.0-1015.17",
+            "linux-modules-extra-5.15.0-1015-raspi": "5.15.0-1015.17",
+            "linux-modules-extra-5.15.0-1015-raspi-nolpae": "5.15.0-1015.17",
+            "linux-raspi-headers-5.15.0-1015": "5.15.0-1015.17",
+            "linux-raspi-tools-5.15.0-1015": "5.15.0-1015.17",
+            "linux-tools-5.15.0-1015-raspi": "5.15.0-1015.17",
+            "linux-tools-5.15.0-1015-raspi-nolpae": "5.15.0-1015.17"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],

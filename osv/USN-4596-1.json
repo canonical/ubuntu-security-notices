@@ -1,13 +1,14 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-4596-1",
   "summary": "tomcat9 vulnerabilities",
   "details": "It was discovered that Tomcat did not properly manage HTTP/2 streams. An \nattacker could possibly use this to cause Tomcat to consume resources, \nresulting in a denial of service. (CVE-2020-11996)\n\nIt was discovered that Tomcat did not properly release the HTTP/1.1 \nprocessor after the upgrade to HTTP/2. An attacker could possibly use this\nto generate an OutOfMemoryException, resulting in a denial of service. \n(CVE-2020-13934)\n\nIt was discovered that Tomcat did not properly validate the payload length\nin a WebSocket frame. An attacker could possibly use this to trigger an\ninfinite loop, resulting in a denial of service. (CVE-2020-13935)\n\nIt was discovered that Tomcat did not properly deserialize untrusted data.\nAn attacker could possibly use this issue to execute arbitrary code.\n(CVE-2020-9484)\n",
   "aliases": [],
   "related": [
+    "CVE-2020-9484",
     "CVE-2020-11996",
     "CVE-2020-13934",
-    "CVE-2020-13935",
-    "CVE-2020-9484"
+    "CVE-2020-13935"
   ],
   "published": "2020-10-21T13:55:35.590369Z",
   "modified": "2020-10-21T13:55:35.590369Z",
@@ -15,7 +16,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "tomcat9"
+        "name": "tomcat9",
+        "purl": "pkg:deb/ubuntu/tomcat9@9.0.31-1ubuntu0.1?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -30,20 +32,25 @@
           ]
         }
       ],
+      "versions": [
+        "9.0.24-1",
+        "9.0.27-1",
+        "9.0.31-1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "tomcat9-docs": "9.0.31-1ubuntu0.1",
             "libtomcat9-embed-java": "9.0.31-1ubuntu0.1",
+            "libtomcat9-java": "9.0.31-1ubuntu0.1",
+            "tomcat9": "9.0.31-1ubuntu0.1",
             "tomcat9-admin": "9.0.31-1ubuntu0.1",
             "tomcat9-common": "9.0.31-1ubuntu0.1",
-            "libtomcat9-java": "9.0.31-1ubuntu0.1",
-            "tomcat9-user": "9.0.31-1ubuntu0.1",
-            "tomcat9": "9.0.31-1ubuntu0.1",
-            "tomcat9-examples": "9.0.31-1ubuntu0.1"
+            "tomcat9-docs": "9.0.31-1ubuntu0.1",
+            "tomcat9-examples": "9.0.31-1ubuntu0.1",
+            "tomcat9-user": "9.0.31-1ubuntu0.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -51,6 +58,10 @@
     {
       "type": "ADVISORY",
       "url": "https://ubuntu.com/security/notices/USN-4596-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2020-9484"
     },
     {
       "type": "REPORT",
@@ -63,10 +74,6 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2020-13935"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2020-9484"
     }
   ]
 }

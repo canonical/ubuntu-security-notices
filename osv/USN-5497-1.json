@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-5497-1",
   "summary": "libjpeg6b vulnerabilities",
   "details": "It was discovered that Libjpeg6b was not properly performing bounds\nchecks when compressing PPM and Targa image files. An attacker could\npossibly use this issue to cause a denial of service.\n(CVE-2018-11212)\n\nChijin Zhou discovered that Libjpeg6b was incorrectly handling the\nEOF character in input data when generating JPEG files. An attacker\ncould possibly use this issue to force the execution of a large loop,\nforce excessive memory consumption, and cause a denial of service.\n(CVE-2018-11813)\n\nSheng Shu and Dongdong She discovered that Libjpeg6b was not properly\nlimiting the amount of memory being used when it was performing\ndecompression or multi-pass compression operations. An attacker could\npossibly use this issue to force excessive memory consumption and\ncause a denial of service. (CVE-2020-14152)\n",
@@ -16,7 +17,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:Pro:14.04:LTS",
-        "name": "libjpeg6b"
+        "name": "libjpeg6b",
+        "purl": "pkg:deb/ubuntu/libjpeg6b@6b1-4ubuntu1+esm1?arch=src?distro=trusty/esm"
       },
       "ranges": [
         {
@@ -31,14 +33,21 @@
           ]
         }
       ],
+      "versions": [
+        "6b1-3ubuntu1",
+        "6b1-4ubuntu1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "libjpeg62": "6b1-4ubuntu1+esm1",
-            "libjpeg62-dev": "6b1-4ubuntu1+esm1"
+            "libjpeg62-dbg": "6b1-4ubuntu1+esm1",
+            "libjpeg62-dbgsym": "6b1-4ubuntu1+esm1",
+            "libjpeg62-dev": "6b1-4ubuntu1+esm1",
+            "libjpeg62-dev-dbgsym": "6b1-4ubuntu1+esm1"
           }
         ],
-        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+        "availability": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro"
       }
     }
   ],

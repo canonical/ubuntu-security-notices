@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-4439-1",
   "summary": "linux-gke-5.0, linux-oem-osp1 vulnerabilities",
   "details": "It was discovered that the network block device (nbd) implementation in the\nLinux kernel did not properly check for error conditions in some\nsituations. An attacker could possibly use this to cause a denial of\nservice (system crash). (CVE-2019-16089)\n\nIt was discovered that the btrfs file system implementation in the Linux\nkernel did not properly validate file system metadata in some situations.\nAn attacker could use this to construct a malicious btrfs image that, when\nmounted, could cause a denial of service (system crash). (CVE-2019-19036)\n\nIt was discovered that the kernel->user space relay implementation in the\nLinux kernel did not properly check return values in some situations. A\nlocal attacker could possibly use this to cause a denial of service (system\ncrash). (CVE-2019-19462)\n\nChuhong Yuan discovered that go7007 USB audio device driver in the Linux\nkernel did not properly deallocate memory in some failure conditions. A\nphysically proximate attacker could use this to cause a denial of service\n(memory exhaustion). (CVE-2019-20810)\n\nIt was discovered that the elf handling code in the Linux kernel did not\ninitialize memory before using it in certain situations. A local attacker\ncould use this to possibly expose sensitive information (kernel memory).\n(CVE-2020-10732)\n\nFan Yang discovered that the mremap implementation in the Linux kernel did\nnot properly handle DAX Huge Pages. A local attacker with access to DAX\nstorage could use this to gain administrative privileges. (CVE-2020-10757)\n\nIt was discovered that the Linux kernel did not correctly apply Speculative\nStore Bypass Disable (SSBD) mitigations in certain situations. A local\nattacker could possibly use this to expose sensitive information.\n(CVE-2020-10766)\n\nIt was discovered that the Linux kernel did not correctly apply Indirect\nBranch Predictor Barrier (IBPB) mitigations in certain situations. A local\nattacker could possibly use this to expose sensitive information.\n(CVE-2020-10767)\n\nIt was discovered that the Linux kernel could incorrectly enable Indirect\nBranch Speculation after it has been disabled for a process via a prctl()\ncall. A local attacker could possibly use this to expose sensitive\ninformation. (CVE-2020-10768)\n\nMauricio Faria de Oliveira discovered that the aufs implementation in the\nLinux kernel improperly managed inode reference counts in the\nvfsub_dentry_open() method. A local attacker could use this vulnerability\nto cause a denial of service. (CVE-2020-11935)\n\nIt was discovered that the Virtual Terminal keyboard driver in the Linux\nkernel contained an integer overflow. A local attacker could possibly use\nthis to have an unspecified impact. (CVE-2020-13974)\n\nIt was discovered that the efi subsystem in the Linux kernel did not handle\nmemory allocation failures during early boot in some situations. A local\nattacker could possibly use this to cause a denial of service (system\ncrash). (CVE-2019-12380)\n\nJason A. Donenfeld discovered that the ACPI implementation in the Linux\nkernel did not properly restrict loading SSDT code from an EFI variable.\nA privileged attacker could use this to bypass Secure Boot lockdown\nrestrictions and execute arbitrary code in the kernel. (CVE-2019-20908)\n\nJason A. Donenfeld discovered that the ACPI implementation in the Linux\nkernel did not properly restrict loading ACPI tables via configfs. A\nprivileged attacker could use this to bypass Secure Boot lockdown\nrestrictions and execute arbitrary code in the kernel. (CVE-2020-15780)\n",
@@ -9,6 +10,7 @@
     "CVE-2019-19036",
     "CVE-2019-19462",
     "CVE-2019-20810",
+    "CVE-2019-20908",
     "CVE-2020-10732",
     "CVE-2020-10757",
     "CVE-2020-10766",
@@ -16,8 +18,7 @@
     "CVE-2020-10768",
     "CVE-2020-11935",
     "CVE-2020-13974",
-    "CVE-2020-15780",
-    "CVE-2019-20908"
+    "CVE-2020-15780"
   ],
   "published": "2020-07-27T22:38:27.960124Z",
   "modified": "2020-07-27T22:38:27.960124Z",
@@ -25,35 +26,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-oem-osp1"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.0.0-1065.70"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-5.0.0-1065-oem-osp1": "5.0.0-1065.70",
-            "linux-image-oem-osp1": "5.0.0.1065.63"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-gke-5.0"
+        "name": "linux-gke-5.0",
+        "purl": "pkg:deb/ubuntu/linux-gke-5.0@5.0.0-1045.46?arch=src?distro=bionic"
       },
       "ranges": [
         {
@@ -68,14 +42,136 @@
           ]
         }
       ],
+      "versions": [
+        "5.0.0-1011.11~18.04.1",
+        "5.0.0-1013.13~18.04.1",
+        "5.0.0-1015.15~18.04.1",
+        "5.0.0-1017.17~18.04.1",
+        "5.0.0-1020.20~18.04.1",
+        "5.0.0-1022.22~18.04.3",
+        "5.0.0-1023.23~18.04.2",
+        "5.0.0-1025.26~18.04.1",
+        "5.0.0-1026.27~18.04.2",
+        "5.0.0-1027.28~18.04.1",
+        "5.0.0-1029.30~18.04.1",
+        "5.0.0-1030.31",
+        "5.0.0-1032.33",
+        "5.0.0-1033.34",
+        "5.0.0-1035.36",
+        "5.0.0-1037.38",
+        "5.0.0-1042.43",
+        "5.0.0-1043.44"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-gke-5.0": "5.0.0.1045.30",
-            "linux-image-5.0.0-1045-gke": "5.0.0-1045.46"
+            "linux-buildinfo-5.0.0-1045-gke": "5.0.0-1045.46",
+            "linux-gke-5.0-headers-5.0.0-1045": "5.0.0-1045.46",
+            "linux-gke-5.0-tools-5.0.0-1045": "5.0.0-1045.46",
+            "linux-headers-5.0.0-1045-gke": "5.0.0-1045.46",
+            "linux-image-unsigned-5.0.0-1045-gke": "5.0.0-1045.46",
+            "linux-image-unsigned-5.0.0-1045-gke-dbgsym": "5.0.0-1045.46",
+            "linux-modules-5.0.0-1045-gke": "5.0.0-1045.46",
+            "linux-modules-extra-5.0.0-1045-gke": "5.0.0-1045.46",
+            "linux-tools-5.0.0-1045-gke": "5.0.0-1045.46"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-oem-osp1",
+        "purl": "pkg:deb/ubuntu/linux-oem-osp1@5.0.0-1065.70?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.0.0-1065.70"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.0.0-1010.11",
+        "5.0.0-1012.13",
+        "5.0.0-1015.16",
+        "5.0.0-1018.20",
+        "5.0.0-1020.22",
+        "5.0.0-1022.24",
+        "5.0.0-1024.27",
+        "5.0.0-1025.28",
+        "5.0.0-1027.31",
+        "5.0.0-1028.32",
+        "5.0.0-1030.34",
+        "5.0.0-1033.38",
+        "5.0.0-1037.42",
+        "5.0.0-1039.44",
+        "5.0.0-1040.45",
+        "5.0.0-1043.48",
+        "5.0.0-1046.51",
+        "5.0.0-1047.52",
+        "5.0.0-1050.55",
+        "5.0.0-1052.57",
+        "5.0.0-1059.64",
+        "5.0.0-1062.67",
+        "5.0.0-1063.68"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "block-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "crypto-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "fat-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "fb-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "firewire-core-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "floppy-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "fs-core-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "fs-secondary-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "input-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "ipmi-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "kernel-image-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "linux-buildinfo-5.0.0-1065-oem-osp1": "5.0.0-1065.70",
+            "linux-headers-5.0.0-1065-oem-osp1": "5.0.0-1065.70",
+            "linux-image-unsigned-5.0.0-1065-oem-osp1": "5.0.0-1065.70",
+            "linux-image-unsigned-5.0.0-1065-oem-osp1-dbgsym": "5.0.0-1065.70",
+            "linux-modules-5.0.0-1065-oem-osp1": "5.0.0-1065.70",
+            "linux-oem-osp1-headers-5.0.0-1065": "5.0.0-1065.70",
+            "linux-oem-osp1-tools-5.0.0-1065": "5.0.0-1065.70",
+            "linux-oem-osp1-tools-host": "5.0.0-1065.70",
+            "linux-tools-5.0.0-1065-oem-osp1": "5.0.0-1065.70",
+            "linux-udebs-oem-osp1": "5.0.0-1065.70",
+            "md-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "message-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "mouse-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "multipath-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "nfs-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "nic-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "nic-pcmcia-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "nic-shared-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "nic-usb-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "parport-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "pata-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "pcmcia-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "pcmcia-storage-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "plip-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "ppp-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "sata-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "scsi-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "serial-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "storage-core-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "usb-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "virtio-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70",
+            "vlan-modules-5.0.0-1065-oem-osp1-di": "5.0.0-1065.70"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],
@@ -103,6 +199,10 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2019-20810"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2019-20908"
     },
     {
       "type": "REPORT",
@@ -135,10 +235,6 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2020-15780"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2019-20908"
     }
   ]
 }

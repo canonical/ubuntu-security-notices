@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-4998-1",
   "summary": "ceph vulnerabilities",
   "details": "It was discovered that in some situations Ceph logged passwords from the\nmgr module in clear text. An attacker could use this to expose sensitive\ninformation. (CVE-2020-25678)\n\nGoutham Pacha Ravi, Jahson Babel, and John Garbutt discovered that user\ncredentials in Ceph could be manipulated in certain environments. An\nattacker could use this to gain unintended access. (CVE-2020-27781)\n\nIt was discovered that the Ceph dashboard was susceptible to a cross-site\nscripting attack. An attacker could use this to expose sensitive\ninformation or gain unintended access. (CVE-2020-27839)\n\nIt was discovered that Ceph contained an authentication flaw, leading to\nkey reuse. An attacker could use this to cause a denial of service or\npossibly impersonate another user. (CVE-2021-20288)\n\nSergey Bobrov discovered that the Ceph dashboard was susceptible to a\ncross-site scripting attack. An attacker could use this to expose sensitive\ninformation or gain unintended access. (CVE-2021-3509)\n\nSergey Bobrov discovered that Ceph's RadosGW (Ceph Object Gateway) allowed\nthe injection of HTTP headers in responses to CORS requests. An attacker\ncould use this to violate system integrity. (CVE-2021-3524)\n\nIt was discovered that Ceph's RadosGW (Ceph Object Gateway) did not\nproperly handle GET requests for swift URLs in some situations, leading to\nan application crash. An attacker could use this to cause a denial of\nservice. (CVE-2021-3531)\n",
@@ -7,10 +8,10 @@
     "CVE-2020-25678",
     "CVE-2020-27781",
     "CVE-2020-27839",
-    "CVE-2021-20288",
     "CVE-2021-3509",
     "CVE-2021-3524",
-    "CVE-2021-3531"
+    "CVE-2021-3531",
+    "CVE-2021-20288"
   ],
   "published": "2021-06-25T02:38:50.003648Z",
   "modified": "2021-06-25T02:38:50.003648Z",
@@ -18,7 +19,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "ceph"
+        "name": "ceph",
+        "purl": "pkg:deb/ubuntu/ceph@15.2.12-0ubuntu0.20.04.1?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -33,56 +35,100 @@
           ]
         }
       ],
+      "versions": [
+        "14.2.2-0ubuntu3",
+        "14.2.2-0ubuntu4",
+        "14.2.4-0ubuntu1",
+        "14.2.4-0ubuntu2",
+        "14.2.4-0ubuntu3",
+        "15.1.0-0ubuntu2",
+        "15.1.0-0ubuntu3",
+        "15.1.1-0ubuntu1",
+        "15.2.0-0ubuntu1",
+        "15.2.0-0ubuntu2",
+        "15.2.1-0ubuntu1",
+        "15.2.1-0ubuntu2",
+        "15.2.3-0ubuntu0.20.04.1",
+        "15.2.3-0ubuntu0.20.04.2",
+        "15.2.5-0ubuntu0.20.04.1",
+        "15.2.7-0ubuntu0.20.04.1",
+        "15.2.7-0ubuntu0.20.04.2",
+        "15.2.8-0ubuntu0.20.04.1",
+        "15.2.11-0ubuntu0.20.04.2"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "python3-rbd": "15.2.12-0ubuntu0.20.04.1",
-            "ceph-mgr-modules-core": "15.2.12-0ubuntu0.20.04.1",
+            "ceph": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-base": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-base-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-common": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-common-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-fuse": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-fuse-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-immutable-object-cache": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-immutable-object-cache-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-mds": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-mds-dbgsym": "15.2.12-0ubuntu0.20.04.1",
             "ceph-mgr": "15.2.12-0ubuntu0.20.04.1",
             "ceph-mgr-cephadm": "15.2.12-0ubuntu0.20.04.1",
-            "ceph": "15.2.12-0ubuntu0.20.04.1",
-            "rbd-mirror": "15.2.12-0ubuntu0.20.04.1",
             "ceph-mgr-dashboard": "15.2.12-0ubuntu0.20.04.1",
-            "librbd-dev": "15.2.12-0ubuntu0.20.04.1",
-            "ceph-mgr-rook": "15.2.12-0ubuntu0.20.04.1",
-            "rbd-fuse": "15.2.12-0ubuntu0.20.04.1",
-            "libradospp-dev": "15.2.12-0ubuntu0.20.04.1",
-            "librados-dev": "15.2.12-0ubuntu0.20.04.1",
-            "librbd1": "15.2.12-0ubuntu0.20.04.1",
-            "python3-ceph": "15.2.12-0ubuntu0.20.04.1",
-            "cephadm": "15.2.12-0ubuntu0.20.04.1",
-            "libradosstriper-dev": "15.2.12-0ubuntu0.20.04.1",
-            "librados2": "15.2.12-0ubuntu0.20.04.1",
-            "ceph-mon": "15.2.12-0ubuntu0.20.04.1",
-            "libcephfs2": "15.2.12-0ubuntu0.20.04.1",
-            "ceph-immutable-object-cache": "15.2.12-0ubuntu0.20.04.1",
-            "librgw2": "15.2.12-0ubuntu0.20.04.1",
-            "ceph-mds": "15.2.12-0ubuntu0.20.04.1",
-            "radosgw": "15.2.12-0ubuntu0.20.04.1",
-            "ceph-mgr-diskprediction-local": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-mgr-dbgsym": "15.2.12-0ubuntu0.20.04.1",
             "ceph-mgr-diskprediction-cloud": "15.2.12-0ubuntu0.20.04.1",
-            "python3-rgw": "15.2.12-0ubuntu0.20.04.1",
-            "rbd-nbd": "15.2.12-0ubuntu0.20.04.1",
-            "libcephfs-dev": "15.2.12-0ubuntu0.20.04.1",
-            "rados-objclass-dev": "15.2.12-0ubuntu0.20.04.1",
-            "libradosstriper1": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-mgr-diskprediction-local": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-mgr-k8sevents": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-mgr-modules-core": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-mgr-rook": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-mon": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-mon-dbgsym": "15.2.12-0ubuntu0.20.04.1",
             "ceph-osd": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-osd-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "ceph-resource-agents": "15.2.12-0ubuntu0.20.04.1",
+            "cephadm": "15.2.12-0ubuntu0.20.04.1",
+            "cephfs-shell": "15.2.12-0ubuntu0.20.04.1",
+            "libcephfs-dev": "15.2.12-0ubuntu0.20.04.1",
+            "libcephfs-java": "15.2.12-0ubuntu0.20.04.1",
+            "libcephfs-jni": "15.2.12-0ubuntu0.20.04.1",
+            "libcephfs-jni-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "libcephfs2": "15.2.12-0ubuntu0.20.04.1",
+            "libcephfs2-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "librados-dev": "15.2.12-0ubuntu0.20.04.1",
+            "librados-dev-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "librados2": "15.2.12-0ubuntu0.20.04.1",
+            "librados2-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "libradospp-dev": "15.2.12-0ubuntu0.20.04.1",
+            "libradosstriper-dev": "15.2.12-0ubuntu0.20.04.1",
+            "libradosstriper1": "15.2.12-0ubuntu0.20.04.1",
+            "libradosstriper1-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "librbd-dev": "15.2.12-0ubuntu0.20.04.1",
+            "librbd1": "15.2.12-0ubuntu0.20.04.1",
+            "librbd1-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "librgw-dev": "15.2.12-0ubuntu0.20.04.1",
+            "librgw2": "15.2.12-0ubuntu0.20.04.1",
+            "librgw2-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "python3-ceph": "15.2.12-0ubuntu0.20.04.1",
             "python3-ceph-argparse": "15.2.12-0ubuntu0.20.04.1",
             "python3-ceph-common": "15.2.12-0ubuntu0.20.04.1",
-            "librgw-dev": "15.2.12-0ubuntu0.20.04.1",
-            "python3-rados": "15.2.12-0ubuntu0.20.04.1",
-            "ceph-base": "15.2.12-0ubuntu0.20.04.1",
-            "ceph-mgr-k8sevents": "15.2.12-0ubuntu0.20.04.1",
             "python3-cephfs": "15.2.12-0ubuntu0.20.04.1",
-            "ceph-fuse": "15.2.12-0ubuntu0.20.04.1",
-            "cephfs-shell": "15.2.12-0ubuntu0.20.04.1",
-            "ceph-common": "15.2.12-0ubuntu0.20.04.1",
-            "libcephfs-java": "15.2.12-0ubuntu0.20.04.1",
-            "ceph-resource-agents": "15.2.12-0ubuntu0.20.04.1",
-            "libcephfs-jni": "15.2.12-0ubuntu0.20.04.1"
+            "python3-cephfs-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "python3-rados": "15.2.12-0ubuntu0.20.04.1",
+            "python3-rados-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "python3-rbd": "15.2.12-0ubuntu0.20.04.1",
+            "python3-rbd-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "python3-rgw": "15.2.12-0ubuntu0.20.04.1",
+            "python3-rgw-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "rados-objclass-dev": "15.2.12-0ubuntu0.20.04.1",
+            "radosgw": "15.2.12-0ubuntu0.20.04.1",
+            "radosgw-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "rbd-fuse": "15.2.12-0ubuntu0.20.04.1",
+            "rbd-fuse-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "rbd-mirror": "15.2.12-0ubuntu0.20.04.1",
+            "rbd-mirror-dbgsym": "15.2.12-0ubuntu0.20.04.1",
+            "rbd-nbd": "15.2.12-0ubuntu0.20.04.1",
+            "rbd-nbd-dbgsym": "15.2.12-0ubuntu0.20.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -105,10 +151,6 @@
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2021-20288"
-    },
-    {
-      "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2021-3509"
     },
     {
@@ -118,6 +160,10 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2021-3531"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2021-20288"
     }
   ]
 }

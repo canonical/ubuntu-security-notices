@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-3903-2",
   "summary": "linux-hwe, linux-azure vulnerabilities",
   "details": "USN-3903-1 fixed vulnerabilities in the Linux kernel for Ubuntu 18.10.\nThis update provides the corresponding updates for the Linux Hardware\nEnablement (HWE) kernel from Ubuntu 18.10 for Ubuntu 18.04 LTS.\n\nJason Wang discovered that the vhost net driver in the Linux kernel\ncontained an out of bounds write vulnerability. An attacker in a guest\nvirtual machine could use this to cause a denial of service (host system\ncrash) or possibly execute arbitrary code in the host kernel.\n(CVE-2018-16880)\n\nJann Horn discovered that the userfaultd implementation in the Linux kernel\ndid not properly restrict access to certain ioctls. A local attacker could\nuse this possibly to modify files. (CVE-2018-18397)\n\nJann Horn discovered a race condition in the fork() system call in the\nLinux kernel. A local attacker could use this to gain access to services\nthat cache authorizations. (CVE-2019-6133)\n",
@@ -14,42 +15,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-hwe"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.18.0-16.17~18.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-4.18.0-16-generic-lpae": "4.18.0-16.17~18.04.1",
-            "linux-image-4.18.0-16-lowlatency": "4.18.0-16.17~18.04.1",
-            "linux-image-lowlatency-hwe-18.04": "4.18.0.16.66",
-            "linux-image-virtual-hwe-18.04": "4.18.0.16.66",
-            "linux-image-generic-lpae-hwe-18.04": "4.18.0.16.66",
-            "linux-image-4.18.0-16-generic": "4.18.0-16.17~18.04.1",
-            "linux-image-4.18.0-16-snapdragon": "4.18.0-16.17~18.04.1",
-            "linux-image-generic-hwe-18.04": "4.18.0.16.66",
-            "linux-image-snapdragon-hwe-18.04": "4.18.0.16.66"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-azure"
+        "name": "linux-azure",
+        "purl": "pkg:deb/ubuntu/linux-azure@4.18.0-1013.13~18.04.1?arch=src?distro=bionic"
       },
       "ranges": [
         {
@@ -64,14 +31,200 @@
           ]
         }
       ],
+      "versions": [
+        "4.15.0-1002.2",
+        "4.15.0-1003.3",
+        "4.15.0-1004.4",
+        "4.15.0-1008.8",
+        "4.15.0-1009.9",
+        "4.15.0-1012.12",
+        "4.15.0-1013.13",
+        "4.15.0-1014.14",
+        "4.15.0-1018.18",
+        "4.15.0-1019.19",
+        "4.15.0-1021.21",
+        "4.15.0-1022.23",
+        "4.15.0-1023.24",
+        "4.15.0-1025.26",
+        "4.15.0-1028.29",
+        "4.15.0-1030.31",
+        "4.15.0-1031.32",
+        "4.15.0-1032.33",
+        "4.15.0-1035.36",
+        "4.15.0-1036.38",
+        "4.15.0-1037.39",
+        "4.18.0-1011.11~18.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-4.18.0-1013-azure": "4.18.0-1013.13~18.04.1",
-            "linux-image-azure": "4.18.0.1013.12"
+            "linux-azure-cloud-tools-4.18.0-1013": "4.18.0-1013.13~18.04.1",
+            "linux-azure-headers-4.18.0-1013": "4.18.0-1013.13~18.04.1",
+            "linux-azure-tools-4.18.0-1013": "4.18.0-1013.13~18.04.1",
+            "linux-buildinfo-4.18.0-1013-azure": "4.18.0-1013.13~18.04.1",
+            "linux-cloud-tools-4.18.0-1013-azure": "4.18.0-1013.13~18.04.1",
+            "linux-headers-4.18.0-1013-azure": "4.18.0-1013.13~18.04.1",
+            "linux-image-unsigned-4.18.0-1013-azure": "4.18.0-1013.13~18.04.1",
+            "linux-image-unsigned-4.18.0-1013-azure-dbgsym": "4.18.0-1013.13~18.04.1",
+            "linux-modules-4.18.0-1013-azure": "4.18.0-1013.13~18.04.1",
+            "linux-modules-extra-4.18.0-1013-azure": "4.18.0-1013.13~18.04.1",
+            "linux-tools-4.18.0-1013-azure": "4.18.0-1013.13~18.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-hwe",
+        "purl": "pkg:deb/ubuntu/linux-hwe@4.18.0-16.17~18.04.1?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.18.0-16.17~18.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.18.0-13.14~18.04.1",
+        "4.18.0-14.15~18.04.1",
+        "4.18.0-15.16~18.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "block-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "block-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "block-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "crypto-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "crypto-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "crypto-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "dasd-extra-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "dasd-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "fat-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "fat-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "fat-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "fb-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "firewire-core-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "floppy-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "fs-core-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "fs-core-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "fs-core-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "fs-secondary-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "fs-secondary-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "fs-secondary-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "input-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "input-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "input-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "ipmi-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "ipmi-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "ipmi-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "kernel-image-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "kernel-image-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "kernel-image-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "linux-buildinfo-4.18.0-16-generic": "4.18.0-16.17~18.04.1",
+            "linux-buildinfo-4.18.0-16-generic-lpae": "4.18.0-16.17~18.04.1",
+            "linux-buildinfo-4.18.0-16-lowlatency": "4.18.0-16.17~18.04.1",
+            "linux-buildinfo-4.18.0-16-snapdragon": "4.18.0-16.17~18.04.1",
+            "linux-cloud-tools-4.18.0-16-generic": "4.18.0-16.17~18.04.1",
+            "linux-cloud-tools-4.18.0-16-lowlatency": "4.18.0-16.17~18.04.1",
+            "linux-headers-4.18.0-16": "4.18.0-16.17~18.04.1",
+            "linux-headers-4.18.0-16-generic": "4.18.0-16.17~18.04.1",
+            "linux-headers-4.18.0-16-generic-lpae": "4.18.0-16.17~18.04.1",
+            "linux-headers-4.18.0-16-lowlatency": "4.18.0-16.17~18.04.1",
+            "linux-headers-4.18.0-16-snapdragon": "4.18.0-16.17~18.04.1",
+            "linux-hwe-cloud-tools-4.18.0-16": "4.18.0-16.17~18.04.1",
+            "linux-hwe-tools-4.18.0-16": "4.18.0-16.17~18.04.1",
+            "linux-hwe-udebs-generic": "4.18.0-16.17~18.04.1",
+            "linux-hwe-udebs-generic-lpae": "4.18.0-16.17~18.04.1",
+            "linux-hwe-udebs-snapdragon": "4.18.0-16.17~18.04.1",
+            "linux-image-4.18.0-16-generic": "4.18.0-16.17~18.04.1",
+            "linux-image-4.18.0-16-generic-dbgsym": "4.18.0-16.17~18.04.1",
+            "linux-image-4.18.0-16-generic-lpae": "4.18.0-16.17~18.04.1",
+            "linux-image-4.18.0-16-generic-lpae-dbgsym": "4.18.0-16.17~18.04.1",
+            "linux-image-4.18.0-16-lowlatency": "4.18.0-16.17~18.04.1",
+            "linux-image-4.18.0-16-lowlatency-dbgsym": "4.18.0-16.17~18.04.1",
+            "linux-image-4.18.0-16-snapdragon": "4.18.0-16.17~18.04.1",
+            "linux-image-4.18.0-16-snapdragon-dbgsym": "4.18.0-16.17~18.04.1",
+            "linux-image-unsigned-4.18.0-16-generic": "4.18.0-16.17~18.04.1",
+            "linux-image-unsigned-4.18.0-16-generic-dbgsym": "4.18.0-16.17~18.04.1",
+            "linux-image-unsigned-4.18.0-16-lowlatency": "4.18.0-16.17~18.04.1",
+            "linux-image-unsigned-4.18.0-16-lowlatency-dbgsym": "4.18.0-16.17~18.04.1",
+            "linux-modules-4.18.0-16-generic": "4.18.0-16.17~18.04.1",
+            "linux-modules-4.18.0-16-generic-lpae": "4.18.0-16.17~18.04.1",
+            "linux-modules-4.18.0-16-lowlatency": "4.18.0-16.17~18.04.1",
+            "linux-modules-4.18.0-16-snapdragon": "4.18.0-16.17~18.04.1",
+            "linux-modules-extra-4.18.0-16-generic": "4.18.0-16.17~18.04.1",
+            "linux-source-4.18.0": "4.18.0-16.17~18.04.1",
+            "linux-tools-4.18.0-16-generic": "4.18.0-16.17~18.04.1",
+            "linux-tools-4.18.0-16-generic-lpae": "4.18.0-16.17~18.04.1",
+            "linux-tools-4.18.0-16-lowlatency": "4.18.0-16.17~18.04.1",
+            "linux-tools-4.18.0-16-snapdragon": "4.18.0-16.17~18.04.1",
+            "md-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "md-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "md-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "message-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "message-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "mouse-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "mouse-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "mouse-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "multipath-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "multipath-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "multipath-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "nfs-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "nfs-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "nfs-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "nic-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "nic-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "nic-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "nic-pcmcia-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "nic-shared-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "nic-shared-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "nic-shared-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "nic-usb-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "nic-usb-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "nic-usb-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "parport-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "parport-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "parport-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "pata-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "pcmcia-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "pcmcia-storage-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "plip-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "plip-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "plip-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "ppp-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "ppp-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "ppp-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "sata-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "sata-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "sata-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "scsi-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "scsi-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "scsi-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "serial-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "storage-core-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "storage-core-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "storage-core-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "usb-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "usb-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "usb-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "virtio-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "virtio-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1",
+            "vlan-modules-4.18.0-16-generic-di": "4.18.0-16.17~18.04.1",
+            "vlan-modules-4.18.0-16-generic-lpae-di": "4.18.0-16.17~18.04.1",
+            "vlan-modules-4.18.0-16-snapdragon-di": "4.18.0-16.17~18.04.1"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],

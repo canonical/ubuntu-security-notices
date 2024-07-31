@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-5310-1",
   "summary": "glibc vulnerabilities",
   "details": "Jan Engelhardt, Tavis Ormandy, and others discovered that the GNU C Library\niconv feature incorrectly handled certain input sequences. An attacker\ncould possibly use this issue to cause the GNU C Library to hang or crash,\nresulting in a denial of service. This issue only affected Ubuntu 18.04 LTS\nand Ubuntu 20.04 LTS. (CVE-2016-10228, CVE-2019-25013, CVE-2020-27618,\nCVE-2020-29562, CVE-2021-3326)\n\nJason Royes and Samuel Dytrych discovered that the GNU C Library\nincorrectly handled signed comparisons on ARMv7 targets. A remote attacker\ncould use this issue to cause the GNU C Library to crash, resulting in a\ndenial of service, or possibly execute arbitrary code. This issue only\naffected Ubuntu 18.04 LTS and Ubuntu 20.04 LTS. (CVE-2020-6096)\n\nIt was discovered that the GNU C Library nscd daemon incorrectly handled\ncertain netgroup lookups. An attacker could possibly use this issue to\ncause the GNU C Library to crash, resulting in a denial of service. This\nissue only affected Ubuntu 20.04 LTS. (CVE-2021-27645)\n\nIt was discovered that the GNU C Library wordexp function incorrectly\nhandled certain patterns. An attacker could use this issue to cause the\nGNU C Library to crash, resulting in a denial of service, or possibly\nobtain sensitive information. This issue only affected Ubuntu 18.04 LTS and\nUbuntu 20.04 LTS. (CVE-2021-35942)\n\nIt was discovered that the GNU C Library realpath function incorrectly\nhandled return values. An attacker could possibly use this issue to obtain\nsensitive information. This issue only affected Ubuntu 21.10.\n(CVE-2021-3998)\n\nIt was discovered that the GNU C library getcwd function incorrectly\nhandled buffers. An attacker could use this issue to cause the GNU C\nLibrary to crash, resulting in a denial of service, or possibly execute\narbitrary code. (CVE-2021-3999)\n\nIt was discovered that the GNU C Library sunrpc module incorrectly handled\nbuffer lengths. An attacker could possibly use this issue to cause the GNU\nC Library to crash, resulting in a denial of service. (CVE-2022-23218,\nCVE-2022-23219)\n",
@@ -6,14 +7,14 @@
   "related": [
     "CVE-2016-10228",
     "CVE-2019-25013",
+    "CVE-2020-6096",
     "CVE-2020-27618",
     "CVE-2020-29562",
-    "CVE-2020-6096",
-    "CVE-2021-27645",
     "CVE-2021-3326",
-    "CVE-2021-35942",
     "CVE-2021-3998",
     "CVE-2021-3999",
+    "CVE-2021-27645",
+    "CVE-2021-35942",
     "CVE-2022-23218",
     "CVE-2022-23219"
   ],
@@ -23,7 +24,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "glibc"
+        "name": "glibc",
+        "purl": "pkg:deb/ubuntu/glibc@2.27-3ubuntu1.5?arch=src?distro=bionic"
       },
       "ranges": [
         {
@@ -38,40 +40,61 @@
           ]
         }
       ],
+      "versions": [
+        "2.26-0ubuntu2",
+        "2.26-0ubuntu2.1",
+        "2.27-0ubuntu2",
+        "2.27-0ubuntu3",
+        "2.27-3ubuntu1",
+        "2.27-3ubuntu1.2",
+        "2.27-3ubuntu1.3",
+        "2.27-3ubuntu1.4"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "libc6-i386": "2.27-3ubuntu1.5",
-            "libc6-dev-s390": "2.27-3ubuntu1.5",
+            "glibc-doc": "2.27-3ubuntu1.5",
             "glibc-source": "2.27-3ubuntu1.5",
             "libc-bin": "2.27-3ubuntu1.5",
-            "libc6-x32": "2.27-3ubuntu1.5",
-            "libc6-s390": "2.27-3ubuntu1.5",
-            "libc6-armel": "2.27-3ubuntu1.5",
-            "libc6-pic": "2.27-3ubuntu1.5",
-            "libc6-dev-armel": "2.27-3ubuntu1.5",
-            "glibc-doc": "2.27-3ubuntu1.5",
-            "multiarch-support": "2.27-3ubuntu1.5",
-            "libc6-dev": "2.27-3ubuntu1.5",
-            "libc6-amd64": "2.27-3ubuntu1.5",
-            "libc6-dev-amd64": "2.27-3ubuntu1.5",
-            "libc6": "2.27-3ubuntu1.5",
-            "locales-all": "2.27-3ubuntu1.5",
-            "libc6-dev-x32": "2.27-3ubuntu1.5",
-            "locales": "2.27-3ubuntu1.5",
-            "libc6-lse": "2.27-3ubuntu1.5",
-            "libc6-dev-i386": "2.27-3ubuntu1.5",
+            "libc-bin-dbgsym": "2.27-3ubuntu1.5",
             "libc-dev-bin": "2.27-3ubuntu1.5",
-            "nscd": "2.27-3ubuntu1.5"
+            "libc-dev-bin-dbgsym": "2.27-3ubuntu1.5",
+            "libc6": "2.27-3ubuntu1.5",
+            "libc6-amd64": "2.27-3ubuntu1.5",
+            "libc6-amd64-dbgsym": "2.27-3ubuntu1.5",
+            "libc6-armel": "2.27-3ubuntu1.5",
+            "libc6-armel-dbgsym": "2.27-3ubuntu1.5",
+            "libc6-dbg": "2.27-3ubuntu1.5",
+            "libc6-dev": "2.27-3ubuntu1.5",
+            "libc6-dev-amd64": "2.27-3ubuntu1.5",
+            "libc6-dev-armel": "2.27-3ubuntu1.5",
+            "libc6-dev-i386": "2.27-3ubuntu1.5",
+            "libc6-dev-s390": "2.27-3ubuntu1.5",
+            "libc6-dev-x32": "2.27-3ubuntu1.5",
+            "libc6-i386": "2.27-3ubuntu1.5",
+            "libc6-i386-dbgsym": "2.27-3ubuntu1.5",
+            "libc6-lse": "2.27-3ubuntu1.5",
+            "libc6-pic": "2.27-3ubuntu1.5",
+            "libc6-s390": "2.27-3ubuntu1.5",
+            "libc6-s390-dbgsym": "2.27-3ubuntu1.5",
+            "libc6-udeb": "2.27-3ubuntu1.5",
+            "libc6-x32": "2.27-3ubuntu1.5",
+            "libc6-x32-dbgsym": "2.27-3ubuntu1.5",
+            "locales": "2.27-3ubuntu1.5",
+            "locales-all": "2.27-3ubuntu1.5",
+            "multiarch-support": "2.27-3ubuntu1.5",
+            "nscd": "2.27-3ubuntu1.5",
+            "nscd-dbgsym": "2.27-3ubuntu1.5"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "glibc"
+        "name": "glibc",
+        "purl": "pkg:deb/ubuntu/glibc@2.31-0ubuntu9.7?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -86,34 +109,55 @@
           ]
         }
       ],
+      "versions": [
+        "2.30-0ubuntu2",
+        "2.30-0ubuntu3",
+        "2.31-0ubuntu5",
+        "2.31-0ubuntu6",
+        "2.31-0ubuntu7",
+        "2.31-0ubuntu9",
+        "2.31-0ubuntu9.1",
+        "2.31-0ubuntu9.2",
+        "2.31-0ubuntu9.3"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "libc6-i386": "2.31-0ubuntu9.7",
-            "nscd": "2.31-0ubuntu9.7",
-            "libc6-dev-s390": "2.31-0ubuntu9.7",
+            "glibc-doc": "2.31-0ubuntu9.7",
             "glibc-source": "2.31-0ubuntu9.7",
             "libc-bin": "2.31-0ubuntu9.7",
-            "libc6-x32": "2.31-0ubuntu9.7",
-            "libc6-s390": "2.31-0ubuntu9.7",
-            "libc6-armel": "2.31-0ubuntu9.7",
-            "libc6-pic": "2.31-0ubuntu9.7",
-            "libc6-dev-armel": "2.31-0ubuntu9.7",
-            "glibc-doc": "2.31-0ubuntu9.7",
-            "libc6-dev": "2.31-0ubuntu9.7",
-            "libc6-amd64": "2.31-0ubuntu9.7",
-            "libc6-dev-amd64": "2.31-0ubuntu9.7",
-            "libc6": "2.31-0ubuntu9.7",
-            "locales-all": "2.31-0ubuntu9.7",
-            "libc6-dev-x32": "2.31-0ubuntu9.7",
-            "locales": "2.31-0ubuntu9.7",
-            "libc6-lse": "2.31-0ubuntu9.7",
-            "libc6-dev-i386": "2.31-0ubuntu9.7",
+            "libc-bin-dbgsym": "2.31-0ubuntu9.7",
             "libc-dev-bin": "2.31-0ubuntu9.7",
-            "libc6-prof": "2.31-0ubuntu9.7"
+            "libc-dev-bin-dbgsym": "2.31-0ubuntu9.7",
+            "libc6": "2.31-0ubuntu9.7",
+            "libc6-amd64": "2.31-0ubuntu9.7",
+            "libc6-amd64-dbgsym": "2.31-0ubuntu9.7",
+            "libc6-armel": "2.31-0ubuntu9.7",
+            "libc6-armel-dbgsym": "2.31-0ubuntu9.7",
+            "libc6-dbg": "2.31-0ubuntu9.7",
+            "libc6-dev": "2.31-0ubuntu9.7",
+            "libc6-dev-amd64": "2.31-0ubuntu9.7",
+            "libc6-dev-armel": "2.31-0ubuntu9.7",
+            "libc6-dev-i386": "2.31-0ubuntu9.7",
+            "libc6-dev-s390": "2.31-0ubuntu9.7",
+            "libc6-dev-x32": "2.31-0ubuntu9.7",
+            "libc6-i386": "2.31-0ubuntu9.7",
+            "libc6-i386-dbgsym": "2.31-0ubuntu9.7",
+            "libc6-lse": "2.31-0ubuntu9.7",
+            "libc6-pic": "2.31-0ubuntu9.7",
+            "libc6-prof": "2.31-0ubuntu9.7",
+            "libc6-s390": "2.31-0ubuntu9.7",
+            "libc6-s390-dbgsym": "2.31-0ubuntu9.7",
+            "libc6-udeb": "2.31-0ubuntu9.7",
+            "libc6-x32": "2.31-0ubuntu9.7",
+            "libc6-x32-dbgsym": "2.31-0ubuntu9.7",
+            "locales": "2.31-0ubuntu9.7",
+            "locales-all": "2.31-0ubuntu9.7",
+            "nscd": "2.31-0ubuntu9.7",
+            "nscd-dbgsym": "2.31-0ubuntu9.7"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -132,6 +176,10 @@
     },
     {
       "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2020-6096"
+    },
+    {
+      "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2020-27618"
     },
     {
@@ -140,19 +188,7 @@
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2020-6096"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2021-27645"
-    },
-    {
-      "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2021-3326"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2021-35942"
     },
     {
       "type": "REPORT",
@@ -161,6 +197,14 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2021-3999"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2021-27645"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2021-35942"
     },
     {
       "type": "REPORT",

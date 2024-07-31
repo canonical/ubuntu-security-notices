@@ -1,14 +1,15 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-3695-2",
   "summary": "linux-hwe, linux-azure vulnerabilities",
   "details": "USN-3695-1 fixed vulnerabilities in the Linux kernel for Ubuntu 18.04\nLTS. This update provides the corresponding updates for the Linux\nHardware Enablement (HWE) kernel from Ubuntu 18.04 LTS for Ubuntu\n16.04 LTS.\n\nWen Xu discovered that the ext4 file system implementation in the Linux\nkernel did not properly initialize the crc32c checksum driver. A local\nattacker could use this to cause a denial of service (system crash).\n(CVE-2018-1094)\n\nIt was discovered that the cdrom driver in the Linux kernel contained an\nincorrect bounds check. A local attacker could use this to expose sensitive\ninformation (kernel memory). (CVE-2018-10940)\n\nWen Xu discovered that the ext4 file system implementation in the Linux\nkernel did not properly validate xattr sizes. A local attacker could use\nthis to cause a denial of service (system crash). (CVE-2018-1095)\n\nJann Horn discovered that the 32 bit adjtimex() syscall implementation for\n64 bit Linux kernels did not properly initialize memory returned to user\nspace in some situations. A local attacker could use this to expose\nsensitive information (kernel memory). (CVE-2018-11508)\n\nIt was discovered that an information leak vulnerability existed in the\nfloppy driver in the Linux kernel. A local attacker could use this to\nexpose sensitive information (kernel memory). (CVE-2018-7755)\n",
   "aliases": [],
   "related": [
     "CVE-2018-1094",
-    "CVE-2018-10940",
     "CVE-2018-1095",
-    "CVE-2018-11508",
-    "CVE-2018-7755"
+    "CVE-2018-7755",
+    "CVE-2018-10940",
+    "CVE-2018-11508"
   ],
   "published": "2018-07-02T17:49:33.746517Z",
   "modified": "2018-07-02T17:49:33.746517Z",
@@ -16,38 +17,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "linux-hwe"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-24.26~16.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-unsigned-4.15.0-24-generic": "4.15.0-24.26~16.04.1",
-            "linux-image-unsigned-4.15.0-24-lowlatency": "4.15.0-24.26~16.04.1",
-            "linux-image-4.15.0-24-generic-lpae": "4.15.0-24.26~16.04.1",
-            "linux-image-4.15.0-24-lowlatency": "4.15.0-24.26~16.04.1",
-            "linux-image-4.15.0-24-generic": "4.15.0-24.26~16.04.1"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "linux-azure"
+        "name": "linux-azure",
+        "purl": "pkg:deb/ubuntu/linux-azure@4.15.0-1014.14~16.04.1?arch=src?distro=xenial"
       },
       "ranges": [
         {
@@ -62,13 +33,195 @@
           ]
         }
       ],
+      "versions": [
+        "4.11.0-1009.9",
+        "4.11.0-1011.11",
+        "4.11.0-1013.13",
+        "4.11.0-1014.14",
+        "4.11.0-1015.15",
+        "4.11.0-1016.16",
+        "4.13.0-1005.7",
+        "4.13.0-1006.8",
+        "4.13.0-1007.9",
+        "4.13.0-1009.12",
+        "4.13.0-1011.14",
+        "4.13.0-1012.15",
+        "4.13.0-1014.17",
+        "4.13.0-1016.19",
+        "4.13.0-1018.21",
+        "4.15.0-1013.13~16.04.2"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-unsigned-4.15.0-1014-azure": "4.15.0-1014.14~16.04.1"
+            "linux-azure-cloud-tools-4.15.0-1014": "4.15.0-1014.14~16.04.1",
+            "linux-azure-cloud-tools-4.15.0-1014-dbgsym": "4.15.0-1014.14~16.04.1",
+            "linux-azure-headers-4.15.0-1014": "4.15.0-1014.14~16.04.1",
+            "linux-azure-tools-4.15.0-1014": "4.15.0-1014.14~16.04.1",
+            "linux-azure-tools-4.15.0-1014-dbgsym": "4.15.0-1014.14~16.04.1",
+            "linux-cloud-tools-4.15.0-1014-azure": "4.15.0-1014.14~16.04.1",
+            "linux-headers-4.15.0-1014-azure": "4.15.0-1014.14~16.04.1",
+            "linux-image-unsigned-4.15.0-1014-azure": "4.15.0-1014.14~16.04.1",
+            "linux-image-unsigned-4.15.0-1014-azure-dbgsym": "4.15.0-1014.14~16.04.1",
+            "linux-modules-4.15.0-1014-azure": "4.15.0-1014.14~16.04.1",
+            "linux-modules-extra-4.15.0-1014-azure": "4.15.0-1014.14~16.04.1",
+            "linux-tools-4.15.0-1014-azure": "4.15.0-1014.14~16.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:16.04:LTS",
+        "name": "linux-hwe",
+        "purl": "pkg:deb/ubuntu/linux-hwe@4.15.0-24.26~16.04.1?arch=src?distro=xenial"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.15.0-24.26~16.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.8.0-36.36~16.04.1",
+        "4.8.0-39.42~16.04.1",
+        "4.8.0-41.44~16.04.1",
+        "4.8.0-42.45~16.04.1",
+        "4.8.0-44.47~16.04.1",
+        "4.8.0-45.48~16.04.1",
+        "4.8.0-46.49~16.04.1",
+        "4.8.0-49.52~16.04.1",
+        "4.8.0-51.54~16.04.1",
+        "4.8.0-52.55~16.04.1",
+        "4.8.0-53.56~16.04.1",
+        "4.8.0-54.57~16.04.1",
+        "4.8.0-56.61~16.04.1",
+        "4.8.0-58.63~16.04.1",
+        "4.10.0-27.30~16.04.2",
+        "4.10.0-28.32~16.04.2",
+        "4.10.0-30.34~16.04.1",
+        "4.10.0-32.36~16.04.1",
+        "4.10.0-33.37~16.04.1",
+        "4.10.0-35.39~16.04.1",
+        "4.10.0-37.41~16.04.1",
+        "4.10.0-38.42~16.04.1",
+        "4.10.0-40.44~16.04.1",
+        "4.10.0-42.46~16.04.1",
+        "4.13.0-26.29~16.04.2",
+        "4.13.0-31.34~16.04.1",
+        "4.13.0-32.35~16.04.1",
+        "4.13.0-36.40~16.04.1",
+        "4.13.0-37.42~16.04.1",
+        "4.13.0-38.43~16.04.1",
+        "4.13.0-39.44~16.04.1",
+        "4.13.0-41.46~16.04.1",
+        "4.13.0-43.48~16.04.1",
+        "4.13.0-45.50~16.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "block-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "block-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "crypto-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "crypto-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "dasd-extra-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "dasd-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "fat-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "fat-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "fb-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "firewire-core-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "floppy-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "fs-core-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "fs-core-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "fs-secondary-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "fs-secondary-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "input-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "input-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "ipmi-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "ipmi-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "irda-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "irda-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "kernel-image-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "kernel-image-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "linux-cloud-tools-4.15.0-24-generic": "4.15.0-24.26~16.04.1",
+            "linux-cloud-tools-4.15.0-24-lowlatency": "4.15.0-24.26~16.04.1",
+            "linux-headers-4.15.0-24": "4.15.0-24.26~16.04.1",
+            "linux-headers-4.15.0-24-generic": "4.15.0-24.26~16.04.1",
+            "linux-headers-4.15.0-24-generic-lpae": "4.15.0-24.26~16.04.1",
+            "linux-headers-4.15.0-24-lowlatency": "4.15.0-24.26~16.04.1",
+            "linux-hwe-cloud-tools-4.15.0-24": "4.15.0-24.26~16.04.1",
+            "linux-hwe-cloud-tools-4.15.0-24-dbgsym": "4.15.0-24.26~16.04.1",
+            "linux-hwe-tools-4.15.0-24": "4.15.0-24.26~16.04.1",
+            "linux-hwe-tools-4.15.0-24-dbgsym": "4.15.0-24.26~16.04.1",
+            "linux-hwe-udebs-generic": "4.15.0-24.26~16.04.1",
+            "linux-hwe-udebs-generic-lpae": "4.15.0-24.26~16.04.1",
+            "linux-image-4.15.0-24-generic": "4.15.0-24.26~16.04.1",
+            "linux-image-4.15.0-24-generic-dbgsym": "4.15.0-24.26~16.04.1",
+            "linux-image-4.15.0-24-generic-lpae": "4.15.0-24.26~16.04.1",
+            "linux-image-4.15.0-24-generic-lpae-dbgsym": "4.15.0-24.26~16.04.1",
+            "linux-image-4.15.0-24-lowlatency": "4.15.0-24.26~16.04.1",
+            "linux-image-4.15.0-24-lowlatency-dbgsym": "4.15.0-24.26~16.04.1",
+            "linux-image-unsigned-4.15.0-24-generic": "4.15.0-24.26~16.04.1",
+            "linux-image-unsigned-4.15.0-24-generic-dbgsym": "4.15.0-24.26~16.04.1",
+            "linux-image-unsigned-4.15.0-24-lowlatency": "4.15.0-24.26~16.04.1",
+            "linux-image-unsigned-4.15.0-24-lowlatency-dbgsym": "4.15.0-24.26~16.04.1",
+            "linux-modules-4.15.0-24-generic": "4.15.0-24.26~16.04.1",
+            "linux-modules-4.15.0-24-generic-lpae": "4.15.0-24.26~16.04.1",
+            "linux-modules-4.15.0-24-lowlatency": "4.15.0-24.26~16.04.1",
+            "linux-modules-extra-4.15.0-24-generic": "4.15.0-24.26~16.04.1",
+            "linux-source-4.15.0": "4.15.0-24.26~16.04.1",
+            "linux-tools-4.15.0-24-generic": "4.15.0-24.26~16.04.1",
+            "linux-tools-4.15.0-24-generic-lpae": "4.15.0-24.26~16.04.1",
+            "linux-tools-4.15.0-24-lowlatency": "4.15.0-24.26~16.04.1",
+            "md-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "md-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "message-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "mouse-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "mouse-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "multipath-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "multipath-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "nfs-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "nfs-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "nic-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "nic-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "nic-pcmcia-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "nic-shared-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "nic-shared-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "nic-usb-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "nic-usb-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "parport-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "parport-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "pata-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "pcmcia-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "pcmcia-storage-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "plip-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "plip-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "ppp-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "ppp-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "sata-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "sata-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "scsi-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "scsi-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "serial-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "storage-core-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "storage-core-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "usb-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "usb-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1",
+            "virtio-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "vlan-modules-4.15.0-24-generic-di": "4.15.0-24.26~16.04.1",
+            "vlan-modules-4.15.0-24-generic-lpae-di": "4.15.0-24.26~16.04.1"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],
@@ -83,19 +236,19 @@
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2018-10940"
-    },
-    {
-      "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2018-1095"
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2018-11508"
+      "url": "https://ubuntu.com/security/CVE-2018-7755"
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2018-7755"
+      "url": "https://ubuntu.com/security/CVE-2018-10940"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2018-11508"
     }
   ]
 }

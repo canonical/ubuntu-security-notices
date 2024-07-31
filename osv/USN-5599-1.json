@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-5599-1",
   "summary": "linux-oracle vulnerabilities",
   "details": "\nAsaf Modelevsky discovered that the Intel(R) 10GbE PCI Express (ixgbe)\nEthernet driver for the Linux kernel performed insufficient control flow\nmanagement. A local attacker could possibly use this to cause a denial of\nservice. (CVE-2021-33061)\n\nMoshe Kol, Amit Klein and Yossi Gilad discovered that the IP implementation\nin the Linux kernel did not provide sufficient randomization when\ncalculating port offsets. An attacker could possibly use this to expose\nsensitive information. (CVE-2022-1012)\n\nNorbert Slusarek discovered that a race condition existed in the perf\nsubsystem in the Linux kernel, resulting in a use-after-free vulnerability.\nA privileged local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2022-1729)\n\nQiuhao Li, Gaoning Pan, and Yongkang Jia discovered that the KVM hypervisor\nimplementation in the Linux kernel did not properly handle an illegal\ninstruction in a guest, resulting in a null pointer dereference. An\nattacker in a guest VM could use this to cause a denial of service (system\ncrash) in the host OS. (CVE-2022-1852)\n\nIt was discovered that the UDF file system implementation in the Linux\nkernel contained an out-of-bounds write vulnerability. A local attacker\ncould use this to cause a denial of service (system crash) or possibly\nexecute arbitrary code. (CVE-2022-1943)\n\nGerald Lee discovered that the NTFS file system implementation in the Linux\nkernel did not properly handle certain error conditions, leading to a use-\nafter-free vulnerability. A local attacker could use this to cause a denial\nof service (system crash) or possibly expose sensitive information.\n(CVE-2022-1973)\n\nIt was discovered that the device-mapper verity (dm-verity) driver in the\nLinux kernel did not properly verify targets being loaded into the device-\nmapper table. A privileged attacker could use this to cause a denial of\nservice (system crash) or possibly execute arbitrary code. (CVE-2022-2503)\n\nZheyu Ma discovered that the Intel iSMT SMBus host controller driver in the\nLinux kernel contained an out-of-bounds write vulnerability. A local\nattacker could use this to cause a denial of service (system crash).\n(CVE-2022-2873)\n\nSelim Enes Karaduman discovered that a race condition existed in the pipe\nbuffers implementation of the Linux kernel. A local attacker could use this\nto cause a denial of service (system crash) or possibly escalate\nprivileges. (CVE-2022-2959)\n\n",
@@ -20,7 +21,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-oracle"
+        "name": "linux-oracle",
+        "purl": "pkg:deb/ubuntu/linux-oracle@5.15.0-1017.22?arch=src?distro=jammy"
       },
       "ranges": [
         {
@@ -35,25 +37,33 @@
           ]
         }
       ],
+      "versions": [
+        "5.13.0-1008.10",
+        "5.15.0-1001.3",
+        "5.15.0-1002.4",
+        "5.15.0-1003.5",
+        "5.15.0-1006.8",
+        "5.15.0-1007.9",
+        "5.15.0-1009.12",
+        "5.15.0-1011.15",
+        "5.15.0-1013.17",
+        "5.15.0-1016.20"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-modules-extra-5.15.0-1017-oracle": "5.15.0-1017.22",
-            "linux-oracle-tools-5.15.0-1017": "5.15.0-1017.22",
-            "linux-tools-oracle": "5.15.0.1017.15",
-            "linux-tools-5.15.0-1017-oracle": "5.15.0-1017.22",
-            "linux-oracle-headers-5.15.0-1017": "5.15.0-1017.22",
             "linux-buildinfo-5.15.0-1017-oracle": "5.15.0-1017.22",
-            "linux-headers-oracle": "5.15.0.1017.15",
-            "linux-modules-5.15.0-1017-oracle": "5.15.0-1017.22",
             "linux-headers-5.15.0-1017-oracle": "5.15.0-1017.22",
-            "linux-image-5.15.0-1017-oracle": "5.15.0-1017.22",
             "linux-image-unsigned-5.15.0-1017-oracle": "5.15.0-1017.22",
-            "linux-image-oracle": "5.15.0.1017.15",
-            "linux-oracle": "5.15.0.1017.15"
+            "linux-image-unsigned-5.15.0-1017-oracle-dbgsym": "5.15.0-1017.22",
+            "linux-modules-5.15.0-1017-oracle": "5.15.0-1017.22",
+            "linux-modules-extra-5.15.0-1017-oracle": "5.15.0-1017.22",
+            "linux-oracle-headers-5.15.0-1017": "5.15.0-1017.22",
+            "linux-oracle-tools-5.15.0-1017": "5.15.0-1017.22",
+            "linux-tools-5.15.0-1017-oracle": "5.15.0-1017.22"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],

@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-4258-1",
   "summary": "linux-aws-5.0, linux-gcp, linux-gke-5.0, linux-oracle-5.0 vulnerabilities",
   "details": "It was discovered that the Atheros 802.11ac wireless USB device driver in\nthe Linux kernel did not properly validate device metadata. A physically\nproximate attacker could use this to cause a denial of service (system\ncrash). (CVE-2019-15099)\n\nIt was discovered that a race condition existed in the Virtual Video Test\nDriver in the Linux kernel. An attacker with write access to /dev/video0 on\na system with the vivid module loaded could possibly use this to gain\nadministrative privileges. (CVE-2019-18683)\n\nIt was discovered that the btrfs file system in the Linux kernel did not\nproperly validate metadata, leading to a NULL pointer dereference. An\nattacker could use this to specially craft a file system image that, when\nmounted, could cause a denial of service (system crash). (CVE-2019-18885)\n\nIt was discovered that the crypto subsystem in the Linux kernel did not\nproperly deallocate memory in certain error conditions. A local attacker\ncould use this to cause a denial of service (kernel memory exhaustion).\n(CVE-2019-19050, CVE-2019-19062)\n\nIt was discovered that the RSI 91x WLAN device driver in the Linux kernel\ndid not properly deallocate memory in certain error conditions. A local\nattacker could use this to cause a denial of service (kernel memory\nexhaustion). (CVE-2019-19071)\n\nIt was discovered that the Broadcom Netxtreme HCA device driver in the\nLinux kernel did not properly deallocate memory in certain error\nconditions. A local attacker could possibly use this to cause a denial of\nservice (kernel memory exhaustion). (CVE-2019-19077)\n\nIt was discovered that the Atheros 802.11ac wireless USB device driver in\nthe Linux kernel did not properly deallocate memory in certain error\nconditions. A local attacker could possibly use this to cause a denial of\nservice (kernel memory exhaustion). (CVE-2019-19078)\n\nIt was discovered that the Qualcomm IPC Router TUN device driver in the\nLinux kernel did not properly deallocate memory in certain situations. A\nlocal attacker could possibly use this to cause a denial of service (kernel\nmemory exhaustion). (CVE-2019-19079)\n\nIt was discovered that the AMD GPU device drivers in the Linux kernel did\nnot properly deallocate memory in certain error conditions. A local\nattacker could use this to possibly cause a denial of service (kernel\nmemory exhaustion). (CVE-2019-19082)\n\nDan Carpenter discovered that the AppleTalk networking subsystem of the\nLinux kernel did not properly handle certain error conditions, leading to a\nNULL pointer dereference. A local attacker could use this to cause a denial\nof service (system crash). (CVE-2019-19227)\n\nOr Cohen discovered that the virtual console subsystem in the Linux kernel\ndid not properly restrict writes to unimplemented vcsu (unicode) devices. A\nlocal attacker could possibly use this to cause a denial of service (system\ncrash) or have other unspecified impacts. (CVE-2019-19252)\n\nIt was discovered that the KVM hypervisor implementation in the Linux\nkernel did not properly handle ioctl requests to get emulated CPUID\nfeatures. An attacker with access to /dev/kvm could use this to cause a\ndenial of service (system crash). (CVE-2019-19332)\n\nIt was discovered that the ext4 file system implementation in the Linux\nkernel did not properly handle certain conditions. An attacker could use\nthis to specially craft an ext4 file system that, when mounted, could cause\na denial of service (system crash) or possibly execute arbitrary code.\n(CVE-2019-19767)\n\nIt was discovered that the B2C2 FlexCop USB device driver in the Linux\nkernel did not properly validate device metadata. A physically proximate\nattacker could use this to cause a denial of service (system crash).\n(CVE-2019-15291)\n",
@@ -26,63 +27,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-oracle-5.0"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.0.0-1010.15~18.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-oracle-edge": "5.0.0.1010.9",
-            "linux-image-5.0.0-1010-oracle": "5.0.0-1010.15~18.04.1"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-gcp"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.0.0-1029.30~18.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-gcp": "5.0.0.1029.33",
-            "linux-image-5.0.0-1029-gcp": "5.0.0-1029.30~18.04.1"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-aws-5.0"
+        "name": "linux-aws-5.0",
+        "purl": "pkg:deb/ubuntu/linux-aws-5.0@5.0.0-1024.27~18.04.1?arch=src?distro=bionic"
       },
       "ranges": [
         {
@@ -97,20 +43,34 @@
           ]
         }
       ],
+      "versions": [
+        "5.0.0-1021.24~18.04.1",
+        "5.0.0-1022.25~18.04.1",
+        "5.0.0-1023.26~18.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-aws-edge": "5.0.0.1024.38",
-            "linux-image-5.0.0-1024-aws": "5.0.0-1024.27~18.04.1"
+            "linux-aws-5.0-tools-5.0.0-1024": "5.0.0-1024.27~18.04.1",
+            "linux-aws-headers-5.0.0-1024": "5.0.0-1024.27~18.04.1",
+            "linux-buildinfo-5.0.0-1024-aws": "5.0.0-1024.27~18.04.1",
+            "linux-cloud-tools-5.0.0-1024-aws": "5.0.0-1024.27~18.04.1",
+            "linux-headers-5.0.0-1024-aws": "5.0.0-1024.27~18.04.1",
+            "linux-image-5.0.0-1024-aws": "5.0.0-1024.27~18.04.1",
+            "linux-image-5.0.0-1024-aws-dbgsym": "5.0.0-1024.27~18.04.1",
+            "linux-modules-5.0.0-1024-aws": "5.0.0-1024.27~18.04.1",
+            "linux-modules-extra-5.0.0-1024-aws": "5.0.0-1024.27~18.04.1",
+            "linux-tools-5.0.0-1024-aws": "5.0.0-1024.27~18.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-gke-5.0"
+        "name": "linux-gcp",
+        "purl": "pkg:deb/ubuntu/linux-gcp@5.0.0-1029.30~18.04.1?arch=src?distro=bionic"
       },
       "ranges": [
         {
@@ -125,14 +85,146 @@
           ]
         }
       ],
+      "versions": [
+        "4.15.0-1001.1",
+        "4.15.0-1003.3",
+        "4.15.0-1005.5",
+        "4.15.0-1006.6",
+        "4.15.0-1008.8",
+        "4.15.0-1009.9",
+        "4.15.0-1010.10",
+        "4.15.0-1014.14",
+        "4.15.0-1015.15",
+        "4.15.0-1017.18",
+        "4.15.0-1018.19",
+        "4.15.0-1019.20",
+        "4.15.0-1021.22",
+        "4.15.0-1023.24",
+        "4.15.0-1024.25",
+        "4.15.0-1025.26",
+        "4.15.0-1026.27",
+        "4.15.0-1027.28",
+        "4.15.0-1028.29",
+        "4.15.0-1029.31",
+        "4.15.0-1030.32",
+        "4.15.0-1032.34",
+        "4.15.0-1033.35",
+        "4.15.0-1034.36",
+        "4.15.0-1036.38",
+        "4.15.0-1037.39",
+        "4.15.0-1040.42",
+        "4.15.0-1042.45",
+        "4.15.0-1044.70",
+        "5.0.0-1020.20~18.04.1",
+        "5.0.0-1021.21~18.04.1",
+        "5.0.0-1025.26~18.04.1",
+        "5.0.0-1026.27~18.04.1",
+        "5.0.0-1028.29~18.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-5.0.0-1029-gke": "5.0.0-1029.30~18.04.1",
-            "linux-image-gke-5.0": "5.0.0.1029.17"
+            "linux-buildinfo-5.0.0-1029-gcp": "5.0.0-1029.30~18.04.1",
+            "linux-gcp-headers-5.0.0-1029": "5.0.0-1029.30~18.04.1",
+            "linux-gcp-tools-5.0.0-1029": "5.0.0-1029.30~18.04.1",
+            "linux-headers-5.0.0-1029-gcp": "5.0.0-1029.30~18.04.1",
+            "linux-image-unsigned-5.0.0-1029-gcp": "5.0.0-1029.30~18.04.1",
+            "linux-image-unsigned-5.0.0-1029-gcp-dbgsym": "5.0.0-1029.30~18.04.1",
+            "linux-modules-5.0.0-1029-gcp": "5.0.0-1029.30~18.04.1",
+            "linux-modules-extra-5.0.0-1029-gcp": "5.0.0-1029.30~18.04.1",
+            "linux-tools-5.0.0-1029-gcp": "5.0.0-1029.30~18.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-gke-5.0",
+        "purl": "pkg:deb/ubuntu/linux-gke-5.0@5.0.0-1029.30~18.04.1?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.0.0-1029.30~18.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.0.0-1011.11~18.04.1",
+        "5.0.0-1013.13~18.04.1",
+        "5.0.0-1015.15~18.04.1",
+        "5.0.0-1017.17~18.04.1",
+        "5.0.0-1020.20~18.04.1",
+        "5.0.0-1022.22~18.04.3",
+        "5.0.0-1023.23~18.04.2",
+        "5.0.0-1025.26~18.04.1",
+        "5.0.0-1026.27~18.04.2",
+        "5.0.0-1027.28~18.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-5.0.0-1029-gke": "5.0.0-1029.30~18.04.1",
+            "linux-gke-5.0-headers-5.0.0-1029": "5.0.0-1029.30~18.04.1",
+            "linux-gke-5.0-tools-5.0.0-1029": "5.0.0-1029.30~18.04.1",
+            "linux-headers-5.0.0-1029-gke": "5.0.0-1029.30~18.04.1",
+            "linux-image-unsigned-5.0.0-1029-gke": "5.0.0-1029.30~18.04.1",
+            "linux-image-unsigned-5.0.0-1029-gke-dbgsym": "5.0.0-1029.30~18.04.1",
+            "linux-modules-5.0.0-1029-gke": "5.0.0-1029.30~18.04.1",
+            "linux-modules-extra-5.0.0-1029-gke": "5.0.0-1029.30~18.04.1",
+            "linux-tools-5.0.0-1029-gke": "5.0.0-1029.30~18.04.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-oracle-5.0",
+        "purl": "pkg:deb/ubuntu/linux-oracle-5.0@5.0.0-1010.15~18.04.1?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.0.0-1010.15~18.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.0.0-1007.12~18.04.1",
+        "5.0.0-1008.13~18.04.1",
+        "5.0.0-1009.14~18.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-buildinfo-5.0.0-1010-oracle": "5.0.0-1010.15~18.04.1",
+            "linux-headers-5.0.0-1010-oracle": "5.0.0-1010.15~18.04.1",
+            "linux-image-unsigned-5.0.0-1010-oracle": "5.0.0-1010.15~18.04.1",
+            "linux-image-unsigned-5.0.0-1010-oracle-dbgsym": "5.0.0-1010.15~18.04.1",
+            "linux-modules-5.0.0-1010-oracle": "5.0.0-1010.15~18.04.1",
+            "linux-modules-extra-5.0.0-1010-oracle": "5.0.0-1010.15~18.04.1",
+            "linux-oracle-5.0-headers-5.0.0-1010": "5.0.0-1010.15~18.04.1",
+            "linux-oracle-5.0-tools-5.0.0-1010": "5.0.0-1010.15~18.04.1",
+            "linux-tools-5.0.0-1010-oracle": "5.0.0-1010.15~18.04.1"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],

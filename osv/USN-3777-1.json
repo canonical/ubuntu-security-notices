@@ -1,17 +1,17 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-3777-1",
   "summary": "linux, linux-aws, linux-gcp, linux-kvm, linux-oem, linux-raspi2 vulnerabilities",
   "details": "Jann Horn discovered that the vmacache subsystem did not properly handle\nsequence number overflows, leading to a use-after-free vulnerability. A\nlocal attacker could use this to cause a denial of service (system crash)\nor execute arbitrary code. (CVE-2018-17182)\n\nIt was discovered that the paravirtualization implementation in the Linux\nkernel did not properly handle some indirect calls, reducing the\neffectiveness of Spectre v2 mitigations for paravirtual guests. A local\nattacker could use this to expose sensitive information. (CVE-2018-15594)\n\nIt was discovered that microprocessors utilizing speculative execution and\nprediction of return addresses via Return Stack Buffer (RSB) may allow\nunauthorized memory reads via sidechannel attacks. An attacker could use\nthis to expose sensitive information. (CVE-2018-15572)\n\nAndy Lutomirski and Mika Penttil\u00e4 discovered that the KVM implementation\nin the Linux kernel did not properly check privilege levels when emulating\nsome instructions. An unprivileged attacker in a guest VM could use this to\nescalate privileges within the guest. (CVE-2018-10853)\n\nIt was discovered that a stack-based buffer overflow existed in the iSCSI\ntarget implementation of the Linux kernel. A remote attacker could use this\nto cause a denial of service (system crash). (CVE-2018-14633)\n\nIt was discovered that a memory leak existed in the IRDA subsystem of the\nLinux kernel. A local attacker could use this to cause a denial of service\n(kernel memory exhaustion). (CVE-2018-6554)\n\nIt was discovered that a use-after-free vulnerability existed in the IRDA\nimplementation in the Linux kernel. A local attacker could use this to\ncause a denial of service (system crash) or possibly execute arbitrary\ncode. (CVE-2018-6555)\n\nUSN 3652-1 added a mitigation for Speculative Store Bypass\na.k.a. Spectre Variant 4 (CVE-2018-3639). This update provides the\ncorresponding mitigation for ARM64 processors. Please note that for\nthis mitigation to be effective, an updated firmware for the processor\nmay be required.\n",
   "aliases": [],
   "related": [
+    "CVE-2018-6554",
+    "CVE-2018-6555",
     "CVE-2018-10853",
     "CVE-2018-14633",
     "CVE-2018-15572",
     "CVE-2018-15594",
-    "CVE-2018-17182",
-    "CVE-2018-6554",
-    "CVE-2018-6555",
-    "https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/Variant4"
+    "CVE-2018-17182"
   ],
   "published": "2018-10-01T19:15:42.706100Z",
   "modified": "2018-10-01T19:15:42.706100Z",
@@ -19,90 +19,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-kvm"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-1023.23"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-4.15.0-1023-aws": "4.15.0-1023.23",
-            "linux-image-4.15.0-1023-kvm": "4.15.0-1023.23"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-aws"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-1023.23"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-4.15.0-1023-aws": "4.15.0-1023.23",
-            "linux-image-4.15.0-1023-kvm": "4.15.0-1023.23"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-raspi2"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-1024.26"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-4.15.0-1024-raspi2": "4.15.0-1024.26"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux"
+        "name": "linux",
+        "purl": "pkg:deb/ubuntu/linux@4.15.0-36.39?arch=src?distro=bionic"
       },
       "ranges": [
         {
@@ -117,24 +35,166 @@
           ]
         }
       ],
+      "versions": [
+        "4.13.0-16.19",
+        "4.13.0-17.20",
+        "4.13.0-25.29",
+        "4.13.0-32.35",
+        "4.15.0-10.11",
+        "4.15.0-12.13",
+        "4.15.0-13.14",
+        "4.15.0-15.16",
+        "4.15.0-19.20",
+        "4.15.0-20.21",
+        "4.15.0-22.24",
+        "4.15.0-23.25",
+        "4.15.0-24.26",
+        "4.15.0-29.31",
+        "4.15.0-30.32",
+        "4.15.0-32.35",
+        "4.15.0-33.36",
+        "4.15.0-34.37"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-unsigned-4.15.0-36-generic": "4.15.0-36.39",
+            "block-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "block-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "block-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "crypto-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "crypto-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "crypto-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "dasd-extra-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "dasd-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "fat-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "fat-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "fat-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "fb-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "firewire-core-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "floppy-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "fs-core-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "fs-core-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "fs-core-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "fs-secondary-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "fs-secondary-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "fs-secondary-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "input-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "input-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "input-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "ipmi-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "ipmi-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "ipmi-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "irda-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "irda-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "irda-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "kernel-image-4.15.0-36-generic-di": "4.15.0-36.39",
+            "kernel-image-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "kernel-image-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "linux-cloud-tools-4.15.0-36": "4.15.0-36.39",
+            "linux-cloud-tools-4.15.0-36-dbgsym": "4.15.0-36.39",
+            "linux-cloud-tools-4.15.0-36-generic": "4.15.0-36.39",
+            "linux-cloud-tools-4.15.0-36-lowlatency": "4.15.0-36.39",
+            "linux-cloud-tools-common": "4.15.0-36.39",
+            "linux-doc": "4.15.0-36.39",
+            "linux-headers-4.15.0-36": "4.15.0-36.39",
+            "linux-headers-4.15.0-36-generic": "4.15.0-36.39",
+            "linux-headers-4.15.0-36-generic-lpae": "4.15.0-36.39",
+            "linux-headers-4.15.0-36-lowlatency": "4.15.0-36.39",
+            "linux-headers-4.15.0-36-snapdragon": "4.15.0-36.39",
             "linux-image-4.15.0-36-generic": "4.15.0-36.39",
-            "linux-image-unsigned-4.15.0-36-lowlatency": "4.15.0-36.39",
+            "linux-image-4.15.0-36-generic-dbgsym": "4.15.0-36.39",
+            "linux-image-4.15.0-36-generic-lpae": "4.15.0-36.39",
+            "linux-image-4.15.0-36-generic-lpae-dbgsym": "4.15.0-36.39",
             "linux-image-4.15.0-36-lowlatency": "4.15.0-36.39",
+            "linux-image-4.15.0-36-lowlatency-dbgsym": "4.15.0-36.39",
             "linux-image-4.15.0-36-snapdragon": "4.15.0-36.39",
-            "linux-image-4.15.0-36-generic-lpae": "4.15.0-36.39"
+            "linux-image-4.15.0-36-snapdragon-dbgsym": "4.15.0-36.39",
+            "linux-image-unsigned-4.15.0-36-generic": "4.15.0-36.39",
+            "linux-image-unsigned-4.15.0-36-generic-dbgsym": "4.15.0-36.39",
+            "linux-image-unsigned-4.15.0-36-lowlatency": "4.15.0-36.39",
+            "linux-image-unsigned-4.15.0-36-lowlatency-dbgsym": "4.15.0-36.39",
+            "linux-libc-dev": "4.15.0-36.39",
+            "linux-modules-4.15.0-36-generic": "4.15.0-36.39",
+            "linux-modules-4.15.0-36-generic-lpae": "4.15.0-36.39",
+            "linux-modules-4.15.0-36-lowlatency": "4.15.0-36.39",
+            "linux-modules-4.15.0-36-snapdragon": "4.15.0-36.39",
+            "linux-modules-extra-4.15.0-36-generic": "4.15.0-36.39",
+            "linux-source-4.15.0": "4.15.0-36.39",
+            "linux-tools-4.15.0-36": "4.15.0-36.39",
+            "linux-tools-4.15.0-36-dbgsym": "4.15.0-36.39",
+            "linux-tools-4.15.0-36-generic": "4.15.0-36.39",
+            "linux-tools-4.15.0-36-generic-lpae": "4.15.0-36.39",
+            "linux-tools-4.15.0-36-lowlatency": "4.15.0-36.39",
+            "linux-tools-4.15.0-36-snapdragon": "4.15.0-36.39",
+            "linux-tools-common": "4.15.0-36.39",
+            "linux-tools-host": "4.15.0-36.39",
+            "linux-udebs-generic": "4.15.0-36.39",
+            "linux-udebs-generic-lpae": "4.15.0-36.39",
+            "linux-udebs-snapdragon": "4.15.0-36.39",
+            "md-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "md-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "md-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "message-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "message-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "mouse-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "mouse-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "mouse-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "multipath-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "multipath-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "multipath-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "nfs-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "nfs-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "nfs-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "nic-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "nic-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "nic-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "nic-pcmcia-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "nic-shared-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "nic-shared-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "nic-shared-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "nic-usb-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "nic-usb-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "nic-usb-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "parport-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "parport-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "parport-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "pata-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "pcmcia-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "pcmcia-storage-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "plip-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "plip-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "plip-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "ppp-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "ppp-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "ppp-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "sata-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "sata-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "sata-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "scsi-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "scsi-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "scsi-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "serial-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "storage-core-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "storage-core-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "storage-core-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "usb-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "usb-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "usb-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "virtio-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "virtio-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39",
+            "vlan-modules-4.15.0-36-generic-di": "4.15.0-36.39",
+            "vlan-modules-4.15.0-36-generic-lpae-di": "4.15.0-36.39",
+            "vlan-modules-4.15.0-36-snapdragon-di": "4.15.0-36.39"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-oem"
+        "name": "linux-aws",
+        "purl": "pkg:deb/ubuntu/linux-aws@4.15.0-1023.23?arch=src?distro=bionic"
       },
       "ranges": [
         {
@@ -144,24 +204,47 @@
               "introduced": "0"
             },
             {
-              "fixed": "4.15.0-1021.24"
+              "fixed": "4.15.0-1023.23"
             }
           ]
         }
       ],
+      "versions": [
+        "4.15.0-1001.1",
+        "4.15.0-1003.3",
+        "4.15.0-1005.5",
+        "4.15.0-1006.6",
+        "4.15.0-1007.7",
+        "4.15.0-1009.9",
+        "4.15.0-1010.10",
+        "4.15.0-1011.11",
+        "4.15.0-1016.16",
+        "4.15.0-1017.17",
+        "4.15.0-1019.19",
+        "4.15.0-1020.20",
+        "4.15.0-1021.21"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-unsigned-4.15.0-1021-oem": "4.15.0-1021.24"
+            "linux-aws-headers-4.15.0-1023": "4.15.0-1023.23",
+            "linux-aws-tools-4.15.0-1023": "4.15.0-1023.23",
+            "linux-aws-tools-4.15.0-1023-dbgsym": "4.15.0-1023.23",
+            "linux-headers-4.15.0-1023-aws": "4.15.0-1023.23",
+            "linux-image-4.15.0-1023-aws": "4.15.0-1023.23",
+            "linux-image-4.15.0-1023-aws-dbgsym": "4.15.0-1023.23",
+            "linux-modules-4.15.0-1023-aws": "4.15.0-1023.23",
+            "linux-tools-4.15.0-1023-aws": "4.15.0-1023.23"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-gcp"
+        "name": "linux-gcp",
+        "purl": "pkg:deb/ubuntu/linux-gcp@4.15.0-1021.22?arch=src?distro=bionic"
       },
       "ranges": [
         {
@@ -176,13 +259,218 @@
           ]
         }
       ],
+      "versions": [
+        "4.15.0-1001.1",
+        "4.15.0-1003.3",
+        "4.15.0-1005.5",
+        "4.15.0-1006.6",
+        "4.15.0-1008.8",
+        "4.15.0-1009.9",
+        "4.15.0-1010.10",
+        "4.15.0-1014.14",
+        "4.15.0-1015.15",
+        "4.15.0-1017.18",
+        "4.15.0-1018.19",
+        "4.15.0-1019.20"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-unsigned-4.15.0-1021-gcp": "4.15.0-1021.22"
+            "linux-gcp-headers-4.15.0-1021": "4.15.0-1021.22",
+            "linux-gcp-tools-4.15.0-1021": "4.15.0-1021.22",
+            "linux-gcp-tools-4.15.0-1021-dbgsym": "4.15.0-1021.22",
+            "linux-headers-4.15.0-1021-gcp": "4.15.0-1021.22",
+            "linux-image-unsigned-4.15.0-1021-gcp": "4.15.0-1021.22",
+            "linux-image-unsigned-4.15.0-1021-gcp-dbgsym": "4.15.0-1021.22",
+            "linux-modules-4.15.0-1021-gcp": "4.15.0-1021.22",
+            "linux-modules-extra-4.15.0-1021-gcp": "4.15.0-1021.22",
+            "linux-tools-4.15.0-1021-gcp": "4.15.0-1021.22"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-kvm",
+        "purl": "pkg:deb/ubuntu/linux-kvm@4.15.0-1023.23?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.15.0-1023.23"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.15.0-1002.2",
+        "4.15.0-1003.3",
+        "4.15.0-1004.4",
+        "4.15.0-1006.6",
+        "4.15.0-1008.8",
+        "4.15.0-1010.10",
+        "4.15.0-1011.11",
+        "4.15.0-1012.12",
+        "4.15.0-1016.16",
+        "4.15.0-1017.17",
+        "4.15.0-1019.19",
+        "4.15.0-1020.20",
+        "4.15.0-1021.21"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-headers-4.15.0-1023-kvm": "4.15.0-1023.23",
+            "linux-image-4.15.0-1023-kvm": "4.15.0-1023.23",
+            "linux-image-4.15.0-1023-kvm-dbgsym": "4.15.0-1023.23",
+            "linux-kvm-headers-4.15.0-1023": "4.15.0-1023.23",
+            "linux-kvm-tools-4.15.0-1023": "4.15.0-1023.23",
+            "linux-kvm-tools-4.15.0-1023-dbgsym": "4.15.0-1023.23",
+            "linux-modules-4.15.0-1023-kvm": "4.15.0-1023.23",
+            "linux-tools-4.15.0-1023-kvm": "4.15.0-1023.23"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-oem",
+        "purl": "pkg:deb/ubuntu/linux-oem@4.15.0-1021.24?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.15.0-1021.24"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.15.0-1002.3",
+        "4.15.0-1004.5",
+        "4.15.0-1006.9",
+        "4.15.0-1008.11",
+        "4.15.0-1009.12",
+        "4.15.0-1012.15",
+        "4.15.0-1013.16",
+        "4.15.0-1015.18",
+        "4.15.0-1017.20",
+        "4.15.0-1018.21"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "block-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "crypto-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "fat-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "fb-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "firewire-core-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "floppy-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "fs-core-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "fs-secondary-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "input-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "ipmi-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "irda-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "kernel-image-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "linux-headers-4.15.0-1021-oem": "4.15.0-1021.24",
+            "linux-image-unsigned-4.15.0-1021-oem": "4.15.0-1021.24",
+            "linux-image-unsigned-4.15.0-1021-oem-dbgsym": "4.15.0-1021.24",
+            "linux-modules-4.15.0-1021-oem": "4.15.0-1021.24",
+            "linux-oem-headers-4.15.0-1021": "4.15.0-1021.24",
+            "linux-oem-tools-4.15.0-1021": "4.15.0-1021.24",
+            "linux-oem-tools-4.15.0-1021-dbgsym": "4.15.0-1021.24",
+            "linux-tools-4.15.0-1021-oem": "4.15.0-1021.24",
+            "linux-udebs-oem": "4.15.0-1021.24",
+            "md-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "message-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "mouse-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "multipath-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "nfs-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "nic-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "nic-pcmcia-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "nic-shared-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "nic-usb-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "parport-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "pata-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "pcmcia-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "pcmcia-storage-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "plip-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "ppp-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "sata-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "scsi-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "serial-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "storage-core-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "usb-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "virtio-modules-4.15.0-1021-oem-di": "4.15.0-1021.24",
+            "vlan-modules-4.15.0-1021-oem-di": "4.15.0-1021.24"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "linux-raspi2",
+        "purl": "pkg:deb/ubuntu/linux-raspi2@4.15.0-1024.26?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.15.0-1024.26"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.13.0-1005.5",
+        "4.13.0-1006.6",
+        "4.13.0-1008.8",
+        "4.15.0-1006.7",
+        "4.15.0-1009.10",
+        "4.15.0-1010.11",
+        "4.15.0-1011.12",
+        "4.15.0-1012.13",
+        "4.15.0-1013.14",
+        "4.15.0-1017.18",
+        "4.15.0-1018.19",
+        "4.15.0-1020.22",
+        "4.15.0-1021.23",
+        "4.15.0-1022.24"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-headers-4.15.0-1024-raspi2": "4.15.0-1024.26",
+            "linux-image-4.15.0-1024-raspi2": "4.15.0-1024.26",
+            "linux-image-4.15.0-1024-raspi2-dbgsym": "4.15.0-1024.26",
+            "linux-modules-4.15.0-1024-raspi2": "4.15.0-1024.26",
+            "linux-raspi2-headers-4.15.0-1024": "4.15.0-1024.26",
+            "linux-raspi2-tools-4.15.0-1024": "4.15.0-1024.26",
+            "linux-raspi2-tools-4.15.0-1024-dbgsym": "4.15.0-1024.26",
+            "linux-tools-4.15.0-1024-raspi2": "4.15.0-1024.26"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],
@@ -190,6 +478,14 @@
     {
       "type": "ADVISORY",
       "url": "https://ubuntu.com/security/notices/USN-3777-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2018-6554"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2018-6555"
     },
     {
       "type": "REPORT",
@@ -210,18 +506,6 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2018-17182"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2018-6554"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2018-6555"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/Variant4"
     }
   ]
 }

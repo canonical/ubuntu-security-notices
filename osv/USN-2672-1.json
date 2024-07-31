@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-2672-1",
   "summary": "nss vulnerabilities",
   "details": "Karthikeyan Bhargavan discovered that NSS incorrectly handled state\ntransitions for the TLS state machine. If a remote attacker were able to\nperform a machine-in-the-middle attack, this flaw could be exploited to skip\nthe ServerKeyExchange message and remove the forward-secrecy property.\n(CVE-2015-2721)\n\nWatson Ladd discovered that NSS incorrectly handled Elliptical Curve\nCryptography (ECC) multiplication. A remote attacker could possibly use\nthis issue to spoof ECDSA signatures. (CVE-2015-2730)\n\nAs a security improvement, this update modifies NSS behaviour to reject DH\nkey sizes below 768 bits, preventing a possible downgrade attack.\n\nThis update also refreshes the NSS package to version 3.19.2 which includes\nthe latest CA certificate bundle.\n",
@@ -13,7 +14,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:14.04:LTS",
-        "name": "nss"
+        "name": "nss",
+        "purl": "pkg:deb/ubuntu/nss@2:3.19.2-0ubuntu0.14.04.1?arch=src?distro=trusty"
       },
       "ranges": [
         {
@@ -28,17 +30,38 @@
           ]
         }
       ],
+      "versions": [
+        "2:3.15.1-1ubuntu1",
+        "2:3.15.2-1",
+        "2:3.15.3-1",
+        "2:3.15.3.1-1",
+        "2:3.15.3.1-1.1",
+        "2:3.15.3.1-1.1ubuntu1",
+        "2:3.15.4-1ubuntu3",
+        "2:3.15.4-1ubuntu4",
+        "2:3.15.4-1ubuntu5",
+        "2:3.15.4-1ubuntu6",
+        "2:3.15.4-1ubuntu7",
+        "2:3.15.4-1ubuntu7.1",
+        "2:3.17-0ubuntu0.14.04.1",
+        "2:3.17.1-0ubuntu0.14.04.1",
+        "2:3.17.1-0ubuntu0.14.04.2",
+        "2:3.17.4-0ubuntu0.14.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "libnss3-nssdb": "2:3.19.2-0ubuntu0.14.04.1",
-            "libnss3-dev": "2:3.19.2-0ubuntu0.14.04.1",
             "libnss3": "2:3.19.2-0ubuntu0.14.04.1",
             "libnss3-1d": "2:3.19.2-0ubuntu0.14.04.1",
-            "libnss3-tools": "2:3.19.2-0ubuntu0.14.04.1"
+            "libnss3-dbg": "2:3.19.2-0ubuntu0.14.04.1",
+            "libnss3-dbgsym": "2:3.19.2-0ubuntu0.14.04.1",
+            "libnss3-dev": "2:3.19.2-0ubuntu0.14.04.1",
+            "libnss3-nssdb": "2:3.19.2-0ubuntu0.14.04.1",
+            "libnss3-tools": "2:3.19.2-0ubuntu0.14.04.1",
+            "libnss3-tools-dbgsym": "2:3.19.2-0ubuntu0.14.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],

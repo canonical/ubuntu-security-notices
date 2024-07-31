@@ -1,18 +1,19 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-6701-3",
   "summary": "linux-aws-hwe, linux-azure, linux-azure-4.15, linux-oracle vulnerabilities",
   "details": "Ruihan Li discovered that the bluetooth subsystem in the Linux kernel did\nnot properly perform permissions checks when handling HCI sockets. A\nphysically proximate attacker could use this to cause a denial of service\n(bluetooth communication). (CVE-2023-2002)\n\nIt was discovered that the NVIDIA Tegra XUSB pad controller driver in the\nLinux kernel did not properly handle return values in certain error\nconditions. A local attacker could use this to cause a denial of service\n(system crash). (CVE-2023-23000)\n\nIt was discovered that Spectre-BHB mitigations were missing for Ampere\nprocessors. A local attacker could potentially use this to expose sensitive\ninformation. (CVE-2023-3006)\n\nIt was discovered that the ext4 file system implementation in the Linux\nkernel did not properly handle block device modification while it is\nmounted. A privileged attacker could use this to cause a denial of service\n(system crash) or possibly expose sensitive information. (CVE-2023-34256)\n\nEric Dumazet discovered that the netfilter subsystem in the Linux kernel\ndid not properly handle DCCP conntrack buffers in certain situations,\nleading to an out-of-bounds read vulnerability. An attacker could possibly\nuse this to expose sensitive information (kernel memory). (CVE-2023-39197)\n\nIt was discovered that the Siano USB MDTV receiver device driver in the\nLinux kernel did not properly handle device initialization failures in\ncertain situations, leading to a use-after-free vulnerability. A physically\nproximate attacker could use this cause a denial of service (system crash).\n(CVE-2023-4132)\n\nPratyush Yadav discovered that the Xen network backend implementation in\nthe Linux kernel did not properly handle zero length data request, leading\nto a null pointer dereference vulnerability. An attacker in a guest VM\ncould possibly use this to cause a denial of service (host domain crash).\n(CVE-2023-46838)\n\nIt was discovered that a race condition existed in the AppleTalk networking\nsubsystem of the Linux kernel, leading to a use-after-free vulnerability. A\nlocal attacker could use this to cause a denial of service (system crash)\nor possibly execute arbitrary code. (CVE-2023-51781)\n\nAlon Zahavi discovered that the NVMe-oF/TCP subsystem of the Linux kernel\ndid not properly handle connect command payloads in certain situations,\nleading to an out-of-bounds read vulnerability. A remote attacker could use\nthis to expose sensitive information (kernel memory). (CVE-2023-6121)\n\nIt was discovered that the ext4 file system implementation in the Linux\nkernel did not properly handle the remount operation in certain cases,\nleading to a use-after-free vulnerability. A local attacker could use this\nto cause a denial of service (system crash) or possibly expose sensitive\ninformation. (CVE-2024-0775)\n\nNotselwyn discovered that the netfilter subsystem in the Linux kernel did\nnot properly handle verdict parameters in certain cases, leading to a use-\nafter-free vulnerability. A local attacker could use this to cause a denial\nof service (system crash) or possibly execute arbitrary code.\n(CVE-2024-1086)\n\nIt was discovered that a race condition existed in the SCSI Emulex\nLightPulse Fibre Channel driver in the Linux kernel when unregistering FCF\nand re-scanning an HBA FCF table, leading to a null pointer dereference\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash). (CVE-2024-24855)\n",
   "aliases": [],
   "related": [
     "CVE-2023-2002",
-    "CVE-2023-23000",
     "CVE-2023-3006",
+    "CVE-2023-4132",
+    "CVE-2023-6121",
+    "CVE-2023-23000",
     "CVE-2023-34256",
     "CVE-2023-39197",
-    "CVE-2023-4132",
     "CVE-2023-46838",
     "CVE-2023-51781",
-    "CVE-2023-6121",
     "CVE-2024-0775",
     "CVE-2024-1086",
     "CVE-2024-24855"
@@ -22,53 +23,9 @@
   "affected": [
     {
       "package": {
-        "ecosystem": "Ubuntu:Pro:18.04:LTS",
-        "name": "linux-azure-4.15"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-1175.190"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-azure-4.15-cloud-tools-4.15.0-1175": "4.15.0-1175.190",
-            "linux-azure-4.15-headers-4.15.0-1175": "4.15.0-1175.190",
-            "linux-azure-4.15-tools-4.15.0-1175": "4.15.0-1175.190",
-            "linux-azure-lts-18.04": "4.15.0.1175.143",
-            "linux-buildinfo-4.15.0-1175-azure": "4.15.0-1175.190",
-            "linux-cloud-tools-4.15.0-1175-azure": "4.15.0-1175.190",
-            "linux-cloud-tools-azure-lts-18.04": "4.15.0.1175.143",
-            "linux-headers-4.15.0-1175-azure": "4.15.0-1175.190",
-            "linux-headers-azure-lts-18.04": "4.15.0.1175.143",
-            "linux-image-4.15.0-1175-azure": "4.15.0-1175.190",
-            "linux-image-azure-lts-18.04": "4.15.0.1175.143",
-            "linux-image-unsigned-4.15.0-1175-azure": "4.15.0-1175.190",
-            "linux-modules-4.15.0-1175-azure": "4.15.0-1175.190",
-            "linux-modules-extra-4.15.0-1175-azure": "4.15.0-1175.190",
-            "linux-modules-extra-azure-lts-18.04": "4.15.0.1175.143",
-            "linux-signed-azure-lts-18.04": "4.15.0.1175.143",
-            "linux-signed-image-azure-lts-18.04": "4.15.0.1175.143",
-            "linux-tools-4.15.0-1175-azure": "4.15.0-1175.190",
-            "linux-tools-azure-lts-18.04": "4.15.0.1175.143"
-          }
-        ],
-        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
-      }
-    },
-    {
-      "package": {
         "ecosystem": "Ubuntu:Pro:16.04:LTS",
-        "name": "linux-aws-hwe"
+        "name": "linux-aws-hwe",
+        "purl": "pkg:deb/ubuntu/linux-aws-hwe@4.15.0-1166.179~16.04.1?arch=src?distro=esm-infra/xenial"
       },
       "ranges": [
         {
@@ -83,35 +40,119 @@
           ]
         }
       ],
+      "versions": [
+        "4.15.0-1030.31~16.04.1",
+        "4.15.0-1031.33~16.04.1",
+        "4.15.0-1032.34~16.04.1",
+        "4.15.0-1033.35~16.04.1",
+        "4.15.0-1035.37~16.04.1",
+        "4.15.0-1036.38~16.04.1",
+        "4.15.0-1039.41~16.04.1",
+        "4.15.0-1040.42~16.04.1",
+        "4.15.0-1041.43~16.04.1",
+        "4.15.0-1043.45~16.04.1",
+        "4.15.0-1044.46~16.04.1",
+        "4.15.0-1045.47~16.04.1",
+        "4.15.0-1047.49~16.04.1",
+        "4.15.0-1048.50~16.04.1",
+        "4.15.0-1050.52~16.04.1",
+        "4.15.0-1051.53~16.04.1",
+        "4.15.0-1052.54~16.04.1",
+        "4.15.0-1054.56~16.04.1",
+        "4.15.0-1056.58~16.04.1",
+        "4.15.0-1057.59~16.04.1",
+        "4.15.0-1058.60~16.04.1",
+        "4.15.0-1060.62~16.04.1",
+        "4.15.0-1063.67~16.04.1",
+        "4.15.0-1065.69~16.04.1",
+        "4.15.0-1066.70~16.04.1",
+        "4.15.0-1067.71~16.04.1",
+        "4.15.0-1073.77~16.04.1",
+        "4.15.0-1074.78~16.04.1",
+        "4.15.0-1079.83~16.04.1",
+        "4.15.0-1080.84~16.04.1",
+        "4.15.0-1082.86~16.04.1",
+        "4.15.0-1083.87~16.04.1",
+        "4.15.0-1085.90~16.04.1",
+        "4.15.0-1088.93~16.04.1",
+        "4.15.0-1090.95~16.04.1",
+        "4.15.0-1091.96~16.04.1",
+        "4.15.0-1093.99~16.04.1",
+        "4.15.0-1094.101~16.04.1",
+        "4.15.0-1095.102~16.04.1",
+        "4.15.0-1096.103~16.04.1",
+        "4.15.0-1097.104~16.04.1",
+        "4.15.0-1098.105~16.04.1",
+        "4.15.0-1099.106~16.04.1",
+        "4.15.0-1102.109~16.04.1",
+        "4.15.0-1103.110~16.04.1",
+        "4.15.0-1106.113~16.04.1",
+        "4.15.0-1109.116~16.04.1",
+        "4.15.0-1110.117~16.04.1",
+        "4.15.0-1111.118~16.04.1",
+        "4.15.0-1112.119~16.04.1",
+        "4.15.0-1113.120~16.04.1",
+        "4.15.0-1115.122~16.04.1",
+        "4.15.0-1116.123~16.04.1",
+        "4.15.0-1118.125~16.04.1",
+        "4.15.0-1119.126~16.04.2",
+        "4.15.0-1120.128~16.04.1",
+        "4.15.0-1123.132~16.04.1",
+        "4.15.0-1124.133~16.04.1",
+        "4.15.0-1126.135~16.04.2",
+        "4.15.0-1127.136~16.04.1",
+        "4.15.0-1128.137~16.04.1",
+        "4.15.0-1130.139~16.04.1",
+        "4.15.0-1133.143~16.04.1",
+        "4.15.0-1136.147~16.04.1",
+        "4.15.0-1137.148~16.04.1",
+        "4.15.0-1139.150~16.04.1",
+        "4.15.0-1140.151~16.04.1",
+        "4.15.0-1141.152~16.04.1",
+        "4.15.0-1142.154~16.04.1",
+        "4.15.0-1143.155~16.04.1",
+        "4.15.0-1146.158~16.04.2",
+        "4.15.0-1147.159~16.04.1",
+        "4.15.0-1148.160~16.04.1",
+        "4.15.0-1151.164~16.04.1",
+        "4.15.0-1153.166~16.04.1",
+        "4.15.0-1154.167~16.04.1",
+        "4.15.0-1155.168~16.04.1",
+        "4.15.0-1156.169~16.04.1",
+        "4.15.0-1157.170~16.04.1",
+        "4.15.0-1158.171~16.04.1",
+        "4.15.0-1159.172~16.04.1",
+        "4.15.0-1160.173~16.04.1",
+        "4.15.0-1161.174~16.04.1",
+        "4.15.0-1162.175~16.04.1",
+        "4.15.0-1163.176~16.04.1",
+        "4.15.0-1164.177~16.04.1",
+        "4.15.0-1165.178~16.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-aws-edge": "4.15.0.1166.149",
             "linux-aws-headers-4.15.0-1166": "4.15.0-1166.179~16.04.1",
-            "linux-aws-hwe": "4.15.0.1166.149",
             "linux-aws-hwe-cloud-tools-4.15.0-1166": "4.15.0-1166.179~16.04.1",
             "linux-aws-hwe-tools-4.15.0-1166": "4.15.0-1166.179~16.04.1",
             "linux-buildinfo-4.15.0-1166-aws": "4.15.0-1166.179~16.04.1",
             "linux-cloud-tools-4.15.0-1166-aws": "4.15.0-1166.179~16.04.1",
             "linux-headers-4.15.0-1166-aws": "4.15.0-1166.179~16.04.1",
-            "linux-headers-aws-hwe": "4.15.0.1166.149",
-            "linux-image-4.15.0-1166-aws": "4.15.0-1166.179~16.04.1",
-            "linux-image-aws-hwe": "4.15.0.1166.149",
             "linux-image-unsigned-4.15.0-1166-aws": "4.15.0-1166.179~16.04.1",
+            "linux-image-unsigned-4.15.0-1166-aws-dbgsym": "4.15.0-1166.179~16.04.1",
             "linux-modules-4.15.0-1166-aws": "4.15.0-1166.179~16.04.1",
             "linux-modules-extra-4.15.0-1166-aws": "4.15.0-1166.179~16.04.1",
-            "linux-modules-extra-aws-hwe": "4.15.0.1166.149",
-            "linux-tools-4.15.0-1166-aws": "4.15.0-1166.179~16.04.1",
-            "linux-tools-aws-hwe": "4.15.0.1166.149"
+            "linux-tools-4.15.0-1166-aws": "4.15.0-1166.179~16.04.1"
           }
         ],
-        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+        "availability": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:Pro:16.04:LTS",
-        "name": "linux-azure"
+        "name": "linux-azure",
+        "purl": "pkg:deb/ubuntu/linux-azure@4.15.0-1175.190~16.04.1?arch=src?distro=esm-infra/xenial"
       },
       "ranges": [
         {
@@ -126,45 +167,146 @@
           ]
         }
       ],
+      "versions": [
+        "4.11.0-1009.9",
+        "4.11.0-1011.11",
+        "4.11.0-1013.13",
+        "4.11.0-1014.14",
+        "4.11.0-1015.15",
+        "4.11.0-1016.16",
+        "4.13.0-1005.7",
+        "4.13.0-1006.8",
+        "4.13.0-1007.9",
+        "4.13.0-1009.12",
+        "4.13.0-1011.14",
+        "4.13.0-1012.15",
+        "4.13.0-1014.17",
+        "4.13.0-1016.19",
+        "4.13.0-1018.21",
+        "4.15.0-1013.13~16.04.2",
+        "4.15.0-1014.14~16.04.1",
+        "4.15.0-1018.18~16.04.1",
+        "4.15.0-1019.19~16.04.1",
+        "4.15.0-1021.21~16.04.1",
+        "4.15.0-1022.22~16.04.1",
+        "4.15.0-1023.24~16.04.1",
+        "4.15.0-1025.26~16.04.1",
+        "4.15.0-1028.29~16.04.1",
+        "4.15.0-1030.31~16.04.1",
+        "4.15.0-1031.32~16.04.1",
+        "4.15.0-1032.33~16.04.1",
+        "4.15.0-1035.36~16.04.1",
+        "4.15.0-1036.38~16.04.1",
+        "4.15.0-1037.39~16.04.1",
+        "4.15.0-1039.43",
+        "4.15.0-1040.44",
+        "4.15.0-1041.45",
+        "4.15.0-1042.46",
+        "4.15.0-1045.49",
+        "4.15.0-1046.50",
+        "4.15.0-1047.51",
+        "4.15.0-1049.54",
+        "4.15.0-1050.55",
+        "4.15.0-1051.56",
+        "4.15.0-1052.57",
+        "4.15.0-1055.60",
+        "4.15.0-1056.61",
+        "4.15.0-1057.62",
+        "4.15.0-1059.64",
+        "4.15.0-1060.65",
+        "4.15.0-1061.66",
+        "4.15.0-1063.68",
+        "4.15.0-1064.69",
+        "4.15.0-1066.71",
+        "4.15.0-1067.72",
+        "4.15.0-1069.74",
+        "4.15.0-1071.76",
+        "4.15.0-1075.80",
+        "4.15.0-1077.82",
+        "4.15.0-1082.92~16.04.1",
+        "4.15.0-1083.93~16.04.1",
+        "4.15.0-1089.99~16.04.1",
+        "4.15.0-1091.101~16.04.1",
+        "4.15.0-1092.102~16.04.1",
+        "4.15.0-1093.103~16.04.1",
+        "4.15.0-1095.105~16.04.1",
+        "4.15.0-1096.106~16.04.1",
+        "4.15.0-1098.109~16.04.1",
+        "4.15.0-1100.111~16.04.1",
+        "4.15.0-1102.113~16.04.1",
+        "4.15.0-1103.114~16.04.1",
+        "4.15.0-1106.118~16.04.1",
+        "4.15.0-1108.120~16.04.1",
+        "4.15.0-1109.121~16.04.1",
+        "4.15.0-1110.122~16.04.1",
+        "4.15.0-1111.123~16.04.1",
+        "4.15.0-1112.124~16.04.1",
+        "4.15.0-1113.126~16.04.1",
+        "4.15.0-1114.127~16.04.1",
+        "4.15.0-1115.128~16.04.1",
+        "4.15.0-1118.131~16.04.1",
+        "4.15.0-1121.134~16.04.1",
+        "4.15.0-1122.135~16.04.1",
+        "4.15.0-1123.136~16.04.1",
+        "4.15.0-1124.137~16.04.1",
+        "4.15.0-1125.138~16.04.1",
+        "4.15.0-1126.139~16.04.1",
+        "4.15.0-1127.140~16.04.1",
+        "4.15.0-1129.142~16.04.1",
+        "4.15.0-1130.143~16.04.1",
+        "4.15.0-1131.144~16.04.1",
+        "4.15.0-1133.146~16.04.1",
+        "4.15.0-1134.147~16.04.1",
+        "4.15.0-1136.149~16.04.1",
+        "4.15.0-1137.150~16.04.1",
+        "4.15.0-1138.151~16.04.1",
+        "4.15.0-1139.152~16.04.1",
+        "4.15.0-1142.156~16.04.1",
+        "4.15.0-1145.160~16.04.1",
+        "4.15.0-1146.161~16.04.1",
+        "4.15.0-1149.164~16.04.1",
+        "4.15.0-1150.165~16.04.1",
+        "4.15.0-1151.166~16.04.1",
+        "4.15.0-1153.168~16.04.1",
+        "4.15.0-1159.174~16.04.1",
+        "4.15.0-1162.177~16.04.1",
+        "4.15.0-1163.178~16.04.1",
+        "4.15.0-1164.179~16.04.1",
+        "4.15.0-1165.180~16.04.1",
+        "4.15.0-1166.181~16.04.1",
+        "4.15.0-1167.182~16.04.1",
+        "4.15.0-1168.183~16.04.1",
+        "4.15.0-1169.184~16.04.1",
+        "4.15.0-1170.185~16.04.1",
+        "4.15.0-1171.186~16.04.1",
+        "4.15.0-1172.187~16.04.1",
+        "4.15.0-1173.188~16.04.1",
+        "4.15.0-1174.189~16.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-azure": "4.15.0.1175.159",
             "linux-azure-cloud-tools-4.15.0-1175": "4.15.0-1175.190~16.04.1",
-            "linux-azure-edge": "4.15.0.1175.159",
             "linux-azure-headers-4.15.0-1175": "4.15.0-1175.190~16.04.1",
             "linux-azure-tools-4.15.0-1175": "4.15.0-1175.190~16.04.1",
             "linux-buildinfo-4.15.0-1175-azure": "4.15.0-1175.190~16.04.1",
             "linux-cloud-tools-4.15.0-1175-azure": "4.15.0-1175.190~16.04.1",
-            "linux-cloud-tools-azure": "4.15.0.1175.159",
-            "linux-cloud-tools-azure-edge": "4.15.0.1175.159",
             "linux-headers-4.15.0-1175-azure": "4.15.0-1175.190~16.04.1",
-            "linux-headers-azure": "4.15.0.1175.159",
-            "linux-headers-azure-edge": "4.15.0.1175.159",
-            "linux-image-4.15.0-1175-azure": "4.15.0-1175.190~16.04.1",
-            "linux-image-azure": "4.15.0.1175.159",
-            "linux-image-azure-edge": "4.15.0.1175.159",
             "linux-image-unsigned-4.15.0-1175-azure": "4.15.0-1175.190~16.04.1",
+            "linux-image-unsigned-4.15.0-1175-azure-dbgsym": "4.15.0-1175.190~16.04.1",
             "linux-modules-4.15.0-1175-azure": "4.15.0-1175.190~16.04.1",
             "linux-modules-extra-4.15.0-1175-azure": "4.15.0-1175.190~16.04.1",
-            "linux-modules-extra-azure": "4.15.0.1175.159",
-            "linux-modules-extra-azure-edge": "4.15.0.1175.159",
-            "linux-signed-azure": "4.15.0.1175.159",
-            "linux-signed-azure-edge": "4.15.0.1175.159",
-            "linux-signed-image-azure": "4.15.0.1175.159",
-            "linux-signed-image-azure-edge": "4.15.0.1175.159",
-            "linux-tools-4.15.0-1175-azure": "4.15.0-1175.190~16.04.1",
-            "linux-tools-azure": "4.15.0.1175.159",
-            "linux-tools-azure-edge": "4.15.0.1175.159"
+            "linux-tools-4.15.0-1175-azure": "4.15.0-1175.190~16.04.1"
           }
         ],
-        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+        "availability": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:Pro:16.04:LTS",
-        "name": "linux-oracle"
+        "name": "linux-oracle",
+        "purl": "pkg:deb/ubuntu/linux-oracle@4.15.0-1129.140~16.04.1?arch=src?distro=esm-infra/xenial"
       },
       "ranges": [
         {
@@ -179,27 +321,212 @@
           ]
         }
       ],
+      "versions": [
+        "4.15.0-1007.9~16.04.1",
+        "4.15.0-1008.10~16.04.1",
+        "4.15.0-1009.11~16.04.1",
+        "4.15.0-1010.12~16.04.1",
+        "4.15.0-1011.13~16.04.1",
+        "4.15.0-1013.15~16.04.1",
+        "4.15.0-1014.16~16.04.1",
+        "4.15.0-1015.17~16.04.1",
+        "4.15.0-1017.19~16.04.2",
+        "4.15.0-1018.20~16.04.1",
+        "4.15.0-1021.23~16.04.1",
+        "4.15.0-1022.25~16.04.1",
+        "4.15.0-1023.26~16.04.1",
+        "4.15.0-1025.28~16.04.1",
+        "4.15.0-1026.29~16.04.1",
+        "4.15.0-1027.30~16.04.1",
+        "4.15.0-1029.32~16.04.1",
+        "4.15.0-1030.33~16.04.1",
+        "4.15.0-1031.34~16.04.1",
+        "4.15.0-1033.36~16.04.1",
+        "4.15.0-1035.38~16.04.1",
+        "4.15.0-1037.41~16.04.1",
+        "4.15.0-1038.42~16.04.1",
+        "4.15.0-1039.43~16.04.1",
+        "4.15.0-1045.49~16.04.1",
+        "4.15.0-1046.50~16.04.1",
+        "4.15.0-1050.54~16.04.1",
+        "4.15.0-1051.55~16.04.1",
+        "4.15.0-1053.57~16.04.1",
+        "4.15.0-1054.58~16.04.1",
+        "4.15.0-1056.61~16.04.1",
+        "4.15.0-1058.64~16.04.1",
+        "4.15.0-1059.65~16.04.1",
+        "4.15.0-1061.67~16.04.1",
+        "4.15.0-1062.68~16.04.1",
+        "4.15.0-1064.71~16.04.1",
+        "4.15.0-1065.73~16.04.1",
+        "4.15.0-1066.74~16.04.1",
+        "4.15.0-1067.75~16.04.1",
+        "4.15.0-1068.76~16.04.1",
+        "4.15.0-1069.77~16.04.1",
+        "4.15.0-1070.78~16.04.1",
+        "4.15.0-1071.79~16.04.1",
+        "4.15.0-1072.80~16.04.1",
+        "4.15.0-1075.83~16.04.1",
+        "4.15.0-1078.86~16.04.1",
+        "4.15.0-1079.87~16.04.1",
+        "4.15.0-1080.88~16.04.1",
+        "4.15.0-1081.89~16.04.1",
+        "4.15.0-1082.90~16.04.1",
+        "4.15.0-1083.91~16.04.1",
+        "4.15.0-1084.92~16.04.1",
+        "4.15.0-1085.93~16.04.1",
+        "4.15.0-1086.94~16.04.1",
+        "4.15.0-1087.95~16.04.1",
+        "4.15.0-1089.98~16.04.1",
+        "4.15.0-1090.99~16.04.1",
+        "4.15.0-1091.100~16.04.1",
+        "4.15.0-1092.101~16.04.1",
+        "4.15.0-1093.102~16.04.1",
+        "4.15.0-1095.104~16.04.1",
+        "4.15.0-1098.108~16.04.1",
+        "4.15.0-1101.112~16.04.1",
+        "4.15.0-1102.113~16.04.1",
+        "4.15.0-1104.115~16.04.1",
+        "4.15.0-1105.116~16.04.1",
+        "4.15.0-1106.117~16.04.1",
+        "4.15.0-1107.118~16.04.1",
+        "4.15.0-1108.119~16.04.1",
+        "4.15.0-1111.122~16.04.2",
+        "4.15.0-1112.123~16.04.1",
+        "4.15.0-1113.124~16.04.1",
+        "4.15.0-1115.126~16.04.1",
+        "4.15.0-1116.127~16.04.1",
+        "4.15.0-1117.128~16.04.1",
+        "4.15.0-1118.129~16.04.1",
+        "4.15.0-1119.130~16.04.1",
+        "4.15.0-1120.131~16.04.1",
+        "4.15.0-1121.132~16.04.1",
+        "4.15.0-1122.133~16.04.1",
+        "4.15.0-1123.134~16.04.1",
+        "4.15.0-1124.135~16.04.1",
+        "4.15.0-1125.136~16.04.1",
+        "4.15.0-1126.137~16.04.1",
+        "4.15.0-1127.138~16.04.1",
+        "4.15.0-1128.139~16.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "linux-buildinfo-4.15.0-1129-oracle": "4.15.0-1129.140~16.04.1",
             "linux-headers-4.15.0-1129-oracle": "4.15.0-1129.140~16.04.1",
-            "linux-headers-oracle": "4.15.0.1129.110",
-            "linux-image-4.15.0-1129-oracle": "4.15.0-1129.140~16.04.1",
-            "linux-image-oracle": "4.15.0.1129.110",
             "linux-image-unsigned-4.15.0-1129-oracle": "4.15.0-1129.140~16.04.1",
+            "linux-image-unsigned-4.15.0-1129-oracle-dbgsym": "4.15.0-1129.140~16.04.1",
             "linux-modules-4.15.0-1129-oracle": "4.15.0-1129.140~16.04.1",
             "linux-modules-extra-4.15.0-1129-oracle": "4.15.0-1129.140~16.04.1",
-            "linux-oracle": "4.15.0.1129.110",
             "linux-oracle-headers-4.15.0-1129": "4.15.0-1129.140~16.04.1",
             "linux-oracle-tools-4.15.0-1129": "4.15.0-1129.140~16.04.1",
-            "linux-signed-image-oracle": "4.15.0.1129.110",
-            "linux-signed-oracle": "4.15.0.1129.110",
-            "linux-tools-4.15.0-1129-oracle": "4.15.0-1129.140~16.04.1",
-            "linux-tools-oracle": "4.15.0.1129.110"
+            "linux-tools-4.15.0-1129-oracle": "4.15.0-1129.140~16.04.1"
           }
         ],
-        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+        "availability": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:18.04:LTS",
+        "name": "linux-azure-4.15",
+        "purl": "pkg:deb/ubuntu/linux-azure-4.15@4.15.0-1175.190?arch=src?distro=esm-infra/bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.15.0-1175.190"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.15.0-1082.92",
+        "4.15.0-1083.93",
+        "4.15.0-1089.99",
+        "4.15.0-1091.101",
+        "4.15.0-1092.102",
+        "4.15.0-1093.103",
+        "4.15.0-1095.105",
+        "4.15.0-1096.106",
+        "4.15.0-1099.110",
+        "4.15.0-1100.111",
+        "4.15.0-1102.113",
+        "4.15.0-1103.114",
+        "4.15.0-1104.116",
+        "4.15.0-1106.118",
+        "4.15.0-1108.120",
+        "4.15.0-1109.121",
+        "4.15.0-1110.122",
+        "4.15.0-1111.123",
+        "4.15.0-1112.125",
+        "4.15.0-1113.126",
+        "4.15.0-1114.127",
+        "4.15.0-1115.128",
+        "4.15.0-1118.131",
+        "4.15.0-1121.134",
+        "4.15.0-1122.135",
+        "4.15.0-1123.136",
+        "4.15.0-1124.137",
+        "4.15.0-1125.138",
+        "4.15.0-1126.139",
+        "4.15.0-1127.140",
+        "4.15.0-1129.142",
+        "4.15.0-1130.143",
+        "4.15.0-1131.144",
+        "4.15.0-1133.146",
+        "4.15.0-1134.147",
+        "4.15.0-1136.149",
+        "4.15.0-1137.150",
+        "4.15.0-1138.151",
+        "4.15.0-1139.152",
+        "4.15.0-1142.156",
+        "4.15.0-1145.160",
+        "4.15.0-1146.161",
+        "4.15.0-1149.164",
+        "4.15.0-1150.165",
+        "4.15.0-1151.166",
+        "4.15.0-1153.168",
+        "4.15.0-1157.172",
+        "4.15.0-1158.173",
+        "4.15.0-1159.174",
+        "4.15.0-1161.176",
+        "4.15.0-1162.177",
+        "4.15.0-1163.178",
+        "4.15.0-1164.179",
+        "4.15.0-1165.180",
+        "4.15.0-1166.181",
+        "4.15.0-1167.182",
+        "4.15.0-1168.183",
+        "4.15.0-1169.184",
+        "4.15.0-1170.185",
+        "4.15.0-1171.186",
+        "4.15.0-1172.187",
+        "4.15.0-1173.188",
+        "4.15.0-1174.189"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-azure-4.15-cloud-tools-4.15.0-1175": "4.15.0-1175.190",
+            "linux-azure-4.15-headers-4.15.0-1175": "4.15.0-1175.190",
+            "linux-azure-4.15-tools-4.15.0-1175": "4.15.0-1175.190",
+            "linux-buildinfo-4.15.0-1175-azure": "4.15.0-1175.190",
+            "linux-cloud-tools-4.15.0-1175-azure": "4.15.0-1175.190",
+            "linux-headers-4.15.0-1175-azure": "4.15.0-1175.190",
+            "linux-image-unsigned-4.15.0-1175-azure": "4.15.0-1175.190",
+            "linux-image-unsigned-4.15.0-1175-azure-dbgsym": "4.15.0-1175.190",
+            "linux-modules-4.15.0-1175-azure": "4.15.0-1175.190",
+            "linux-modules-extra-4.15.0-1175-azure": "4.15.0-1175.190",
+            "linux-tools-4.15.0-1175-azure": "4.15.0-1175.190"
+          }
+        ],
+        "availability": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro"
       }
     }
   ],
@@ -214,11 +541,19 @@
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-23000"
+      "url": "https://ubuntu.com/security/CVE-2023-3006"
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-3006"
+      "url": "https://ubuntu.com/security/CVE-2023-4132"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-6121"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-23000"
     },
     {
       "type": "REPORT",
@@ -230,19 +565,11 @@
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-4132"
-    },
-    {
-      "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-46838"
     },
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-51781"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-6121"
     },
     {
       "type": "REPORT",

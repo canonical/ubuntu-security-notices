@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-5000-2",
   "summary": "linux-kvm vulnerabilities",
   "details": "USN-5000-1 fixed vulnerabilities in the Linux kernel for Ubuntu\n20.04 LTS and the Linux HWE kernel for Ubuntu 18.04 LTS. This update\nprovides the corresponding updates for the Linux KVM kernel for Ubuntu\n20.04 LTS.\n\nNorbert Slusarek discovered a race condition in the CAN BCM networking\nprotocol of the Linux kernel leading to multiple use-after-free\nvulnerabilities. A local attacker could use this issue to execute arbitrary\ncode. (CVE-2021-3609)\n\nPiotr Krysiuk discovered that the eBPF implementation in the Linux kernel\ndid not properly enforce limits for pointer operations. A local attacker\ncould use this to cause a denial of service (system crash) or possibly\nexecute arbitrary code. (CVE-2021-33200)\n\nMathy Vanhoef discovered that the Linux kernel\u2019s WiFi implementation did\nnot properly clear received fragments from memory in some situations. A\nphysically proximate attacker could possibly use this issue to inject\npackets or expose sensitive information. (CVE-2020-24586)\n\nMathy Vanhoef discovered that the Linux kernel\u2019s WiFi implementation\nincorrectly handled encrypted fragments. A physically proximate attacker\ncould possibly use this issue to decrypt fragments. (CVE-2020-24587)\n\nMathy Vanhoef discovered that the Linux kernel\u2019s WiFi implementation\nincorrectly handled certain malformed frames. If a user were tricked into\nconnecting to a malicious server, a physically proximate attacker could use\nthis issue to inject packets. (CVE-2020-24588)\n\nMathy Vanhoef discovered that the Linux kernel\u2019s WiFi implementation\nincorrectly handled EAPOL frames from unauthenticated senders. A physically\nproximate attacker could inject malicious packets to cause a denial of\nservice (system crash). (CVE-2020-26139)\n\nMathy Vanhoef discovered that the Linux kernel\u2019s WiFi implementation did\nnot properly verify certain fragmented frames. A physically proximate\nattacker could possibly use this issue to inject or decrypt packets.\n(CVE-2020-26141)\n\nMathy Vanhoef discovered that the Linux kernel\u2019s WiFi implementation\naccepted plaintext fragments in certain situations. A physically proximate\nattacker could use this issue to inject packets. (CVE-2020-26145)\n\nMathy Vanhoef discovered that the Linux kernel\u2019s WiFi implementation could\nreassemble mixed encrypted and plaintext fragments. A physically proximate\nattacker could possibly use this issue to inject packets or exfiltrate\nselected fragments. (CVE-2020-26147)\n\nOr Cohen discovered that the SCTP implementation in the Linux kernel\ncontained a race condition in some situations, leading to a use-after-free\ncondition. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2021-23133)\n\nOr Cohen and Nadav Markus discovered a use-after-free vulnerability in the\nnfc implementation in the Linux kernel. A privileged local attacker could\nuse this issue to cause a denial of service (system crash) or possibly\nexecute arbitrary code. (CVE-2021-23134)\n\nPiotr Krysiuk discovered that the eBPF implementation in the Linux kernel\ndid not properly prevent speculative loads in certain situations. A local\nattacker could use this to expose sensitive information (kernel memory).\n(CVE-2021-31829)\n\nIt was discovered that a race condition in the kernel Bluetooth subsystem\ncould lead to use-after-free of slab objects. An attacker could use this\nissue to possibly execute arbitrary code. (CVE-2021-32399)\n\nIt was discovered that a use-after-free existed in the Bluetooth HCI driver\nof the Linux kernel. A local attacker could use this to cause a denial of\nservice (system crash) or possibly execute arbitrary code. (CVE-2021-33034)\n\nIt was discovered that an out-of-bounds (OOB) memory access flaw existed in\nthe f2fs module of the Linux kernel. A local attacker could use this issue\nto cause a denial of service (system crash). (CVE-2021-3506)\n",
@@ -11,14 +12,14 @@
     "CVE-2020-26141",
     "CVE-2020-26145",
     "CVE-2020-26147",
+    "CVE-2021-3506",
+    "CVE-2021-3609",
     "CVE-2021-23133",
     "CVE-2021-23134",
     "CVE-2021-31829",
     "CVE-2021-32399",
     "CVE-2021-33034",
-    "CVE-2021-33200",
-    "CVE-2021-3506",
-    "CVE-2021-3609"
+    "CVE-2021-33200"
   ],
   "published": "2021-06-25T19:56:40.181074Z",
   "modified": "2021-06-25T19:56:40.181074Z",
@@ -26,7 +27,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-kvm"
+        "name": "linux-kvm",
+        "purl": "pkg:deb/ubuntu/linux-kvm@5.4.0-1041.42?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -41,24 +43,49 @@
           ]
         }
       ],
+      "versions": [
+        "5.3.0-1003.3",
+        "5.3.0-1008.9",
+        "5.3.0-1009.10",
+        "5.4.0-1004.4",
+        "5.4.0-1006.6",
+        "5.4.0-1007.7",
+        "5.4.0-1008.8",
+        "5.4.0-1009.9",
+        "5.4.0-1011.11",
+        "5.4.0-1015.15",
+        "5.4.0-1018.18",
+        "5.4.0-1020.20",
+        "5.4.0-1021.21",
+        "5.4.0-1023.23",
+        "5.4.0-1024.24",
+        "5.4.0-1026.27",
+        "5.4.0-1028.29",
+        "5.4.0-1030.31",
+        "5.4.0-1031.32",
+        "5.4.0-1032.33",
+        "5.4.0-1033.34",
+        "5.4.0-1034.35",
+        "5.4.0-1036.37",
+        "5.4.0-1037.38",
+        "5.4.0-1038.39",
+        "5.4.0-1039.40",
+        "5.4.0-1040.41"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-5.4.0-1041-kvm": "5.4.0-1041.42",
-            "linux-headers-5.4.0-1041-kvm": "5.4.0-1041.42",
-            "linux-tools-kvm": "5.4.0.1041.39",
-            "linux-kvm-headers-5.4.0-1041": "5.4.0-1041.42",
             "linux-buildinfo-5.4.0-1041-kvm": "5.4.0-1041.42",
-            "linux-kvm": "5.4.0.1041.39",
-            "linux-headers-kvm": "5.4.0.1041.39",
-            "linux-kvm-tools-5.4.0-1041": "5.4.0-1041.42",
+            "linux-headers-5.4.0-1041-kvm": "5.4.0-1041.42",
             "linux-image-unsigned-5.4.0-1041-kvm": "5.4.0-1041.42",
-            "linux-tools-5.4.0-1041-kvm": "5.4.0-1041.42",
-            "linux-image-kvm": "5.4.0.1041.39",
-            "linux-modules-5.4.0-1041-kvm": "5.4.0-1041.42"
+            "linux-image-unsigned-5.4.0-1041-kvm-dbgsym": "5.4.0-1041.42",
+            "linux-kvm-headers-5.4.0-1041": "5.4.0-1041.42",
+            "linux-kvm-tools-5.4.0-1041": "5.4.0-1041.42",
+            "linux-modules-5.4.0-1041-kvm": "5.4.0-1041.42",
+            "linux-tools-5.4.0-1041-kvm": "5.4.0-1041.42"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -97,6 +124,14 @@
     },
     {
       "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2021-3506"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2021-3609"
+    },
+    {
+      "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2021-23133"
     },
     {
@@ -118,14 +153,6 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2021-33200"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2021-3506"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2021-3609"
     }
   ]
 }

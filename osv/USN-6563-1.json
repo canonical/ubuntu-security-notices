@@ -1,11 +1,10 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-6563-1",
   "summary": "thunderbird vulnerabilities",
   "details": "Multiple security issues were discovered in Thunderbird. If a user were\ntricked into opening a specially crafted website in a browsing context, an\nattacker could potentially exploit these to cause a denial of service,\nobtain sensitive information, bypass security restrictions, cross-site\ntracing, or execute arbitrary code.(CVE-2023-6857, CVE-2023-6858,\nCVE-2023-6859, CVE-2023-6861, CVE-2023-6862, CVE-2023-6863, CVE-2023-6864)\n\nMarcus Brinkmann discovered that Thunderbird did not properly parse a PGP/MIME\npayload that contains digitally signed text. An attacker could potentially\nexploit this issue to spoof an email message. (CVE-2023-50762)\n\nMarcus Brinkmann discovered that Thunderbird did not properly compare the\nsignature creation date with the message date and time when using digitally\nsigned S/MIME email message. An attacker could potentially exploit this\nissue to spoof date and time of an email message. (CVE-2023-50761)\n\nDoHyun Lee discovered that Thunderbird did not properly manage memory when\nused on systems with the Mesa VM driver. An attacker could potentially\nexploit this issue to execute arbitrary code. (CVE-2023-6856)\n\nAndrew Osmond discovered that Thunderbird did not properly validate the\ntextures produced by remote decoders. An attacker could potentially exploit\nthis issue to escape the sandbox. (CVE-2023-6860)\n",
   "aliases": [],
   "related": [
-    "CVE-2023-50762",
-    "CVE-2023-50761",
     "CVE-2023-6856",
     "CVE-2023-6857",
     "CVE-2023-6858",
@@ -14,7 +13,9 @@
     "CVE-2023-6861",
     "CVE-2023-6862",
     "CVE-2023-6863",
-    "CVE-2023-6864"
+    "CVE-2023-6864",
+    "CVE-2023-50761",
+    "CVE-2023-50762"
   ],
   "published": "2024-01-02T09:28:23.277586Z",
   "modified": "2024-01-02T09:28:23.277586Z",
@@ -22,7 +23,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "thunderbird"
+        "name": "thunderbird",
+        "purl": "pkg:deb/ubuntu/thunderbird@1:115.6.0+build2-0ubuntu0.20.04.1?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -37,12 +39,54 @@
           ]
         }
       ],
+      "versions": [
+        "1:68.1.2+build1-0ubuntu1",
+        "1:68.1.2+build1-0ubuntu2",
+        "1:68.2.1+build1-0ubuntu1",
+        "1:68.2.2+build1-0ubuntu1",
+        "1:68.3.0+build2-0ubuntu1",
+        "1:68.3.1+build1-0ubuntu2",
+        "1:68.4.1+build1-0ubuntu1",
+        "1:68.4.2+build2-0ubuntu1",
+        "1:68.5.0+build1-0ubuntu1",
+        "1:68.6.0+build2-0ubuntu1",
+        "1:68.7.0+build1-0ubuntu1",
+        "1:68.7.0+build1-0ubuntu2",
+        "1:68.8.0+build2-0ubuntu0.20.04.2",
+        "1:68.10.0+build1-0ubuntu0.20.04.1",
+        "1:78.7.1+build1-0ubuntu0.20.04.1",
+        "1:78.8.1+build1-0ubuntu0.20.04.1",
+        "1:78.11.0+build1-0ubuntu0.20.04.2",
+        "1:78.13.0+build1-0ubuntu0.20.04.2",
+        "1:78.14.0+build1-0ubuntu0.20.04.1",
+        "1:78.14.0+build1-0ubuntu0.20.04.2",
+        "1:91.5.0+build1-0ubuntu0.20.04.1",
+        "1:91.7.0+build2-0ubuntu0.20.04.1",
+        "1:91.8.1+build1-0ubuntu0.20.04.1",
+        "1:91.9.1+build1-0ubuntu0.20.04.1",
+        "1:91.11.0+build2-0ubuntu0.20.04.1",
+        "1:102.2.2+build1-0ubuntu0.20.04.1",
+        "1:102.4.2+build2-0ubuntu0.20.04.1",
+        "1:102.7.1+build2-0ubuntu0.20.04.1",
+        "1:102.8.0+build2-0ubuntu0.20.04.1",
+        "1:102.9.0+build1-0ubuntu0.20.04.1",
+        "1:102.10.0+build2-0ubuntu0.20.04.1",
+        "1:102.11.0+build1-0ubuntu0.20.04.1",
+        "1:102.13.0+build1-0ubuntu0.20.04.1",
+        "1:102.15.0+build1-0ubuntu0.20.04.1",
+        "1:102.15.1+build1-0ubuntu0.20.04.1",
+        "1:115.3.1+build1-0ubuntu0.20.04.1",
+        "1:115.4.1+build1-0ubuntu0.20.04.1",
+        "1:115.5.0+build1-0ubuntu0.20.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "thunderbird": "1:115.6.0+build2-0ubuntu0.20.04.1",
+            "thunderbird-dbg": "1:115.6.0+build2-0ubuntu0.20.04.1",
             "thunderbird-dev": "1:115.6.0+build2-0ubuntu0.20.04.1",
             "thunderbird-gnome-support": "1:115.6.0+build2-0ubuntu0.20.04.1",
+            "thunderbird-gnome-support-dbg": "1:115.6.0+build2-0ubuntu0.20.04.1",
             "thunderbird-locale-af": "1:115.6.0+build2-0ubuntu0.20.04.1",
             "thunderbird-locale-ar": "1:115.6.0+build2-0ubuntu0.20.04.1",
             "thunderbird-locale-ast": "1:115.6.0+build2-0ubuntu0.20.04.1",
@@ -131,13 +175,14 @@
             "xul-ext-lightning": "1:115.6.0+build2-0ubuntu0.20.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "thunderbird"
+        "name": "thunderbird",
+        "purl": "pkg:deb/ubuntu/thunderbird@1:115.6.0+build2-0ubuntu0.22.04.1?arch=src?distro=jammy"
       },
       "ranges": [
         {
@@ -152,12 +197,43 @@
           ]
         }
       ],
+      "versions": [
+        "1:91.1.2+build1-0ubuntu1",
+        "1:91.3.0+build2-0ubuntu1",
+        "1:91.3.1+build1-0ubuntu1",
+        "1:91.3.2+build1-0ubuntu1",
+        "1:91.4.0+build1.1-0ubuntu1",
+        "1:91.4.0+build2-0ubuntu1",
+        "1:91.5.0+build1-0ubuntu1",
+        "1:91.5.1+build1-0ubuntu1",
+        "1:91.6.1+build1-0ubuntu1",
+        "1:91.7.0+build1-0ubuntu1",
+        "1:91.7.0+build2-0ubuntu1",
+        "1:91.8.0+build2-0ubuntu1",
+        "1:91.9.1+build1-0ubuntu0.22.04.1",
+        "1:91.11.0+build2-0ubuntu0.22.04.1",
+        "1:102.2.2+build1-0ubuntu0.22.04.1",
+        "1:102.4.2+build2-0ubuntu0.22.04.1",
+        "1:102.7.1+build2-0ubuntu0.22.04.1",
+        "1:102.8.0+build2-0ubuntu0.22.04.1",
+        "1:102.9.0+build1-0ubuntu0.22.04.1",
+        "1:102.10.0+build2-0ubuntu0.22.04.1",
+        "1:102.11.0+build1-0ubuntu0.22.04.1",
+        "1:102.13.0+build1-0ubuntu0.22.04.1",
+        "1:102.15.0+build1-0ubuntu0.22.04.1",
+        "1:102.15.1+build1-0ubuntu0.22.04.1",
+        "1:115.3.1+build1-0ubuntu0.22.04.2",
+        "1:115.4.1+build1-0ubuntu0.22.04.1",
+        "1:115.5.0+build1-0ubuntu0.22.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "thunderbird": "1:115.6.0+build2-0ubuntu0.22.04.1",
+            "thunderbird-dbg": "1:115.6.0+build2-0ubuntu0.22.04.1",
             "thunderbird-dev": "1:115.6.0+build2-0ubuntu0.22.04.1",
             "thunderbird-gnome-support": "1:115.6.0+build2-0ubuntu0.22.04.1",
+            "thunderbird-gnome-support-dbg": "1:115.6.0+build2-0ubuntu0.22.04.1",
             "thunderbird-locale-af": "1:115.6.0+build2-0ubuntu0.22.04.1",
             "thunderbird-locale-ar": "1:115.6.0+build2-0ubuntu0.22.04.1",
             "thunderbird-locale-ast": "1:115.6.0+build2-0ubuntu0.22.04.1",
@@ -246,13 +322,14 @@
             "xul-ext-lightning": "1:115.6.0+build2-0ubuntu0.22.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:23.10",
-        "name": "thunderbird"
+        "name": "thunderbird",
+        "purl": "pkg:deb/ubuntu/thunderbird@1:115.6.0+build2-0ubuntu0.23.10.1?arch=src?distro=mantic"
       },
       "ranges": [
         {
@@ -267,12 +344,28 @@
           ]
         }
       ],
+      "versions": [
+        "1:102.10.0+build2-0ubuntu1",
+        "1:102.11.0+build1-0ubuntu1",
+        "1:102.12.0+build1-0ubuntu1",
+        "1:102.13.0+build1-0ubuntu1",
+        "1:115.2.0+build1-0ubuntu1",
+        "1:115.2.0+build2-0ubuntu1",
+        "1:115.2.3+build1-0ubuntu1",
+        "1:115.2.3+build2-0ubuntu1",
+        "1:115.3.0+build2-0ubuntu1",
+        "1:115.3.1+build1-0ubuntu1",
+        "1:115.4.1+build1-0ubuntu0.23.10.1",
+        "1:115.5.0+build1-0ubuntu0.23.10.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "thunderbird": "1:115.6.0+build2-0ubuntu0.23.10.1",
+            "thunderbird-dbg": "1:115.6.0+build2-0ubuntu0.23.10.1",
             "thunderbird-dev": "1:115.6.0+build2-0ubuntu0.23.10.1",
             "thunderbird-gnome-support": "1:115.6.0+build2-0ubuntu0.23.10.1",
+            "thunderbird-gnome-support-dbg": "1:115.6.0+build2-0ubuntu0.23.10.1",
             "thunderbird-locale-af": "1:115.6.0+build2-0ubuntu0.23.10.1",
             "thunderbird-locale-ar": "1:115.6.0+build2-0ubuntu0.23.10.1",
             "thunderbird-locale-ast": "1:115.6.0+build2-0ubuntu0.23.10.1",
@@ -361,7 +454,7 @@
             "xul-ext-lightning": "1:115.6.0+build2-0ubuntu0.23.10.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -369,14 +462,6 @@
     {
       "type": "ADVISORY",
       "url": "https://ubuntu.com/security/notices/USN-6563-1"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-50762"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-50761"
     },
     {
       "type": "REPORT",
@@ -413,6 +498,14 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-6864"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-50761"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-50762"
     }
   ]
 }

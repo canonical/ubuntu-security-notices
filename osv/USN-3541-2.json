@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-3541-2",
   "summary": "linux-hwe, linux-azure, linux-gcp, linux-oem vulnerabilities",
   "details": "USN-3541-1 addressed vulnerabilities in the Linux kernel for Ubuntu\n17.10. This update provides the corresponding updates for the\nLinux Hardware Enablement (HWE) kernel from Ubuntu 17.10 for Ubuntu\n16.04 LTS.\n\nJann Horn discovered that microprocessors utilizing speculative\nexecution and branch prediction may allow unauthorized memory\nreads via sidechannel attacks. This flaw is known as Spectre. A\nlocal attacker could use this to expose sensitive information,\nincluding kernel memory. This update provides mitigations for the\ni386 (CVE-2017-5753 only), amd64, ppc64el, and s390x architectures.\n(CVE-2017-5715, CVE-2017-5753)\n\nUSN-3523-2 mitigated CVE-2017-5754 (Meltdown) for the amd64\narchitecture in the Linux Hardware Enablement (HWE) kernel from Ubuntu\n17.10 for Ubuntu 16.04 LTS. This update provides the corresponding\nmitigations for the ppc64el architecture. Original advisory details:\n\n Jann Horn discovered that microprocessors utilizing speculative\n execution and indirect branch prediction may allow unauthorized memory\n reads via sidechannel attacks. This flaw is known as Meltdown. A local\n attacker could use this to expose sensitive information, including\n kernel memory. (CVE-2017-5754)\n",
@@ -6,8 +7,7 @@
   "related": [
     "CVE-2017-5715",
     "CVE-2017-5753",
-    "CVE-2017-5754",
-    "https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SpectreAndMeltdown"
+    "CVE-2017-5754"
   ],
   "published": "2018-01-23T01:18:04.266320Z",
   "modified": "2018-01-23T01:18:04.266320Z",
@@ -15,92 +15,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "linux-hwe"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.13.0-31.34~16.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-extra-4.13.0-31-generic": "4.13.0-31.34~16.04.1",
-            "linux-image-4.13.0-31-generic": "4.13.0-31.34~16.04.1",
-            "linux-image-4.13.0-31-lowlatency": "4.13.0-31.34~16.04.1",
-            "linux-image-4.13.0-31-generic-lpae": "4.13.0-31.34~16.04.1"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "linux-oem"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.13.0-1017.18"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-4.13.0-1017-oem": "4.13.0-1017.18"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "linux-gcp"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.13.0-1007.10"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-extra-4.13.0-1007-gcp": "4.13.0-1007.10",
-            "linux-image-4.13.0-1007-gcp": "4.13.0-1007.10"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "linux-azure"
+        "name": "linux-azure",
+        "purl": "pkg:deb/ubuntu/linux-azure@4.13.0-1006.8?arch=src?distro=xenial"
       },
       "ranges": [
         {
@@ -115,14 +31,291 @@
           ]
         }
       ],
+      "versions": [
+        "4.11.0-1009.9",
+        "4.11.0-1011.11",
+        "4.11.0-1013.13",
+        "4.11.0-1014.14",
+        "4.11.0-1015.15",
+        "4.11.0-1016.16",
+        "4.13.0-1005.7"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
+            "linux-azure-cloud-tools-4.13.0-1006": "4.13.0-1006.8",
+            "linux-azure-cloud-tools-4.13.0-1006-dbgsym": "4.13.0-1006.8",
+            "linux-azure-headers-4.13.0-1006": "4.13.0-1006.8",
+            "linux-azure-tools-4.13.0-1006": "4.13.0-1006.8",
+            "linux-azure-tools-4.13.0-1006-dbgsym": "4.13.0-1006.8",
+            "linux-cloud-tools-4.13.0-1006-azure": "4.13.0-1006.8",
+            "linux-headers-4.13.0-1006-azure": "4.13.0-1006.8",
             "linux-image-4.13.0-1006-azure": "4.13.0-1006.8",
-            "linux-image-extra-4.13.0-1006-azure": "4.13.0-1006.8"
+            "linux-image-4.13.0-1006-azure-dbgsym": "4.13.0-1006.8",
+            "linux-image-extra-4.13.0-1006-azure": "4.13.0-1006.8",
+            "linux-tools-4.13.0-1006-azure": "4.13.0-1006.8"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:16.04:LTS",
+        "name": "linux-gcp",
+        "purl": "pkg:deb/ubuntu/linux-gcp@4.13.0-1007.10?arch=src?distro=xenial"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.13.0-1007.10"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.10.0-1004.4",
+        "4.10.0-1006.6",
+        "4.10.0-1007.7",
+        "4.10.0-1008.8",
+        "4.10.0-1009.9",
+        "4.13.0-1002.5",
+        "4.13.0-1006.9"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-cloud-tools-4.13.0-1007-gcp": "4.13.0-1007.10",
+            "linux-gcp-cloud-tools-4.13.0-1007": "4.13.0-1007.10",
+            "linux-gcp-cloud-tools-4.13.0-1007-dbgsym": "4.13.0-1007.10",
+            "linux-gcp-headers-4.13.0-1007": "4.13.0-1007.10",
+            "linux-gcp-tools-4.13.0-1007": "4.13.0-1007.10",
+            "linux-gcp-tools-4.13.0-1007-dbgsym": "4.13.0-1007.10",
+            "linux-headers-4.13.0-1007-gcp": "4.13.0-1007.10",
+            "linux-image-4.13.0-1007-gcp": "4.13.0-1007.10",
+            "linux-image-4.13.0-1007-gcp-dbgsym": "4.13.0-1007.10",
+            "linux-image-extra-4.13.0-1007-gcp": "4.13.0-1007.10",
+            "linux-tools-4.13.0-1007-gcp": "4.13.0-1007.10"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:16.04:LTS",
+        "name": "linux-hwe",
+        "purl": "pkg:deb/ubuntu/linux-hwe@4.13.0-31.34~16.04.1?arch=src?distro=xenial"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.13.0-31.34~16.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.8.0-36.36~16.04.1",
+        "4.8.0-39.42~16.04.1",
+        "4.8.0-41.44~16.04.1",
+        "4.8.0-42.45~16.04.1",
+        "4.8.0-44.47~16.04.1",
+        "4.8.0-45.48~16.04.1",
+        "4.8.0-46.49~16.04.1",
+        "4.8.0-49.52~16.04.1",
+        "4.8.0-51.54~16.04.1",
+        "4.8.0-52.55~16.04.1",
+        "4.8.0-53.56~16.04.1",
+        "4.8.0-54.57~16.04.1",
+        "4.8.0-56.61~16.04.1",
+        "4.8.0-58.63~16.04.1",
+        "4.10.0-27.30~16.04.2",
+        "4.10.0-28.32~16.04.2",
+        "4.10.0-30.34~16.04.1",
+        "4.10.0-32.36~16.04.1",
+        "4.10.0-33.37~16.04.1",
+        "4.10.0-35.39~16.04.1",
+        "4.10.0-37.41~16.04.1",
+        "4.10.0-38.42~16.04.1",
+        "4.10.0-40.44~16.04.1",
+        "4.10.0-42.46~16.04.1",
+        "4.13.0-26.29~16.04.2"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "block-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "block-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "crypto-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "crypto-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "dasd-extra-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "dasd-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "fat-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "fat-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "fb-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "firewire-core-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "floppy-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "fs-core-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "fs-core-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "fs-secondary-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "fs-secondary-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "input-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "input-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "ipmi-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "ipmi-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "irda-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "irda-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "kernel-image-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "kernel-image-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "linux-cloud-tools-4.13.0-31-generic": "4.13.0-31.34~16.04.1",
+            "linux-cloud-tools-4.13.0-31-lowlatency": "4.13.0-31.34~16.04.1",
+            "linux-headers-4.13.0-31": "4.13.0-31.34~16.04.1",
+            "linux-headers-4.13.0-31-generic": "4.13.0-31.34~16.04.1",
+            "linux-headers-4.13.0-31-generic-lpae": "4.13.0-31.34~16.04.1",
+            "linux-headers-4.13.0-31-lowlatency": "4.13.0-31.34~16.04.1",
+            "linux-hwe-cloud-tools-4.13.0-31": "4.13.0-31.34~16.04.1",
+            "linux-hwe-cloud-tools-4.13.0-31-dbgsym": "4.13.0-31.34~16.04.1",
+            "linux-hwe-tools-4.13.0-31": "4.13.0-31.34~16.04.1",
+            "linux-hwe-tools-4.13.0-31-dbgsym": "4.13.0-31.34~16.04.1",
+            "linux-hwe-udebs-generic": "4.13.0-31.34~16.04.1",
+            "linux-hwe-udebs-generic-lpae": "4.13.0-31.34~16.04.1",
+            "linux-image-4.13.0-31-generic": "4.13.0-31.34~16.04.1",
+            "linux-image-4.13.0-31-generic-dbgsym": "4.13.0-31.34~16.04.1",
+            "linux-image-4.13.0-31-generic-lpae": "4.13.0-31.34~16.04.1",
+            "linux-image-4.13.0-31-generic-lpae-dbgsym": "4.13.0-31.34~16.04.1",
+            "linux-image-4.13.0-31-lowlatency": "4.13.0-31.34~16.04.1",
+            "linux-image-4.13.0-31-lowlatency-dbgsym": "4.13.0-31.34~16.04.1",
+            "linux-image-extra-4.13.0-31-generic": "4.13.0-31.34~16.04.1",
+            "linux-source-4.13.0": "4.13.0-31.34~16.04.1",
+            "linux-tools-4.13.0-31-generic": "4.13.0-31.34~16.04.1",
+            "linux-tools-4.13.0-31-generic-lpae": "4.13.0-31.34~16.04.1",
+            "linux-tools-4.13.0-31-lowlatency": "4.13.0-31.34~16.04.1",
+            "md-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "md-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "message-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "mouse-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "mouse-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "multipath-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "multipath-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "nfs-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "nfs-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "nic-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "nic-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "nic-pcmcia-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "nic-shared-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "nic-shared-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "nic-usb-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "nic-usb-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "parport-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "parport-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "pata-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "pcmcia-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "pcmcia-storage-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "plip-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "plip-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "ppp-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "ppp-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "sata-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "sata-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "scsi-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "scsi-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "serial-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "storage-core-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "storage-core-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "usb-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "usb-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1",
+            "virtio-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "vlan-modules-4.13.0-31-generic-di": "4.13.0-31.34~16.04.1",
+            "vlan-modules-4.13.0-31-generic-lpae-di": "4.13.0-31.34~16.04.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:16.04:LTS",
+        "name": "linux-oem",
+        "purl": "pkg:deb/ubuntu/linux-oem@4.13.0-1017.18?arch=src?distro=xenial"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.13.0-1017.18"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.13.0-1008.9",
+        "4.13.0-1010.11",
+        "4.13.0-1012.13",
+        "4.13.0-1015.16"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "block-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "crypto-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "fat-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "fb-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "firewire-core-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "floppy-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "fs-core-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "fs-secondary-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "input-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "ipmi-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "irda-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "kernel-image-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "linux-headers-4.13.0-1017-oem": "4.13.0-1017.18",
+            "linux-image-4.13.0-1017-oem": "4.13.0-1017.18",
+            "linux-image-4.13.0-1017-oem-dbgsym": "4.13.0-1017.18",
+            "linux-oem-headers-4.13.0-1017": "4.13.0-1017.18",
+            "linux-oem-tools-4.13.0-1017": "4.13.0-1017.18",
+            "linux-oem-tools-4.13.0-1017-dbgsym": "4.13.0-1017.18",
+            "linux-tools-4.13.0-1017-oem": "4.13.0-1017.18",
+            "linux-udebs-oem": "4.13.0-1017.18",
+            "md-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "message-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "mouse-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "multipath-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "nfs-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "nic-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "nic-pcmcia-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "nic-shared-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "nic-usb-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "parport-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "pata-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "pcmcia-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "pcmcia-storage-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "plip-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "ppp-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "sata-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "scsi-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "serial-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "storage-core-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "usb-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "virtio-modules-4.13.0-1017-oem-di": "4.13.0-1017.18",
+            "vlan-modules-4.13.0-1017-oem-di": "4.13.0-1017.18"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],
@@ -142,10 +335,6 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2017-5754"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SpectreAndMeltdown"
     }
   ]
 }

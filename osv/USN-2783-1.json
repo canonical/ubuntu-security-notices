@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-2783-1",
   "summary": "ntp vulnerabilities",
   "details": "Aleksis Kauppinen discovered that NTP incorrectly handled certain remote\nconfig packets. In a non-default configuration, a remote authenticated\nattacker could possibly use this issue to cause NTP to crash, resulting in\na denial of service. (CVE-2015-5146)\n\nMiroslav Lichvar discovered that NTP incorrectly handled logconfig\ndirectives. In a non-default configuration, a remote authenticated attacker\ncould possibly use this issue to cause NTP to crash, resulting in a denial\nof service. (CVE-2015-5194)\n\nMiroslav Lichvar discovered that NTP incorrectly handled certain statistics\ntypes. In a non-default configuration, a remote authenticated attacker\ncould possibly use this issue to cause NTP to crash, resulting in a denial\nof service. (CVE-2015-5195)\n\nMiroslav Lichvar discovered that NTP incorrectly handled certain file\npaths. In a non-default configuration, a remote authenticated attacker\ncould possibly use this issue to cause NTP to crash, resulting in a denial\nof service, or overwrite certain files. (CVE-2015-5196, CVE-2015-7703)\n\nMiroslav Lichvar discovered that NTP incorrectly handled certain packets.\nA remote attacker could possibly use this issue to cause NTP to hang,\nresulting in a denial of service. (CVE-2015-5219)\n\nAanchal Malhotra, Isaac E. Cohen, and Sharon Goldberg discovered that NTP\nincorrectly handled restarting after hitting a panic threshold. A remote\nattacker could possibly use this issue to alter the system time on clients.\n(CVE-2015-5300)\n\nIt was discovered that NTP incorrectly handled autokey data packets. A\nremote attacker could possibly use this issue to cause NTP to crash,\nresulting in a denial of service, or possibly execute arbitrary code.\n(CVE-2015-7691, CVE-2015-7692, CVE-2015-7702)\n\nIt was discovered that NTP incorrectly handled memory when processing\ncertain autokey messages. A remote attacker could possibly use this issue\nto cause NTP to consume memory, resulting in a denial of service.\n(CVE-2015-7701)\n\nAanchal Malhotra, Isaac E. Cohen, and Sharon Goldberg discovered that NTP\nincorrectly handled rate limiting. A remote attacker could possibly use\nthis issue to cause clients to stop updating their clock. (CVE-2015-7704,\nCVE-2015-7705)\n\nYves Younan discovered that NTP incorrectly handled logfile and keyfile\ndirectives. In a non-default configuration, a remote authenticated attacker\ncould possibly use this issue to cause NTP to enter a loop, resulting in a\ndenial of service. (CVE-2015-7850)\n\nYves Younan and Aleksander Nikolich discovered that NTP incorrectly handled\nascii conversion. A remote attacker could possibly use this issue to cause\nNTP to crash, resulting in a denial of service, or possibly execute\narbitrary code. (CVE-2015-7852)\n\nYves Younan discovered that NTP incorrectly handled reference clock memory.\nA malicious refclock could possibly use this issue to cause NTP to crash,\nresulting in a denial of service, or possibly execute arbitrary code.\n(CVE-2015-7853)\n\nJohn D \"Doug\" Birdwell discovered that NTP incorrectly handled decoding\ncertain bogus values. An attacker could possibly use this issue to cause\nNTP to crash, resulting in a denial of service. (CVE-2015-7855)\n\nStephen Gray discovered that NTP incorrectly handled symmetric association\nauthentication. A remote attacker could use this issue to possibly bypass\nauthentication and alter the system clock. (CVE-2015-7871)\n\nIn the default installation, attackers would be isolated by the NTP\nAppArmor profile.\n",
@@ -29,7 +30,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:14.04:LTS",
-        "name": "ntp"
+        "name": "ntp",
+        "purl": "pkg:deb/ubuntu/ntp@1:4.2.6.p5+dfsg-3ubuntu2.14.04.5?arch=src?distro=trusty"
       },
       "ranges": [
         {
@@ -44,15 +46,23 @@
           ]
         }
       ],
+      "versions": [
+        "1:4.2.6.p5+dfsg-3ubuntu2",
+        "1:4.2.6.p5+dfsg-3ubuntu2.14.04.1",
+        "1:4.2.6.p5+dfsg-3ubuntu2.14.04.2",
+        "1:4.2.6.p5+dfsg-3ubuntu2.14.04.3"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "ntp": "1:4.2.6.p5+dfsg-3ubuntu2.14.04.5",
+            "ntp-dbgsym": "1:4.2.6.p5+dfsg-3ubuntu2.14.04.5",
             "ntp-doc": "1:4.2.6.p5+dfsg-3ubuntu2.14.04.5",
-            "ntpdate": "1:4.2.6.p5+dfsg-3ubuntu2.14.04.5"
+            "ntpdate": "1:4.2.6.p5+dfsg-3ubuntu2.14.04.5",
+            "ntpdate-dbgsym": "1:4.2.6.p5+dfsg-3ubuntu2.14.04.5"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],

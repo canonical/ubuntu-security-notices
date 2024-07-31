@@ -1,15 +1,16 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-3534-1",
   "summary": "eglibc, glibc vulnerabilities",
   "details": "It was discovered that the GNU C library did not properly handle all of\nthe possible return values from the kernel getcwd(2) syscall. A local\nattacker could potentially exploit this to execute arbitrary code in setuid\nprograms and gain administrative privileges. (CVE-2018-1000001)\n\nA memory leak was discovered in the _dl_init_paths() function in the GNU\nC library dynamic loader. A local attacker could potentially exploit this\nwith a specially crafted value in the LD_HWCAP_MASK environment variable,\nin combination with CVE-2017-1000409 and another vulnerability on a system\nwith hardlink protections disabled, in order to gain administrative\nprivileges. (CVE-2017-1000408)\n\nA heap-based buffer overflow was discovered in the _dl_init_paths()\nfunction in the GNU C library dynamic loader. A local attacker could\npotentially exploit this with a specially crafted value in the\nLD_LIBRARY_PATH environment variable, in combination with CVE-2017-1000408\nand another vulnerability on a system with hardlink protections disabled,\nin order to gain administrative privileges. (CVE-2017-1000409)\n\nAn off-by-one error leading to a heap-based buffer overflow was discovered\nin the GNU C library glob() implementation. An attacker could potentially\nexploit this to cause a denial of service or execute arbitrary code via a\nmaliciously crafted pattern. (CVE-2017-15670)\n\nA heap-based buffer overflow was discovered during unescaping of user names\nwith the ~ operator in the GNU C library glob() implementation. An attacker\ncould potentially exploit this to cause a denial of service or execute\narbitrary code via a maliciously crafted pattern. (CVE-2017-15804)\n\nIt was discovered that the GNU C library dynamic loader mishandles RPATH\nand RUNPATH containing $ORIGIN for privileged (setuid or AT_SECURE)\nprograms. A local attacker could potentially exploit this by providing a\nspecially crafted library in the current working directory in order to\ngain administrative privileges. (CVE-2017-16997)\n\nIt was discovered that the GNU C library malloc() implementation could\nreturn a memory block that is too small if an attempt is made to allocate\nan object whose size is close to SIZE_MAX, resulting in a heap-based\noverflow. An attacker could potentially exploit this to cause a denial of\nservice or execute arbitrary code. This issue only affected Ubuntu 17.10.\n(CVE-2017-17426)\n",
   "aliases": [],
   "related": [
-    "CVE-2017-1000408",
-    "CVE-2017-1000409",
     "CVE-2017-15670",
     "CVE-2017-15804",
     "CVE-2017-16997",
     "CVE-2017-17426",
+    "CVE-2017-1000408",
+    "CVE-2017-1000409",
     "CVE-2018-1000001"
   ],
   "published": "2018-01-17T12:57:11.166044Z",
@@ -18,7 +19,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:14.04:LTS",
-        "name": "eglibc"
+        "name": "eglibc",
+        "purl": "pkg:deb/ubuntu/eglibc@2.19-0ubuntu6.14?arch=src?distro=trusty"
       },
       "ranges": [
         {
@@ -33,41 +35,80 @@
           ]
         }
       ],
+      "versions": [
+        "2.17-93ubuntu4",
+        "2.18-0ubuntu1",
+        "2.18-0ubuntu2",
+        "2.18-0ubuntu4",
+        "2.18-0ubuntu5",
+        "2.18-0ubuntu6",
+        "2.18-0ubuntu7",
+        "2.19-0ubuntu2",
+        "2.19-0ubuntu3",
+        "2.19-0ubuntu4",
+        "2.19-0ubuntu5",
+        "2.19-0ubuntu6",
+        "2.19-0ubuntu6.1",
+        "2.19-0ubuntu6.3",
+        "2.19-0ubuntu6.4",
+        "2.19-0ubuntu6.5",
+        "2.19-0ubuntu6.6",
+        "2.19-0ubuntu6.7",
+        "2.19-0ubuntu6.8",
+        "2.19-0ubuntu6.9",
+        "2.19-0ubuntu6.10",
+        "2.19-0ubuntu6.11",
+        "2.19-0ubuntu6.13"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "libc6-i386": "2.19-0ubuntu6.14",
-            "libnss-dns-udeb": "2.19-0ubuntu6.14",
-            "libc6-ppc64": "2.19-0ubuntu6.14",
-            "libc-bin": "2.19-0ubuntu6.14",
-            "libc6-x32": "2.19-0ubuntu6.14",
-            "libc6-armel": "2.19-0ubuntu6.14",
             "eglibc-source": "2.19-0ubuntu6.14",
-            "libc6-pic": "2.19-0ubuntu6.14",
-            "libc6-dev-ppc64": "2.19-0ubuntu6.14",
-            "libc6-dev-armel": "2.19-0ubuntu6.14",
-            "libnss-files-udeb": "2.19-0ubuntu6.14",
             "glibc-doc": "2.19-0ubuntu6.14",
-            "nscd": "2.19-0ubuntu6.14",
-            "multiarch-support": "2.19-0ubuntu6.14",
-            "libc6-dev": "2.19-0ubuntu6.14",
-            "libc6-amd64": "2.19-0ubuntu6.14",
-            "libc6-dev-amd64": "2.19-0ubuntu6.14",
-            "libc6": "2.19-0ubuntu6.14",
-            "libc6-dev-x32": "2.19-0ubuntu6.14",
-            "libc6-udeb": "2.19-0ubuntu6.14",
-            "libc6-dev-i386": "2.19-0ubuntu6.14",
+            "libc-bin": "2.19-0ubuntu6.14",
+            "libc-bin-dbgsym": "2.19-0ubuntu6.14",
             "libc-dev-bin": "2.19-0ubuntu6.14",
-            "libc6-prof": "2.19-0ubuntu6.14"
+            "libc-dev-bin-dbgsym": "2.19-0ubuntu6.14",
+            "libc6": "2.19-0ubuntu6.14",
+            "libc6-amd64": "2.19-0ubuntu6.14",
+            "libc6-amd64-dbgsym": "2.19-0ubuntu6.14",
+            "libc6-armel": "2.19-0ubuntu6.14",
+            "libc6-armel-dbgsym": "2.19-0ubuntu6.14",
+            "libc6-dbg": "2.19-0ubuntu6.14",
+            "libc6-dbgsym": "2.19-0ubuntu6.14",
+            "libc6-dev": "2.19-0ubuntu6.14",
+            "libc6-dev-amd64": "2.19-0ubuntu6.14",
+            "libc6-dev-armel": "2.19-0ubuntu6.14",
+            "libc6-dev-i386": "2.19-0ubuntu6.14",
+            "libc6-dev-ppc64": "2.19-0ubuntu6.14",
+            "libc6-dev-x32": "2.19-0ubuntu6.14",
+            "libc6-i386": "2.19-0ubuntu6.14",
+            "libc6-i386-dbgsym": "2.19-0ubuntu6.14",
+            "libc6-pic": "2.19-0ubuntu6.14",
+            "libc6-ppc64": "2.19-0ubuntu6.14",
+            "libc6-ppc64-dbgsym": "2.19-0ubuntu6.14",
+            "libc6-prof": "2.19-0ubuntu6.14",
+            "libc6-udeb": "2.19-0ubuntu6.14",
+            "libc6-udeb-dbgsym": "2.19-0ubuntu6.14",
+            "libc6-x32": "2.19-0ubuntu6.14",
+            "libc6-x32-dbgsym": "2.19-0ubuntu6.14",
+            "libnss-dns-udeb": "2.19-0ubuntu6.14",
+            "libnss-dns-udeb-dbgsym": "2.19-0ubuntu6.14",
+            "libnss-files-udeb": "2.19-0ubuntu6.14",
+            "libnss-files-udeb-dbgsym": "2.19-0ubuntu6.14",
+            "multiarch-support": "2.19-0ubuntu6.14",
+            "nscd": "2.19-0ubuntu6.14",
+            "nscd-dbgsym": "2.19-0ubuntu6.14"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "glibc"
+        "name": "glibc",
+        "purl": "pkg:deb/ubuntu/glibc@2.23-0ubuntu10?arch=src?distro=xenial"
       },
       "ranges": [
         {
@@ -82,36 +123,61 @@
           ]
         }
       ],
+      "versions": [
+        "2.21-0ubuntu4",
+        "2.21-0ubuntu5",
+        "2.21-0ubuntu6",
+        "2.23-0ubuntu1",
+        "2.23-0ubuntu2",
+        "2.23-0ubuntu3",
+        "2.23-0ubuntu4",
+        "2.23-0ubuntu5",
+        "2.23-0ubuntu6",
+        "2.23-0ubuntu7",
+        "2.23-0ubuntu9"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "libc6-i386": "2.23-0ubuntu10",
-            "libc6-ppc64": "2.23-0ubuntu10",
-            "libc6-dev-s390": "2.23-0ubuntu10",
+            "glibc-doc": "2.23-0ubuntu10",
             "glibc-source": "2.23-0ubuntu10",
             "libc-bin": "2.23-0ubuntu10",
-            "libc6-x32": "2.23-0ubuntu10",
-            "libc6-s390": "2.23-0ubuntu10",
-            "libc6-armel": "2.23-0ubuntu10",
-            "libc6-pic": "2.23-0ubuntu10",
-            "libc6-dev-ppc64": "2.23-0ubuntu10",
-            "libc6-dev-armel": "2.23-0ubuntu10",
-            "glibc-doc": "2.23-0ubuntu10",
-            "multiarch-support": "2.23-0ubuntu10",
-            "libc6-dev": "2.23-0ubuntu10",
-            "libc6-amd64": "2.23-0ubuntu10",
-            "libc6-dev-amd64": "2.23-0ubuntu10",
-            "libc6": "2.23-0ubuntu10",
-            "locales-all": "2.23-0ubuntu10",
-            "libc6-dev-x32": "2.23-0ubuntu10",
-            "locales": "2.23-0ubuntu10",
-            "libc6-udeb": "2.23-0ubuntu10",
-            "libc6-dev-i386": "2.23-0ubuntu10",
+            "libc-bin-dbgsym": "2.23-0ubuntu10",
             "libc-dev-bin": "2.23-0ubuntu10",
-            "nscd": "2.23-0ubuntu10"
+            "libc-dev-bin-dbgsym": "2.23-0ubuntu10",
+            "libc6": "2.23-0ubuntu10",
+            "libc6-amd64": "2.23-0ubuntu10",
+            "libc6-amd64-dbgsym": "2.23-0ubuntu10",
+            "libc6-armel": "2.23-0ubuntu10",
+            "libc6-armel-dbgsym": "2.23-0ubuntu10",
+            "libc6-dbg": "2.23-0ubuntu10",
+            "libc6-dbgsym": "2.23-0ubuntu10",
+            "libc6-dev": "2.23-0ubuntu10",
+            "libc6-dev-amd64": "2.23-0ubuntu10",
+            "libc6-dev-armel": "2.23-0ubuntu10",
+            "libc6-dev-i386": "2.23-0ubuntu10",
+            "libc6-dev-ppc64": "2.23-0ubuntu10",
+            "libc6-dev-s390": "2.23-0ubuntu10",
+            "libc6-dev-x32": "2.23-0ubuntu10",
+            "libc6-i386": "2.23-0ubuntu10",
+            "libc6-i386-dbgsym": "2.23-0ubuntu10",
+            "libc6-pic": "2.23-0ubuntu10",
+            "libc6-ppc64": "2.23-0ubuntu10",
+            "libc6-ppc64-dbgsym": "2.23-0ubuntu10",
+            "libc6-s390": "2.23-0ubuntu10",
+            "libc6-s390-dbgsym": "2.23-0ubuntu10",
+            "libc6-udeb": "2.23-0ubuntu10",
+            "libc6-udeb-dbgsym": "2.23-0ubuntu10",
+            "libc6-x32": "2.23-0ubuntu10",
+            "libc6-x32-dbgsym": "2.23-0ubuntu10",
+            "locales": "2.23-0ubuntu10",
+            "locales-all": "2.23-0ubuntu10",
+            "multiarch-support": "2.23-0ubuntu10",
+            "nscd": "2.23-0ubuntu10",
+            "nscd-dbgsym": "2.23-0ubuntu10"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -119,14 +185,6 @@
     {
       "type": "ADVISORY",
       "url": "https://ubuntu.com/security/notices/USN-3534-1"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2017-1000408"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2017-1000409"
     },
     {
       "type": "REPORT",
@@ -143,6 +201,14 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2017-17426"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-1000408"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2017-1000409"
     },
     {
       "type": "REPORT",

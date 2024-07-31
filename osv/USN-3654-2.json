@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-3654-2",
   "summary": "linux-lts-xenial, linux-aws vulnerabilities",
   "details": "USN-3654-1 fixed vulnerabilities and added mitigations in the Linux\nkernel for Ubuntu 16.04 LTS. This update provides the corresponding\nupdates for the Linux Hardware Enablement (HWE) kernel from Ubuntu\n16.04 LTS for Ubuntu 14.04 LTS.\n\nJann Horn and Ken Johnson discovered that microprocessors utilizing\nspeculative execution of a memory read may allow unauthorized memory\nreads via a sidechannel attack. This flaw is known as Spectre\nVariant 4. A local attacker could use this to expose sensitive\ninformation, including kernel memory. (CVE-2018-3639)\n\nTuba Yavuz discovered that a double-free error existed in the USBTV007\ndriver of the Linux kernel. A local attacker could use this to cause a\ndenial of service (system crash) or possibly execute arbitrary code.\n(CVE-2017-17975)\n\nIt was discovered that a race condition existed in the F2FS implementation\nin the Linux kernel. A local attacker could use this to cause a denial of\nservice (system crash). (CVE-2017-18193)\n\nIt was discovered that a buffer overflow existed in the Hisilicon HNS\nEthernet Device driver in the Linux kernel. A local attacker could use this\nto cause a denial of service (system crash) or possibly execute arbitrary\ncode. (CVE-2017-18222)\n\nIt was discovered that the netfilter subsystem in the Linux kernel did not\nvalidate that rules containing jumps contained user-defined chains. A local\nattacker could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2018-1065)\n\nIt was discovered that the netfilter subsystem of the Linux kernel did not\nproperly validate ebtables offsets. A local attacker could use this to\ncause a denial of service (system crash) or possibly execute arbitrary\ncode. (CVE-2018-1068)\n\nIt was discovered that a null pointer dereference vulnerability existed in\nthe DCCP protocol implementation in the Linux kernel. A local attacker\ncould use this to cause a denial of service (system crash). (CVE-2018-1130)\n\nIt was discovered that the SCTP Protocol implementation in the Linux kernel\ndid not properly validate userspace provided payload lengths in some\nsituations. A local attacker could use this to cause a denial of service\n(system crash). (CVE-2018-5803)\n\nIt was discovered that a double free error existed in the block layer\nsubsystem of the Linux kernel when setting up a request queue. A local\nattacker could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2018-7480)\n\nIt was discovered that a memory leak existed in the SAS driver subsystem of\nthe Linux kernel. A local attacker could use this to cause a denial of\nservice (memory exhaustion). (CVE-2018-7757)\n\nIt was discovered that a race condition existed in the x86 machine check\nhandler in the Linux kernel. A local privileged attacker could use this to\ncause a denial of service (system crash) or possibly execute arbitrary\ncode. (CVE-2018-7995)\n\nEyal Itkin discovered that the USB displaylink video adapter driver in the\nLinux kernel did not properly validate mmap offsets sent from userspace. A\nlocal attacker could use this to expose sensitive information (kernel\nmemory) or possibly execute arbitrary code. (CVE-2018-8781)\n\nSilvio Cesare discovered a buffer overwrite existed in the NCPFS\nimplementation in the Linux kernel. A remote attacker controlling a\nmalicious NCPFS server could use this to cause a denial of service (system\ncrash) or possibly execute arbitrary code. (CVE-2018-8822)\n",
@@ -16,8 +17,7 @@
     "CVE-2018-7757",
     "CVE-2018-7995",
     "CVE-2018-8781",
-    "CVE-2018-8822",
-    "https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/Variant4"
+    "CVE-2018-8822"
   ],
   "published": "2018-05-22T03:35:34.334845Z",
   "modified": "2018-05-22T03:35:34.334845Z",
@@ -25,41 +25,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:14.04:LTS",
-        "name": "linux-lts-xenial"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "4.4.0-127.153~14.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-image-4.4.0-127-powerpc-e500mc": "4.4.0-127.153~14.04.1",
-            "linux-image-4.4.0-127-powerpc64-emb": "4.4.0-127.153~14.04.1",
-            "linux-image-extra-4.4.0-127-generic": "4.4.0-127.153~14.04.1",
-            "linux-image-4.4.0-127-generic": "4.4.0-127.153~14.04.1",
-            "linux-image-4.4.0-127-generic-lpae": "4.4.0-127.153~14.04.1",
-            "linux-image-4.4.0-127-powerpc64-smp": "4.4.0-127.153~14.04.1",
-            "linux-image-4.4.0-127-powerpc-smp": "4.4.0-127.153~14.04.1",
-            "linux-image-4.4.0-127-lowlatency": "4.4.0-127.153~14.04.1"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:14.04:LTS",
-        "name": "linux-aws"
+        "name": "linux-aws",
+        "purl": "pkg:deb/ubuntu/linux-aws@4.4.0-1022.22?arch=src?distro=trusty"
       },
       "ranges": [
         {
@@ -74,13 +41,308 @@
           ]
         }
       ],
+      "versions": [
+        "4.4.0-1002.2",
+        "4.4.0-1003.3",
+        "4.4.0-1005.5",
+        "4.4.0-1006.6",
+        "4.4.0-1009.9",
+        "4.4.0-1010.10",
+        "4.4.0-1011.11",
+        "4.4.0-1012.12",
+        "4.4.0-1014.14",
+        "4.4.0-1016.16",
+        "4.4.0-1017.17",
+        "4.4.0-1019.19"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-image-4.4.0-1022-aws": "4.4.0-1022.22"
+            "linux-aws-cloud-tools-4.4.0-1022": "4.4.0-1022.22",
+            "linux-aws-cloud-tools-4.4.0-1022-dbgsym": "4.4.0-1022.22",
+            "linux-aws-headers-4.4.0-1022": "4.4.0-1022.22",
+            "linux-aws-tools-4.4.0-1022": "4.4.0-1022.22",
+            "linux-aws-tools-4.4.0-1022-dbgsym": "4.4.0-1022.22",
+            "linux-cloud-tools-4.4.0-1022-aws": "4.4.0-1022.22",
+            "linux-headers-4.4.0-1022-aws": "4.4.0-1022.22",
+            "linux-image-4.4.0-1022-aws": "4.4.0-1022.22",
+            "linux-image-4.4.0-1022-aws-dbgsym": "4.4.0-1022.22",
+            "linux-tools-4.4.0-1022-aws": "4.4.0-1022.22"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:14.04:LTS",
+        "name": "linux-lts-xenial",
+        "purl": "pkg:deb/ubuntu/linux-lts-xenial@4.4.0-127.153~14.04.1?arch=src?distro=trusty"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.4.0-127.153~14.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.4.0-13.29~14.04.1",
+        "4.4.0-14.30~14.04.2",
+        "4.4.0-15.31~14.04.1",
+        "4.4.0-18.34~14.04.1",
+        "4.4.0-21.37~14.04.1",
+        "4.4.0-22.39~14.04.1",
+        "4.4.0-22.40~14.04.1",
+        "4.4.0-24.43~14.04.1",
+        "4.4.0-28.47~14.04.1",
+        "4.4.0-31.50~14.04.1",
+        "4.4.0-34.53~14.04.1",
+        "4.4.0-36.55~14.04.1",
+        "4.4.0-38.57~14.04.1",
+        "4.4.0-42.62~14.04.1",
+        "4.4.0-45.66~14.04.1",
+        "4.4.0-47.68~14.04.1",
+        "4.4.0-51.72~14.04.1",
+        "4.4.0-53.74~14.04.1",
+        "4.4.0-57.78~14.04.1",
+        "4.4.0-59.80~14.04.1",
+        "4.4.0-62.83~14.04.1",
+        "4.4.0-63.84~14.04.2",
+        "4.4.0-64.85~14.04.1",
+        "4.4.0-66.87~14.04.1",
+        "4.4.0-67.88~14.04.1",
+        "4.4.0-70.91~14.04.1",
+        "4.4.0-71.92~14.04.1",
+        "4.4.0-72.93~14.04.1",
+        "4.4.0-75.96~14.04.1",
+        "4.4.0-78.99~14.04.2",
+        "4.4.0-79.100~14.04.1",
+        "4.4.0-81.104~14.04.1",
+        "4.4.0-83.106~14.04.1",
+        "4.4.0-87.110~14.04.1",
+        "4.4.0-89.112~14.04.1",
+        "4.4.0-91.114~14.04.1",
+        "4.4.0-92.115~14.04.1",
+        "4.4.0-93.116~14.04.1",
+        "4.4.0-96.119~14.04.1",
+        "4.4.0-97.120~14.04.1",
+        "4.4.0-98.121~14.04.1",
+        "4.4.0-101.124~14.04.1",
+        "4.4.0-103.126~14.04.1",
+        "4.4.0-104.127~14.04.1",
+        "4.4.0-108.131~14.04.1",
+        "4.4.0-109.132~14.04.1",
+        "4.4.0-111.134~14.04.1",
+        "4.4.0-112.135~14.04.1",
+        "4.4.0-116.140~14.04.1",
+        "4.4.0-119.143~14.04.1",
+        "4.4.0-121.145~14.04.1",
+        "4.4.0-124.148~14.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "block-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "block-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "block-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "block-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "block-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "crypto-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "crypto-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "crypto-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "crypto-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "crypto-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "fat-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "fat-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "fat-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "fat-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "fat-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "fb-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "firewire-core-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "firewire-core-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "firewire-core-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "firewire-core-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "floppy-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "floppy-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "floppy-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "floppy-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "fs-core-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "fs-core-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "fs-core-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "fs-core-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "fs-core-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "fs-secondary-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "fs-secondary-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "fs-secondary-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "fs-secondary-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "fs-secondary-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "input-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "input-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "input-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "input-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "input-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "ipmi-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "ipmi-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "ipmi-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "ipmi-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "ipmi-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "irda-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "irda-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "irda-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "irda-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "irda-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "kernel-image-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "kernel-image-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "kernel-image-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "kernel-image-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "kernel-image-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "linux-cloud-tools-4.4.0-127-generic": "4.4.0-127.153~14.04.1",
+            "linux-cloud-tools-4.4.0-127-lowlatency": "4.4.0-127.153~14.04.1",
+            "linux-headers-4.4.0-127": "4.4.0-127.153~14.04.1",
+            "linux-headers-4.4.0-127-generic": "4.4.0-127.153~14.04.1",
+            "linux-headers-4.4.0-127-generic-lpae": "4.4.0-127.153~14.04.1",
+            "linux-headers-4.4.0-127-lowlatency": "4.4.0-127.153~14.04.1",
+            "linux-headers-4.4.0-127-powerpc-e500mc": "4.4.0-127.153~14.04.1",
+            "linux-headers-4.4.0-127-powerpc-smp": "4.4.0-127.153~14.04.1",
+            "linux-headers-4.4.0-127-powerpc64-emb": "4.4.0-127.153~14.04.1",
+            "linux-headers-4.4.0-127-powerpc64-smp": "4.4.0-127.153~14.04.1",
+            "linux-image-4.4.0-127-generic": "4.4.0-127.153~14.04.1",
+            "linux-image-4.4.0-127-generic-dbgsym": "4.4.0-127.153~14.04.1",
+            "linux-image-4.4.0-127-generic-lpae": "4.4.0-127.153~14.04.1",
+            "linux-image-4.4.0-127-generic-lpae-dbgsym": "4.4.0-127.153~14.04.1",
+            "linux-image-4.4.0-127-lowlatency": "4.4.0-127.153~14.04.1",
+            "linux-image-4.4.0-127-lowlatency-dbgsym": "4.4.0-127.153~14.04.1",
+            "linux-image-4.4.0-127-powerpc-e500mc": "4.4.0-127.153~14.04.1",
+            "linux-image-4.4.0-127-powerpc-e500mc-dbgsym": "4.4.0-127.153~14.04.1",
+            "linux-image-4.4.0-127-powerpc-smp": "4.4.0-127.153~14.04.1",
+            "linux-image-4.4.0-127-powerpc-smp-dbgsym": "4.4.0-127.153~14.04.1",
+            "linux-image-4.4.0-127-powerpc64-emb": "4.4.0-127.153~14.04.1",
+            "linux-image-4.4.0-127-powerpc64-emb-dbgsym": "4.4.0-127.153~14.04.1",
+            "linux-image-4.4.0-127-powerpc64-smp": "4.4.0-127.153~14.04.1",
+            "linux-image-4.4.0-127-powerpc64-smp-dbgsym": "4.4.0-127.153~14.04.1",
+            "linux-image-extra-4.4.0-127-generic": "4.4.0-127.153~14.04.1",
+            "linux-lts-xenial-cloud-tools-4.4.0-127": "4.4.0-127.153~14.04.1",
+            "linux-lts-xenial-cloud-tools-4.4.0-127-dbgsym": "4.4.0-127.153~14.04.1",
+            "linux-lts-xenial-tools-4.4.0-127": "4.4.0-127.153~14.04.1",
+            "linux-lts-xenial-tools-4.4.0-127-dbgsym": "4.4.0-127.153~14.04.1",
+            "linux-lts-xenial-udebs-generic": "4.4.0-127.153~14.04.1",
+            "linux-lts-xenial-udebs-generic-lpae": "4.4.0-127.153~14.04.1",
+            "linux-lts-xenial-udebs-powerpc-e500mc": "4.4.0-127.153~14.04.1",
+            "linux-lts-xenial-udebs-powerpc-smp": "4.4.0-127.153~14.04.1",
+            "linux-lts-xenial-udebs-powerpc64-smp": "4.4.0-127.153~14.04.1",
+            "linux-tools-4.4.0-127-generic": "4.4.0-127.153~14.04.1",
+            "linux-tools-4.4.0-127-generic-lpae": "4.4.0-127.153~14.04.1",
+            "linux-tools-4.4.0-127-lowlatency": "4.4.0-127.153~14.04.1",
+            "linux-tools-4.4.0-127-powerpc-e500mc": "4.4.0-127.153~14.04.1",
+            "linux-tools-4.4.0-127-powerpc-smp": "4.4.0-127.153~14.04.1",
+            "linux-tools-4.4.0-127-powerpc64-emb": "4.4.0-127.153~14.04.1",
+            "linux-tools-4.4.0-127-powerpc64-smp": "4.4.0-127.153~14.04.1",
+            "md-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "md-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "md-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "md-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "md-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "message-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "message-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "message-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "message-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "mouse-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "mouse-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "mouse-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "mouse-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "mouse-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "multipath-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "multipath-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "multipath-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "multipath-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "multipath-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "nfs-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "nfs-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "nfs-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "nfs-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "nfs-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "nic-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "nic-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "nic-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "nic-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "nic-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "nic-pcmcia-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "nic-shared-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "nic-shared-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "nic-shared-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "nic-shared-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "nic-shared-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "nic-usb-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "nic-usb-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "nic-usb-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "nic-usb-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "nic-usb-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "parport-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "parport-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "parport-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "parport-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "parport-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "pata-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "pata-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "pata-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "pata-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "pcmcia-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "pcmcia-storage-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "plip-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "plip-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "plip-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "plip-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "plip-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "ppp-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "ppp-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "ppp-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "ppp-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "ppp-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "sata-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "sata-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "sata-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "sata-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "sata-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "scsi-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "scsi-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "scsi-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "scsi-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "scsi-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "serial-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "speakup-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "speakup-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "speakup-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "speakup-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "speakup-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "storage-core-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "storage-core-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "storage-core-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "storage-core-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "storage-core-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "usb-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "usb-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "usb-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "usb-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "usb-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "virtio-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "virtio-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "virtio-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "virtio-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1",
+            "vlan-modules-4.4.0-127-generic-di": "4.4.0-127.153~14.04.1",
+            "vlan-modules-4.4.0-127-generic-lpae-di": "4.4.0-127.153~14.04.1",
+            "vlan-modules-4.4.0-127-powerpc-e500mc-di": "4.4.0-127.153~14.04.1",
+            "vlan-modules-4.4.0-127-powerpc-smp-di": "4.4.0-127.153~14.04.1",
+            "vlan-modules-4.4.0-127-powerpc64-smp-di": "4.4.0-127.153~14.04.1"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],
@@ -140,10 +402,6 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2018-8822"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/Variant4"
     }
   ]
 }

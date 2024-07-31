@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-5936-1",
   "summary": "samba vulnerabilities",
   "details": "Evgeny Legerov discovered that Samba incorrectly handled buffers in\ncertain GSSAPI routines of Heimdal. A remote attacker could possibly use\nthis issue to cause Samba to crash, resulting in a denial of service.\n(CVE-2022-3437)\n\nTom Tervoort discovered that Samba incorrectly used weak rc4-hmac Kerberos\nkeys. A remote attacker could possibly use this issue to elevate\nprivileges. (CVE-2022-37966, CVE-2022-37967)\n\nIt was discovered that Samba supported weak RC4/HMAC-MD5 in NetLogon Secure\nChannel. A remote attacker could possibly use this issue to elevate\nprivileges. (CVE-2022-38023)\n\nGreg Hudson discovered that Samba incorrectly handled PAC parsing. On\n32-bit systems, a remote attacker could use this issue to escalate\nprivileges, or possibly execute arbitrary code. (CVE-2022-42898)\n\nJoseph Sutton discovered that Samba could be forced to issue rc4-hmac\nencrypted Kerberos tickets. A remote attacker could possibly use this issue\nto escalate privileges. This issue only affected Ubuntu 20.04 LTS and\nUbuntu 22.04 LTS. (CVE-2022-45141)\n\nWARNING: This update upgrades the version of Samba to 4.15.13. Please see\nthe upstream release notes for important changes in the new version:\n\nhttps://www.samba.org/samba/history/samba-4.15.0.html\n\nIn addition, the security fixes included in this new version introduce\nseveral important behavior changes which may cause compatibility problems\ninteracting with systems still expecting the former behavior. Please see\nthe following upstream advisories for more information:\n\nhttps://www.samba.org/samba/security/CVE-2022-37966.html\nhttps://www.samba.org/samba/security/CVE-2022-37967.html\nhttps://www.samba.org/samba/security/CVE-2022-38023.html\n",
@@ -17,7 +18,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "samba"
+        "name": "samba",
+        "purl": "pkg:deb/ubuntu/samba@2:4.15.13+dfsg-0ubuntu0.20.04.1?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -32,31 +34,75 @@
           ]
         }
       ],
+      "versions": [
+        "2:4.10.7+dfsg-0ubuntu2",
+        "2:4.10.7+dfsg-0ubuntu3",
+        "2:4.11.1+dfsg-3ubuntu1",
+        "2:4.11.1+dfsg-3ubuntu2",
+        "2:4.11.1+dfsg-3ubuntu4",
+        "2:4.11.5+dfsg-1ubuntu1",
+        "2:4.11.5+dfsg-1ubuntu2",
+        "2:4.11.6+dfsg-0ubuntu1",
+        "2:4.11.6+dfsg-0ubuntu1.1",
+        "2:4.11.6+dfsg-0ubuntu1.2",
+        "2:4.11.6+dfsg-0ubuntu1.3",
+        "2:4.11.6+dfsg-0ubuntu1.4",
+        "2:4.11.6+dfsg-0ubuntu1.5",
+        "2:4.11.6+dfsg-0ubuntu1.6",
+        "2:4.11.6+dfsg-0ubuntu1.8",
+        "2:4.11.6+dfsg-0ubuntu1.9",
+        "2:4.11.6+dfsg-0ubuntu1.10",
+        "2:4.13.14+dfsg-0ubuntu0.20.04.1",
+        "2:4.13.14+dfsg-0ubuntu0.20.04.2",
+        "2:4.13.14+dfsg-0ubuntu0.20.04.3",
+        "2:4.13.14+dfsg-0ubuntu0.20.04.4",
+        "2:4.13.17~dfsg-0ubuntu0.21.04.1",
+        "2:4.13.17~dfsg-0ubuntu0.21.04.2",
+        "2:4.13.17~dfsg-0ubuntu1.20.04.1",
+        "2:4.13.17~dfsg-0ubuntu1.20.04.2",
+        "2:4.13.17~dfsg-0ubuntu1.20.04.4",
+        "2:4.13.17~dfsg-0ubuntu1.20.04.5"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "libnss-winbind": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
-            "samba-testsuite": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
-            "samba": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
-            "registry-tools": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
-            "libpam-winbind": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
-            "winbind": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
-            "smbclient": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
-            "libwbclient0": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
-            "libwbclient-dev": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
-            "samba-common-bin": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
-            "libsmbclient": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
-            "samba-dsdb-modules": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
-            "samba-dev": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
-            "libsmbclient-dev": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
-            "samba-vfs-modules": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
-            "samba-common": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
             "ctdb": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "ctdb-dbgsym": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "libnss-winbind": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "libnss-winbind-dbgsym": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "libpam-winbind": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "libpam-winbind-dbgsym": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "libsmbclient": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "libsmbclient-dbgsym": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "libsmbclient-dev": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "libwbclient-dev": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "libwbclient0": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "libwbclient0-dbgsym": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "python3-samba": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "python3-samba-dbgsym": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "registry-tools": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "registry-tools-dbgsym": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "samba": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "samba-common": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "samba-common-bin": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "samba-common-bin-dbgsym": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "samba-dbgsym": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "samba-dev": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "samba-dsdb-modules": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "samba-dsdb-modules-dbgsym": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
             "samba-libs": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
-            "python3-samba": "2:4.15.13+dfsg-0ubuntu0.20.04.1"
+            "samba-libs-dbgsym": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "samba-testsuite": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "samba-testsuite-dbgsym": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "samba-vfs-modules": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "samba-vfs-modules-dbgsym": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "smbclient": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "smbclient-dbgsym": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "winbind": "2:4.15.13+dfsg-0ubuntu0.20.04.1",
+            "winbind-dbgsym": "2:4.15.13+dfsg-0ubuntu0.20.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],

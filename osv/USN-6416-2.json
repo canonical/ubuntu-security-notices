@@ -1,14 +1,13 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-6416-2",
   "summary": "linux-hwe-5.15, linux-oracle-5.15 vulnerabilities",
   "details": "It was discovered that the IPv6 implementation in the Linux kernel\ncontained a high rate of hash collisions in connection lookup table. A\nremote attacker could use this to cause a denial of service (excessive CPU\nconsumption). (CVE-2023-1206)\n\nDani\u00ebl Trujillo, Johannes Wikner, and Kaveh Razavi discovered that some AMD\nprocessors utilising speculative execution and branch prediction may allow\nunauthorised memory reads via a speculative side-channel attack. A local\nattacker could use this to expose sensitive information, including kernel\nmemory. (CVE-2023-20569)\n\nIt was discovered that the IPv6 RPL protocol implementation in the Linux\nkernel did not properly handle user-supplied data. A remote attacker could\nuse this to cause a denial of service (system crash). (CVE-2023-2156)\n\nDavide Ornaghi discovered that the DECnet network protocol implementation\nin the Linux kernel contained a null pointer dereference vulnerability. A\nremote attacker could use this to cause a denial of service (system crash)\nor possibly execute arbitrary code. Please note that kernel support for the\nDECnet has been removed to resolve this CVE. (CVE-2023-3338)\n\nChih-Yen Chang discovered that the KSMBD implementation in the Linux kernel\ndid not properly validate command payload size, leading to a out-of-bounds\nread vulnerability. A remote attacker could possibly use this to cause a\ndenial of service (system crash). (CVE-2023-38432)\n\nIt was discovered that the NFC implementation in the Linux kernel contained\na use-after-free vulnerability when performing peer-to-peer communication\nin certain conditions. A privileged attacker could use this to cause a\ndenial of service (system crash) or possibly expose sensitive information\n(kernel memory). (CVE-2023-3863)\n\nLaurence Wit discovered that the KSMBD implementation in the Linux kernel\ndid not properly validate a buffer size in certain situations, leading to\nan out-of-bounds read vulnerability. A remote attacker could use this to\ncause a denial of service (system crash) or possibly expose sensitive\ninformation. (CVE-2023-3865)\n\nLaurence Wit discovered that the KSMBD implementation in the Linux kernel\ncontained a null pointer dereference vulnerability when handling handling\nchained requests. A remote attacker could use this to cause a denial of\nservice (system crash). (CVE-2023-3866)\n\nIt was discovered that the Siano USB MDTV receiver device driver in the\nLinux kernel did not properly handle device initialization failures in\ncertain situations, leading to a use-after-free vulnerability. A physically\nproximate attacker could use this cause a denial of service (system crash).\n(CVE-2023-4132)\n\nAndy Nguyen discovered that the KVM implementation for AMD processors in\nthe Linux kernel with Secure Encrypted Virtualization (SEV) contained a\nrace condition when accessing the GHCB page. A local attacker in a SEV\nguest VM could possibly use this to cause a denial of service (host system\ncrash). (CVE-2023-4155)\n\nIt was discovered that the TUN/TAP driver in the Linux kernel did not\nproperly initialize socket data. A local attacker could use this to cause a\ndenial of service (system crash). (CVE-2023-4194)\n\nMaxim Suhanov discovered that the exFAT file system implementation in the\nLinux kernel did not properly check a file name length, leading to an out-\nof-bounds write vulnerability. An attacker could use this to construct a\nmalicious exFAT image that, when mounted and operated on, could cause a\ndenial of service (system crash) or possibly execute arbitrary code.\n(CVE-2023-4273)\n\nThelford Williams discovered that the Ceph file system messenger protocol\nimplementation in the Linux kernel did not properly validate frame segment\nlength in certain situation, leading to a buffer overflow vulnerability. A\nremote attacker could use this to cause a denial of service (system crash)\nor possibly execute arbitrary code. (CVE-2023-44466)\n",
   "aliases": [],
   "related": [
     "CVE-2023-1206",
-    "CVE-2023-20569",
     "CVE-2023-2156",
     "CVE-2023-3338",
-    "CVE-2023-38432",
     "CVE-2023-3863",
     "CVE-2023-3865",
     "CVE-2023-3866",
@@ -16,6 +15,8 @@
     "CVE-2023-4155",
     "CVE-2023-4194",
     "CVE-2023-4273",
+    "CVE-2023-20569",
+    "CVE-2023-38432",
     "CVE-2023-44466"
   ],
   "published": "2023-10-06T13:13:53.496170Z",
@@ -24,7 +25,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-hwe-5.15"
+        "name": "linux-hwe-5.15",
+        "purl": "pkg:deb/ubuntu/linux-hwe-5.15@5.15.0-86.96~20.04.1?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -39,6 +41,33 @@
           ]
         }
       ],
+      "versions": [
+        "5.15.0-33.34~20.04.1",
+        "5.15.0-41.44~20.04.1",
+        "5.15.0-43.46~20.04.1",
+        "5.15.0-46.49~20.04.1",
+        "5.15.0-48.54~20.04.1",
+        "5.15.0-50.56~20.04.1",
+        "5.15.0-52.58~20.04.1",
+        "5.15.0-53.59~20.04.1",
+        "5.15.0-56.62~20.04.1",
+        "5.15.0-57.63~20.04.1",
+        "5.15.0-58.64~20.04.1",
+        "5.15.0-60.66~20.04.1",
+        "5.15.0-67.74~20.04.1",
+        "5.15.0-69.76~20.04.1",
+        "5.15.0-70.77~20.04.1",
+        "5.15.0-71.78~20.04.1",
+        "5.15.0-72.79~20.04.1",
+        "5.15.0-73.80~20.04.1",
+        "5.15.0-75.82~20.04.1",
+        "5.15.0-76.83~20.04.1",
+        "5.15.0-78.85~20.04.1",
+        "5.15.0-79.86~20.04.2",
+        "5.15.0-82.91~20.04.1",
+        "5.15.0-83.92~20.04.1",
+        "5.15.0-84.93~20.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
@@ -46,31 +75,9 @@
             "linux-buildinfo-5.15.0-86-generic-64k": "5.15.0-86.96~20.04.1",
             "linux-buildinfo-5.15.0-86-generic-lpae": "5.15.0-86.96~20.04.1",
             "linux-cloud-tools-5.15.0-86-generic": "5.15.0-86.96~20.04.1",
-            "linux-cloud-tools-generic-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-cloud-tools-generic-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
-            "linux-cloud-tools-virtual-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-cloud-tools-virtual-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
-            "linux-generic-64k-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-generic-64k-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
-            "linux-generic-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-generic-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
-            "linux-generic-lpae-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-generic-lpae-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
             "linux-headers-5.15.0-86-generic": "5.15.0-86.96~20.04.1",
             "linux-headers-5.15.0-86-generic-64k": "5.15.0-86.96~20.04.1",
             "linux-headers-5.15.0-86-generic-lpae": "5.15.0-86.96~20.04.1",
-            "linux-headers-generic-64k-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-headers-generic-64k-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
-            "linux-headers-generic-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-headers-generic-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
-            "linux-headers-generic-lpae-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-headers-generic-lpae-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
-            "linux-headers-oem-20.04": "5.15.0.86.96~20.04.44",
-            "linux-headers-oem-20.04b": "5.15.0.86.96~20.04.44",
-            "linux-headers-oem-20.04c": "5.15.0.86.96~20.04.44",
-            "linux-headers-oem-20.04d": "5.15.0.86.96~20.04.44",
-            "linux-headers-virtual-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-headers-virtual-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
             "linux-hwe-5.15-cloud-tools-5.15.0-86": "5.15.0-86.96~20.04.1",
             "linux-hwe-5.15-cloud-tools-common": "5.15.0-86.96~20.04.1",
             "linux-hwe-5.15-headers-5.15.0-86": "5.15.0-86.96~20.04.1",
@@ -79,63 +86,31 @@
             "linux-hwe-5.15-tools-common": "5.15.0-86.96~20.04.1",
             "linux-hwe-5.15-tools-host": "5.15.0-86.96~20.04.1",
             "linux-image-5.15.0-86-generic": "5.15.0-86.96~20.04.1",
-            "linux-image-5.15.0-86-generic-64k": "5.15.0-86.96~20.04.1",
+            "linux-image-5.15.0-86-generic-dbgsym": "5.15.0-86.96~20.04.1",
             "linux-image-5.15.0-86-generic-lpae": "5.15.0-86.96~20.04.1",
-            "linux-image-extra-virtual-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-image-extra-virtual-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
-            "linux-image-generic-64k-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-image-generic-64k-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
-            "linux-image-generic-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-image-generic-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
-            "linux-image-generic-lpae-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-image-generic-lpae-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
-            "linux-image-oem-20.04": "5.15.0.86.96~20.04.44",
-            "linux-image-oem-20.04b": "5.15.0.86.96~20.04.44",
-            "linux-image-oem-20.04c": "5.15.0.86.96~20.04.44",
-            "linux-image-oem-20.04d": "5.15.0.86.96~20.04.44",
+            "linux-image-5.15.0-86-generic-lpae-dbgsym": "5.15.0-86.96~20.04.1",
             "linux-image-unsigned-5.15.0-86-generic": "5.15.0-86.96~20.04.1",
             "linux-image-unsigned-5.15.0-86-generic-64k": "5.15.0-86.96~20.04.1",
-            "linux-image-virtual-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-image-virtual-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
+            "linux-image-unsigned-5.15.0-86-generic-64k-dbgsym": "5.15.0-86.96~20.04.1",
+            "linux-image-unsigned-5.15.0-86-generic-dbgsym": "5.15.0-86.96~20.04.1",
             "linux-modules-5.15.0-86-generic": "5.15.0-86.96~20.04.1",
             "linux-modules-5.15.0-86-generic-64k": "5.15.0-86.96~20.04.1",
             "linux-modules-5.15.0-86-generic-lpae": "5.15.0-86.96~20.04.1",
             "linux-modules-extra-5.15.0-86-generic": "5.15.0-86.96~20.04.1",
             "linux-modules-iwlwifi-5.15.0-86-generic": "5.15.0-86.96~20.04.1",
-            "linux-modules-iwlwifi-generic-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-modules-iwlwifi-generic-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
-            "linux-modules-iwlwifi-oem-20.04": "5.15.0.86.96~20.04.44",
-            "linux-modules-iwlwifi-oem-20.04d": "5.15.0.86.96~20.04.44",
-            "linux-oem-20.04": "5.15.0.86.96~20.04.44",
-            "linux-oem-20.04b": "5.15.0.86.96~20.04.44",
-            "linux-oem-20.04c": "5.15.0.86.96~20.04.44",
-            "linux-oem-20.04d": "5.15.0.86.96~20.04.44",
             "linux-tools-5.15.0-86-generic": "5.15.0-86.96~20.04.1",
             "linux-tools-5.15.0-86-generic-64k": "5.15.0-86.96~20.04.1",
-            "linux-tools-5.15.0-86-generic-lpae": "5.15.0-86.96~20.04.1",
-            "linux-tools-generic-64k-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-tools-generic-64k-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
-            "linux-tools-generic-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-tools-generic-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
-            "linux-tools-generic-lpae-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-tools-generic-lpae-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
-            "linux-tools-oem-20.04": "5.15.0.86.96~20.04.44",
-            "linux-tools-oem-20.04b": "5.15.0.86.96~20.04.44",
-            "linux-tools-oem-20.04c": "5.15.0.86.96~20.04.44",
-            "linux-tools-oem-20.04d": "5.15.0.86.96~20.04.44",
-            "linux-tools-virtual-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-tools-virtual-hwe-20.04-edge": "5.15.0.86.96~20.04.44",
-            "linux-virtual-hwe-20.04": "5.15.0.86.96~20.04.44",
-            "linux-virtual-hwe-20.04-edge": "5.15.0.86.96~20.04.44"
+            "linux-tools-5.15.0-86-generic-lpae": "5.15.0-86.96~20.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-oracle-5.15"
+        "name": "linux-oracle-5.15",
+        "purl": "pkg:deb/ubuntu/linux-oracle-5.15@5.15.0-1045.51~20.04.1?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -150,29 +125,47 @@
           ]
         }
       ],
+      "versions": [
+        "5.15.0-1007.9~20.04.1",
+        "5.15.0-1013.17~20.04.1",
+        "5.15.0-1016.20~20.04.1",
+        "5.15.0-1017.22~20.04.1",
+        "5.15.0-1018.23~20.04.1",
+        "5.15.0-1019.24~20.04.1",
+        "5.15.0-1021.27~20.04.1",
+        "5.15.0-1022.28~20.04.1",
+        "5.15.0-1025.31~20.04.2",
+        "5.15.0-1027.33~20.04.1",
+        "5.15.0-1029.35~20.04.1",
+        "5.15.0-1030.36~20.04.1",
+        "5.15.0-1032.38~20.04.1",
+        "5.15.0-1033.39~20.04.1",
+        "5.15.0-1034.40~20.04.1",
+        "5.15.0-1035.41~20.04.1",
+        "5.15.0-1036.42~20.04.1",
+        "5.15.0-1037.43~20.04.1",
+        "5.15.0-1038.44~20.04.1",
+        "5.15.0-1039.45~20.04.1",
+        "5.15.0-1040.46~20.04.1",
+        "5.15.0-1041.47~20.04.1",
+        "5.15.0-1042.48~20.04.1",
+        "5.15.0-1044.50~20.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "linux-buildinfo-5.15.0-1045-oracle": "5.15.0-1045.51~20.04.1",
             "linux-headers-5.15.0-1045-oracle": "5.15.0-1045.51~20.04.1",
-            "linux-headers-oracle": "5.15.0.1045.51~20.04.1",
-            "linux-headers-oracle-edge": "5.15.0.1045.51~20.04.1",
-            "linux-image-5.15.0-1045-oracle": "5.15.0-1045.51~20.04.1",
-            "linux-image-oracle": "5.15.0.1045.51~20.04.1",
-            "linux-image-oracle-edge": "5.15.0.1045.51~20.04.1",
             "linux-image-unsigned-5.15.0-1045-oracle": "5.15.0-1045.51~20.04.1",
+            "linux-image-unsigned-5.15.0-1045-oracle-dbgsym": "5.15.0-1045.51~20.04.1",
             "linux-modules-5.15.0-1045-oracle": "5.15.0-1045.51~20.04.1",
             "linux-modules-extra-5.15.0-1045-oracle": "5.15.0-1045.51~20.04.1",
-            "linux-oracle": "5.15.0.1045.51~20.04.1",
             "linux-oracle-5.15-headers-5.15.0-1045": "5.15.0-1045.51~20.04.1",
             "linux-oracle-5.15-tools-5.15.0-1045": "5.15.0-1045.51~20.04.1",
-            "linux-oracle-edge": "5.15.0.1045.51~20.04.1",
-            "linux-tools-5.15.0-1045-oracle": "5.15.0-1045.51~20.04.1",
-            "linux-tools-oracle": "5.15.0.1045.51~20.04.1",
-            "linux-tools-oracle-edge": "5.15.0.1045.51~20.04.1"
+            "linux-tools-5.15.0-1045-oracle": "5.15.0-1045.51~20.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -187,19 +180,11 @@
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-20569"
-    },
-    {
-      "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-2156"
     },
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-3338"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-38432"
     },
     {
       "type": "REPORT",
@@ -228,6 +213,14 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-4273"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-20569"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-38432"
     },
     {
       "type": "REPORT",

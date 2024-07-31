@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-5259-1",
   "summary": "cron vulnerabilities",
   "details": "It was discovered that the postinst maintainer script in Cron unsafely\nhandled file permissions during package install or update operations.\nAn attacker could possibly use this issue to perform a privilege\nescalation attack. (CVE-2017-9525)\n\nFlorian Weimer discovered that Cron incorrectly handled certain memory\noperations during crontab file creation. An attacker could possibly use\nthis issue to cause a denial of service. (CVE-2019-9704)\n\nIt was discovered that Cron incorrectly handled user input during crontab\nfile creation. An attacker could possibly use this issue to cause a denial\nof service. (CVE-2019-9705)\n\nIt was discovered that Cron contained a use-after-free vulnerability in\nits force_rescan_user function. An attacker could possibly use this issue\nto cause a denial of service. (CVE-2019-9706)\n",
@@ -15,7 +16,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:Pro:16.04:LTS",
-        "name": "cron"
+        "name": "cron",
+        "purl": "pkg:deb/ubuntu/cron@3.0pl1-128ubuntu2+esm1?arch=src?distro=esm-infra/xenial"
       },
       "ranges": [
         {
@@ -30,13 +32,19 @@
           ]
         }
       ],
+      "versions": [
+        "3.0pl1-127ubuntu1",
+        "3.0pl1-128ubuntu1",
+        "3.0pl1-128ubuntu2"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "cron": "3.0pl1-128ubuntu2+esm1"
+            "cron": "3.0pl1-128ubuntu2+esm1",
+            "cron-dbgsym": "3.0pl1-128ubuntu2+esm1"
           }
         ],
-        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+        "availability": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro"
       }
     }
   ],

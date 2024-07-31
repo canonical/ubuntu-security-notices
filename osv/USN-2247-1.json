@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-2247-1",
   "summary": "nova vulnerabilities",
   "details": "Darragh O'Reilly discovered that the Ubuntu packaging for OpenStack Nova\ndid not properly set up its sudo configuration. If a different flaw was\nfound in OpenStack Nova, this vulnerability could be used to escalate\nprivileges. This issue only affected Ubuntu 13.10 and Ubuntu 14.04 LTS.\n(CVE-2013-1068)\n\nBernhard M. Wiedemann and Pedraig Brady discovered that OpenStack Nova did\nnot properly verify the virtual size of a QCOW2 images. A remote\nauthenticated attacker could exploit this to create a denial of service via\ndisk consumption. This issue did not affect Ubuntu 14.04 LTS.\n(CVE-2013-4463, CVE-2013-4469)\n\nJuanFra Rodriguez Cardoso discovered that OpenStack Nova did not enforce\nSSL connections when Nova was configured to use QPid and qpid_protocol is\nset to 'ssl'. If a remote attacker were able to perform a machine-in-the-middle\nattack, this flaw could be exploited to view sensitive information. Ubuntu\ndoes not use QPid with Nova by default. This issue did not affect Ubuntu\n14.04 LTS. (CVE-2013-6491)\n\nLoganathan Parthipan discovered that OpenStack Nova did not properly create\nexpected files during KVM live block migration. A remote authenticated\nattacker could exploit this to obtain root disk snapshot contents via\nephemeral storage. This issue did not affect Ubuntu 14.04 LTS.\n(CVE-2013-7130)\n\nStanislaw Pitucha discovered that OpenStack Nova did not enforce the image\nformat when rescuing an instance. A remote authenticated attacker could\nexploit this to read host files. In the default installation, attackers\nwould be isolated by the libvirt guest AppArmor profile. This issue only\naffected Ubuntu 13.10. (CVE-2014-0134)\n\nMark Heckmann discovered that OpenStack Nova did not enforce RBAC policy\nwhen adding security group rules via the EC2 API. A remote authenticated\nuser could exploit this to gain unintended access to this API. This issue\nonly affected Ubuntu 13.10. (CVE-2014-0167)\n",
@@ -18,7 +19,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:14.04:LTS",
-        "name": "nova"
+        "name": "nova",
+        "purl": "pkg:deb/ubuntu/nova@1:2014.1-0ubuntu1.2?arch=src?distro=trusty"
       },
       "ranges": [
         {
@@ -33,41 +35,54 @@
           ]
         }
       ],
+      "versions": [
+        "1:2013.2~rc2-0ubuntu1",
+        "1:2013.2-0ubuntu1",
+        "1:2014.1~b1-0ubuntu1",
+        "1:2014.1~b1-0ubuntu2",
+        "1:2014.1~b2-0ubuntu3",
+        "1:2014.1~b2-0ubuntu4",
+        "1:2014.1~b3-0ubuntu1",
+        "1:2014.1~b3-0ubuntu2",
+        "1:2014.1~rc1-0ubuntu1",
+        "1:2014.1~rc2-0ubuntu1",
+        "1:2014.1-0ubuntu1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
+            "nova-ajax-console-proxy": "1:2014.1-0ubuntu1.2",
             "nova-api": "1:2014.1-0ubuntu1.2",
-            "nova-common": "1:2014.1-0ubuntu1.2",
-            "nova-compute-xen": "1:2014.1-0ubuntu1.2",
-            "nova-api-os-compute": "1:2014.1-0ubuntu1.2",
-            "nova-objectstore": "1:2014.1-0ubuntu1.2",
-            "nova-novncproxy": "1:2014.1-0ubuntu1.2",
-            "nova-api-os-volume": "1:2014.1-0ubuntu1.2",
-            "nova-compute-lxc": "1:2014.1-0ubuntu1.2",
-            "nova-consoleauth": "1:2014.1-0ubuntu1.2",
-            "python-nova": "1:2014.1-0ubuntu1.2",
-            "nova-network": "1:2014.1-0ubuntu1.2",
             "nova-api-ec2": "1:2014.1-0ubuntu1.2",
             "nova-api-metadata": "1:2014.1-0ubuntu1.2",
-            "nova-compute-kvm": "1:2014.1-0ubuntu1.2",
-            "nova-xvpvncproxy": "1:2014.1-0ubuntu1.2",
-            "nova-doc": "1:2014.1-0ubuntu1.2",
-            "nova-conductor": "1:2014.1-0ubuntu1.2",
-            "nova-volume": "1:2014.1-0ubuntu1.2",
-            "nova-compute-vmware": "1:2014.1-0ubuntu1.2",
-            "nova-spiceproxy": "1:2014.1-0ubuntu1.2",
-            "nova-scheduler": "1:2014.1-0ubuntu1.2",
-            "nova-console": "1:2014.1-0ubuntu1.2",
-            "nova-ajax-console-proxy": "1:2014.1-0ubuntu1.2",
-            "nova-cert": "1:2014.1-0ubuntu1.2",
+            "nova-api-os-compute": "1:2014.1-0ubuntu1.2",
+            "nova-api-os-volume": "1:2014.1-0ubuntu1.2",
             "nova-baremetal": "1:2014.1-0ubuntu1.2",
+            "nova-cells": "1:2014.1-0ubuntu1.2",
+            "nova-cert": "1:2014.1-0ubuntu1.2",
+            "nova-common": "1:2014.1-0ubuntu1.2",
             "nova-compute": "1:2014.1-0ubuntu1.2",
+            "nova-compute-kvm": "1:2014.1-0ubuntu1.2",
             "nova-compute-libvirt": "1:2014.1-0ubuntu1.2",
+            "nova-compute-lxc": "1:2014.1-0ubuntu1.2",
             "nova-compute-qemu": "1:2014.1-0ubuntu1.2",
-            "nova-cells": "1:2014.1-0ubuntu1.2"
+            "nova-compute-vmware": "1:2014.1-0ubuntu1.2",
+            "nova-compute-xen": "1:2014.1-0ubuntu1.2",
+            "nova-conductor": "1:2014.1-0ubuntu1.2",
+            "nova-console": "1:2014.1-0ubuntu1.2",
+            "nova-consoleauth": "1:2014.1-0ubuntu1.2",
+            "nova-doc": "1:2014.1-0ubuntu1.2",
+            "nova-network": "1:2014.1-0ubuntu1.2",
+            "nova-novncproxy": "1:2014.1-0ubuntu1.2",
+            "nova-objectstore": "1:2014.1-0ubuntu1.2",
+            "nova-scheduler": "1:2014.1-0ubuntu1.2",
+            "nova-spiceproxy": "1:2014.1-0ubuntu1.2",
+            "nova-volume": "1:2014.1-0ubuntu1.2",
+            "nova-xvpvncproxy": "1:2014.1-0ubuntu1.2",
+            "python-nova": "1:2014.1-0ubuntu1.2"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],

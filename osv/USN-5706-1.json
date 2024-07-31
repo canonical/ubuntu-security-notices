@@ -1,15 +1,16 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-5706-1",
   "summary": "linux-azure-fde vulnerabilities",
   "details": "\nIt was discovered that the BPF verifier in the Linux kernel did not\nproperly handle internal data structures. A local attacker could use this\nto expose sensitive information (kernel memory). (CVE-2021-4159)\n\nIt was discovered that an out-of-bounds write vulnerability existed in the\nVideo for Linux 2 (V4L2) implementation in the Linux kernel. A local\nattacker could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2022-20369)\n\nDuoming Zhou discovered that race conditions existed in the timer handling\nimplementation of the Linux kernel's Rose X.25 protocol layer, resulting in\nuse-after-free vulnerabilities. A local attacker could use this to cause a\ndenial of service (system crash). (CVE-2022-2318)\n\nRoger Pau Monn\u00e9 discovered that the Xen virtual block driver in the Linux\nkernel did not properly initialize memory pages to be used for shared\ncommunication with the backend. A local attacker could use this to expose\nsensitive information (guest kernel memory). (CVE-2022-26365)\n\nPawan Kumar Gupta, Alyssa Milburn, Amit Peled, Shani Rehana, Nir Shildan\nand Ariel Sabba discovered that some Intel processors with Enhanced\nIndirect Branch Restricted Speculation (eIBRS) did not properly handle RET\ninstructions after a VM exits. A local attacker could potentially use this\nto expose sensitive information. (CVE-2022-26373)\n\nEric Biggers discovered that a use-after-free vulnerability existed in the\nio_uring subsystem in the Linux kernel. A local attacker could possibly use\nthis to cause a denial of service (system crash) or possibly execute\narbitrary code. (CVE-2022-3176)\n\nRoger Pau Monn\u00e9 discovered that the Xen paravirtualization frontend in the\nLinux kernel did not properly initialize memory pages to be used for shared\ncommunication with the backend. A local attacker could use this to expose\nsensitive information (guest kernel memory). (CVE-2022-33740)\n\nIt was discovered that the Xen paravirtualization frontend in the Linux\nkernel incorrectly shared unrelated data when communicating with certain\nbackends. A local attacker could use this to cause a denial of service\n(guest crash) or expose sensitive information (guest kernel memory).\n(CVE-2022-33741, CVE-2022-33742)\n\nOleksandr Tyshchenko discovered that the Xen paravirtualization platform in\nthe Linux kernel on ARM platforms contained a race condition in certain\nsituations. An attacker in a guest VM could use this to cause a denial of\nservice in the host OS. (CVE-2022-33744)\n\nIt was discovered that the Netlink Transformation (XFRM) subsystem in the\nLinux kernel contained a reference counting error. A local attacker could\nuse this to cause a denial of service (system crash). (CVE-2022-36879)\n\n",
   "aliases": [],
   "related": [
     "CVE-2021-4159",
-    "CVE-2022-20369",
     "CVE-2022-2318",
+    "CVE-2022-3176",
+    "CVE-2022-20369",
     "CVE-2022-26365",
     "CVE-2022-26373",
-    "CVE-2022-3176",
     "CVE-2022-33740",
     "CVE-2022-33741",
     "CVE-2022-33742",
@@ -22,7 +23,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-azure-fde"
+        "name": "linux-azure-fde",
+        "purl": "pkg:deb/ubuntu/linux-azure-fde@5.4.0-1092.97+cvm1.1?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -37,20 +39,37 @@
           ]
         }
       ],
+      "versions": [
+        "5.4.0-1063.66+cvm2.2",
+        "5.4.0-1063.66+cvm3.2",
+        "5.4.0-1064.67+cvm1.1",
+        "5.4.0-1065.68+cvm2.1",
+        "5.4.0-1067.70+cvm1.1",
+        "5.4.0-1068.71+cvm1.1",
+        "5.4.0-1069.72+cvm1.1",
+        "5.4.0-1070.73+cvm1.1",
+        "5.4.0-1072.75+cvm1.1",
+        "5.4.0-1073.76+cvm1.1",
+        "5.4.0-1074.77+cvm1.1",
+        "5.4.0-1076.79+cvm1.1",
+        "5.4.0-1078.81+cvm1.1",
+        "5.4.0-1080.83+cvm1.1",
+        "5.4.0-1083.87+cvm1.1",
+        "5.4.0-1085.90+cvm1.1",
+        "5.4.0-1085.90+cvm2.1",
+        "5.4.0-1086.91+cvm1.1",
+        "5.4.0-1089.94+cvm1.2",
+        "5.4.0-1090.95+cvm1.1",
+        "5.4.0-1091.96+cvm1.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-azure-fde": "5.4.0.1092.97+cvm1.32",
             "linux-image-unsigned-5.4.0-1092-azure-fde": "5.4.0-1092.97+cvm1.1",
-            "linux-image-azure-fde": "5.4.0.1092.97+cvm1.32",
-            "linux-cloud-tools-azure-fde": "5.4.0.1092.97+cvm1.32",
-            "linux-image-5.4.0-1092-azure-fde": "5.4.0-1092.97+cvm1.1",
-            "linux-modules-extra-azure-fde": "5.4.0.1092.97+cvm1.32",
-            "linux-tools-azure-fde": "5.4.0.1092.97+cvm1.32",
-            "linux-headers-azure-fde": "5.4.0.1092.97+cvm1.32"
+            "linux-image-unsigned-5.4.0-1092-azure-fde-dbgsym": "5.4.0-1092.97+cvm1.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -65,11 +84,15 @@
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2022-20369"
+      "url": "https://ubuntu.com/security/CVE-2022-2318"
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2022-2318"
+      "url": "https://ubuntu.com/security/CVE-2022-3176"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2022-20369"
     },
     {
       "type": "REPORT",
@@ -78,10 +101,6 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2022-26373"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2022-3176"
     },
     {
       "type": "REPORT",

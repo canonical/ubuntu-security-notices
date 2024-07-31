@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-2455-1",
   "summary": "bsd-mailx vulnerability",
   "details": "It was discovered that bsd-mailx contained a feature that allowed\nsyntactically valid email addresses to be treated as shell commands. A\nremote attacker could possibly use this issue with a valid email address to\nexecute arbitrary commands.\n\nThis functionality has now been disabled by default, and can be re-enabled\nwith the \"expandaddr\" configuration option. This update alone does not\nremove all possibilities of command execution. In environments where\nscripts use mailx to process arbitrary email addresses, it is recommended\nto modify them to use a \"--\" separator before the address to properly\nhandle those that begin with \"-\". In addition, specifying sendmail options\nafter the \"--\" separator is no longer supported, existing scripts may need\nto be modified to use the \"-a\" option instead.\n",
@@ -12,7 +13,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:14.04:LTS",
-        "name": "bsd-mailx"
+        "name": "bsd-mailx",
+        "purl": "pkg:deb/ubuntu/bsd-mailx@8.1.2-0.20131005cvs-1ubuntu0.14.04.1?arch=src?distro=trusty"
       },
       "ranges": [
         {
@@ -27,13 +29,17 @@
           ]
         }
       ],
+      "versions": [
+        "8.1.2-0.20111106cvs-1ubuntu1",
+        "8.1.2-0.20131005cvs-1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "bsd-mailx": "8.1.2-0.20131005cvs-1ubuntu0.14.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],

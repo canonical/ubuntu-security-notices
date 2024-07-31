@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-4559-1",
   "summary": "samba update",
   "details": "Tom Tervoort discovered that the Netlogon protocol implemented by Samba\nincorrectly handled the authentication scheme. A remote attacker could use\nthis issue to forge an authentication token and steal the credentials of\nthe domain admin.\n\nWhile a previous security update fixed the issue by changing the \"server\nschannel\" setting to default to \"yes\", instead of \"auto\", which forced a\nsecure netlogon channel, this update provides additional improvements.\n\nFor compatibility reasons with older devices, Samba now allows specifying\nan insecure netlogon configuration per machine. See the following link for\nexamples: https://www.samba.org/samba/security/CVE-2020-1472.html\n\nIn addition, this update adds additional server checks for the protocol\nattack in the client-specified challenge to provide some protection when\n'server schannel = no/auto' and avoid the false-positive results when\nrunning the proof-of-concept exploit.\n",
@@ -11,99 +12,9 @@
   "affected": [
     {
       "package": {
-        "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "samba"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "2:4.11.6+dfsg-0ubuntu1.5"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "libwbclient-dev": "2:4.11.6+dfsg-0ubuntu1.5",
-            "samba": "2:4.11.6+dfsg-0ubuntu1.5",
-            "libnss-winbind": "2:4.11.6+dfsg-0ubuntu1.5",
-            "libpam-winbind": "2:4.11.6+dfsg-0ubuntu1.5",
-            "libsmbclient": "2:4.11.6+dfsg-0ubuntu1.5",
-            "smbclient": "2:4.11.6+dfsg-0ubuntu1.5",
-            "winbind": "2:4.11.6+dfsg-0ubuntu1.5",
-            "samba-testsuite": "2:4.11.6+dfsg-0ubuntu1.5",
-            "python3-samba": "2:4.11.6+dfsg-0ubuntu1.5",
-            "samba-common-bin": "2:4.11.6+dfsg-0ubuntu1.5",
-            "libwbclient0": "2:4.11.6+dfsg-0ubuntu1.5",
-            "samba-dsdb-modules": "2:4.11.6+dfsg-0ubuntu1.5",
-            "samba-dev": "2:4.11.6+dfsg-0ubuntu1.5",
-            "libsmbclient-dev": "2:4.11.6+dfsg-0ubuntu1.5",
-            "samba-vfs-modules": "2:4.11.6+dfsg-0ubuntu1.5",
-            "samba-common": "2:4.11.6+dfsg-0ubuntu1.5",
-            "registry-tools": "2:4.11.6+dfsg-0ubuntu1.5",
-            "samba-libs": "2:4.11.6+dfsg-0ubuntu1.5",
-            "ctdb": "2:4.11.6+dfsg-0ubuntu1.5"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "samba"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "libparse-pidl-perl": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "samba": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "libnss-winbind": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "libpam-winbind": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "libsmbclient": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "smbclient": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "python-samba": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "winbind": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "samba-testsuite": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "samba-dev": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "samba-common-bin": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "libwbclient0": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "samba-dsdb-modules": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "libwbclient-dev": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "libsmbclient-dev": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "samba-vfs-modules": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "samba-common": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "registry-tools": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "samba-libs": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
-            "ctdb": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
         "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "samba"
+        "name": "samba",
+        "purl": "pkg:deb/ubuntu/samba@2:4.3.11+dfsg-0ubuntu0.16.04.31?arch=src?distro=xenial"
       },
       "ranges": [
         {
@@ -118,32 +29,252 @@
           ]
         }
       ],
+      "versions": [
+        "2:4.1.17+dfsg-4ubuntu2",
+        "2:4.1.20+dfsg-1ubuntu1",
+        "2:4.1.20+dfsg-1ubuntu2",
+        "2:4.1.20+dfsg-1ubuntu3",
+        "2:4.1.20+dfsg-1ubuntu5",
+        "2:4.3.3+dfsg-1ubuntu1",
+        "2:4.3.3+dfsg-1ubuntu2",
+        "2:4.3.3+dfsg-1ubuntu3",
+        "2:4.3.6+dfsg-1ubuntu1",
+        "2:4.3.8+dfsg-0ubuntu1",
+        "2:4.3.9+dfsg-0ubuntu0.16.04.1",
+        "2:4.3.9+dfsg-0ubuntu0.16.04.2",
+        "2:4.3.9+dfsg-0ubuntu0.16.04.3",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.1",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.3",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.5",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.6",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.7",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.8",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.9",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.10",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.11",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.12",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.13",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.15",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.16",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.17",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.18",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.19",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.20",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.21",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.23",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.24",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.25",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.26",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.27",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.28",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.29",
+        "2:4.3.11+dfsg-0ubuntu0.16.04.30"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "libparse-pidl-perl": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
-            "samba": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "ctdb": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "ctdb-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
             "libnss-winbind": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "libnss-winbind-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
             "libpam-winbind": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "libpam-winbind-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "libparse-pidl-perl": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "libparse-pidl-perl-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
             "libsmbclient": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
-            "smbclient": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
-            "python-samba": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
-            "winbind": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
-            "samba-testsuite": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
-            "samba-dev": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
-            "samba-common-bin": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
-            "libwbclient0": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
-            "samba-dsdb-modules": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
-            "libwbclient-dev": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "libsmbclient-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
             "libsmbclient-dev": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
-            "samba-vfs-modules": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
-            "samba-common": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "libsmbclient-dev-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "libwbclient-dev": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "libwbclient-dev-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "libwbclient0": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "libwbclient0-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "python-samba": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
             "registry-tools": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "registry-tools-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "samba": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "samba-common": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "samba-common-bin": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "samba-common-bin-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "samba-dbg": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "samba-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "samba-dev": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "samba-dev-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "samba-dsdb-modules": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "samba-dsdb-modules-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
             "samba-libs": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
-            "ctdb": "2:4.3.11+dfsg-0ubuntu0.16.04.31"
+            "samba-libs-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "samba-testsuite": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "samba-testsuite-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "samba-vfs-modules": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "samba-vfs-modules-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "smbclient": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "smbclient-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "winbind": "2:4.3.11+dfsg-0ubuntu0.16.04.31",
+            "winbind-dbgsym": "2:4.3.11+dfsg-0ubuntu0.16.04.31"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "samba",
+        "purl": "pkg:deb/ubuntu/samba@2:4.7.6+dfsg~ubuntu-0ubuntu2.20?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "2:4.6.7+dfsg-1ubuntu3",
+        "2:4.7.1+dfsg-1ubuntu1",
+        "2:4.7.3+dfsg-1ubuntu1",
+        "2:4.7.4+dfsg-1ubuntu1",
+        "2:4.7.6+dfsg~ubuntu-0ubuntu1",
+        "2:4.7.6+dfsg~ubuntu-0ubuntu2",
+        "2:4.7.6+dfsg~ubuntu-0ubuntu2.2",
+        "2:4.7.6+dfsg~ubuntu-0ubuntu2.4",
+        "2:4.7.6+dfsg~ubuntu-0ubuntu2.5",
+        "2:4.7.6+dfsg~ubuntu-0ubuntu2.6",
+        "2:4.7.6+dfsg~ubuntu-0ubuntu2.7",
+        "2:4.7.6+dfsg~ubuntu-0ubuntu2.9",
+        "2:4.7.6+dfsg~ubuntu-0ubuntu2.10",
+        "2:4.7.6+dfsg~ubuntu-0ubuntu2.11",
+        "2:4.7.6+dfsg~ubuntu-0ubuntu2.13",
+        "2:4.7.6+dfsg~ubuntu-0ubuntu2.14",
+        "2:4.7.6+dfsg~ubuntu-0ubuntu2.15",
+        "2:4.7.6+dfsg~ubuntu-0ubuntu2.16",
+        "2:4.7.6+dfsg~ubuntu-0ubuntu2.17",
+        "2:4.7.6+dfsg~ubuntu-0ubuntu2.18",
+        "2:4.7.6+dfsg~ubuntu-0ubuntu2.19"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "ctdb": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "ctdb-dbgsym": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "libnss-winbind": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "libnss-winbind-dbgsym": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "libpam-winbind": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "libpam-winbind-dbgsym": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "libparse-pidl-perl": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "libsmbclient": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "libsmbclient-dbgsym": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "libsmbclient-dev": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "libwbclient-dev": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "libwbclient0": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "libwbclient0-dbgsym": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "python-samba": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "python-samba-dbgsym": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "registry-tools": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "registry-tools-dbgsym": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "samba": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "samba-common": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "samba-common-bin": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "samba-common-bin-dbgsym": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "samba-dbgsym": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "samba-dev": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "samba-dsdb-modules": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "samba-dsdb-modules-dbgsym": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "samba-libs": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "samba-libs-dbgsym": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "samba-testsuite": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "samba-testsuite-dbgsym": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "samba-vfs-modules": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "samba-vfs-modules-dbgsym": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "smbclient": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "smbclient-dbgsym": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "winbind": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20",
+            "winbind-dbgsym": "2:4.7.6+dfsg~ubuntu-0ubuntu2.20"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:20.04:LTS",
+        "name": "samba",
+        "purl": "pkg:deb/ubuntu/samba@2:4.11.6+dfsg-0ubuntu1.5?arch=src?distro=focal"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2:4.11.6+dfsg-0ubuntu1.5"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "2:4.10.7+dfsg-0ubuntu2",
+        "2:4.10.7+dfsg-0ubuntu3",
+        "2:4.11.1+dfsg-3ubuntu1",
+        "2:4.11.1+dfsg-3ubuntu2",
+        "2:4.11.1+dfsg-3ubuntu4",
+        "2:4.11.5+dfsg-1ubuntu1",
+        "2:4.11.5+dfsg-1ubuntu2",
+        "2:4.11.6+dfsg-0ubuntu1",
+        "2:4.11.6+dfsg-0ubuntu1.1",
+        "2:4.11.6+dfsg-0ubuntu1.2",
+        "2:4.11.6+dfsg-0ubuntu1.3",
+        "2:4.11.6+dfsg-0ubuntu1.4"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "ctdb": "2:4.11.6+dfsg-0ubuntu1.5",
+            "ctdb-dbgsym": "2:4.11.6+dfsg-0ubuntu1.5",
+            "libnss-winbind": "2:4.11.6+dfsg-0ubuntu1.5",
+            "libnss-winbind-dbgsym": "2:4.11.6+dfsg-0ubuntu1.5",
+            "libpam-winbind": "2:4.11.6+dfsg-0ubuntu1.5",
+            "libpam-winbind-dbgsym": "2:4.11.6+dfsg-0ubuntu1.5",
+            "libsmbclient": "2:4.11.6+dfsg-0ubuntu1.5",
+            "libsmbclient-dbgsym": "2:4.11.6+dfsg-0ubuntu1.5",
+            "libsmbclient-dev": "2:4.11.6+dfsg-0ubuntu1.5",
+            "libwbclient-dev": "2:4.11.6+dfsg-0ubuntu1.5",
+            "libwbclient0": "2:4.11.6+dfsg-0ubuntu1.5",
+            "libwbclient0-dbgsym": "2:4.11.6+dfsg-0ubuntu1.5",
+            "python3-samba": "2:4.11.6+dfsg-0ubuntu1.5",
+            "python3-samba-dbgsym": "2:4.11.6+dfsg-0ubuntu1.5",
+            "registry-tools": "2:4.11.6+dfsg-0ubuntu1.5",
+            "registry-tools-dbgsym": "2:4.11.6+dfsg-0ubuntu1.5",
+            "samba": "2:4.11.6+dfsg-0ubuntu1.5",
+            "samba-common": "2:4.11.6+dfsg-0ubuntu1.5",
+            "samba-common-bin": "2:4.11.6+dfsg-0ubuntu1.5",
+            "samba-common-bin-dbgsym": "2:4.11.6+dfsg-0ubuntu1.5",
+            "samba-dbgsym": "2:4.11.6+dfsg-0ubuntu1.5",
+            "samba-dev": "2:4.11.6+dfsg-0ubuntu1.5",
+            "samba-dsdb-modules": "2:4.11.6+dfsg-0ubuntu1.5",
+            "samba-dsdb-modules-dbgsym": "2:4.11.6+dfsg-0ubuntu1.5",
+            "samba-libs": "2:4.11.6+dfsg-0ubuntu1.5",
+            "samba-libs-dbgsym": "2:4.11.6+dfsg-0ubuntu1.5",
+            "samba-testsuite": "2:4.11.6+dfsg-0ubuntu1.5",
+            "samba-testsuite-dbgsym": "2:4.11.6+dfsg-0ubuntu1.5",
+            "samba-vfs-modules": "2:4.11.6+dfsg-0ubuntu1.5",
+            "samba-vfs-modules-dbgsym": "2:4.11.6+dfsg-0ubuntu1.5",
+            "smbclient": "2:4.11.6+dfsg-0ubuntu1.5",
+            "smbclient-dbgsym": "2:4.11.6+dfsg-0ubuntu1.5",
+            "winbind": "2:4.11.6+dfsg-0ubuntu1.5",
+            "winbind-dbgsym": "2:4.11.6+dfsg-0ubuntu1.5"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],

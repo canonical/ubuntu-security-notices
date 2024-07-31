@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-4651-1",
   "summary": "mysql-8.0 vulnerabilities",
   "details": "Tom Reynolds discovered that due to a packaging error, the MySQL X Plugin\nwas listening to all network interfaces by default, contrary to\nexpectations.\n\nThis update changes the default MySQL configuration to bind the MySQL X\nPlugin to localhost only. This change may impact environments where the\nMySQL X Plugin needs to be accessible from the network. The\nmysqlx-bind-address setting in the /etc/mysql/mysql.conf.d/mysqld.cnf file\ncan be modified to allow network access.\n",
@@ -10,7 +11,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "mysql-8.0"
+        "name": "mysql-8.0",
+        "purl": "pkg:deb/ubuntu/mysql-8.0@8.0.22-0ubuntu0.20.04.3?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -25,24 +27,44 @@
           ]
         }
       ],
+      "versions": [
+        "8.0.17-0ubuntu2",
+        "8.0.17-0ubuntu3",
+        "8.0.18-0ubuntu3",
+        "8.0.18-0ubuntu4",
+        "8.0.18-0ubuntu5",
+        "8.0.19-0ubuntu2",
+        "8.0.19-0ubuntu3",
+        "8.0.19-0ubuntu4",
+        "8.0.19-0ubuntu5",
+        "8.0.20-0ubuntu0.20.04.1",
+        "8.0.21-0ubuntu0.20.04.3",
+        "8.0.21-0ubuntu0.20.04.4",
+        "8.0.22-0ubuntu0.20.04.2"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
+            "libmysqlclient-dev": "8.0.22-0ubuntu0.20.04.3",
+            "libmysqlclient21": "8.0.22-0ubuntu0.20.04.3",
+            "libmysqlclient21-dbgsym": "8.0.22-0ubuntu0.20.04.3",
             "mysql-client": "8.0.22-0ubuntu0.20.04.3",
             "mysql-client-8.0": "8.0.22-0ubuntu0.20.04.3",
-            "libmysqlclient-dev": "8.0.22-0ubuntu0.20.04.3",
-            "mysql-testsuite-8.0": "8.0.22-0ubuntu0.20.04.3",
-            "mysql-router": "8.0.22-0ubuntu0.20.04.3",
-            "mysql-server": "8.0.22-0ubuntu0.20.04.3",
-            "libmysqlclient21": "8.0.22-0ubuntu0.20.04.3",
             "mysql-client-core-8.0": "8.0.22-0ubuntu0.20.04.3",
-            "mysql-server-core-8.0": "8.0.22-0ubuntu0.20.04.3",
-            "mysql-testsuite": "8.0.22-0ubuntu0.20.04.3",
+            "mysql-client-core-8.0-dbgsym": "8.0.22-0ubuntu0.20.04.3",
+            "mysql-router": "8.0.22-0ubuntu0.20.04.3",
+            "mysql-router-dbgsym": "8.0.22-0ubuntu0.20.04.3",
+            "mysql-server": "8.0.22-0ubuntu0.20.04.3",
             "mysql-server-8.0": "8.0.22-0ubuntu0.20.04.3",
-            "mysql-source-8.0": "8.0.22-0ubuntu0.20.04.3"
+            "mysql-server-core-8.0": "8.0.22-0ubuntu0.20.04.3",
+            "mysql-server-core-8.0-dbgsym": "8.0.22-0ubuntu0.20.04.3",
+            "mysql-source-8.0": "8.0.22-0ubuntu0.20.04.3",
+            "mysql-testsuite": "8.0.22-0ubuntu0.20.04.3",
+            "mysql-testsuite-8.0": "8.0.22-0ubuntu0.20.04.3",
+            "mysql-testsuite-8.0-dbgsym": "8.0.22-0ubuntu0.20.04.3"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],

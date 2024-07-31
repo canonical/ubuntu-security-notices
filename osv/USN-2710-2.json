@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-2710-2",
   "summary": "openssh regression",
   "details": "USN-2710-1 fixed vulnerabilities in OpenSSH. The upstream fix for\nCVE-2015-5600 caused a regression resulting in random authentication\nfailures in non-default configurations. This update fixes the problem.\n\nOriginal advisory details:\n\n Moritz Jodeit discovered that OpenSSH incorrectly handled usernames when\n using PAM authentication. If an additional vulnerability were discovered in\n the OpenSSH unprivileged child process, this issue could allow a remote\n attacker to perform user impersonation. (CVE number pending)\n \n Moritz Jodeit discovered that OpenSSH incorrectly handled context memory\n when using PAM authentication. If an additional vulnerability were\n discovered in the OpenSSH unprivileged child process, this issue could\n allow a remote attacker to bypass authentication or possibly execute\n arbitrary code. (CVE number pending)\n \n Jann Horn discovered that OpenSSH incorrectly handled time windows for\n X connections. A remote attacker could use this issue to bypass certain\n access restrictions. (CVE-2015-5352)\n \n It was discovered that OpenSSH incorrectly handled keyboard-interactive\n authentication. In a non-default configuration, a remote attacker could\n possibly use this issue to perform a brute-force password attack.\n (CVE-2015-5600)\n",
@@ -10,7 +11,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:14.04:LTS",
-        "name": "openssh"
+        "name": "openssh",
+        "purl": "pkg:deb/ubuntu/openssh@1:6.6p1-2ubuntu2.3?arch=src?distro=trusty"
       },
       "ranges": [
         {
@@ -25,20 +27,42 @@
           ]
         }
       ],
+      "versions": [
+        "1:6.2p2-6",
+        "1:6.2p2-6ubuntu1",
+        "1:6.4p1-1",
+        "1:6.4p1-2",
+        "1:6.5p1-1",
+        "1:6.5p1-2",
+        "1:6.5p1-3",
+        "1:6.5p1-4",
+        "1:6.5p1-6",
+        "1:6.6p1-1",
+        "1:6.6p1-2",
+        "1:6.6p1-2ubuntu1",
+        "1:6.6p1-2ubuntu2",
+        "1:6.6p1-2ubuntu2.2"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "openssh-server-udeb": "1:6.6p1-2ubuntu2.3",
             "openssh-client": "1:6.6p1-2ubuntu2.3",
-            "openssh-server": "1:6.6p1-2ubuntu2.3",
-            "ssh-askpass-gnome": "1:6.6p1-2ubuntu2.3",
-            "ssh": "1:6.6p1-2ubuntu2.3",
-            "ssh-krb5": "1:6.6p1-2ubuntu2.3",
+            "openssh-client-dbgsym": "1:6.6p1-2ubuntu2.3",
             "openssh-client-udeb": "1:6.6p1-2ubuntu2.3",
-            "openssh-sftp-server": "1:6.6p1-2ubuntu2.3"
+            "openssh-client-udeb-dbgsym": "1:6.6p1-2ubuntu2.3",
+            "openssh-server": "1:6.6p1-2ubuntu2.3",
+            "openssh-server-dbgsym": "1:6.6p1-2ubuntu2.3",
+            "openssh-server-udeb": "1:6.6p1-2ubuntu2.3",
+            "openssh-server-udeb-dbgsym": "1:6.6p1-2ubuntu2.3",
+            "openssh-sftp-server": "1:6.6p1-2ubuntu2.3",
+            "openssh-sftp-server-dbgsym": "1:6.6p1-2ubuntu2.3",
+            "ssh": "1:6.6p1-2ubuntu2.3",
+            "ssh-askpass-gnome": "1:6.6p1-2ubuntu2.3",
+            "ssh-askpass-gnome-dbgsym": "1:6.6p1-2ubuntu2.3",
+            "ssh-krb5": "1:6.6p1-2ubuntu2.3"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],

@@ -1,16 +1,17 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-4113-1",
   "summary": "apache2 vulnerabilities",
   "details": "Stefan Eissing discovered that the HTTP/2 implementation in Apache\ndid not properly handle upgrade requests from HTTP/1.1 to HTTP/2 in\nsome situations. A remote attacker could use this to cause a denial\nof service (daemon crash). This issue only affected Ubuntu 18.04 LTS\nand Ubuntu 19.04. (CVE-2019-0197)\n\nCraig Young discovered that a memory overwrite error existed in\nApache when performing HTTP/2 very early pushes in some situations. A\nremote attacker could use this to cause a denial of service (daemon\ncrash). This issue only affected Ubuntu 18.04 LTS and Ubuntu 19.04.\n(CVE-2019-10081)\n\nCraig Young discovered that a read-after-free error existed in the\nHTTP/2 implementation in Apache during connection shutdown. A remote\nattacker could use this to possibly cause a denial of service (daemon\ncrash) or possibly expose sensitive information. This issue only\naffected Ubuntu 18.04 LTS and Ubuntu 19.04. (CVE-2019-10082)\n\nMatei Badanoiu discovered that the mod_proxy component of\nApache did not properly filter URLs when reporting errors in some\nconfigurations. A remote attacker could possibly use this issue to\nconduct cross-site scripting (XSS) attacks. (CVE-2019-10092)\n\nDaniel McCarney discovered that mod_remoteip component of Apache\ncontained a stack buffer overflow when parsing headers from a trusted\nintermediary proxy in some situations. A remote attacker controlling a\ntrusted proxy could use this to cause a denial of service or possibly\nexecute arbitrary code. This issue only affected Ubuntu 19.04.\n(CVE-2019-10097)\n\nYukitsugu Sasaki discovered that the mod_rewrite component in Apache\nwas vulnerable to open redirects in some situations. A remote attacker\ncould use this to possibly expose sensitive information or bypass\nintended restrictions. (CVE-2019-10098)\n\nJonathan Looney discovered that the HTTP/2 implementation in Apache did\nnot properly limit the amount of buffering for client connections in\nsome situations. A remote attacker could use this to cause a denial\nof service (unresponsive daemon). This issue only affected Ubuntu\n18.04 LTS and Ubuntu 19.04. (CVE-2019-9517)\n",
   "aliases": [],
   "related": [
     "CVE-2019-0197",
+    "CVE-2019-9517",
     "CVE-2019-10081",
     "CVE-2019-10082",
     "CVE-2019-10092",
     "CVE-2019-10097",
-    "CVE-2019-10098",
-    "CVE-2019-9517"
+    "CVE-2019-10098"
   ],
   "published": "2019-08-29T22:31:46.431140Z",
   "modified": "2019-08-29T22:31:46.431140Z",
@@ -18,7 +19,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "apache2"
+        "name": "apache2",
+        "purl": "pkg:deb/ubuntu/apache2@2.4.18-2ubuntu3.12?arch=src?distro=xenial"
       },
       "ranges": [
         {
@@ -33,26 +35,53 @@
           ]
         }
       ],
+      "versions": [
+        "2.4.12-2ubuntu2",
+        "2.4.17-1ubuntu1",
+        "2.4.17-2ubuntu1",
+        "2.4.17-3ubuntu1",
+        "2.4.18-1ubuntu1",
+        "2.4.18-2ubuntu1",
+        "2.4.18-2ubuntu2",
+        "2.4.18-2ubuntu3",
+        "2.4.18-2ubuntu3.1",
+        "2.4.18-2ubuntu3.2",
+        "2.4.18-2ubuntu3.3",
+        "2.4.18-2ubuntu3.4",
+        "2.4.18-2ubuntu3.5",
+        "2.4.18-2ubuntu3.7",
+        "2.4.18-2ubuntu3.8",
+        "2.4.18-2ubuntu3.9",
+        "2.4.18-2ubuntu3.10"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "apache2-data": "2.4.18-2ubuntu3.12",
-            "apache2-utils": "2.4.18-2ubuntu3.12",
-            "apache2-dev": "2.4.18-2ubuntu3.12",
-            "apache2-suexec-pristine": "2.4.18-2ubuntu3.12",
-            "apache2-suexec-custom": "2.4.18-2ubuntu3.12",
             "apache2": "2.4.18-2ubuntu3.12",
+            "apache2-bin": "2.4.18-2ubuntu3.12",
+            "apache2-bin-dbgsym": "2.4.18-2ubuntu3.12",
+            "apache2-data": "2.4.18-2ubuntu3.12",
+            "apache2-dbg": "2.4.18-2ubuntu3.12",
+            "apache2-dbgsym": "2.4.18-2ubuntu3.12",
+            "apache2-dev": "2.4.18-2ubuntu3.12",
+            "apache2-dev-dbgsym": "2.4.18-2ubuntu3.12",
             "apache2-doc": "2.4.18-2ubuntu3.12",
-            "apache2-bin": "2.4.18-2ubuntu3.12"
+            "apache2-suexec-custom": "2.4.18-2ubuntu3.12",
+            "apache2-suexec-custom-dbgsym": "2.4.18-2ubuntu3.12",
+            "apache2-suexec-pristine": "2.4.18-2ubuntu3.12",
+            "apache2-suexec-pristine-dbgsym": "2.4.18-2ubuntu3.12",
+            "apache2-utils": "2.4.18-2ubuntu3.12",
+            "apache2-utils-dbgsym": "2.4.18-2ubuntu3.12"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "apache2"
+        "name": "apache2",
+        "purl": "pkg:deb/ubuntu/apache2@2.4.29-1ubuntu4.10?arch=src?distro=bionic"
       },
       "ranges": [
         {
@@ -67,21 +96,37 @@
           ]
         }
       ],
+      "versions": [
+        "2.4.27-2ubuntu3",
+        "2.4.29-1ubuntu1",
+        "2.4.29-1ubuntu2",
+        "2.4.29-1ubuntu3",
+        "2.4.29-1ubuntu4",
+        "2.4.29-1ubuntu4.1",
+        "2.4.29-1ubuntu4.2",
+        "2.4.29-1ubuntu4.3",
+        "2.4.29-1ubuntu4.4",
+        "2.4.29-1ubuntu4.5",
+        "2.4.29-1ubuntu4.6",
+        "2.4.29-1ubuntu4.7",
+        "2.4.29-1ubuntu4.8"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "apache2-data": "2.4.29-1ubuntu4.10",
-            "apache2-utils": "2.4.29-1ubuntu4.10",
-            "apache2-dev": "2.4.29-1ubuntu4.10",
-            "apache2-suexec-pristine": "2.4.29-1ubuntu4.10",
-            "apache2-suexec-custom": "2.4.29-1ubuntu4.10",
             "apache2": "2.4.29-1ubuntu4.10",
+            "apache2-bin": "2.4.29-1ubuntu4.10",
+            "apache2-data": "2.4.29-1ubuntu4.10",
+            "apache2-dbg": "2.4.29-1ubuntu4.10",
+            "apache2-dev": "2.4.29-1ubuntu4.10",
             "apache2-doc": "2.4.29-1ubuntu4.10",
             "apache2-ssl-dev": "2.4.29-1ubuntu4.10",
-            "apache2-bin": "2.4.29-1ubuntu4.10"
+            "apache2-suexec-custom": "2.4.29-1ubuntu4.10",
+            "apache2-suexec-pristine": "2.4.29-1ubuntu4.10",
+            "apache2-utils": "2.4.29-1ubuntu4.10"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -93,6 +138,10 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2019-0197"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2019-9517"
     },
     {
       "type": "REPORT",
@@ -113,10 +162,6 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2019-10098"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2019-9517"
     }
   ]
 }

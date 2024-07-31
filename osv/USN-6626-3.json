@@ -1,18 +1,19 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-6626-3",
   "summary": "linux-azure, linux-azure-5.15, linux-azure-fde, linux-azure-fde-5.15 vulnerabilities",
   "details": "Quentin Minster discovered that a race condition existed in the KSMBD\nimplementation in the Linux kernel when handling sessions operations. A\nremote attacker could use this to cause a denial of service (system crash)\nor possibly execute arbitrary code. (CVE-2023-32250, CVE-2023-32252,\nCVE-2023-32257)\n\nMarek Marczykowski-G\u00f3recki discovered that the Xen event channel\ninfrastructure implementation in the Linux kernel contained a race\ncondition. An attacker in a guest VM could possibly use this to cause a\ndenial of service (paravirtualized device unavailability). (CVE-2023-34324)\n\nZheng Wang discovered a use-after-free in the Renesas Ethernet AVB driver\nin the Linux kernel during device removal. A privileged attacker could use\nthis to cause a denial of service (system crash). (CVE-2023-35827)\n\nTom Dohrmann discovered that the Secure Encrypted Virtualization (SEV)\nimplementation for AMD processors in the Linux kernel contained a race\ncondition when accessing MMIO registers. A local attacker in a SEV guest VM\ncould possibly use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2023-46813)\n\nIt was discovered that the Microchip USB Ethernet driver in the Linux\nkernel contained a race condition during device removal, leading to a use-\nafter-free vulnerability. A physically proximate attacker could use this to\ncause a denial of service (system crash). (CVE-2023-6039)\n\nIt was discovered that the TLS subsystem in the Linux kernel did not\nproperly perform cryptographic operations in some situations, leading to a\nnull pointer dereference vulnerability. A local attacker could use this to\ncause a denial of service (system crash) or possibly execute arbitrary\ncode. (CVE-2023-6176)\n\nXingyuan Mo discovered that the netfilter subsystem in the Linux kernel did\nnot properly handle dynset expressions passed from userspace, leading to a\nnull pointer dereference vulnerability. A local attacker could use this to\ncause a denial of service (system crash). (CVE-2023-6622)\n\nIt was discovered that the TIPC protocol implementation in the Linux kernel\ndid not properly handle locking during tipc_crypto_key_revoke() operations.\nA local attacker could use this to cause a denial of service (kernel\ndeadlock). (CVE-2024-0641)\n",
   "aliases": [],
   "related": [
+    "CVE-2023-6039",
+    "CVE-2023-6176",
+    "CVE-2023-6622",
     "CVE-2023-32250",
     "CVE-2023-32252",
     "CVE-2023-32257",
     "CVE-2023-34324",
     "CVE-2023-35827",
     "CVE-2023-46813",
-    "CVE-2023-6039",
-    "CVE-2023-6176",
-    "CVE-2023-6622",
     "CVE-2024-0641"
   ],
   "published": "2024-02-15T23:14:29.768868Z",
@@ -21,7 +22,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-azure-5.15"
+        "name": "linux-azure-5.15",
+        "purl": "pkg:deb/ubuntu/linux-azure-5.15@5.15.0-1056.64~20.04.1?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -36,48 +38,66 @@
           ]
         }
       ],
+      "versions": [
+        "5.15.0-1007.8~20.04.1",
+        "5.15.0-1008.9~20.04.1",
+        "5.15.0-1013.16~20.04.1",
+        "5.15.0-1014.17~20.04.1",
+        "5.15.0-1017.20~20.04.1",
+        "5.15.0-1019.24~20.04.1",
+        "5.15.0-1020.25~20.04.1",
+        "5.15.0-1021.26~20.04.1",
+        "5.15.0-1022.27~20.04.1",
+        "5.15.0-1023.29~20.04.1",
+        "5.15.0-1029.36~20.04.1",
+        "5.15.0-1030.37~20.04.1",
+        "5.15.0-1031.38~20.04.1",
+        "5.15.0-1033.40~20.04.1",
+        "5.15.0-1034.41~20.04.1",
+        "5.15.0-1035.42~20.04.1",
+        "5.15.0-1036.43~20.04.1",
+        "5.15.0-1037.44~20.04.1",
+        "5.15.0-1038.45~20.04.1",
+        "5.15.0-1039.46~20.04.1",
+        "5.15.0-1040.47~20.04.1",
+        "5.15.0-1041.48~20.04.1",
+        "5.15.0-1042.49~20.04.1",
+        "5.15.0-1043.50~20.04.1",
+        "5.15.0-1045.52~20.04.1",
+        "5.15.0-1046.53~20.04.1",
+        "5.15.0-1047.54~20.04.1",
+        "5.15.0-1049.56~20.04.1",
+        "5.15.0-1050.57~20.04.1",
+        "5.15.0-1051.59~20.04.1",
+        "5.15.0-1052.60~20.04.1",
+        "5.15.0-1053.61~20.04.1",
+        "5.15.0-1054.62~20.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-azure": "5.15.0.1056.64~20.04.45",
             "linux-azure-5.15-cloud-tools-5.15.0-1056": "5.15.0-1056.64~20.04.1",
             "linux-azure-5.15-headers-5.15.0-1056": "5.15.0-1056.64~20.04.1",
             "linux-azure-5.15-tools-5.15.0-1056": "5.15.0-1056.64~20.04.1",
-            "linux-azure-cvm": "5.15.0.1056.64~20.04.45",
-            "linux-azure-edge": "5.15.0.1056.64~20.04.45",
             "linux-buildinfo-5.15.0-1056-azure": "5.15.0-1056.64~20.04.1",
             "linux-cloud-tools-5.15.0-1056-azure": "5.15.0-1056.64~20.04.1",
-            "linux-cloud-tools-azure": "5.15.0.1056.64~20.04.45",
-            "linux-cloud-tools-azure-cvm": "5.15.0.1056.64~20.04.45",
-            "linux-cloud-tools-azure-edge": "5.15.0.1056.64~20.04.45",
             "linux-headers-5.15.0-1056-azure": "5.15.0-1056.64~20.04.1",
-            "linux-headers-azure": "5.15.0.1056.64~20.04.45",
-            "linux-headers-azure-cvm": "5.15.0.1056.64~20.04.45",
-            "linux-headers-azure-edge": "5.15.0.1056.64~20.04.45",
-            "linux-image-5.15.0-1056-azure": "5.15.0-1056.64~20.04.1",
-            "linux-image-azure": "5.15.0.1056.64~20.04.45",
-            "linux-image-azure-cvm": "5.15.0.1056.64~20.04.45",
-            "linux-image-azure-edge": "5.15.0.1056.64~20.04.45",
             "linux-image-unsigned-5.15.0-1056-azure": "5.15.0-1056.64~20.04.1",
+            "linux-image-unsigned-5.15.0-1056-azure-dbgsym": "5.15.0-1056.64~20.04.1",
             "linux-modules-5.15.0-1056-azure": "5.15.0-1056.64~20.04.1",
             "linux-modules-extra-5.15.0-1056-azure": "5.15.0-1056.64~20.04.1",
-            "linux-modules-extra-azure": "5.15.0.1056.64~20.04.45",
-            "linux-modules-extra-azure-cvm": "5.15.0.1056.64~20.04.45",
-            "linux-modules-extra-azure-edge": "5.15.0.1056.64~20.04.45",
             "linux-modules-iwlwifi-5.15.0-1056-azure": "5.15.0-1056.64~20.04.1",
-            "linux-tools-5.15.0-1056-azure": "5.15.0-1056.64~20.04.1",
-            "linux-tools-azure": "5.15.0.1056.64~20.04.45",
-            "linux-tools-azure-cvm": "5.15.0.1056.64~20.04.45",
-            "linux-tools-azure-edge": "5.15.0.1056.64~20.04.45"
+            "linux-tools-5.15.0-1056-azure": "5.15.0-1056.64~20.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-azure-fde-5.15"
+        "name": "linux-azure-fde-5.15",
+        "purl": "pkg:deb/ubuntu/linux-azure-fde-5.15@5.15.0-1056.64~20.04.1.1?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -92,32 +112,48 @@
           ]
         }
       ],
+      "versions": [
+        "5.15.0-1019.24~20.04.1.1",
+        "5.15.0-1020.25~20.04.1.1",
+        "5.15.0-1021.26~20.04.1.1",
+        "5.15.0-1029.36~20.04.1.1",
+        "5.15.0-1030.37~20.04.1.1",
+        "5.15.0-1031.38~20.04.1.1",
+        "5.15.0-1033.40~20.04.1.1",
+        "5.15.0-1034.41~20.04.1.2",
+        "5.15.0-1035.42~20.04.1.1",
+        "5.15.0-1036.43~20.04.1.1",
+        "5.15.0-1037.44~20.04.1.1",
+        "5.15.0-1038.45~20.04.1.1",
+        "5.15.0-1039.46~20.04.1.1",
+        "5.15.0-1040.47~20.04.1.1",
+        "5.15.0-1041.48~20.04.1.1",
+        "5.15.0-1042.49~20.04.1.1",
+        "5.15.0-1043.50~20.04.1.1",
+        "5.15.0-1046.53~20.04.1.1",
+        "5.15.0-1047.54~20.04.1.1",
+        "5.15.0-1049.56~20.04.1.1",
+        "5.15.0-1050.57~20.04.1.1",
+        "5.15.0-1051.59~20.04.1.1",
+        "5.15.0-1052.60~20.04.1.1",
+        "5.15.0-1053.61~20.04.1.1",
+        "5.15.0-1054.62~20.04.1.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-azure-fde": "5.15.0.1056.64~20.04.1.34",
-            "linux-azure-fde-edge": "5.15.0.1056.64~20.04.1.34",
-            "linux-cloud-tools-azure-fde": "5.15.0.1056.64~20.04.1.34",
-            "linux-cloud-tools-azure-fde-edge": "5.15.0.1056.64~20.04.1.34",
-            "linux-headers-azure-fde": "5.15.0.1056.64~20.04.1.34",
-            "linux-headers-azure-fde-edge": "5.15.0.1056.64~20.04.1.34",
-            "linux-image-5.15.0-1056-azure-fde": "5.15.0-1056.64~20.04.1.1",
-            "linux-image-azure-fde": "5.15.0.1056.64~20.04.1.34",
-            "linux-image-azure-fde-edge": "5.15.0.1056.64~20.04.1.34",
             "linux-image-unsigned-5.15.0-1056-azure-fde": "5.15.0-1056.64~20.04.1.1",
-            "linux-modules-extra-azure-fde": "5.15.0.1056.64~20.04.1.34",
-            "linux-modules-extra-azure-fde-edge": "5.15.0.1056.64~20.04.1.34",
-            "linux-tools-azure-fde": "5.15.0.1056.64~20.04.1.34",
-            "linux-tools-azure-fde-edge": "5.15.0.1056.64~20.04.1.34"
+            "linux-image-unsigned-5.15.0-1056-azure-fde-dbgsym": "5.15.0-1056.64~20.04.1.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-azure"
+        "name": "linux-azure",
+        "purl": "pkg:deb/ubuntu/linux-azure@5.15.0-1056.64?arch=src?distro=jammy"
       },
       "ranges": [
         {
@@ -132,36 +168,74 @@
           ]
         }
       ],
+      "versions": [
+        "5.13.0-1006.7",
+        "5.15.0-1001.2",
+        "5.15.0-1002.3",
+        "5.15.0-1003.4",
+        "5.15.0-1005.6",
+        "5.15.0-1007.8",
+        "5.15.0-1008.9",
+        "5.15.0-1010.12",
+        "5.15.0-1012.15",
+        "5.15.0-1013.16",
+        "5.15.0-1014.17",
+        "5.15.0-1017.20",
+        "5.15.0-1019.24",
+        "5.15.0-1020.25",
+        "5.15.0-1021.26",
+        "5.15.0-1022.27",
+        "5.15.0-1023.29",
+        "5.15.0-1024.30",
+        "5.15.0-1029.36",
+        "5.15.0-1030.37",
+        "5.15.0-1031.38",
+        "5.15.0-1033.40",
+        "5.15.0-1034.41",
+        "5.15.0-1035.42",
+        "5.15.0-1036.43",
+        "5.15.0-1037.44",
+        "5.15.0-1038.45",
+        "5.15.0-1039.46",
+        "5.15.0-1040.47",
+        "5.15.0-1041.48",
+        "5.15.0-1042.49",
+        "5.15.0-1044.51",
+        "5.15.0-1045.52",
+        "5.15.0-1046.53",
+        "5.15.0-1047.54",
+        "5.15.0-1049.56",
+        "5.15.0-1050.57",
+        "5.15.0-1051.59",
+        "5.15.0-1052.60",
+        "5.15.0-1053.61",
+        "5.15.0-1054.62"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "linux-azure-cloud-tools-5.15.0-1056": "5.15.0-1056.64",
             "linux-azure-headers-5.15.0-1056": "5.15.0-1056.64",
-            "linux-azure-lts-22.04": "5.15.0.1056.52",
             "linux-azure-tools-5.15.0-1056": "5.15.0-1056.64",
             "linux-buildinfo-5.15.0-1056-azure": "5.15.0-1056.64",
             "linux-cloud-tools-5.15.0-1056-azure": "5.15.0-1056.64",
-            "linux-cloud-tools-azure-lts-22.04": "5.15.0.1056.52",
             "linux-headers-5.15.0-1056-azure": "5.15.0-1056.64",
-            "linux-headers-azure-lts-22.04": "5.15.0.1056.52",
-            "linux-image-5.15.0-1056-azure": "5.15.0-1056.64",
-            "linux-image-azure-lts-22.04": "5.15.0.1056.52",
             "linux-image-unsigned-5.15.0-1056-azure": "5.15.0-1056.64",
+            "linux-image-unsigned-5.15.0-1056-azure-dbgsym": "5.15.0-1056.64",
             "linux-modules-5.15.0-1056-azure": "5.15.0-1056.64",
             "linux-modules-extra-5.15.0-1056-azure": "5.15.0-1056.64",
-            "linux-modules-extra-azure-lts-22.04": "5.15.0.1056.52",
             "linux-modules-iwlwifi-5.15.0-1056-azure": "5.15.0-1056.64",
-            "linux-tools-5.15.0-1056-azure": "5.15.0-1056.64",
-            "linux-tools-azure-lts-22.04": "5.15.0.1056.52"
+            "linux-tools-5.15.0-1056-azure": "5.15.0-1056.64"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-azure-fde"
+        "name": "linux-azure-fde",
+        "purl": "pkg:deb/ubuntu/linux-azure-fde@5.15.0-1056.64.1?arch=src?distro=jammy"
       },
       "ranges": [
         {
@@ -176,20 +250,40 @@
           ]
         }
       ],
+      "versions": [
+        "5.15.0-1019.24.1",
+        "5.15.0-1024.30.1",
+        "5.15.0-1029.36.1",
+        "5.15.0-1030.37.1",
+        "5.15.0-1031.38.1",
+        "5.15.0-1033.40.1",
+        "5.15.0-1034.41.1",
+        "5.15.0-1035.42.1",
+        "5.15.0-1036.43.1",
+        "5.15.0-1037.44.1",
+        "5.15.0-1038.45.1",
+        "5.15.0-1039.46.1",
+        "5.15.0-1041.48.1",
+        "5.15.0-1042.49.1",
+        "5.15.0-1044.51.1",
+        "5.15.0-1045.52.1",
+        "5.15.0-1046.53.1",
+        "5.15.0-1047.54.1",
+        "5.15.0-1049.56.1",
+        "5.15.0-1050.57.1",
+        "5.15.0-1051.59.1",
+        "5.15.0-1052.60.1",
+        "5.15.0-1053.61.1",
+        "5.15.0-1054.62.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-azure-fde-lts-22.04": "5.15.0.1056.64.34",
-            "linux-cloud-tools-azure-fde-lts-22.04": "5.15.0.1056.64.34",
-            "linux-headers-azure-fde-lts-22.04": "5.15.0.1056.64.34",
-            "linux-image-5.15.0-1056-azure-fde": "5.15.0-1056.64.1",
-            "linux-image-azure-fde-lts-22.04": "5.15.0.1056.64.34",
             "linux-image-unsigned-5.15.0-1056-azure-fde": "5.15.0-1056.64.1",
-            "linux-modules-extra-azure-fde-lts-22.04": "5.15.0.1056.64.34",
-            "linux-tools-azure-fde-lts-22.04": "5.15.0.1056.64.34"
+            "linux-image-unsigned-5.15.0-1056-azure-fde-dbgsym": "5.15.0-1056.64.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -197,6 +291,18 @@
     {
       "type": "ADVISORY",
       "url": "https://ubuntu.com/security/notices/USN-6626-3"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-6039"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-6176"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-6622"
     },
     {
       "type": "REPORT",
@@ -221,18 +327,6 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-46813"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-6039"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-6176"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-6622"
     },
     {
       "type": "REPORT",

@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-2170-1",
   "summary": "mysql-5.5 vulnerabilities",
   "details": "Multiple security issues were discovered in MySQL and this update includes\na new upstream MySQL version to fix these issues. MySQL has been updated to\n5.5.37.\n\nIn addition to security fixes, the updated packages contain bug fixes,\nnew features, and possibly incompatible changes.\n\nPlease see the following for more information:\nhttp://dev.mysql.com/doc/relnotes/mysql/5.5/en/news-5-5-36.html\nhttp://dev.mysql.com/doc/relnotes/mysql/5.5/en/news-5-5-37.html\nhttp://www.oracle.com/technetwork/topics/security/cpuapr2014-1972952.html\n\nAdditionally, Matthias Reichl discovered that the mysql-5.5 packages were\nmissing the patches applied previously in the mysql-5.1 packages to drop\nthe default test database and localhost permissions granting access to any\ndatabases starting with \"test_\". This update reintroduces these patches for\nUbuntu 12.04 LTS, Ubuntu 12.10, and Ubuntu 13.10. Existing test databases\nand permissions will not be modified on upgrade. To manually restrict\naccess for existing installations, please refer to the following:\n\nhttp://dev.mysql.com/doc/refman/5.5/en/default-privileges.html\n",
@@ -20,7 +21,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:14.04:LTS",
-        "name": "mysql-5.5"
+        "name": "mysql-5.5",
+        "purl": "pkg:deb/ubuntu/mysql-5.5@5.5.37-0ubuntu0.14.04.1?arch=src?distro=trusty"
       },
       "ranges": [
         {
@@ -35,26 +37,33 @@
           ]
         }
       ],
+      "versions": [
+        "5.5.32-0ubuntu7",
+        "5.5.34-0ubuntu1",
+        "5.5.34-0ubuntu2",
+        "5.5.35-0ubuntu1",
+        "5.5.35+dfsg-1ubuntu1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "mysql-source-5.5": "5.5.37-0ubuntu0.14.04.1",
-            "mysql-client": "5.5.37-0ubuntu0.14.04.1",
-            "libmysqlclient18": "5.5.37-0ubuntu0.14.04.1",
             "libmysqlclient-dev": "5.5.37-0ubuntu0.14.04.1",
+            "libmysqlclient18": "5.5.37-0ubuntu0.14.04.1",
+            "libmysqld-dev": "5.5.37-0ubuntu0.14.04.1",
             "libmysqld-pic": "5.5.37-0ubuntu0.14.04.1",
-            "mysql-client-core-5.5": "5.5.37-0ubuntu0.14.04.1",
+            "mysql-client": "5.5.37-0ubuntu0.14.04.1",
             "mysql-client-5.5": "5.5.37-0ubuntu0.14.04.1",
-            "mysql-server-5.5": "5.5.37-0ubuntu0.14.04.1",
+            "mysql-client-core-5.5": "5.5.37-0ubuntu0.14.04.1",
             "mysql-common": "5.5.37-0ubuntu0.14.04.1",
             "mysql-server": "5.5.37-0ubuntu0.14.04.1",
-            "mysql-testsuite": "5.5.37-0ubuntu0.14.04.1",
+            "mysql-server-5.5": "5.5.37-0ubuntu0.14.04.1",
             "mysql-server-core-5.5": "5.5.37-0ubuntu0.14.04.1",
-            "libmysqld-dev": "5.5.37-0ubuntu0.14.04.1",
+            "mysql-source-5.5": "5.5.37-0ubuntu0.14.04.1",
+            "mysql-testsuite": "5.5.37-0ubuntu0.14.04.1",
             "mysql-testsuite-5.5": "5.5.37-0ubuntu0.14.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],

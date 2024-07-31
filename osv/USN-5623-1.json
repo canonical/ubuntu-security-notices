@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-5623-1",
   "summary": "linux-hwe-5.15, linux-lowlatency-hwe-5.15 vulnerabilities",
   "details": "Asaf Modelevsky discovered that the Intel(R) 10GbE PCI Express (ixgbe)\nEthernet driver for the Linux kernel performed insufficient control flow\nmanagement. A local attacker could possibly use this to cause a denial of\nservice. (CVE-2021-33061)\n\nIt was discovered that the framebuffer driver on the Linux kernel did not\nverify size limits when changing font or screen size, leading to an out-of-\nbounds write. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2021-33655)\n\nMoshe Kol, Amit Klein and Yossi Gilad discovered that the IP implementation\nin the Linux kernel did not provide sufficient randomization when\ncalculating port offsets. An attacker could possibly use this to expose\nsensitive information. (CVE-2022-1012, CVE-2022-32296)\n\nNorbert Slusarek discovered that a race condition existed in the perf\nsubsystem in the Linux kernel, resulting in a use-after-free vulnerability.\nA privileged local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2022-1729)\n\nQiuhao Li, Gaoning Pan, and Yongkang Jia discovered that the KVM hypervisor\nimplementation in the Linux kernel did not properly handle an illegal\ninstruction in a guest, resulting in a null pointer dereference. An\nattacker in a guest VM could use this to cause a denial of service (system\ncrash) in the host OS. (CVE-2022-1852)\n\nIt was discovered that the UDF file system implementation in the Linux\nkernel contained an out-of-bounds write vulnerability. A local attacker\ncould use this to cause a denial of service (system crash) or possibly\nexecute arbitrary code. (CVE-2022-1943)\n\nGerald Lee discovered that the NTFS file system implementation in the Linux\nkernel did not properly handle certain error conditions, leading to a use-\nafter-free vulnerability. A local attacker could use this to cause a denial\nof service (system crash) or possibly expose sensitive information.\n(CVE-2022-1973)\n\nDuoming Zhou discovered that race conditions existed in the timer handling\nimplementation of the Linux kernel's Rose X.25 protocol layer, resulting in\nuse-after-free vulnerabilities. A local attacker could use this to cause a\ndenial of service (system crash). (CVE-2022-2318)\n\nIt was discovered that the device-mapper verity (dm-verity) driver in the\nLinux kernel did not properly verify targets being loaded into the device-\nmapper table. A privileged attacker could use this to cause a denial of\nservice (system crash) or possibly execute arbitrary code. (CVE-2022-2503)\n\nRoger Pau Monn\u00e9 discovered that the Xen virtual block driver in the Linux\nkernel did not properly initialize memory pages to be used for shared\ncommunication with the backend. A local attacker could use this to expose\nsensitive information (guest kernel memory). (CVE-2022-26365)\n\nZheyu Ma discovered that the Intel iSMT SMBus host controller driver in the\nLinux kernel contained an out-of-bounds write vulnerability. A local\nattacker could use this to cause a denial of service (system crash).\n(CVE-2022-2873)\n\nSelim Enes Karaduman discovered that a race condition existed in the pipe\nbuffers implementation of the Linux kernel. A local attacker could use this\nto cause a denial of service (system crash) or possibly escalate\nprivileges. (CVE-2022-2959)\n\nRoger Pau Monn\u00e9 discovered that the Xen paravirtualization frontend in the\nLinux kernel did not properly initialize memory pages to be used for shared\ncommunication with the backend. A local attacker could use this to expose\nsensitive information (guest kernel memory). (CVE-2022-33740)\n\nIt was discovered that the Xen paravirtualization frontend in the Linux\nkernel incorrectly shared unrelated data when communicating with certain\nbackends. A local attacker could use this to cause a denial of service\n(guest crash) or expose sensitive information (guest kernel memory).\n(CVE-2022-33741, CVE-2022-33742)\n\nJan Beulich discovered that the Xen network device frontend driver in the\nLinux kernel incorrectly handled socket buffers (skb) references when\ncommunicating with certain backends. A local attacker could use this to\ncause a denial of service (guest crash). (CVE-2022-33743)\n\nOleksandr Tyshchenko discovered that the Xen paravirtualization platform in\nthe Linux kernel on ARM platforms contained a race condition in certain\nsituations. An attacker in a guest VM could use this to cause a denial of\nservice in the host OS. (CVE-2022-33744)\n\nIt was discovered that the virtio RPMSG bus driver in the Linux kernel\ncontained a double-free vulnerability in certain error conditions. A local\nattacker could possibly use this to cause a denial of service (system\ncrash). (CVE-2022-34494, CVE-2022-34495)\n\nDomingo Dirutigliano and Nicola Guerrera discovered that the netfilter\nsubsystem in the Linux kernel did not properly handle rules that truncated\npackets below the packet header size. When such rules are in place, a\nremote attacker could possibly use this to cause a denial of service\n(system crash). (CVE-2022-36946)\n",
@@ -13,9 +14,9 @@
     "CVE-2022-1973",
     "CVE-2022-2318",
     "CVE-2022-2503",
-    "CVE-2022-26365",
     "CVE-2022-2873",
     "CVE-2022-2959",
+    "CVE-2022-26365",
     "CVE-2022-32296",
     "CVE-2022-33740",
     "CVE-2022-33741",
@@ -32,7 +33,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-hwe-5.15"
+        "name": "linux-hwe-5.15",
+        "purl": "pkg:deb/ubuntu/linux-hwe-5.15@5.15.0-48.54~20.04.1?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -47,83 +49,55 @@
           ]
         }
       ],
+      "versions": [
+        "5.15.0-33.34~20.04.1",
+        "5.15.0-41.44~20.04.1",
+        "5.15.0-43.46~20.04.1",
+        "5.15.0-46.49~20.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-headers-5.15.0-48-generic-lpae": "5.15.0-48.54~20.04.1",
-            "linux-tools-generic-lpae-hwe-20.04": "5.15.0.48.54~20.04.18",
-            "linux-cloud-tools-generic-hwe-20.04": "5.15.0.48.54~20.04.18",
-            "linux-image-virtual-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-headers-virtual-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-hwe-5.15-headers-5.15.0-48": "5.15.0-48.54~20.04.1",
-            "linux-cloud-tools-virtual-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-hwe-5.15-tools-5.15.0-48": "5.15.0-48.54~20.04.1",
-            "linux-headers-generic-hwe-20.04": "5.15.0.48.54~20.04.18",
-            "linux-image-virtual-hwe-20.04": "5.15.0.48.54~20.04.18",
-            "linux-image-5.15.0-48-generic-64k": "5.15.0-48.54~20.04.1",
-            "linux-modules-5.15.0-48-generic-lpae": "5.15.0-48.54~20.04.1",
-            "linux-tools-generic-64k-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-image-generic-lpae-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-headers-generic-lpae-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-image-5.15.0-48-generic": "5.15.0-48.54~20.04.1",
-            "linux-image-extra-virtual-hwe-20.04": "5.15.0.48.54~20.04.18",
-            "linux-cloud-tools-generic-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-virtual-hwe-20.04": "5.15.0.48.54~20.04.18",
             "linux-buildinfo-5.15.0-48-generic": "5.15.0-48.54~20.04.1",
-            "linux-modules-5.15.0-48-generic-64k": "5.15.0-48.54~20.04.1",
-            "linux-headers-generic-64k-hwe-20.04": "5.15.0.48.54~20.04.18",
-            "linux-hwe-5.15-source-5.15.0": "5.15.0-48.54~20.04.1",
-            "linux-generic-64k-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-generic-lpae-hwe-20.04": "5.15.0.48.54~20.04.18",
-            "linux-generic-64k-hwe-20.04": "5.15.0.48.54~20.04.18",
-            "linux-virtual-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-cloud-tools-5.15.0-48-generic": "5.15.0-48.54~20.04.1",
-            "linux-image-unsigned-5.15.0-48-generic-64k": "5.15.0-48.54~20.04.1",
-            "linux-image-extra-virtual-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-headers-generic-lpae-hwe-20.04": "5.15.0.48.54~20.04.18",
-            "linux-tools-generic-lpae-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-tools-5.15.0-48-generic-64k": "5.15.0-48.54~20.04.1",
-            "linux-tools-generic-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-hwe-5.15-cloud-tools-5.15.0-48": "5.15.0-48.54~20.04.1",
-            "linux-generic-hwe-20.04": "5.15.0.48.54~20.04.18",
-            "linux-tools-5.15.0-48-generic-lpae": "5.15.0-48.54~20.04.1",
-            "linux-cloud-tools-virtual-hwe-20.04": "5.15.0.48.54~20.04.18",
-            "linux-headers-5.15.0-48-generic": "5.15.0-48.54~20.04.1",
-            "linux-image-generic-64k-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-image-generic-hwe-20.04": "5.15.0.48.54~20.04.18",
-            "linux-hwe-5.15-tools-common": "5.15.0-48.54~20.04.1",
-            "linux-modules-extra-5.15.0-48-generic": "5.15.0-48.54~20.04.1",
-            "linux-generic-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-image-5.15.0-48-generic-lpae": "5.15.0-48.54~20.04.1",
-            "linux-generic-lpae-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-image-unsigned-5.15.0-48-generic": "5.15.0-48.54~20.04.1",
-            "linux-tools-generic-hwe-20.04": "5.15.0.48.54~20.04.18",
-            "linux-headers-generic-64k-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-headers-generic-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-image-generic-lpae-hwe-20.04": "5.15.0.48.54~20.04.18",
-            "linux-tools-virtual-hwe-20.04": "5.15.0.48.54~20.04.18",
-            "linux-buildinfo-5.15.0-48-generic-lpae": "5.15.0-48.54~20.04.1",
-            "linux-modules-5.15.0-48-generic": "5.15.0-48.54~20.04.1",
-            "linux-tools-generic-64k-hwe-20.04": "5.15.0.48.54~20.04.18",
-            "linux-hwe-5.15-tools-host": "5.15.0-48.54~20.04.1",
-            "linux-tools-virtual-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
-            "linux-modules-iwlwifi-5.15.0-48-generic": "5.15.0-48.54~20.04.1",
-            "linux-image-generic-hwe-20.04-edge": "5.15.0.48.54~20.04.18",
             "linux-buildinfo-5.15.0-48-generic-64k": "5.15.0-48.54~20.04.1",
+            "linux-buildinfo-5.15.0-48-generic-lpae": "5.15.0-48.54~20.04.1",
+            "linux-cloud-tools-5.15.0-48-generic": "5.15.0-48.54~20.04.1",
+            "linux-headers-5.15.0-48-generic": "5.15.0-48.54~20.04.1",
             "linux-headers-5.15.0-48-generic-64k": "5.15.0-48.54~20.04.1",
-            "linux-image-generic-64k-hwe-20.04": "5.15.0.48.54~20.04.18",
-            "linux-tools-5.15.0-48-generic": "5.15.0-48.54~20.04.1",
+            "linux-headers-5.15.0-48-generic-lpae": "5.15.0-48.54~20.04.1",
+            "linux-hwe-5.15-cloud-tools-5.15.0-48": "5.15.0-48.54~20.04.1",
             "linux-hwe-5.15-cloud-tools-common": "5.15.0-48.54~20.04.1",
-            "linux-headers-virtual-hwe-20.04": "5.15.0.48.54~20.04.18"
+            "linux-hwe-5.15-headers-5.15.0-48": "5.15.0-48.54~20.04.1",
+            "linux-hwe-5.15-source-5.15.0": "5.15.0-48.54~20.04.1",
+            "linux-hwe-5.15-tools-5.15.0-48": "5.15.0-48.54~20.04.1",
+            "linux-hwe-5.15-tools-common": "5.15.0-48.54~20.04.1",
+            "linux-hwe-5.15-tools-host": "5.15.0-48.54~20.04.1",
+            "linux-image-5.15.0-48-generic": "5.15.0-48.54~20.04.1",
+            "linux-image-5.15.0-48-generic-dbgsym": "5.15.0-48.54~20.04.1",
+            "linux-image-5.15.0-48-generic-lpae": "5.15.0-48.54~20.04.1",
+            "linux-image-5.15.0-48-generic-lpae-dbgsym": "5.15.0-48.54~20.04.1",
+            "linux-image-unsigned-5.15.0-48-generic": "5.15.0-48.54~20.04.1",
+            "linux-image-unsigned-5.15.0-48-generic-64k": "5.15.0-48.54~20.04.1",
+            "linux-image-unsigned-5.15.0-48-generic-64k-dbgsym": "5.15.0-48.54~20.04.1",
+            "linux-image-unsigned-5.15.0-48-generic-dbgsym": "5.15.0-48.54~20.04.1",
+            "linux-modules-5.15.0-48-generic": "5.15.0-48.54~20.04.1",
+            "linux-modules-5.15.0-48-generic-64k": "5.15.0-48.54~20.04.1",
+            "linux-modules-5.15.0-48-generic-lpae": "5.15.0-48.54~20.04.1",
+            "linux-modules-extra-5.15.0-48-generic": "5.15.0-48.54~20.04.1",
+            "linux-modules-iwlwifi-5.15.0-48-generic": "5.15.0-48.54~20.04.1",
+            "linux-tools-5.15.0-48-generic": "5.15.0-48.54~20.04.1",
+            "linux-tools-5.15.0-48-generic-64k": "5.15.0-48.54~20.04.1",
+            "linux-tools-5.15.0-48-generic-lpae": "5.15.0-48.54~20.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-lowlatency-hwe-5.15"
+        "name": "linux-lowlatency-hwe-5.15",
+        "purl": "pkg:deb/ubuntu/linux-lowlatency-hwe-5.15@5.15.0-48.54~20.04.1?arch=src?distro=focal"
       },
       "ranges": [
         {
@@ -138,50 +112,38 @@
           ]
         }
       ],
+      "versions": [
+        "5.15.0-33.34~20.04.1",
+        "5.15.0-42.45~20.04.1",
+        "5.15.0-43.46~20.04.1",
+        "5.15.0-46.49~20.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-cloud-tools-lowlatency-hwe-20.04": "5.15.0.48.54~20.04.16",
-            "linux-headers-5.15.0-48-lowlatency-64k": "5.15.0-48.54~20.04.1",
-            "linux-cloud-tools-5.15.0-48-lowlatency": "5.15.0-48.54~20.04.1",
-            "linux-tools-5.15.0-48-lowlatency-64k": "5.15.0-48.54~20.04.1",
-            "linux-image-unsigned-5.15.0-48-lowlatency": "5.15.0-48.54~20.04.1",
-            "linux-image-5.15.0-48-lowlatency": "5.15.0-48.54~20.04.1",
-            "linux-image-lowlatency-hwe-20.04-edge": "5.15.0.48.54~20.04.16",
-            "linux-tools-lowlatency-64k-hwe-20.04": "5.15.0.48.54~20.04.16",
-            "linux-lowlatency-hwe-20.04": "5.15.0.48.54~20.04.16",
-            "linux-headers-lowlatency-hwe-20.04": "5.15.0.48.54~20.04.16",
-            "linux-image-unsigned-5.15.0-48-lowlatency-64k": "5.15.0-48.54~20.04.1",
-            "linux-image-lowlatency-hwe-20.04": "5.15.0.48.54~20.04.16",
-            "linux-tools-lowlatency-hwe-20.04-edge": "5.15.0.48.54~20.04.16",
-            "linux-lowlatency-hwe-20.04-edge": "5.15.0.48.54~20.04.16",
-            "linux-tools-5.15.0-48-lowlatency": "5.15.0-48.54~20.04.1",
-            "linux-headers-lowlatency-hwe-20.04-edge": "5.15.0.48.54~20.04.16",
-            "linux-lowlatency-hwe-5.15-tools-host": "5.15.0-48.54~20.04.1",
-            "linux-lowlatency-hwe-5.15-tools-common": "5.15.0-48.54~20.04.1",
-            "linux-tools-lowlatency-64k-hwe-20.04-edge": "5.15.0.48.54~20.04.16",
-            "linux-lowlatency-64k-hwe-20.04-edge": "5.15.0.48.54~20.04.16",
-            "linux-lowlatency-hwe-5.15-headers-5.15.0-48": "5.15.0-48.54~20.04.1",
-            "linux-buildinfo-5.15.0-48-lowlatency-64k": "5.15.0-48.54~20.04.1",
-            "linux-modules-5.15.0-48-lowlatency": "5.15.0-48.54~20.04.1",
-            "linux-image-5.15.0-48-lowlatency-64k": "5.15.0-48.54~20.04.1",
-            "linux-headers-lowlatency-64k-hwe-20.04": "5.15.0.48.54~20.04.16",
-            "linux-image-lowlatency-64k-hwe-20.04": "5.15.0.48.54~20.04.16",
-            "linux-lowlatency-64k-hwe-20.04": "5.15.0.48.54~20.04.16",
-            "linux-headers-5.15.0-48-lowlatency": "5.15.0-48.54~20.04.1",
-            "linux-modules-5.15.0-48-lowlatency-64k": "5.15.0-48.54~20.04.1",
-            "linux-tools-lowlatency-hwe-20.04": "5.15.0.48.54~20.04.16",
-            "linux-lowlatency-hwe-5.15-cloud-tools-common": "5.15.0-48.54~20.04.1",
-            "linux-modules-iwlwifi-5.15.0-48-lowlatency": "5.15.0-48.54~20.04.1",
             "linux-buildinfo-5.15.0-48-lowlatency": "5.15.0-48.54~20.04.1",
-            "linux-lowlatency-hwe-5.15-tools-5.15.0-48": "5.15.0-48.54~20.04.1",
+            "linux-buildinfo-5.15.0-48-lowlatency-64k": "5.15.0-48.54~20.04.1",
+            "linux-cloud-tools-5.15.0-48-lowlatency": "5.15.0-48.54~20.04.1",
+            "linux-headers-5.15.0-48-lowlatency": "5.15.0-48.54~20.04.1",
+            "linux-headers-5.15.0-48-lowlatency-64k": "5.15.0-48.54~20.04.1",
+            "linux-image-unsigned-5.15.0-48-lowlatency": "5.15.0-48.54~20.04.1",
+            "linux-image-unsigned-5.15.0-48-lowlatency-64k": "5.15.0-48.54~20.04.1",
+            "linux-image-unsigned-5.15.0-48-lowlatency-64k-dbgsym": "5.15.0-48.54~20.04.1",
+            "linux-image-unsigned-5.15.0-48-lowlatency-dbgsym": "5.15.0-48.54~20.04.1",
             "linux-lowlatency-hwe-5.15-cloud-tools-5.15.0-48": "5.15.0-48.54~20.04.1",
-            "linux-cloud-tools-lowlatency-hwe-20.04-edge": "5.15.0.48.54~20.04.16",
-            "linux-image-lowlatency-64k-hwe-20.04-edge": "5.15.0.48.54~20.04.16",
-            "linux-headers-lowlatency-64k-hwe-20.04-edge": "5.15.0.48.54~20.04.16"
+            "linux-lowlatency-hwe-5.15-cloud-tools-common": "5.15.0-48.54~20.04.1",
+            "linux-lowlatency-hwe-5.15-headers-5.15.0-48": "5.15.0-48.54~20.04.1",
+            "linux-lowlatency-hwe-5.15-tools-5.15.0-48": "5.15.0-48.54~20.04.1",
+            "linux-lowlatency-hwe-5.15-tools-common": "5.15.0-48.54~20.04.1",
+            "linux-lowlatency-hwe-5.15-tools-host": "5.15.0-48.54~20.04.1",
+            "linux-modules-5.15.0-48-lowlatency": "5.15.0-48.54~20.04.1",
+            "linux-modules-5.15.0-48-lowlatency-64k": "5.15.0-48.54~20.04.1",
+            "linux-modules-iwlwifi-5.15.0-48-lowlatency": "5.15.0-48.54~20.04.1",
+            "linux-tools-5.15.0-48-lowlatency": "5.15.0-48.54~20.04.1",
+            "linux-tools-5.15.0-48-lowlatency-64k": "5.15.0-48.54~20.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -228,15 +190,15 @@
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2022-26365"
-    },
-    {
-      "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2022-2873"
     },
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2022-2959"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2022-26365"
     },
     {
       "type": "REPORT",

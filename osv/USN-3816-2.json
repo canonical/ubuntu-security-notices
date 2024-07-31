@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-3816-2",
   "summary": "systemd vulnerability",
   "details": "USN-3816-1 fixed several vulnerabilities in systemd. However, the fix for\nCVE-2018-6954 was not sufficient. This update provides the remaining fixes.\n\nWe apologize for the inconvenience.\n\nOriginal advisory details:\n\n Jann Horn discovered that unit_deserialize incorrectly handled status messages\n above a certain length. A local attacker could potentially exploit this via\n NotifyAccess to inject arbitrary state across re-execution and obtain root\n privileges. (CVE-2018-15686)\n \n Jann Horn discovered a race condition in chown_one(). A local attacker\n could potentially exploit this by setting arbitrary permissions on certain\n files to obtain root privileges. This issue only affected Ubuntu 18.04 LTS\n and Ubuntu 18.10. (CVE-2018-15687)\n \n It was discovered that systemd-tmpfiles mishandled symlinks in\n non-terminal path components. A local attacker could potentially exploit\n this by gaining ownership of certain files to obtain root privileges. This\n issue only affected Ubuntu 16.04 LTS and Ubuntu 18.04 LTS. (CVE-2018-6954)\n",
@@ -11,52 +12,9 @@
   "affected": [
     {
       "package": {
-        "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "systemd"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "237-3ubuntu10.9"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "systemd-tests": "237-3ubuntu10.9",
-            "systemd-coredump": "237-3ubuntu10.9",
-            "systemd": "237-3ubuntu10.9",
-            "udev-udeb": "237-3ubuntu10.9",
-            "libsystemd0": "237-3ubuntu10.9",
-            "systemd-container": "237-3ubuntu10.9",
-            "libnss-myhostname": "237-3ubuntu10.9",
-            "libudev1-udeb": "237-3ubuntu10.9",
-            "libudev1": "237-3ubuntu10.9",
-            "libsystemd-dev": "237-3ubuntu10.9",
-            "libnss-systemd": "237-3ubuntu10.9",
-            "systemd-journal-remote": "237-3ubuntu10.9",
-            "libpam-systemd": "237-3ubuntu10.9",
-            "libnss-mymachines": "237-3ubuntu10.9",
-            "libnss-resolve": "237-3ubuntu10.9",
-            "systemd-sysv": "237-3ubuntu10.9",
-            "udev": "237-3ubuntu10.9",
-            "libudev-dev": "237-3ubuntu10.9"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
         "ecosystem": "Ubuntu:16.04:LTS",
-        "name": "systemd"
+        "name": "systemd",
+        "purl": "pkg:deb/ubuntu/systemd@229-4ubuntu21.9?arch=src?distro=xenial"
       },
       "ranges": [
         {
@@ -71,28 +29,161 @@
           ]
         }
       ],
+      "versions": [
+        "225-1ubuntu9",
+        "227-2ubuntu1",
+        "227-2ubuntu2",
+        "228-1ubuntu2",
+        "228-2ubuntu1",
+        "228-2ubuntu2",
+        "228-3ubuntu1",
+        "228-4ubuntu1",
+        "228-4ubuntu2",
+        "228-5ubuntu1",
+        "228-5ubuntu2",
+        "228-5ubuntu3",
+        "228-6ubuntu1",
+        "229-1ubuntu2",
+        "229-1ubuntu4",
+        "229-2ubuntu1",
+        "229-3ubuntu1",
+        "229-3ubuntu2",
+        "229-4ubuntu1",
+        "229-4ubuntu4",
+        "229-4ubuntu5",
+        "229-4ubuntu6",
+        "229-4ubuntu7",
+        "229-4ubuntu8",
+        "229-4ubuntu10",
+        "229-4ubuntu11",
+        "229-4ubuntu12",
+        "229-4ubuntu13",
+        "229-4ubuntu16",
+        "229-4ubuntu17",
+        "229-4ubuntu19",
+        "229-4ubuntu20",
+        "229-4ubuntu21",
+        "229-4ubuntu21.1",
+        "229-4ubuntu21.2",
+        "229-4ubuntu21.3",
+        "229-4ubuntu21.4",
+        "229-4ubuntu21.5",
+        "229-4ubuntu21.6",
+        "229-4ubuntu21.8"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "systemd-coredump": "229-4ubuntu21.9",
-            "systemd": "229-4ubuntu21.9",
-            "udev-udeb": "229-4ubuntu21.9",
-            "libsystemd0": "229-4ubuntu21.9",
-            "systemd-container": "229-4ubuntu21.9",
             "libnss-myhostname": "229-4ubuntu21.9",
-            "libudev1-udeb": "229-4ubuntu21.9",
-            "libudev1": "229-4ubuntu21.9",
-            "libsystemd-dev": "229-4ubuntu21.9",
-            "systemd-journal-remote": "229-4ubuntu21.9",
-            "libpam-systemd": "229-4ubuntu21.9",
+            "libnss-myhostname-dbgsym": "229-4ubuntu21.9",
             "libnss-mymachines": "229-4ubuntu21.9",
+            "libnss-mymachines-dbgsym": "229-4ubuntu21.9",
             "libnss-resolve": "229-4ubuntu21.9",
+            "libnss-resolve-dbgsym": "229-4ubuntu21.9",
+            "libpam-systemd": "229-4ubuntu21.9",
+            "libpam-systemd-dbgsym": "229-4ubuntu21.9",
+            "libsystemd-dev": "229-4ubuntu21.9",
+            "libsystemd-dev-dbgsym": "229-4ubuntu21.9",
+            "libsystemd0": "229-4ubuntu21.9",
+            "libsystemd0-dbgsym": "229-4ubuntu21.9",
+            "libudev-dev": "229-4ubuntu21.9",
+            "libudev-dev-dbgsym": "229-4ubuntu21.9",
+            "libudev1": "229-4ubuntu21.9",
+            "libudev1-dbgsym": "229-4ubuntu21.9",
+            "libudev1-udeb": "229-4ubuntu21.9",
+            "libudev1-udeb-dbgsym": "229-4ubuntu21.9",
+            "systemd": "229-4ubuntu21.9",
+            "systemd-container": "229-4ubuntu21.9",
+            "systemd-container-dbgsym": "229-4ubuntu21.9",
+            "systemd-coredump": "229-4ubuntu21.9",
+            "systemd-coredump-dbgsym": "229-4ubuntu21.9",
+            "systemd-dbg": "229-4ubuntu21.9",
+            "systemd-dbgsym": "229-4ubuntu21.9",
+            "systemd-journal-remote": "229-4ubuntu21.9",
+            "systemd-journal-remote-dbgsym": "229-4ubuntu21.9",
             "systemd-sysv": "229-4ubuntu21.9",
+            "systemd-sysv-dbgsym": "229-4ubuntu21.9",
             "udev": "229-4ubuntu21.9",
-            "libudev-dev": "229-4ubuntu21.9"
+            "udev-dbgsym": "229-4ubuntu21.9",
+            "udev-udeb": "229-4ubuntu21.9",
+            "udev-udeb-dbgsym": "229-4ubuntu21.9"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:18.04:LTS",
+        "name": "systemd",
+        "purl": "pkg:deb/ubuntu/systemd@237-3ubuntu10.9?arch=src?distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "237-3ubuntu10.9"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "234-2ubuntu12",
+        "235-2ubuntu3",
+        "235-3ubuntu2",
+        "235-3ubuntu3",
+        "237-3ubuntu3",
+        "237-3ubuntu4",
+        "237-3ubuntu6",
+        "237-3ubuntu7",
+        "237-3ubuntu8",
+        "237-3ubuntu10",
+        "237-3ubuntu10.2",
+        "237-3ubuntu10.3",
+        "237-3ubuntu10.4",
+        "237-3ubuntu10.6"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "libnss-myhostname": "237-3ubuntu10.9",
+            "libnss-myhostname-dbgsym": "237-3ubuntu10.9",
+            "libnss-mymachines": "237-3ubuntu10.9",
+            "libnss-mymachines-dbgsym": "237-3ubuntu10.9",
+            "libnss-resolve": "237-3ubuntu10.9",
+            "libnss-resolve-dbgsym": "237-3ubuntu10.9",
+            "libnss-systemd": "237-3ubuntu10.9",
+            "libnss-systemd-dbgsym": "237-3ubuntu10.9",
+            "libpam-systemd": "237-3ubuntu10.9",
+            "libpam-systemd-dbgsym": "237-3ubuntu10.9",
+            "libsystemd-dev": "237-3ubuntu10.9",
+            "libsystemd0": "237-3ubuntu10.9",
+            "libsystemd0-dbgsym": "237-3ubuntu10.9",
+            "libudev-dev": "237-3ubuntu10.9",
+            "libudev1": "237-3ubuntu10.9",
+            "libudev1-dbgsym": "237-3ubuntu10.9",
+            "libudev1-udeb": "237-3ubuntu10.9",
+            "systemd": "237-3ubuntu10.9",
+            "systemd-container": "237-3ubuntu10.9",
+            "systemd-container-dbgsym": "237-3ubuntu10.9",
+            "systemd-coredump": "237-3ubuntu10.9",
+            "systemd-coredump-dbgsym": "237-3ubuntu10.9",
+            "systemd-dbgsym": "237-3ubuntu10.9",
+            "systemd-journal-remote": "237-3ubuntu10.9",
+            "systemd-journal-remote-dbgsym": "237-3ubuntu10.9",
+            "systemd-sysv": "237-3ubuntu10.9",
+            "systemd-tests": "237-3ubuntu10.9",
+            "systemd-tests-dbgsym": "237-3ubuntu10.9",
+            "udev": "237-3ubuntu10.9",
+            "udev-dbgsym": "237-3ubuntu10.9",
+            "udev-udeb": "237-3ubuntu10.9"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],

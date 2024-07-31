@@ -1,14 +1,15 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-6502-4",
   "summary": "linux-azure, linux-azure-6.2, linux-azure-fde-6.2, linux-gcp, linux-gcp-6.2 vulnerabilities",
   "details": "Ivan D Barrera, Christopher Bednarz, Mustafa Ismail, and Shiraz Saleem\ndiscovered that the InfiniBand RDMA driver in the Linux kernel did not\nproperly check for zero-length STAG or MR registration. A remote attacker\ncould possibly use this to execute arbitrary code. (CVE-2023-25775)\n\nYu Hao discovered that the UBI driver in the Linux kernel did not properly\ncheck for MTD with zero erasesize during device attachment. A local\nprivileged attacker could use this to cause a denial of service (system\ncrash). (CVE-2023-31085)\n\nManfred Rudigier discovered that the Intel(R) PCI-Express Gigabit (igb)\nEthernet driver in the Linux kernel did not properly validate received\nframes that are larger than the set MTU size, leading to a buffer overflow\nvulnerability. An attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-45871)\n\nMaxim Levitsky discovered that the KVM nested virtualization (SVM)\nimplementation for AMD processors in the Linux kernel did not properly\nhandle x2AVIC MSRs. An attacker in a guest VM could use this to cause a\ndenial of service (host kernel crash). (CVE-2023-5090)\n\nIt was discovered that the SMB network file sharing protocol implementation\nin the Linux kernel did not properly handle certain error conditions,\nleading to a use-after-free vulnerability. A local attacker could use this\nto cause a denial of service (system crash) or possibly execute arbitrary\ncode. (CVE-2023-5345)\n",
   "aliases": [],
   "related": [
+    "CVE-2023-5090",
+    "CVE-2023-5345",
     "CVE-2023-25775",
     "CVE-2023-31085",
-    "CVE-2023-45871",
-    "CVE-2023-5090",
-    "CVE-2023-5345"
+    "CVE-2023-45871"
   ],
   "published": "2023-11-30T16:56:33.108603Z",
   "modified": "2023-11-30T16:56:33.108603Z",
@@ -16,7 +17,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-azure-6.2"
+        "name": "linux-azure-6.2",
+        "purl": "pkg:deb/ubuntu/linux-azure-6.2@6.2.0-1017.17~22.04.1?arch=src?distro=jammy"
       },
       "ranges": [
         {
@@ -31,35 +33,42 @@
           ]
         }
       ],
+      "versions": [
+        "6.2.0-1005.5~22.04.1",
+        "6.2.0-1006.6~22.04.1",
+        "6.2.0-1007.7~22.04.1",
+        "6.2.0-1008.8~22.04.1",
+        "6.2.0-1009.9~22.04.3",
+        "6.2.0-1011.11~22.04.1",
+        "6.2.0-1012.12~22.04.1",
+        "6.2.0-1014.14~22.04.1",
+        "6.2.0-1015.15~22.04.1",
+        "6.2.0-1016.16~22.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-azure": "6.2.0.1017.17~22.04.1",
             "linux-azure-6.2-cloud-tools-6.2.0-1017": "6.2.0-1017.17~22.04.1",
             "linux-azure-6.2-headers-6.2.0-1017": "6.2.0-1017.17~22.04.1",
             "linux-azure-6.2-tools-6.2.0-1017": "6.2.0-1017.17~22.04.1",
             "linux-buildinfo-6.2.0-1017-azure": "6.2.0-1017.17~22.04.1",
             "linux-cloud-tools-6.2.0-1017-azure": "6.2.0-1017.17~22.04.1",
-            "linux-cloud-tools-azure": "6.2.0.1017.17~22.04.1",
             "linux-headers-6.2.0-1017-azure": "6.2.0-1017.17~22.04.1",
-            "linux-headers-azure": "6.2.0.1017.17~22.04.1",
-            "linux-image-6.2.0-1017-azure": "6.2.0-1017.17~22.04.1",
-            "linux-image-azure": "6.2.0.1017.17~22.04.1",
             "linux-image-unsigned-6.2.0-1017-azure": "6.2.0-1017.17~22.04.1",
+            "linux-image-unsigned-6.2.0-1017-azure-dbgsym": "6.2.0-1017.17~22.04.1",
             "linux-modules-6.2.0-1017-azure": "6.2.0-1017.17~22.04.1",
             "linux-modules-extra-6.2.0-1017-azure": "6.2.0-1017.17~22.04.1",
-            "linux-modules-extra-azure": "6.2.0.1017.17~22.04.1",
-            "linux-tools-6.2.0-1017-azure": "6.2.0-1017.17~22.04.1",
-            "linux-tools-azure": "6.2.0.1017.17~22.04.1"
+            "linux-tools-6.2.0-1017-azure": "6.2.0-1017.17~22.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-azure-fde-6.2"
+        "name": "linux-azure-fde-6.2",
+        "purl": "pkg:deb/ubuntu/linux-azure-fde-6.2@6.2.0-1017.17~22.04.1.1?arch=src?distro=jammy"
       },
       "ranges": [
         {
@@ -74,26 +83,30 @@
           ]
         }
       ],
+      "versions": [
+        "6.2.0-1008.8~22.04.1.1",
+        "6.2.0-1009.9~22.04.3.1",
+        "6.2.0-1011.11~22.04.1.1",
+        "6.2.0-1012.12~22.04.1.1",
+        "6.2.0-1014.14~22.04.1.1",
+        "6.2.0-1015.15~22.04.1.1",
+        "6.2.0-1016.16~22.04.1.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-azure-fde": "6.2.0.1017.17~22.04.1.14",
-            "linux-cloud-tools-azure-fde": "6.2.0.1017.17~22.04.1.14",
-            "linux-headers-azure-fde": "6.2.0.1017.17~22.04.1.14",
-            "linux-image-6.2.0-1017-azure-fde": "6.2.0-1017.17~22.04.1.1",
-            "linux-image-azure-fde": "6.2.0.1017.17~22.04.1.14",
             "linux-image-unsigned-6.2.0-1017-azure-fde": "6.2.0-1017.17~22.04.1.1",
-            "linux-modules-extra-azure-fde": "6.2.0.1017.17~22.04.1.14",
-            "linux-tools-azure-fde": "6.2.0.1017.17~22.04.1.14"
+            "linux-image-unsigned-6.2.0-1017-azure-fde-dbgsym": "6.2.0-1017.17~22.04.1.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     },
     {
       "package": {
         "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-gcp-6.2"
+        "name": "linux-gcp-6.2",
+        "purl": "pkg:deb/ubuntu/linux-gcp-6.2@6.2.0-1019.21~22.04.1?arch=src?distro=jammy"
       },
       "ranges": [
         {
@@ -108,31 +121,33 @@
           ]
         }
       ],
+      "versions": [
+        "6.2.0-1009.9~22.04.3",
+        "6.2.0-1010.10~22.04.1",
+        "6.2.0-1011.11~22.04.1",
+        "6.2.0-1011.11~22.04.3",
+        "6.2.0-1012.12~22.04.1",
+        "6.2.0-1013.13~22.04.1",
+        "6.2.0-1014.14~22.04.1",
+        "6.2.0-1016.18~22.04.1",
+        "6.2.0-1017.19~22.04.1",
+        "6.2.0-1018.20~22.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "linux-buildinfo-6.2.0-1019-gcp": "6.2.0-1019.21~22.04.1",
-            "linux-gcp": "6.2.0.1019.21~22.04.1",
             "linux-gcp-6.2-headers-6.2.0-1019": "6.2.0-1019.21~22.04.1",
             "linux-gcp-6.2-tools-6.2.0-1019": "6.2.0-1019.21~22.04.1",
-            "linux-gcp-edge": "6.2.0.1019.21~22.04.1",
             "linux-headers-6.2.0-1019-gcp": "6.2.0-1019.21~22.04.1",
-            "linux-headers-gcp": "6.2.0.1019.21~22.04.1",
-            "linux-headers-gcp-edge": "6.2.0.1019.21~22.04.1",
-            "linux-image-6.2.0-1019-gcp": "6.2.0-1019.21~22.04.1",
-            "linux-image-gcp": "6.2.0.1019.21~22.04.1",
-            "linux-image-gcp-edge": "6.2.0.1019.21~22.04.1",
             "linux-image-unsigned-6.2.0-1019-gcp": "6.2.0-1019.21~22.04.1",
+            "linux-image-unsigned-6.2.0-1019-gcp-dbgsym": "6.2.0-1019.21~22.04.1",
             "linux-modules-6.2.0-1019-gcp": "6.2.0-1019.21~22.04.1",
             "linux-modules-extra-6.2.0-1019-gcp": "6.2.0-1019.21~22.04.1",
-            "linux-modules-extra-gcp": "6.2.0.1019.21~22.04.1",
-            "linux-modules-extra-gcp-edge": "6.2.0.1019.21~22.04.1",
-            "linux-tools-6.2.0-1019-gcp": "6.2.0-1019.21~22.04.1",
-            "linux-tools-gcp": "6.2.0.1019.21~22.04.1",
-            "linux-tools-gcp-edge": "6.2.0.1019.21~22.04.1"
+            "linux-tools-6.2.0-1019-gcp": "6.2.0-1019.21~22.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -140,6 +155,14 @@
     {
       "type": "ADVISORY",
       "url": "https://ubuntu.com/security/notices/USN-6502-4"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-5090"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-5345"
     },
     {
       "type": "REPORT",
@@ -152,14 +175,6 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-45871"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-5090"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-5345"
     }
   ]
 }

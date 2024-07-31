@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-2933-1",
   "summary": "exim4 vulnerabilities",
   "details": "It was discovered that Exim incorrectly filtered environment variables when\nused with the perl_startup configuration option. If the perl_startup option\nwas enabled, a local attacker could use this issue to escalate their\nprivileges to the root user. This issue has been fixed by having Exim clean\nthe complete execution environment by default on startup, including any\nsubprocesses such as transports that call other programs. This change in\nbehaviour may break existing installations and can be adjusted by using two\nnew configuration options, keep_environment and add_environment.\n(CVE-2016-1531)\n\nPatrick William discovered that Exim incorrectly expanded mathematical\ncomparisons twice. A local attacker could possibly use this issue to\nperform arbitrary file operations as the Exim user. This issue only\naffected Ubuntu 12.04 LTS and Ubuntu 14.04 LTS. (CVE-2014-2972)\n",
@@ -13,7 +14,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:14.04:LTS",
-        "name": "exim4"
+        "name": "exim4",
+        "purl": "pkg:deb/ubuntu/exim4@4.82-3ubuntu2.1?arch=src?distro=trusty"
       },
       "ranges": [
         {
@@ -28,19 +30,34 @@
           ]
         }
       ],
+      "versions": [
+        "4.80-7ubuntu3",
+        "4.80-7ubuntu4",
+        "4.80-9ubuntu1",
+        "4.80-9ubuntu2",
+        "4.82-3ubuntu1",
+        "4.82-3ubuntu2"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "exim4-dev": "4.82-3ubuntu2.1",
-            "eximon4": "4.82-3ubuntu2.1",
             "exim4": "4.82-3ubuntu2.1",
-            "exim4-daemon-light": "4.82-3ubuntu2.1",
+            "exim4-base": "4.82-3ubuntu2.1",
+            "exim4-base-dbgsym": "4.82-3ubuntu2.1",
             "exim4-config": "4.82-3ubuntu2.1",
             "exim4-daemon-heavy": "4.82-3ubuntu2.1",
-            "exim4-base": "4.82-3ubuntu2.1"
+            "exim4-daemon-heavy-dbg": "4.82-3ubuntu2.1",
+            "exim4-daemon-heavy-dbgsym": "4.82-3ubuntu2.1",
+            "exim4-daemon-light": "4.82-3ubuntu2.1",
+            "exim4-daemon-light-dbg": "4.82-3ubuntu2.1",
+            "exim4-daemon-light-dbgsym": "4.82-3ubuntu2.1",
+            "exim4-dbg": "4.82-3ubuntu2.1",
+            "exim4-dev": "4.82-3ubuntu2.1",
+            "eximon4": "4.82-3ubuntu2.1",
+            "eximon4-dbgsym": "4.82-3ubuntu2.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],

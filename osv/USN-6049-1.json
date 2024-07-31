@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-6049-1",
   "summary": "netty vulnerabilities",
   "details": "It was discovered that Netty's Zlib decoders did not limit memory\nallocations. A remote attacker could possibly use this issue to cause\nNetty to exhaust memory via malicious input, leading to a denial of\nservice. This issue only affected Ubuntu 16.04 ESM and Ubuntu 20.04 ESM.\n(CVE-2020-11612)\n\nIt was discovered that Netty created temporary files with excessive\npermissions. A local attacker could possibly use this issue to expose\nsensitive information. This issue only affected Ubuntu 16.04 ESM, Ubuntu\n18.04 ESM, and Ubuntu 20.04 ESM. (CVE-2021-21290)\n\nIt was discovered that Netty did not properly validate content-length\nheaders. A remote attacker could possibly use this issue to smuggle\nrequests. This issue was only fixed in Ubuntu 20.04 ESM. (CVE-2021-21295,\nCVE-2021-21409)\n\nIt was discovered that Netty's Bzip2 decompression decoder did not limit\nthe decompressed output data size. A remote attacker could possibly use\nthis issue to cause Netty to exhaust memory via malicious input, leading\nto a denial of service. This issue only affected Ubuntu 18.04 ESM, Ubuntu\n20.04 ESM, Ubuntu 22.04 LTS, and Ubuntu 22.10. (CVE-2021-37136)\n\nIt was discovered that Netty's Snappy frame decoder function did not limit\nchunk lengths. A remote attacker could possibly use this issue to cause\nNetty to exhaust memory via malicious input, leading to a denial of\nservice. (CVE-2021-37137)\n\nIt was discovered that Netty did not properly handle control chars at the\nbeginning and end of header names. A remote attacker could possibly use\nthis issue to smuggle requests. This issue only affected Ubuntu 18.04 ESM,\nUbuntu 20.04 ESM, Ubuntu 22.04 LTS, and Ubuntu 22.10. (CVE-2021-43797)\n\nIt was discovered that Netty could be made into an infinite recursion when\nparsing a malformed crafted message. A remote attacker could possibly use\nthis issue to cause Netty to crash, leading to a denial of service. This\nissue only affected Ubuntu 20.04 ESM, Ubuntu 22.04 LTS, and Ubuntu 22.10.\n(CVE-2022-41881)\n\nIt was discovered that Netty did not validate header values under certain\ncircumstances. A remote attacker could possibly use this issue to perform\nHTTP response splitting via malicious header values. This issue only\naffected Ubuntu 18.04 ESM, Ubuntu 20.04 ESM, Ubuntu 22.04 LTS, and Ubuntu\n22.10. (CVE-2022-41915)\n",
@@ -19,89 +20,9 @@
   "affected": [
     {
       "package": {
-        "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "netty"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "1:4.1.48-4+deb11u1build0.22.04.1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "libnetty-java": "1:4.1.48-4+deb11u1build0.22.04.1"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:Pro:20.04:LTS",
-        "name": "netty"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "1:4.1.45-1ubuntu0.1~esm1"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "libnetty-java": "1:4.1.45-1ubuntu0.1~esm1"
-          }
-        ],
-        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:Pro:18.04:LTS",
-        "name": "netty"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "1:4.1.7-4ubuntu0.1+esm2"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "libnetty-java": "1:4.1.7-4ubuntu0.1+esm2"
-          }
-        ],
-        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
-      }
-    },
-    {
-      "package": {
         "ecosystem": "Ubuntu:Pro:16.04:LTS",
-        "name": "netty"
+        "name": "netty",
+        "purl": "pkg:deb/ubuntu/netty@1:4.0.34-1ubuntu0.1~esm1?arch=src?distro=esm-apps/xenial"
       },
       "ranges": [
         {
@@ -116,6 +37,12 @@
           ]
         }
       ],
+      "versions": [
+        "1:3.2.6.Final-2",
+        "1:4.0.32-1",
+        "1:4.0.33-1",
+        "1:4.0.34-1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
@@ -123,6 +50,105 @@
           }
         ],
         "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:18.04:LTS",
+        "name": "netty",
+        "purl": "pkg:deb/ubuntu/netty@1:4.1.7-4ubuntu0.1+esm2?arch=src?distro=esm-apps/bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1:4.1.7-4ubuntu0.1+esm2"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "1:4.1.7-4",
+        "1:4.1.7-4ubuntu0.1~esm1",
+        "1:4.1.7-4ubuntu0.1",
+        "1:4.1.7-4ubuntu0.1+esm1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "libnetty-java": "1:4.1.7-4ubuntu0.1+esm2"
+          }
+        ],
+        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:20.04:LTS",
+        "name": "netty",
+        "purl": "pkg:deb/ubuntu/netty@1:4.1.45-1ubuntu0.1~esm1?arch=src?distro=esm-apps/focal"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1:4.1.45-1ubuntu0.1~esm1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "1:4.1.33-1",
+        "1:4.1.33-2",
+        "1:4.1.33-3",
+        "1:4.1.45-1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "libnetty-java": "1:4.1.45-1ubuntu0.1~esm1"
+          }
+        ],
+        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:22.04:LTS",
+        "name": "netty",
+        "purl": "pkg:deb/ubuntu/netty@1:4.1.48-4+deb11u1build0.22.04.1?arch=src?distro=jammy"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1:4.1.48-4+deb11u1build0.22.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "1:4.1.48-4"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "libnetty-java": "1:4.1.48-4+deb11u1build0.22.04.1"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],

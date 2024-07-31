@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-5091-3",
   "summary": "linux-azure, linux-azure-5.4 regression",
   "details": "USN-5091-1 fixed vulnerabilities in Linux 5.4-based kernels.\nUnfortunately, for Linux kernels intended for use within Microsoft\nAzure environments, that update introduced a regression that could\ncause the kernel to fail to boot in large Azure instance types.\nThis update fixes the problem.\n\nWe apologize for the inconvenience.\n\nOriginal advisory details:\n\n Ofek Kirzner, Adam Morrison, Benedict Schlueter, and Piotr Krysiuk\n discovered that the BPF verifier in the Linux kernel missed possible\n mispredicted branches due to type confusion, allowing a side-channel\n attack. An attacker could use this to expose sensitive information.\n (CVE-2021-33624)\n\n It was discovered that the tracing subsystem in the Linux kernel did not\n properly keep track of per-cpu ring buffer state. A privileged attacker\n could use this to cause a denial of service. (CVE-2021-3679)\n\n Alexey Kardashevskiy discovered that the KVM implementation for PowerPC\n systems in the Linux kernel did not properly validate RTAS arguments in\n some situations. An attacker in a guest vm could use this to cause a denial\n of service (host OS crash) or possibly execute arbitrary code.\n (CVE-2021-37576)\n\n It was discovered that the Virtio console implementation in the Linux\n kernel did not properly validate input lengths in some situations. A local\n attacker could possibly use this to cause a denial of service (system\n crash). (CVE-2021-38160)\n\n Michael Wakabayashi discovered that the NFSv4 client implementation in the\n Linux kernel did not properly order connection setup operations. An\n attacker controlling a remote NFS server could use this to cause a denial\n of service on the client. (CVE-2021-38199)\n\n It was discovered that the MAX-3421 host USB device driver in the Linux\n kernel did not properly handle device removal events. A physically\n proximate attacker could use this to cause a denial of service (system\n crash). (CVE-2021-38204)\n",
@@ -9,51 +10,9 @@
   "affected": [
     {
       "package": {
-        "ecosystem": "Ubuntu:20.04:LTS",
-        "name": "linux-azure"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "5.4.0-1061.64"
-            }
-          ]
-        }
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "linux-buildinfo-5.4.0-1061-azure": "5.4.0-1061.64",
-            "linux-azure-cloud-tools-5.4.0-1061": "5.4.0-1061.64",
-            "linux-image-azure-lts-20.04": "5.4.0.1061.59",
-            "linux-image-unsigned-5.4.0-1061-azure": "5.4.0-1061.64",
-            "linux-azure-headers-5.4.0-1061": "5.4.0-1061.64",
-            "linux-azure-tools-5.4.0-1061": "5.4.0-1061.64",
-            "linux-modules-extra-5.4.0-1061-azure": "5.4.0-1061.64",
-            "linux-image-5.4.0-1061-azure": "5.4.0-1061.64",
-            "linux-headers-azure-lts-20.04": "5.4.0.1061.59",
-            "linux-modules-5.4.0-1061-azure": "5.4.0-1061.64",
-            "linux-tools-azure-lts-20.04": "5.4.0.1061.59",
-            "linux-modules-extra-azure-lts-20.04": "5.4.0.1061.59",
-            "linux-headers-5.4.0-1061-azure": "5.4.0-1061.64",
-            "linux-tools-5.4.0-1061-azure": "5.4.0-1061.64",
-            "linux-azure-lts-20.04": "5.4.0.1061.59",
-            "linux-cloud-tools-5.4.0-1061-azure": "5.4.0-1061.64",
-            "linux-cloud-tools-azure-lts-20.04": "5.4.0.1061.59"
-          }
-        ],
-        "availability": "No subscription needed"
-      }
-    },
-    {
-      "package": {
         "ecosystem": "Ubuntu:18.04:LTS",
-        "name": "linux-azure-5.4"
+        "name": "linux-azure-5.4",
+        "purl": "pkg:deb/ubuntu/linux-azure-5.4@5.4.0-1061.64~18.04.1?arch=src?distro=bionic"
       },
       "ranges": [
         {
@@ -68,39 +27,123 @@
           ]
         }
       ],
+      "versions": [
+        "5.4.0-1020.20~18.04.1",
+        "5.4.0-1022.22~18.04.1",
+        "5.4.0-1023.23~18.04.1",
+        "5.4.0-1025.25~18.04.1",
+        "5.4.0-1026.26~18.04.1",
+        "5.4.0-1031.32~18.04.1",
+        "5.4.0-1032.33~18.04.1",
+        "5.4.0-1034.35~18.04.1",
+        "5.4.0-1035.36~18.04.1",
+        "5.4.0-1036.38~18.04.1",
+        "5.4.0-1039.41~18.04.1",
+        "5.4.0-1040.42~18.04.1",
+        "5.4.0-1041.43~18.04.1",
+        "5.4.0-1043.45~18.04.1",
+        "5.4.0-1044.46~18.04.1",
+        "5.4.0-1046.48~18.04.1",
+        "5.4.0-1047.49~18.04.1",
+        "5.4.0-1048.50~18.04.1",
+        "5.4.0-1049.51~18.04.1",
+        "5.4.0-1051.53~18.04.1",
+        "5.4.0-1055.57~18.04.1",
+        "5.4.0-1056.58~18.04.1",
+        "5.4.0-1058.60~18.04.1",
+        "5.4.0-1059.62~18.04.1"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
-            "linux-signed-azure": "5.4.0.1061.41",
-            "linux-headers-5.4.0-1061-azure": "5.4.0-1061.64~18.04.1",
-            "linux-tools-azure-edge": "5.4.0.1061.41",
-            "linux-azure": "5.4.0.1061.41",
-            "linux-signed-image-azure-edge": "5.4.0.1061.41",
-            "linux-image-azure": "5.4.0.1061.41",
-            "linux-buildinfo-5.4.0-1061-azure": "5.4.0-1061.64~18.04.1",
-            "linux-signed-image-azure": "5.4.0.1061.41",
-            "linux-cloud-tools-5.4.0-1061-azure": "5.4.0-1061.64~18.04.1",
-            "linux-cloud-tools-azure-edge": "5.4.0.1061.41",
-            "linux-tools-5.4.0-1061-azure": "5.4.0-1061.64~18.04.1",
-            "linux-tools-azure": "5.4.0.1061.41",
-            "linux-headers-azure-edge": "5.4.0.1061.41",
-            "linux-azure-5.4-tools-5.4.0-1061": "5.4.0-1061.64~18.04.1",
             "linux-azure-5.4-cloud-tools-5.4.0-1061": "5.4.0-1061.64~18.04.1",
-            "linux-image-azure-edge": "5.4.0.1061.41",
             "linux-azure-5.4-headers-5.4.0-1061": "5.4.0-1061.64~18.04.1",
-            "linux-image-5.4.0-1061-azure": "5.4.0-1061.64~18.04.1",
-            "linux-modules-extra-azure": "5.4.0.1061.41",
-            "linux-modules-5.4.0-1061-azure": "5.4.0-1061.64~18.04.1",
-            "linux-azure-edge": "5.4.0.1061.41",
+            "linux-azure-5.4-tools-5.4.0-1061": "5.4.0-1061.64~18.04.1",
+            "linux-buildinfo-5.4.0-1061-azure": "5.4.0-1061.64~18.04.1",
+            "linux-cloud-tools-5.4.0-1061-azure": "5.4.0-1061.64~18.04.1",
+            "linux-headers-5.4.0-1061-azure": "5.4.0-1061.64~18.04.1",
             "linux-image-unsigned-5.4.0-1061-azure": "5.4.0-1061.64~18.04.1",
-            "linux-modules-extra-azure-edge": "5.4.0.1061.41",
-            "linux-signed-azure-edge": "5.4.0.1061.41",
-            "linux-headers-azure": "5.4.0.1061.41",
-            "linux-cloud-tools-azure": "5.4.0.1061.41",
-            "linux-modules-extra-5.4.0-1061-azure": "5.4.0-1061.64~18.04.1"
+            "linux-image-unsigned-5.4.0-1061-azure-dbgsym": "5.4.0-1061.64~18.04.1",
+            "linux-modules-5.4.0-1061-azure": "5.4.0-1061.64~18.04.1",
+            "linux-modules-extra-5.4.0-1061-azure": "5.4.0-1061.64~18.04.1",
+            "linux-tools-5.4.0-1061-azure": "5.4.0-1061.64~18.04.1"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:20.04:LTS",
+        "name": "linux-azure",
+        "purl": "pkg:deb/ubuntu/linux-azure@5.4.0-1061.64?arch=src?distro=focal"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.4.0-1061.64"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.3.0-1003.3",
+        "5.3.0-1008.9",
+        "5.3.0-1009.10",
+        "5.4.0-1006.6",
+        "5.4.0-1008.8",
+        "5.4.0-1009.9",
+        "5.4.0-1010.10",
+        "5.4.0-1012.12",
+        "5.4.0-1016.16",
+        "5.4.0-1019.19",
+        "5.4.0-1020.20",
+        "5.4.0-1022.22",
+        "5.4.0-1023.23",
+        "5.4.0-1025.25",
+        "5.4.0-1026.26",
+        "5.4.0-1031.32",
+        "5.4.0-1032.33",
+        "5.4.0-1034.35",
+        "5.4.0-1035.36",
+        "5.4.0-1036.38",
+        "5.4.0-1039.41",
+        "5.4.0-1040.42",
+        "5.4.0-1041.43",
+        "5.4.0-1043.45",
+        "5.4.0-1044.46",
+        "5.4.0-1046.48",
+        "5.4.0-1047.49",
+        "5.4.0-1048.50",
+        "5.4.0-1049.51",
+        "5.4.0-1051.53",
+        "5.4.0-1055.57",
+        "5.4.0-1056.58",
+        "5.4.0-1058.60",
+        "5.4.0-1059.62"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "linux-azure-cloud-tools-5.4.0-1061": "5.4.0-1061.64",
+            "linux-azure-headers-5.4.0-1061": "5.4.0-1061.64",
+            "linux-azure-tools-5.4.0-1061": "5.4.0-1061.64",
+            "linux-buildinfo-5.4.0-1061-azure": "5.4.0-1061.64",
+            "linux-cloud-tools-5.4.0-1061-azure": "5.4.0-1061.64",
+            "linux-headers-5.4.0-1061-azure": "5.4.0-1061.64",
+            "linux-image-unsigned-5.4.0-1061-azure": "5.4.0-1061.64",
+            "linux-image-unsigned-5.4.0-1061-azure-dbgsym": "5.4.0-1061.64",
+            "linux-modules-5.4.0-1061-azure": "5.4.0-1061.64",
+            "linux-modules-extra-5.4.0-1061-azure": "5.4.0-1061.64",
+            "linux-tools-5.4.0-1061-azure": "5.4.0-1061.64"
+          }
+        ],
+        "availability": "No subscription required"
       }
     }
   ],

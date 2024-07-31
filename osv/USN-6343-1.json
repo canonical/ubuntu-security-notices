@@ -1,16 +1,17 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-6343-1",
   "summary": "linux-oem-6.1 vulnerabilities",
   "details": "It was discovered that the IPv6 implementation in the Linux kernel\ncontained a high rate of hash collisions in connection lookup table. A\nremote attacker could use this to cause a denial of service (excessive CPU\nconsumption). (CVE-2023-1206)\n\nRoss Lagerwall discovered that the Xen netback backend driver in the Linux\nkernel did not properly handle certain unusual packets from a\nparavirtualized network frontend, leading to a buffer overflow. An attacker\nin a guest VM could use this to cause a denial of service (host system\ncrash) or possibly execute arbitrary code. (CVE-2023-34319)\n\nIt was discovered that the bluetooth subsystem in the Linux kernel did not\nproperly handle L2CAP socket release, leading to a use-after-free\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-40283)\n\nIt was discovered that some network classifier implementations in the Linux\nkernel contained use-after-free vulnerabilities. A local attacker could use\nthis to cause a denial of service (system crash) or possibly execute\narbitrary code. (CVE-2023-4128)\n\nAndy Nguyen discovered that the KVM implementation for AMD processors in\nthe Linux kernel with Secure Encrypted Virtualization (SEV) contained a\nrace condition when accessing the GHCB page. A local attacker in a SEV\nguest VM could possibly use this to cause a denial of service (host system\ncrash). (CVE-2023-4155)\n\nIt was discovered that the TUN/TAP driver in the Linux kernel did not\nproperly initialize socket data. A local attacker could use this to cause a\ndenial of service (system crash). (CVE-2023-4194)\n\nMaxim Suhanov discovered that the exFAT file system implementation in the\nLinux kernel did not properly check a file name length, leading to an out-\nof-bounds write vulnerability. An attacker could use this to construct a\nmalicious exFAT image that, when mounted and operated on, could cause a\ndenial of service (system crash) or possibly execute arbitrary code.\n(CVE-2023-4273)\n\n",
   "aliases": [],
   "related": [
     "CVE-2023-1206",
-    "CVE-2023-34319",
-    "CVE-2023-40283",
     "CVE-2023-4128",
     "CVE-2023-4155",
     "CVE-2023-4194",
-    "CVE-2023-4273"
+    "CVE-2023-4273",
+    "CVE-2023-34319",
+    "CVE-2023-40283"
   ],
   "published": "2023-09-06T12:32:04.938576Z",
   "modified": "2023-09-06T12:32:04.938576Z",
@@ -18,7 +19,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:22.04:LTS",
-        "name": "linux-oem-6.1"
+        "name": "linux-oem-6.1",
+        "purl": "pkg:deb/ubuntu/linux-oem-6.1@6.1.0-1021.21?arch=src?distro=jammy"
       },
       "ranges": [
         {
@@ -33,31 +35,40 @@
           ]
         }
       ],
+      "versions": [
+        "6.1.0-1004.4",
+        "6.1.0-1006.6",
+        "6.1.0-1007.7",
+        "6.1.0-1008.8",
+        "6.1.0-1009.9",
+        "6.1.0-1010.10",
+        "6.1.0-1012.12",
+        "6.1.0-1013.13",
+        "6.1.0-1014.14",
+        "6.1.0-1015.15",
+        "6.1.0-1016.16",
+        "6.1.0-1017.17",
+        "6.1.0-1019.19",
+        "6.1.0-1020.20"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "linux-buildinfo-6.1.0-1021-oem": "6.1.0-1021.21",
             "linux-headers-6.1.0-1021-oem": "6.1.0-1021.21",
-            "linux-headers-oem-22.04c": "6.1.0.1021.21",
-            "linux-image-6.1.0-1021-oem": "6.1.0-1021.21",
-            "linux-image-oem-22.04c": "6.1.0.1021.21",
             "linux-image-unsigned-6.1.0-1021-oem": "6.1.0-1021.21",
+            "linux-image-unsigned-6.1.0-1021-oem-dbgsym": "6.1.0-1021.21",
             "linux-modules-6.1.0-1021-oem": "6.1.0-1021.21",
             "linux-modules-ipu6-6.1.0-1021-oem": "6.1.0-1021.21",
-            "linux-modules-ipu6-oem-22.04c": "6.1.0.1021.21",
             "linux-modules-ivsc-6.1.0-1021-oem": "6.1.0-1021.21",
-            "linux-modules-ivsc-oem-22.04c": "6.1.0.1021.21",
             "linux-modules-iwlwifi-6.1.0-1021-oem": "6.1.0-1021.21",
-            "linux-modules-iwlwifi-oem-22.04c": "6.1.0.1021.21",
-            "linux-oem-22.04c": "6.1.0.1021.21",
             "linux-oem-6.1-headers-6.1.0-1021": "6.1.0-1021.21",
             "linux-oem-6.1-tools-6.1.0-1021": "6.1.0-1021.21",
             "linux-oem-6.1-tools-host": "6.1.0-1021.21",
-            "linux-tools-6.1.0-1021-oem": "6.1.0-1021.21",
-            "linux-tools-oem-22.04c": "6.1.0.1021.21"
+            "linux-tools-6.1.0-1021-oem": "6.1.0-1021.21"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -69,14 +80,6 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-1206"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-34319"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-40283"
     },
     {
       "type": "REPORT",
@@ -93,6 +96,14 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-4273"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-34319"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-40283"
     }
   ]
 }

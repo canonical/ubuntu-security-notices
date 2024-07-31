@@ -1,13 +1,14 @@
 {
+  "schema_version": "1.6.3",
   "id": "USN-6454-3",
   "summary": "linux-laptop vulnerabilities",
   "details": "Kyle Zeng discovered that the netfilter subsystem in the Linux kernel\ncontained a race condition in IP set operations in certain situations. A\nlocal attacker could use this to cause a denial of service (system crash).\n(CVE-2023-42756)\n\nAlex Birnberg discovered that the netfilter subsystem in the Linux kernel\ndid not properly validate register length, leading to an out-of- bounds\nwrite vulnerability. A local attacker could possibly use this to cause a\ndenial of service (system crash). (CVE-2023-4881)\n\nIt was discovered that the Quick Fair Queueing scheduler implementation in\nthe Linux kernel did not properly handle network packets in certain\nconditions, leading to a use after free vulnerability. A local attacker\ncould use this to cause a denial of service (system crash) or possibly\nexecute arbitrary code. (CVE-2023-4921)\n\nKevin Rich discovered that the netfilter subsystem in the Linux kernel did\nnot properly handle removal of rules from chain bindings in certain\ncircumstances, leading to a use-after-free vulnerability. A local attacker\ncould possibly use this to cause a denial of service (system crash) or\nexecute arbitrary code. (CVE-2023-5197)\n",
   "aliases": [],
   "related": [
-    "CVE-2023-42756",
     "CVE-2023-4881",
     "CVE-2023-4921",
-    "CVE-2023-5197"
+    "CVE-2023-5197",
+    "CVE-2023-42756"
   ],
   "published": "2023-10-31T22:42:00.568592Z",
   "modified": "2023-10-31T22:42:00.568592Z",
@@ -15,7 +16,8 @@
     {
       "package": {
         "ecosystem": "Ubuntu:23.10",
-        "name": "linux-laptop"
+        "name": "linux-laptop",
+        "purl": "pkg:deb/ubuntu/linux-laptop@6.5.0-1005.8?arch=src?distro=mantic"
       },
       "ranges": [
         {
@@ -30,25 +32,26 @@
           ]
         }
       ],
+      "versions": [
+        "6.5.0-1003.6",
+        "6.5.0-1004.7"
+      ],
       "ecosystem_specific": {
         "binaries": [
           {
             "linux-buildinfo-6.5.0-1005-laptop": "6.5.0-1005.8",
             "linux-headers-6.5.0-1005-laptop": "6.5.0-1005.8",
-            "linux-headers-laptop-23.10": "6.5.0.1005.8",
             "linux-image-6.5.0-1005-laptop": "6.5.0-1005.8",
-            "linux-image-laptop-23.10": "6.5.0.1005.8",
-            "linux-laptop-23.10": "6.5.0.1005.8",
+            "linux-image-6.5.0-1005-laptop-dbgsym": "6.5.0-1005.8",
             "linux-laptop-headers-6.5.0-1005": "6.5.0-1005.8",
             "linux-laptop-tools-6.5.0-1005": "6.5.0-1005.8",
             "linux-laptop-tools-common": "6.5.0-1005.8",
             "linux-laptop-tools-host": "6.5.0-1005.8",
             "linux-modules-6.5.0-1005-laptop": "6.5.0-1005.8",
-            "linux-tools-6.5.0-1005-laptop": "6.5.0-1005.8",
-            "linux-tools-laptop-23.10": "6.5.0.1005.8"
+            "linux-tools-6.5.0-1005-laptop": "6.5.0-1005.8"
           }
         ],
-        "availability": "No subscription needed"
+        "availability": "No subscription required"
       }
     }
   ],
@@ -56,10 +59,6 @@
     {
       "type": "ADVISORY",
       "url": "https://ubuntu.com/security/notices/USN-6454-3"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2023-42756"
     },
     {
       "type": "REPORT",
@@ -72,6 +71,10 @@
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2023-5197"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-42756"
     }
   ]
 }
