@@ -1,0 +1,934 @@
+{
+    "metadata": {
+        "@context": "https://openvex.dev/ns/v0.2.0",
+        "@id": "https://github.com/canonical/ubuntu-security-notices/blob/main/vex/usn/USN-6976-1",
+        "author": "Canonical Ltd.",
+        "timestamp": "2024-08-22T16:32:11.629707",
+        "version": 1
+    },
+    "statements": [
+        {
+            "vulnerability": {
+                "@id": "https://ubuntu.com/security/notices/USN-6976-1",
+                "name": "USN-6976-1",
+                "description": "Yuxuan Hu discovered that the Bluetooth RFCOMM protocol driver in the Linux Kernel contained a race condition, leading to a NULL pointer dereference. An attacker could possibly use this to cause a denial of service (system crash). (CVE-2024-22099)  It was discovered that a race condition existed in the Bluetooth subsystem in the Linux kernel, leading to a null pointer dereference vulnerability. A privileged local attacker could use this to possibly cause a denial of service (system crash). (CVE-2024-24860)  Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems:   - SuperH RISC architecture;   - User-Mode Linux (UML);   - GPU drivers;   - HID subsystem;   - MMC subsystem;   - Network drivers;   - PHY drivers;   - SCSI drivers;   - USB subsystem;   - Xen hypervisor drivers;   - GFS2 file system;   - Memory management;   - Bluetooth subsystem;   - IPv4 networking;   - IPv6 networking;   - NFC subsystem;   - HD-audio driver;   - ALSA SH drivers; (CVE-2023-52806, CVE-2021-46924, CVE-2021-47521, CVE-2021-47542, CVE-2024-26903, CVE-2024-26654, CVE-2024-27013, CVE-2024-26600, CVE-2021-47518, CVE-2021-47171, CVE-2023-52629, CVE-2023-52644, CVE-2021-46904, CVE-2023-52470, CVE-2024-36901, CVE-2021-46906, CVE-2024-39292, CVE-2022-48659, CVE-2021-47173, CVE-2021-47571, CVE-2024-26929, CVE-2024-39484, CVE-2024-26687, CVE-2024-26679, CVE-2023-52760)",
+                "aliases": [
+                    "CVE-2021-46904",
+                    "CVE-2021-46906",
+                    "CVE-2021-46924",
+                    "CVE-2021-47171",
+                    "CVE-2021-47173",
+                    "CVE-2021-47518",
+                    "CVE-2021-47521",
+                    "CVE-2021-47542",
+                    "CVE-2021-47571",
+                    "CVE-2022-48659",
+                    "CVE-2023-52470",
+                    "CVE-2023-52629",
+                    "CVE-2023-52644",
+                    "CVE-2023-52760",
+                    "CVE-2023-52806",
+                    "CVE-2024-22099",
+                    "CVE-2024-24860",
+                    "CVE-2024-26600",
+                    "CVE-2024-26654",
+                    "CVE-2024-26679",
+                    "CVE-2024-26687",
+                    "CVE-2024-26903",
+                    "CVE-2024-26929",
+                    "CVE-2024-27013",
+                    "CVE-2024-36901",
+                    "CVE-2024-39292",
+                    "CVE-2024-39484"
+                ]
+            },
+            "timestamp": "2024-08-21 21:41:54.439955",
+            "products": [
+                {
+                    "@id": "pkg:deb/ubuntu/linux-aws@4.4.0-1135.141?arch=src?distro=esm/trusty"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-aws-cloud-tools-4.4.0-1135@4.4.0-1135.141?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-aws-headers-4.4.0-1135@4.4.0-1135.141?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-aws-headers-4.4.0-1135@4.4.0-1135.141?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-aws-headers-4.4.0-1135@4.4.0-1135.141?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-aws-headers-4.4.0-1135@4.4.0-1135.141?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-aws-headers-4.4.0-1135@4.4.0-1135.141?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-aws-tools-4.4.0-1135@4.4.0-1135.141?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-buildinfo-4.4.0-1135-aws@4.4.0-1135.141?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-cloud-tools-4.4.0-1135-aws@4.4.0-1135.141?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-1135-aws@4.4.0-1135.141?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-4.4.0-1135-aws@4.4.0-1135.141?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-4.4.0-1135-aws-dbgsym@4.4.0-1135.141?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-modules-4.4.0-1135-aws@4.4.0-1135.141?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-4.4.0-1135-aws@4.4.0-1135.141?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-lts-xenial@4.4.0-258.292~14.04.2?arch=src?distro=esm/trusty"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/block-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/block-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/crypto-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/crypto-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/fat-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/fat-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/fb-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firewire-core-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/floppy-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/fs-core-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/fs-core-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/fs-secondary-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/fs-secondary-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/input-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/input-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/ipmi-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/ipmi-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/irda-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/irda-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/kernel-image-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/kernel-image-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-buildinfo-4.4.0-258-generic@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-buildinfo-4.4.0-258-generic@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-buildinfo-4.4.0-258-lowlatency@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-cloud-tools-4.4.0-258-generic@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-cloud-tools-4.4.0-258-lowlatency@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258@4.4.0-258.292~14.04.2?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258@4.4.0-258.292~14.04.2?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258@4.4.0-258.292~14.04.2?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258-generic@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258-generic@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258-lowlatency@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-4.4.0-258-generic@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-4.4.0-258-generic-dbgsym@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-unsigned-4.4.0-258-generic@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-unsigned-4.4.0-258-generic-dbgsym@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-unsigned-4.4.0-258-lowlatency@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-unsigned-4.4.0-258-lowlatency-dbgsym@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-lts-xenial-cloud-tools-4.4.0-258@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-lts-xenial-tools-4.4.0-258@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-lts-xenial-tools-4.4.0-258@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-lts-xenial-udebs-generic@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-lts-xenial-udebs-generic@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-modules-4.4.0-258-generic@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-modules-4.4.0-258-generic@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-modules-4.4.0-258-lowlatency@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-modules-extra-4.4.0-258-generic@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-4.4.0-258-generic@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-4.4.0-258-generic@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-4.4.0-258-lowlatency@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/md-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/md-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/message-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/mouse-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/mouse-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/multipath-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/multipath-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nfs-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nfs-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nic-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nic-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nic-pcmcia-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nic-shared-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nic-shared-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nic-usb-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nic-usb-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/parport-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/parport-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/pata-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/pcmcia-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/pcmcia-storage-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/plip-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/plip-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/ppp-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/ppp-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/sata-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/sata-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/scsi-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/scsi-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/serial-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/speakup-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/speakup-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/storage-core-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/storage-core-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/usb-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/usb-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/virtio-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/virtio-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/vlan-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/vlan-modules-4.4.0-258-generic-di@4.4.0-258.292~14.04.2?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux@4.4.0-258.292?arch=src?distro=esm-infra/xenial"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/block-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/block-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/block-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/crypto-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/crypto-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/crypto-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/dasd-extra-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/dasd-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/fat-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/fat-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/fat-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/fb-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/firewire-core-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/floppy-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/fs-core-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/fs-core-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/fs-core-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/fs-secondary-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/fs-secondary-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/fs-secondary-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/input-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/input-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/ipmi-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/ipmi-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/irda-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/irda-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/kernel-image-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/kernel-image-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/kernel-image-4.4.0-258-generic-di@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-buildinfo-4.4.0-258-generic@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-buildinfo-4.4.0-258-generic@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-buildinfo-4.4.0-258-generic@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-buildinfo-4.4.0-258-lowlatency@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-cloud-tools-4.4.0-258@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-cloud-tools-4.4.0-258-generic@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-cloud-tools-4.4.0-258-lowlatency@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-cloud-tools-common@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-cloud-tools-common@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-cloud-tools-common@4.4.0-258.292?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-cloud-tools-common@4.4.0-258.292?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-cloud-tools-common@4.4.0-258.292?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-cloud-tools-common@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-doc@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-doc@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-doc@4.4.0-258.292?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-doc@4.4.0-258.292?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-doc@4.4.0-258.292?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-doc@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258@4.4.0-258.292?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258@4.4.0-258.292?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258@4.4.0-258.292?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258-generic@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258-generic@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258-generic@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-258-lowlatency@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-4.4.0-258-generic@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-4.4.0-258-generic@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-4.4.0-258-generic-dbgsym@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-4.4.0-258-generic-dbgsym@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-unsigned-4.4.0-258-generic@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-unsigned-4.4.0-258-generic-dbgsym@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-unsigned-4.4.0-258-lowlatency@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-unsigned-4.4.0-258-lowlatency-dbgsym@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-libc-dev@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-libc-dev@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-libc-dev@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-modules-4.4.0-258-generic@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-modules-4.4.0-258-generic@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-modules-4.4.0-258-generic@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-modules-4.4.0-258-lowlatency@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-modules-extra-4.4.0-258-generic@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-modules-extra-4.4.0-258-generic@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-source-4.4.0@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-source-4.4.0@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-source-4.4.0@4.4.0-258.292?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-source-4.4.0@4.4.0-258.292?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-source-4.4.0@4.4.0-258.292?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-source-4.4.0@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-4.4.0-258@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-4.4.0-258@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-4.4.0-258@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-4.4.0-258-generic@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-4.4.0-258-generic@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-4.4.0-258-generic@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-4.4.0-258-lowlatency@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-common@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-common@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-common@4.4.0-258.292?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-common@4.4.0-258.292?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-common@4.4.0-258.292?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-common@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-host@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-host@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-host@4.4.0-258.292?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-host@4.4.0-258.292?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-host@4.4.0-258.292?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-host@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-udebs-generic@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-udebs-generic@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-udebs-generic@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/md-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/md-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/md-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/message-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/mouse-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/mouse-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/multipath-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/multipath-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/multipath-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nfs-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nfs-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nfs-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nic-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nic-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nic-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nic-pcmcia-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nic-shared-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nic-shared-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nic-shared-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nic-usb-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/nic-usb-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/parport-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/parport-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/pata-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/pcmcia-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/pcmcia-storage-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/plip-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/plip-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/ppp-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/ppp-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/sata-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/sata-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/scsi-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/scsi-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/scsi-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/serial-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/speakup-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/speakup-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/storage-core-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/storage-core-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/storage-core-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/usb-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/usb-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/virtio-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/virtio-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/virtio-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/vlan-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/vlan-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/vlan-modules-4.4.0-258-generic-di@4.4.0-258.292?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-aws@4.4.0-1173.188?arch=src?distro=esm-infra/xenial"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-aws-cloud-tools-4.4.0-1173@4.4.0-1173.188?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-aws-headers-4.4.0-1173@4.4.0-1173.188?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-aws-headers-4.4.0-1173@4.4.0-1173.188?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-aws-headers-4.4.0-1173@4.4.0-1173.188?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-aws-headers-4.4.0-1173@4.4.0-1173.188?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-aws-headers-4.4.0-1173@4.4.0-1173.188?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-aws-headers-4.4.0-1173@4.4.0-1173.188?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-aws-tools-4.4.0-1173@4.4.0-1173.188?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-buildinfo-4.4.0-1173-aws@4.4.0-1173.188?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-cloud-tools-4.4.0-1173-aws@4.4.0-1173.188?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-1173-aws@4.4.0-1173.188?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-4.4.0-1173-aws@4.4.0-1173.188?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-4.4.0-1173-aws-dbgsym@4.4.0-1173.188?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-modules-4.4.0-1173-aws@4.4.0-1173.188?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-modules-extra-4.4.0-1173-aws@4.4.0-1173.188?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-4.4.0-1173-aws@4.4.0-1173.188?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-kvm@4.4.0-1136.146?arch=src?distro=esm-infra/xenial"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-buildinfo-4.4.0-1136-kvm@4.4.0-1136.146?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-cloud-tools-4.4.0-1136-kvm@4.4.0-1136.146?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-headers-4.4.0-1136-kvm@4.4.0-1136.146?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-4.4.0-1136-kvm@4.4.0-1136.146?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-image-4.4.0-1136-kvm-dbgsym@4.4.0-1136.146?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-kvm-cloud-tools-4.4.0-1136@4.4.0-1136.146?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-kvm-headers-4.4.0-1136@4.4.0-1136.146?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-kvm-headers-4.4.0-1136@4.4.0-1136.146?arch=arm64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-kvm-headers-4.4.0-1136@4.4.0-1136.146?arch=armhf"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-kvm-headers-4.4.0-1136@4.4.0-1136.146?arch=i386"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-kvm-headers-4.4.0-1136@4.4.0-1136.146?arch=ppc64el"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-kvm-headers-4.4.0-1136@4.4.0-1136.146?arch=s390x"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-kvm-tools-4.4.0-1136@4.4.0-1136.146?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-modules-4.4.0-1136-kvm@4.4.0-1136.146?arch=amd64"
+                },
+                {
+                    "@id": "pkg:deb/ubuntu/linux-tools-4.4.0-1136-kvm@4.4.0-1136.146?arch=amd64"
+                }
+            ],
+            "status": "fixed",
+            "status_notes": "Several security issues were fixed in the Linux kernel."
+        }
+    ]
+}
