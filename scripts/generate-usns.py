@@ -94,14 +94,16 @@ def main():
     options = parse_options()
 
     if not os.path.exists(options.output_dir):
-        os.mkdir(options.output_dir, 0o644)
+        os.mkdir(options.output_dir, 0o775)
     elif not os.path.isdir(options.output_dir):
         abort("%s is not a directory, exiting." % options.output_dir)
 
     database = load_database(options.db)
 
     for usn_id in database.keys():
-        if os.path.exists(os.path.join(options.output_dir, f"{database[usn_id]['id']}.json")):
+        if os.path.exists(
+            os.path.join(options.output_dir, f"{database[usn_id]['id']}.json")
+        ):
             usn_file = load_usn_file(options.output_dir, usn_id)
             prepend_usn_to_id(database, usn_id)
             if usn_file != database[usn_id]:
@@ -112,7 +114,7 @@ def main():
 
     usn_files = list_usn_files(options.output_dir)
     for file in usn_files:
-        usn_id = file.split('/')[1].split('.')[0]
+        usn_id = file.split("/")[1].split(".")[0]
         if usn_id not in database.keys():
             print(f"{usn_id} deleted from database")
             os.remove(file)
