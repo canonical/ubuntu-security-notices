@@ -1,0 +1,330 @@
+{
+  "schema_version": "1.6.3",
+  "id": "LSN-0083-1",
+  "summary": "Kernel Live Patch Security Notice",
+  "details": "The BPF subsystem in the Linux kernel before 4.17 mishandles\nsituations with a long jump over an instruction sequence where inner\ninstructions require substantial expansions into multiple BPF instructions,\nleading to an overflow. This affects kernel/bpf/core.c and\nnet/core/filter.c.(CVE-2018-25020)\n\nMaxim Levitsky discovered that the KVM hypervisor implementation for AMD\nprocessors in the Linux kernel did not properly prevent a guest VM from\nenabling AVIC in nested guest VMs. An attacker in a guest VM could use this\nto write to portions of the host's physical memory.(CVE-2021-3653)\n\nNadav Amit discovered that the hugetlb implementation in the Linux kernel\ndid not perform TLB flushes under certain conditions. A local attacker\ncould use this to leak or alter data from other processes that use huge\npages.(CVE-2021-4002)\n\nAndy Nguyen discovered that the netfilter subsystem in the Linux kernel\ncontained an out-of-bounds write in its setsockopt() implementation. A\nlocal attacker could use this to cause a denial of service (system crash)\nor possibly execute arbitrary code.(CVE-2021-22555)\n\nIt was discovered that the virtual file system implementation in the Linux\nkernel contained an unsigned to signed integer conversion error. A local\nattacker could use this to cause a denial of service (system crash) or\nexecute arbitrary code.(CVE-2021-33909)",
+  "aliases": [],
+  "related": [
+    "CVE-2018-25020",
+    "UBUNTU-CVE-2018-25020",
+    "CVE-2021-3653",
+    "UBUNTU-CVE-2021-3653",
+    "CVE-2021-4002",
+    "UBUNTU-CVE-2021-4002",
+    "CVE-2021-22555",
+    "UBUNTU-CVE-2021-22555",
+    "CVE-2021-33909",
+    "UBUNTU-CVE-2021-33909"
+  ],
+  "published": "2022-01-06T08:48:25Z",
+  "modified": "2022-01-06T08:48:25Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:16.04:LTS",
+        "name": "linux-aws",
+        "purl": "pkg:deb/ubuntu/linux-aws@4.4.0-1134.148?arch=source&distro=esm-infra/xenial"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.4.0-1134.148"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.4.0-1001.10",
+        "4.4.0-1003.12",
+        "4.4.0-1004.13",
+        "4.4.0-1007.16",
+        "4.4.0-1009.18",
+        "4.4.0-1011.20",
+        "4.4.0-1012.21",
+        "4.4.0-1013.22",
+        "4.4.0-1016.25",
+        "4.4.0-1017.26",
+        "4.4.0-1018.27",
+        "4.4.0-1020.29",
+        "4.4.0-1022.31",
+        "4.4.0-1026.35",
+        "4.4.0-1028.37",
+        "4.4.0-1030.39",
+        "4.4.0-1031.40",
+        "4.4.0-1032.41",
+        "4.4.0-1035.44",
+        "4.4.0-1037.46",
+        "4.4.0-1038.47",
+        "4.4.0-1039.48",
+        "4.4.0-1041.50",
+        "4.4.0-1043.52",
+        "4.4.0-1044.53",
+        "4.4.0-1047.56",
+        "4.4.0-1048.57",
+        "4.4.0-1049.58",
+        "4.4.0-1050.59",
+        "4.4.0-1052.61",
+        "4.4.0-1054.63",
+        "4.4.0-1055.64",
+        "4.4.0-1057.66",
+        "4.4.0-1060.69",
+        "4.4.0-1061.70",
+        "4.4.0-1062.71",
+        "4.4.0-1063.72",
+        "4.4.0-1065.75",
+        "4.4.0-1066.76",
+        "4.4.0-1067.77",
+        "4.4.0-1069.79",
+        "4.4.0-1070.80",
+        "4.4.0-1072.82",
+        "4.4.0-1073.83",
+        "4.4.0-1074.84",
+        "4.4.0-1075.85",
+        "4.4.0-1077.87",
+        "4.4.0-1079.89",
+        "4.4.0-1081.91",
+        "4.4.0-1083.93",
+        "4.4.0-1084.94",
+        "4.4.0-1085.96",
+        "4.4.0-1087.98",
+        "4.4.0-1088.99",
+        "4.4.0-1090.101",
+        "4.4.0-1092.103",
+        "4.4.0-1094.105",
+        "4.4.0-1095.106",
+        "4.4.0-1096.107",
+        "4.4.0-1098.109",
+        "4.4.0-1099.110",
+        "4.4.0-1100.111",
+        "4.4.0-1101.112",
+        "4.4.0-1102.113",
+        "4.4.0-1104.115",
+        "4.4.0-1105.116",
+        "4.4.0-1106.117",
+        "4.4.0-1107.118",
+        "4.4.0-1109.120",
+        "4.4.0-1110.121",
+        "4.4.0-1111.123",
+        "4.4.0-1112.124",
+        "4.4.0-1113.126",
+        "4.4.0-1114.127",
+        "4.4.0-1117.131",
+        "4.4.0-1118.132",
+        "4.4.0-1119.133",
+        "4.4.0-1121.135",
+        "4.4.0-1122.136",
+        "4.4.0-1123.137",
+        "4.4.0-1124.138",
+        "4.4.0-1126.140",
+        "4.4.0-1127.141",
+        "4.4.0-1128.142",
+        "4.4.0-1129.143",
+        "4.4.0-1130.144",
+        "4.4.0-1131.145",
+        "4.4.0-1132.146",
+        "4.4.0-1133.147"
+      ],
+      "ecosystem_specific": {
+        "availability": "Livepatch subscription required",
+        "module_name_regex": "lkp_Ubuntu_4_4_0[_|\\d]+_aws_(\\d+)"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:18.04:LTS",
+        "name": "linux-aws",
+        "purl": "pkg:deb/ubuntu/linux-aws@4.15.0-1118.125?arch=source&distro=bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.15.0-1118.125"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "4.15.0-1001.1",
+        "4.15.0-1003.3",
+        "4.15.0-1005.5",
+        "4.15.0-1006.6",
+        "4.15.0-1007.7",
+        "4.15.0-1009.9",
+        "4.15.0-1010.10",
+        "4.15.0-1011.11",
+        "4.15.0-1016.16",
+        "4.15.0-1017.17",
+        "4.15.0-1019.19",
+        "4.15.0-1020.20",
+        "4.15.0-1021.21",
+        "4.15.0-1023.23",
+        "4.15.0-1025.25",
+        "4.15.0-1027.27",
+        "4.15.0-1029.30",
+        "4.15.0-1031.33",
+        "4.15.0-1032.34",
+        "4.15.0-1033.35",
+        "4.15.0-1034.36",
+        "4.15.0-1035.37",
+        "4.15.0-1037.39",
+        "4.15.0-1039.41",
+        "4.15.0-1040.42",
+        "4.15.0-1041.43",
+        "4.15.0-1043.45",
+        "4.15.0-1044.46",
+        "4.15.0-1045.47",
+        "4.15.0-1047.49",
+        "4.15.0-1048.50",
+        "4.15.0-1050.52",
+        "4.15.0-1051.53",
+        "4.15.0-1052.54",
+        "4.15.0-1054.56",
+        "4.15.0-1056.58",
+        "4.15.0-1057.59",
+        "4.15.0-1058.60",
+        "4.15.0-1060.62",
+        "4.15.0-1063.67",
+        "4.15.0-1065.69",
+        "4.15.0-1066.70",
+        "4.15.0-1067.71",
+        "4.15.0-1073.77",
+        "4.15.0-1076.80",
+        "4.15.0-1077.81",
+        "4.15.0-1079.83",
+        "4.15.0-1080.84",
+        "4.15.0-1082.86",
+        "4.15.0-1083.87",
+        "4.15.0-1086.91",
+        "4.15.0-1087.92",
+        "4.15.0-1088.93",
+        "4.15.0-1090.95",
+        "4.15.0-1091.96",
+        "4.15.0-1092.98",
+        "4.15.0-1093.99",
+        "4.15.0-1094.101",
+        "4.15.0-1095.102",
+        "4.15.0-1096.103",
+        "4.15.0-1097.104",
+        "4.15.0-1098.105",
+        "4.15.0-1099.106",
+        "4.15.0-1101.108",
+        "4.15.0-1102.109",
+        "4.15.0-1103.110",
+        "4.15.0-1106.113",
+        "4.15.0-1109.116",
+        "4.15.0-1110.117",
+        "4.15.0-1111.118",
+        "4.15.0-1112.119",
+        "4.15.0-1114.121",
+        "4.15.0-1115.122",
+        "4.15.0-1116.123"
+      ],
+      "ecosystem_specific": {
+        "availability": "Livepatch subscription required",
+        "module_name_regex": "lkp_Ubuntu_4_15_0[_|\\d]+_aws_(\\d+)"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:20.04:LTS",
+        "name": "linux-aws",
+        "purl": "pkg:deb/ubuntu/linux-aws@5.4.0-1061.64?arch=source&distro=focal"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.4.0-1061.64"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.3.0-1003.3",
+        "5.3.0-1008.9",
+        "5.3.0-1009.10",
+        "5.3.0-1010.11",
+        "5.4.0-1005.5",
+        "5.4.0-1007.7",
+        "5.4.0-1008.8",
+        "5.4.0-1009.9",
+        "5.4.0-1011.11",
+        "5.4.0-1015.15",
+        "5.4.0-1017.17",
+        "5.4.0-1018.18",
+        "5.4.0-1020.20",
+        "5.4.0-1021.21",
+        "5.4.0-1022.22",
+        "5.4.0-1024.24",
+        "5.4.0-1025.25",
+        "5.4.0-1028.29",
+        "5.4.0-1029.30",
+        "5.4.0-1030.31",
+        "5.4.0-1032.33",
+        "5.4.0-1034.35",
+        "5.4.0-1035.37",
+        "5.4.0-1037.39",
+        "5.4.0-1038.40",
+        "5.4.0-1039.41",
+        "5.4.0-1041.43",
+        "5.4.0-1043.45",
+        "5.4.0-1045.47",
+        "5.4.0-1047.49",
+        "5.4.0-1048.50",
+        "5.4.0-1049.51",
+        "5.4.0-1051.53",
+        "5.4.0-1054.57",
+        "5.4.0-1055.58",
+        "5.4.0-1056.59",
+        "5.4.0-1057.60",
+        "5.4.0-1058.61",
+        "5.4.0-1059.62",
+        "5.4.0-1060.63"
+      ],
+      "ecosystem_specific": {
+        "availability": "Livepatch subscription required",
+        "module_name_regex": "lkp_Ubuntu_5_4_0[_|\\d]+_aws_(\\d+)"
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/LSN-0083-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2018-25020"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2021-3653"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2021-4002"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2021-22555"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2021-33909"
+    }
+  ]
+}
