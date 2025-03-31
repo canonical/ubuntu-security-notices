@@ -1,0 +1,1802 @@
+{
+  "schema_version": "1.6.3",
+  "id": "USN-7391-1",
+  "summary": "linux, linux-hwe-5.4 vulnerabilities",
+  "details": "Chenyuan Yang discovered that the CEC driver driver in the Linux kernel\ncontained a use-after-free vulnerability. A local attacker could use this\nto cause a denial of service (system crash) or possibly execute arbitrary\ncode. (CVE-2024-23848)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - PowerPC architecture;\n  - S390 architecture;\n  - SuperH RISC architecture;\n  - User-Mode Linux (UML);\n  - x86 architecture;\n  - Cryptographic API;\n  - Virtio block driver;\n  - Data acquisition framework and drivers;\n  - Hardware crypto device drivers;\n  - DMA engine subsystem;\n  - EDAC drivers;\n  - ARM SCPI message protocol;\n  - GPIO subsystem;\n  - GPU drivers;\n  - HID subsystem;\n  - Microsoft Hyper-V drivers;\n  - I3C subsystem;\n  - IIO ADC drivers;\n  - IIO subsystem;\n  - InfiniBand drivers;\n  - LED subsystem;\n  - Multiple devices driver;\n  - Media drivers;\n  - Multifunction device drivers;\n  - MMC subsystem;\n  - MTD block device drivers;\n  - Network drivers;\n  - Mellanox network drivers;\n  - NVME drivers;\n  - PCI subsystem;\n  - Pin controllers subsystem;\n  - x86 platform drivers;\n  - Real Time Clock drivers;\n  - SCSI subsystem;\n  - SuperH / SH-Mobile drivers;\n  - QCOM SoC drivers;\n  - SPI subsystem;\n  - USB Gadget drivers;\n  - USB Serial drivers;\n  - USB Type-C Port Controller Manager driver;\n  - VFIO drivers;\n  - Framebuffer layer;\n  - Xen hypervisor drivers;\n  - BTRFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - GFS2 file system;\n  - File systems infrastructure;\n  - JFFS2 file system;\n  - JFS file system;\n  - Network file system (NFS) client;\n  - Network file system (NFS) server daemon;\n  - NILFS2 file system;\n  - Overlay file system;\n  - Proc file system;\n  - Diskquota system;\n  - SMB network file system;\n  - UBI file system;\n  - Timer subsystem;\n  - VLANs driver;\n  - LAPB network protocol;\n  - Kernel init infrastructure;\n  - BPF subsystem;\n  - Kernel CPU control infrastructure;\n  - Tracing infrastructure;\n  - Memory management;\n  - 9P file system network protocol;\n  - Bluetooth subsystem;\n  - CAN network layer;\n  - Networking core;\n  - DCCP (Datagram Congestion Control Protocol);\n  - IEEE802154.4 network protocol;\n  - IPv4 networking;\n  - IPv6 networking;\n  - IEEE 802.15.4 subsystem;\n  - Netfilter;\n  - Netlink;\n  - NET/ROM layer;\n  - Packet sockets;\n  - Network traffic control;\n  - SCTP protocol;\n  - Sun RPC protocol;\n  - TIPC protocol;\n  - eXpress Data Path;\n  - SELinux security module;\n  - USB sound devices;\n(CVE-2024-53172, CVE-2024-56572, CVE-2024-56739, CVE-2024-56643,\nCVE-2024-53131, CVE-2024-57904, CVE-2024-53145, CVE-2024-57908,\nCVE-2024-53155, CVE-2024-56691, CVE-2024-57901, CVE-2024-56595,\nCVE-2024-55916, CVE-2024-50051, CVE-2024-49936, CVE-2024-57900,\nCVE-2024-53239, CVE-2024-53142, CVE-2024-57889, CVE-2024-53217,\nCVE-2024-56619, CVE-2025-21653, CVE-2024-53140, CVE-2024-53130,\nCVE-2024-43098, CVE-2024-56746, CVE-2024-56650, CVE-2024-56723,\nCVE-2024-56558, CVE-2024-57884, CVE-2024-56601, CVE-2024-56581,\nCVE-2024-57906, CVE-2024-57948, CVE-2024-49996, CVE-2024-56598,\nCVE-2025-21638, CVE-2024-49925, CVE-2024-56767, CVE-2024-53127,\nCVE-2024-53181, CVE-2024-53194, CVE-2024-57902, CVE-2024-56630,\nCVE-2024-56567, CVE-2024-56602, CVE-2024-56562, CVE-2024-56596,\nCVE-2024-56570, CVE-2024-56670, CVE-2024-53135, CVE-2024-56629,\nCVE-2024-56769, CVE-2024-56637, CVE-2024-56681, CVE-2024-57910,\nCVE-2024-57892, CVE-2024-56574, CVE-2024-53121, CVE-2024-56532,\nCVE-2025-21689, CVE-2024-53156, CVE-2024-57912, CVE-2024-56597,\nCVE-2025-21640, CVE-2024-53690, CVE-2024-56548, CVE-2024-56633,\nCVE-2024-43900, CVE-2024-56631, CVE-2021-47219, CVE-2024-56659,\nCVE-2024-53158, CVE-2025-21639, CVE-2024-53136, CVE-2024-56615,\nCVE-2024-56586, CVE-2024-57946, CVE-2024-57911, CVE-2025-21699,\nCVE-2025-21664, CVE-2024-53174, CVE-2024-53184, CVE-2024-53138,\nCVE-2024-53680, CVE-2024-56593, CVE-2024-56644, CVE-2024-56720,\nCVE-2024-53197, CVE-2024-57802, CVE-2024-53157, CVE-2024-56756,\nCVE-2024-53171, CVE-2024-57931, CVE-2024-56600, CVE-2024-53112,\nCVE-2024-56770, CVE-2024-53214, CVE-2024-57849, CVE-2024-57890,\nCVE-2024-56634, CVE-2024-44938, CVE-2024-53183, CVE-2025-21697,\nCVE-2024-57929, CVE-2024-53165, CVE-2024-53161, CVE-2024-53150,\nCVE-2024-56606, CVE-2024-56748, CVE-2024-48881, CVE-2024-56594,\nCVE-2024-56645, CVE-2024-56781, CVE-2024-56531, CVE-2024-56605,\nCVE-2024-56779, CVE-2025-21678, CVE-2024-53227, CVE-2024-56688,\nCVE-2024-56576, CVE-2024-56587, CVE-2024-53124, CVE-2024-49884,\nCVE-2024-57850, CVE-2024-56569, CVE-2024-53148, CVE-2025-21694,\nCVE-2024-56700, CVE-2024-53173, CVE-2024-53198, CVE-2024-52332,\nCVE-2024-47707, CVE-2024-56539, CVE-2024-56704, CVE-2024-56747,\nCVE-2025-21687, CVE-2024-56690, CVE-2022-49034, CVE-2024-57938,\nCVE-2024-57951, CVE-2024-38588, CVE-2024-56603, CVE-2024-57807,\nCVE-2024-56780, CVE-2024-57922, CVE-2024-56642, CVE-2024-57913,\nCVE-2024-53146, CVE-2024-56614, CVE-2024-56694, CVE-2024-56724)\n",
+  "aliases": [],
+  "related": [
+    "CVE-2021-47219",
+    "UBUNTU-CVE-2021-47219",
+    "CVE-2022-49034",
+    "UBUNTU-CVE-2022-49034",
+    "CVE-2024-23848",
+    "UBUNTU-CVE-2024-23848",
+    "CVE-2024-38588",
+    "UBUNTU-CVE-2024-38588",
+    "CVE-2024-43098",
+    "UBUNTU-CVE-2024-43098",
+    "CVE-2024-43900",
+    "UBUNTU-CVE-2024-43900",
+    "CVE-2024-44938",
+    "UBUNTU-CVE-2024-44938",
+    "CVE-2024-47707",
+    "UBUNTU-CVE-2024-47707",
+    "CVE-2024-48881",
+    "UBUNTU-CVE-2024-48881",
+    "CVE-2024-49884",
+    "UBUNTU-CVE-2024-49884",
+    "CVE-2024-49925",
+    "UBUNTU-CVE-2024-49925",
+    "CVE-2024-49936",
+    "UBUNTU-CVE-2024-49936",
+    "CVE-2024-49996",
+    "UBUNTU-CVE-2024-49996",
+    "CVE-2024-50051",
+    "UBUNTU-CVE-2024-50051",
+    "CVE-2024-52332",
+    "UBUNTU-CVE-2024-52332",
+    "CVE-2024-53112",
+    "UBUNTU-CVE-2024-53112",
+    "CVE-2024-53121",
+    "UBUNTU-CVE-2024-53121",
+    "CVE-2024-53124",
+    "UBUNTU-CVE-2024-53124",
+    "CVE-2024-53127",
+    "UBUNTU-CVE-2024-53127",
+    "CVE-2024-53130",
+    "UBUNTU-CVE-2024-53130",
+    "CVE-2024-53131",
+    "UBUNTU-CVE-2024-53131",
+    "CVE-2024-53135",
+    "UBUNTU-CVE-2024-53135",
+    "CVE-2024-53136",
+    "UBUNTU-CVE-2024-53136",
+    "CVE-2024-53138",
+    "UBUNTU-CVE-2024-53138",
+    "CVE-2024-53140",
+    "UBUNTU-CVE-2024-53140",
+    "CVE-2024-53142",
+    "UBUNTU-CVE-2024-53142",
+    "CVE-2024-53145",
+    "UBUNTU-CVE-2024-53145",
+    "CVE-2024-53146",
+    "UBUNTU-CVE-2024-53146",
+    "CVE-2024-53148",
+    "UBUNTU-CVE-2024-53148",
+    "CVE-2024-53150",
+    "UBUNTU-CVE-2024-53150",
+    "CVE-2024-53155",
+    "UBUNTU-CVE-2024-53155",
+    "CVE-2024-53156",
+    "UBUNTU-CVE-2024-53156",
+    "CVE-2024-53157",
+    "UBUNTU-CVE-2024-53157",
+    "CVE-2024-53158",
+    "UBUNTU-CVE-2024-53158",
+    "CVE-2024-53161",
+    "UBUNTU-CVE-2024-53161",
+    "CVE-2024-53165",
+    "UBUNTU-CVE-2024-53165",
+    "CVE-2024-53171",
+    "UBUNTU-CVE-2024-53171",
+    "CVE-2024-53172",
+    "UBUNTU-CVE-2024-53172",
+    "CVE-2024-53173",
+    "UBUNTU-CVE-2024-53173",
+    "CVE-2024-53174",
+    "UBUNTU-CVE-2024-53174",
+    "CVE-2024-53181",
+    "UBUNTU-CVE-2024-53181",
+    "CVE-2024-53183",
+    "UBUNTU-CVE-2024-53183",
+    "CVE-2024-53184",
+    "UBUNTU-CVE-2024-53184",
+    "CVE-2024-53194",
+    "UBUNTU-CVE-2024-53194",
+    "CVE-2024-53197",
+    "UBUNTU-CVE-2024-53197",
+    "CVE-2024-53198",
+    "UBUNTU-CVE-2024-53198",
+    "CVE-2024-53214",
+    "UBUNTU-CVE-2024-53214",
+    "CVE-2024-53217",
+    "UBUNTU-CVE-2024-53217",
+    "CVE-2024-53227",
+    "UBUNTU-CVE-2024-53227",
+    "CVE-2024-53239",
+    "UBUNTU-CVE-2024-53239",
+    "CVE-2024-53680",
+    "UBUNTU-CVE-2024-53680",
+    "CVE-2024-53690",
+    "UBUNTU-CVE-2024-53690",
+    "CVE-2024-55916",
+    "UBUNTU-CVE-2024-55916",
+    "CVE-2024-56531",
+    "UBUNTU-CVE-2024-56531",
+    "CVE-2024-56532",
+    "UBUNTU-CVE-2024-56532",
+    "CVE-2024-56539",
+    "UBUNTU-CVE-2024-56539",
+    "CVE-2024-56548",
+    "UBUNTU-CVE-2024-56548",
+    "CVE-2024-56558",
+    "UBUNTU-CVE-2024-56558",
+    "CVE-2024-56562",
+    "UBUNTU-CVE-2024-56562",
+    "CVE-2024-56567",
+    "UBUNTU-CVE-2024-56567",
+    "CVE-2024-56569",
+    "UBUNTU-CVE-2024-56569",
+    "CVE-2024-56570",
+    "UBUNTU-CVE-2024-56570",
+    "CVE-2024-56572",
+    "UBUNTU-CVE-2024-56572",
+    "CVE-2024-56574",
+    "UBUNTU-CVE-2024-56574",
+    "CVE-2024-56576",
+    "UBUNTU-CVE-2024-56576",
+    "CVE-2024-56581",
+    "UBUNTU-CVE-2024-56581",
+    "CVE-2024-56586",
+    "UBUNTU-CVE-2024-56586",
+    "CVE-2024-56587",
+    "UBUNTU-CVE-2024-56587",
+    "CVE-2024-56593",
+    "UBUNTU-CVE-2024-56593",
+    "CVE-2024-56594",
+    "UBUNTU-CVE-2024-56594",
+    "CVE-2024-56595",
+    "UBUNTU-CVE-2024-56595",
+    "CVE-2024-56596",
+    "UBUNTU-CVE-2024-56596",
+    "CVE-2024-56597",
+    "UBUNTU-CVE-2024-56597",
+    "CVE-2024-56598",
+    "UBUNTU-CVE-2024-56598",
+    "CVE-2024-56600",
+    "UBUNTU-CVE-2024-56600",
+    "CVE-2024-56601",
+    "UBUNTU-CVE-2024-56601",
+    "CVE-2024-56602",
+    "UBUNTU-CVE-2024-56602",
+    "CVE-2024-56603",
+    "UBUNTU-CVE-2024-56603",
+    "CVE-2024-56605",
+    "UBUNTU-CVE-2024-56605",
+    "CVE-2024-56606",
+    "UBUNTU-CVE-2024-56606",
+    "CVE-2024-56614",
+    "UBUNTU-CVE-2024-56614",
+    "CVE-2024-56615",
+    "UBUNTU-CVE-2024-56615",
+    "CVE-2024-56619",
+    "UBUNTU-CVE-2024-56619",
+    "CVE-2024-56629",
+    "UBUNTU-CVE-2024-56629",
+    "CVE-2024-56630",
+    "UBUNTU-CVE-2024-56630",
+    "CVE-2024-56631",
+    "UBUNTU-CVE-2024-56631",
+    "CVE-2024-56633",
+    "UBUNTU-CVE-2024-56633",
+    "CVE-2024-56634",
+    "UBUNTU-CVE-2024-56634",
+    "CVE-2024-56637",
+    "UBUNTU-CVE-2024-56637",
+    "CVE-2024-56642",
+    "UBUNTU-CVE-2024-56642",
+    "CVE-2024-56643",
+    "UBUNTU-CVE-2024-56643",
+    "CVE-2024-56644",
+    "UBUNTU-CVE-2024-56644",
+    "CVE-2024-56645",
+    "UBUNTU-CVE-2024-56645",
+    "CVE-2024-56650",
+    "UBUNTU-CVE-2024-56650",
+    "CVE-2024-56659",
+    "UBUNTU-CVE-2024-56659",
+    "CVE-2024-56670",
+    "UBUNTU-CVE-2024-56670",
+    "CVE-2024-56681",
+    "UBUNTU-CVE-2024-56681",
+    "CVE-2024-56688",
+    "UBUNTU-CVE-2024-56688",
+    "CVE-2024-56690",
+    "UBUNTU-CVE-2024-56690",
+    "CVE-2024-56691",
+    "UBUNTU-CVE-2024-56691",
+    "CVE-2024-56694",
+    "UBUNTU-CVE-2024-56694",
+    "CVE-2024-56700",
+    "UBUNTU-CVE-2024-56700",
+    "CVE-2024-56704",
+    "UBUNTU-CVE-2024-56704",
+    "CVE-2024-56720",
+    "UBUNTU-CVE-2024-56720",
+    "CVE-2024-56723",
+    "UBUNTU-CVE-2024-56723",
+    "CVE-2024-56724",
+    "UBUNTU-CVE-2024-56724",
+    "CVE-2024-56739",
+    "UBUNTU-CVE-2024-56739",
+    "CVE-2024-56746",
+    "UBUNTU-CVE-2024-56746",
+    "CVE-2024-56747",
+    "UBUNTU-CVE-2024-56747",
+    "CVE-2024-56748",
+    "UBUNTU-CVE-2024-56748",
+    "CVE-2024-56756",
+    "UBUNTU-CVE-2024-56756",
+    "CVE-2024-56767",
+    "UBUNTU-CVE-2024-56767",
+    "CVE-2024-56769",
+    "UBUNTU-CVE-2024-56769",
+    "CVE-2024-56770",
+    "UBUNTU-CVE-2024-56770",
+    "CVE-2024-56779",
+    "UBUNTU-CVE-2024-56779",
+    "CVE-2024-56780",
+    "UBUNTU-CVE-2024-56780",
+    "CVE-2024-56781",
+    "UBUNTU-CVE-2024-56781",
+    "CVE-2024-57802",
+    "UBUNTU-CVE-2024-57802",
+    "CVE-2024-57807",
+    "UBUNTU-CVE-2024-57807",
+    "CVE-2024-57849",
+    "UBUNTU-CVE-2024-57849",
+    "CVE-2024-57850",
+    "UBUNTU-CVE-2024-57850",
+    "CVE-2024-57884",
+    "UBUNTU-CVE-2024-57884",
+    "CVE-2024-57889",
+    "UBUNTU-CVE-2024-57889",
+    "CVE-2024-57890",
+    "UBUNTU-CVE-2024-57890",
+    "CVE-2024-57892",
+    "UBUNTU-CVE-2024-57892",
+    "CVE-2024-57900",
+    "UBUNTU-CVE-2024-57900",
+    "CVE-2024-57901",
+    "UBUNTU-CVE-2024-57901",
+    "CVE-2024-57902",
+    "UBUNTU-CVE-2024-57902",
+    "CVE-2024-57904",
+    "UBUNTU-CVE-2024-57904",
+    "CVE-2024-57906",
+    "UBUNTU-CVE-2024-57906",
+    "CVE-2024-57908",
+    "UBUNTU-CVE-2024-57908",
+    "CVE-2024-57910",
+    "UBUNTU-CVE-2024-57910",
+    "CVE-2024-57911",
+    "UBUNTU-CVE-2024-57911",
+    "CVE-2024-57912",
+    "UBUNTU-CVE-2024-57912",
+    "CVE-2024-57913",
+    "UBUNTU-CVE-2024-57913",
+    "CVE-2024-57922",
+    "UBUNTU-CVE-2024-57922",
+    "CVE-2024-57929",
+    "UBUNTU-CVE-2024-57929",
+    "CVE-2024-57931",
+    "UBUNTU-CVE-2024-57931",
+    "CVE-2024-57938",
+    "UBUNTU-CVE-2024-57938",
+    "CVE-2024-57946",
+    "UBUNTU-CVE-2024-57946",
+    "CVE-2024-57948",
+    "UBUNTU-CVE-2024-57948",
+    "CVE-2024-57951",
+    "UBUNTU-CVE-2024-57951",
+    "CVE-2025-21638",
+    "UBUNTU-CVE-2025-21638",
+    "CVE-2025-21639",
+    "UBUNTU-CVE-2025-21639",
+    "CVE-2025-21640",
+    "UBUNTU-CVE-2025-21640",
+    "CVE-2025-21653",
+    "UBUNTU-CVE-2025-21653",
+    "CVE-2025-21664",
+    "UBUNTU-CVE-2025-21664",
+    "CVE-2025-21678",
+    "UBUNTU-CVE-2025-21678",
+    "CVE-2025-21687",
+    "UBUNTU-CVE-2025-21687",
+    "CVE-2025-21689",
+    "UBUNTU-CVE-2025-21689",
+    "CVE-2025-21694",
+    "UBUNTU-CVE-2025-21694",
+    "CVE-2025-21697",
+    "UBUNTU-CVE-2025-21697",
+    "CVE-2025-21699",
+    "UBUNTU-CVE-2025-21699"
+  ],
+  "published": "2025-03-28T17:49:31.799928Z",
+  "modified": "2025-03-28T17:49:31.799928Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:18.04:LTS",
+        "name": "linux-hwe-5.4",
+        "purl": "pkg:deb/ubuntu/linux-hwe-5.4@5.4.0-211.231~18.04.1?arch=source&distro=esm-infra/bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.4.0-211.231~18.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.4.0-37.41~18.04.1",
+        "5.4.0-39.43~18.04.1",
+        "5.4.0-40.44~18.04.1",
+        "5.4.0-42.46~18.04.1",
+        "5.4.0-45.49~18.04.2",
+        "5.4.0-47.51~18.04.1",
+        "5.4.0-48.52~18.04.1",
+        "5.4.0-51.56~18.04.1",
+        "5.4.0-52.57~18.04.1",
+        "5.4.0-53.59~18.04.1",
+        "5.4.0-54.60~18.04.1",
+        "5.4.0-56.62~18.04.1",
+        "5.4.0-58.64~18.04.1",
+        "5.4.0-59.65~18.04.1",
+        "5.4.0-60.67~18.04.1",
+        "5.4.0-62.70~18.04.1",
+        "5.4.0-64.72~18.04.1",
+        "5.4.0-65.73~18.04.1",
+        "5.4.0-66.74~18.04.2",
+        "5.4.0-67.75~18.04.1",
+        "5.4.0-70.78~18.04.1",
+        "5.4.0-71.79~18.04.1",
+        "5.4.0-72.80~18.04.1",
+        "5.4.0-73.82~18.04.1",
+        "5.4.0-74.83~18.04.1",
+        "5.4.0-77.86~18.04.1",
+        "5.4.0-80.90~18.04.1",
+        "5.4.0-81.91~18.04.1",
+        "5.4.0-84.94~18.04.1",
+        "5.4.0-86.97~18.04.1",
+        "5.4.0-87.98~18.04.1",
+        "5.4.0-89.100~18.04.1",
+        "5.4.0-90.101~18.04.1",
+        "5.4.0-91.102~18.04.1",
+        "5.4.0-92.103~18.04.2",
+        "5.4.0-94.106~18.04.1",
+        "5.4.0-96.109~18.04.1",
+        "5.4.0-97.110~18.04.1",
+        "5.4.0-99.112~18.04.1",
+        "5.4.0-100.113~18.04.1",
+        "5.4.0-104.118~18.04.1",
+        "5.4.0-105.119~18.04.1",
+        "5.4.0-107.121~18.04.1",
+        "5.4.0-109.123~18.04.1",
+        "5.4.0-110.124~18.04.1",
+        "5.4.0-113.127~18.04.1",
+        "5.4.0-117.132~18.04.1",
+        "5.4.0-120.136~18.04.1",
+        "5.4.0-121.137~18.04.1",
+        "5.4.0-122.138~18.04.1",
+        "5.4.0-124.140~18.04.1",
+        "5.4.0-125.141~18.04.1",
+        "5.4.0-126.142~18.04.1",
+        "5.4.0-128.144~18.04.1",
+        "5.4.0-131.147~18.04.1",
+        "5.4.0-132.148~18.04.1",
+        "5.4.0-133.149~18.04.1",
+        "5.4.0-135.152~18.04.2",
+        "5.4.0-136.153~18.04.1",
+        "5.4.0-137.154~18.04.1",
+        "5.4.0-139.156~18.04.1",
+        "5.4.0-144.161~18.04.1",
+        "5.4.0-146.163~18.04.1",
+        "5.4.0-147.164~18.04.1",
+        "5.4.0-148.165~18.04.1",
+        "5.4.0-149.166~18.04.1",
+        "5.4.0-150.167~18.04.1",
+        "5.4.0-152.169~18.04.1",
+        "5.4.0-153.170~18.04.1",
+        "5.4.0-155.172~18.04.1",
+        "5.4.0-156.173~18.04.1",
+        "5.4.0-159.176~18.04.1",
+        "5.4.0-162.179~18.04.1",
+        "5.4.0-163.180~18.04.1",
+        "5.4.0-164.181~18.04.1",
+        "5.4.0-165.182~18.04.1",
+        "5.4.0-166.183~18.04.2",
+        "5.4.0-167.184~18.04.1",
+        "5.4.0-169.187~18.04.1",
+        "5.4.0-170.188~18.04.1",
+        "5.4.0-171.189~18.04.1",
+        "5.4.0-172.190~18.04.1",
+        "5.4.0-173.191~18.04.1",
+        "5.4.0-174.193~18.04.1",
+        "5.4.0-175.195~18.04.1",
+        "5.4.0-177.197~18.04.1",
+        "5.4.0-181.201~18.04.1",
+        "5.4.0-182.202~18.04.1",
+        "5.4.0-186.206~18.04.1",
+        "5.4.0-187.207~18.04.1",
+        "5.4.0-189.209~18.04.1",
+        "5.4.0-190.210~18.04.1",
+        "5.4.0-192.212~18.04.1",
+        "5.4.0-193.213~18.04.1",
+        "5.4.0-195.215~18.04.1",
+        "5.4.0-196.216~18.04.1",
+        "5.4.0-198.218~18.04.1",
+        "5.4.0-200.220~18.04.1",
+        "5.4.0-202.222~18.04.1",
+        "5.4.0-204.224~18.04.1",
+        "5.4.0-205.225~18.04.1",
+        "5.4.0-208.228~18.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "block-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "crypto-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "dasd-extra-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "dasd-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "fat-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "fb-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "firewire-core-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "floppy-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "fs-core-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "fs-secondary-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "input-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "ipmi-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "kernel-image-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-buildinfo-5.4.0-211-generic",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-buildinfo-5.4.0-211-lowlatency",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-cloud-tools-5.4.0-211-generic",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-cloud-tools-5.4.0-211-lowlatency",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-headers-5.4.0-211-generic",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-headers-5.4.0-211-lowlatency",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-hwe-5.4-cloud-tools-5.4.0-211",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-hwe-5.4-cloud-tools-common",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-hwe-5.4-headers-5.4.0-211",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-hwe-5.4-source-5.4.0",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-hwe-5.4-tools-5.4.0-211",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-hwe-5.4-tools-common",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-hwe-5.4-udebs-generic",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-image-unsigned-5.4.0-211-generic",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-image-unsigned-5.4.0-211-generic-dbgsym",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-image-unsigned-5.4.0-211-lowlatency",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-image-unsigned-5.4.0-211-lowlatency-dbgsym",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-modules-5.4.0-211-generic",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-modules-5.4.0-211-lowlatency",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-modules-extra-5.4.0-211-generic",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-tools-5.4.0-211-generic",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "linux-tools-5.4.0-211-lowlatency",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "md-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "message-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "mouse-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "multipath-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "nfs-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "nic-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "nic-pcmcia-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "nic-shared-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "nic-usb-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "parport-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "pata-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "pcmcia-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "pcmcia-storage-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "plip-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "ppp-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "sata-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "scsi-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "serial-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "storage-core-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "usb-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "virtio-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          },
+          {
+            "binary_name": "vlan-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231~18.04.1"
+          }
+        ],
+        "availability": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:20.04:LTS",
+        "name": "linux",
+        "purl": "pkg:deb/ubuntu/linux@5.4.0-211.231?arch=source&distro=focal"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.4.0-211.231"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.3.0-18.19",
+        "5.3.0-24.26",
+        "5.4.0-9.12",
+        "5.4.0-18.22",
+        "5.4.0-21.25",
+        "5.4.0-24.28",
+        "5.4.0-25.29",
+        "5.4.0-26.30",
+        "5.4.0-28.32",
+        "5.4.0-29.33",
+        "5.4.0-31.35",
+        "5.4.0-33.37",
+        "5.4.0-37.41",
+        "5.4.0-39.43",
+        "5.4.0-40.44",
+        "5.4.0-42.46",
+        "5.4.0-45.49",
+        "5.4.0-47.51",
+        "5.4.0-48.52",
+        "5.4.0-51.56",
+        "5.4.0-52.57",
+        "5.4.0-53.59",
+        "5.4.0-54.60",
+        "5.4.0-56.62",
+        "5.4.0-58.64",
+        "5.4.0-59.65",
+        "5.4.0-60.67",
+        "5.4.0-62.70",
+        "5.4.0-64.72",
+        "5.4.0-65.73",
+        "5.4.0-66.74",
+        "5.4.0-67.75",
+        "5.4.0-70.78",
+        "5.4.0-71.79",
+        "5.4.0-72.80",
+        "5.4.0-73.82",
+        "5.4.0-74.83",
+        "5.4.0-77.86",
+        "5.4.0-80.90",
+        "5.4.0-81.91",
+        "5.4.0-84.94",
+        "5.4.0-86.97",
+        "5.4.0-88.99",
+        "5.4.0-89.100",
+        "5.4.0-90.101",
+        "5.4.0-91.102",
+        "5.4.0-92.103",
+        "5.4.0-94.106",
+        "5.4.0-96.109",
+        "5.4.0-97.110",
+        "5.4.0-99.112",
+        "5.4.0-100.113",
+        "5.4.0-104.118",
+        "5.4.0-105.119",
+        "5.4.0-107.121",
+        "5.4.0-109.123",
+        "5.4.0-110.124",
+        "5.4.0-113.127",
+        "5.4.0-117.132",
+        "5.4.0-120.136",
+        "5.4.0-121.137",
+        "5.4.0-122.138",
+        "5.4.0-124.140",
+        "5.4.0-125.141",
+        "5.4.0-126.142",
+        "5.4.0-128.144",
+        "5.4.0-131.147",
+        "5.4.0-132.148",
+        "5.4.0-135.152",
+        "5.4.0-136.153",
+        "5.4.0-137.154",
+        "5.4.0-139.156",
+        "5.4.0-144.161",
+        "5.4.0-146.163",
+        "5.4.0-147.164",
+        "5.4.0-148.165",
+        "5.4.0-149.166",
+        "5.4.0-150.167",
+        "5.4.0-152.169",
+        "5.4.0-153.170",
+        "5.4.0-155.172",
+        "5.4.0-156.173",
+        "5.4.0-159.176",
+        "5.4.0-162.179",
+        "5.4.0-163.180",
+        "5.4.0-164.181",
+        "5.4.0-165.182",
+        "5.4.0-166.183",
+        "5.4.0-167.184",
+        "5.4.0-169.187",
+        "5.4.0-170.188",
+        "5.4.0-171.189",
+        "5.4.0-172.190",
+        "5.4.0-173.191",
+        "5.4.0-174.193",
+        "5.4.0-176.196",
+        "5.4.0-177.197",
+        "5.4.0-181.201",
+        "5.4.0-182.202",
+        "5.4.0-186.206",
+        "5.4.0-187.207",
+        "5.4.0-189.209",
+        "5.4.0-190.210",
+        "5.4.0-192.212",
+        "5.4.0-193.213",
+        "5.4.0-195.215",
+        "5.4.0-196.216",
+        "5.4.0-198.218",
+        "5.4.0-200.220",
+        "5.4.0-202.222",
+        "5.4.0-204.224",
+        "5.4.0-205.225",
+        "5.4.0-208.228"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "block-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "block-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "crypto-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "crypto-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "dasd-extra-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "dasd-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "fat-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "fat-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "fb-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "firewire-core-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "floppy-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "fs-core-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "fs-core-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "fs-secondary-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "fs-secondary-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "input-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "input-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "ipmi-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "ipmi-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "kernel-image-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "kernel-image-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-buildinfo-5.4.0-211-generic",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-buildinfo-5.4.0-211-generic-lpae",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-buildinfo-5.4.0-211-lowlatency",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-cloud-tools-5.4.0-211",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-cloud-tools-5.4.0-211-generic",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-cloud-tools-5.4.0-211-lowlatency",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-cloud-tools-common",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-doc",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-headers-5.4.0-211",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-headers-5.4.0-211-generic",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-headers-5.4.0-211-generic-lpae",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-headers-5.4.0-211-lowlatency",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-image-5.4.0-211-generic",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-image-5.4.0-211-generic-dbgsym",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-image-5.4.0-211-generic-lpae",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-image-5.4.0-211-generic-lpae-dbgsym",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-image-unsigned-5.4.0-211-generic",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-image-unsigned-5.4.0-211-generic-dbgsym",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-image-unsigned-5.4.0-211-lowlatency",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-image-unsigned-5.4.0-211-lowlatency-dbgsym",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-libc-dev",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-modules-5.4.0-211-generic",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-modules-5.4.0-211-generic-lpae",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-modules-5.4.0-211-lowlatency",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-modules-extra-5.4.0-211-generic",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-source-5.4.0",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-tools-5.4.0-211",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-tools-5.4.0-211-generic",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-tools-5.4.0-211-generic-lpae",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-tools-5.4.0-211-lowlatency",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-tools-common",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-tools-host",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-udebs-generic",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "linux-udebs-generic-lpae",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "md-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "md-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "message-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "mouse-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "mouse-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "multipath-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "multipath-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "nfs-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "nfs-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "nic-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "nic-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "nic-pcmcia-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "nic-shared-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "nic-shared-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "nic-usb-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "nic-usb-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "parport-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "parport-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "pata-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "pcmcia-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "pcmcia-storage-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "plip-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "plip-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "ppp-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "ppp-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "sata-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "sata-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "scsi-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "scsi-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "serial-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "storage-core-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "storage-core-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "usb-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "usb-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "virtio-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "vlan-modules-5.4.0-211-generic-di",
+            "binary_version": "5.4.0-211.231"
+          },
+          {
+            "binary_name": "vlan-modules-5.4.0-211-generic-lpae-di",
+            "binary_version": "5.4.0-211.231"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-7391-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2021-47219"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2022-49034"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-23848"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-38588"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-43098"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-43900"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-44938"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-47707"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-48881"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-49884"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-49925"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-49936"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-49996"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-50051"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-52332"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53112"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53121"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53124"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53127"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53130"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53131"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53135"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53136"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53138"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53140"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53142"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53145"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53146"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53148"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53150"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53155"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53156"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53157"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53158"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53161"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53165"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53171"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53172"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53173"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53174"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53181"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53183"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53184"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53194"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53197"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53198"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53214"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53217"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53227"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53239"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53680"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53690"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-55916"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56531"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56532"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56539"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56548"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56558"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56562"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56567"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56569"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56570"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56572"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56574"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56576"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56581"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56586"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56587"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56593"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56594"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56595"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56596"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56597"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56598"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56600"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56601"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56602"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56603"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56605"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56606"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56614"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56615"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56619"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56629"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56630"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56631"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56633"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56634"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56637"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56642"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56643"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56644"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56645"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56650"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56659"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56670"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56681"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56688"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56690"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56691"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56694"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56700"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56704"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56720"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56723"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56724"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56739"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56746"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56747"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56748"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56756"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56767"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56769"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56770"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56779"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56780"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56781"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57802"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57807"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57849"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57850"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57884"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57889"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57890"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57892"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57900"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57901"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57902"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57904"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57906"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57908"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57910"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57911"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57912"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57913"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57922"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57929"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57931"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57938"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57946"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57948"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-57951"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-21638"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-21639"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-21640"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-21653"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-21664"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-21678"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-21687"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-21689"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-21694"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-21697"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-21699"
+    }
+  ]
+}
