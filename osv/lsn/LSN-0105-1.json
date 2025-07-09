@@ -1,23 +1,19 @@
 {
-  "schema_version": "1.6.3",
+  "schema_version": "1.7.0",
   "id": "LSN-0105-1",
   "summary": "Kernel Live Patch Security Notice",
   "details": "It was discovered that the ATA over Ethernet (AoE) driver in the Linux\nkernel contained a race condition, leading to a use-after-free\nvulnerability. An attacker could use this to cause a denial of service or\npossibly execute arbitrary code.(CVE-2023-6270)\n\nIt was discovered that the netfilter connection tracker for netlink in the\nLinux kernel did not properly perform reference counting in some error\nconditions. A local attacker could possibly use this to cause a denial of\nservice (memory exhaustion).(CVE-2023-7192)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: netfilter: nf_tables: disallow anonymous set with timeout flag\nAnonymous sets are never used with timeout from userspace, reject this.\nException to this rule is NFT_SET_EVAL to ensure legacy meters still work.(CVE-2024-26642)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: cifs: fix underflow in parse_server_interfaces() In this loop, we\nstep through the buffer and after each item we check if the size_left is\ngreater than the minimum size we need. However, the problem is that\n'bytes_left' is type ssize_t while sizeof() is type size_t. That means that\nbecause of type promotion, the comparison is done as an unsigned and if we\nhave negative bytes left the loop continues instead of ending.(CVE-2024-26828)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: netfilter: nft_set_pipapo: do not free live element (CVE-2024-26924)",
   "aliases": [],
-  "related": [
-    "CVE-2023-6270",
+  "upstream": [
     "UBUNTU-CVE-2023-6270",
-    "CVE-2023-7192",
     "UBUNTU-CVE-2023-7192",
-    "CVE-2024-26642",
     "UBUNTU-CVE-2024-26642",
-    "CVE-2024-26828",
     "UBUNTU-CVE-2024-26828",
-    "CVE-2024-26924",
     "UBUNTU-CVE-2024-26924"
   ],
+  "related": [],
   "published": "2024-07-16T10:18:09Z",
-  "modified": "2024-07-16T10:18:09Z",
+  "modified": "2025-07-09T11:00:00Z",
   "affected": [
     {
       "package": {

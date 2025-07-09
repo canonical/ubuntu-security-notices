@@ -1,51 +1,36 @@
 {
-  "schema_version": "1.6.3",
+  "schema_version": "1.7.0",
   "id": "LSN-0112-1",
   "summary": "Kernel Live Patch Security Notice",
   "details": "In the Linux kernel, the following vulnerability has been\nresolved: nfsd: fix use-after-free due to delegation race A delegation\nbreak could arrive as soon as we've called vfs_setlease. A delegation break\nruns a callback which immediately (in nfsd4_cb_recall_prepare) adds the\ndelegation to del_recall_lru. If we then exit nfs4_set_delegation without\nhashing the delegation, it will be freed as soon as the callback is done\nwith it, without ever being removed from del_recall_lru. Symptoms show up\nlater as use-after-free or list corruption warnings, usually in the\nlaundromat thread. I suspect aba2072f4523 'nfsd: grant read delegations to\nclients holding writes' made this bug easier to hit, but I looked as far\nback as v3.0 and it looks to me it already had the same problem. So I'm not\nsure where the bug was introduced; it may have been there from the\nbeginning.)(CVE-2021-47506)\n\nJann Horn discovered that the watch_queue event notification subsystem in\nthe Linux kernel contained an out-of-bounds write vulnerability. A local\nattacker could use this to cause a denial of service (system crash) or\nescalate their privileges.)(CVE-2022-0995)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: net: atlantic: eliminate double free in error handling logic\nDriver has a logic leak in ring data allocation/free, where aq_ring_free\ncould be called multiple times on same ring, if system is under stress and\ngot memory allocation error. Ring pointer was used as an indicator of\nfailure, but this is not correct since only ring data is\nallocated/deallocated. Ring itself is an array member. Changing ring\nallocation functions to return error code directly. This simplifies error\nhandling and eliminates aq_ring_free on higher layer.)(CVE-2023-52664)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ceph: prevent use-after-free in encode_cap_msg() In\nfs/ceph/caps.c, in encode_cap_msg(), 'use after free' error was caught by\nKASAN at this line - 'ceph_buffer_get(arg->xattr_buf);'. This implies\nbefore the refcount could be increment here, it was freed. In same file, in\n'handle_cap_grant()' refcount is decremented by this line -\n'ceph_buffer_put(ci->i_xattrs.blob);'. It appears that a race occurred and\nresource was freed by the latter line before the former line could\nincrement it. encode_cap_msg() is called by __send_cap() and __send_cap()\nis called by ceph_check_caps() after calling __prep_cap(). __prep_cap() is\nwhere arg->xattr_buf is assigned to ci->i_xattrs.blob. This is the spot\nwhere the refcount must be increased to prevent 'use after free' error.)(CVE-2024-26689)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: smb: client: fix potential UAF in smb2_is_valid_lease_break()\nSkip sessions that are being teared down (status == SES_EXITING) to avoid\nUAF.)(CVE-2024-35864)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: HID: core: zero-initialize the report buffer Since the report\nbuffer is used by all kinds of drivers in various ways, let's zero-\ninitialize it during allocation to make sure that it can't be ever used to\nleak kernel memory via specially-crafted report.)(CVE-2024-50302)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: media: dvbdev: prevent the risk of out of memory access The\ndvbdev contains a static variable used to store dvb minors. The behavior of\nit depends if CONFIG_DVB_DYNAMIC_MINORS is set or not. When not set,\ndvb_register_device() won't check for boundaries, as it will rely that a\nprevious call to dvb_register_adapter() would already be enforcing it. On a\nsimilar way, dvb_device_open() uses the assumption that the register\nfunctions already did the needed checks. This can be fragile if some device\nends using different calls. This also generate warnings on static check\nanalysers like Coverity. So, add explicit guards to prevent potential risk\nof OOM issues.)(CVE-2024-53063)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ALSA: usb-audio: Fix out of bounds reads when finding clock\nsources The current USB-audio driver code doesn't check bLength of each\ndescriptor at traversing for clock descriptors. That is, when a device\nprovides a bogus descriptor with a shorter bLength, the driver might hit\nout-of-bounds reads. For addressing it, this patch adds sanity checks to\nthe validator functions for the clock descriptor traversal. When the\ndescriptor length is shorter than expected, it's skipped in the loop. For\nthe clock source and clock multiplier descriptors, we can just check\nbLength against the sizeof() of each descriptor type. OTOH, the clock\nselector descriptor of UAC2 and UAC3 has an array of bNrInPins elements and\ntwo more fields at its tail, hence those have to be checked in addition to\nthe sizeof() check.)(CVE-2024-53150)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: sunrpc: fix one UAF issue caused by sunrpc kernel tcp socket BUG:\nKASAN: slab-use-after-free in tcp_write_timer_handler+0x156/0x3e0 (CVE-2024-53168)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ALSA: usb-audio: Fix potential out-of-bound accesses for Extigy\nand Mbox devices A bogus device can provide a bNumConfigurations value that\nexceeds the initial value used in usb_get_configuration for allocating\ndev->config. This can lead to out-of-bounds accesses later, e.g. in\nusb_destroy_configuration.)(CVE-2024-53197)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: drm/amdgpu: fix usage slab after free [ +0.000021] BUG: KASAN:\nslab-use-after-free in drm_sched_entity_flush+0x6cb/0x7a0 (CVE-2024-56551)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: wifi: brcmfmac: Fix oops due to NULL pointer dereference in\nbrcmf_sdiod_sglist_rw() This patch fixes a NULL pointer dereference bug in\nbrcmfmac that occurs when a high 'sd_sgentry_align' value applies (e.g.\n512) and a lot of queued SKBs are sent from the pkt queue. The problem is\nthe number of entries in the pre-allocated sgtable, it is nents =\nmax(rxglom_size, txglom_size) + max(rxglom_size, txglom_size) >> 4 + 1.\nGiven the default [rt]xglom_size=32 it's actually 35 which is too small.\nWorst case, the pkt queue can end up with 64 SKBs. This occurs when a new\nSKB is added for each original SKB if tailroom isn't enough to hold\ntail_pad. At least one sg entry is needed for each SKB. So, eventually the\n'skb_queue_walk loop' in brcmf_sdiod_sglist_rw may run out of sg entries.\nThis makes sg_next return NULL and this causes the oops. The patch sets\nnents to max(rxglom_size, txglom_size) * 2 to be able handle the worst-\ncase. Btw. this requires only 64-35=29 * 16 (or 20 if\nCONFIG_NEED_SG_DMA_LENGTH) = 464 additional bytes of memory.)(CVE-2024-56593)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: jfs: add a check to prevent array-index-out-of-bounds in\ndbAdjTree When the value of lp is 0 at the beginning of the for loop, it\nwill become negative in the next assignment and we should bail out.)(CVE-2024-56595)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: jfs: array-index-out-of-bounds fix in dtReadFirst The value of\nstbl can be sometimes out of bounds due to a bad filesystem. Added a check\nwith appopriate return of error code in that case.)(CVE-2024-56598)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: Bluetooth: btmtk: avoid UAF in btmtk_process_coredump\nhci_devcd_append may lead to the release of the skb, so it cannot be\naccessed once it is called.\n(CVE-2024-56653)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: drm/dp_mst: Ensure mst_primary pointer is valid in\ndrm_dp_mst_handle_up_req() While receiving an MST up request message from\none thread in drm_dp_mst_handle_up_req(), the MST topology could be removed\nfrom another thread via drm_dp_mst_topology_mgr_set_mst(false), freeing\nmst_primary and setting drm_dp_mst_topology_mgr::mst_primary to NULL. This\ncould lead to a NULL deref/use-after-free of mst_primary in\ndrm_dp_mst_handle_up_req(). Avoid the above by holding a reference for\nmst_primary in drm_dp_mst_handle_up_req() while it's used. v2: Fix kfreeing\nthe request if getting an mst_primary reference fails.)(CVE-2024-57798)",
   "aliases": [],
-  "related": [
-    "CVE-2021-47506",
+  "upstream": [
     "UBUNTU-CVE-2021-47506",
-    "CVE-2022-0995",
     "UBUNTU-CVE-2022-0995",
-    "CVE-2023-52664",
     "UBUNTU-CVE-2023-52664",
-    "CVE-2024-26689",
     "UBUNTU-CVE-2024-26689",
-    "CVE-2024-35864",
     "UBUNTU-CVE-2024-35864",
-    "CVE-2024-50302",
     "UBUNTU-CVE-2024-50302",
-    "CVE-2024-53063",
     "UBUNTU-CVE-2024-53063",
-    "CVE-2024-53150",
     "UBUNTU-CVE-2024-53150",
-    "CVE-2024-53168",
     "UBUNTU-CVE-2024-53168",
-    "CVE-2024-53197",
     "UBUNTU-CVE-2024-53197",
-    "CVE-2024-56551",
     "UBUNTU-CVE-2024-56551",
-    "CVE-2024-56593",
     "UBUNTU-CVE-2024-56593",
-    "CVE-2024-56595",
     "UBUNTU-CVE-2024-56595",
-    "CVE-2024-56598",
     "UBUNTU-CVE-2024-56598",
-    "CVE-2024-56653",
     "UBUNTU-CVE-2024-56653",
-    "CVE-2024-57798",
     "UBUNTU-CVE-2024-57798"
   ],
+  "related": [],
   "published": "2025-05-29T09:00:29Z",
-  "modified": "2025-05-29T09:00:29Z",
+  "modified": "2025-07-09T11:00:00Z",
   "affected": [
     {
       "package": {
         "ecosystem": "Ubuntu:Pro:16.04:LTS",
         "name": "linux-aws-hwe",
-        "purl": "pkg:deb/ubuntu/linux-aws-hwe@4.15.0-1181.194~16.04.1?arch=source&distro=esm-infra/xenial"
+        "purl": "pkg:deb/ubuntu/linux-aws-hwe@4.15.0-1182.195~16.04.1?arch=source&distro=esm-infra/xenial"
       },
       "ranges": [
         {
@@ -55,7 +40,7 @@
               "introduced": "0"
             },
             {
-              "fixed": "4.15.0-1181.194~16.04.1"
+              "fixed": "4.15.0-1182.195~16.04.1"
             }
           ]
         }
@@ -161,7 +146,8 @@
         "4.15.0-1177.190~16.04.1",
         "4.15.0-1178.191~16.04.1",
         "4.15.0-1179.192~16.04.1",
-        "4.15.0-1180.193~16.04.1"
+        "4.15.0-1180.193~16.04.1",
+        "4.15.0-1181.194~16.04.1"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -172,7 +158,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:18.04:LTS",
         "name": "linux-aws",
-        "purl": "pkg:deb/ubuntu/linux-aws@4.15.0-1181.194?arch=source&distro=esm-infra/bionic"
+        "purl": "pkg:deb/ubuntu/linux-aws@4.15.0-1182.195?arch=source&distro=esm-infra/bionic"
       },
       "ranges": [
         {
@@ -182,7 +168,7 @@
               "introduced": "0"
             },
             {
-              "fixed": "4.15.0-1181.194"
+              "fixed": "4.15.0-1182.195"
             }
           ]
         }
@@ -311,7 +297,8 @@
         "4.15.0-1177.190",
         "4.15.0-1178.191",
         "4.15.0-1179.192",
-        "4.15.0-1180.193"
+        "4.15.0-1180.193",
+        "4.15.0-1181.194"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",

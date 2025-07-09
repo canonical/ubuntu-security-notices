@@ -1,29 +1,22 @@
 {
-  "schema_version": "1.6.3",
+  "schema_version": "1.7.0",
   "id": "LSN-0111-1",
   "summary": "Kernel Live Patch Security Notice",
   "details": "It was discovered that the watch_queue event notification system contained\nan out-of-bounds write vulnerability. A local attacker could use this to\ncause a denial of service or escalate their privileges.)(CVE-2022-0995)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: smb: client: fix potential UAF in cifs_debug_files_proc_show()\nSkip sessions that are being teared down (status == SES_EXITING) to avoid\nUAF.)(CVE-2024-26928)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: smb: client: fix potential UAF in smb2_is_valid_lease_break()\nSkip sessions that are being teared down (status == SES_EXITING) to avoid\nUAF.)(CVE-2024-35864)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: HID: core: zero-initialize the report buffer Since the report\nbuffer is used by all kinds of drivers in various ways, let's zero-\ninitialize it during allocation to make sure that it can't be ever used to\nleak kernel memory via specially-crafted report.)(CVE-2024-50302)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: media: dvbdev: prevent the risk of out of memory access The\ndvbdev contains a static variable used to store dvb minors. The behavior of\nit depends if CONFIG_DVB_DYNAMIC_MINORS is set or not. When not set,\ndvb_register_device() won't check for boundaries, as it will rely that a\nprevious call to dvb_register_adapter() would already be enforcing it. On a\nsimilar way, dvb_device_open() uses the assumption that the register\nfunctions already did the needed checks. This can be fragile if some device\nends using different calls. This also generate warnings on static check\nanalysers like Coverity. So, add explicit guards to prevent potential risk\nof OOM issues.)(CVE-2024-53063)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: jfs: add a check to prevent array-index-out-of-bounds in\ndbAdjTree When the value of lp is 0 at the beginning of the for loop, it\nwill become negative in the next assignment and we should bail out.)(CVE-2024-56595)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: blk-cgroup: Fix UAF in blkcg_unpin_online() blkcg_unpin_online()\nwalks up the blkcg hierarchy putting the online pin. To walk up, it uses\nblkcg_parent(blkcg) but it was calling that after\nblkcg_destroy_blkgs(blkcg) which could free the blkcg, leading to the\nfollowing UAF:\n================================================================== BUG:\nKASAN: slab-use-after-free in blkcg_unpin_online+0x15a/0x270 Read of size 8\nat addr ffff8881057678c0 by task kworker/9:1/117 CPU: 9 UID: 0 PID: 117\nComm: kworker/9:1 Not tainted 6.13.0-rc1-work-00182-gb8f52214c61a-dirty #48\nHardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS unknown\n02/02/2022 Workqueue: cgwb_release cgwb_release_workfn Call Trace: <TASK>\ndump_stack_lvl+0x27/0x80 print_report+0x151/0x710 kasan_report+0xc0/0x100\nblkcg_unpin_online+0x15a/0x270 cgwb_release_workfn+0x194/0x480\nprocess_scheduled_works+0x71b/0xe20 worker_thread+0x82a/0xbd0\nkthread+0x242/0x2c0 ret_from_fork+0x33/0x70 ret_from_fork_asm+0x1a/0x30\n</TASK> ... Freed by task 1944: kasan_save_track+0x2b/0x70\nkasan_save_free_info+0x3c/0x50 __kasan_slab_free+0x33/0x50\nkfree+0x10c/0x330 css_free_rwork_fn+0xe6/0xb30\nprocess_scheduled_works+0x71b/0xe20 worker_thread+0x82a/0xbd0\nkthread+0x242/0x2c0 ret_from_fork+0x33/0x70 ret_from_fork_asm+0x1a/0x30\nNote that the UAF is not easy to trigger as the free path is indirected\nbehind a couple RCU grace periods and a work item execution. I could only\ntrigger it with artifical msleep() injected in blkcg_unpin_online(). Fix it\nby reading the parent pointer before destroying the blkcg's blkg's.)(CVE-2024-56672)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: drm/dp_mst: Ensure mst_primary pointer is valid in\ndrm_dp_mst_handle_up_req() While receiving an MST up request message from\none thread in drm_dp_mst_handle_up_req(), the MST topology could be removed\nfrom another thread via drm_dp_mst_topology_mgr_set_mst(false), freeing\nmst_primary and setting drm_dp_mst_topology_mgr::mst_primary to NULL. This\ncould lead to a NULL deref/use-after-free of mst_primary in\ndrm_dp_mst_handle_up_req(). Avoid the above by holding a reference for\nmst_primary in drm_dp_mst_handle_up_req() while it's used. v2: Fix kfreeing\nthe request if getting an mst_primary reference fails.)(CVE-2024-57798)",
   "aliases": [],
-  "related": [
-    "CVE-2022-0995",
+  "upstream": [
     "UBUNTU-CVE-2022-0995",
-    "CVE-2024-26928",
     "UBUNTU-CVE-2024-26928",
-    "CVE-2024-35864",
     "UBUNTU-CVE-2024-35864",
-    "CVE-2024-50302",
     "UBUNTU-CVE-2024-50302",
-    "CVE-2024-53063",
     "UBUNTU-CVE-2024-53063",
-    "CVE-2024-56595",
     "UBUNTU-CVE-2024-56595",
-    "CVE-2024-56672",
     "UBUNTU-CVE-2024-56672",
-    "CVE-2024-57798",
     "UBUNTU-CVE-2024-57798"
   ],
+  "related": [],
   "published": "2025-04-16T10:01:12Z",
-  "modified": "2025-04-16T10:01:12Z",
+  "modified": "2025-07-09T11:00:00Z",
   "affected": [
     {
       "package": {
