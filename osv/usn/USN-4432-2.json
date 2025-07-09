@@ -1,12 +1,13 @@
 {
-  "schema_version": "1.6.3",
+  "schema_version": "1.7.0",
   "id": "USN-4432-2",
   "summary": "grub2, grub2-signed regression",
   "details": "USN-4432-1 fixed vulnerabilities in GRUB2 affecting Secure Boot\nenvironments. Unfortunately, the update introduced regressions for\nsome BIOS systems (either pre-UEFI or UEFI configured in Legacy mode),\npreventing them from successfully booting. This update addresses\nthe issue.\n\nUsers with BIOS systems that installed GRUB2 versions from USN-4432-1\nshould verify that their GRUB2 installation has a correct understanding\nof their boot device location and installed the boot loader correctly.\n\nWe apologize for the inconvenience.\n\nOriginal advisory details:\n\n Jesse Michael and Mickey Shkatov discovered that the configuration parser\n in GRUB2 did not properly exit when errors were discovered, resulting in\n heap-based buffer overflows. A local attacker could use this to execute\n arbitrary code and bypass UEFI Secure Boot restrictions. (CVE-2020-10713)\n\n Chris Coulson discovered that the GRUB2 function handling code did not\n properly handle a function being redefined, leading to a use-after-free\n vulnerability. A local attacker could use this to execute arbitrary code\n and bypass UEFI Secure Boot restrictions. (CVE-2020-15706)\n\n Chris Coulson discovered that multiple integer overflows existed in GRUB2\n when handling certain filesystems or font files, leading to heap-based\n buffer overflows. A local attacker could use these to execute arbitrary\n code and bypass UEFI Secure Boot restrictions. (CVE-2020-14309,\n CVE-2020-14310, CVE-2020-14311)\n\n It was discovered that the memory allocator for GRUB2 did not validate\n allocation size, resulting in multiple integer overflows and heap-based\n buffer overflows when handling certain filesystems, PNG images or disk\n metadata. A local attacker could use this to execute arbitrary code and\n bypass UEFI Secure Boot restrictions. (CVE-2020-14308)\n\n Mathieu Trudel-Lapierre discovered that in certain situations, GRUB2\n failed to validate kernel signatures. A local attacker could use this\n to bypass Secure Boot restrictions. (CVE-2020-15705)\n\n Colin Watson and Chris Coulson discovered that an integer overflow\n existed in GRUB2 when handling the initrd command, leading to a heap-based\n buffer overflow. A local attacker could use this to execute arbitrary code\n and bypass UEFI Secure Boot restrictions. (CVE-2020-15707)\n",
   "aliases": [],
+  "upstream": [],
   "related": [],
   "published": "2020-08-04T23:54:15.905028Z",
-  "modified": "2020-08-04T23:54:15.905028Z",
+  "modified": "2025-07-09T10:58:29Z",
   "affected": [
     {
       "package": {
