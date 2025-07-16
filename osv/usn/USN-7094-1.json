@@ -1,33 +1,24 @@
 {
-  "schema_version": "1.6.3",
+  "schema_version": "1.7.0",
   "id": "USN-7094-1",
   "summary": "qemu vulnerabilities",
   "details": "It was discovered that QEMU incorrectly handled memory during certain VNC\noperations. A remote attacker could possibly use this issue to cause QEMU\nto consume resources, resulting in a denial of service. This issue only\naffected Ubuntu 14.04 LTS. (CVE-2019-20382)\n\nIt was discovered that QEMU incorrectly handled certain memory copy\noperations when loading ROM contents. If a user were tricked into running\nan untrusted kernel image, a remote attacker could possibly use this issue\nto run arbitrary code. This issue only affected Ubuntu 14.04 LTS.\n(CVE-2020-13765)\n\nAviv Sasson discovered that QEMU incorrectly handled Slirp networking. A\nremote attacker could use this issue to cause QEMU to crash, resulting in a\ndenial of service, or possibly execute arbitrary code. This issue only\naffected Ubuntu 14.04 LTS. (CVE-2020-1983)\n\nIt was discovered that the SLiRP networking implementation of the QEMU\nemulator did not properly manage memory under certain circumstances. An\nattacker could use this to cause a heap-based buffer overflow or other out-\nof-bounds access, which can lead to a denial of service (application crash)\nor potential execute arbitrary code. This issue only affected\nUbuntu 14.04 LTS. (CVE-2020-7039)\n\nIt was discovered that the SLiRP networking implementation of the QEMU\nemulator misuses snprintf return values. An attacker could use this to\ncause a denial of service (application crash) or potentially execute\narbitrary code. This issue only affected Ubuntu 14.04 LTS. (CVE-2020-8608)\n\nIt was discovered that QEMU SLiRP networking incorrectly handled certain\nudp packets. An attacker inside a guest could possibly use this issue to\nleak sensitive information from the host. This issue only affected\nUbuntu 14.04 LTS and Ubuntu 16.04 LTS. (CVE-2021-3592, CVE-2021-3594)\n\nIt was discovered that QEMU had a DMA reentrancy issue, leading to a\nuse-after-free vulnerability. An attacker could possibly use this issue\nto cause a denial of service. This issue only affected Ubuntu 18.04 LTS,\nUbuntu 20.04 LTS and Ubuntu 22.04 LTS. (CVE-2023-3019)\n\nIt was discovered that QEMU had a flaw in Virtio PCI Bindings, leading\nto a triggerable crash via vhost_net_stop. An attacker inside a guest\ncould possibly use this issue to cause a denial of service. This issue\nonly affected Ubuntu 24.04 LTS and Ubuntu 24.10. (CVE-2024-4693)\n\nIt was discovered that QEMU incorrectly handled memory in virtio-sound,\nleading to a heap-based buffer overflow. An attacker could possibly use\nthis issue to cause a denial of service or execute arbitrary code. This\nissue only affected Ubuntu 24.04 LTS and Ubuntu 24.10. (CVE-2024-7730)\n",
   "aliases": [],
-  "related": [
-    "CVE-2019-20382",
+  "upstream": [
     "UBUNTU-CVE-2019-20382",
-    "CVE-2020-1983",
     "UBUNTU-CVE-2020-1983",
-    "CVE-2020-7039",
     "UBUNTU-CVE-2020-7039",
-    "CVE-2020-8608",
     "UBUNTU-CVE-2020-8608",
-    "CVE-2020-13765",
     "UBUNTU-CVE-2020-13765",
-    "CVE-2021-3592",
     "UBUNTU-CVE-2021-3592",
-    "CVE-2021-3594",
     "UBUNTU-CVE-2021-3594",
-    "CVE-2023-3019",
     "UBUNTU-CVE-2023-3019",
-    "CVE-2024-4693",
     "UBUNTU-CVE-2024-4693",
-    "CVE-2024-7730",
     "UBUNTU-CVE-2024-7730"
   ],
+  "related": [],
   "published": "2024-11-08T01:42:12.460399Z",
-  "modified": "2024-11-08T01:42:12.460399Z",
+  "modified": "2025-07-16T04:46:49Z",
   "affected": [
     {
       "package": {
@@ -1049,197 +1040,6 @@
           {
             "binary_name": "qemu-utils-dbgsym",
             "binary_version": "1:6.2+dfsg-2ubuntu6.24"
-          }
-        ],
-        "availability": "No subscription required"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:24.10",
-        "name": "qemu",
-        "purl": "pkg:deb/ubuntu/qemu@1:9.0.2+ds-4ubuntu5.1?arch=source&distro=oracular"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "1:9.0.2+ds-4ubuntu5.1"
-            }
-          ]
-        }
-      ],
-      "versions": [
-        "1:8.2.2+ds-0ubuntu1",
-        "1:9.0.2+ds-4ubuntu2",
-        "1:9.0.2+ds-4ubuntu3",
-        "1:9.0.2+ds-4ubuntu5"
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "binary_name": "qemu-block-extra",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-block-extra-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-block-supplemental",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-block-supplemental-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-guest-agent",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-guest-agent-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-arm",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-arm-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-common",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-common-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-data",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-gui",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-gui-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-mips",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-mips-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-misc",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-misc-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-modules-opengl",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-modules-opengl-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-modules-spice",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-modules-spice-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-ppc",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-ppc-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-s390x",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-s390x-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-sparc",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-sparc-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-x86",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-x86-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-x86-xen",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-xen",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-system-xen-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-user",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-user-binfmt",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-user-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-user-static",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-user-static-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-utils",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
-          },
-          {
-            "binary_name": "qemu-utils-dbgsym",
-            "binary_version": "1:9.0.2+ds-4ubuntu5.1"
           }
         ],
         "availability": "No subscription required"

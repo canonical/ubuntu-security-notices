@@ -1,15 +1,15 @@
 {
-  "schema_version": "1.6.3",
+  "schema_version": "1.7.0",
   "id": "USN-7161-3",
   "summary": "Docker vulnerability",
   "details": "USN-7161-1 and USN-7161-2 fixed CVE-2024-41110 for source package \ndocker.io in Ubuntu 18.04 LTS and for source package docker.io-app in \nUbuntu 20.04 LTS, Ubuntu 22.04 LTS, Ubuntu 24.04 LTS, and Ubuntu 24.10. \nThis update fixes it for source package docker.io in Ubuntu 20.04 LTS, \nUbuntu 22.04 LTS, Ubuntu 24.04 LTS, and Ubuntu 24.10. These updates only \naddress the docker library and not the docker.io application itself, which\nwas already patched in the previous USNs (USN-7161-1 and USN-7161-2).  \n\nOriginal advisory details:\n\n Yair Zak discovered that Docker could unexpectedly forward DNS requests\n from internal networks in an unexpected manner. An attacker could possibly\n use this issue to exfiltrate data by encoding information in DNS queries \n to controlled nameservers. This issue was only addressed for the source \n package docker.io-app in Ubuntu 24.04 LTS. (CVE-2024-29018)\n \n Cory Snider discovered that Docker did not properly handle authorization \n plugin request processing. An attacker could possibly use this issue to \n bypass authorization controls by forwarding API requests without their \n full body, leading to unauthorized actions. This issue was only addressed \n for the source package docker.io-app in Ubuntu 24.10 and \n Ubuntu 24.04 LTS, and the source package docker.io in Ubuntu 18.04 LTS. \n (CVE-2024-41110)\n",
   "aliases": [],
-  "related": [
-    "CVE-2024-41110",
+  "upstream": [
     "UBUNTU-CVE-2024-41110"
   ],
+  "related": [],
   "published": "2025-04-15T14:05:08.175787Z",
-  "modified": "2025-04-15T14:05:08.175787Z",
+  "modified": "2025-07-16T04:47:14Z",
   "affected": [
     {
       "package": {
@@ -117,40 +117,6 @@
           }
         ],
         "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
-      }
-    },
-    {
-      "package": {
-        "ecosystem": "Ubuntu:24.10",
-        "name": "docker.io",
-        "purl": "pkg:deb/ubuntu/docker.io@26.1.4+dfsg2-1ubuntu1.1?arch=source&distro=oracular"
-      },
-      "ranges": [
-        {
-          "type": "ECOSYSTEM",
-          "events": [
-            {
-              "introduced": "0"
-            },
-            {
-              "fixed": "26.1.4+dfsg2-1ubuntu1.1"
-            }
-          ]
-        }
-      ],
-      "versions": [
-        "20.10.25+dfsg1-2ubuntu1",
-        "20.10.25+dfsg1-3ubuntu1",
-        "26.1.4+dfsg2-1ubuntu1"
-      ],
-      "ecosystem_specific": {
-        "binaries": [
-          {
-            "binary_name": "golang-github-docker-docker-dev",
-            "binary_version": "26.1.4+dfsg2-1ubuntu1.1"
-          }
-        ],
-        "availability": "No subscription required"
       }
     },
     {

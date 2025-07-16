@@ -1,27 +1,21 @@
 {
-  "schema_version": "1.6.3",
+  "schema_version": "1.7.0",
   "id": "USN-3534-1",
   "summary": "eglibc, glibc vulnerabilities",
   "details": "It was discovered that the GNU C library did not properly handle all of\nthe possible return values from the kernel getcwd(2) syscall. A local\nattacker could potentially exploit this to execute arbitrary code in setuid\nprograms and gain administrative privileges. (CVE-2018-1000001)\n\nA memory leak was discovered in the _dl_init_paths() function in the GNU\nC library dynamic loader. A local attacker could potentially exploit this\nwith a specially crafted value in the LD_HWCAP_MASK environment variable,\nin combination with CVE-2017-1000409 and another vulnerability on a system\nwith hardlink protections disabled, in order to gain administrative\nprivileges. (CVE-2017-1000408)\n\nA heap-based buffer overflow was discovered in the _dl_init_paths()\nfunction in the GNU C library dynamic loader. A local attacker could\npotentially exploit this with a specially crafted value in the\nLD_LIBRARY_PATH environment variable, in combination with CVE-2017-1000408\nand another vulnerability on a system with hardlink protections disabled,\nin order to gain administrative privileges. (CVE-2017-1000409)\n\nAn off-by-one error leading to a heap-based buffer overflow was discovered\nin the GNU C library glob() implementation. An attacker could potentially\nexploit this to cause a denial of service or execute arbitrary code via a\nmaliciously crafted pattern. (CVE-2017-15670)\n\nA heap-based buffer overflow was discovered during unescaping of user names\nwith the ~ operator in the GNU C library glob() implementation. An attacker\ncould potentially exploit this to cause a denial of service or execute\narbitrary code via a maliciously crafted pattern. (CVE-2017-15804)\n\nIt was discovered that the GNU C library dynamic loader mishandles RPATH\nand RUNPATH containing $ORIGIN for privileged (setuid or AT_SECURE)\nprograms. A local attacker could potentially exploit this by providing a\nspecially crafted library in the current working directory in order to\ngain administrative privileges. (CVE-2017-16997)\n\nIt was discovered that the GNU C library malloc() implementation could\nreturn a memory block that is too small if an attempt is made to allocate\nan object whose size is close to SIZE_MAX, resulting in a heap-based\noverflow. An attacker could potentially exploit this to cause a denial of\nservice or execute arbitrary code. This issue only affected Ubuntu 17.10.\n(CVE-2017-17426)\n",
   "aliases": [],
-  "related": [
-    "CVE-2017-15670",
+  "upstream": [
     "UBUNTU-CVE-2017-15670",
-    "CVE-2017-15804",
     "UBUNTU-CVE-2017-15804",
-    "CVE-2017-16997",
     "UBUNTU-CVE-2017-16997",
-    "CVE-2017-17426",
     "UBUNTU-CVE-2017-17426",
-    "CVE-2017-1000408",
     "UBUNTU-CVE-2017-1000408",
-    "CVE-2017-1000409",
     "UBUNTU-CVE-2017-1000409",
-    "CVE-2018-1000001",
     "UBUNTU-CVE-2018-1000001"
   ],
+  "related": [],
   "published": "2018-01-17T12:57:11.166044Z",
-  "modified": "2018-01-17T12:57:11.166044Z",
+  "modified": "2025-07-16T04:42:12Z",
   "affected": [
     {
       "package": {
