@@ -1,0 +1,387 @@
+{
+  "action": "",
+  "cves": [
+    "CVE-2022-49176",
+    "CVE-2023-52885",
+    "CVE-2022-49179",
+    "CVE-2024-53197",
+    "CVE-2025-21887",
+    "CVE-2024-49883",
+    "CVE-2025-22088",
+    "CVE-2022-49909"
+  ],
+  "description": "In the Linux kernel, the following vulnerability has been\nresolved: bfq: fix use-after-free in bfq_dispatch_request KASAN reports a\nuse-after-free report when doing normal scsi-mq test .\n\nIn the Linux kernel, the following vulnerability has been\nresolved: block, bfq: don't move oom_bfqq Our test report a UAF: .\n\nIn the Linux kernel, the following vulnerability has been\nresolved: Bluetooth: L2CAP: fix use-after-free in l2cap_conn_del() When\nl2cap_recv_frame() is invoked to receive data, and the cid is\nL2CAP_CID_A2MP, if the channel does not exist, it will create a channel.\nHowever, after a channel is created, the hold operation of the channel is\nnot performed.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: SUNRPC: Fix UAF in svc_tcp_listen_data_ready() After the listener\nsvc_sock is freed, and before invoking svc_tcp_accept() for the established\nchild sock, there is a window that the newsock retaining a freed listener\nsvc_sock in sk_user_data which cloning from parent.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ext4: aovid use-after-free in ext4_ext_insert_extent() As Ojaswin\nmentioned in Link, in ext4_ext_insert_extent(), if the path is reallocated\nin ext4_ext_create_new_leaf(), we'll use the stale path and cause UAF.\nBelow is a sample trace with dummy values: ext4_ext_insert_extent path .\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ALSA: usb-audio: Fix potential out-of-bound accesses for Extigy\nand Mbox devices A bogus device can provide a bNumConfigurations value that\nexceeds the initial value used in usb_get_configuration for allocating\ndev->config.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ovl: fix UAF in ovl_dentry_update_reval by moving dput() in\novl_link_up The issue was caused by dput(upper) being called before\novl_dentry_update_reval(), while upper->d_flags was still accessed in\novl_dentry_remote().\n\nIn the Linux kernel, the following vulnerability has been\nresolved: RDMA/erdma: Prevent use-after-free in erdma_accept_newconn()\nAfter the erdma_cep_put(new_cep) being called, new_cep will be freed, and\nthe following dereference will cause a UAF problem.",
+  "id": "LSN-0114-1",
+  "isummary": "Several security issues were fixed in the kernel.",
+  "releases": {
+    "bionic": {
+      "sources": {
+        "aws": {
+          "version": "4.15.0-1159",
+          "description": "Linux kernel for Amazon Web Services (AWS) systems"
+        },
+        "azure-4.15": {
+          "version": "4.15.0-1168",
+          "description": "Linux kernel for Microsoft Azure Cloud systems"
+        },
+        "gcp-4.15": {
+          "version": "4.15.0-1154",
+          "description": "Linux kernel for Google Cloud Platform (GCP) systems"
+        },
+        "generic-4.15": {
+          "version": "4.15.0-214",
+          "description": "Linux kernel"
+        },
+        "lowlatency-4.15": {
+          "version": "4.15.0-214",
+          "description": "Linux kernel"
+        },
+        "oracle": {
+          "version": "4.15.0-1129",
+          "description": "Linux kernel for Oracle Cloud systems"
+        }
+      },
+      "binaries": {},
+      "allbinaries": {
+        "aws": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_aws_(\\d+)",
+          "version": "114"
+        },
+        "azure-4.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_azure_(\\d+)",
+          "version": "114"
+        },
+        "gcp-4.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_gcp_(\\d+)",
+          "version": "114"
+        },
+        "generic-4.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_generic_(\\d+)",
+          "version": "114"
+        },
+        "lowlatency-4.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_lowlatency_(\\d+)",
+          "version": "114"
+        },
+        "oracle": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_oracle_(\\d+)",
+          "version": "114"
+        }
+      }
+    },
+    "focal": {
+      "sources": {
+        "aws-5.15": {
+          "version": "5.15.0-1000",
+          "description": "Linux kernel for Amazon Web Services (AWS) systems"
+        },
+        "azure-5.15": {
+          "version": "5.15.0-1069",
+          "description": "Linux kernel for Microsoft Azure cloud systems"
+        },
+        "gcp-5.15": {
+          "version": "5.15.0-1000",
+          "description": "Linux kernel for Google Cloud Platform (GCP) systems"
+        },
+        "generic-5.15": {
+          "version": "5.15.0-0",
+          "description": "Linux hardware enablement (HWE) kernel"
+        },
+        "lowlatency-5.15": {
+          "version": "5.15.0-0",
+          "description": "Linux hardware enablement (HWE) kernel"
+        },
+        "ibm-5.15": {
+          "version": "5.15.0-1000",
+          "description": "Linux kernel for IBM cloud systems"
+        },
+        "oracle-5.15": {
+          "version": "5.15.0-1055",
+          "description": "Linux kernel for Oracle Cloud systems"
+        }
+      },
+      "binaries": {},
+      "allbinaries": {
+        "aws-5.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_aws_(\\d+)",
+          "version": "114"
+        },
+        "azure-5.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_azure_(\\d+)",
+          "version": "114"
+        },
+        "gcp-5.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_gcp_(\\d+)",
+          "version": "114"
+        },
+        "generic-5.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_generic_(\\d+)",
+          "version": "114"
+        },
+        "lowlatency-5.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_lowlatency_(\\d+)",
+          "version": "114"
+        },
+        "ibm-5.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_ibm_(\\d+)",
+          "version": "114"
+        },
+        "oracle-5.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_oracle_(\\d+)",
+          "version": "114"
+        }
+      }
+    },
+    "jammy": {
+      "sources": {
+        "aws": {
+          "version": "5.15.0-1000",
+          "description": "Linux kernel for Amazon Web Services (AWS) systems"
+        },
+        "azure": {
+          "version": "5.15.0-1000",
+          "description": "Linux kernel for Microsoft Azure Cloud systems"
+        },
+        "gcp": {
+          "version": "5.15.0-1000",
+          "description": "Linux kernel for Google Cloud Platform (GCP) systems"
+        },
+        "linux": {
+          "version": "5.15.0-24",
+          "description": "Linux kernel"
+        },
+        "gke": {
+          "version": "5.15.0-1000",
+          "description": "Linux kernel for Google Container Engine (GKE) systems"
+        },
+        "ibm": {
+          "version": "5.15.0-1000",
+          "description": "Linux kernel for IBM cloud systems"
+        },
+        "oracle": {
+          "version": "5.15.0-1055",
+          "description": "Linux kernel for Oracle Cloud systems"
+        }
+      },
+      "binaries": {},
+      "allbinaries": {
+        "aws": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_aws_(\\d+)",
+          "version": "114"
+        },
+        "azure": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_azure_(\\d+)",
+          "version": "114"
+        },
+        "gcp": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_gcp_(\\d+)",
+          "version": "114"
+        },
+        "linux": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_linux_(\\d+)",
+          "version": "114"
+        },
+        "gke": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_gke_(\\d+)",
+          "version": "114"
+        },
+        "ibm": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_ibm_(\\d+)",
+          "version": "114"
+        },
+        "oracle": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_oracle_(\\d+)",
+          "version": "114"
+        }
+      }
+    },
+    "noble": {
+      "sources": {
+        "aws": {
+          "version": "6.8.0-1008",
+          "description": "Linux kernel for Amazon Web Services (AWS) systems"
+        },
+        "azure": {
+          "version": "6.8.0-1007",
+          "description": "Linux kernel for Microsoft Azure Cloud systems"
+        },
+        "gcp": {
+          "version": "6.8.0-1007",
+          "description": "Linux kernel for Google Cloud Platform (GCP) systems"
+        },
+        "linux": {
+          "version": "6.8.0-1",
+          "description": "Linux kernel"
+        },
+        "ibm": {
+          "version": "6.8.0-1005",
+          "description": "Linux kernel for IBM cloud systems"
+        },
+        "oracle": {
+          "version": "6.8.0-1005",
+          "description": "Linux kernel for Oracle Cloud systems"
+        }
+      },
+      "binaries": {},
+      "allbinaries": {
+        "aws": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_6_8_0[_|\\d]+_aws_(\\d+)",
+          "version": "114"
+        },
+        "azure": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_6_8_0[_|\\d]+_azure_(\\d+)",
+          "version": "114"
+        },
+        "gcp": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_6_8_0[_|\\d]+_gcp_(\\d+)",
+          "version": "114"
+        },
+        "linux": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_6_8_0[_|\\d]+_linux_(\\d+)",
+          "version": "114"
+        },
+        "ibm": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_6_8_0[_|\\d]+_ibm_(\\d+)",
+          "version": "114"
+        },
+        "oracle": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_6_8_0[_|\\d]+_oracle_(\\d+)",
+          "version": "114"
+        }
+      }
+    },
+    "trusty": {
+      "sources": {
+        "generic-4.4": {
+          "version": "4.4.0-168",
+          "description": "Linux hardware enablement kernel from Xenial for Trusty"
+        },
+        "lowlatency-4.4": {
+          "version": "4.4.0-168",
+          "description": "Linux hardware enablement kernel from Xenial for Trusty"
+        }
+      },
+      "binaries": {},
+      "allbinaries": {
+        "generic-4.4": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_4_0[_|\\d]+_generic_(\\d+)",
+          "version": "114"
+        },
+        "lowlatency-4.4": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_4_0[_|\\d]+_lowlatency_(\\d+)",
+          "version": "114"
+        }
+      }
+    },
+    "xenial": {
+      "sources": {
+        "aws-hwe": {
+          "version": "4.15.0-1126",
+          "description": "Linux kernel for Amazon Web Services (AWS-HWE) systems"
+        },
+        "aws": {
+          "version": "4.4.0-1159",
+          "description": "Linux kernel for Amazon Web Services (AWS) systems"
+        },
+        "azure": {
+          "version": "4.15.0-1114",
+          "description": "Linux kernel for Microsoft Azure Cloud systems"
+        },
+        "gcp": {
+          "version": "4.15.0-1118",
+          "description": "Linux kernel for Google Cloud Platform (GCP) systems"
+        },
+        "generic-4.15": {
+          "version": "4.15.0-143",
+          "description": "Linux hardware enablement (HWE) kernel"
+        },
+        "lowlatency-4.15": {
+          "version": "4.15.0-143",
+          "description": "Linux hardware enablement (HWE) kernel"
+        },
+        "generic-4.4": {
+          "version": "4.4.0-243",
+          "description": "Linux kernel"
+        },
+        "lowlatency-4.4": {
+          "version": "4.4.0-243",
+          "description": "Linux kernel"
+        }
+      },
+      "binaries": {},
+      "allbinaries": {
+        "aws-hwe": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_aws_(\\d+)",
+          "version": "114"
+        },
+        "aws": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_4_0[_|\\d]+_aws_(\\d+)",
+          "version": "114"
+        },
+        "azure": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_azure_(\\d+)",
+          "version": "114"
+        },
+        "gcp": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_gcp_(\\d+)",
+          "version": "114"
+        },
+        "generic-4.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_generic_(\\d+)",
+          "version": "114"
+        },
+        "lowlatency-4.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_lowlatency_(\\d+)",
+          "version": "114"
+        },
+        "generic-4.4": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_4_0[_|\\d]+_generic_(\\d+)",
+          "version": "114"
+        },
+        "lowlatency-4.4": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_4_0[_|\\d]+_lowlatency_(\\d+)",
+          "version": "114"
+        }
+      }
+    }
+  },
+  "summary": "Kernel Live Patch Security Notice",
+  "timestamp": 1755512098.0,
+  "title": "Kernel Live Patch Security Notice"
+}
