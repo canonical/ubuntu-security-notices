@@ -1,0 +1,965 @@
+{
+  "schema_version": "1.7.0",
+  "id": "USN-7711-1",
+  "summary": "linux-azure vulnerabilities",
+  "details": "Several security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - PA-RISC architecture;\n  - PowerPC architecture;\n  - x86 architecture;\n  - Block layer subsystem;\n  - Cryptographic API;\n  - Serial ATA and Parallel ATA drivers;\n  - Bluetooth drivers;\n  - Bus devices;\n  - CPU frequency scaling framework;\n  - Buffer Sharing and Synchronization framework;\n  - DMA engine subsystem;\n  - Arm Firmware Framework for ARMv8-A(FFA);\n  - ARM SCMI message protocol;\n  - GPU drivers;\n  - HID subsystem;\n  - HSI subsystem;\n  - I2C subsystem;\n  - I3C subsystem;\n  - IIO subsystem;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - IRQ chip drivers;\n  - MCB driver;\n  - Multiple devices driver;\n  - Media drivers;\n  - Multifunction device drivers;\n  - PCI Endpoint Test driver;\n  - MTD block device drivers;\n  - Network drivers;\n  - NVDIMM (Non-Volatile Memory Device) drivers;\n  - NVME drivers;\n  - Device tree and open firmware driver;\n  - PCI subsystem;\n  - x86 platform drivers;\n  - TI SCI PM domains driver;\n  - PWM drivers;\n  - S/390 drivers;\n  - SCSI subsystem;\n  - Samsung SoC drivers;\n  - TCM subsystem;\n  - TTY drivers;\n  - UFS subsystem;\n  - Cadence USB3 driver;\n  - ChipIdea USB driver;\n  - USB Device Class drivers;\n  - DesignWare USB3 driver;\n  - USB Gadget drivers;\n  - USB Type-C support driver;\n  - USB Type-C Connector System Software Interface driver;\n  - Backlight driver;\n  - Framebuffer layer;\n  - Virtio drivers;\n  - Xen hypervisor drivers;\n  - BTRFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - File systems infrastructure;\n  - JFS file system;\n  - Network file system (NFS) client;\n  - Network file system (NFS) server daemon;\n  - Proc file system;\n  - SMB network file system;\n  - LZO compression library;\n  - Kernel stack handling interfaces;\n  - Bluetooth subsystem;\n  - Network traffic control;\n  - SCTP protocol;\n  - Digital Audio (PCM) driver;\n  - Tracing infrastructure;\n  - BPF subsystem;\n  - Padata parallel execution mechanism;\n  - Kernel command line parsing driver;\n  - Memory management;\n  - 802.1Q VLAN protocol;\n  - CAN network layer;\n  - Networking core;\n  - IPv6 networking;\n  - MAC80211 subsystem;\n  - Management Component Transport Protocol (MCTP);\n  - Multipath TCP;\n  - Netfilter;\n  - Open vSwitch;\n  - Phonet protocol;\n  - TIPC protocol;\n  - TLS protocol;\n  - ALSA framework;\n  - Virtio sound driver;\n  - CPU Power monitoring subsystem;\n(CVE-2025-37992, CVE-2025-37995, CVE-2025-38075, CVE-2025-37771,\nCVE-2025-38051, CVE-2025-37796, CVE-2022-49168, CVE-2025-37989,\nCVE-2025-38072, CVE-2025-37757, CVE-2024-46742, CVE-2024-50125,\nCVE-2024-42322, CVE-2022-49535, CVE-2025-37756, CVE-2025-37811,\nCVE-2025-37805, CVE-2025-37789, CVE-2025-22027, CVE-2025-37911,\nCVE-2025-37770, CVE-2025-37881, CVE-2025-37875, CVE-2025-37817,\nCVE-2024-26686, CVE-2025-37927, CVE-2025-38043, CVE-2025-38044,\nCVE-2025-23156, CVE-2025-38004, CVE-2025-37983, CVE-2025-37742,\nCVE-2025-23150, CVE-2025-23146, CVE-2025-21839, CVE-2025-37749,\nCVE-2024-50258, CVE-2025-37812, CVE-2025-37969, CVE-2025-37758,\nCVE-2024-27402, CVE-2025-37767, CVE-2025-37970, CVE-2025-23151,\nCVE-2025-37790, CVE-2025-37949, CVE-2024-38540, CVE-2025-37787,\nCVE-2025-37741, CVE-2025-37844, CVE-2025-37930, CVE-2024-46774,\nCVE-2025-37892, CVE-2025-37839, CVE-2025-37766, CVE-2025-37819,\nCVE-2025-37913, CVE-2025-37808, CVE-2025-37998, CVE-2024-56751,\nCVE-2025-21853, CVE-2024-36908, CVE-2025-37967, CVE-2025-38052,\nCVE-2025-37985, CVE-2025-37883, CVE-2025-37740, CVE-2025-37991,\nCVE-2025-38094, CVE-2025-23144, CVE-2024-50280, CVE-2025-37859,\nCVE-2024-50073, CVE-2025-23157, CVE-2025-37840, CVE-2025-38068,\nCVE-2025-37738, CVE-2025-23145, CVE-2025-37824, CVE-2025-38024,\nCVE-2025-38023, CVE-2025-38003, CVE-2025-38079, CVE-2025-37794,\nCVE-2025-37810, CVE-2025-37851, CVE-2024-53203, CVE-2024-35943,\nCVE-2025-23161, CVE-2025-37990, CVE-2024-35790, CVE-2024-50272,\nCVE-2024-35867, CVE-2025-37994, CVE-2025-37850, CVE-2025-38078,\nCVE-2025-38005, CVE-2025-23158, CVE-2025-23147, CVE-2025-37830,\nCVE-2024-38541, CVE-2025-37841, CVE-2025-37739, CVE-2025-38009,\nCVE-2024-53128, CVE-2024-26739, CVE-2025-37923, CVE-2025-23148,\nCVE-2025-38035, CVE-2025-23140, CVE-2025-38066, CVE-2025-37857,\nCVE-2025-37914, CVE-2025-38083, CVE-2025-37780, CVE-2025-23163,\nCVE-2025-37773, CVE-2024-46751, CVE-2025-37871, CVE-2025-38058,\nCVE-2025-37964, CVE-2025-37915, CVE-2025-37803, CVE-2025-37768,\nCVE-2022-21546, CVE-2025-37829, CVE-2025-22062, CVE-2025-37788,\nCVE-2025-37885, CVE-2024-54458, CVE-2024-35866, CVE-2025-38061,\nCVE-2024-46816, CVE-2025-38077, CVE-2024-49960, CVE-2025-37765,\nCVE-2025-38048, CVE-2025-37982, CVE-2025-37912, CVE-2025-37781,\nCVE-2025-38065, CVE-2025-37905, CVE-2022-48893, CVE-2025-38031,\nCVE-2025-37858, CVE-2025-37836, CVE-2025-37862, CVE-2022-49063,\nCVE-2025-37823, CVE-2025-23142, CVE-2025-37797, CVE-2025-37838,\nCVE-2025-37940, CVE-2025-38034, CVE-2025-37867, CVE-2024-49989,\nCVE-2025-38037, CVE-2025-37792, CVE-2025-37909, CVE-2025-23159)\n",
+  "aliases": [],
+  "upstream": [
+    "UBUNTU-CVE-2022-21546",
+    "UBUNTU-CVE-2022-48893",
+    "UBUNTU-CVE-2022-49063",
+    "UBUNTU-CVE-2022-49168",
+    "UBUNTU-CVE-2022-49535",
+    "UBUNTU-CVE-2024-26686",
+    "UBUNTU-CVE-2024-26739",
+    "UBUNTU-CVE-2024-27402",
+    "UBUNTU-CVE-2024-35790",
+    "UBUNTU-CVE-2024-35866",
+    "UBUNTU-CVE-2024-35867",
+    "UBUNTU-CVE-2024-35943",
+    "UBUNTU-CVE-2024-36908",
+    "UBUNTU-CVE-2024-38540",
+    "UBUNTU-CVE-2024-38541",
+    "UBUNTU-CVE-2024-42322",
+    "UBUNTU-CVE-2024-46742",
+    "UBUNTU-CVE-2024-46751",
+    "UBUNTU-CVE-2024-46774",
+    "UBUNTU-CVE-2024-46816",
+    "UBUNTU-CVE-2024-49960",
+    "UBUNTU-CVE-2024-49989",
+    "UBUNTU-CVE-2024-50073",
+    "UBUNTU-CVE-2024-50125",
+    "UBUNTU-CVE-2024-50258",
+    "UBUNTU-CVE-2024-50272",
+    "UBUNTU-CVE-2024-50280",
+    "UBUNTU-CVE-2024-53128",
+    "UBUNTU-CVE-2024-53203",
+    "UBUNTU-CVE-2024-54458",
+    "UBUNTU-CVE-2024-56751",
+    "UBUNTU-CVE-2025-21839",
+    "UBUNTU-CVE-2025-21853",
+    "UBUNTU-CVE-2025-22027",
+    "UBUNTU-CVE-2025-22062",
+    "UBUNTU-CVE-2025-23140",
+    "UBUNTU-CVE-2025-23142",
+    "UBUNTU-CVE-2025-23144",
+    "UBUNTU-CVE-2025-23145",
+    "UBUNTU-CVE-2025-23146",
+    "UBUNTU-CVE-2025-23147",
+    "UBUNTU-CVE-2025-23148",
+    "UBUNTU-CVE-2025-23150",
+    "UBUNTU-CVE-2025-23151",
+    "UBUNTU-CVE-2025-23156",
+    "UBUNTU-CVE-2025-23157",
+    "UBUNTU-CVE-2025-23158",
+    "UBUNTU-CVE-2025-23159",
+    "UBUNTU-CVE-2025-23161",
+    "UBUNTU-CVE-2025-23163",
+    "UBUNTU-CVE-2025-37738",
+    "UBUNTU-CVE-2025-37739",
+    "UBUNTU-CVE-2025-37740",
+    "UBUNTU-CVE-2025-37741",
+    "UBUNTU-CVE-2025-37742",
+    "UBUNTU-CVE-2025-37749",
+    "UBUNTU-CVE-2025-37756",
+    "UBUNTU-CVE-2025-37757",
+    "UBUNTU-CVE-2025-37758",
+    "UBUNTU-CVE-2025-37765",
+    "UBUNTU-CVE-2025-37766",
+    "UBUNTU-CVE-2025-37767",
+    "UBUNTU-CVE-2025-37768",
+    "UBUNTU-CVE-2025-37770",
+    "UBUNTU-CVE-2025-37771",
+    "UBUNTU-CVE-2025-37773",
+    "UBUNTU-CVE-2025-37780",
+    "UBUNTU-CVE-2025-37781",
+    "UBUNTU-CVE-2025-37787",
+    "UBUNTU-CVE-2025-37788",
+    "UBUNTU-CVE-2025-37789",
+    "UBUNTU-CVE-2025-37790",
+    "UBUNTU-CVE-2025-37792",
+    "UBUNTU-CVE-2025-37794",
+    "UBUNTU-CVE-2025-37796",
+    "UBUNTU-CVE-2025-37797",
+    "UBUNTU-CVE-2025-37803",
+    "UBUNTU-CVE-2025-37805",
+    "UBUNTU-CVE-2025-37808",
+    "UBUNTU-CVE-2025-37810",
+    "UBUNTU-CVE-2025-37811",
+    "UBUNTU-CVE-2025-37812",
+    "UBUNTU-CVE-2025-37817",
+    "UBUNTU-CVE-2025-37819",
+    "UBUNTU-CVE-2025-37823",
+    "UBUNTU-CVE-2025-37824",
+    "UBUNTU-CVE-2025-37829",
+    "UBUNTU-CVE-2025-37830",
+    "UBUNTU-CVE-2025-37836",
+    "UBUNTU-CVE-2025-37838",
+    "UBUNTU-CVE-2025-37839",
+    "UBUNTU-CVE-2025-37840",
+    "UBUNTU-CVE-2025-37841",
+    "UBUNTU-CVE-2025-37844",
+    "UBUNTU-CVE-2025-37850",
+    "UBUNTU-CVE-2025-37851",
+    "UBUNTU-CVE-2025-37857",
+    "UBUNTU-CVE-2025-37858",
+    "UBUNTU-CVE-2025-37859",
+    "UBUNTU-CVE-2025-37862",
+    "UBUNTU-CVE-2025-37867",
+    "UBUNTU-CVE-2025-37871",
+    "UBUNTU-CVE-2025-37875",
+    "UBUNTU-CVE-2025-37881",
+    "UBUNTU-CVE-2025-37883",
+    "UBUNTU-CVE-2025-37885",
+    "UBUNTU-CVE-2025-37892",
+    "UBUNTU-CVE-2025-37905",
+    "UBUNTU-CVE-2025-37909",
+    "UBUNTU-CVE-2025-37911",
+    "UBUNTU-CVE-2025-37912",
+    "UBUNTU-CVE-2025-37913",
+    "UBUNTU-CVE-2025-37914",
+    "UBUNTU-CVE-2025-37915",
+    "UBUNTU-CVE-2025-37923",
+    "UBUNTU-CVE-2025-37927",
+    "UBUNTU-CVE-2025-37930",
+    "UBUNTU-CVE-2025-37940",
+    "UBUNTU-CVE-2025-37949",
+    "UBUNTU-CVE-2025-37964",
+    "UBUNTU-CVE-2025-37967",
+    "UBUNTU-CVE-2025-37969",
+    "UBUNTU-CVE-2025-37970",
+    "UBUNTU-CVE-2025-37982",
+    "UBUNTU-CVE-2025-37983",
+    "UBUNTU-CVE-2025-37985",
+    "UBUNTU-CVE-2025-37989",
+    "UBUNTU-CVE-2025-37990",
+    "UBUNTU-CVE-2025-37991",
+    "UBUNTU-CVE-2025-37992",
+    "UBUNTU-CVE-2025-37994",
+    "UBUNTU-CVE-2025-37995",
+    "UBUNTU-CVE-2025-37998",
+    "UBUNTU-CVE-2025-38003",
+    "UBUNTU-CVE-2025-38004",
+    "UBUNTU-CVE-2025-38005",
+    "UBUNTU-CVE-2025-38009",
+    "UBUNTU-CVE-2025-38023",
+    "UBUNTU-CVE-2025-38024",
+    "UBUNTU-CVE-2025-38031",
+    "UBUNTU-CVE-2025-38034",
+    "UBUNTU-CVE-2025-38035",
+    "UBUNTU-CVE-2025-38037",
+    "UBUNTU-CVE-2025-38043",
+    "UBUNTU-CVE-2025-38044",
+    "UBUNTU-CVE-2025-38048",
+    "UBUNTU-CVE-2025-38051",
+    "UBUNTU-CVE-2025-38052",
+    "UBUNTU-CVE-2025-38058",
+    "UBUNTU-CVE-2025-38061",
+    "UBUNTU-CVE-2025-38065",
+    "UBUNTU-CVE-2025-38066",
+    "UBUNTU-CVE-2025-38068",
+    "UBUNTU-CVE-2025-38072",
+    "UBUNTU-CVE-2025-38075",
+    "UBUNTU-CVE-2025-38077",
+    "UBUNTU-CVE-2025-38078",
+    "UBUNTU-CVE-2025-38079",
+    "UBUNTU-CVE-2025-38083",
+    "UBUNTU-CVE-2025-38094"
+  ],
+  "related": [],
+  "published": "2025-08-22T14:39:36.642955Z",
+  "modified": "2025-08-22T14:39:36.642955Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:22.04:LTS",
+        "name": "linux-azure",
+        "purl": "pkg:deb/ubuntu/linux-azure@5.15.0-1094.103?arch=source&distro=jammy"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.15.0-1094.103"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "5.13.0-1006.7",
+        "5.15.0-1001.2",
+        "5.15.0-1002.3",
+        "5.15.0-1003.4",
+        "5.15.0-1005.6",
+        "5.15.0-1007.8",
+        "5.15.0-1008.9",
+        "5.15.0-1010.12",
+        "5.15.0-1012.15",
+        "5.15.0-1013.16",
+        "5.15.0-1014.17",
+        "5.15.0-1017.20",
+        "5.15.0-1019.24",
+        "5.15.0-1020.25",
+        "5.15.0-1021.26",
+        "5.15.0-1022.27",
+        "5.15.0-1023.29",
+        "5.15.0-1024.30",
+        "5.15.0-1029.36",
+        "5.15.0-1030.37",
+        "5.15.0-1031.38",
+        "5.15.0-1033.40",
+        "5.15.0-1034.41",
+        "5.15.0-1035.42",
+        "5.15.0-1036.43",
+        "5.15.0-1037.44",
+        "5.15.0-1038.45",
+        "5.15.0-1039.46",
+        "5.15.0-1040.47",
+        "5.15.0-1041.48",
+        "5.15.0-1042.49",
+        "5.15.0-1044.51",
+        "5.15.0-1045.52",
+        "5.15.0-1046.53",
+        "5.15.0-1047.54",
+        "5.15.0-1049.56",
+        "5.15.0-1050.57",
+        "5.15.0-1051.59",
+        "5.15.0-1052.60",
+        "5.15.0-1053.61",
+        "5.15.0-1054.62",
+        "5.15.0-1056.64",
+        "5.15.0-1057.65",
+        "5.15.0-1058.66",
+        "5.15.0-1059.67",
+        "5.15.0-1060.69",
+        "5.15.0-1061.70",
+        "5.15.0-1063.72",
+        "5.15.0-1064.73",
+        "5.15.0-1066.75",
+        "5.15.0-1067.76",
+        "5.15.0-1068.77",
+        "5.15.0-1070.79",
+        "5.15.0-1071.80",
+        "5.15.0-1072.81",
+        "5.15.0-1073.82",
+        "5.15.0-1074.83",
+        "5.15.0-1075.84",
+        "5.15.0-1078.87",
+        "5.15.0-1079.88",
+        "5.15.0-1081.90",
+        "5.15.0-1082.91",
+        "5.15.0-1084.93",
+        "5.15.0-1086.95",
+        "5.15.0-1087.96",
+        "5.15.0-1088.97",
+        "5.15.0-1089.98",
+        "5.15.0-1090.99",
+        "5.15.0-1091.100",
+        "5.15.0-1092.101"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "linux-azure-cloud-tools-5.15.0-1094",
+            "binary_version": "5.15.0-1094.103"
+          },
+          {
+            "binary_name": "linux-azure-headers-5.15.0-1094",
+            "binary_version": "5.15.0-1094.103"
+          },
+          {
+            "binary_name": "linux-azure-tools-5.15.0-1094",
+            "binary_version": "5.15.0-1094.103"
+          },
+          {
+            "binary_name": "linux-buildinfo-5.15.0-1094-azure",
+            "binary_version": "5.15.0-1094.103"
+          },
+          {
+            "binary_name": "linux-cloud-tools-5.15.0-1094-azure",
+            "binary_version": "5.15.0-1094.103"
+          },
+          {
+            "binary_name": "linux-headers-5.15.0-1094-azure",
+            "binary_version": "5.15.0-1094.103"
+          },
+          {
+            "binary_name": "linux-image-unsigned-5.15.0-1094-azure",
+            "binary_version": "5.15.0-1094.103"
+          },
+          {
+            "binary_name": "linux-image-unsigned-5.15.0-1094-azure-dbgsym",
+            "binary_version": "5.15.0-1094.103"
+          },
+          {
+            "binary_name": "linux-modules-5.15.0-1094-azure",
+            "binary_version": "5.15.0-1094.103"
+          },
+          {
+            "binary_name": "linux-modules-extra-5.15.0-1094-azure",
+            "binary_version": "5.15.0-1094.103"
+          },
+          {
+            "binary_name": "linux-modules-involflt-5.15.0-1094-azure",
+            "binary_version": "5.15.0-1094.103"
+          },
+          {
+            "binary_name": "linux-tools-5.15.0-1094-azure",
+            "binary_version": "5.15.0-1094.103"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-7711-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2022-21546"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2022-48893"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2022-49063"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2022-49168"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2022-49535"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-26686"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-26739"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-27402"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-35790"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-35866"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-35867"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-35943"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-36908"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-38540"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-38541"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-42322"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-46742"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-46751"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-46774"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-46816"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-49960"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-49989"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-50073"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-50125"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-50258"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-50272"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-50280"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53128"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-53203"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-54458"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2024-56751"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-21839"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-21853"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-22027"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-22062"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-23140"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-23142"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-23144"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-23145"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-23146"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-23147"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-23148"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-23150"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-23151"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-23156"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-23157"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-23158"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-23159"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-23161"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-23163"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37738"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37739"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37740"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37741"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37742"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37749"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37756"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37757"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37758"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37765"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37766"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37767"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37768"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37770"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37771"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37773"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37780"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37781"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37787"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37788"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37789"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37790"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37792"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37794"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37796"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37797"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37803"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37805"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37808"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37810"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37811"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37812"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37817"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37819"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37823"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37824"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37829"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37830"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37836"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37838"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37839"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37840"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37841"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37844"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37850"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37851"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37857"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37858"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37859"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37862"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37867"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37871"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37875"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37881"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37883"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37885"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37892"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37905"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37909"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37911"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37912"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37913"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37914"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37915"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37923"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37927"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37930"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37940"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37949"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37964"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37967"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37969"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37970"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37982"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37983"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37985"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37989"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37990"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37991"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37992"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37994"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37995"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-37998"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38003"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38004"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38005"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38009"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38023"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38024"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38031"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38034"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38035"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38037"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38043"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38044"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38048"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38051"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38052"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38058"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38061"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38065"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38066"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38068"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38072"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38075"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38077"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38078"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38079"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38083"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-38094"
+    }
+  ]
+}
