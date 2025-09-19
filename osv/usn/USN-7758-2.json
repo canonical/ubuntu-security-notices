@@ -1,0 +1,621 @@
+{
+  "schema_version": "1.7.0",
+  "id": "USN-7758-2",
+  "summary": "linux-ibm, linux-ibm-6.8, linux-nvidia, linux-nvidia-6.8, linux-nvidia-lowlatency, linux-raspi vulnerability",
+  "details": "It was discovered that the AF_UNIX socket garbage collection implementation\nin Ubuntu Noble's 6.8 kernel did not properly handle out-of-band (OOB)\nmessages, leading to a use-after-free vulnerability. An attacker could use\nthis to cause a denial of service (system crash) or possibly execute\narbitrary code.\n",
+  "aliases": [],
+  "upstream": [],
+  "related": [],
+  "published": "2025-09-19T09:21:20.599911Z",
+  "modified": "2025-09-19T09:21:20.599911Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:22.04:LTS",
+        "name": "linux-ibm-6.8",
+        "purl": "pkg:deb/ubuntu/linux-ibm-6.8@6.8.0-1036.36~22.04.1?arch=source&distro=jammy"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "6.8.0-1036.36~22.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "6.8.0-1008.8~22.04.1",
+        "6.8.0-1010.10~22.04.1",
+        "6.8.0-1011.11~22.04.1",
+        "6.8.0-1012.12~22.04.1",
+        "6.8.0-1013.13~22.04.1",
+        "6.8.0-1014.14~22.04.1",
+        "6.8.0-1015.15~22.04.1",
+        "6.8.0-1016.16~22.04.1",
+        "6.8.0-1017.17~22.04.1",
+        "6.8.0-1018.18~22.04.1",
+        "6.8.0-1019.19~22.04.1",
+        "6.8.0-1023.23~22.04.1",
+        "6.8.0-1024.24~22.04.1",
+        "6.8.0-1025.25~22.04.1",
+        "6.8.0-1026.26~22.04.1",
+        "6.8.0-1027.27~22.04.1",
+        "6.8.0-1028.28~22.04.1",
+        "6.8.0-1029.29~22.04.1",
+        "6.8.0-1030.30~22.04.1",
+        "6.8.0-1033.33~22.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "linux-buildinfo-6.8.0-1036-ibm",
+            "binary_version": "6.8.0-1036.36~22.04.1"
+          },
+          {
+            "binary_name": "linux-headers-6.8.0-1036-ibm",
+            "binary_version": "6.8.0-1036.36~22.04.1"
+          },
+          {
+            "binary_name": "linux-ibm-6.8-headers-6.8.0-1036",
+            "binary_version": "6.8.0-1036.36~22.04.1"
+          },
+          {
+            "binary_name": "linux-ibm-6.8-tools-6.8.0-1036",
+            "binary_version": "6.8.0-1036.36~22.04.1"
+          },
+          {
+            "binary_name": "linux-image-unsigned-6.8.0-1036-ibm",
+            "binary_version": "6.8.0-1036.36~22.04.1"
+          },
+          {
+            "binary_name": "linux-modules-6.8.0-1036-ibm",
+            "binary_version": "6.8.0-1036.36~22.04.1"
+          },
+          {
+            "binary_name": "linux-modules-extra-6.8.0-1036-ibm",
+            "binary_version": "6.8.0-1036.36~22.04.1"
+          },
+          {
+            "binary_name": "linux-modules-iwlwifi-6.8.0-1036-ibm",
+            "binary_version": "6.8.0-1036.36~22.04.1"
+          },
+          {
+            "binary_name": "linux-tools-6.8.0-1036-ibm",
+            "binary_version": "6.8.0-1036.36~22.04.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:22.04:LTS",
+        "name": "linux-nvidia-6.8",
+        "purl": "pkg:deb/ubuntu/linux-nvidia-6.8@6.8.0-1038.41~22.04.1?arch=source&distro=jammy"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "6.8.0-1038.41~22.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "6.8.0-1008.8~22.04.1",
+        "6.8.0-1009.9~22.04.1",
+        "6.8.0-1010.10~22.04.1",
+        "6.8.0-1011.11~22.04.1",
+        "6.8.0-1012.12~22.04.1",
+        "6.8.0-1013.14~22.04.1",
+        "6.8.0-1014.15~22.04.1",
+        "6.8.0-1015.16~22.04.1",
+        "6.8.0-1017.19~22.04.1",
+        "6.8.0-1018.20~22.04.1",
+        "6.8.0-1019.21~22.04.1",
+        "6.8.0-1020.22~22.04.1",
+        "6.8.0-1021.23~22.04.1",
+        "6.8.0-1022.25~22.04.2",
+        "6.8.0-1023.26~22.04.1",
+        "6.8.0-1024.27~22.04.1",
+        "6.8.0-1025.28~22.04.1",
+        "6.8.0-1026.29~22.04.1",
+        "6.8.0-1027.30~22.04.1",
+        "6.8.0-1028.31~22.04.1",
+        "6.8.0-1029.32~22.04.1",
+        "6.8.0-1030.33~22.04.1",
+        "6.8.0-1031.34~22.04.1",
+        "6.8.0-1032.35~22.04.1",
+        "6.8.0-1035.38~22.04.1",
+        "6.8.0-1036.39~22.04.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "linux-buildinfo-6.8.0-1038-nvidia",
+            "binary_version": "6.8.0-1038.41~22.04.1"
+          },
+          {
+            "binary_name": "linux-buildinfo-6.8.0-1038-nvidia-64k",
+            "binary_version": "6.8.0-1038.41~22.04.1"
+          },
+          {
+            "binary_name": "linux-headers-6.8.0-1038-nvidia",
+            "binary_version": "6.8.0-1038.41~22.04.1"
+          },
+          {
+            "binary_name": "linux-headers-6.8.0-1038-nvidia-64k",
+            "binary_version": "6.8.0-1038.41~22.04.1"
+          },
+          {
+            "binary_name": "linux-image-unsigned-6.8.0-1038-nvidia",
+            "binary_version": "6.8.0-1038.41~22.04.1"
+          },
+          {
+            "binary_name": "linux-image-unsigned-6.8.0-1038-nvidia-64k",
+            "binary_version": "6.8.0-1038.41~22.04.1"
+          },
+          {
+            "binary_name": "linux-modules-6.8.0-1038-nvidia",
+            "binary_version": "6.8.0-1038.41~22.04.1"
+          },
+          {
+            "binary_name": "linux-modules-6.8.0-1038-nvidia-64k",
+            "binary_version": "6.8.0-1038.41~22.04.1"
+          },
+          {
+            "binary_name": "linux-modules-extra-6.8.0-1038-nvidia",
+            "binary_version": "6.8.0-1038.41~22.04.1"
+          },
+          {
+            "binary_name": "linux-modules-nvidia-fs-6.8.0-1038-nvidia",
+            "binary_version": "6.8.0-1038.41~22.04.1"
+          },
+          {
+            "binary_name": "linux-modules-nvidia-fs-6.8.0-1038-nvidia-64k",
+            "binary_version": "6.8.0-1038.41~22.04.1"
+          },
+          {
+            "binary_name": "linux-nvidia-6.8-headers-6.8.0-1038",
+            "binary_version": "6.8.0-1038.41~22.04.1"
+          },
+          {
+            "binary_name": "linux-nvidia-6.8-tools-6.8.0-1038",
+            "binary_version": "6.8.0-1038.41~22.04.1"
+          },
+          {
+            "binary_name": "linux-tools-6.8.0-1038-nvidia",
+            "binary_version": "6.8.0-1038.41~22.04.1"
+          },
+          {
+            "binary_name": "linux-tools-6.8.0-1038-nvidia-64k",
+            "binary_version": "6.8.0-1038.41~22.04.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:24.04:LTS",
+        "name": "linux-ibm",
+        "purl": "pkg:deb/ubuntu/linux-ibm@6.8.0-1036.36?arch=source&distro=noble"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "6.8.0-1036.36"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "6.5.0-1009.9",
+        "6.8.0-1001.1",
+        "6.8.0-1003.3",
+        "6.8.0-1004.4",
+        "6.8.0-1005.5",
+        "6.8.0-1006.6",
+        "6.8.0-1007.7",
+        "6.8.0-1008.8",
+        "6.8.0-1009.9",
+        "6.8.0-1010.10",
+        "6.8.0-1011.11",
+        "6.8.0-1012.12",
+        "6.8.0-1013.13",
+        "6.8.0-1014.14",
+        "6.8.0-1015.15",
+        "6.8.0-1016.16",
+        "6.8.0-1017.17",
+        "6.8.0-1018.18",
+        "6.8.0-1019.19",
+        "6.8.0-1022.22",
+        "6.8.0-1023.23",
+        "6.8.0-1024.24",
+        "6.8.0-1025.25",
+        "6.8.0-1026.26",
+        "6.8.0-1027.27",
+        "6.8.0-1028.28",
+        "6.8.0-1029.29",
+        "6.8.0-1030.30",
+        "6.8.0-1033.33"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "linux-buildinfo-6.8.0-1036-ibm",
+            "binary_version": "6.8.0-1036.36"
+          },
+          {
+            "binary_name": "linux-headers-6.8.0-1036-ibm",
+            "binary_version": "6.8.0-1036.36"
+          },
+          {
+            "binary_name": "linux-ibm-headers-6.8.0-1036",
+            "binary_version": "6.8.0-1036.36"
+          },
+          {
+            "binary_name": "linux-ibm-tools-6.8.0-1036",
+            "binary_version": "6.8.0-1036.36"
+          },
+          {
+            "binary_name": "linux-image-unsigned-6.8.0-1036-ibm",
+            "binary_version": "6.8.0-1036.36"
+          },
+          {
+            "binary_name": "linux-modules-6.8.0-1036-ibm",
+            "binary_version": "6.8.0-1036.36"
+          },
+          {
+            "binary_name": "linux-modules-extra-6.8.0-1036-ibm",
+            "binary_version": "6.8.0-1036.36"
+          },
+          {
+            "binary_name": "linux-modules-iwlwifi-6.8.0-1036-ibm",
+            "binary_version": "6.8.0-1036.36"
+          },
+          {
+            "binary_name": "linux-tools-6.8.0-1036-ibm",
+            "binary_version": "6.8.0-1036.36"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:24.04:LTS",
+        "name": "linux-nvidia",
+        "purl": "pkg:deb/ubuntu/linux-nvidia@6.8.0-1038.41?arch=source&distro=noble"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "6.8.0-1038.41"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "6.8.0-1007.7",
+        "6.8.0-1008.8",
+        "6.8.0-1009.9",
+        "6.8.0-1010.10",
+        "6.8.0-1011.11",
+        "6.8.0-1012.12",
+        "6.8.0-1013.14",
+        "6.8.0-1014.15",
+        "6.8.0-1015.16",
+        "6.8.0-1017.19",
+        "6.8.0-1018.20",
+        "6.8.0-1019.21",
+        "6.8.0-1020.22",
+        "6.8.0-1021.23",
+        "6.8.0-1022.25",
+        "6.8.0-1023.26",
+        "6.8.0-1024.27",
+        "6.8.0-1025.28",
+        "6.8.0-1026.29",
+        "6.8.0-1027.30",
+        "6.8.0-1028.31",
+        "6.8.0-1029.32",
+        "6.8.0-1030.33",
+        "6.8.0-1031.34",
+        "6.8.0-1032.35",
+        "6.8.0-1035.38",
+        "6.8.0-1036.39"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "linux-buildinfo-6.8.0-1038-nvidia",
+            "binary_version": "6.8.0-1038.41"
+          },
+          {
+            "binary_name": "linux-buildinfo-6.8.0-1038-nvidia-64k",
+            "binary_version": "6.8.0-1038.41"
+          },
+          {
+            "binary_name": "linux-headers-6.8.0-1038-nvidia",
+            "binary_version": "6.8.0-1038.41"
+          },
+          {
+            "binary_name": "linux-headers-6.8.0-1038-nvidia-64k",
+            "binary_version": "6.8.0-1038.41"
+          },
+          {
+            "binary_name": "linux-image-unsigned-6.8.0-1038-nvidia",
+            "binary_version": "6.8.0-1038.41"
+          },
+          {
+            "binary_name": "linux-image-unsigned-6.8.0-1038-nvidia-64k",
+            "binary_version": "6.8.0-1038.41"
+          },
+          {
+            "binary_name": "linux-modules-6.8.0-1038-nvidia",
+            "binary_version": "6.8.0-1038.41"
+          },
+          {
+            "binary_name": "linux-modules-6.8.0-1038-nvidia-64k",
+            "binary_version": "6.8.0-1038.41"
+          },
+          {
+            "binary_name": "linux-modules-extra-6.8.0-1038-nvidia",
+            "binary_version": "6.8.0-1038.41"
+          },
+          {
+            "binary_name": "linux-modules-nvidia-fs-6.8.0-1038-nvidia",
+            "binary_version": "6.8.0-1038.41"
+          },
+          {
+            "binary_name": "linux-modules-nvidia-fs-6.8.0-1038-nvidia-64k",
+            "binary_version": "6.8.0-1038.41"
+          },
+          {
+            "binary_name": "linux-nvidia-headers-6.8.0-1038",
+            "binary_version": "6.8.0-1038.41"
+          },
+          {
+            "binary_name": "linux-nvidia-tools-6.8.0-1038",
+            "binary_version": "6.8.0-1038.41"
+          },
+          {
+            "binary_name": "linux-tools-6.8.0-1038-nvidia",
+            "binary_version": "6.8.0-1038.41"
+          },
+          {
+            "binary_name": "linux-tools-6.8.0-1038-nvidia-64k",
+            "binary_version": "6.8.0-1038.41"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:24.04:LTS",
+        "name": "linux-nvidia-lowlatency",
+        "purl": "pkg:deb/ubuntu/linux-nvidia-lowlatency@6.8.0-1038.41.1?arch=source&distro=noble"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "6.8.0-1038.41.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "6.8.0-1009.9.1",
+        "6.8.0-1011.11.1",
+        "6.8.0-1012.12.1",
+        "6.8.0-1013.14.1",
+        "6.8.0-1014.15.1",
+        "6.8.0-1015.16.1",
+        "6.8.0-1017.19.1",
+        "6.8.0-1018.20.1",
+        "6.8.0-1019.21.1",
+        "6.8.0-1020.22.1",
+        "6.8.0-1021.23.1",
+        "6.8.0-1022.25.2",
+        "6.8.0-1023.26.1",
+        "6.8.0-1024.27.1",
+        "6.8.0-1025.28.1",
+        "6.8.0-1026.29.1",
+        "6.8.0-1027.30.1",
+        "6.8.0-1028.31.1",
+        "6.8.0-1029.32.1",
+        "6.8.0-1030.33.1",
+        "6.8.0-1031.34.1",
+        "6.8.0-1032.35.1",
+        "6.8.0-1035.38.1",
+        "6.8.0-1036.39.1"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "linux-buildinfo-6.8.0-1038-nvidia-lowlatency",
+            "binary_version": "6.8.0-1038.41.1"
+          },
+          {
+            "binary_name": "linux-buildinfo-6.8.0-1038-nvidia-lowlatency-64k",
+            "binary_version": "6.8.0-1038.41.1"
+          },
+          {
+            "binary_name": "linux-headers-6.8.0-1038-nvidia-lowlatency",
+            "binary_version": "6.8.0-1038.41.1"
+          },
+          {
+            "binary_name": "linux-headers-6.8.0-1038-nvidia-lowlatency-64k",
+            "binary_version": "6.8.0-1038.41.1"
+          },
+          {
+            "binary_name": "linux-image-unsigned-6.8.0-1038-nvidia-lowlatency",
+            "binary_version": "6.8.0-1038.41.1"
+          },
+          {
+            "binary_name": "linux-image-unsigned-6.8.0-1038-nvidia-lowlatency-64k",
+            "binary_version": "6.8.0-1038.41.1"
+          },
+          {
+            "binary_name": "linux-modules-6.8.0-1038-nvidia-lowlatency",
+            "binary_version": "6.8.0-1038.41.1"
+          },
+          {
+            "binary_name": "linux-modules-6.8.0-1038-nvidia-lowlatency-64k",
+            "binary_version": "6.8.0-1038.41.1"
+          },
+          {
+            "binary_name": "linux-modules-extra-6.8.0-1038-nvidia-lowlatency",
+            "binary_version": "6.8.0-1038.41.1"
+          },
+          {
+            "binary_name": "linux-modules-nvidia-fs-6.8.0-1038-nvidia-lowlatency",
+            "binary_version": "6.8.0-1038.41.1"
+          },
+          {
+            "binary_name": "linux-modules-nvidia-fs-6.8.0-1038-nvidia-lowlatency-64k",
+            "binary_version": "6.8.0-1038.41.1"
+          },
+          {
+            "binary_name": "linux-nvidia-lowlatency-headers-6.8.0-1038",
+            "binary_version": "6.8.0-1038.41.1"
+          },
+          {
+            "binary_name": "linux-nvidia-lowlatency-tools-6.8.0-1038",
+            "binary_version": "6.8.0-1038.41.1"
+          },
+          {
+            "binary_name": "linux-tools-6.8.0-1038-nvidia-lowlatency",
+            "binary_version": "6.8.0-1038.41.1"
+          },
+          {
+            "binary_name": "linux-tools-6.8.0-1038-nvidia-lowlatency-64k",
+            "binary_version": "6.8.0-1038.41.1"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:24.04:LTS",
+        "name": "linux-raspi",
+        "purl": "pkg:deb/ubuntu/linux-raspi@6.8.0-1038.42?arch=source&distro=noble"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "6.8.0-1038.42"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "6.5.0-1005.7",
+        "6.7.0-1001.1",
+        "6.8.0-1001.1",
+        "6.8.0-1002.2",
+        "6.8.0-1003.3",
+        "6.8.0-1004.4",
+        "6.8.0-1005.5",
+        "6.8.0-1006.6",
+        "6.8.0-1007.7",
+        "6.8.0-1008.8",
+        "6.8.0-1009.10",
+        "6.8.0-1010.11",
+        "6.8.0-1011.12",
+        "6.8.0-1012.13",
+        "6.8.0-1013.14",
+        "6.8.0-1014.16",
+        "6.8.0-1015.17",
+        "6.8.0-1016.18",
+        "6.8.0-1017.19",
+        "6.8.0-1018.20",
+        "6.8.0-1019.23",
+        "6.8.0-1020.24",
+        "6.8.0-1024.28",
+        "6.8.0-1028.32",
+        "6.8.0-1029.33",
+        "6.8.0-1030.34",
+        "6.8.0-1031.35",
+        "6.8.0-1032.36",
+        "6.8.0-1035.39",
+        "6.8.0-1036.40"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "linux-buildinfo-6.8.0-1038-raspi",
+            "binary_version": "6.8.0-1038.42"
+          },
+          {
+            "binary_name": "linux-headers-6.8.0-1038-raspi",
+            "binary_version": "6.8.0-1038.42"
+          },
+          {
+            "binary_name": "linux-image-6.8.0-1038-raspi",
+            "binary_version": "6.8.0-1038.42"
+          },
+          {
+            "binary_name": "linux-modules-6.8.0-1038-raspi",
+            "binary_version": "6.8.0-1038.42"
+          },
+          {
+            "binary_name": "linux-raspi-headers-6.8.0-1038",
+            "binary_version": "6.8.0-1038.42"
+          },
+          {
+            "binary_name": "linux-raspi-tools-6.8.0-1038",
+            "binary_version": "6.8.0-1038.42"
+          },
+          {
+            "binary_name": "linux-tools-6.8.0-1038-raspi",
+            "binary_version": "6.8.0-1038.42"
+          }
+        ],
+        "availability": "No subscription required"
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-7758-2"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://launchpad.net/bugs/2121515"
+    }
+  ]
+}
