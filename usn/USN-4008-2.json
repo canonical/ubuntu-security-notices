@@ -1,5 +1,5 @@
 {
-  "description": "USN-4008-1 fixed multiple security issues in the Linux kernel. This update\nprovides the corresponding changes to AppArmor policy for correctly\noperating under the Linux kernel with fixes for CVE-2019-11190. Without\nthese changes, some profile transitions may be unintentionally denied due\nto missing mmap ('m') rules.\n\nOriginal advisory details:\n\n Robert \u015awi\u0119cki discovered that the Linux kernel did not properly apply\n Address Space Layout Randomization (ASLR) in some situations for setuid elf\n binaries. A local attacker could use this to improve the chances of\n exploiting an existing vulnerability in a setuid elf binary.\n (CVE-2019-11190)\n \n It was discovered that a null pointer dereference vulnerability existed in\n the LSI Logic MegaRAID driver in the Linux kernel. A local attacker could\n use this to cause a denial of service (system crash). (CVE-2019-11810)\n \n It was discovered that a race condition leading to a use-after-free existed\n in the Reliable Datagram Sockets (RDS) protocol implementation in the Linux\n kernel. The RDS protocol is disabled via blocklist by default in Ubuntu. If\n enabled, a local attacker could use this to cause a denial of service\n (system crash) or possibly execute arbitrary code. (CVE-2019-11815)\n \n Federico Manuel Bento discovered that the Linux kernel did not properly\n apply Address Space Layout Randomization (ASLR) in some situations for\n setuid a.out binaries. A local attacker could use this to improve the\n chances of exploiting an existing vulnerability in a setuid a.out binary.\n (CVE-2019-11191)\n \n As a hardening measure, this update disables a.out support.\n",
+  "description": "USN-4008-1 fixed multiple security issues in the Linux kernel. This update\nprovides the corresponding changes to AppArmor policy for correctly\noperating under the Linux kernel with fixes for CVE-2019-11190. Without\nthese changes, some profile transitions may be unintentionally denied due\nto missing mmap ('m') rules.\n\nOriginal advisory details:\n\n Robert Święcki discovered that the Linux kernel did not properly apply\n Address Space Layout Randomization (ASLR) in some situations for setuid elf\n binaries. A local attacker could use this to improve the chances of\n exploiting an existing vulnerability in a setuid elf binary.\n (CVE-2019-11190)\n \n It was discovered that a null pointer dereference vulnerability existed in\n the LSI Logic MegaRAID driver in the Linux kernel. A local attacker could\n use this to cause a denial of service (system crash). (CVE-2019-11810)\n \n It was discovered that a race condition leading to a use-after-free existed\n in the Reliable Datagram Sockets (RDS) protocol implementation in the Linux\n kernel. The RDS protocol is disabled via blocklist by default in Ubuntu. If\n enabled, a local attacker could use this to cause a denial of service\n (system crash) or possibly execute arbitrary code. (CVE-2019-11815)\n \n Federico Manuel Bento discovered that the Linux kernel did not properly\n apply Address Space Layout Randomization (ASLR) in some situations for\n setuid a.out binaries. A local attacker could use this to improve the\n chances of exploiting an existing vulnerability in a setuid a.out binary.\n (CVE-2019-11191)\n \n As a hardening measure, this update disables a.out support.\n",
   "releases": {
     "xenial": {
       "allbinaries": {
@@ -19,7 +19,7 @@
           "pocket": "security",
           "version": "2.10.95-0ubuntu2.11"
         },
-        "apparmor-profiles": {
+        "libapparmor1": {
           "pocket": "security",
           "version": "2.10.95-0ubuntu2.11"
         },
@@ -27,7 +27,7 @@
           "pocket": "security",
           "version": "2.10.95-0ubuntu2.11"
         },
-        "libapparmor1": {
+        "apparmor-profiles": {
           "pocket": "security",
           "version": "2.10.95-0ubuntu2.11"
         },
@@ -82,376 +82,376 @@
         "all": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor-notify_2.10.95-0ubuntu2.11_all.deb": {
-              "md5": "21de300b6621ac257a87120d6353a065",
-              "size": 11602
+              "size": 11602,
+              "md5": "21de300b6621ac257a87120d6353a065"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor-easyprof_2.10.95-0ubuntu2.11_all.deb": {
-              "md5": "741ed87c4d994be565af45b6938a24d5",
-              "size": 10034
+              "size": 10034,
+              "md5": "741ed87c4d994be565af45b6938a24d5"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor-profiles_2.10.95-0ubuntu2.11_all.deb": {
-              "md5": "1e5727fd1d8404c1ead2c9fcfbd793c6",
-              "size": 30974
+              "size": 30974,
+              "md5": "1e5727fd1d8404c1ead2c9fcfbd793c6"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor-docs_2.10.95-0ubuntu2.11_all.deb": {
-              "md5": "4225d531d141ff4fd93fccdd31052038",
-              "size": 239456
+              "size": 239456,
+              "md5": "4225d531d141ff4fd93fccdd31052038"
             },
             "http://security.ubuntu.com/ubuntu/pool/universe/a/apparmor/dh-apparmor_2.10.95-0ubuntu2.11_all.deb": {
-              "md5": "d1082ab4f631bf02c0c057bbb2aa8190",
-              "size": 9788
+              "size": 9788,
+              "md5": "d1082ab4f631bf02c0c057bbb2aa8190"
             }
           }
         },
         "amd64": {
           "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/python3-libapparmor_2.10.95-0ubuntu2.11_amd64.deb": {
-              "md5": "ab50784a693e24cf7555e770d12ca696",
-              "size": 26926
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor_2.10.95-0ubuntu2.11_amd64.deb": {
-              "md5": "8ac9a3854e7340249be7033e9e40be89",
-              "size": 450736
+            "http://security.ubuntu.com/ubuntu/pool/universe/a/apparmor/python-libapparmor_2.10.95-0ubuntu2.11_amd64.deb": {
+              "size": 27318,
+              "md5": "9d7f14ac4e5800b43b03f5574a8f1a7d"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libapparmor-dev_2.10.95-0ubuntu2.11_amd64.deb": {
-              "md5": "70f41cb120fa9d8e37ff48d9216ef841",
-              "size": 67776
+              "size": 67776,
+              "md5": "70f41cb120fa9d8e37ff48d9216ef841"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libapparmor-perl_2.10.95-0ubuntu2.11_amd64.deb": {
-              "md5": "aaa177002d51b3c513d25278f6ee95cb",
-              "size": 33624
+              "size": 33624,
+              "md5": "aaa177002d51b3c513d25278f6ee95cb"
             },
-            "http://security.ubuntu.com/ubuntu/pool/universe/a/apparmor/python-libapparmor_2.10.95-0ubuntu2.11_amd64.deb": {
-              "md5": "9d7f14ac4e5800b43b03f5574a8f1a7d",
-              "size": 27318
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/python3-libapparmor_2.10.95-0ubuntu2.11_amd64.deb": {
+              "size": 26926,
+              "md5": "ab50784a693e24cf7555e770d12ca696"
             },
             "http://security.ubuntu.com/ubuntu/pool/universe/a/apparmor/python-apparmor_2.10.95-0ubuntu2.11_amd64.deb": {
-              "md5": "f9a324b926cadacff68a331ac4028457",
-              "size": 75986
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libapache2-mod-apparmor_2.10.95-0ubuntu2.11_amd64.deb": {
-              "md5": "92ea68c18f1f0852f0bbbe70735f64f8",
-              "size": 14972
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libpam-apparmor_2.10.95-0ubuntu2.11_amd64.deb": {
-              "md5": "e848989e14b750293313d24dd349f021",
-              "size": 7084
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libapparmor1_2.10.95-0ubuntu2.11_amd64.deb": {
-              "md5": "812d4ab6f76fb24839c384df8001b9c9",
-              "size": 29536
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor-utils_2.10.95-0ubuntu2.11_amd64.deb": {
-              "md5": "064918fb030b9f1c071ef11ede3be5a5",
-              "size": 53122
+              "size": 75986,
+              "md5": "f9a324b926cadacff68a331ac4028457"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/python3-apparmor_2.10.95-0ubuntu2.11_amd64.deb": {
-              "md5": "49c46fcac9103b2990636af1fc8410de",
-              "size": 76070
+              "size": 76070,
+              "md5": "49c46fcac9103b2990636af1fc8410de"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libpam-apparmor_2.10.95-0ubuntu2.11_amd64.deb": {
+              "size": 7084,
+              "md5": "e848989e14b750293313d24dd349f021"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor_2.10.95-0ubuntu2.11_amd64.deb": {
+              "size": 450736,
+              "md5": "8ac9a3854e7340249be7033e9e40be89"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libapparmor1_2.10.95-0ubuntu2.11_amd64.deb": {
+              "size": 29536,
+              "md5": "812d4ab6f76fb24839c384df8001b9c9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor-utils_2.10.95-0ubuntu2.11_amd64.deb": {
+              "size": 53122,
+              "md5": "064918fb030b9f1c071ef11ede3be5a5"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libapache2-mod-apparmor_2.10.95-0ubuntu2.11_amd64.deb": {
+              "size": 14972,
+              "md5": "92ea68c18f1f0852f0bbbe70735f64f8"
             }
           }
         },
         "ppc64el": {
           "urls": {
             "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor1_2.10.95-0ubuntu2.11_ppc64el.deb": {
-              "md5": "bd20417e33532a221bc9f6a94f13c8f2",
-              "size": 29402
-            },
-            "http://ports.ubuntu.com/pool/main/a/apparmor/python3-libapparmor_2.10.95-0ubuntu2.11_ppc64el.deb": {
-              "md5": "9389d7f8f1877cfc6eb95000fad93daf",
-              "size": 27056
-            },
-            "http://ports.ubuntu.com/pool/main/a/apparmor/python3-apparmor_2.10.95-0ubuntu2.11_ppc64el.deb": {
-              "md5": "a0c0bbf09ac90f3277ca10e6f7680c7b",
-              "size": 76124
-            },
-            "http://ports.ubuntu.com/pool/universe/a/apparmor/python-apparmor_2.10.95-0ubuntu2.11_ppc64el.deb": {
-              "md5": "5b6d0d844a5bd337e65dc3b80aca2f8c",
-              "size": 76054
-            },
-            "http://ports.ubuntu.com/pool/main/a/apparmor/libapache2-mod-apparmor_2.10.95-0ubuntu2.11_ppc64el.deb": {
-              "md5": "0b4b62ce4bd19d17bc08498c8d0cd72d",
-              "size": 14632
-            },
-            "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor-dev_2.10.95-0ubuntu2.11_ppc64el.deb": {
-              "md5": "0207335a7eeae5720d37779946be14e3",
-              "size": 69560
-            },
-            "http://ports.ubuntu.com/pool/main/a/apparmor/apparmor-utils_2.10.95-0ubuntu2.11_ppc64el.deb": {
-              "md5": "5831c92cd105e5007017d9bf3ff6cc5b",
-              "size": 53084
+              "size": 29402,
+              "md5": "bd20417e33532a221bc9f6a94f13c8f2"
             },
             "http://ports.ubuntu.com/pool/universe/a/apparmor/python-libapparmor_2.10.95-0ubuntu2.11_ppc64el.deb": {
-              "md5": "c339d96a73e1bb45aa8b69a5e78164de",
-              "size": 26582
+              "size": 26582,
+              "md5": "c339d96a73e1bb45aa8b69a5e78164de"
+            },
+            "http://ports.ubuntu.com/pool/main/a/apparmor/python3-apparmor_2.10.95-0ubuntu2.11_ppc64el.deb": {
+              "size": 76124,
+              "md5": "a0c0bbf09ac90f3277ca10e6f7680c7b"
+            },
+            "http://ports.ubuntu.com/pool/universe/a/apparmor/python-apparmor_2.10.95-0ubuntu2.11_ppc64el.deb": {
+              "size": 76054,
+              "md5": "5b6d0d844a5bd337e65dc3b80aca2f8c"
+            },
+            "http://ports.ubuntu.com/pool/main/a/apparmor/libapache2-mod-apparmor_2.10.95-0ubuntu2.11_ppc64el.deb": {
+              "size": 14632,
+              "md5": "0b4b62ce4bd19d17bc08498c8d0cd72d"
+            },
+            "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor-dev_2.10.95-0ubuntu2.11_ppc64el.deb": {
+              "size": 69560,
+              "md5": "0207335a7eeae5720d37779946be14e3"
+            },
+            "http://ports.ubuntu.com/pool/main/a/apparmor/apparmor-utils_2.10.95-0ubuntu2.11_ppc64el.deb": {
+              "size": 53084,
+              "md5": "5831c92cd105e5007017d9bf3ff6cc5b"
+            },
+            "http://ports.ubuntu.com/pool/main/a/apparmor/python3-libapparmor_2.10.95-0ubuntu2.11_ppc64el.deb": {
+              "size": 27056,
+              "md5": "9389d7f8f1877cfc6eb95000fad93daf"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/apparmor_2.10.95-0ubuntu2.11_ppc64el.deb": {
-              "md5": "51be04ef2af72dae1685357124a4e3c3",
-              "size": 464590
+              "size": 464590,
+              "md5": "51be04ef2af72dae1685357124a4e3c3"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor-perl_2.10.95-0ubuntu2.11_ppc64el.deb": {
-              "md5": "9153e699a71d34a58702850ee6468f88",
-              "size": 28056
+              "size": 28056,
+              "md5": "9153e699a71d34a58702850ee6468f88"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/libpam-apparmor_2.10.95-0ubuntu2.11_ppc64el.deb": {
-              "md5": "b56b16f0a201e54ca11bc745d8f17eb1",
-              "size": 7462
-            }
-          }
-        },
-        "i386": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/universe/a/apparmor/python-apparmor_2.10.95-0ubuntu2.11_i386.deb": {
-              "md5": "99dfedac58399856538dae8b91e8eea3",
-              "size": 76000
-            },
-            "http://security.ubuntu.com/ubuntu/pool/universe/a/apparmor/python-libapparmor_2.10.95-0ubuntu2.11_i386.deb": {
-              "md5": "fde1a9e06771840b376d4056a63be9c7",
-              "size": 27850
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor-utils_2.10.95-0ubuntu2.11_i386.deb": {
-              "md5": "91f6e244956ffa56159be67bd61439ec",
-              "size": 53134
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libapparmor-dev_2.10.95-0ubuntu2.11_i386.deb": {
-              "md5": "2238432fafb8416778a57ac7e4b3f13d",
-              "size": 67930
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libapparmor-perl_2.10.95-0ubuntu2.11_i386.deb": {
-              "md5": "813030388cec28011b2c0f769bb09610",
-              "size": 30072
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libapparmor1_2.10.95-0ubuntu2.11_i386.deb": {
-              "md5": "36d911504e33bf153f4733f02c073076",
-              "size": 31008
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/python3-apparmor_2.10.95-0ubuntu2.11_i386.deb": {
-              "md5": "90689692987843e95f251d8ff7c40e44",
-              "size": 76068
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libpam-apparmor_2.10.95-0ubuntu2.11_i386.deb": {
-              "md5": "fcb320e2f887f430c1a6e55e70f21bf5",
-              "size": 7298
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libapache2-mod-apparmor_2.10.95-0ubuntu2.11_i386.deb": {
-              "md5": "b420ad044196df2def41ab99f8bc660e",
-              "size": 15002
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor_2.10.95-0ubuntu2.11_i386.deb": {
-              "md5": "2e7f9bdf48042e04d6dff9bce60a6e89",
-              "size": 488200
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/python3-libapparmor_2.10.95-0ubuntu2.11_i386.deb": {
-              "md5": "27bbf2b6babfaa717c619787f2e89997",
-              "size": 27360
-            }
-          }
-        },
-        "powerpc": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/universe/a/apparmor/python-apparmor_2.10.95-0ubuntu2.11_powerpc.deb": {
-              "md5": "f83d83fdc2cc847720cdbb55dd7cafbd",
-              "size": 75982
-            },
-            "http://ports.ubuntu.com/pool/universe/a/apparmor/python-libapparmor_2.10.95-0ubuntu2.11_powerpc.deb": {
-              "md5": "a729890bf0e5c3632def94b27d1628d3",
-              "size": 23600
-            },
-            "http://ports.ubuntu.com/pool/main/a/apparmor/apparmor-utils_2.10.95-0ubuntu2.11_powerpc.deb": {
-              "md5": "4cb57c9f09fc763589946f0a5bbf8bf6",
-              "size": 52992
-            },
-            "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor1_2.10.95-0ubuntu2.11_powerpc.deb": {
-              "md5": "541731665e3c664da7b6daa9cae0c924",
-              "size": 27678
-            },
-            "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor-dev_2.10.95-0ubuntu2.11_powerpc.deb": {
-              "md5": "3b26b64e04d24a45754e5108d0445827",
-              "size": 65860
-            },
-            "http://ports.ubuntu.com/pool/main/a/apparmor/python3-apparmor_2.10.95-0ubuntu2.11_powerpc.deb": {
-              "md5": "a3c917bf8315df9fccc375e312cd52a0",
-              "size": 76092
-            },
-            "http://ports.ubuntu.com/pool/main/a/apparmor/python3-libapparmor_2.10.95-0ubuntu2.11_powerpc.deb": {
-              "md5": "598b497a4fadb21a967e0ef66f1f7c02",
-              "size": 23488
-            },
-            "http://ports.ubuntu.com/pool/main/a/apparmor/libapache2-mod-apparmor_2.10.95-0ubuntu2.11_powerpc.deb": {
-              "md5": "3aca4400e46ad53f4fdaa72833c1c3bb",
-              "size": 14426
-            },
-            "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor-perl_2.10.95-0ubuntu2.11_powerpc.deb": {
-              "md5": "f37632bdbc0567478f88232315287c1e",
-              "size": 26460
-            },
-            "http://ports.ubuntu.com/pool/main/a/apparmor/libpam-apparmor_2.10.95-0ubuntu2.11_powerpc.deb": {
-              "md5": "998f6c78ad898b88a70bb3589e24b648",
-              "size": 7196
-            },
-            "http://ports.ubuntu.com/pool/main/a/apparmor/apparmor_2.10.95-0ubuntu2.11_powerpc.deb": {
-              "md5": "70cde0f296d1464b12cbae18d860018b",
-              "size": 452020
-            }
-          }
-        },
-        "source": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor_2.10.95-0ubuntu2.11.debian.tar.xz": {
-              "md5": "0afe132097b9ec77438cb52b8a40cb2a",
-              "size": 98980
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor_2.10.95-0ubuntu2.11.dsc": {
-              "md5": "186947af2625e3c706d3488f4a0219a7",
-              "size": 3256
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor_2.10.95.orig.tar.gz": {
-              "md5": "71a13b9d6ae0bca4f5375984df1a51e7",
-              "size": 4502268
+              "size": 7462,
+              "md5": "b56b16f0a201e54ca11bc745d8f17eb1"
             }
           }
         },
         "s390x": {
           "urls": {
             "http://ports.ubuntu.com/pool/main/a/apparmor/libapache2-mod-apparmor_2.10.95-0ubuntu2.11_s390x.deb": {
-              "md5": "d030a0a022402260afd3ae75a6ad8bf8",
-              "size": 14512
+              "size": 14512,
+              "md5": "d030a0a022402260afd3ae75a6ad8bf8"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor-perl_2.10.95-0ubuntu2.11_s390x.deb": {
-              "md5": "906f26ffc73bbbf3b6d9fa37998c9dee",
-              "size": 30190
+              "size": 30190,
+              "md5": "906f26ffc73bbbf3b6d9fa37998c9dee"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/python3-apparmor_2.10.95-0ubuntu2.11_s390x.deb": {
-              "md5": "c7476be5174ed64a8c9bd51f47d6d00e",
-              "size": 76070
+              "size": 76070,
+              "md5": "c7476be5174ed64a8c9bd51f47d6d00e"
             },
             "http://ports.ubuntu.com/pool/universe/a/apparmor/python-apparmor_2.10.95-0ubuntu2.11_s390x.deb": {
-              "md5": "540ff09f1ef0596979eb4f518816721a",
-              "size": 76038
+              "size": 76038,
+              "md5": "540ff09f1ef0596979eb4f518816721a"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor-dev_2.10.95-0ubuntu2.11_s390x.deb": {
-              "md5": "d417e1ecc46d7a6a240a246429149784",
-              "size": 67956
+              "size": 67956,
+              "md5": "d417e1ecc46d7a6a240a246429149784"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/apparmor-utils_2.10.95-0ubuntu2.11_s390x.deb": {
-              "md5": "347000ddf8428591967f5a31a4dc30b0",
-              "size": 53068
+              "size": 53068,
+              "md5": "347000ddf8428591967f5a31a4dc30b0"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/libpam-apparmor_2.10.95-0ubuntu2.11_s390x.deb": {
-              "md5": "aff7c01d08148d889b6a7b840cd26785",
-              "size": 7096
+              "size": 7096,
+              "md5": "aff7c01d08148d889b6a7b840cd26785"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/python3-libapparmor_2.10.95-0ubuntu2.11_s390x.deb": {
-              "md5": "164146cb7ff0f1a945d5ed6b441b5061",
-              "size": 26274
+              "size": 26274,
+              "md5": "164146cb7ff0f1a945d5ed6b441b5061"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor1_2.10.95-0ubuntu2.11_s390x.deb": {
-              "md5": "f1740252861b6bdab90a77488513b39b",
-              "size": 29414
+              "size": 29414,
+              "md5": "f1740252861b6bdab90a77488513b39b"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/apparmor_2.10.95-0ubuntu2.11_s390x.deb": {
-              "md5": "c0ecf40b5c4f25f6de2dc02896b610f2",
-              "size": 475494
+              "size": 475494,
+              "md5": "c0ecf40b5c4f25f6de2dc02896b610f2"
             },
             "http://ports.ubuntu.com/pool/universe/a/apparmor/python-libapparmor_2.10.95-0ubuntu2.11_s390x.deb": {
-              "md5": "e705666fbdad9a86e74ae9bea6a71bc3",
-              "size": 26706
+              "size": 26706,
+              "md5": "e705666fbdad9a86e74ae9bea6a71bc3"
+            }
+          }
+        },
+        "powerpc": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/universe/a/apparmor/python-apparmor_2.10.95-0ubuntu2.11_powerpc.deb": {
+              "size": 75982,
+              "md5": "f83d83fdc2cc847720cdbb55dd7cafbd"
+            },
+            "http://ports.ubuntu.com/pool/universe/a/apparmor/python-libapparmor_2.10.95-0ubuntu2.11_powerpc.deb": {
+              "size": 23600,
+              "md5": "a729890bf0e5c3632def94b27d1628d3"
+            },
+            "http://ports.ubuntu.com/pool/main/a/apparmor/apparmor-utils_2.10.95-0ubuntu2.11_powerpc.deb": {
+              "size": 52992,
+              "md5": "4cb57c9f09fc763589946f0a5bbf8bf6"
+            },
+            "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor1_2.10.95-0ubuntu2.11_powerpc.deb": {
+              "size": 27678,
+              "md5": "541731665e3c664da7b6daa9cae0c924"
+            },
+            "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor-dev_2.10.95-0ubuntu2.11_powerpc.deb": {
+              "size": 65860,
+              "md5": "3b26b64e04d24a45754e5108d0445827"
+            },
+            "http://ports.ubuntu.com/pool/main/a/apparmor/python3-apparmor_2.10.95-0ubuntu2.11_powerpc.deb": {
+              "size": 76092,
+              "md5": "a3c917bf8315df9fccc375e312cd52a0"
+            },
+            "http://ports.ubuntu.com/pool/main/a/apparmor/python3-libapparmor_2.10.95-0ubuntu2.11_powerpc.deb": {
+              "size": 23488,
+              "md5": "598b497a4fadb21a967e0ef66f1f7c02"
+            },
+            "http://ports.ubuntu.com/pool/main/a/apparmor/libapache2-mod-apparmor_2.10.95-0ubuntu2.11_powerpc.deb": {
+              "size": 14426,
+              "md5": "3aca4400e46ad53f4fdaa72833c1c3bb"
+            },
+            "http://ports.ubuntu.com/pool/main/a/apparmor/libpam-apparmor_2.10.95-0ubuntu2.11_powerpc.deb": {
+              "size": 7196,
+              "md5": "998f6c78ad898b88a70bb3589e24b648"
+            },
+            "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor-perl_2.10.95-0ubuntu2.11_powerpc.deb": {
+              "size": 26460,
+              "md5": "f37632bdbc0567478f88232315287c1e"
+            },
+            "http://ports.ubuntu.com/pool/main/a/apparmor/apparmor_2.10.95-0ubuntu2.11_powerpc.deb": {
+              "size": 452020,
+              "md5": "70cde0f296d1464b12cbae18d860018b"
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor_2.10.95-0ubuntu2.11.debian.tar.xz": {
+              "size": 98980,
+              "md5": "0afe132097b9ec77438cb52b8a40cb2a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor_2.10.95-0ubuntu2.11.dsc": {
+              "size": 3256,
+              "md5": "186947af2625e3c706d3488f4a0219a7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor_2.10.95.orig.tar.gz": {
+              "size": 4502268,
+              "md5": "71a13b9d6ae0bca4f5375984df1a51e7"
+            }
+          }
+        },
+        "i386": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/universe/a/apparmor/python-apparmor_2.10.95-0ubuntu2.11_i386.deb": {
+              "size": 76000,
+              "md5": "99dfedac58399856538dae8b91e8eea3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/a/apparmor/python-libapparmor_2.10.95-0ubuntu2.11_i386.deb": {
+              "size": 27850,
+              "md5": "fde1a9e06771840b376d4056a63be9c7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor-utils_2.10.95-0ubuntu2.11_i386.deb": {
+              "size": 53134,
+              "md5": "91f6e244956ffa56159be67bd61439ec"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libapparmor-dev_2.10.95-0ubuntu2.11_i386.deb": {
+              "size": 67930,
+              "md5": "2238432fafb8416778a57ac7e4b3f13d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libapparmor-perl_2.10.95-0ubuntu2.11_i386.deb": {
+              "size": 30072,
+              "md5": "813030388cec28011b2c0f769bb09610"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libapparmor1_2.10.95-0ubuntu2.11_i386.deb": {
+              "size": 31008,
+              "md5": "36d911504e33bf153f4733f02c073076"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/python3-apparmor_2.10.95-0ubuntu2.11_i386.deb": {
+              "size": 76068,
+              "md5": "90689692987843e95f251d8ff7c40e44"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libpam-apparmor_2.10.95-0ubuntu2.11_i386.deb": {
+              "size": 7298,
+              "md5": "fcb320e2f887f430c1a6e55e70f21bf5"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/libapache2-mod-apparmor_2.10.95-0ubuntu2.11_i386.deb": {
+              "size": 15002,
+              "md5": "b420ad044196df2def41ab99f8bc660e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/apparmor_2.10.95-0ubuntu2.11_i386.deb": {
+              "size": 488200,
+              "md5": "2e7f9bdf48042e04d6dff9bce60a6e89"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/a/apparmor/python3-libapparmor_2.10.95-0ubuntu2.11_i386.deb": {
+              "size": 27360,
+              "md5": "27bbf2b6babfaa717c619787f2e89997"
             }
           }
         },
         "armhf": {
           "urls": {
             "http://ports.ubuntu.com/pool/main/a/apparmor/apparmor_2.10.95-0ubuntu2.11_armhf.deb": {
-              "md5": "033221c976143f70dbc458b1dc9cc4a3",
-              "size": 402538
+              "size": 402538,
+              "md5": "033221c976143f70dbc458b1dc9cc4a3"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor-perl_2.10.95-0ubuntu2.11_armhf.deb": {
-              "md5": "5e40f0a58407a836f810361983e6246f",
-              "size": 29256
+              "size": 29256,
+              "md5": "5e40f0a58407a836f810361983e6246f"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/apparmor-utils_2.10.95-0ubuntu2.11_armhf.deb": {
-              "md5": "a8c56322f176d07b62357cf6864949d2",
-              "size": 53034
+              "size": 53034,
+              "md5": "a8c56322f176d07b62357cf6864949d2"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/python3-apparmor_2.10.95-0ubuntu2.11_armhf.deb": {
-              "md5": "241223fe3d05c07d79727c33396c1e42",
-              "size": 76134
+              "size": 76134,
+              "md5": "241223fe3d05c07d79727c33396c1e42"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor-dev_2.10.95-0ubuntu2.11_armhf.deb": {
-              "md5": "f88ea9c261f87d8cb33e19ddf6afe34f",
-              "size": 63896
+              "size": 63896,
+              "md5": "f88ea9c261f87d8cb33e19ddf6afe34f"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/libpam-apparmor_2.10.95-0ubuntu2.11_armhf.deb": {
-              "md5": "890ba8332f1d13a301e0ef10615fc1cd",
-              "size": 6920
-            },
-            "http://ports.ubuntu.com/pool/main/a/apparmor/libapache2-mod-apparmor_2.10.95-0ubuntu2.11_armhf.deb": {
-              "md5": "83c96b1c532c2912fce74e62bb33db7a",
-              "size": 14084
-            },
-            "http://ports.ubuntu.com/pool/main/a/apparmor/python3-libapparmor_2.10.95-0ubuntu2.11_armhf.deb": {
-              "md5": "0d64a37328d728ffeb75ac6e818ec57f",
-              "size": 23470
-            },
-            "http://ports.ubuntu.com/pool/universe/a/apparmor/python-libapparmor_2.10.95-0ubuntu2.11_armhf.deb": {
-              "md5": "1b0c09c3d99a6edb8f012e6c1a33eb07",
-              "size": 23522
+              "size": 6920,
+              "md5": "890ba8332f1d13a301e0ef10615fc1cd"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor1_2.10.95-0ubuntu2.11_armhf.deb": {
-              "md5": "95dc2a9d87f5ebd5baa848f46ff7b7e6",
-              "size": 25874
+              "size": 25874,
+              "md5": "95dc2a9d87f5ebd5baa848f46ff7b7e6"
+            },
+            "http://ports.ubuntu.com/pool/main/a/apparmor/python3-libapparmor_2.10.95-0ubuntu2.11_armhf.deb": {
+              "size": 23470,
+              "md5": "0d64a37328d728ffeb75ac6e818ec57f"
+            },
+            "http://ports.ubuntu.com/pool/universe/a/apparmor/python-libapparmor_2.10.95-0ubuntu2.11_armhf.deb": {
+              "size": 23522,
+              "md5": "1b0c09c3d99a6edb8f012e6c1a33eb07"
+            },
+            "http://ports.ubuntu.com/pool/main/a/apparmor/libapache2-mod-apparmor_2.10.95-0ubuntu2.11_armhf.deb": {
+              "size": 14084,
+              "md5": "83c96b1c532c2912fce74e62bb33db7a"
             },
             "http://ports.ubuntu.com/pool/universe/a/apparmor/python-apparmor_2.10.95-0ubuntu2.11_armhf.deb": {
-              "md5": "25df7ac35bd4329a188142da960eda3a",
-              "size": 76006
+              "size": 76006,
+              "md5": "25df7ac35bd4329a188142da960eda3a"
             }
           }
         },
         "arm64": {
           "urls": {
             "http://ports.ubuntu.com/pool/main/a/apparmor/apparmor_2.10.95-0ubuntu2.11_arm64.deb": {
-              "md5": "98c3eeb9530498e2d36444ae15fb82d6",
-              "size": 429242
+              "size": 429242,
+              "md5": "98c3eeb9530498e2d36444ae15fb82d6"
             },
             "http://ports.ubuntu.com/pool/universe/a/apparmor/python-libapparmor_2.10.95-0ubuntu2.11_arm64.deb": {
-              "md5": "85d84ba472062a84e090a1af09480e37",
-              "size": 22844
+              "size": 22844,
+              "md5": "85d84ba472062a84e090a1af09480e37"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/python3-libapparmor_2.10.95-0ubuntu2.11_arm64.deb": {
-              "md5": "dd548f7fe28c449b60ad0a6c5a88fd7b",
-              "size": 22720
+              "size": 22720,
+              "md5": "dd548f7fe28c449b60ad0a6c5a88fd7b"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/libpam-apparmor_2.10.95-0ubuntu2.11_arm64.deb": {
-              "md5": "c4ce51b89ceb5ee8527ee1bb82a35f23",
-              "size": 6996
+              "size": 6996,
+              "md5": "c4ce51b89ceb5ee8527ee1bb82a35f23"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/apparmor-utils_2.10.95-0ubuntu2.11_arm64.deb": {
-              "md5": "aad0bd99fb76af8b8085c4243e486905",
-              "size": 53036
+              "size": 53036,
+              "md5": "aad0bd99fb76af8b8085c4243e486905"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor-dev_2.10.95-0ubuntu2.11_arm64.deb": {
-              "md5": "cd1e7db62fc85042cefa09c4246edd01",
-              "size": 66146
+              "size": 66146,
+              "md5": "cd1e7db62fc85042cefa09c4246edd01"
             },
             "http://ports.ubuntu.com/pool/universe/a/apparmor/python-apparmor_2.10.95-0ubuntu2.11_arm64.deb": {
-              "md5": "9e11885717dec4923073a873998776ad",
-              "size": 75984
+              "size": 75984,
+              "md5": "9e11885717dec4923073a873998776ad"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor-perl_2.10.95-0ubuntu2.11_arm64.deb": {
-              "md5": "8127fc9d2b47941c5b730b69d5f9b503",
-              "size": 26404
+              "size": 26404,
+              "md5": "8127fc9d2b47941c5b730b69d5f9b503"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/libapache2-mod-apparmor_2.10.95-0ubuntu2.11_arm64.deb": {
-              "md5": "6043fce3278d0ef0f95011a11d139627",
-              "size": 13998
+              "size": 13998,
+              "md5": "6043fce3278d0ef0f95011a11d139627"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/libapparmor1_2.10.95-0ubuntu2.11_arm64.deb": {
-              "md5": "785e40b050dfa9de3189200058a498a2",
-              "size": 26558
+              "size": 26558,
+              "md5": "785e40b050dfa9de3189200058a498a2"
             },
             "http://ports.ubuntu.com/pool/main/a/apparmor/python3-apparmor_2.10.95-0ubuntu2.11_arm64.deb": {
-              "md5": "ec67d793b151fda50e1171a60a95f2c5",
-              "size": 76114
+              "size": 76114,
+              "md5": "ec67d793b151fda50e1171a60a95f2c5"
             }
           }
         }
@@ -468,9 +468,9 @@
   "timestamp": 1559763831.2966,
   "summary": "apparmor update",
   "action": "In general, a standard system update will make all the necessary changes.\n",
-  "isummary": "Several policy updates were made for running under the recently updated\nLinux kernel.\n",
-  "id": "USN-4008-2",
   "cves": [
     "CVE-2019-11190"
-  ]
+  ],
+  "id": "USN-4008-2",
+  "isummary": "Several policy updates were made for running under the recently updated\nLinux kernel.\n"
 }

@@ -1,4 +1,602 @@
 {
+  "description": "Alon Zahavi discovered that the NVMe-oF/TCP subsystem in the Linux kernel\ndid not properly validate H2C PDU data, leading to a null pointer\ndereference vulnerability. A remote attacker could use this to cause a\ndenial of service (system crash). (CVE-2023-6356, CVE-2023-6535,\nCVE-2023-6536)\n\nChenyuan Yang discovered that the RDS Protocol implementation in the Linux\nkernel contained an out-of-bounds read vulnerability. An attacker could use\nthis to possibly cause a denial of service (system crash). (CVE-2024-23849)\n\nIt was discovered that a race condition existed in the Bluetooth subsystem\nin the Linux kernel, leading to a null pointer dereference vulnerability. A\nprivileged local attacker could use this to possibly cause a denial of\nservice (system crash). (CVE-2024-24860)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM64 architecture;\n  - PowerPC architecture;\n  - RISC-V architecture;\n  - S390 architecture;\n  - Core kernel;\n  - x86 architecture;\n  - Block layer subsystem;\n  - Cryptographic API;\n  - ACPI drivers;\n  - Android drivers;\n  - Drivers core;\n  - Power management core;\n  - Bus devices;\n  - Device frequency scaling framework;\n  - DMA engine subsystem;\n  - EDAC drivers;\n  - ARM SCMI message protocol;\n  - GPU drivers;\n  - IIO ADC drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - Media drivers;\n  - Multifunction device drivers;\n  - MTD block device drivers;\n  - Network drivers;\n  - NVME drivers;\n  - Device tree and open firmware driver;\n  - PCI driver for MicroSemi Switchtec;\n  - Power supply drivers;\n  - RPMSG subsystem;\n  - SCSI drivers;\n  - QCOM SoC drivers;\n  - SPMI drivers;\n  - Thermal drivers;\n  - TTY drivers;\n  - VFIO drivers;\n  - BTRFS file system;\n  - Ceph distributed file system;\n  - EFI Variable file system;\n  - EROFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - GFS2 file system;\n  - JFS file system;\n  - Network file systems library;\n  - Network file system server daemon;\n  - File systems infrastructure;\n  - Pstore file system;\n  - ReiserFS file system;\n  - SMB network file system;\n  - BPF subsystem;\n  - Memory management;\n  - TLS protocol;\n  - Ethernet bridge;\n  - Networking core;\n  - IPv4 networking;\n  - IPv6 networking;\n  - Logical Link layer;\n  - MAC80211 subsystem;\n  - Multipath TCP;\n  - Netfilter;\n  - NetLabel subsystem;\n  - Network traffic control;\n  - SMC sockets;\n  - Sun RPC protocol;\n  - AppArmor security module;\n  - Intel ASoC drivers;\n  - MediaTek ASoC drivers;\n  - USB sound devices;\n(CVE-2023-52612, CVE-2024-26808, CVE-2023-52691, CVE-2023-52618,\nCVE-2023-52463, CVE-2023-52447, CVE-2024-26668, CVE-2023-52454,\nCVE-2024-26670, CVE-2024-26646, CVE-2023-52472, CVE-2024-26586,\nCVE-2023-52681, CVE-2023-52453, CVE-2023-52611, CVE-2023-52622,\nCVE-2024-26641, CVE-2023-52616, CVE-2024-26592, CVE-2023-52606,\nCVE-2024-26620, CVE-2023-52692, CVE-2024-26669, CVE-2023-52623,\nCVE-2023-52588, CVE-2024-26616, CVE-2024-26610, CVE-2024-35839,\nCVE-2023-52490, CVE-2023-52672, CVE-2024-26612, CVE-2023-52617,\nCVE-2023-52697, CVE-2024-26644, CVE-2023-52458, CVE-2023-52598,\nCVE-2024-35841, CVE-2023-52664, CVE-2023-52635, CVE-2023-52676,\nCVE-2023-52669, CVE-2024-26632, CVE-2023-52486, CVE-2024-26625,\nCVE-2023-52608, CVE-2024-26634, CVE-2023-52599, CVE-2024-26618,\nCVE-2024-26640, CVE-2023-52489, CVE-2023-52675, CVE-2023-52678,\nCVE-2024-26583, CVE-2023-52693, CVE-2023-52498, CVE-2024-26649,\nCVE-2023-52670, CVE-2023-52473, CVE-2023-52449, CVE-2023-52667,\nCVE-2023-52467, CVE-2023-52686, CVE-2024-26633, CVE-2023-52666,\nCVE-2024-35840, CVE-2024-26629, CVE-2024-26595, CVE-2023-52593,\nCVE-2023-52687, CVE-2023-52465, CVE-2024-26627, CVE-2023-52493,\nCVE-2023-52491, CVE-2024-26636, CVE-2024-26584, CVE-2023-52587,\nCVE-2023-52597, CVE-2023-52462, CVE-2023-52633, CVE-2023-52696,\nCVE-2024-26585, CVE-2023-52589, CVE-2023-52456, CVE-2023-52470,\nCVE-2024-35838, CVE-2024-26645, CVE-2023-52591, CVE-2023-52464,\nCVE-2023-52609, CVE-2024-26608, CVE-2023-52450, CVE-2023-52584,\nCVE-2023-52469, CVE-2023-52583, CVE-2023-52451, CVE-2023-52495,\nCVE-2023-52626, CVE-2023-52595, CVE-2023-52680, CVE-2023-52632,\nCVE-2024-26582, CVE-2024-35837, CVE-2023-52494, CVE-2023-52614,\nCVE-2023-52443, CVE-2023-52698, CVE-2023-52448, CVE-2024-26615,\nCVE-2023-52452, CVE-2023-52492, CVE-2024-26647, CVE-2023-52468,\nCVE-2023-52594, CVE-2023-52621, CVE-2024-26638, CVE-2024-26594,\nCVE-2024-26673, CVE-2023-52457, CVE-2023-52677, CVE-2023-52607,\nCVE-2024-26623, CVE-2023-52488, CVE-2023-52497, CVE-2023-52445,\nCVE-2024-26607, CVE-2023-52610, CVE-2024-35842, CVE-2023-52690,\nCVE-2023-52683, CVE-2023-52444, CVE-2024-26671, CVE-2023-52455,\nCVE-2023-52679, CVE-2024-26598, CVE-2023-52674, CVE-2023-52627,\nCVE-2023-52619, CVE-2023-52487, CVE-2023-52446, CVE-2024-35835,\nCVE-2023-52682, CVE-2023-52685, CVE-2023-52694, CVE-2024-26631)\n",
+  "releases": {
+    "mantic": {
+      "allbinaries": {
+        "linux-image-6.5.0-1024-oracle": {
+          "pocket": "security",
+          "source": "linux-signed-oracle",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-modules-extra-6.5.0-1024-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-tools-aws": {
+          "pocket": "security",
+          "source": "linux-meta-aws",
+          "version": "6.5.0.1021.21"
+        },
+        "linux-oracle-headers-6.5.0-1024": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-cloud-tools-6.5.0-1021-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.5.0-1021.21"
+        },
+        "linux-modules-6.5.0-1024-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-headers-6.5.0-1024-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-headers-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-oracle-tools-6.5.0-1024": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-image-6.5.0-1021-aws": {
+          "pocket": "security",
+          "source": "linux-signed-aws",
+          "version": "6.5.0-1021.21"
+        },
+        "linux-headers-oracle": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-6.5.0-1024-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-aws-cloud-tools-6.5.0-1021": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.5.0-1021.21"
+        },
+        "linux-image-unsigned-6.5.0-1024-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-image-oracle": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-extra-6.5.0-1021-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.5.0-1021.21"
+        },
+        "linux-tools-6.5.0-1021-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.5.0-1021.21"
+        },
+        "linux-aws-headers-6.5.0-1021": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.5.0-1021.21"
+        },
+        "linux-tools-6.5.0-1024-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-modules-extra-aws": {
+          "pocket": "security",
+          "source": "linux-meta-aws",
+          "version": "6.5.0.1021.21"
+        },
+        "linux-image-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-tools-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-tools-6.5.0-1024-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-image-unsigned-6.5.0-1024-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-headers-6.5.0-1021-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.5.0-1021.21"
+        },
+        "linux-aws-tools-6.5.0-1021": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.5.0-1021.21"
+        },
+        "linux-buildinfo-6.5.0-1024-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-headers-6.5.0-1024-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-buildinfo-6.5.0-1024-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-image-6.5.0-1024-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-signed-oracle",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-modules-extra-6.5.0-1024-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-buildinfo-6.5.0-1021-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.5.0-1021.21"
+        },
+        "linux-tools-oracle": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-iwlwifi-6.5.0-1024-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-aws": {
+          "pocket": "security",
+          "source": "linux-meta-aws",
+          "version": "6.5.0.1021.21"
+        },
+        "linux-headers-aws": {
+          "pocket": "security",
+          "source": "linux-meta-aws",
+          "version": "6.5.0.1021.21"
+        },
+        "linux-image-aws": {
+          "pocket": "security",
+          "source": "linux-meta-aws",
+          "version": "6.5.0.1021.21"
+        },
+        "linux-modules-6.5.0-1021-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.5.0-1021.21"
+        },
+        "linux-oracle-64k": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-image-unsigned-6.5.0-1021-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.5.0-1021.21"
+        },
+        "linux-oracle": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-iwlwifi-oracle": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "6.5.0.1024.26"
+        }
+      },
+      "binaries": {
+        "linux-image-6.5.0-1024-oracle": {
+          "pocket": "security",
+          "version": "6.5.0-1024.24"
+        },
+        "linux-image-oracle-64k": {
+          "pocket": "security",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-image-6.5.0-1021-aws": {
+          "pocket": "security",
+          "version": "6.5.0-1021.21"
+        },
+        "linux-image-aws": {
+          "pocket": "security",
+          "version": "6.5.0.1021.21"
+        },
+        "linux-image-oracle": {
+          "pocket": "security",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-image-6.5.0-1024-oracle-64k": {
+          "pocket": "security",
+          "version": "6.5.0-1024.24"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle_6.5.0.orig.tar.gz": {
+              "size": 223513863,
+              "md5": "8290e3447d70a1a709986624233cb6df"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle_6.5.0-1024.24.diff.gz": {
+              "size": 3857801,
+              "md5": "116bef100f248f770cf3ee66fb1dbd0c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_6.5.0.orig.tar.gz": {
+              "size": 223513863,
+              "md5": "8290e3447d70a1a709986624233cb6df"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-meta-aws_6.5.0.1021.21.dsc": {
+              "size": 1880,
+              "md5": "1c96c887abab7789e95c1548a7bf7645"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_6.5.0-1021.21.diff.gz": {
+              "size": 3703734,
+              "md5": "d7e3d55c19d7b2a99571758d0b05492b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-meta-aws_6.5.0.1021.21.tar.xz": {
+              "size": 9472,
+              "md5": "91c2369d48cad1bf59d8812c2f16bbc7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oracle/linux-signed-oracle_6.5.0-1024.24.dsc": {
+              "size": 2117,
+              "md5": "d086ed92e70cb68b2e973a0206daf177"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle_6.5.0-1024.24.dsc": {
+              "size": 5901,
+              "md5": "2601bcb8c6667677085861fdc1669915"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-signed-aws_6.5.0-1021.21.tar.xz": {
+              "size": 13124,
+              "md5": "3cb083be537e694b58e3949e7a47ef75"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oracle/linux-signed-oracle_6.5.0-1024.24.tar.xz": {
+              "size": 15476,
+              "md5": "66e915abe0ad647007a1b70c0efa479c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-signed-aws_6.5.0-1021.21.dsc": {
+              "size": 1748,
+              "md5": "4473764a3e33da4dad063df809334f6e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-meta-oracle_6.5.0.1024.26.dsc": {
+              "size": 2240,
+              "md5": "2204c6fcf31d502412ab9eb992673bff"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_6.5.0-1021.21.dsc": {
+              "size": 4974,
+              "md5": "2aff5ab24ca7c0f5b482cb7a6cdd15ac"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-meta-oracle_6.5.0.1024.26.tar.xz": {
+              "size": 9636,
+              "md5": "72048c7a38a76ebdfab5f97550387697"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws-headers-6.5.0-1021_6.5.0-1021.21_all.deb": {
+              "size": 13310230,
+              "md5": "f4d35c16d8974c1d610701de0774b25d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle-headers-6.5.0-1024_6.5.0-1024.24_all.deb": {
+              "size": 13313916,
+              "md5": "c42c4de4a95f16e9071706778379fcb1"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-modules-iwlwifi-oracle_6.5.0.1024.26_amd64.deb": {
+              "size": 6232,
+              "md5": "621803e772012f94879fe92f97b63629"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oracle/linux-image-6.5.0-1024-oracle_6.5.0-1024.24_amd64.deb": {
+              "size": 13885654,
+              "md5": "c683dd8f99f0595af030210a4bbd53cf"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle-tools-6.5.0-1024_6.5.0-1024.24_amd64.deb": {
+              "size": 8017330,
+              "md5": "5a1761055825de44e9ddfe93a0f045f5"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-tools-6.5.0-1021-aws_6.5.0-1021.21_amd64.deb": {
+              "size": 1780,
+              "md5": "658df18f32ebaf06f7982aad16ea99f5"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-buildinfo-6.5.0-1021-aws_6.5.0-1021.21_amd64.deb": {
+              "size": 554906,
+              "md5": "975e30d266d512dd8768f81ac49aca1e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-headers-6.5.0-1024-oracle_6.5.0-1024.24_amd64.deb": {
+              "size": 3491014,
+              "md5": "8f402ea7916952332d0896520b178410"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-image-aws_6.5.0.1021.21_amd64.deb": {
+              "size": 6172,
+              "md5": "0b539c009755107394162b743e489f86"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-headers-6.5.0-1021-aws_6.5.0-1021.21_amd64.deb": {
+              "size": 3430264,
+              "md5": "953d67cec3a1ecafe51415eaf631456d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-oracle_6.5.0.1024.26_amd64.deb": {
+              "size": 1708,
+              "md5": "73e9ae75c79c70f2897918409fe913ce"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-headers-oracle_6.5.0.1024.26_amd64.deb": {
+              "size": 6156,
+              "md5": "52227084f2fbdb2798424bede0b69993"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-buildinfo-6.5.0-1024-oracle_6.5.0-1024.24_amd64.deb": {
+              "size": 588474,
+              "md5": "450a11667ef7b0eb9c318c266aedae99"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-modules-extra-aws_6.5.0.1021.21_amd64.deb": {
+              "size": 6116,
+              "md5": "915097dd9a62717eff4859b283b88798"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-modules-extra-6.5.0-1024-oracle_6.5.0-1024.24_amd64.deb": {
+              "size": 109148352,
+              "md5": "c12e38ed26f44017b46c2b66dd8622a9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-aws_6.5.0.1021.21_amd64.deb": {
+              "size": 1720,
+              "md5": "55e3f40a632a01f6f2fdbd33657f29a3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws-tools-6.5.0-1021_6.5.0-1021.21_amd64.deb": {
+              "size": 7694134,
+              "md5": "4f08c13e24a79e7fd5fc8fa87d7e5e9e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-image-6.5.0-1021-aws_6.5.0-1021.21_amd64.deb": {
+              "size": 13951322,
+              "md5": "4a0a1bac225a6a70a71a248515b536e9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-modules-6.5.0-1024-oracle_6.5.0-1024.24_amd64.deb": {
+              "size": 37970112,
+              "md5": "0b95f4038c38a26c472a0304596ebfe6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-image-unsigned-6.5.0-1024-oracle_6.5.0-1024.24_amd64.deb": {
+              "size": 14274752,
+              "md5": "bd4b9c927516f71661f7a6593c7c5116"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-headers-aws_6.5.0.1021.21_amd64.deb": {
+              "size": 6082,
+              "md5": "8b10e3b8aafa7d6f6d3f3021a5ae49f6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-image-oracle_6.5.0.1024.26_amd64.deb": {
+              "size": 6240,
+              "md5": "979b83742755e52848be2c57c3947d87"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-tools-6.5.0-1024-oracle_6.5.0-1024.24_amd64.deb": {
+              "size": 1796,
+              "md5": "2403aa76cb035acd770d3a27880b6f55"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-modules-iwlwifi-6.5.0-1024-oracle_6.5.0-1024.24_amd64.deb": {
+              "size": 1700032,
+              "md5": "304e21cd5ad42d5da30d8b68e4eee81a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-modules-6.5.0-1021-aws_6.5.0-1021.21_amd64.deb": {
+              "size": 37324992,
+              "md5": "29cdc3348e5dbb20e24baba7850672c4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-tools-oracle_6.5.0.1024.26_amd64.deb": {
+              "size": 6162,
+              "md5": "b01b11fa39f4bf81f9a15128aaf4f4e6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-modules-extra-6.5.0-1021-aws_6.5.0-1021.21_amd64.deb": {
+              "size": 93184192,
+              "md5": "abf208d934821eff92b7c4df3a4fd064"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-image-unsigned-6.5.0-1021-aws_6.5.0-1021.21_amd64.deb": {
+              "size": 14346432,
+              "md5": "39a4e14699f1c23067eb80b73308e08b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-tools-aws_6.5.0.1021.21_amd64.deb": {
+              "size": 6090,
+              "md5": "a66e2d111ad147e247b0de8461c48eaf"
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-headers-6.5.0-1024-oracle-64k_6.5.0-1024.24_arm64.deb": {
+              "size": 2951974,
+              "md5": "b5cea7aa52c53a4f474421ffd31e4825"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-tools-oracle-64k_6.5.0.1024.26_arm64.deb": {
+              "size": 6174,
+              "md5": "4a1461e9c8c1e590d5e4c70881e5b552"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-oracle/linux-image-6.5.0-1024-oracle_6.5.0-1024.24_arm64.deb": {
+              "size": 17165272,
+              "md5": "84d4c8ef25a0deb20fcd24fc92ef1e10"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-headers-oracle_6.5.0.1024.26_arm64.deb": {
+              "size": 6156,
+              "md5": "0606b1bb3c3dd80e1b059dd79e662d5e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-buildinfo-6.5.0-1024-oracle_6.5.0-1024.24_arm64.deb": {
+              "size": 611898,
+              "md5": "eec8db297d9c7d5d51111f6f44aa4052"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-oracle-64k_6.5.0.1024.26_arm64.deb": {
+              "size": 1706,
+              "md5": "c526252dd6f5cb249a11d9658e546e93"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-image-oracle_6.5.0.1024.26_arm64.deb": {
+              "size": 6230,
+              "md5": "65aeb8b9430889fc45e137bc696ba0cc"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-headers-aws_6.5.0.1021.21_arm64.deb": {
+              "size": 6082,
+              "md5": "187a01014e1515e99857204d53ae9a51"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-modules-extra-6.5.0-1021-aws_6.5.0-1021.21_arm64.deb": {
+              "size": 100352192,
+              "md5": "fb6781c25348e911567d8fc4c346209b"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-tools-6.5.0-1021-aws_6.5.0-1021.21_arm64.deb": {
+              "size": 1726,
+              "md5": "158b2c1b206cd0defa6244b28c0ab8ed"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-aws_6.5.0.1021.21_arm64.deb": {
+              "size": 1720,
+              "md5": "ca08cde63f6d839e93dedd9e48953a5d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-modules-extra-6.5.0-1024-oracle_6.5.0-1024.24_arm64.deb": {
+              "size": 118180032,
+              "md5": "e94b14c83e07b478fe7ec2c9738d57c8"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-tools-6.5.0-1024-oracle_6.5.0-1024.24_arm64.deb": {
+              "size": 1708,
+              "md5": "20c282474d5442c9f5413c690f6cfe51"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-cloud-tools-6.5.0-1021-aws_6.5.0-1021.21_arm64.deb": {
+              "size": 1686,
+              "md5": "10d155078933fa20afe3c728c9e28454"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-tools-aws_6.5.0.1021.21_arm64.deb": {
+              "size": 6090,
+              "md5": "af2b8399f2b1c543bd1bda42cf103ad8"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-tools-6.5.0-1024-oracle-64k_6.5.0-1024.24_arm64.deb": {
+              "size": 1714,
+              "md5": "01c38843ba69519b1294e6ca13eede01"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-image-unsigned-6.5.0-1024-oracle-64k_6.5.0-1024.24_arm64.deb": {
+              "size": 17612992,
+              "md5": "5967b3513af0d5be53f40659a05c34a7"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-aws/linux-image-6.5.0-1021-aws_6.5.0-1021.21_arm64.deb": {
+              "size": 16989308,
+              "md5": "681088b27fc71c4104c4ce30a0372e58"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-oracle/linux-image-6.5.0-1024-oracle-64k_6.5.0-1024.24_arm64.deb": {
+              "size": 17162166,
+              "md5": "2637c25299f0b2c0e135ef4dbfaff69b"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-modules-extra-aws_6.5.0.1021.21_arm64.deb": {
+              "size": 6116,
+              "md5": "65b395ba69a86ba2adff2dbd6aa9fe6d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-modules-6.5.0-1024-oracle_6.5.0-1024.24_arm64.deb": {
+              "size": 33065152,
+              "md5": "f4fd370464844bf51ae5f6e4dcb500c4"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-image-unsigned-6.5.0-1021-aws_6.5.0-1021.21_arm64.deb": {
+              "size": 17428672,
+              "md5": "d8b0794c5301e94e615abddb09462908"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-aws-cloud-tools-6.5.0-1021_6.5.0-1021.21_arm64.deb": {
+              "size": 142816,
+              "md5": "d1c57271d2422f9d14ffd5f384f91ace"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-headers-oracle-64k_6.5.0.1024.26_arm64.deb": {
+              "size": 6160,
+              "md5": "9cf7db2a080e8a0816c04ac337db5c40"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-image-aws_6.5.0.1021.21_arm64.deb": {
+              "size": 6158,
+              "md5": "8b0ecf31351ae559e8b7446153f1b539"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-tools-oracle_6.5.0.1024.26_arm64.deb": {
+              "size": 6162,
+              "md5": "31934c7265e899a1f0771ad0e2c1c920"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-headers-6.5.0-1024-oracle_6.5.0-1024.24_arm64.deb": {
+              "size": 2961154,
+              "md5": "8623b4a2ea5c451b797e34b98039bbd7"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-oracle-tools-6.5.0-1024_6.5.0-1024.24_arm64.deb": {
+              "size": 6913412,
+              "md5": "8c9da9dba707bfbe9dfff82e897962c1"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-oracle_6.5.0.1024.26_arm64.deb": {
+              "size": 1708,
+              "md5": "bc023043cf6c009bb576543cfbe23bb5"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-modules-6.5.0-1021-aws_6.5.0-1021.21_arm64.deb": {
+              "size": 32348352,
+              "md5": "b34e7fe885997bf55647c8469a95b886"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-modules-extra-6.5.0-1024-oracle-64k_6.5.0-1024.24_arm64.deb": {
+              "size": 119132352,
+              "md5": "6a0d29619a79787234572c73bc16d4c9"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-modules-6.5.0-1024-oracle-64k_6.5.0-1024.24_arm64.deb": {
+              "size": 32112832,
+              "md5": "9a9473a7cfc040f51af9737e6f5dc452"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-aws-tools-6.5.0-1021_6.5.0-1021.21_arm64.deb": {
+              "size": 6999126,
+              "md5": "109726e8392f413ae86965d33b19be8c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-buildinfo-6.5.0-1021-aws_6.5.0-1021.21_arm64.deb": {
+              "size": 576062,
+              "md5": "517ef00c364fc07d66ac753964f3f3ce"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-image-oracle-64k_6.5.0.1024.26_arm64.deb": {
+              "size": 6240,
+              "md5": "cbe8cad259bf71b8424c1b00593322bd"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-headers-6.5.0-1021-aws_6.5.0-1021.21_arm64.deb": {
+              "size": 2862662,
+              "md5": "a6ead4389c27019fca6ce557fa9d6429"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-buildinfo-6.5.0-1024-oracle-64k_6.5.0-1024.24_arm64.deb": {
+              "size": 611642,
+              "md5": "6ed7ca12a51c47eafcf7cc8b93420742"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-image-unsigned-6.5.0-1024-oracle_6.5.0-1024.24_arm64.deb": {
+              "size": 17612992,
+              "md5": "feaa227236373d5441d1021843761191"
+            }
+          }
+        }
+      },
+      "sources": {
+        "linux-oracle": {
+          "version": "6.5.0-1024.24",
+          "description": "Linux kernel for Oracle Cloud systems"
+        },
+        "linux-aws": {
+          "version": "6.5.0-1021.21",
+          "description": "Linux kernel for Amazon Web Services (AWS) systems"
+        }
+      }
+    }
+  },
+  "title": "Linux kernel vulnerabilities",
+  "timestamp": 1718143781.7447083,
+  "summary": "linux-aws, linux-oracle vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
   "cves": [
     "CVE-2023-52443",
@@ -151,604 +749,6 @@
     "CVE-2024-35841",
     "CVE-2024-35842"
   ],
-  "description": "Alon Zahavi discovered that the NVMe-oF/TCP subsystem in the Linux kernel\ndid not properly validate H2C PDU data, leading to a null pointer\ndereference vulnerability. A remote attacker could use this to cause a\ndenial of service (system crash). (CVE-2023-6356, CVE-2023-6535,\nCVE-2023-6536)\n\nChenyuan Yang discovered that the RDS Protocol implementation in the Linux\nkernel contained an out-of-bounds read vulnerability. An attacker could use\nthis to possibly cause a denial of service (system crash). (CVE-2024-23849)\n\nIt was discovered that a race condition existed in the Bluetooth subsystem\nin the Linux kernel, leading to a null pointer dereference vulnerability. A\nprivileged local attacker could use this to possibly cause a denial of\nservice (system crash). (CVE-2024-24860)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM64 architecture;\n  - PowerPC architecture;\n  - RISC-V architecture;\n  - S390 architecture;\n  - Core kernel;\n  - x86 architecture;\n  - Block layer subsystem;\n  - Cryptographic API;\n  - ACPI drivers;\n  - Android drivers;\n  - Drivers core;\n  - Power management core;\n  - Bus devices;\n  - Device frequency scaling framework;\n  - DMA engine subsystem;\n  - EDAC drivers;\n  - ARM SCMI message protocol;\n  - GPU drivers;\n  - IIO ADC drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - Media drivers;\n  - Multifunction device drivers;\n  - MTD block device drivers;\n  - Network drivers;\n  - NVME drivers;\n  - Device tree and open firmware driver;\n  - PCI driver for MicroSemi Switchtec;\n  - Power supply drivers;\n  - RPMSG subsystem;\n  - SCSI drivers;\n  - QCOM SoC drivers;\n  - SPMI drivers;\n  - Thermal drivers;\n  - TTY drivers;\n  - VFIO drivers;\n  - BTRFS file system;\n  - Ceph distributed file system;\n  - EFI Variable file system;\n  - EROFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - GFS2 file system;\n  - JFS file system;\n  - Network file systems library;\n  - Network file system server daemon;\n  - File systems infrastructure;\n  - Pstore file system;\n  - ReiserFS file system;\n  - SMB network file system;\n  - BPF subsystem;\n  - Memory management;\n  - TLS protocol;\n  - Ethernet bridge;\n  - Networking core;\n  - IPv4 networking;\n  - IPv6 networking;\n  - Logical Link layer;\n  - MAC80211 subsystem;\n  - Multipath TCP;\n  - Netfilter;\n  - NetLabel subsystem;\n  - Network traffic control;\n  - SMC sockets;\n  - Sun RPC protocol;\n  - AppArmor security module;\n  - Intel ASoC drivers;\n  - MediaTek ASoC drivers;\n  - USB sound devices;\n(CVE-2023-52612, CVE-2024-26808, CVE-2023-52691, CVE-2023-52618,\nCVE-2023-52463, CVE-2023-52447, CVE-2024-26668, CVE-2023-52454,\nCVE-2024-26670, CVE-2024-26646, CVE-2023-52472, CVE-2024-26586,\nCVE-2023-52681, CVE-2023-52453, CVE-2023-52611, CVE-2023-52622,\nCVE-2024-26641, CVE-2023-52616, CVE-2024-26592, CVE-2023-52606,\nCVE-2024-26620, CVE-2023-52692, CVE-2024-26669, CVE-2023-52623,\nCVE-2023-52588, CVE-2024-26616, CVE-2024-26610, CVE-2024-35839,\nCVE-2023-52490, CVE-2023-52672, CVE-2024-26612, CVE-2023-52617,\nCVE-2023-52697, CVE-2024-26644, CVE-2023-52458, CVE-2023-52598,\nCVE-2024-35841, CVE-2023-52664, CVE-2023-52635, CVE-2023-52676,\nCVE-2023-52669, CVE-2024-26632, CVE-2023-52486, CVE-2024-26625,\nCVE-2023-52608, CVE-2024-26634, CVE-2023-52599, CVE-2024-26618,\nCVE-2024-26640, CVE-2023-52489, CVE-2023-52675, CVE-2023-52678,\nCVE-2024-26583, CVE-2023-52693, CVE-2023-52498, CVE-2024-26649,\nCVE-2023-52670, CVE-2023-52473, CVE-2023-52449, CVE-2023-52667,\nCVE-2023-52467, CVE-2023-52686, CVE-2024-26633, CVE-2023-52666,\nCVE-2024-35840, CVE-2024-26629, CVE-2024-26595, CVE-2023-52593,\nCVE-2023-52687, CVE-2023-52465, CVE-2024-26627, CVE-2023-52493,\nCVE-2023-52491, CVE-2024-26636, CVE-2024-26584, CVE-2023-52587,\nCVE-2023-52597, CVE-2023-52462, CVE-2023-52633, CVE-2023-52696,\nCVE-2024-26585, CVE-2023-52589, CVE-2023-52456, CVE-2023-52470,\nCVE-2024-35838, CVE-2024-26645, CVE-2023-52591, CVE-2023-52464,\nCVE-2023-52609, CVE-2024-26608, CVE-2023-52450, CVE-2023-52584,\nCVE-2023-52469, CVE-2023-52583, CVE-2023-52451, CVE-2023-52495,\nCVE-2023-52626, CVE-2023-52595, CVE-2023-52680, CVE-2023-52632,\nCVE-2024-26582, CVE-2024-35837, CVE-2023-52494, CVE-2023-52614,\nCVE-2023-52443, CVE-2023-52698, CVE-2023-52448, CVE-2024-26615,\nCVE-2023-52452, CVE-2023-52492, CVE-2024-26647, CVE-2023-52468,\nCVE-2023-52594, CVE-2023-52621, CVE-2024-26638, CVE-2024-26594,\nCVE-2024-26673, CVE-2023-52457, CVE-2023-52677, CVE-2023-52607,\nCVE-2024-26623, CVE-2023-52488, CVE-2023-52497, CVE-2023-52445,\nCVE-2024-26607, CVE-2023-52610, CVE-2024-35842, CVE-2023-52690,\nCVE-2023-52683, CVE-2023-52444, CVE-2024-26671, CVE-2023-52455,\nCVE-2023-52679, CVE-2024-26598, CVE-2023-52674, CVE-2023-52627,\nCVE-2023-52619, CVE-2023-52487, CVE-2023-52446, CVE-2024-35835,\nCVE-2023-52682, CVE-2023-52685, CVE-2023-52694, CVE-2024-26631)\n",
   "id": "USN-6819-2",
-  "isummary": "Several security issues were fixed in the Linux kernel.\n",
-  "releases": {
-    "mantic": {
-      "allbinaries": {
-        "linux-aws": {
-          "pocket": "security",
-          "source": "linux-meta-aws",
-          "version": "6.5.0.1021.21"
-        },
-        "linux-aws-cloud-tools-6.5.0-1021": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.5.0-1021.21"
-        },
-        "linux-aws-headers-6.5.0-1021": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.5.0-1021.21"
-        },
-        "linux-aws-tools-6.5.0-1021": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.5.0-1021.21"
-        },
-        "linux-buildinfo-6.5.0-1021-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.5.0-1021.21"
-        },
-        "linux-buildinfo-6.5.0-1024-oracle": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-buildinfo-6.5.0-1024-oracle-64k": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-cloud-tools-6.5.0-1021-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.5.0-1021.21"
-        },
-        "linux-headers-6.5.0-1021-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.5.0-1021.21"
-        },
-        "linux-headers-6.5.0-1024-oracle": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-headers-6.5.0-1024-oracle-64k": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-headers-aws": {
-          "pocket": "security",
-          "source": "linux-meta-aws",
-          "version": "6.5.0.1021.21"
-        },
-        "linux-headers-oracle": {
-          "pocket": "security",
-          "source": "linux-meta-oracle",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-headers-oracle-64k": {
-          "pocket": "security",
-          "source": "linux-meta-oracle",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-image-6.5.0-1021-aws": {
-          "pocket": "security",
-          "source": "linux-signed-aws",
-          "version": "6.5.0-1021.21"
-        },
-        "linux-image-6.5.0-1024-oracle": {
-          "pocket": "security",
-          "source": "linux-signed-oracle",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-image-6.5.0-1024-oracle-64k": {
-          "pocket": "security",
-          "source": "linux-signed-oracle",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-image-aws": {
-          "pocket": "security",
-          "source": "linux-meta-aws",
-          "version": "6.5.0.1021.21"
-        },
-        "linux-image-oracle": {
-          "pocket": "security",
-          "source": "linux-meta-oracle",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-image-oracle-64k": {
-          "pocket": "security",
-          "source": "linux-meta-oracle",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-image-unsigned-6.5.0-1021-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.5.0-1021.21"
-        },
-        "linux-image-unsigned-6.5.0-1024-oracle": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-image-unsigned-6.5.0-1024-oracle-64k": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-modules-6.5.0-1021-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.5.0-1021.21"
-        },
-        "linux-modules-6.5.0-1024-oracle": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-modules-6.5.0-1024-oracle-64k": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-modules-extra-6.5.0-1021-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.5.0-1021.21"
-        },
-        "linux-modules-extra-6.5.0-1024-oracle": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-modules-extra-6.5.0-1024-oracle-64k": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-modules-extra-aws": {
-          "pocket": "security",
-          "source": "linux-meta-aws",
-          "version": "6.5.0.1021.21"
-        },
-        "linux-modules-iwlwifi-6.5.0-1024-oracle": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-modules-iwlwifi-oracle": {
-          "pocket": "security",
-          "source": "linux-meta-oracle",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-oracle": {
-          "pocket": "security",
-          "source": "linux-meta-oracle",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-oracle-64k": {
-          "pocket": "security",
-          "source": "linux-meta-oracle",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-oracle-headers-6.5.0-1024": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-oracle-tools-6.5.0-1024": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-tools-6.5.0-1021-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.5.0-1021.21"
-        },
-        "linux-tools-6.5.0-1024-oracle": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-tools-6.5.0-1024-oracle-64k": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-tools-aws": {
-          "pocket": "security",
-          "source": "linux-meta-aws",
-          "version": "6.5.0.1021.21"
-        },
-        "linux-tools-oracle": {
-          "pocket": "security",
-          "source": "linux-meta-oracle",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-tools-oracle-64k": {
-          "pocket": "security",
-          "source": "linux-meta-oracle",
-          "version": "6.5.0.1024.26"
-        }
-      },
-      "archs": {
-        "all": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws-headers-6.5.0-1021_6.5.0-1021.21_all.deb": {
-              "md5": "f4d35c16d8974c1d610701de0774b25d",
-              "size": 13310230
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle-headers-6.5.0-1024_6.5.0-1024.24_all.deb": {
-              "md5": "c42c4de4a95f16e9071706778379fcb1",
-              "size": 13313916
-            }
-          }
-        },
-        "amd64": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws-tools-6.5.0-1021_6.5.0-1021.21_amd64.deb": {
-              "md5": "4f08c13e24a79e7fd5fc8fa87d7e5e9e",
-              "size": 7694134
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-buildinfo-6.5.0-1021-aws_6.5.0-1021.21_amd64.deb": {
-              "md5": "975e30d266d512dd8768f81ac49aca1e",
-              "size": 554906
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-headers-6.5.0-1021-aws_6.5.0-1021.21_amd64.deb": {
-              "md5": "953d67cec3a1ecafe51415eaf631456d",
-              "size": 3430264
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-image-unsigned-6.5.0-1021-aws_6.5.0-1021.21_amd64.deb": {
-              "md5": "39a4e14699f1c23067eb80b73308e08b",
-              "size": 14346432
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-modules-6.5.0-1021-aws_6.5.0-1021.21_amd64.deb": {
-              "md5": "29cdc3348e5dbb20e24baba7850672c4",
-              "size": 37324992
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-modules-extra-6.5.0-1021-aws_6.5.0-1021.21_amd64.deb": {
-              "md5": "abf208d934821eff92b7c4df3a4fd064",
-              "size": 93184192
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-tools-6.5.0-1021-aws_6.5.0-1021.21_amd64.deb": {
-              "md5": "658df18f32ebaf06f7982aad16ea99f5",
-              "size": 1780
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-aws_6.5.0.1021.21_amd64.deb": {
-              "md5": "55e3f40a632a01f6f2fdbd33657f29a3",
-              "size": 1720
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-headers-aws_6.5.0.1021.21_amd64.deb": {
-              "md5": "8b10e3b8aafa7d6f6d3f3021a5ae49f6",
-              "size": 6082
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-image-aws_6.5.0.1021.21_amd64.deb": {
-              "md5": "0b539c009755107394162b743e489f86",
-              "size": 6172
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-modules-extra-aws_6.5.0.1021.21_amd64.deb": {
-              "md5": "915097dd9a62717eff4859b283b88798",
-              "size": 6116
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-tools-aws_6.5.0.1021.21_amd64.deb": {
-              "md5": "a66e2d111ad147e247b0de8461c48eaf",
-              "size": 6090
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-headers-oracle_6.5.0.1024.26_amd64.deb": {
-              "md5": "52227084f2fbdb2798424bede0b69993",
-              "size": 6156
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-image-oracle_6.5.0.1024.26_amd64.deb": {
-              "md5": "979b83742755e52848be2c57c3947d87",
-              "size": 6240
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-modules-iwlwifi-oracle_6.5.0.1024.26_amd64.deb": {
-              "md5": "621803e772012f94879fe92f97b63629",
-              "size": 6232
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-oracle_6.5.0.1024.26_amd64.deb": {
-              "md5": "73e9ae75c79c70f2897918409fe913ce",
-              "size": 1708
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-tools-oracle_6.5.0.1024.26_amd64.deb": {
-              "md5": "b01b11fa39f4bf81f9a15128aaf4f4e6",
-              "size": 6162
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-buildinfo-6.5.0-1024-oracle_6.5.0-1024.24_amd64.deb": {
-              "md5": "450a11667ef7b0eb9c318c266aedae99",
-              "size": 588474
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-headers-6.5.0-1024-oracle_6.5.0-1024.24_amd64.deb": {
-              "md5": "8f402ea7916952332d0896520b178410",
-              "size": 3491014
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-image-unsigned-6.5.0-1024-oracle_6.5.0-1024.24_amd64.deb": {
-              "md5": "bd4b9c927516f71661f7a6593c7c5116",
-              "size": 14274752
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-modules-6.5.0-1024-oracle_6.5.0-1024.24_amd64.deb": {
-              "md5": "0b95f4038c38a26c472a0304596ebfe6",
-              "size": 37970112
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-modules-extra-6.5.0-1024-oracle_6.5.0-1024.24_amd64.deb": {
-              "md5": "c12e38ed26f44017b46c2b66dd8622a9",
-              "size": 109148352
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-modules-iwlwifi-6.5.0-1024-oracle_6.5.0-1024.24_amd64.deb": {
-              "md5": "304e21cd5ad42d5da30d8b68e4eee81a",
-              "size": 1700032
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle-tools-6.5.0-1024_6.5.0-1024.24_amd64.deb": {
-              "md5": "5a1761055825de44e9ddfe93a0f045f5",
-              "size": 8017330
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-tools-6.5.0-1024-oracle_6.5.0-1024.24_amd64.deb": {
-              "md5": "2403aa76cb035acd770d3a27880b6f55",
-              "size": 1796
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-image-6.5.0-1021-aws_6.5.0-1021.21_amd64.deb": {
-              "md5": "4a0a1bac225a6a70a71a248515b536e9",
-              "size": 13951322
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oracle/linux-image-6.5.0-1024-oracle_6.5.0-1024.24_amd64.deb": {
-              "md5": "c683dd8f99f0595af030210a4bbd53cf",
-              "size": 13885654
-            }
-          }
-        },
-        "arm64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-aws-cloud-tools-6.5.0-1021_6.5.0-1021.21_arm64.deb": {
-              "md5": "d1c57271d2422f9d14ffd5f384f91ace",
-              "size": 142816
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-aws-tools-6.5.0-1021_6.5.0-1021.21_arm64.deb": {
-              "md5": "109726e8392f413ae86965d33b19be8c",
-              "size": 6999126
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-buildinfo-6.5.0-1021-aws_6.5.0-1021.21_arm64.deb": {
-              "md5": "517ef00c364fc07d66ac753964f3f3ce",
-              "size": 576062
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-cloud-tools-6.5.0-1021-aws_6.5.0-1021.21_arm64.deb": {
-              "md5": "10d155078933fa20afe3c728c9e28454",
-              "size": 1686
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-headers-6.5.0-1021-aws_6.5.0-1021.21_arm64.deb": {
-              "md5": "a6ead4389c27019fca6ce557fa9d6429",
-              "size": 2862662
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-image-unsigned-6.5.0-1021-aws_6.5.0-1021.21_arm64.deb": {
-              "md5": "d8b0794c5301e94e615abddb09462908",
-              "size": 17428672
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-modules-6.5.0-1021-aws_6.5.0-1021.21_arm64.deb": {
-              "md5": "b34e7fe885997bf55647c8469a95b886",
-              "size": 32348352
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-modules-extra-6.5.0-1021-aws_6.5.0-1021.21_arm64.deb": {
-              "md5": "fb6781c25348e911567d8fc4c346209b",
-              "size": 100352192
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-tools-6.5.0-1021-aws_6.5.0-1021.21_arm64.deb": {
-              "md5": "158b2c1b206cd0defa6244b28c0ab8ed",
-              "size": 1726
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-aws_6.5.0.1021.21_arm64.deb": {
-              "md5": "ca08cde63f6d839e93dedd9e48953a5d",
-              "size": 1720
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-headers-aws_6.5.0.1021.21_arm64.deb": {
-              "md5": "187a01014e1515e99857204d53ae9a51",
-              "size": 6082
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-image-aws_6.5.0.1021.21_arm64.deb": {
-              "md5": "8b0ecf31351ae559e8b7446153f1b539",
-              "size": 6158
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-modules-extra-aws_6.5.0.1021.21_arm64.deb": {
-              "md5": "65b395ba69a86ba2adff2dbd6aa9fe6d",
-              "size": 6116
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-tools-aws_6.5.0.1021.21_arm64.deb": {
-              "md5": "af2b8399f2b1c543bd1bda42cf103ad8",
-              "size": 6090
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-headers-oracle-64k_6.5.0.1024.26_arm64.deb": {
-              "md5": "9cf7db2a080e8a0816c04ac337db5c40",
-              "size": 6160
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-headers-oracle_6.5.0.1024.26_arm64.deb": {
-              "md5": "0606b1bb3c3dd80e1b059dd79e662d5e",
-              "size": 6156
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-image-oracle-64k_6.5.0.1024.26_arm64.deb": {
-              "md5": "cbe8cad259bf71b8424c1b00593322bd",
-              "size": 6240
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-image-oracle_6.5.0.1024.26_arm64.deb": {
-              "md5": "65aeb8b9430889fc45e137bc696ba0cc",
-              "size": 6230
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-oracle-64k_6.5.0.1024.26_arm64.deb": {
-              "md5": "c526252dd6f5cb249a11d9658e546e93",
-              "size": 1706
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-oracle_6.5.0.1024.26_arm64.deb": {
-              "md5": "bc023043cf6c009bb576543cfbe23bb5",
-              "size": 1708
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-tools-oracle-64k_6.5.0.1024.26_arm64.deb": {
-              "md5": "4a1461e9c8c1e590d5e4c70881e5b552",
-              "size": 6174
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-tools-oracle_6.5.0.1024.26_arm64.deb": {
-              "md5": "31934c7265e899a1f0771ad0e2c1c920",
-              "size": 6162
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-buildinfo-6.5.0-1024-oracle-64k_6.5.0-1024.24_arm64.deb": {
-              "md5": "6ed7ca12a51c47eafcf7cc8b93420742",
-              "size": 611642
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-buildinfo-6.5.0-1024-oracle_6.5.0-1024.24_arm64.deb": {
-              "md5": "eec8db297d9c7d5d51111f6f44aa4052",
-              "size": 611898
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-headers-6.5.0-1024-oracle-64k_6.5.0-1024.24_arm64.deb": {
-              "md5": "b5cea7aa52c53a4f474421ffd31e4825",
-              "size": 2951974
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-headers-6.5.0-1024-oracle_6.5.0-1024.24_arm64.deb": {
-              "md5": "8623b4a2ea5c451b797e34b98039bbd7",
-              "size": 2961154
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-image-unsigned-6.5.0-1024-oracle-64k_6.5.0-1024.24_arm64.deb": {
-              "md5": "5967b3513af0d5be53f40659a05c34a7",
-              "size": 17612992
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-image-unsigned-6.5.0-1024-oracle_6.5.0-1024.24_arm64.deb": {
-              "md5": "feaa227236373d5441d1021843761191",
-              "size": 17612992
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-modules-6.5.0-1024-oracle-64k_6.5.0-1024.24_arm64.deb": {
-              "md5": "9a9473a7cfc040f51af9737e6f5dc452",
-              "size": 32112832
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-modules-6.5.0-1024-oracle_6.5.0-1024.24_arm64.deb": {
-              "md5": "f4fd370464844bf51ae5f6e4dcb500c4",
-              "size": 33065152
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-modules-extra-6.5.0-1024-oracle-64k_6.5.0-1024.24_arm64.deb": {
-              "md5": "6a0d29619a79787234572c73bc16d4c9",
-              "size": 119132352
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-modules-extra-6.5.0-1024-oracle_6.5.0-1024.24_arm64.deb": {
-              "md5": "e94b14c83e07b478fe7ec2c9738d57c8",
-              "size": 118180032
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-oracle-tools-6.5.0-1024_6.5.0-1024.24_arm64.deb": {
-              "md5": "8c9da9dba707bfbe9dfff82e897962c1",
-              "size": 6913412
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-tools-6.5.0-1024-oracle-64k_6.5.0-1024.24_arm64.deb": {
-              "md5": "01c38843ba69519b1294e6ca13eede01",
-              "size": 1714
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-tools-6.5.0-1024-oracle_6.5.0-1024.24_arm64.deb": {
-              "md5": "20c282474d5442c9f5413c690f6cfe51",
-              "size": 1708
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-aws/linux-image-6.5.0-1021-aws_6.5.0-1021.21_arm64.deb": {
-              "md5": "681088b27fc71c4104c4ce30a0372e58",
-              "size": 16989308
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-oracle/linux-image-6.5.0-1024-oracle-64k_6.5.0-1024.24_arm64.deb": {
-              "md5": "2637c25299f0b2c0e135ef4dbfaff69b",
-              "size": 17162166
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-oracle/linux-image-6.5.0-1024-oracle_6.5.0-1024.24_arm64.deb": {
-              "md5": "84d4c8ef25a0deb20fcd24fc92ef1e10",
-              "size": 17165272
-            }
-          }
-        },
-        "source": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_6.5.0-1021.21.diff.gz": {
-              "md5": "d7e3d55c19d7b2a99571758d0b05492b",
-              "size": 3703734
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_6.5.0-1021.21.dsc": {
-              "md5": "2aff5ab24ca7c0f5b482cb7a6cdd15ac",
-              "size": 4974
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_6.5.0.orig.tar.gz": {
-              "md5": "8290e3447d70a1a709986624233cb6df",
-              "size": 223513863
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-meta-aws_6.5.0.1021.21.dsc": {
-              "md5": "1c96c887abab7789e95c1548a7bf7645",
-              "size": 1880
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-meta-aws_6.5.0.1021.21.tar.xz": {
-              "md5": "91c2369d48cad1bf59d8812c2f16bbc7",
-              "size": 9472
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-meta-oracle_6.5.0.1024.26.dsc": {
-              "md5": "2204c6fcf31d502412ab9eb992673bff",
-              "size": 2240
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-meta-oracle_6.5.0.1024.26.tar.xz": {
-              "md5": "72048c7a38a76ebdfab5f97550387697",
-              "size": 9636
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle_6.5.0-1024.24.diff.gz": {
-              "md5": "116bef100f248f770cf3ee66fb1dbd0c",
-              "size": 3857801
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle_6.5.0-1024.24.dsc": {
-              "md5": "2601bcb8c6667677085861fdc1669915",
-              "size": 5901
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle_6.5.0.orig.tar.gz": {
-              "md5": "8290e3447d70a1a709986624233cb6df",
-              "size": 223513863
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-signed-aws_6.5.0-1021.21.dsc": {
-              "md5": "4473764a3e33da4dad063df809334f6e",
-              "size": 1748
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-signed-aws_6.5.0-1021.21.tar.xz": {
-              "md5": "3cb083be537e694b58e3949e7a47ef75",
-              "size": 13124
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oracle/linux-signed-oracle_6.5.0-1024.24.dsc": {
-              "md5": "d086ed92e70cb68b2e973a0206daf177",
-              "size": 2117
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oracle/linux-signed-oracle_6.5.0-1024.24.tar.xz": {
-              "md5": "66e915abe0ad647007a1b70c0efa479c",
-              "size": 15476
-            }
-          }
-        }
-      },
-      "binaries": {
-        "linux-image-6.5.0-1021-aws": {
-          "pocket": "security",
-          "version": "6.5.0-1021.21"
-        },
-        "linux-image-6.5.0-1024-oracle": {
-          "pocket": "security",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-image-6.5.0-1024-oracle-64k": {
-          "pocket": "security",
-          "version": "6.5.0-1024.24"
-        },
-        "linux-image-aws": {
-          "pocket": "security",
-          "version": "6.5.0.1021.21"
-        },
-        "linux-image-oracle": {
-          "pocket": "security",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-image-oracle-64k": {
-          "pocket": "security",
-          "version": "6.5.0.1024.26"
-        }
-      },
-      "sources": {
-        "linux-aws": {
-          "description": "Linux kernel for Amazon Web Services (AWS) systems",
-          "version": "6.5.0-1021.21"
-        },
-        "linux-oracle": {
-          "description": "Linux kernel for Oracle Cloud systems",
-          "version": "6.5.0-1024.24"
-        }
-      }
-    }
-  },
-  "summary": "linux-aws, linux-oracle vulnerabilities",
-  "timestamp": 1718143781.7447083,
-  "title": "Linux kernel vulnerabilities"
+  "isummary": "Several security issues were fixed in the Linux kernel.\n"
 }

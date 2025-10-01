@@ -1,5 +1,5 @@
 {
-  "description": "\nBrad Spengler discovered that the kernel did not correctly account for\nuserspace memory allocations during exec() calls. A local attacker could\nexploit this to consume all system memory, leading to a denial of service.\n(CVE-2010-4243)\n\nAlexander Duyck discovered that the Intel Gigabit Ethernet driver did not\ncorrectly handle certain configurations. If such a device was configured\nwithout VLANs, a remote attacker could crash the system, leading to a\ndenial of service. (CVE-2010-4263)\n\nNelson Elhage discovered that Econet did not correctly handle AUN packets\nover UDP. A local attacker could send specially crafted traffic to crash\nthe system, leading to a denial of service. (CVE-2010-4342)\n\nDan Rosenberg discovered that IRDA did not correctly check the size of\nbuffers. On non-x86 systems, a local attacker could exploit this to read\nkernel heap memory, leading to a loss of privacy. (CVE-2010-4529)\n\nDan Rosenburg discovered that the CAN subsystem leaked kernel addresses\ninto the /proc filesystem. A local attacker could use this to increase the\nchances of a successful memory corruption exploit. (CVE-2010-4565)\n\nGoldwyn Rodrigues discovered that the OCFS2 filesystem did not correctly\nclear memory when writing certain file holes. A local attacker could\nexploit this to read uninitialized data from the disk, leading to a loss of\nprivacy. (CVE-2011-0463)\n\nJens Kuehnel discovered that the InfiniBand driver contained a race\ncondition. On systems using InfiniBand, a local attacker could send\nspecially crafted requests to crash the system, leading to a denial of\nservice. (CVE-2011-0695)\n\nDan Rosenberg discovered that XFS did not correctly initialize memory. A\nlocal attacker could make crafted ioctl calls to leak portions of kernel\nstack memory, leading to a loss of privacy. (CVE-2011-0711)\n\nKees Cook reported that /proc/pid/stat did not correctly filter certain\nmemory locations. A local attacker could determine the memory layout of\nprocesses in an attempt to increase the chances of a successful memory\ncorruption exploit. (CVE-2011-0726)\n\nMatthiew Herrb discovered that the drm modeset interface did not correctly\nhandle a signed comparison. A local attacker could exploit this to crash\nthe system or possibly gain root privileges. (CVE-2011-1013)\n\nMarek Ol\u0161\u00e1k discovered that the Radeon GPU drivers did not correctly\nvalidate certain registers. On systems with specific hardware, a local\nattacker could exploit this to write to arbitrary video memory.\n(CVE-2011-1016)\n\nTimo Warns discovered that the LDM disk partition handling code did not\ncorrectly handle certain values. By inserting a specially crafted disk\ndevice, a local attacker could exploit this to gain root privileges.\n(CVE-2011-1017)\n\nVasiliy Kulikov discovered that the CAP_SYS_MODULE capability was not\nneeded to load kernel modules. A local attacker with the CAP_NET_ADMIN\ncapability could load existing kernel modules, possibly increasing the\nattack surface available on the system. (CVE-2011-1019)\n\nVasiliy Kulikov discovered that the Bluetooth stack did not correctly clear\nmemory. A local attacker could exploit this to read kernel stack memory,\nleading to a loss of privacy. (CVE-2011-1078)\n\nVasiliy Kulikov discovered that the Bluetooth stack did not correctly check\nthat device name strings were NULL terminated. A local attacker could\nexploit this to crash the system, leading to a denial of service, or leak\ncontents of kernel stack memory, leading to a loss of privacy.\n(CVE-2011-1079)\n\nVasiliy Kulikov discovered that bridge network filtering did not check that\nname fields were NULL terminated. A local attacker could exploit this to\nleak contents of kernel stack memory, leading to a loss of privacy.\n(CVE-2011-1080)\n\nNeil Horman discovered that NFSv4 did not correctly handle certain orders\nof operation with ACL data. A remote attacker with access to an NFSv4 mount\ncould exploit this to crash the system, leading to a denial of service.\n(CVE-2011-1090)\n\nPeter Huewe discovered that the TPM device did not correctly initialize\nmemory. A local attacker could exploit this to read kernel heap memory\ncontents, leading to a loss of privacy. (CVE-2011-1160)\n\nTimo Warns discovered that OSF partition parsing routines did not correctly\nclear memory. A local attacker with physical access could plug in a\nspecially crafted block device to read kernel memory, leading to a loss of\nprivacy. (CVE-2011-1163)\n\nVasiliy Kulikov discovered that the netfilter code did not check certain\nstrings copied from userspace. A local attacker with netfilter access could\nexploit this to read kernel memory or crash the system, leading to a denial\nof service. (CVE-2011-1170, CVE-2011-1171, CVE-2011-1172, CVE-2011-2534)\n\nVasiliy Kulikov discovered that the Acorn Universal Networking driver did\nnot correctly initialize memory. A remote attacker could send specially\ncrafted traffic to read kernel stack memory, leading to a loss of privacy.\n(CVE-2011-1173)\n\nDan Rosenberg discovered that the IRDA subsystem did not correctly check\ncertain field sizes. If a system was using IRDA, a remote attacker could\nsend specially crafted traffic to crash the system or gain root privileges.\n(CVE-2011-1180)\n\nJulien Tinnes discovered that the kernel did not correctly validate the\nsignal structure from tkill(). A local attacker could exploit this to send\nsignals to arbitrary threads, possibly bypassing expected restrictions.\n(CVE-2011-1182)\n\nDan Rosenberg reported errors in the OSS (Open Sound System) MIDI\ninterface. A local attacker on non-x86 systems might be able to cause a\ndenial of service. (CVE-2011-1476)\n\nDan Rosenberg reported errors in the kernel's OSS (Open Sound System)\ndriver for Yamaha FM synthesizer chips. A local user can exploit this to\ncause memory corruption, causing a denial of service or privilege\nescalation. (CVE-2011-1477)\n\nRyan Sweat discovered that the GRO code did not correctly validate memory.\nIn some configurations on systems using VLANs, a remote attacker could send\nspecially crafted traffic to crash the system, leading to a denial of\nservice. (CVE-2011-1478)\n\nDan Rosenberg discovered that MPT devices did not correctly validate\ncertain values in ioctl calls. If these drivers were loaded, a local\nattacker could exploit this to read arbitrary kernel memory, leading to a\nloss of privacy. (CVE-2011-1494, CVE-2011-1495)\n\nIt was discovered that the Stream Control Transmission Protocol (SCTP)\nimplementation incorrectly calculated lengths. If the net.sctp.addip_enable\nvariable was turned on, a remote attacker could send specially crafted\ntraffic to crash the system. (CVE-2011-1573)\n\nTavis Ormandy discovered that the pidmap function did not correctly handle\nlarge requests. A local attacker could exploit this to crash the system,\nleading to a denial of service. (CVE-2011-1593)\n\nOliver Hartkopp and Dave Jones discovered that the CAN network driver did\nnot correctly validate certain socket structures. If this driver was\nloaded, a local attacker could crash the system, leading to a denial of\nservice. (CVE-2011-1598, CVE-2011-1748)\n\nVasiliy Kulikov discovered that the AGP driver did not check certain ioctl\nvalues. A local attacker with access to the video subsystem could exploit\nthis to crash the system, leading to a denial of service, or possibly gain\nroot privileges. (CVE-2011-1745, CVE-2011-2022)\n\nVasiliy Kulikov discovered that the AGP driver did not check the size of\ncertain memory allocations. A local attacker with access to the video\nsubsystem could exploit this to run the system out of memory, leading to a\ndenial of service. (CVE-2011-1746)\n\nDan Rosenberg reported an error in the old ABI compatibility layer of ARM\nkernels. A local attacker could exploit this flaw to cause a denial of\nservice or gain root privileges. (CVE-2011-1759)\n\nDan Rosenberg discovered that the DCCP stack did not correctly handle\ncertain packet structures. A remote attacker could exploit this to crash\nthe system, leading to a denial of service. (CVE-2011-1770)\n\nTimo Warns discovered that the EFI GUID partition table was not correctly\nparsed. A physically local attacker that could insert mountable devices\ncould exploit this to crash the system or possibly gain root privileges.\n(CVE-2011-1776)\n\nA flaw was found in the b43 driver in the Linux kernel. An attacker could\nuse this flaw to cause a denial of service if the system has an active\nwireless interface using the b43 driver. (CVE-2011-3359)\n\nYogesh Sharma discovered that CIFS did not correctly handle UNCs that had\nno prefixpaths. A local attacker with access to a CIFS partition could\nexploit this to crash the system, leading to a denial of service.\n(CVE-2011-3363)\n\nMaynard Johnson discovered that on POWER7, certain speculative events may\nraise a performance monitor exception. A local attacker could exploit this\nto crash the system, leading to a denial of service. (CVE-2011-4611)\n\nDan Rosenberg discovered flaws in the linux Rose (X.25 PLP) layer used by\namateur radio. A local user or a remote user on an X.25 network could\nexploit these flaws to execute arbitrary code as root. (CVE-2011-4913)\n",
+  "description": "\nBrad Spengler discovered that the kernel did not correctly account for\nuserspace memory allocations during exec() calls. A local attacker could\nexploit this to consume all system memory, leading to a denial of service.\n(CVE-2010-4243)\n\nAlexander Duyck discovered that the Intel Gigabit Ethernet driver did not\ncorrectly handle certain configurations. If such a device was configured\nwithout VLANs, a remote attacker could crash the system, leading to a\ndenial of service. (CVE-2010-4263)\n\nNelson Elhage discovered that Econet did not correctly handle AUN packets\nover UDP. A local attacker could send specially crafted traffic to crash\nthe system, leading to a denial of service. (CVE-2010-4342)\n\nDan Rosenberg discovered that IRDA did not correctly check the size of\nbuffers. On non-x86 systems, a local attacker could exploit this to read\nkernel heap memory, leading to a loss of privacy. (CVE-2010-4529)\n\nDan Rosenburg discovered that the CAN subsystem leaked kernel addresses\ninto the /proc filesystem. A local attacker could use this to increase the\nchances of a successful memory corruption exploit. (CVE-2010-4565)\n\nGoldwyn Rodrigues discovered that the OCFS2 filesystem did not correctly\nclear memory when writing certain file holes. A local attacker could\nexploit this to read uninitialized data from the disk, leading to a loss of\nprivacy. (CVE-2011-0463)\n\nJens Kuehnel discovered that the InfiniBand driver contained a race\ncondition. On systems using InfiniBand, a local attacker could send\nspecially crafted requests to crash the system, leading to a denial of\nservice. (CVE-2011-0695)\n\nDan Rosenberg discovered that XFS did not correctly initialize memory. A\nlocal attacker could make crafted ioctl calls to leak portions of kernel\nstack memory, leading to a loss of privacy. (CVE-2011-0711)\n\nKees Cook reported that /proc/pid/stat did not correctly filter certain\nmemory locations. A local attacker could determine the memory layout of\nprocesses in an attempt to increase the chances of a successful memory\ncorruption exploit. (CVE-2011-0726)\n\nMatthiew Herrb discovered that the drm modeset interface did not correctly\nhandle a signed comparison. A local attacker could exploit this to crash\nthe system or possibly gain root privileges. (CVE-2011-1013)\n\nMarek Olšák discovered that the Radeon GPU drivers did not correctly\nvalidate certain registers. On systems with specific hardware, a local\nattacker could exploit this to write to arbitrary video memory.\n(CVE-2011-1016)\n\nTimo Warns discovered that the LDM disk partition handling code did not\ncorrectly handle certain values. By inserting a specially crafted disk\ndevice, a local attacker could exploit this to gain root privileges.\n(CVE-2011-1017)\n\nVasiliy Kulikov discovered that the CAP_SYS_MODULE capability was not\nneeded to load kernel modules. A local attacker with the CAP_NET_ADMIN\ncapability could load existing kernel modules, possibly increasing the\nattack surface available on the system. (CVE-2011-1019)\n\nVasiliy Kulikov discovered that the Bluetooth stack did not correctly clear\nmemory. A local attacker could exploit this to read kernel stack memory,\nleading to a loss of privacy. (CVE-2011-1078)\n\nVasiliy Kulikov discovered that the Bluetooth stack did not correctly check\nthat device name strings were NULL terminated. A local attacker could\nexploit this to crash the system, leading to a denial of service, or leak\ncontents of kernel stack memory, leading to a loss of privacy.\n(CVE-2011-1079)\n\nVasiliy Kulikov discovered that bridge network filtering did not check that\nname fields were NULL terminated. A local attacker could exploit this to\nleak contents of kernel stack memory, leading to a loss of privacy.\n(CVE-2011-1080)\n\nNeil Horman discovered that NFSv4 did not correctly handle certain orders\nof operation with ACL data. A remote attacker with access to an NFSv4 mount\ncould exploit this to crash the system, leading to a denial of service.\n(CVE-2011-1090)\n\nPeter Huewe discovered that the TPM device did not correctly initialize\nmemory. A local attacker could exploit this to read kernel heap memory\ncontents, leading to a loss of privacy. (CVE-2011-1160)\n\nTimo Warns discovered that OSF partition parsing routines did not correctly\nclear memory. A local attacker with physical access could plug in a\nspecially crafted block device to read kernel memory, leading to a loss of\nprivacy. (CVE-2011-1163)\n\nVasiliy Kulikov discovered that the netfilter code did not check certain\nstrings copied from userspace. A local attacker with netfilter access could\nexploit this to read kernel memory or crash the system, leading to a denial\nof service. (CVE-2011-1170, CVE-2011-1171, CVE-2011-1172, CVE-2011-2534)\n\nVasiliy Kulikov discovered that the Acorn Universal Networking driver did\nnot correctly initialize memory. A remote attacker could send specially\ncrafted traffic to read kernel stack memory, leading to a loss of privacy.\n(CVE-2011-1173)\n\nDan Rosenberg discovered that the IRDA subsystem did not correctly check\ncertain field sizes. If a system was using IRDA, a remote attacker could\nsend specially crafted traffic to crash the system or gain root privileges.\n(CVE-2011-1180)\n\nJulien Tinnes discovered that the kernel did not correctly validate the\nsignal structure from tkill(). A local attacker could exploit this to send\nsignals to arbitrary threads, possibly bypassing expected restrictions.\n(CVE-2011-1182)\n\nDan Rosenberg reported errors in the OSS (Open Sound System) MIDI\ninterface. A local attacker on non-x86 systems might be able to cause a\ndenial of service. (CVE-2011-1476)\n\nDan Rosenberg reported errors in the kernel's OSS (Open Sound System)\ndriver for Yamaha FM synthesizer chips. A local user can exploit this to\ncause memory corruption, causing a denial of service or privilege\nescalation. (CVE-2011-1477)\n\nRyan Sweat discovered that the GRO code did not correctly validate memory.\nIn some configurations on systems using VLANs, a remote attacker could send\nspecially crafted traffic to crash the system, leading to a denial of\nservice. (CVE-2011-1478)\n\nDan Rosenberg discovered that MPT devices did not correctly validate\ncertain values in ioctl calls. If these drivers were loaded, a local\nattacker could exploit this to read arbitrary kernel memory, leading to a\nloss of privacy. (CVE-2011-1494, CVE-2011-1495)\n\nIt was discovered that the Stream Control Transmission Protocol (SCTP)\nimplementation incorrectly calculated lengths. If the net.sctp.addip_enable\nvariable was turned on, a remote attacker could send specially crafted\ntraffic to crash the system. (CVE-2011-1573)\n\nTavis Ormandy discovered that the pidmap function did not correctly handle\nlarge requests. A local attacker could exploit this to crash the system,\nleading to a denial of service. (CVE-2011-1593)\n\nOliver Hartkopp and Dave Jones discovered that the CAN network driver did\nnot correctly validate certain socket structures. If this driver was\nloaded, a local attacker could crash the system, leading to a denial of\nservice. (CVE-2011-1598, CVE-2011-1748)\n\nVasiliy Kulikov discovered that the AGP driver did not check certain ioctl\nvalues. A local attacker with access to the video subsystem could exploit\nthis to crash the system, leading to a denial of service, or possibly gain\nroot privileges. (CVE-2011-1745, CVE-2011-2022)\n\nVasiliy Kulikov discovered that the AGP driver did not check the size of\ncertain memory allocations. A local attacker with access to the video\nsubsystem could exploit this to run the system out of memory, leading to a\ndenial of service. (CVE-2011-1746)\n\nDan Rosenberg reported an error in the old ABI compatibility layer of ARM\nkernels. A local attacker could exploit this flaw to cause a denial of\nservice or gain root privileges. (CVE-2011-1759)\n\nDan Rosenberg discovered that the DCCP stack did not correctly handle\ncertain packet structures. A remote attacker could exploit this to crash\nthe system, leading to a denial of service. (CVE-2011-1770)\n\nTimo Warns discovered that the EFI GUID partition table was not correctly\nparsed. A physically local attacker that could insert mountable devices\ncould exploit this to crash the system or possibly gain root privileges.\n(CVE-2011-1776)\n\nA flaw was found in the b43 driver in the Linux kernel. An attacker could\nuse this flaw to cause a denial of service if the system has an active\nwireless interface using the b43 driver. (CVE-2011-3359)\n\nYogesh Sharma discovered that CIFS did not correctly handle UNCs that had\nno prefixpaths. A local attacker with access to a CIFS partition could\nexploit this to crash the system, leading to a denial of service.\n(CVE-2011-3363)\n\nMaynard Johnson discovered that on POWER7, certain speculative events may\nraise a performance monitor exception. A local attacker could exploit this\nto crash the system, leading to a denial of service. (CVE-2011-4611)\n\nDan Rosenberg discovered flaws in the linux Rose (X.25 PLP) layer used by\namateur radio. A local user or a remote user on an X.25 network could\nexploit these flaws to execute arbitrary code as root. (CVE-2011-4913)\n",
   "releases": {
     "lucid": {
       "sources": {
@@ -17,108 +17,108 @@
         "source": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-mvl-dove/linux-mvl-dove_2.6.32-217.34.diff.gz": {
-              "md5": "223966c32cb935b9015ace813948c909",
-              "size": 7737420
+              "size": 7737420,
+              "md5": "223966c32cb935b9015ace813948c909"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-mvl-dove/linux-mvl-dove_2.6.32.orig.tar.gz": {
-              "md5": "4b1f6f6fac43a23e783079db589fc7e2",
-              "size": 81900940
+              "size": 81900940,
+              "md5": "4b1f6f6fac43a23e783079db589fc7e2"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-mvl-dove/linux-mvl-dove_2.6.32-217.34.dsc": {
-              "md5": "bdeff0da7b58742df1b0db78af1b3b2e",
-              "size": 1426
+              "size": 1426,
+              "md5": "bdeff0da7b58742df1b0db78af1b3b2e"
             }
           }
         },
         "armel": {
           "urls": {
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/mouse-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "54638c062c9572f74f6bef5a862bdf45",
-              "size": 36328
+              "size": 36328,
+              "md5": "54638c062c9572f74f6bef5a862bdf45"
             },
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/nic-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "8b0e3ce45fbc59809b1a80830a9b0deb",
-              "size": 688464
+              "size": 688464,
+              "md5": "8b0e3ce45fbc59809b1a80830a9b0deb"
             },
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/linux-headers-2.6.32-217-dove_2.6.32-217.34_armel.deb": {
-              "md5": "cf9a59d102f7e9556800085ade62d084",
-              "size": 767020
+              "size": 767020,
+              "md5": "cf9a59d102f7e9556800085ade62d084"
             },
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/kernel-image-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "4e88ad29c856066a07becf8b20f2285e",
-              "size": 3698880
+              "size": 3698880,
+              "md5": "4e88ad29c856066a07becf8b20f2285e"
             },
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/block-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "43ec0d9b03d801b80dc3453a3a7b05f4",
-              "size": 219582
+              "size": 219582,
+              "md5": "43ec0d9b03d801b80dc3453a3a7b05f4"
             },
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/ppp-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "82c5c9e9230460ab8484802540b12c4c",
-              "size": 56916
+              "size": 56916,
+              "md5": "82c5c9e9230460ab8484802540b12c4c"
             },
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/nic-usb-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "59282b4da641cd33daa3e60da575d51f",
-              "size": 112430
+              "size": 112430,
+              "md5": "59282b4da641cd33daa3e60da575d51f"
             },
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/linux-image-2.6.32-217-dove_2.6.32-217.34_armel.deb": {
-              "md5": "ac36f2b1c5a7c28c9925b1532bced342",
-              "size": 16046770
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/fs-core-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "e456a918333fcdc2717f29e58d3d34d5",
-              "size": 554976
+              "size": 16046770,
+              "md5": "ac36f2b1c5a7c28c9925b1532bced342"
             },
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/firewire-core-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "c02039a335f2f4542f436e0c48aca35b",
-              "size": 86782
+              "size": 86782,
+              "md5": "c02039a335f2f4542f436e0c48aca35b"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/fs-core-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
+              "size": 554976,
+              "md5": "e456a918333fcdc2717f29e58d3d34d5"
             },
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/scsi-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "35b0644393beeb672a6adcfd5a4147d4",
-              "size": 14254
+              "size": 14254,
+              "md5": "35b0644393beeb672a6adcfd5a4147d4"
             },
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/crypto-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "25910c1ec261ae90eae1a6975aac43b0",
-              "size": 60978
+              "size": 60978,
+              "md5": "25910c1ec261ae90eae1a6975aac43b0"
             },
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/fat-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "08c0a919fd866938ccdf31f4c33305e7",
-              "size": 4884
+              "size": 4884,
+              "md5": "08c0a919fd866938ccdf31f4c33305e7"
             },
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/parport-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "540205be91ac846537cc99ba20ebf374",
-              "size": 33790
+              "size": 33790,
+              "md5": "540205be91ac846537cc99ba20ebf374"
             },
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/fs-secondary-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "ae0c144847d3771ab04b3f77bfb87436",
-              "size": 138386
+              "size": 138386,
+              "md5": "ae0c144847d3771ab04b3f77bfb87436"
             },
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/plip-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "d8d2f5374c2d6c39c7ecd744219f4746",
-              "size": 8500
+              "size": 8500,
+              "md5": "d8d2f5374c2d6c39c7ecd744219f4746"
             },
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/input-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "4482b81602b59e294fdf8c0df994652e",
-              "size": 51674
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/linux-headers-2.6.32-217_2.6.32-217.34_armel.deb": {
-              "md5": "06ad43584f9e2d54b705c87c317a6b03",
-              "size": 10243102
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/nic-shared-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "639f8c7bf3f58a0ec68ed11266e0d4ed",
-              "size": 217058
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/usb-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "889a0d6302cdce25769a394bfba90f99",
-              "size": 76058
+              "size": 51674,
+              "md5": "4482b81602b59e294fdf8c0df994652e"
             },
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/md-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "511da86de637c4692c36a2924c505151",
-              "size": 215934
+              "size": 215934,
+              "md5": "511da86de637c4692c36a2924c505151"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/nic-shared-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
+              "size": 217058,
+              "md5": "639f8c7bf3f58a0ec68ed11266e0d4ed"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/usb-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
+              "size": 76058,
+              "md5": "889a0d6302cdce25769a394bfba90f99"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/linux-headers-2.6.32-217_2.6.32-217.34_armel.deb": {
+              "size": 10243102,
+              "md5": "06ad43584f9e2d54b705c87c317a6b03"
             },
             "http://ports.ubuntu.com/pool/main/l/linux-mvl-dove/nfs-modules-2.6.32-217-dove-di_2.6.32-217.34_armel.udeb": {
-              "md5": "e0835643ecd586f1c60b85ec5113b996",
-              "size": 308916
+              "size": 308916,
+              "md5": "e0835643ecd586f1c60b85ec5113b996"
             }
           }
         }
@@ -129,8 +129,6 @@
   "timestamp": 1309348975.601188,
   "summary": "linux-mvl-dove vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed. If\nyou use linux-restricted-modules, you have to update that package as\nwell to get modules which work with the new kernel version. Unless you\nmanually uninstalled the standard kernel metapackages (e.g. linux-generic,\nlinux-server, linux-powerpc), a standard system upgrade will automatically\nperform this as well.\n",
-  "isummary": "Multiple kernel flaws have been fixed.\n",
-  "id": "USN-1162-1",
   "cves": [
     "CVE-2010-4243",
     "CVE-2010-4263",
@@ -177,5 +175,7 @@
     "CVE-2011-3363",
     "CVE-2011-4611",
     "CVE-2011-4913"
-  ]
+  ],
+  "id": "USN-1162-1",
+  "isummary": "Multiple kernel flaws have been fixed.\n"
 }

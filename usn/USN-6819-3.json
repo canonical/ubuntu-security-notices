@@ -1,4 +1,547 @@
 {
+  "description": "Alon Zahavi discovered that the NVMe-oF/TCP subsystem in the Linux kernel\ndid not properly validate H2C PDU data, leading to a null pointer\ndereference vulnerability. A remote attacker could use this to cause a\ndenial of service (system crash). (CVE-2023-6356, CVE-2023-6535,\nCVE-2023-6536)\n\nChenyuan Yang discovered that the RDS Protocol implementation in the Linux\nkernel contained an out-of-bounds read vulnerability. An attacker could use\nthis to possibly cause a denial of service (system crash). (CVE-2024-23849)\n\nIt was discovered that a race condition existed in the Bluetooth subsystem\nin the Linux kernel, leading to a null pointer dereference vulnerability. A\nprivileged local attacker could use this to possibly cause a denial of\nservice (system crash). (CVE-2024-24860)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM64 architecture;\n  - PowerPC architecture;\n  - RISC-V architecture;\n  - S390 architecture;\n  - Core kernel;\n  - x86 architecture;\n  - Block layer subsystem;\n  - Cryptographic API;\n  - ACPI drivers;\n  - Android drivers;\n  - Drivers core;\n  - Power management core;\n  - Bus devices;\n  - Device frequency scaling framework;\n  - DMA engine subsystem;\n  - EDAC drivers;\n  - ARM SCMI message protocol;\n  - GPU drivers;\n  - IIO ADC drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - Media drivers;\n  - Multifunction device drivers;\n  - MTD block device drivers;\n  - Network drivers;\n  - NVME drivers;\n  - Device tree and open firmware driver;\n  - PCI driver for MicroSemi Switchtec;\n  - Power supply drivers;\n  - RPMSG subsystem;\n  - SCSI drivers;\n  - QCOM SoC drivers;\n  - SPMI drivers;\n  - Thermal drivers;\n  - TTY drivers;\n  - VFIO drivers;\n  - BTRFS file system;\n  - Ceph distributed file system;\n  - EFI Variable file system;\n  - EROFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - GFS2 file system;\n  - JFS file system;\n  - Network file systems library;\n  - Network file system server daemon;\n  - File systems infrastructure;\n  - Pstore file system;\n  - ReiserFS file system;\n  - SMB network file system;\n  - BPF subsystem;\n  - Memory management;\n  - TLS protocol;\n  - Ethernet bridge;\n  - Networking core;\n  - IPv4 networking;\n  - IPv6 networking;\n  - Logical Link layer;\n  - MAC80211 subsystem;\n  - Multipath TCP;\n  - Netfilter;\n  - NetLabel subsystem;\n  - Network traffic control;\n  - SMC sockets;\n  - Sun RPC protocol;\n  - AppArmor security module;\n  - Intel ASoC drivers;\n  - MediaTek ASoC drivers;\n  - USB sound devices;\n(CVE-2023-52612, CVE-2024-26808, CVE-2023-52691, CVE-2023-52618,\nCVE-2023-52463, CVE-2023-52447, CVE-2024-26668, CVE-2023-52454,\nCVE-2024-26670, CVE-2024-26646, CVE-2023-52472, CVE-2024-26586,\nCVE-2023-52681, CVE-2023-52453, CVE-2023-52611, CVE-2023-52622,\nCVE-2024-26641, CVE-2023-52616, CVE-2024-26592, CVE-2023-52606,\nCVE-2024-26620, CVE-2023-52692, CVE-2024-26669, CVE-2023-52623,\nCVE-2023-52588, CVE-2024-26616, CVE-2024-26610, CVE-2024-35839,\nCVE-2023-52490, CVE-2023-52672, CVE-2024-26612, CVE-2023-52617,\nCVE-2023-52697, CVE-2024-26644, CVE-2023-52458, CVE-2023-52598,\nCVE-2024-35841, CVE-2023-52664, CVE-2023-52635, CVE-2023-52676,\nCVE-2023-52669, CVE-2024-26632, CVE-2023-52486, CVE-2024-26625,\nCVE-2023-52608, CVE-2024-26634, CVE-2023-52599, CVE-2024-26618,\nCVE-2024-26640, CVE-2023-52489, CVE-2023-52675, CVE-2023-52678,\nCVE-2024-26583, CVE-2023-52693, CVE-2023-52498, CVE-2024-26649,\nCVE-2023-52670, CVE-2023-52473, CVE-2023-52449, CVE-2023-52667,\nCVE-2023-52467, CVE-2023-52686, CVE-2024-26633, CVE-2023-52666,\nCVE-2024-35840, CVE-2024-26629, CVE-2024-26595, CVE-2023-52593,\nCVE-2023-52687, CVE-2023-52465, CVE-2024-26627, CVE-2023-52493,\nCVE-2023-52491, CVE-2024-26636, CVE-2024-26584, CVE-2023-52587,\nCVE-2023-52597, CVE-2023-52462, CVE-2023-52633, CVE-2023-52696,\nCVE-2024-26585, CVE-2023-52589, CVE-2023-52456, CVE-2023-52470,\nCVE-2024-35838, CVE-2024-26645, CVE-2023-52591, CVE-2023-52464,\nCVE-2023-52609, CVE-2024-26608, CVE-2023-52450, CVE-2023-52584,\nCVE-2023-52469, CVE-2023-52583, CVE-2023-52451, CVE-2023-52495,\nCVE-2023-52626, CVE-2023-52595, CVE-2023-52680, CVE-2023-52632,\nCVE-2024-26582, CVE-2024-35837, CVE-2023-52494, CVE-2023-52614,\nCVE-2023-52443, CVE-2023-52698, CVE-2023-52448, CVE-2024-26615,\nCVE-2023-52452, CVE-2023-52492, CVE-2024-26647, CVE-2023-52468,\nCVE-2023-52594, CVE-2023-52621, CVE-2024-26638, CVE-2024-26594,\nCVE-2024-26673, CVE-2023-52457, CVE-2023-52677, CVE-2023-52607,\nCVE-2024-26623, CVE-2023-52488, CVE-2023-52497, CVE-2023-52445,\nCVE-2024-26607, CVE-2023-52610, CVE-2024-35842, CVE-2023-52690,\nCVE-2023-52683, CVE-2023-52444, CVE-2024-26671, CVE-2023-52455,\nCVE-2023-52679, CVE-2024-26598, CVE-2023-52674, CVE-2023-52627,\nCVE-2023-52619, CVE-2023-52487, CVE-2023-52446, CVE-2024-35835,\nCVE-2023-52682, CVE-2023-52685, CVE-2023-52694, CVE-2024-26631)\n",
+  "releases": {
+    "jammy": {
+      "allbinaries": {
+        "linux-modules-usbio-6.5.0-1024-oem": {
+          "pocket": "security",
+          "source": "linux-oem-6.5",
+          "version": "6.5.0-1024.25"
+        },
+        "linux-oem-6.5-tools-6.5.0-1024": {
+          "pocket": "security",
+          "source": "linux-oem-6.5",
+          "version": "6.5.0-1024.25"
+        },
+        "linux-modules-ipu6-oem-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-6.5.0-1024-oem": {
+          "pocket": "security",
+          "source": "linux-oem-6.5",
+          "version": "6.5.0-1024.25"
+        },
+        "linux-image-uc-oem-22.04d": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-headers-oem-22.04a": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-headers-oem-22.04b": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-headers-oem-22.04c": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-headers-oem-22.04d": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-usbio-oem-22.04d": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-ivsc-oem-22.04d": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-ivsc-oem-22.04b": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-ivsc-oem-22.04c": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-iwlwifi-oem-22.04d": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-iwlwifi-oem-22.04c": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-iwlwifi-oem-22.04b": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-buildinfo-6.5.0-1024-oem": {
+          "pocket": "security",
+          "source": "linux-oem-6.5",
+          "version": "6.5.0-1024.25"
+        },
+        "linux-image-uc-oem-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-oem-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-oem-6.5-lib-rust-6.5.0-1024-oem": {
+          "pocket": "security",
+          "source": "linux-oem-6.5",
+          "version": "6.5.0-1024.25"
+        },
+        "linux-image-oem-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-oem-6.5-tools-host": {
+          "pocket": "security",
+          "source": "linux-oem-6.5",
+          "version": "6.5.0-1024.25"
+        },
+        "linux-modules-ivsc-oem-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-image-oem-22.04a": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-image-oem-22.04c": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-image-oem-22.04b": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-image-oem-22.04d": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-iwlwifi-6.5.0-1024-oem": {
+          "pocket": "security",
+          "source": "linux-oem-6.5",
+          "version": "6.5.0-1024.25"
+        },
+        "linux-tools-oem-22.04d": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-tools-oem-22.04c": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-tools-oem-22.04b": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-tools-oem-22.04a": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-ivsc-6.5.0-1024-oem": {
+          "pocket": "security",
+          "source": "linux-oem-6.5",
+          "version": "6.5.0-1024.25"
+        },
+        "linux-headers-6.5.0-1024-oem": {
+          "pocket": "security",
+          "source": "linux-oem-6.5",
+          "version": "6.5.0-1024.25"
+        },
+        "linux-tools-oem-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-headers-oem-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-ipu6-oem-22.04c": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-ipu6-oem-22.04b": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-image-unsigned-6.5.0-1024-oem": {
+          "pocket": "security",
+          "source": "linux-oem-6.5",
+          "version": "6.5.0-1024.25"
+        },
+        "linux-image-6.5.0-1024-oem": {
+          "pocket": "security",
+          "source": "linux-signed-oem-6.5",
+          "version": "6.5.0-1024.25"
+        },
+        "linux-modules-ipu6-oem-22.04d": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-usbio-oem-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-modules-iwlwifi-oem-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-tools-6.5.0-1024-oem": {
+          "pocket": "security",
+          "source": "linux-oem-6.5",
+          "version": "6.5.0-1024.25"
+        },
+        "linux-image-uc-6.5.0-1024-oem": {
+          "pocket": "security",
+          "source": "linux-signed-oem-6.5",
+          "version": "6.5.0-1024.25"
+        },
+        "linux-oem-6.5-headers-6.5.0-1024": {
+          "pocket": "security",
+          "source": "linux-oem-6.5",
+          "version": "6.5.0-1024.25"
+        },
+        "linux-modules-ipu6-6.5.0-1024-oem": {
+          "pocket": "security",
+          "source": "linux-oem-6.5",
+          "version": "6.5.0-1024.25"
+        },
+        "linux-oem-22.04d": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-oem-22.04c": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-oem-22.04b": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-oem-22.04a": {
+          "pocket": "security",
+          "source": "linux-meta-oem-6.5",
+          "version": "6.5.0.1024.26"
+        }
+      },
+      "binaries": {
+        "linux-image-oem-22.04": {
+          "pocket": "security",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-image-6.5.0-1024-oem": {
+          "pocket": "security",
+          "version": "6.5.0-1024.25"
+        },
+        "linux-image-oem-22.04a": {
+          "pocket": "security",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-image-oem-22.04c": {
+          "pocket": "security",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-image-oem-22.04b": {
+          "pocket": "security",
+          "version": "6.5.0.1024.26"
+        },
+        "linux-image-oem-22.04d": {
+          "pocket": "security",
+          "version": "6.5.0.1024.26"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oem-6.5/linux-signed-oem-6.5_6.5.0-1024.25.tar.xz": {
+              "size": 14656,
+              "md5": "c19c0edace22e6524c4fffff60993da2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-oem-6.5_6.5.0-1024.25.dsc": {
+              "size": 5452,
+              "md5": "0c2b250961a0a386c0e1956e661323b2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oem-6.5/linux-signed-oem-6.5_6.5.0-1024.25.dsc": {
+              "size": 2046,
+              "md5": "4aef77cacf98ee0ed45e55b6b80a17aa"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-meta-oem-6.5_6.5.0.1024.26.dsc": {
+              "size": 4713,
+              "md5": "f540fb3b017ea5f0e2a5975d153a0a52"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-oem-6.5_6.5.0.orig.tar.gz": {
+              "size": 223513863,
+              "md5": "8290e3447d70a1a709986624233cb6df"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-oem-6.5_6.5.0-1024.25.diff.gz": {
+              "size": 4434963,
+              "md5": "7009c334b77fd34f4d94fa2610ade189"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-meta-oem-6.5_6.5.0.1024.26.tar.xz": {
+              "size": 8256,
+              "md5": "a1bd05d6c028133af0f10ca68a2dc1cd"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-oem-6.5-headers-6.5.0-1024_6.5.0-1024.25_all.deb": {
+              "size": 13329190,
+              "md5": "57076e0100fd47b7511726b7a561d460"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-oem-6.5-tools-host_6.5.0-1024.25_all.deb": {
+              "size": 148368,
+              "md5": "6338c9695363c3a19bd9cc3007b0f5d8"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-ipu6-oem-22.04b_6.5.0.1024.26_amd64.deb": {
+              "size": 1674,
+              "md5": "de194d937e02dafc124bfe241f3996a6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-tools-oem-22.04c_6.5.0.1024.26_amd64.deb": {
+              "size": 1650,
+              "md5": "8071402088b06f7c65ef5916685e11d2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-headers-oem-22.04_6.5.0.1024.26_amd64.deb": {
+              "size": 2376,
+              "md5": "8ec7bd9990b22af2fcf5ed2eecd6163f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-modules-ipu6-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
+              "size": 366416,
+              "md5": "cffbdeb54b17364fb7d4e21a5cb8e948"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-modules-usbio-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
+              "size": 151514,
+              "md5": "d7af069659bc0c95fba8eee29add825f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-iwlwifi-oem-22.04d_6.5.0.1024.26_amd64.deb": {
+              "size": 2456,
+              "md5": "3c49a505027b58206a5f0e0a0b5ab5c0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-oem-22.04_6.5.0.1024.26_amd64.deb": {
+              "size": 1704,
+              "md5": "611235998e543dac9cea3a7d24f0e18e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-usbio-oem-22.04d_6.5.0.1024.26_amd64.deb": {
+              "size": 2458,
+              "md5": "42e325e449fa71e9d36dd4cd82a9f7c4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-tools-oem-22.04a_6.5.0.1024.26_amd64.deb": {
+              "size": 1650,
+              "md5": "b950e3d4b65fbc20292cea7c0ccdea6b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-image-oem-22.04b_6.5.0.1024.26_amd64.deb": {
+              "size": 1652,
+              "md5": "81078e4122ff29c86f553d4ba5f9c0ad"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-tools-oem-22.04d_6.5.0.1024.26_amd64.deb": {
+              "size": 2372,
+              "md5": "6c6b9769f87f55bd002adc7ec380f0cb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-tools-oem-22.04_6.5.0.1024.26_amd64.deb": {
+              "size": 2370,
+              "md5": "1e29aacd798410a90ccba2fd53766467"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-iwlwifi-oem-22.04c_6.5.0.1024.26_amd64.deb": {
+              "size": 1680,
+              "md5": "c34a2458181098dc887be960449f5d64"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-tools-oem-22.04b_6.5.0.1024.26_amd64.deb": {
+              "size": 1650,
+              "md5": "ff86fa985963e37f8434e1086ca331c9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-headers-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
+              "size": 3552082,
+              "md5": "5729b60893be78db08c87f9bd998e773"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-usbio-oem-22.04_6.5.0.1024.26_amd64.deb": {
+              "size": 2462,
+              "md5": "e3066c790ab1096b6034804df4691966"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-modules-ivsc-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
+              "size": 194030,
+              "md5": "f96a286f6b32d869ca5adb4b97da1971"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-ipu6-oem-22.04_6.5.0.1024.26_amd64.deb": {
+              "size": 2456,
+              "md5": "a3b13bf694c7a933eede1c8b98e1162d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-modules-iwlwifi-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
+              "size": 1697754,
+              "md5": "2571208d60cf0b4f93b0296b5a5130f4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-image-uc-oem-22.04_6.5.0.1024.26_amd64.deb": {
+              "size": 2486,
+              "md5": "3b3474843fd3a209fabbd4a00787d464"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-headers-oem-22.04c_6.5.0.1024.26_amd64.deb": {
+              "size": 1650,
+              "md5": "3e599586f8df1adc834703ac564283a4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-oem-6.5-lib-rust-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
+              "size": 129704,
+              "md5": "30eac8ac63cd50d9ff3d53bb94508deb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-oem-22.04a_6.5.0.1024.26_amd64.deb": {
+              "size": 1654,
+              "md5": "db7f059f454514f8609884750319ccac"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-headers-oem-22.04b_6.5.0.1024.26_amd64.deb": {
+              "size": 1656,
+              "md5": "7e4210b5f116c7dffc90cd37f0f50f4c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-ivsc-oem-22.04b_6.5.0.1024.26_amd64.deb": {
+              "size": 1674,
+              "md5": "75f6d782641c6b068a1485952029c302"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-ivsc-oem-22.04_6.5.0.1024.26_amd64.deb": {
+              "size": 2464,
+              "md5": "e12faa616070e944c09860a5317855a3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-image-oem-22.04_6.5.0.1024.26_amd64.deb": {
+              "size": 2516,
+              "md5": "26698010480fe52d918bf72155841ea9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-tools-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
+              "size": 1804,
+              "md5": "babbe30a1b73aa67336c30a937e19c2e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-iwlwifi-oem-22.04_6.5.0.1024.26_amd64.deb": {
+              "size": 2456,
+              "md5": "40a45c95f9abab8fc88eb961dbb04a8f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-iwlwifi-oem-22.04b_6.5.0.1024.26_amd64.deb": {
+              "size": 1678,
+              "md5": "9f05c7282932727b6ce3e35b81f8345f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-oem-22.04d_6.5.0.1024.26_amd64.deb": {
+              "size": 1662,
+              "md5": "3a3d93ab034f7c670eb93774a200cd3d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-headers-oem-22.04a_6.5.0.1024.26_amd64.deb": {
+              "size": 1652,
+              "md5": "0a8c6a3ce44e0a5338baf75e421abf00"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-image-oem-22.04c_6.5.0.1024.26_amd64.deb": {
+              "size": 1652,
+              "md5": "a1306499325b995f76cd5ad1732d3806"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-headers-oem-22.04d_6.5.0.1024.26_amd64.deb": {
+              "size": 2378,
+              "md5": "0a250f7b1e0ad5bc5e35b8c398b3312c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-oem-6.5-tools-6.5.0-1024_6.5.0-1024.25_amd64.deb": {
+              "size": 8048026,
+              "md5": "2bba161c2d0022924982397f0a58c0f6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-image-oem-22.04a_6.5.0.1024.26_amd64.deb": {
+              "size": 1650,
+              "md5": "4a5424a6cc10f299b9c74ef39139572b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-ipu6-oem-22.04d_6.5.0.1024.26_amd64.deb": {
+              "size": 2460,
+              "md5": "7f468884a38fed035726d6f4487693a7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-image-uc-oem-22.04d_6.5.0.1024.26_amd64.deb": {
+              "size": 2492,
+              "md5": "e6e3f28dd92a433e456e0a28e8374b3a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-modules-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
+              "size": 102372190,
+              "md5": "2c21fa7de264515aed869e444e28a265"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-ivsc-oem-22.04d_6.5.0.1024.26_amd64.deb": {
+              "size": 2458,
+              "md5": "a04393f783f88584eef238dc6da4f65f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-ivsc-oem-22.04c_6.5.0.1024.26_amd64.deb": {
+              "size": 1678,
+              "md5": "b73a3e5cc612ac0f0f002822beddaf83"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-image-unsigned-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
+              "size": 14428352,
+              "md5": "f2958d0dbe0da08a116c3a729a069e74"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oem-6.5/linux-image-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
+              "size": 14027264,
+              "md5": "0307b4df6e16cbd8d22ad2bd23f5fb08"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-image-oem-22.04d_6.5.0.1024.26_amd64.deb": {
+              "size": 2518,
+              "md5": "37cd18bd60bf89069df26e7b88cf3146"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-oem-22.04c_6.5.0.1024.26_amd64.deb": {
+              "size": 1658,
+              "md5": "ef2c9350aa4b7f740f3f075d3da280bc"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oem-6.5/linux-image-uc-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
+              "size": 54073892,
+              "md5": "ef713c177001bb5d1616973fee24704c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-buildinfo-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
+              "size": 599420,
+              "md5": "09fde5d07bd07f8f6ac552cdf20fee11"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-ipu6-oem-22.04c_6.5.0.1024.26_amd64.deb": {
+              "size": 1672,
+              "md5": "caf8c20e87653c58a586f1bf79d97e2e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-oem-22.04b_6.5.0.1024.26_amd64.deb": {
+              "size": 1652,
+              "md5": "b195467e404985166d2660a1fa72cd38"
+            }
+          }
+        }
+      },
+      "sources": {
+        "linux-oem-6.5": {
+          "version": "6.5.0-1024.25",
+          "description": "Linux kernel for OEM systems"
+        }
+      }
+    }
+  },
+  "title": "Linux kernel (OEM) vulnerabilities",
+  "timestamp": 1718215804.6324887,
+  "summary": "linux-oem-6.5 vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
   "cves": [
     "CVE-2023-52443",
@@ -151,549 +694,6 @@
     "CVE-2024-35841",
     "CVE-2024-35842"
   ],
-  "description": "Alon Zahavi discovered that the NVMe-oF/TCP subsystem in the Linux kernel\ndid not properly validate H2C PDU data, leading to a null pointer\ndereference vulnerability. A remote attacker could use this to cause a\ndenial of service (system crash). (CVE-2023-6356, CVE-2023-6535,\nCVE-2023-6536)\n\nChenyuan Yang discovered that the RDS Protocol implementation in the Linux\nkernel contained an out-of-bounds read vulnerability. An attacker could use\nthis to possibly cause a denial of service (system crash). (CVE-2024-23849)\n\nIt was discovered that a race condition existed in the Bluetooth subsystem\nin the Linux kernel, leading to a null pointer dereference vulnerability. A\nprivileged local attacker could use this to possibly cause a denial of\nservice (system crash). (CVE-2024-24860)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM64 architecture;\n  - PowerPC architecture;\n  - RISC-V architecture;\n  - S390 architecture;\n  - Core kernel;\n  - x86 architecture;\n  - Block layer subsystem;\n  - Cryptographic API;\n  - ACPI drivers;\n  - Android drivers;\n  - Drivers core;\n  - Power management core;\n  - Bus devices;\n  - Device frequency scaling framework;\n  - DMA engine subsystem;\n  - EDAC drivers;\n  - ARM SCMI message protocol;\n  - GPU drivers;\n  - IIO ADC drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - Media drivers;\n  - Multifunction device drivers;\n  - MTD block device drivers;\n  - Network drivers;\n  - NVME drivers;\n  - Device tree and open firmware driver;\n  - PCI driver for MicroSemi Switchtec;\n  - Power supply drivers;\n  - RPMSG subsystem;\n  - SCSI drivers;\n  - QCOM SoC drivers;\n  - SPMI drivers;\n  - Thermal drivers;\n  - TTY drivers;\n  - VFIO drivers;\n  - BTRFS file system;\n  - Ceph distributed file system;\n  - EFI Variable file system;\n  - EROFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - GFS2 file system;\n  - JFS file system;\n  - Network file systems library;\n  - Network file system server daemon;\n  - File systems infrastructure;\n  - Pstore file system;\n  - ReiserFS file system;\n  - SMB network file system;\n  - BPF subsystem;\n  - Memory management;\n  - TLS protocol;\n  - Ethernet bridge;\n  - Networking core;\n  - IPv4 networking;\n  - IPv6 networking;\n  - Logical Link layer;\n  - MAC80211 subsystem;\n  - Multipath TCP;\n  - Netfilter;\n  - NetLabel subsystem;\n  - Network traffic control;\n  - SMC sockets;\n  - Sun RPC protocol;\n  - AppArmor security module;\n  - Intel ASoC drivers;\n  - MediaTek ASoC drivers;\n  - USB sound devices;\n(CVE-2023-52612, CVE-2024-26808, CVE-2023-52691, CVE-2023-52618,\nCVE-2023-52463, CVE-2023-52447, CVE-2024-26668, CVE-2023-52454,\nCVE-2024-26670, CVE-2024-26646, CVE-2023-52472, CVE-2024-26586,\nCVE-2023-52681, CVE-2023-52453, CVE-2023-52611, CVE-2023-52622,\nCVE-2024-26641, CVE-2023-52616, CVE-2024-26592, CVE-2023-52606,\nCVE-2024-26620, CVE-2023-52692, CVE-2024-26669, CVE-2023-52623,\nCVE-2023-52588, CVE-2024-26616, CVE-2024-26610, CVE-2024-35839,\nCVE-2023-52490, CVE-2023-52672, CVE-2024-26612, CVE-2023-52617,\nCVE-2023-52697, CVE-2024-26644, CVE-2023-52458, CVE-2023-52598,\nCVE-2024-35841, CVE-2023-52664, CVE-2023-52635, CVE-2023-52676,\nCVE-2023-52669, CVE-2024-26632, CVE-2023-52486, CVE-2024-26625,\nCVE-2023-52608, CVE-2024-26634, CVE-2023-52599, CVE-2024-26618,\nCVE-2024-26640, CVE-2023-52489, CVE-2023-52675, CVE-2023-52678,\nCVE-2024-26583, CVE-2023-52693, CVE-2023-52498, CVE-2024-26649,\nCVE-2023-52670, CVE-2023-52473, CVE-2023-52449, CVE-2023-52667,\nCVE-2023-52467, CVE-2023-52686, CVE-2024-26633, CVE-2023-52666,\nCVE-2024-35840, CVE-2024-26629, CVE-2024-26595, CVE-2023-52593,\nCVE-2023-52687, CVE-2023-52465, CVE-2024-26627, CVE-2023-52493,\nCVE-2023-52491, CVE-2024-26636, CVE-2024-26584, CVE-2023-52587,\nCVE-2023-52597, CVE-2023-52462, CVE-2023-52633, CVE-2023-52696,\nCVE-2024-26585, CVE-2023-52589, CVE-2023-52456, CVE-2023-52470,\nCVE-2024-35838, CVE-2024-26645, CVE-2023-52591, CVE-2023-52464,\nCVE-2023-52609, CVE-2024-26608, CVE-2023-52450, CVE-2023-52584,\nCVE-2023-52469, CVE-2023-52583, CVE-2023-52451, CVE-2023-52495,\nCVE-2023-52626, CVE-2023-52595, CVE-2023-52680, CVE-2023-52632,\nCVE-2024-26582, CVE-2024-35837, CVE-2023-52494, CVE-2023-52614,\nCVE-2023-52443, CVE-2023-52698, CVE-2023-52448, CVE-2024-26615,\nCVE-2023-52452, CVE-2023-52492, CVE-2024-26647, CVE-2023-52468,\nCVE-2023-52594, CVE-2023-52621, CVE-2024-26638, CVE-2024-26594,\nCVE-2024-26673, CVE-2023-52457, CVE-2023-52677, CVE-2023-52607,\nCVE-2024-26623, CVE-2023-52488, CVE-2023-52497, CVE-2023-52445,\nCVE-2024-26607, CVE-2023-52610, CVE-2024-35842, CVE-2023-52690,\nCVE-2023-52683, CVE-2023-52444, CVE-2024-26671, CVE-2023-52455,\nCVE-2023-52679, CVE-2024-26598, CVE-2023-52674, CVE-2023-52627,\nCVE-2023-52619, CVE-2023-52487, CVE-2023-52446, CVE-2024-35835,\nCVE-2023-52682, CVE-2023-52685, CVE-2023-52694, CVE-2024-26631)\n",
   "id": "USN-6819-3",
-  "isummary": "Several security issues were fixed in the Linux kernel.\n",
-  "releases": {
-    "jammy": {
-      "allbinaries": {
-        "linux-buildinfo-6.5.0-1024-oem": {
-          "pocket": "security",
-          "source": "linux-oem-6.5",
-          "version": "6.5.0-1024.25"
-        },
-        "linux-headers-6.5.0-1024-oem": {
-          "pocket": "security",
-          "source": "linux-oem-6.5",
-          "version": "6.5.0-1024.25"
-        },
-        "linux-headers-oem-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-headers-oem-22.04a": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-headers-oem-22.04b": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-headers-oem-22.04c": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-headers-oem-22.04d": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-image-6.5.0-1024-oem": {
-          "pocket": "security",
-          "source": "linux-signed-oem-6.5",
-          "version": "6.5.0-1024.25"
-        },
-        "linux-image-oem-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-image-oem-22.04a": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-image-oem-22.04b": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-image-oem-22.04c": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-image-oem-22.04d": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-image-uc-6.5.0-1024-oem": {
-          "pocket": "security",
-          "source": "linux-signed-oem-6.5",
-          "version": "6.5.0-1024.25"
-        },
-        "linux-image-uc-oem-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-image-uc-oem-22.04d": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-image-unsigned-6.5.0-1024-oem": {
-          "pocket": "security",
-          "source": "linux-oem-6.5",
-          "version": "6.5.0-1024.25"
-        },
-        "linux-modules-6.5.0-1024-oem": {
-          "pocket": "security",
-          "source": "linux-oem-6.5",
-          "version": "6.5.0-1024.25"
-        },
-        "linux-modules-ipu6-6.5.0-1024-oem": {
-          "pocket": "security",
-          "source": "linux-oem-6.5",
-          "version": "6.5.0-1024.25"
-        },
-        "linux-modules-ipu6-oem-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-modules-ipu6-oem-22.04b": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-modules-ipu6-oem-22.04c": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-modules-ipu6-oem-22.04d": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-modules-ivsc-6.5.0-1024-oem": {
-          "pocket": "security",
-          "source": "linux-oem-6.5",
-          "version": "6.5.0-1024.25"
-        },
-        "linux-modules-ivsc-oem-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-modules-ivsc-oem-22.04b": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-modules-ivsc-oem-22.04c": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-modules-ivsc-oem-22.04d": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-modules-iwlwifi-6.5.0-1024-oem": {
-          "pocket": "security",
-          "source": "linux-oem-6.5",
-          "version": "6.5.0-1024.25"
-        },
-        "linux-modules-iwlwifi-oem-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-modules-iwlwifi-oem-22.04b": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-modules-iwlwifi-oem-22.04c": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-modules-iwlwifi-oem-22.04d": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-modules-usbio-6.5.0-1024-oem": {
-          "pocket": "security",
-          "source": "linux-oem-6.5",
-          "version": "6.5.0-1024.25"
-        },
-        "linux-modules-usbio-oem-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-modules-usbio-oem-22.04d": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-oem-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-oem-22.04a": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-oem-22.04b": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-oem-22.04c": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-oem-22.04d": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-oem-6.5-headers-6.5.0-1024": {
-          "pocket": "security",
-          "source": "linux-oem-6.5",
-          "version": "6.5.0-1024.25"
-        },
-        "linux-oem-6.5-lib-rust-6.5.0-1024-oem": {
-          "pocket": "security",
-          "source": "linux-oem-6.5",
-          "version": "6.5.0-1024.25"
-        },
-        "linux-oem-6.5-tools-6.5.0-1024": {
-          "pocket": "security",
-          "source": "linux-oem-6.5",
-          "version": "6.5.0-1024.25"
-        },
-        "linux-oem-6.5-tools-host": {
-          "pocket": "security",
-          "source": "linux-oem-6.5",
-          "version": "6.5.0-1024.25"
-        },
-        "linux-tools-6.5.0-1024-oem": {
-          "pocket": "security",
-          "source": "linux-oem-6.5",
-          "version": "6.5.0-1024.25"
-        },
-        "linux-tools-oem-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-tools-oem-22.04a": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-tools-oem-22.04b": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-tools-oem-22.04c": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-tools-oem-22.04d": {
-          "pocket": "security",
-          "source": "linux-meta-oem-6.5",
-          "version": "6.5.0.1024.26"
-        }
-      },
-      "archs": {
-        "all": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-oem-6.5-headers-6.5.0-1024_6.5.0-1024.25_all.deb": {
-              "md5": "57076e0100fd47b7511726b7a561d460",
-              "size": 13329190
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-oem-6.5-tools-host_6.5.0-1024.25_all.deb": {
-              "md5": "6338c9695363c3a19bd9cc3007b0f5d8",
-              "size": 148368
-            }
-          }
-        },
-        "amd64": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-headers-oem-22.04_6.5.0.1024.26_amd64.deb": {
-              "md5": "8ec7bd9990b22af2fcf5ed2eecd6163f",
-              "size": 2376
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-headers-oem-22.04a_6.5.0.1024.26_amd64.deb": {
-              "md5": "0a8c6a3ce44e0a5338baf75e421abf00",
-              "size": 1652
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-headers-oem-22.04b_6.5.0.1024.26_amd64.deb": {
-              "md5": "7e4210b5f116c7dffc90cd37f0f50f4c",
-              "size": 1656
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-headers-oem-22.04c_6.5.0.1024.26_amd64.deb": {
-              "md5": "3e599586f8df1adc834703ac564283a4",
-              "size": 1650
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-headers-oem-22.04d_6.5.0.1024.26_amd64.deb": {
-              "md5": "0a250f7b1e0ad5bc5e35b8c398b3312c",
-              "size": 2378
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-image-oem-22.04_6.5.0.1024.26_amd64.deb": {
-              "md5": "26698010480fe52d918bf72155841ea9",
-              "size": 2516
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-image-oem-22.04a_6.5.0.1024.26_amd64.deb": {
-              "md5": "4a5424a6cc10f299b9c74ef39139572b",
-              "size": 1650
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-image-oem-22.04b_6.5.0.1024.26_amd64.deb": {
-              "md5": "81078e4122ff29c86f553d4ba5f9c0ad",
-              "size": 1652
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-image-oem-22.04c_6.5.0.1024.26_amd64.deb": {
-              "md5": "a1306499325b995f76cd5ad1732d3806",
-              "size": 1652
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-image-oem-22.04d_6.5.0.1024.26_amd64.deb": {
-              "md5": "37cd18bd60bf89069df26e7b88cf3146",
-              "size": 2518
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-image-uc-oem-22.04_6.5.0.1024.26_amd64.deb": {
-              "md5": "3b3474843fd3a209fabbd4a00787d464",
-              "size": 2486
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-image-uc-oem-22.04d_6.5.0.1024.26_amd64.deb": {
-              "md5": "e6e3f28dd92a433e456e0a28e8374b3a",
-              "size": 2492
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-ipu6-oem-22.04_6.5.0.1024.26_amd64.deb": {
-              "md5": "a3b13bf694c7a933eede1c8b98e1162d",
-              "size": 2456
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-ipu6-oem-22.04b_6.5.0.1024.26_amd64.deb": {
-              "md5": "de194d937e02dafc124bfe241f3996a6",
-              "size": 1674
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-ipu6-oem-22.04c_6.5.0.1024.26_amd64.deb": {
-              "md5": "caf8c20e87653c58a586f1bf79d97e2e",
-              "size": 1672
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-ipu6-oem-22.04d_6.5.0.1024.26_amd64.deb": {
-              "md5": "7f468884a38fed035726d6f4487693a7",
-              "size": 2460
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-ivsc-oem-22.04_6.5.0.1024.26_amd64.deb": {
-              "md5": "e12faa616070e944c09860a5317855a3",
-              "size": 2464
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-ivsc-oem-22.04b_6.5.0.1024.26_amd64.deb": {
-              "md5": "75f6d782641c6b068a1485952029c302",
-              "size": 1674
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-ivsc-oem-22.04c_6.5.0.1024.26_amd64.deb": {
-              "md5": "b73a3e5cc612ac0f0f002822beddaf83",
-              "size": 1678
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-ivsc-oem-22.04d_6.5.0.1024.26_amd64.deb": {
-              "md5": "a04393f783f88584eef238dc6da4f65f",
-              "size": 2458
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-iwlwifi-oem-22.04_6.5.0.1024.26_amd64.deb": {
-              "md5": "40a45c95f9abab8fc88eb961dbb04a8f",
-              "size": 2456
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-iwlwifi-oem-22.04b_6.5.0.1024.26_amd64.deb": {
-              "md5": "9f05c7282932727b6ce3e35b81f8345f",
-              "size": 1678
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-iwlwifi-oem-22.04c_6.5.0.1024.26_amd64.deb": {
-              "md5": "c34a2458181098dc887be960449f5d64",
-              "size": 1680
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-iwlwifi-oem-22.04d_6.5.0.1024.26_amd64.deb": {
-              "md5": "3c49a505027b58206a5f0e0a0b5ab5c0",
-              "size": 2456
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-usbio-oem-22.04_6.5.0.1024.26_amd64.deb": {
-              "md5": "e3066c790ab1096b6034804df4691966",
-              "size": 2462
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-modules-usbio-oem-22.04d_6.5.0.1024.26_amd64.deb": {
-              "md5": "42e325e449fa71e9d36dd4cd82a9f7c4",
-              "size": 2458
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-oem-22.04_6.5.0.1024.26_amd64.deb": {
-              "md5": "611235998e543dac9cea3a7d24f0e18e",
-              "size": 1704
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-oem-22.04a_6.5.0.1024.26_amd64.deb": {
-              "md5": "db7f059f454514f8609884750319ccac",
-              "size": 1654
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-oem-22.04b_6.5.0.1024.26_amd64.deb": {
-              "md5": "b195467e404985166d2660a1fa72cd38",
-              "size": 1652
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-oem-22.04c_6.5.0.1024.26_amd64.deb": {
-              "md5": "ef2c9350aa4b7f740f3f075d3da280bc",
-              "size": 1658
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-oem-22.04d_6.5.0.1024.26_amd64.deb": {
-              "md5": "3a3d93ab034f7c670eb93774a200cd3d",
-              "size": 1662
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-tools-oem-22.04_6.5.0.1024.26_amd64.deb": {
-              "md5": "1e29aacd798410a90ccba2fd53766467",
-              "size": 2370
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-tools-oem-22.04a_6.5.0.1024.26_amd64.deb": {
-              "md5": "b950e3d4b65fbc20292cea7c0ccdea6b",
-              "size": 1650
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-tools-oem-22.04b_6.5.0.1024.26_amd64.deb": {
-              "md5": "ff86fa985963e37f8434e1086ca331c9",
-              "size": 1650
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-tools-oem-22.04c_6.5.0.1024.26_amd64.deb": {
-              "md5": "8071402088b06f7c65ef5916685e11d2",
-              "size": 1650
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-tools-oem-22.04d_6.5.0.1024.26_amd64.deb": {
-              "md5": "6c6b9769f87f55bd002adc7ec380f0cb",
-              "size": 2372
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-buildinfo-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
-              "md5": "09fde5d07bd07f8f6ac552cdf20fee11",
-              "size": 599420
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-headers-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
-              "md5": "5729b60893be78db08c87f9bd998e773",
-              "size": 3552082
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-image-unsigned-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
-              "md5": "f2958d0dbe0da08a116c3a729a069e74",
-              "size": 14428352
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-modules-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
-              "md5": "2c21fa7de264515aed869e444e28a265",
-              "size": 102372190
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-modules-ipu6-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
-              "md5": "cffbdeb54b17364fb7d4e21a5cb8e948",
-              "size": 366416
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-modules-ivsc-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
-              "md5": "f96a286f6b32d869ca5adb4b97da1971",
-              "size": 194030
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-modules-iwlwifi-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
-              "md5": "2571208d60cf0b4f93b0296b5a5130f4",
-              "size": 1697754
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-modules-usbio-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
-              "md5": "d7af069659bc0c95fba8eee29add825f",
-              "size": 151514
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-oem-6.5-lib-rust-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
-              "md5": "30eac8ac63cd50d9ff3d53bb94508deb",
-              "size": 129704
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-oem-6.5-tools-6.5.0-1024_6.5.0-1024.25_amd64.deb": {
-              "md5": "2bba161c2d0022924982397f0a58c0f6",
-              "size": 8048026
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-tools-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
-              "md5": "babbe30a1b73aa67336c30a937e19c2e",
-              "size": 1804
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oem-6.5/linux-image-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
-              "md5": "0307b4df6e16cbd8d22ad2bd23f5fb08",
-              "size": 14027264
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oem-6.5/linux-image-uc-6.5.0-1024-oem_6.5.0-1024.25_amd64.deb": {
-              "md5": "ef713c177001bb5d1616973fee24704c",
-              "size": 54073892
-            }
-          }
-        },
-        "source": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-meta-oem-6.5_6.5.0.1024.26.dsc": {
-              "md5": "f540fb3b017ea5f0e2a5975d153a0a52",
-              "size": 4713
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oem-6.5/linux-meta-oem-6.5_6.5.0.1024.26.tar.xz": {
-              "md5": "a1bd05d6c028133af0f10ca68a2dc1cd",
-              "size": 8256
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-oem-6.5_6.5.0-1024.25.diff.gz": {
-              "md5": "7009c334b77fd34f4d94fa2610ade189",
-              "size": 4434963
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-oem-6.5_6.5.0-1024.25.dsc": {
-              "md5": "0c2b250961a0a386c0e1956e661323b2",
-              "size": 5452
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oem-6.5/linux-oem-6.5_6.5.0.orig.tar.gz": {
-              "md5": "8290e3447d70a1a709986624233cb6df",
-              "size": 223513863
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oem-6.5/linux-signed-oem-6.5_6.5.0-1024.25.dsc": {
-              "md5": "4aef77cacf98ee0ed45e55b6b80a17aa",
-              "size": 2046
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oem-6.5/linux-signed-oem-6.5_6.5.0-1024.25.tar.xz": {
-              "md5": "c19c0edace22e6524c4fffff60993da2",
-              "size": 14656
-            }
-          }
-        }
-      },
-      "binaries": {
-        "linux-image-6.5.0-1024-oem": {
-          "pocket": "security",
-          "version": "6.5.0-1024.25"
-        },
-        "linux-image-oem-22.04": {
-          "pocket": "security",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-image-oem-22.04a": {
-          "pocket": "security",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-image-oem-22.04b": {
-          "pocket": "security",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-image-oem-22.04c": {
-          "pocket": "security",
-          "version": "6.5.0.1024.26"
-        },
-        "linux-image-oem-22.04d": {
-          "pocket": "security",
-          "version": "6.5.0.1024.26"
-        }
-      },
-      "sources": {
-        "linux-oem-6.5": {
-          "description": "Linux kernel for OEM systems",
-          "version": "6.5.0-1024.25"
-        }
-      }
-    }
-  },
-  "summary": "linux-oem-6.5 vulnerabilities",
-  "timestamp": 1718215804.6324887,
-  "title": "Linux kernel (OEM) vulnerabilities"
+  "isummary": "Several security issues were fixed in the Linux kernel.\n"
 }

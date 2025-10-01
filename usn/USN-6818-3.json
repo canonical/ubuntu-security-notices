@@ -1,4 +1,669 @@
 {
+  "description": "Alon Zahavi discovered that the NVMe-oF/TCP subsystem in the Linux kernel\ndid not properly validate H2C PDU data, leading to a null pointer\ndereference vulnerability. A remote attacker could use this to cause a\ndenial of service (system crash). (CVE-2023-6356, CVE-2023-6535,\nCVE-2023-6536)\n\nIt was discovered that the Intel Data Streaming and Intel Analytics\nAccelerator drivers in the Linux kernel allowed direct access to the\ndevices for unprivileged users and virtual machines. A local attacker could\nuse this to cause a denial of service. (CVE-2024-21823)\n\nChenyuan Yang discovered that the RDS Protocol implementation in the Linux\nkernel contained an out-of-bounds read vulnerability. An attacker could use\nthis to possibly cause a denial of service (system crash). (CVE-2024-23849)\n\nIt was discovered that a race condition existed in the Bluetooth subsystem\nin the Linux kernel, leading to a null pointer dereference vulnerability. A\nprivileged local attacker could use this to possibly cause a denial of\nservice (system crash). (CVE-2024-24860)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM64 architecture;\n  - PowerPC architecture;\n  - RISC-V architecture;\n  - S390 architecture;\n  - Core kernel;\n  - x86 architecture;\n  - Block layer subsystem;\n  - Cryptographic API;\n  - ACPI drivers;\n  - Android drivers;\n  - Drivers core;\n  - Power management core;\n  - Bus devices;\n  - Device frequency scaling framework;\n  - DMA engine subsystem;\n  - EDAC drivers;\n  - ARM SCMI message protocol;\n  - GPU drivers;\n  - IIO ADC drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - Media drivers;\n  - Multifunction device drivers;\n  - MTD block device drivers;\n  - Network drivers;\n  - NVME drivers;\n  - Device tree and open firmware driver;\n  - PCI driver for MicroSemi Switchtec;\n  - Power supply drivers;\n  - RPMSG subsystem;\n  - SCSI drivers;\n  - QCOM SoC drivers;\n  - SPMI drivers;\n  - Thermal drivers;\n  - TTY drivers;\n  - VFIO drivers;\n  - BTRFS file system;\n  - Ceph distributed file system;\n  - EFI Variable file system;\n  - EROFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - GFS2 file system;\n  - JFS file system;\n  - Network file systems library;\n  - Network file system server daemon;\n  - File systems infrastructure;\n  - Pstore file system;\n  - ReiserFS file system;\n  - SMB network file system;\n  - BPF subsystem;\n  - Memory management;\n  - TLS protocol;\n  - Ethernet bridge;\n  - Networking core;\n  - IPv4 networking;\n  - IPv6 networking;\n  - Logical Link layer;\n  - MAC80211 subsystem;\n  - Multipath TCP;\n  - Netfilter;\n  - NetLabel subsystem;\n  - Network traffic control;\n  - SMC sockets;\n  - Sun RPC protocol;\n  - AppArmor security module;\n  - Intel ASoC drivers;\n  - MediaTek ASoC drivers;\n  - USB sound devices;\n(CVE-2023-52598, CVE-2023-52676, CVE-2023-52609, CVE-2024-26620,\nCVE-2023-52487, CVE-2023-52465, CVE-2023-52473, CVE-2023-52467,\nCVE-2024-26583, CVE-2023-52669, CVE-2023-52664, CVE-2023-52449,\nCVE-2023-52614, CVE-2024-26595, CVE-2023-52611, CVE-2023-52696,\nCVE-2023-52591, CVE-2023-52491, CVE-2024-35839, CVE-2023-52679,\nCVE-2024-26607, CVE-2023-52587, CVE-2023-52469, CVE-2023-52608,\nCVE-2023-52617, CVE-2023-52698, CVE-2024-26673, CVE-2024-35835,\nCVE-2024-26808, CVE-2024-26668, CVE-2023-52626, CVE-2023-52621,\nCVE-2024-35837, CVE-2023-52489, CVE-2023-52597, CVE-2024-26649,\nCVE-2024-26615, CVE-2024-35838, CVE-2023-52693, CVE-2023-52497,\nCVE-2024-35842, CVE-2024-26618, CVE-2024-26610, CVE-2024-26631,\nCVE-2024-26644, CVE-2024-26627, CVE-2023-52677, CVE-2023-52472,\nCVE-2023-52627, CVE-2023-52486, CVE-2023-52632, CVE-2023-52494,\nCVE-2023-52468, CVE-2024-26634, CVE-2023-52588, CVE-2024-26646,\nCVE-2024-26584, CVE-2023-52443, CVE-2023-52691, CVE-2024-26612,\nCVE-2023-52595, CVE-2024-26592, CVE-2024-26623, CVE-2023-52492,\nCVE-2024-26670, CVE-2023-52583, CVE-2023-52681, CVE-2023-52635,\nCVE-2023-52457, CVE-2023-52445, CVE-2024-26629, CVE-2024-26594,\nCVE-2023-52675, CVE-2023-52488, CVE-2023-52446, CVE-2024-26625,\nCVE-2023-52697, CVE-2023-52453, CVE-2023-52498, CVE-2023-52686,\nCVE-2023-52593, CVE-2023-52612, CVE-2023-52687, CVE-2023-52470,\nCVE-2023-52455, CVE-2023-52444, CVE-2024-26608, CVE-2024-26633,\nCVE-2024-26645, CVE-2023-52451, CVE-2023-52456, CVE-2024-26640,\nCVE-2023-52670, CVE-2023-52589, CVE-2024-26598, CVE-2024-35841,\nCVE-2024-26647, CVE-2024-26636, CVE-2023-52680, CVE-2023-52616,\nCVE-2023-52685, CVE-2024-26582, CVE-2024-26638, CVE-2023-52694,\nCVE-2024-35840, CVE-2023-52448, CVE-2023-52623, CVE-2023-52462,\nCVE-2023-52452, CVE-2024-26641, CVE-2023-52683, CVE-2023-52682,\nCVE-2023-52594, CVE-2023-52490, CVE-2023-52493, CVE-2023-52633,\nCVE-2023-52606, CVE-2024-26669, CVE-2023-52584, CVE-2024-26585,\nCVE-2023-52610, CVE-2023-52672, CVE-2023-52450, CVE-2023-52666,\nCVE-2023-52458, CVE-2023-52622, CVE-2023-52674, CVE-2023-52619,\nCVE-2024-26586, CVE-2023-52667, CVE-2024-26616, CVE-2023-52463,\nCVE-2024-26632, CVE-2023-52447, CVE-2023-52692, CVE-2023-52678,\nCVE-2023-52607, CVE-2023-52618, CVE-2023-52464, CVE-2024-26671,\nCVE-2023-52599, CVE-2023-52454, CVE-2023-52495, CVE-2023-52690)\n",
+  "releases": {
+    "jammy": {
+      "allbinaries": {
+        "linux-modules-6.5.0-1021-nvidia": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-tools-nvidia-64k-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-tools-6.5.0-1021-nvidia-64k": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-headers-6.5.0-1021-nvidia": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-image-unsigned-6.5.0-1021-nvidia-64k": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-modules-nvidia-fs-nvidia-6.5": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-image-nvidia-6.5": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-nvidia-64k-6.5": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-nvidia-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-nvidia-6.5": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-image-uc-6.5.0-1021-nvidia-64k": {
+          "pocket": "security",
+          "source": "linux-signed-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-nvidia-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-image-unsigned-6.5.0-1021-nvidia": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-image-nvidia-64k-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-modules-nvidia-fs-6.5.0-1021-nvidia-64k": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-image-nvidia-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-tools-6.5.0-1021-nvidia": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-tools-nvidia-64k-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-modules-nvidia-fs-nvidia-64k-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-nvidia-64k-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-tools-nvidia-6.5": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-modules-nvidia-fs-nvidia-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-headers-nvidia-64k-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-nvidia-64k-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-headers-nvidia-64k-6.5": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-modules-6.5.0-1021-nvidia-64k": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-modules-nvidia-fs-nvidia-64k-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-image-nvidia-64k-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-image-uc-6.5.0-1021-nvidia": {
+          "pocket": "security",
+          "source": "linux-signed-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-cloud-tools-nvidia-6.5": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-modules-nvidia-fs-nvidia-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-cloud-tools-nvidia-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-headers-nvidia-64k-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-image-6.5.0-1021-nvidia": {
+          "pocket": "security",
+          "source": "linux-signed-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-cloud-tools-nvidia-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-image-nvidia-64k-6.5": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-buildinfo-6.5.0-1021-nvidia-64k": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-modules-extra-6.5.0-1021-nvidia": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-image-6.5.0-1021-nvidia-64k": {
+          "pocket": "security",
+          "source": "linux-signed-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-tools-nvidia-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-modules-nvidia-fs-nvidia-64k-6.5": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-tools-nvidia-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-modules-nvidia-fs-6.5.0-1021-nvidia": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-nvidia-6.5-headers-6.5.0-1021": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-nvidia-6.5-tools-host": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-headers-nvidia-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-tools-nvidia-64k-6.5": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-buildinfo-6.5.0-1021-nvidia": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-headers-6.5.0-1021-nvidia-64k": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-headers-nvidia-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-headers-nvidia-6.5": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-nvidia-6.5-tools-6.5.0-1021": {
+          "pocket": "security",
+          "source": "linux-nvidia-6.5",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-image-nvidia-hwe-22.04-edge": {
+          "pocket": "security",
+          "source": "linux-meta-nvidia-6.5",
+          "version": "6.5.0.1021.29"
+        }
+      },
+      "binaries": {
+        "linux-image-nvidia-hwe-22.04": {
+          "pocket": "security",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-image-6.5.0-1021-nvidia": {
+          "pocket": "security",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-image-nvidia-64k-6.5": {
+          "pocket": "security",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-image-nvidia-6.5": {
+          "pocket": "security",
+          "version": "6.5.0.1021.29"
+        },
+        "linux-image-6.5.0-1021-nvidia-64k": {
+          "pocket": "security",
+          "version": "6.5.0-1021.22"
+        },
+        "linux-image-nvidia-64k-hwe-22.04": {
+          "pocket": "security",
+          "version": "6.5.0.1021.29"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-meta-nvidia-6.5_6.5.0.1021.29.tar.xz": {
+              "size": 16848,
+              "md5": "8f1daf9057702fab0d0d905e613a994b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-nvidia-6.5_6.5.0-1021.22.dsc": {
+              "size": 6410,
+              "md5": "152336bd77294621659395defe03164b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-meta-nvidia-6.5_6.5.0.1021.29.dsc": {
+              "size": 5063,
+              "md5": "9cc556b007ce5cbc8b8c40f9265d6a92"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-nvidia-6.5/linux-signed-nvidia-6.5_6.5.0-1021.22.dsc": {
+              "size": 2719,
+              "md5": "fe522ea346d98c00c7158e4f8f2824b2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-nvidia-6.5/linux-signed-nvidia-6.5_6.5.0-1021.22.tar.xz": {
+              "size": 26376,
+              "md5": "51299afcd1042d8793ca6929b548ddf8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-nvidia-6.5_6.5.0.orig.tar.gz": {
+              "size": 223513863,
+              "md5": "8290e3447d70a1a709986624233cb6df"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-nvidia-6.5_6.5.0-1021.22.diff.gz": {
+              "size": 4072790,
+              "md5": "86507e0022ce83456097316085f49cee"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/": {
+              "size": 13656010,
+              "md5": "e732e77eca23010d1a26dc75d8cf830d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-nvidia-6.5-tools-host_6.5.0-1021.22_all.deb": {
+              "size": 454812,
+              "md5": "0663fa8e8f0f720cbc7b627330944804"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-modules-extra-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
+              "size": 77216408,
+              "md5": "a070ad7eed8efa848dcba052371fa5d1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-hwe-22.04_6.5.0.1021.29_amd64.deb": {
+              "size": 15892,
+              "md5": "e5cd6893e640213d413353390bf06ad1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-cloud-tools-nvidia-hwe-22.04_6.5.0.1021.29_amd64.deb": {
+              "size": 15892,
+              "md5": "dc4e62c39b3675208f646239c21f3f70"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-hwe-22.04_6.5.0.1021.29_amd64.deb": {
+              "size": 15884,
+              "md5": "d27321cff3bd1e1096cbef20f351f18e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-hwe-22.04-edge_6.5.0.1021.29_amd64.deb": {
+              "size": 15888,
+              "md5": "6f10dec29daed314f2c21ebe70e840be"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-6.5_6.5.0.1021.29_amd64.deb": {
+              "size": 15916,
+              "md5": "ee1b70b120a02287565f4889457787df"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-hwe-22.04-edge_6.5.0.1021.29_amd64.deb": {
+              "size": 15892,
+              "md5": "102fee3ded26172a91e3d0127f8a868b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-nvidia-6.5/linux-image-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
+              "size": 13998316,
+              "md5": "3f6744b2c851dc40be5f0bf9976ea79e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-6.5_6.5.0.1021.29_amd64.deb": {
+              "size": 16030,
+              "md5": "4868383b54a6f3865fde3bcbff04b3a0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-hwe-22.04-edge_6.5.0.1021.29_amd64.deb": {
+              "size": 15898,
+              "md5": "e30f06d85cfc5e35ec932be622f6915d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-hwe-22.04_6.5.0.1021.29_amd64.deb": {
+              "size": 16048,
+              "md5": "5f5fa76f88fe4665eade829fd14d0a3f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-cloud-tools-nvidia-6.5_6.5.0.1021.29_amd64.deb": {
+              "size": 15878,
+              "md5": "9be54dccb6da157e2062d496b3104626"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-hwe-22.04_6.5.0.1021.29_amd64.deb": {
+              "size": 15938,
+              "md5": "89ffa55750837479a22720f706732952"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-hwe-22.04_6.5.0.1021.29_amd64.deb": {
+              "size": 15872,
+              "md5": "4044bccf88540b9417125e5e36e78f0c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-cloud-tools-nvidia-hwe-22.04-edge_6.5.0.1021.29_amd64.deb": {
+              "size": 15906,
+              "md5": "23b2ddc635349dc8786e4deda1accc4c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-tools-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
+              "size": 455074,
+              "md5": "544896c7cb1e4acd1cb158d6f6762fea"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-6.5_6.5.0.1021.29_amd64.deb": {
+              "size": 15872,
+              "md5": "bfcd2cc0041db5a0b3129c827ff82b9e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-modules-nvidia-fs-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
+              "size": 509848,
+              "md5": "3447b2895f1020664e0dd808b9bd0973"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-image-unsigned-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
+              "size": 14704832,
+              "md5": "ef9746bb1eed75444a82e50803511dc9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/": {
+              "size": 7936682,
+              "md5": "a902c0421b446c5b4505c8f55fe83f45"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-hwe-22.04-edge_6.5.0.1021.29_amd64.deb": {
+              "size": 16054,
+              "md5": "3f28f5c06ec778cbce1e9917b78c77ff"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-headers-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
+              "size": 3851302,
+              "md5": "8284b28a9e4124cf82857bf1e44f8e6f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-buildinfo-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
+              "size": 922510,
+              "md5": "b2d134b168545f6906138b973e712b0a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-6.5_6.5.0.1021.29_amd64.deb": {
+              "size": 15866,
+              "md5": "b88198dc02825dff4dfa9cdf27a01b57"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-6.5_6.5.0.1021.29_amd64.deb": {
+              "size": 15926,
+              "md5": "d0bca543211270db0bad94cd8a4286e7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-hwe-22.04-edge_6.5.0.1021.29_amd64.deb": {
+              "size": 15946,
+              "md5": "e1e062b6991db9cb4ffe581f9cd6adae"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-modules-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
+              "size": 25971984,
+              "md5": "94dd34a3b6b0e5f4d484d573697dca6c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-nvidia-6.5/linux-image-uc-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
+              "size": 54044892,
+              "md5": "893009538d88cfc7a27ea49045215b4f"
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-tools-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
+              "size": 455072,
+              "md5": "eafdfed24f81150c272318ee08e5c1e7"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
+              "size": 15946,
+              "md5": "6fdbaa35713053f2d27bbd30d82a0749"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-64k-hwe-22.04_6.5.0.1021.29_arm64.deb": {
+              "size": 15946,
+              "md5": "b0de35b35ca42dde977a5d18581b9bf3"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-64k-hwe-22.04_6.5.0.1021.29_arm64.deb": {
+              "size": 15886,
+              "md5": "ce159af7c5b91378a17f2d0f27ba9671"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-64k-6.5_6.5.0.1021.29_arm64.deb": {
+              "size": 15932,
+              "md5": "a2504bd45d3bf15d389f9b4db996c21d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-64k-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
+              "size": 15898,
+              "md5": "a342b45acbfd089ef49937c78dfbcc69"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
+              "size": 15898,
+              "md5": "26b279eca3669b5c0ad4d1883397ea07"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-tools-6.5.0-1021-nvidia-64k_6.5.0-1021.22_arm64.deb": {
+              "size": 455084,
+              "md5": "eae15dd833ff505e4bc7bce306cd70d4"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-hwe-22.04_6.5.0.1021.29_arm64.deb": {
+              "size": 15938,
+              "md5": "228de29d439ac22297308eedf0dbb0e3"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-64k-6.5_6.5.0.1021.29_arm64.deb": {
+              "size": 15868,
+              "md5": "508fcbbe8a708ae75580358659ee2bc7"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-image-unsigned-6.5.0-1021-nvidia-64k_6.5.0-1021.22_arm64.deb": {
+              "size": 17848512,
+              "md5": "96aff89d0a5ece4a89f5c92dcc9b284e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-hwe-22.04_6.5.0.1021.29_arm64.deb": {
+              "size": 15872,
+              "md5": "12c0a074b5d403241ed75639ae9582e5"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-6.5_6.5.0.1021.29_arm64.deb": {
+              "size": 15926,
+              "md5": "d8d7697629a32fe669505b41aaf4a3d8"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-nvidia-6.5/linux-image-uc-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
+              "size": 40658616,
+              "md5": "3f3d3b6df1cffecf787abd67f8629c4c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-hwe-22.04_6.5.0.1021.29_arm64.deb": {
+              "size": 15990,
+              "md5": "9711bb788fa6f784aafa6c82a6c78b50"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-hwe-22.04_6.5.0.1021.29_arm64.deb": {
+              "size": 15882,
+              "md5": "65eb9d907f299e007e158e3806d9ce5c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-64k-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
+              "size": 15904,
+              "md5": "903aa3d2bf8d3b6196d18672d905b66d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-64k-hwe-22.04_6.5.0.1021.29_arm64.deb": {
+              "size": 15946,
+              "md5": "e09898281e0d72a07acf35bed24164aa"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
+              "size": 16002,
+              "md5": "fceddc0003ea2b6c445d2c36f76f4fa3"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-buildinfo-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
+              "size": 946688,
+              "md5": "2d182c7534f7ae35ee5518a96f4b5a46"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-modules-6.5.0-1021-nvidia-64k_6.5.0-1021.22_arm64.deb": {
+              "size": 102706652,
+              "md5": "a1a174af3633d2267f395ea43187e093"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-modules-extra-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
+              "size": 78066262,
+              "md5": "5248499da816d5297cb7b162cc6ae9b8"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-6.5_6.5.0.1021.29_arm64.deb": {
+              "size": 15874,
+              "md5": "a9e060dcfd7a8b50ad163c9d6d57158a"
+            },
+            "http://ports.ubuntu.com/pool/": {
+              "size": 7327568,
+              "md5": "ac626e3ab55041882599f2941fbfa3f1"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-image-unsigned-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
+              "size": 17848512,
+              "md5": "7cd2d3e15a7b74fa475c998e9796f5f1"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-64k-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
+              "size": 15956,
+              "md5": "e1113eafa755dd6b01ac28b5ef2a27c3"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-64k-6.5_6.5.0.1021.29_arm64.deb": {
+              "size": 15882,
+              "md5": "4f342026aa6db92f5c9104ff758b2e3d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
+              "size": 15888,
+              "md5": "b4074a0bbc7652ed6e8b45f56d377b7f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-modules-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
+              "size": 25497744,
+              "md5": "d9beee3644b7bc98e8d0ddae410e1aed"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-64k-hwe-22.04_6.5.0.1021.29_arm64.deb": {
+              "size": 15898,
+              "md5": "a16b4d9951eff491ee6e0bb2fa0bab08"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-nvidia-6.5/linux-image-6.5.0-1021-nvidia-64k_6.5.0-1021.22_arm64.deb": {
+              "size": 17099734,
+              "md5": "8672e4346db2d491d76c39a1c2b845f2"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-nvidia-6.5/linux-image-uc-6.5.0-1021-nvidia-64k_6.5.0-1021.22_arm64.deb": {
+              "size": 40508392,
+              "md5": "518405d4d4a21c2585fef0257cb958dd"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
+              "size": 15894,
+              "md5": "3e47d8cc5927ebff6317db415cd0412d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-64k-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
+              "size": 15956,
+              "md5": "ac1ec550318291fcaccec780a2f7d32f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-6.5_6.5.0.1021.29_arm64.deb": {
+              "size": 15866,
+              "md5": "3531a4ec10ebf99943cc61d4a57521e6"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-6.5_6.5.0.1021.29_arm64.deb": {
+              "size": 15916,
+              "md5": "5ef469ae2a941687b53c33bbc0ae2e68"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-64k-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
+              "size": 15912,
+              "md5": "3c833d0afd408bb9f478e0c43817056c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-6.5_6.5.0.1021.29_arm64.deb": {
+              "size": 15978,
+              "md5": "c1913e160d0b7d3f07389ee1e78fa6fd"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-modules-nvidia-fs-6.5.0-1021-nvidia-64k_6.5.0-1021.22_arm64.deb": {
+              "size": 510278,
+              "md5": "6c48fd655a1436a564767d9876a7258b"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-headers-6.5.0-1021-nvidia-64k_6.5.0-1021.22_arm64.deb": {
+              "size": 3338118,
+              "md5": "6043a455988b1ab90e333a0d73a7300a"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-headers-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
+              "size": 3331816,
+              "md5": "fd7f6984119843b8b1b8c846b64148bc"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-nvidia-6.5/linux-image-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
+              "size": 17101022,
+              "md5": "0ed38a3cd13e43e8660d659ebf1396a0"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-modules-nvidia-fs-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
+              "size": 510226,
+              "md5": "34b187e856a46f4ad6d9e0fcf5e0d6b6"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-buildinfo-6.5.0-1021-nvidia-64k_6.5.0-1021.22_arm64.deb": {
+              "size": 946630,
+              "md5": "79032cab3ac3cdf446204865309e6f39"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-64k-6.5_6.5.0.1021.29_arm64.deb": {
+              "size": 15940,
+              "md5": "1746e41199477efd29469123699271bf"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-64k-6.5_6.5.0.1021.29_arm64.deb": {
+              "size": 15928,
+              "md5": "ea0b1a4a6593bc6c2a5622da4473d81b"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-hwe-22.04_6.5.0.1021.29_arm64.deb": {
+              "size": 15892,
+              "md5": "f9fb488d044fc72ba98d4e6a633b291e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-64k-hwe-22.04_6.5.0.1021.29_arm64.deb": {
+              "size": 15906,
+              "md5": "ae143255bac528bd8f6b3b4c6c432c3c"
+            }
+          }
+        }
+      },
+      "sources": {
+        "linux-nvidia-6.5": {
+          "version": "6.5.0-1021.22",
+          "description": "Linux kernel for NVIDIA systems"
+        }
+      }
+    }
+  },
+  "title": "Linux kernel (NVIDIA) vulnerabilities",
+  "timestamp": 1718380745.6531038,
+  "summary": "linux-nvidia-6.5 vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
   "cves": [
     "CVE-2023-52443",
@@ -152,671 +817,6 @@
     "CVE-2024-35841",
     "CVE-2024-35842"
   ],
-  "description": "Alon Zahavi discovered that the NVMe-oF/TCP subsystem in the Linux kernel\ndid not properly validate H2C PDU data, leading to a null pointer\ndereference vulnerability. A remote attacker could use this to cause a\ndenial of service (system crash). (CVE-2023-6356, CVE-2023-6535,\nCVE-2023-6536)\n\nIt was discovered that the Intel Data Streaming and Intel Analytics\nAccelerator drivers in the Linux kernel allowed direct access to the\ndevices for unprivileged users and virtual machines. A local attacker could\nuse this to cause a denial of service. (CVE-2024-21823)\n\nChenyuan Yang discovered that the RDS Protocol implementation in the Linux\nkernel contained an out-of-bounds read vulnerability. An attacker could use\nthis to possibly cause a denial of service (system crash). (CVE-2024-23849)\n\nIt was discovered that a race condition existed in the Bluetooth subsystem\nin the Linux kernel, leading to a null pointer dereference vulnerability. A\nprivileged local attacker could use this to possibly cause a denial of\nservice (system crash). (CVE-2024-24860)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM64 architecture;\n  - PowerPC architecture;\n  - RISC-V architecture;\n  - S390 architecture;\n  - Core kernel;\n  - x86 architecture;\n  - Block layer subsystem;\n  - Cryptographic API;\n  - ACPI drivers;\n  - Android drivers;\n  - Drivers core;\n  - Power management core;\n  - Bus devices;\n  - Device frequency scaling framework;\n  - DMA engine subsystem;\n  - EDAC drivers;\n  - ARM SCMI message protocol;\n  - GPU drivers;\n  - IIO ADC drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - Media drivers;\n  - Multifunction device drivers;\n  - MTD block device drivers;\n  - Network drivers;\n  - NVME drivers;\n  - Device tree and open firmware driver;\n  - PCI driver for MicroSemi Switchtec;\n  - Power supply drivers;\n  - RPMSG subsystem;\n  - SCSI drivers;\n  - QCOM SoC drivers;\n  - SPMI drivers;\n  - Thermal drivers;\n  - TTY drivers;\n  - VFIO drivers;\n  - BTRFS file system;\n  - Ceph distributed file system;\n  - EFI Variable file system;\n  - EROFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - GFS2 file system;\n  - JFS file system;\n  - Network file systems library;\n  - Network file system server daemon;\n  - File systems infrastructure;\n  - Pstore file system;\n  - ReiserFS file system;\n  - SMB network file system;\n  - BPF subsystem;\n  - Memory management;\n  - TLS protocol;\n  - Ethernet bridge;\n  - Networking core;\n  - IPv4 networking;\n  - IPv6 networking;\n  - Logical Link layer;\n  - MAC80211 subsystem;\n  - Multipath TCP;\n  - Netfilter;\n  - NetLabel subsystem;\n  - Network traffic control;\n  - SMC sockets;\n  - Sun RPC protocol;\n  - AppArmor security module;\n  - Intel ASoC drivers;\n  - MediaTek ASoC drivers;\n  - USB sound devices;\n(CVE-2023-52598, CVE-2023-52676, CVE-2023-52609, CVE-2024-26620,\nCVE-2023-52487, CVE-2023-52465, CVE-2023-52473, CVE-2023-52467,\nCVE-2024-26583, CVE-2023-52669, CVE-2023-52664, CVE-2023-52449,\nCVE-2023-52614, CVE-2024-26595, CVE-2023-52611, CVE-2023-52696,\nCVE-2023-52591, CVE-2023-52491, CVE-2024-35839, CVE-2023-52679,\nCVE-2024-26607, CVE-2023-52587, CVE-2023-52469, CVE-2023-52608,\nCVE-2023-52617, CVE-2023-52698, CVE-2024-26673, CVE-2024-35835,\nCVE-2024-26808, CVE-2024-26668, CVE-2023-52626, CVE-2023-52621,\nCVE-2024-35837, CVE-2023-52489, CVE-2023-52597, CVE-2024-26649,\nCVE-2024-26615, CVE-2024-35838, CVE-2023-52693, CVE-2023-52497,\nCVE-2024-35842, CVE-2024-26618, CVE-2024-26610, CVE-2024-26631,\nCVE-2024-26644, CVE-2024-26627, CVE-2023-52677, CVE-2023-52472,\nCVE-2023-52627, CVE-2023-52486, CVE-2023-52632, CVE-2023-52494,\nCVE-2023-52468, CVE-2024-26634, CVE-2023-52588, CVE-2024-26646,\nCVE-2024-26584, CVE-2023-52443, CVE-2023-52691, CVE-2024-26612,\nCVE-2023-52595, CVE-2024-26592, CVE-2024-26623, CVE-2023-52492,\nCVE-2024-26670, CVE-2023-52583, CVE-2023-52681, CVE-2023-52635,\nCVE-2023-52457, CVE-2023-52445, CVE-2024-26629, CVE-2024-26594,\nCVE-2023-52675, CVE-2023-52488, CVE-2023-52446, CVE-2024-26625,\nCVE-2023-52697, CVE-2023-52453, CVE-2023-52498, CVE-2023-52686,\nCVE-2023-52593, CVE-2023-52612, CVE-2023-52687, CVE-2023-52470,\nCVE-2023-52455, CVE-2023-52444, CVE-2024-26608, CVE-2024-26633,\nCVE-2024-26645, CVE-2023-52451, CVE-2023-52456, CVE-2024-26640,\nCVE-2023-52670, CVE-2023-52589, CVE-2024-26598, CVE-2024-35841,\nCVE-2024-26647, CVE-2024-26636, CVE-2023-52680, CVE-2023-52616,\nCVE-2023-52685, CVE-2024-26582, CVE-2024-26638, CVE-2023-52694,\nCVE-2024-35840, CVE-2023-52448, CVE-2023-52623, CVE-2023-52462,\nCVE-2023-52452, CVE-2024-26641, CVE-2023-52683, CVE-2023-52682,\nCVE-2023-52594, CVE-2023-52490, CVE-2023-52493, CVE-2023-52633,\nCVE-2023-52606, CVE-2024-26669, CVE-2023-52584, CVE-2024-26585,\nCVE-2023-52610, CVE-2023-52672, CVE-2023-52450, CVE-2023-52666,\nCVE-2023-52458, CVE-2023-52622, CVE-2023-52674, CVE-2023-52619,\nCVE-2024-26586, CVE-2023-52667, CVE-2024-26616, CVE-2023-52463,\nCVE-2024-26632, CVE-2023-52447, CVE-2023-52692, CVE-2023-52678,\nCVE-2023-52607, CVE-2023-52618, CVE-2023-52464, CVE-2024-26671,\nCVE-2023-52599, CVE-2023-52454, CVE-2023-52495, CVE-2023-52690)\n",
   "id": "USN-6818-3",
-  "isummary": "Several security issues were fixed in the Linux kernel.\n",
-  "releases": {
-    "jammy": {
-      "allbinaries": {
-        "linux-buildinfo-6.5.0-1021-nvidia": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-buildinfo-6.5.0-1021-nvidia-64k": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-cloud-tools-nvidia-6.5": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-cloud-tools-nvidia-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-cloud-tools-nvidia-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-headers-6.5.0-1021-nvidia": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-headers-6.5.0-1021-nvidia-64k": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-headers-nvidia-6.5": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-headers-nvidia-64k-6.5": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-headers-nvidia-64k-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-headers-nvidia-64k-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-headers-nvidia-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-headers-nvidia-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-image-6.5.0-1021-nvidia": {
-          "pocket": "security",
-          "source": "linux-signed-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-image-6.5.0-1021-nvidia-64k": {
-          "pocket": "security",
-          "source": "linux-signed-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-image-nvidia-6.5": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-image-nvidia-64k-6.5": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-image-nvidia-64k-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-image-nvidia-64k-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-image-nvidia-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-image-nvidia-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-image-uc-6.5.0-1021-nvidia": {
-          "pocket": "security",
-          "source": "linux-signed-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-image-uc-6.5.0-1021-nvidia-64k": {
-          "pocket": "security",
-          "source": "linux-signed-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-image-unsigned-6.5.0-1021-nvidia": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-image-unsigned-6.5.0-1021-nvidia-64k": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-modules-6.5.0-1021-nvidia": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-modules-6.5.0-1021-nvidia-64k": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-modules-extra-6.5.0-1021-nvidia": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-modules-nvidia-fs-6.5.0-1021-nvidia": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-modules-nvidia-fs-6.5.0-1021-nvidia-64k": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-modules-nvidia-fs-nvidia-6.5": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-modules-nvidia-fs-nvidia-64k-6.5": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-modules-nvidia-fs-nvidia-64k-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-modules-nvidia-fs-nvidia-64k-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-modules-nvidia-fs-nvidia-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-modules-nvidia-fs-nvidia-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-nvidia-6.5": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-nvidia-6.5-headers-6.5.0-1021": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-nvidia-6.5-tools-6.5.0-1021": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-nvidia-6.5-tools-host": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-nvidia-64k-6.5": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-nvidia-64k-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-nvidia-64k-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-nvidia-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-nvidia-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-tools-6.5.0-1021-nvidia": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-tools-6.5.0-1021-nvidia-64k": {
-          "pocket": "security",
-          "source": "linux-nvidia-6.5",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-tools-nvidia-6.5": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-tools-nvidia-64k-6.5": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-tools-nvidia-64k-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-tools-nvidia-64k-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-tools-nvidia-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-tools-nvidia-hwe-22.04-edge": {
-          "pocket": "security",
-          "source": "linux-meta-nvidia-6.5",
-          "version": "6.5.0.1021.29"
-        }
-      },
-      "archs": {
-        "all": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/": {
-              "md5": "e732e77eca23010d1a26dc75d8cf830d",
-              "size": 13656010
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-nvidia-6.5-tools-host_6.5.0-1021.22_all.deb": {
-              "md5": "0663fa8e8f0f720cbc7b627330944804",
-              "size": 454812
-            }
-          }
-        },
-        "amd64": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/": {
-              "md5": "a902c0421b446c5b4505c8f55fe83f45",
-              "size": 7936682
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-cloud-tools-nvidia-6.5_6.5.0.1021.29_amd64.deb": {
-              "md5": "9be54dccb6da157e2062d496b3104626",
-              "size": 15878
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-cloud-tools-nvidia-hwe-22.04-edge_6.5.0.1021.29_amd64.deb": {
-              "md5": "23b2ddc635349dc8786e4deda1accc4c",
-              "size": 15906
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-cloud-tools-nvidia-hwe-22.04_6.5.0.1021.29_amd64.deb": {
-              "md5": "dc4e62c39b3675208f646239c21f3f70",
-              "size": 15892
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-6.5_6.5.0.1021.29_amd64.deb": {
-              "md5": "b88198dc02825dff4dfa9cdf27a01b57",
-              "size": 15866
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-hwe-22.04-edge_6.5.0.1021.29_amd64.deb": {
-              "md5": "6f10dec29daed314f2c21ebe70e840be",
-              "size": 15888
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-hwe-22.04_6.5.0.1021.29_amd64.deb": {
-              "md5": "4044bccf88540b9417125e5e36e78f0c",
-              "size": 15872
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-6.5_6.5.0.1021.29_amd64.deb": {
-              "md5": "4868383b54a6f3865fde3bcbff04b3a0",
-              "size": 16030
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-hwe-22.04-edge_6.5.0.1021.29_amd64.deb": {
-              "md5": "3f28f5c06ec778cbce1e9917b78c77ff",
-              "size": 16054
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-hwe-22.04_6.5.0.1021.29_amd64.deb": {
-              "md5": "5f5fa76f88fe4665eade829fd14d0a3f",
-              "size": 16048
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-6.5_6.5.0.1021.29_amd64.deb": {
-              "md5": "d0bca543211270db0bad94cd8a4286e7",
-              "size": 15926
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-hwe-22.04-edge_6.5.0.1021.29_amd64.deb": {
-              "md5": "e1e062b6991db9cb4ffe581f9cd6adae",
-              "size": 15946
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-hwe-22.04_6.5.0.1021.29_amd64.deb": {
-              "md5": "89ffa55750837479a22720f706732952",
-              "size": 15938
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-6.5_6.5.0.1021.29_amd64.deb": {
-              "md5": "ee1b70b120a02287565f4889457787df",
-              "size": 15916
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-hwe-22.04-edge_6.5.0.1021.29_amd64.deb": {
-              "md5": "e30f06d85cfc5e35ec932be622f6915d",
-              "size": 15898
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-hwe-22.04_6.5.0.1021.29_amd64.deb": {
-              "md5": "e5cd6893e640213d413353390bf06ad1",
-              "size": 15892
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-6.5_6.5.0.1021.29_amd64.deb": {
-              "md5": "bfcd2cc0041db5a0b3129c827ff82b9e",
-              "size": 15872
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-hwe-22.04-edge_6.5.0.1021.29_amd64.deb": {
-              "md5": "102fee3ded26172a91e3d0127f8a868b",
-              "size": 15892
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-hwe-22.04_6.5.0.1021.29_amd64.deb": {
-              "md5": "d27321cff3bd1e1096cbef20f351f18e",
-              "size": 15884
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-buildinfo-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
-              "md5": "b2d134b168545f6906138b973e712b0a",
-              "size": 922510
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-headers-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
-              "md5": "8284b28a9e4124cf82857bf1e44f8e6f",
-              "size": 3851302
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-image-unsigned-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
-              "md5": "ef9746bb1eed75444a82e50803511dc9",
-              "size": 14704832
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-modules-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
-              "md5": "94dd34a3b6b0e5f4d484d573697dca6c",
-              "size": 25971984
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-modules-extra-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
-              "md5": "a070ad7eed8efa848dcba052371fa5d1",
-              "size": 77216408
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-modules-nvidia-fs-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
-              "md5": "3447b2895f1020664e0dd808b9bd0973",
-              "size": 509848
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-tools-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
-              "md5": "544896c7cb1e4acd1cb158d6f6762fea",
-              "size": 455074
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-nvidia-6.5/linux-image-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
-              "md5": "3f6744b2c851dc40be5f0bf9976ea79e",
-              "size": 13998316
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-nvidia-6.5/linux-image-uc-6.5.0-1021-nvidia_6.5.0-1021.22_amd64.deb": {
-              "md5": "893009538d88cfc7a27ea49045215b4f",
-              "size": 54044892
-            }
-          }
-        },
-        "arm64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/": {
-              "md5": "ac626e3ab55041882599f2941fbfa3f1",
-              "size": 7327568
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-6.5_6.5.0.1021.29_arm64.deb": {
-              "md5": "3531a4ec10ebf99943cc61d4a57521e6",
-              "size": 15866
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-64k-6.5_6.5.0.1021.29_arm64.deb": {
-              "md5": "508fcbbe8a708ae75580358659ee2bc7",
-              "size": 15868
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-64k-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
-              "md5": "a342b45acbfd089ef49937c78dfbcc69",
-              "size": 15898
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-64k-hwe-22.04_6.5.0.1021.29_arm64.deb": {
-              "md5": "ce159af7c5b91378a17f2d0f27ba9671",
-              "size": 15886
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
-              "md5": "b4074a0bbc7652ed6e8b45f56d377b7f",
-              "size": 15888
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-headers-nvidia-hwe-22.04_6.5.0.1021.29_arm64.deb": {
-              "md5": "12c0a074b5d403241ed75639ae9582e5",
-              "size": 15872
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-6.5_6.5.0.1021.29_arm64.deb": {
-              "md5": "c1913e160d0b7d3f07389ee1e78fa6fd",
-              "size": 15978
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-64k-6.5_6.5.0.1021.29_arm64.deb": {
-              "md5": "a2504bd45d3bf15d389f9b4db996c21d",
-              "size": 15932
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-64k-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
-              "md5": "ac1ec550318291fcaccec780a2f7d32f",
-              "size": 15956
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-64k-hwe-22.04_6.5.0.1021.29_arm64.deb": {
-              "md5": "b0de35b35ca42dde977a5d18581b9bf3",
-              "size": 15946
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
-              "md5": "fceddc0003ea2b6c445d2c36f76f4fa3",
-              "size": 16002
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-image-nvidia-hwe-22.04_6.5.0.1021.29_arm64.deb": {
-              "md5": "9711bb788fa6f784aafa6c82a6c78b50",
-              "size": 15990
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-6.5_6.5.0.1021.29_arm64.deb": {
-              "md5": "d8d7697629a32fe669505b41aaf4a3d8",
-              "size": 15926
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-64k-6.5_6.5.0.1021.29_arm64.deb": {
-              "md5": "1746e41199477efd29469123699271bf",
-              "size": 15940
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-64k-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
-              "md5": "e1113eafa755dd6b01ac28b5ef2a27c3",
-              "size": 15956
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-64k-hwe-22.04_6.5.0.1021.29_arm64.deb": {
-              "md5": "e09898281e0d72a07acf35bed24164aa",
-              "size": 15946
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
-              "md5": "6fdbaa35713053f2d27bbd30d82a0749",
-              "size": 15946
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-modules-nvidia-fs-nvidia-hwe-22.04_6.5.0.1021.29_arm64.deb": {
-              "md5": "228de29d439ac22297308eedf0dbb0e3",
-              "size": 15938
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-6.5_6.5.0.1021.29_arm64.deb": {
-              "md5": "5ef469ae2a941687b53c33bbc0ae2e68",
-              "size": 15916
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-64k-6.5_6.5.0.1021.29_arm64.deb": {
-              "md5": "ea0b1a4a6593bc6c2a5622da4473d81b",
-              "size": 15928
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-64k-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
-              "md5": "3c833d0afd408bb9f478e0c43817056c",
-              "size": 15912
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-64k-hwe-22.04_6.5.0.1021.29_arm64.deb": {
-              "md5": "ae143255bac528bd8f6b3b4c6c432c3c",
-              "size": 15906
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
-              "md5": "26b279eca3669b5c0ad4d1883397ea07",
-              "size": 15898
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-nvidia-hwe-22.04_6.5.0.1021.29_arm64.deb": {
-              "md5": "f9fb488d044fc72ba98d4e6a633b291e",
-              "size": 15892
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-6.5_6.5.0.1021.29_arm64.deb": {
-              "md5": "a9e060dcfd7a8b50ad163c9d6d57158a",
-              "size": 15874
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-64k-6.5_6.5.0.1021.29_arm64.deb": {
-              "md5": "4f342026aa6db92f5c9104ff758b2e3d",
-              "size": 15882
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-64k-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
-              "md5": "903aa3d2bf8d3b6196d18672d905b66d",
-              "size": 15904
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-64k-hwe-22.04_6.5.0.1021.29_arm64.deb": {
-              "md5": "a16b4d9951eff491ee6e0bb2fa0bab08",
-              "size": 15898
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-hwe-22.04-edge_6.5.0.1021.29_arm64.deb": {
-              "md5": "3e47d8cc5927ebff6317db415cd0412d",
-              "size": 15894
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-nvidia-6.5/linux-tools-nvidia-hwe-22.04_6.5.0.1021.29_arm64.deb": {
-              "md5": "65eb9d907f299e007e158e3806d9ce5c",
-              "size": 15882
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-buildinfo-6.5.0-1021-nvidia-64k_6.5.0-1021.22_arm64.deb": {
-              "md5": "79032cab3ac3cdf446204865309e6f39",
-              "size": 946630
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-buildinfo-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
-              "md5": "2d182c7534f7ae35ee5518a96f4b5a46",
-              "size": 946688
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-headers-6.5.0-1021-nvidia-64k_6.5.0-1021.22_arm64.deb": {
-              "md5": "6043a455988b1ab90e333a0d73a7300a",
-              "size": 3338118
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-headers-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
-              "md5": "fd7f6984119843b8b1b8c846b64148bc",
-              "size": 3331816
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-image-unsigned-6.5.0-1021-nvidia-64k_6.5.0-1021.22_arm64.deb": {
-              "md5": "96aff89d0a5ece4a89f5c92dcc9b284e",
-              "size": 17848512
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-image-unsigned-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
-              "md5": "7cd2d3e15a7b74fa475c998e9796f5f1",
-              "size": 17848512
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-modules-6.5.0-1021-nvidia-64k_6.5.0-1021.22_arm64.deb": {
-              "md5": "a1a174af3633d2267f395ea43187e093",
-              "size": 102706652
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-modules-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
-              "md5": "d9beee3644b7bc98e8d0ddae410e1aed",
-              "size": 25497744
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-modules-extra-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
-              "md5": "5248499da816d5297cb7b162cc6ae9b8",
-              "size": 78066262
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-modules-nvidia-fs-6.5.0-1021-nvidia-64k_6.5.0-1021.22_arm64.deb": {
-              "md5": "6c48fd655a1436a564767d9876a7258b",
-              "size": 510278
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-modules-nvidia-fs-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
-              "md5": "34b187e856a46f4ad6d9e0fcf5e0d6b6",
-              "size": 510226
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-tools-6.5.0-1021-nvidia-64k_6.5.0-1021.22_arm64.deb": {
-              "md5": "eae15dd833ff505e4bc7bce306cd70d4",
-              "size": 455084
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-nvidia-6.5/linux-tools-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
-              "md5": "eafdfed24f81150c272318ee08e5c1e7",
-              "size": 455072
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-nvidia-6.5/linux-image-6.5.0-1021-nvidia-64k_6.5.0-1021.22_arm64.deb": {
-              "md5": "8672e4346db2d491d76c39a1c2b845f2",
-              "size": 17099734
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-nvidia-6.5/linux-image-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
-              "md5": "0ed38a3cd13e43e8660d659ebf1396a0",
-              "size": 17101022
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-nvidia-6.5/linux-image-uc-6.5.0-1021-nvidia-64k_6.5.0-1021.22_arm64.deb": {
-              "md5": "518405d4d4a21c2585fef0257cb958dd",
-              "size": 40508392
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-nvidia-6.5/linux-image-uc-6.5.0-1021-nvidia_6.5.0-1021.22_arm64.deb": {
-              "md5": "3f3d3b6df1cffecf787abd67f8629c4c",
-              "size": 40658616
-            }
-          }
-        },
-        "source": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-meta-nvidia-6.5_6.5.0.1021.29.dsc": {
-              "md5": "9cc556b007ce5cbc8b8c40f9265d6a92",
-              "size": 5063
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-nvidia-6.5/linux-meta-nvidia-6.5_6.5.0.1021.29.tar.xz": {
-              "md5": "8f1daf9057702fab0d0d905e613a994b",
-              "size": 16848
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-nvidia-6.5_6.5.0-1021.22.diff.gz": {
-              "md5": "86507e0022ce83456097316085f49cee",
-              "size": 4072790
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-nvidia-6.5_6.5.0-1021.22.dsc": {
-              "md5": "152336bd77294621659395defe03164b",
-              "size": 6410
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-nvidia-6.5/linux-nvidia-6.5_6.5.0.orig.tar.gz": {
-              "md5": "8290e3447d70a1a709986624233cb6df",
-              "size": 223513863
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-nvidia-6.5/linux-signed-nvidia-6.5_6.5.0-1021.22.dsc": {
-              "md5": "fe522ea346d98c00c7158e4f8f2824b2",
-              "size": 2719
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-nvidia-6.5/linux-signed-nvidia-6.5_6.5.0-1021.22.tar.xz": {
-              "md5": "51299afcd1042d8793ca6929b548ddf8",
-              "size": 26376
-            }
-          }
-        }
-      },
-      "binaries": {
-        "linux-image-6.5.0-1021-nvidia": {
-          "pocket": "security",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-image-6.5.0-1021-nvidia-64k": {
-          "pocket": "security",
-          "version": "6.5.0-1021.22"
-        },
-        "linux-image-nvidia-6.5": {
-          "pocket": "security",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-image-nvidia-64k-6.5": {
-          "pocket": "security",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-image-nvidia-64k-hwe-22.04": {
-          "pocket": "security",
-          "version": "6.5.0.1021.29"
-        },
-        "linux-image-nvidia-hwe-22.04": {
-          "pocket": "security",
-          "version": "6.5.0.1021.29"
-        }
-      },
-      "sources": {
-        "linux-nvidia-6.5": {
-          "description": "Linux kernel for NVIDIA systems",
-          "version": "6.5.0-1021.22"
-        }
-      }
-    }
-  },
-  "summary": "linux-nvidia-6.5 vulnerabilities",
-  "timestamp": 1718380745.6531038,
-  "title": "Linux kernel (NVIDIA) vulnerabilities"
+  "isummary": "Several security issues were fixed in the Linux kernel.\n"
 }

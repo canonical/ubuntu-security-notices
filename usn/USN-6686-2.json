@@ -1,5 +1,5 @@
 {
-  "description": "It was discovered that the DesignWare USB3 for Qualcomm SoCs driver in the\nLinux kernel did not properly handle certain error conditions during device\nregistration. A local attacker could possibly use this to cause a denial of\nservice (system crash). (CVE-2023-22995)\n\nIt was discovered that a race condition existed in the Cypress touchscreen\ndriver in the Linux kernel during device removal, leading to a use-after-\nfree vulnerability. A physically proximate attacker could use this to cause\na denial of service (system crash) or possibly execute arbitrary code.\n(CVE-2023-4134)\n\n\u9ec4\u601d\u806a discovered that the NFC Controller Interface (NCI) implementation in\nthe Linux kernel did not properly handle certain memory allocation failure\nconditions, leading to a null pointer dereference vulnerability. A local\nattacker could use this to cause a denial of service (system crash).\n(CVE-2023-46343)\n\nIt was discovered that the io_uring subsystem in the Linux kernel contained\na race condition, leading to a null pointer dereference vulnerability. A\nlocal attacker could use this to cause a denial of service (system crash).\n(CVE-2023-46862)\n\nIt was discovered that a race condition existed in the Bluetooth subsystem\nof the Linux kernel, leading to a use-after-free vulnerability. A local\nattacker could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2023-51779)\n\nIt was discovered that a race condition existed in the Rose X.25 protocol\nimplementation in the Linux kernel, leading to a use-after- free\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-51782)\n\nAlon Zahavi discovered that the NVMe-oF/TCP subsystem of the Linux kernel\ndid not properly handle connect command payloads in certain situations,\nleading to an out-of-bounds read vulnerability. A remote attacker could use\nthis to expose sensitive information (kernel memory). (CVE-2023-6121)\n\nIt was discovered that the VirtIO subsystem in the Linux kernel did not\nproperly initialize memory in some situations. A local attacker could use\nthis to possibly expose sensitive information (kernel memory).\n(CVE-2024-0340)\n\nDan Carpenter discovered that the netfilter subsystem in the Linux kernel\ndid not store data in properly sized memory locations. A local user could\nuse this to cause a denial of service (system crash). (CVE-2024-0607)\n",
+  "description": "It was discovered that the DesignWare USB3 for Qualcomm SoCs driver in the\nLinux kernel did not properly handle certain error conditions during device\nregistration. A local attacker could possibly use this to cause a denial of\nservice (system crash). (CVE-2023-22995)\n\nIt was discovered that a race condition existed in the Cypress touchscreen\ndriver in the Linux kernel during device removal, leading to a use-after-\nfree vulnerability. A physically proximate attacker could use this to cause\na denial of service (system crash) or possibly execute arbitrary code.\n(CVE-2023-4134)\n\n黄思聪 discovered that the NFC Controller Interface (NCI) implementation in\nthe Linux kernel did not properly handle certain memory allocation failure\nconditions, leading to a null pointer dereference vulnerability. A local\nattacker could use this to cause a denial of service (system crash).\n(CVE-2023-46343)\n\nIt was discovered that the io_uring subsystem in the Linux kernel contained\na race condition, leading to a null pointer dereference vulnerability. A\nlocal attacker could use this to cause a denial of service (system crash).\n(CVE-2023-46862)\n\nIt was discovered that a race condition existed in the Bluetooth subsystem\nof the Linux kernel, leading to a use-after-free vulnerability. A local\nattacker could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2023-51779)\n\nIt was discovered that a race condition existed in the Rose X.25 protocol\nimplementation in the Linux kernel, leading to a use-after- free\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-51782)\n\nAlon Zahavi discovered that the NVMe-oF/TCP subsystem of the Linux kernel\ndid not properly handle connect command payloads in certain situations,\nleading to an out-of-bounds read vulnerability. A remote attacker could use\nthis to expose sensitive information (kernel memory). (CVE-2023-6121)\n\nIt was discovered that the VirtIO subsystem in the Linux kernel did not\nproperly initialize memory in some situations. A local attacker could use\nthis to possibly expose sensitive information (kernel memory).\n(CVE-2024-0340)\n\nDan Carpenter discovered that the netfilter subsystem in the Linux kernel\ndid not store data in properly sized memory locations. A local user could\nuse this to cause a denial of service (system crash). (CVE-2024-0607)\n",
   "releases": {
     "jammy": {
       "allbinaries": {
@@ -23,11 +23,6 @@
           "source": "linux-meta-lowlatency",
           "version": "5.15.0.100.96"
         },
-        "linux-modules-extra-raspi": {
-          "pocket": "security",
-          "source": "linux-meta-raspi",
-          "version": "5.15.0.1048.46"
-        },
         "linux-tools-5.15.0-1048-raspi": {
           "pocket": "security",
           "source": "linux-raspi",
@@ -39,6 +34,11 @@
           "version": "5.15.0.1048.46"
         },
         "linux-headers-5.15.0-100-lowlatency": {
+          "pocket": "security",
+          "source": "linux-lowlatency",
+          "version": "5.15.0-100.110"
+        },
+        "linux-lowlatency-tools-common": {
           "pocket": "security",
           "source": "linux-lowlatency",
           "version": "5.15.0-100.110"
@@ -68,11 +68,6 @@
           "source": "linux-signed-lowlatency",
           "version": "5.15.0-100.110"
         },
-        "linux-lowlatency-tools-host": {
-          "pocket": "security",
-          "source": "linux-lowlatency",
-          "version": "5.15.0-100.110"
-        },
         "linux-tools-raspi-nolpae": {
           "pocket": "security",
           "source": "linux-meta-raspi",
@@ -98,22 +93,17 @@
           "source": "linux-meta-lowlatency",
           "version": "5.15.0.100.96"
         },
-        "linux-lowlatency-tools-5.15.0-100": {
-          "pocket": "security",
-          "source": "linux-lowlatency",
-          "version": "5.15.0-100.110"
-        },
-        "linux-raspi": {
-          "pocket": "security",
-          "source": "linux-meta-raspi",
-          "version": "5.15.0.1048.46"
-        },
         "linux-buildinfo-5.15.0-1048-raspi": {
           "pocket": "security",
           "source": "linux-raspi",
           "version": "5.15.0-1048.51"
         },
         "linux-image-raspi-nolpae": {
+          "pocket": "security",
+          "source": "linux-meta-raspi",
+          "version": "5.15.0.1048.46"
+        },
+        "linux-headers-raspi": {
           "pocket": "security",
           "source": "linux-meta-raspi",
           "version": "5.15.0.1048.46"
@@ -133,17 +123,17 @@
           "source": "linux-meta-lowlatency",
           "version": "5.15.0.100.96"
         },
-        "linux-lowlatency-cloud-tools-5.15.0-100": {
+        "linux-headers-lowlatency-hwe-20.04": {
           "pocket": "security",
-          "source": "linux-lowlatency",
-          "version": "5.15.0-100.110"
+          "source": "linux-meta-lowlatency",
+          "version": "5.15.0.100.96"
         },
         "linux-buildinfo-5.15.0-100-lowlatency-64k": {
           "pocket": "security",
           "source": "linux-lowlatency",
           "version": "5.15.0-100.110"
         },
-        "linux-image-unsigned-5.15.0-100-lowlatency": {
+        "linux-lowlatency-tools-host": {
           "pocket": "security",
           "source": "linux-lowlatency",
           "version": "5.15.0-100.110"
@@ -183,12 +173,12 @@
           "source": "linux-lowlatency",
           "version": "5.15.0-100.110"
         },
-        "linux-tools-lowlatency-64k": {
+        "linux-headers-lowlatency": {
           "pocket": "security",
           "source": "linux-meta-lowlatency",
           "version": "5.15.0.100.96"
         },
-        "linux-tools-lowlatency-hwe-20.04": {
+        "linux-tools-lowlatency-64k": {
           "pocket": "security",
           "source": "linux-meta-lowlatency",
           "version": "5.15.0.100.96"
@@ -203,20 +193,20 @@
           "source": "linux-meta-lowlatency",
           "version": "5.15.0.100.96"
         },
-        "linux-cloud-tools-lowlatency-hwe-20.04-edge": {
+        "linux-modules-extra-raspi": {
           "pocket": "security",
-          "source": "linux-meta-lowlatency",
-          "version": "5.15.0.100.96"
+          "source": "linux-meta-raspi",
+          "version": "5.15.0.1048.46"
         },
         "linux-headers-lowlatency-hwe-20.04-edge": {
           "pocket": "security",
           "source": "linux-meta-lowlatency",
           "version": "5.15.0.100.96"
         },
-        "linux-headers-lowlatency-64k-hwe-20.04": {
+        "linux-lowlatency-tools-5.15.0-100": {
           "pocket": "security",
-          "source": "linux-meta-lowlatency",
-          "version": "5.15.0.100.96"
+          "source": "linux-lowlatency",
+          "version": "5.15.0-100.110"
         },
         "linux-tools-lowlatency": {
           "pocket": "security",
@@ -228,7 +218,7 @@
           "source": "linux-meta-lowlatency",
           "version": "5.15.0.100.96"
         },
-        "linux-image-lowlatency-64k-hwe-20.04": {
+        "linux-cloud-tools-lowlatency-hwe-20.04-edge": {
           "pocket": "security",
           "source": "linux-meta-lowlatency",
           "version": "5.15.0.100.96"
@@ -238,7 +228,7 @@
           "source": "linux-meta-lowlatency",
           "version": "5.15.0.100.96"
         },
-        "linux-tools-lowlatency-hwe-20.04-edge": {
+        "linux-image-lowlatency-hwe-20.04": {
           "pocket": "security",
           "source": "linux-meta-lowlatency",
           "version": "5.15.0.100.96"
@@ -253,10 +243,15 @@
           "source": "linux-meta-lowlatency",
           "version": "5.15.0.100.96"
         },
-        "linux-headers-lowlatency": {
+        "linux-headers-lowlatency-64k-hwe-20.04": {
           "pocket": "security",
           "source": "linux-meta-lowlatency",
           "version": "5.15.0.100.96"
+        },
+        "linux-image-5.15.0-100-lowlatency-64k": {
+          "pocket": "security",
+          "source": "linux-signed-lowlatency",
+          "version": "5.15.0-100.110"
         },
         "linux-modules-extra-5.15.0-1048-raspi": {
           "pocket": "security",
@@ -268,7 +263,7 @@
           "source": "linux-lowlatency",
           "version": "5.15.0-100.110"
         },
-        "linux-headers-lowlatency-hwe-20.04": {
+        "linux-tools-lowlatency-hwe-20.04": {
           "pocket": "security",
           "source": "linux-meta-lowlatency",
           "version": "5.15.0.100.96"
@@ -288,25 +283,25 @@
           "source": "linux-lowlatency",
           "version": "5.15.0-100.110"
         },
-        "linux-lowlatency-tools-common": {
+        "linux-raspi": {
+          "pocket": "security",
+          "source": "linux-meta-raspi",
+          "version": "5.15.0.1048.46"
+        },
+        "linux-lowlatency-cloud-tools-5.15.0-100": {
           "pocket": "security",
           "source": "linux-lowlatency",
           "version": "5.15.0-100.110"
         },
-        "linux-image-5.15.0-100-lowlatency-64k": {
+        "linux-image-unsigned-5.15.0-100-lowlatency": {
           "pocket": "security",
-          "source": "linux-signed-lowlatency",
+          "source": "linux-lowlatency",
           "version": "5.15.0-100.110"
         },
-        "linux-image-lowlatency-hwe-20.04": {
+        "linux-tools-lowlatency-hwe-20.04-edge": {
           "pocket": "security",
           "source": "linux-meta-lowlatency",
           "version": "5.15.0.100.96"
-        },
-        "linux-headers-raspi": {
-          "pocket": "security",
-          "source": "linux-meta-raspi",
-          "version": "5.15.0.1048.46"
         },
         "linux-modules-5.15.0-100-lowlatency": {
           "pocket": "security",
@@ -324,6 +319,11 @@
           "version": "5.15.0.100.96"
         },
         "linux-image-lowlatency": {
+          "pocket": "security",
+          "source": "linux-meta-lowlatency",
+          "version": "5.15.0.100.96"
+        },
+        "linux-image-lowlatency-64k-hwe-20.04": {
           "pocket": "security",
           "source": "linux-meta-lowlatency",
           "version": "5.15.0.100.96"
@@ -360,459 +360,459 @@
         }
       },
       "archs": {
-        "source": {
+        "arm64": {
           "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-lowlatency_5.15.0-100.110.diff.gz": {
-              "size": 13856754,
-              "md5": "0ff19a22b032569500b5627f61ee69d6"
+            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-raspi-tools-5.15.0-1048_5.15.0-1048.51_arm64.deb": {
+              "md5": "425df4a5c102b274ba4b6eeffb4b0941",
+              "size": 6845450
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-lowlatency/linux-signed-lowlatency_5.15.0-100.110.dsc": {
-              "size": 2346,
-              "md5": "c08e07173cca3d1b8df9012b848ca908"
+            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-lowlatency-tools-5.15.0-100_5.15.0-100.110_arm64.deb": {
+              "md5": "525c6cdf88f66cca6d3d47121f3f982f",
+              "size": 6935256
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-raspi/linux-raspi_5.15.0.orig.tar.gz": {
-              "size": 194969557,
-              "md5": "cd30827a862b74fe1e5174e6aee8e534"
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-image-lowlatency-64k-hwe-20.04-edge_5.15.0.100.96_arm64.deb": {
+              "md5": "462746087f2ef22bfecf7c09325ac62e",
+              "size": 2306
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-lowlatency_5.15.0-100.110.dsc": {
-              "size": 6391,
-              "md5": "9e0a7c24aa533e9d4bf630bffcf6d6b1"
+            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-image-unsigned-5.15.0-100-lowlatency-64k_5.15.0-100.110_arm64.deb": {
+              "md5": "8e2796d0282c46681049b6e68eee5821",
+              "size": 14940352
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-lowlatency_5.15.0.orig.tar.gz": {
-              "size": 194969557,
-              "md5": "cd30827a862b74fe1e5174e6aee8e534"
+            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-modules-extra-5.15.0-1048-raspi_5.15.0-1048.51_arm64.deb": {
+              "md5": "a5a3b94dfef7c0aeed2ad7f61bbd54f6",
+              "size": 19733788
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-meta-lowlatency_5.15.0.100.96.dsc": {
-              "size": 4456,
-              "md5": "07493eb77778f08d523feb33b80d4f22"
+            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-buildinfo-5.15.0-100-lowlatency_5.15.0-100.110_arm64.deb": {
+              "md5": "318e9669610ecbcbd4571cfc21cd7b88",
+              "size": 539538
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-raspi/linux-raspi_5.15.0-1048.51.dsc": {
-              "size": 4420,
-              "md5": "21aa384904053059f0fe83da9f028d59"
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-headers-lowlatency-64k-hwe-20.04-edge_5.15.0.100.96_arm64.deb": {
+              "md5": "b0c4e5788fedce82cf46759f24453810",
+              "size": 2318
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-raspi/linux-raspi_5.15.0-1048.51.diff.gz": {
-              "size": 15294112,
-              "md5": "e2d3f13a15cab8d7949d4bc741eed6ca"
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-headers-lowlatency-hwe-20.04_5.15.0.100.96_arm64.deb": {
+              "md5": "36ef02dd7f06aa9b9340edb1eede00f2",
+              "size": 2292
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-meta-lowlatency_5.15.0.100.96.tar.xz": {
-              "size": 15712,
-              "md5": "0fb2008869da8105acb08735701a68d0"
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-image-lowlatency-64k-hwe-20.04_5.15.0.100.96_arm64.deb": {
+              "md5": "2775abc53fc327a83b26ef5c413f6171",
+              "size": 2300
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-raspi/linux-meta-raspi_5.15.0.1048.46.tar.xz": {
-              "size": 11008,
-              "md5": "6cb8be9c4df051d98c25d3049377f716"
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-headers-lowlatency_5.15.0.100.96_arm64.deb": {
+              "md5": "caff374b21c2fcb9751026b4ad120e10",
+              "size": 2262
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-lowlatency/linux-signed-lowlatency_5.15.0-100.110.tar.xz": {
-              "size": 24760,
-              "md5": "ad9d81a9ce9106ba14e870f8323b6da9"
+            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-headers-5.15.0-100-lowlatency_5.15.0-100.110_arm64.deb": {
+              "md5": "dc9f2f11f16b7215d8b9c44cce2ca12b",
+              "size": 2579296
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-raspi/linux-meta-raspi_5.15.0.1048.46.dsc": {
-              "size": 2529,
-              "md5": "7adc98787285ca94b0f73fb86fef20e7"
+            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-modules-5.15.0-100-lowlatency_5.15.0-100.110_arm64.deb": {
+              "md5": "b7021b19414657b5e26c029c08d75704",
+              "size": 87574806
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-lowlatency_5.15.0.100.96_arm64.deb": {
+              "md5": "3f350bfbc7aa296af507a292257b3819",
+              "size": 1694
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-headers-lowlatency-64k_5.15.0.100.96_arm64.deb": {
+              "md5": "b55095adf47aae64e1166188d4ab0d66",
+              "size": 2276
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-tools-lowlatency-hwe-20.04_5.15.0.100.96_arm64.deb": {
+              "md5": "ae8bbb0f0aab7f6626039dac3f2a021e",
+              "size": 2290
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-image-raspi_5.15.0.1048.46_arm64.deb": {
+              "md5": "27f8cc28de77bdc0b6ba1c3e780c0c05",
+              "size": 2416
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-image-unsigned-5.15.0-100-lowlatency_5.15.0-100.110_arm64.deb": {
+              "md5": "20245b57f7e2731fc48f0fd411000165",
+              "size": 14930112
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-lowlatency-hwe-20.04_5.15.0.100.96_arm64.deb": {
+              "md5": "ed8d07efcce7aaf03fdc1608b9a04e3a",
+              "size": 2276
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-buildinfo-5.15.0-1048-raspi_5.15.0-1048.51_arm64.deb": {
+              "md5": "54e8f1bb59ba1bb59c58554109145ef4",
+              "size": 483702
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-headers-lowlatency-64k-hwe-20.04_5.15.0.100.96_arm64.deb": {
+              "md5": "bccf2301222d910e4e54b159e49ee559",
+              "size": 2308
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-image-lowlatency-hwe-20.04-edge_5.15.0.100.96_arm64.deb": {
+              "md5": "b05206f84bdf4f1626f20be6b842bc93",
+              "size": 2296
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-tools-lowlatency-hwe-20.04-edge_5.15.0.100.96_arm64.deb": {
+              "md5": "fcd1986fd98882a257f7ed0e0bed47df",
+              "size": 2298
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-image-lowlatency_5.15.0.100.96_arm64.deb": {
+              "md5": "d6047933f75b3e241cf5d595a348e7c1",
+              "size": 2354
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-tools-5.15.0-100-lowlatency-64k_5.15.0-100.110_arm64.deb": {
+              "md5": "1338d63dbaec00137890460b0657a29f",
+              "size": 1750
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-image-5.15.0-1048-raspi_5.15.0-1048.51_arm64.deb": {
+              "md5": "f2173f64e207726dc2c2d3e17c52dc22",
+              "size": 10475712
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-tools-lowlatency-64k-hwe-20.04-edge_5.15.0.100.96_arm64.deb": {
+              "md5": "d4b2422f7e5a52a60fa7fbb78257760d",
+              "size": 2304
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-lowlatency-hwe-20.04-edge_5.15.0.100.96_arm64.deb": {
+              "md5": "bfa75cca37382e321c4def0ae00406bf",
+              "size": 2284
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-raspi_5.15.0.1048.46_arm64.deb": {
+              "md5": "2cdd7377b7ae39e9787ecdd50411a3da",
+              "size": 1706
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-image-lowlatency-hwe-20.04_5.15.0.100.96_arm64.deb": {
+              "md5": "b7b1bdaf9795fc17d479750231bd4f2d",
+              "size": 2286
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-lowlatency/linux-image-5.15.0-100-lowlatency_5.15.0-100.110_arm64.deb": {
+              "md5": "0588aac2ef0fdac8b1dadb7dd94d4106",
+              "size": 14596738
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-lowlatency/linux-image-5.15.0-100-lowlatency-64k_5.15.0-100.110_arm64.deb": {
+              "md5": "0ae5a3d393ee694f05d78d3c31b2ffd7",
+              "size": 14594064
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-raspi-headers-5.15.0-1048_5.15.0-1048.51_arm64.deb": {
+              "md5": "377dc5217df019d2f33be25c05723984",
+              "size": 12356540
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-tools-lowlatency_5.15.0.100.96_arm64.deb": {
+              "md5": "a02da5885061716028a68b00db6465a6",
+              "size": 2254
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-headers-raspi_5.15.0.1048.46_arm64.deb": {
+              "md5": "ba2036507d7cde8a7efa48932da24a62",
+              "size": 2350
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-tools-5.15.0-1048-raspi_5.15.0-1048.51_arm64.deb": {
+              "md5": "0c31c8d239a6024fa6169185a1288764",
+              "size": 1708
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-tools-lowlatency-64k_5.15.0.100.96_arm64.deb": {
+              "md5": "a847844fe9d037af5b72896b106296ee",
+              "size": 2266
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-lowlatency-64k-hwe-20.04-edge_5.15.0.100.96_arm64.deb": {
+              "md5": "ebd7aa35dd6d697087e5f6abfb8c05c7",
+              "size": 2294
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-tools-lowlatency-64k-hwe-20.04_5.15.0.100.96_arm64.deb": {
+              "md5": "776995dc7a605086b812c27702c0225b",
+              "size": 2300
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-modules-extra-raspi_5.15.0.1048.46_arm64.deb": {
+              "md5": "38011975af172a8ac5d984ae1776c9fa",
+              "size": 2366
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-lowlatency-64k_5.15.0.100.96_arm64.deb": {
+              "md5": "00e09494fea957981fa1060975062312",
+              "size": 1700
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-headers-lowlatency-hwe-20.04-edge_5.15.0.100.96_arm64.deb": {
+              "md5": "22c07356fab2f3aae2ed13241438e376",
+              "size": 2302
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-modules-5.15.0-100-lowlatency-64k_5.15.0-100.110_arm64.deb": {
+              "md5": "d00bc5e906c40223ba1e772d70b22822",
+              "size": 87564050
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-buildinfo-5.15.0-100-lowlatency-64k_5.15.0-100.110_arm64.deb": {
+              "md5": "e474e7744758045b6e4aa929cad23aff",
+              "size": 539882
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-modules-5.15.0-1048-raspi_5.15.0-1048.51_arm64.deb": {
+              "md5": "3d9aa202f48a303296659f375ead5383",
+              "size": 36280620
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-tools-raspi_5.15.0.1048.46_arm64.deb": {
+              "md5": "72d773600240e98d65950d99afab5dab",
+              "size": 2350
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-tools-5.15.0-100-lowlatency_5.15.0-100.110_arm64.deb": {
+              "md5": "6047986392a64767433f15868bd3c1d6",
+              "size": 1736
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-lowlatency-64k-hwe-20.04_5.15.0.100.96_arm64.deb": {
+              "md5": "0852bee248cf7dcb58f830a698f0b9f2",
+              "size": 2282
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-headers-5.15.0-1048-raspi_5.15.0-1048.51_arm64.deb": {
+              "md5": "39791bdcd41d00f9693449fab94719ff",
+              "size": 1059806
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-image-lowlatency-64k_5.15.0.100.96_arm64.deb": {
+              "md5": "6f8de981851881ea0e9531bcbb7afbfe",
+              "size": 2360
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-headers-5.15.0-100-lowlatency-64k_5.15.0-100.110_arm64.deb": {
+              "md5": "722cdde448872a0838f7d3d64777e0ff",
+              "size": 2573726
             }
           }
         },
-        "armhf": {
+        "source": {
           "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-tools-raspi-nolpae_5.15.0.1048.46_armhf.deb": {
-              "size": 1656,
-              "md5": "6bf18449abb9ce78949887c3c251a807"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-lowlatency_5.15.0-100.110.diff.gz": {
+              "md5": "0ff19a22b032569500b5627f61ee69d6",
+              "size": 13856754
             },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-modules-extra-raspi-nolpae_5.15.0.1048.46_armhf.deb": {
-              "size": 1672,
-              "md5": "21e3e1c8b9c38910d6b2799028a0b967"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-lowlatency/linux-signed-lowlatency_5.15.0-100.110.dsc": {
+              "md5": "c08e07173cca3d1b8df9012b848ca908",
+              "size": 2346
             },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-modules-extra-raspi_5.15.0.1048.46_armhf.deb": {
-              "size": 2366,
-              "md5": "8d12a432c5f7a31308ee1cf02591b239"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-raspi/linux-raspi_5.15.0.orig.tar.gz": {
+              "md5": "cd30827a862b74fe1e5174e6aee8e534",
+              "size": 194969557
             },
-            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-modules-extra-5.15.0-1048-raspi_5.15.0-1048.51_armhf.deb": {
-              "size": 17029068,
-              "md5": "b1acb80a8f15a0028cb9bcff79294a6f"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-lowlatency_5.15.0-100.110.dsc": {
+              "md5": "9e0a7c24aa533e9d4bf630bffcf6d6b1",
+              "size": 6391
             },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-headers-raspi-nolpae_5.15.0.1048.46_armhf.deb": {
-              "size": 1658,
-              "md5": "17138f5f86ea6bac2a6cf6e4391ee22f"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-lowlatency_5.15.0.orig.tar.gz": {
+              "md5": "cd30827a862b74fe1e5174e6aee8e534",
+              "size": 194969557
             },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-raspi_5.15.0.1048.46_armhf.deb": {
-              "size": 1706,
-              "md5": "ee93129bec3deeda0a3b756dfb58c76a"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-meta-lowlatency_5.15.0.100.96.dsc": {
+              "md5": "07493eb77778f08d523feb33b80d4f22",
+              "size": 4456
             },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-image-raspi-nolpae_5.15.0.1048.46_armhf.deb": {
-              "size": 1658,
-              "md5": "d26b9f3b66624861a4628638f28877cd"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-raspi/linux-raspi_5.15.0-1048.51.dsc": {
+              "md5": "21aa384904053059f0fe83da9f028d59",
+              "size": 4420
             },
-            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-raspi-tools-5.15.0-1048_5.15.0-1048.51_armhf.deb": {
-              "size": 6783604,
-              "md5": "6a1cc1411f7067e751ce9b09349bbc9d"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-meta-lowlatency_5.15.0.100.96.tar.xz": {
+              "md5": "0fb2008869da8105acb08735701a68d0",
+              "size": 15712
             },
-            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-buildinfo-5.15.0-1048-raspi_5.15.0-1048.51_armhf.deb": {
-              "size": 482862,
-              "md5": "d0fbd5d4bfc72dca1150afed09d57aa6"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-raspi/linux-raspi_5.15.0-1048.51.diff.gz": {
+              "md5": "e2d3f13a15cab8d7949d4bc741eed6ca",
+              "size": 15294112
             },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-headers-raspi_5.15.0.1048.46_armhf.deb": {
-              "size": 2350,
-              "md5": "b7827e812319d1be33f1b26737450c05"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-lowlatency/linux-signed-lowlatency_5.15.0-100.110.tar.xz": {
+              "md5": "ad9d81a9ce9106ba14e870f8323b6da9",
+              "size": 24760
             },
-            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-raspi-headers-5.15.0-1048_5.15.0-1048.51_armhf.deb": {
-              "size": 12356588,
-              "md5": "edd242cababab2d4b3bb037ec360d6ab"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-raspi/linux-meta-raspi_5.15.0.1048.46.dsc": {
+              "md5": "7adc98787285ca94b0f73fb86fef20e7",
+              "size": 2529
             },
-            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-tools-5.15.0-1048-raspi_5.15.0-1048.51_armhf.deb": {
-              "size": 1716,
-              "md5": "95c4ae77a979bb572c4a2b5928601c4a"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-image-raspi_5.15.0.1048.46_armhf.deb": {
-              "size": 2394,
-              "md5": "d473a423ad4cffae9090b0c97a184ff7"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-raspi-nolpae_5.15.0.1048.46_armhf.deb": {
-              "size": 1668,
-              "md5": "8b7c5060754166a19e3a614458b87a14"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-tools-raspi_5.15.0.1048.46_armhf.deb": {
-              "size": 2352,
-              "md5": "fd894a21f143b3ab865bff7c7c35fee9"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-headers-5.15.0-1048-raspi_5.15.0-1048.51_armhf.deb": {
-              "size": 1034740,
-              "md5": "a01058795d7bdb6e937744919f496988"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-modules-5.15.0-1048-raspi_5.15.0-1048.51_armhf.deb": {
-              "size": 31293932,
-              "md5": "00107cb6008e950bd9689b634f0af7d6"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-image-5.15.0-1048-raspi_5.15.0-1048.51_armhf.deb": {
-              "size": 8519872,
-              "md5": "7cb93ccf7eda731bae77915e7e352cd7"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-raspi/linux-meta-raspi_5.15.0.1048.46.tar.xz": {
+              "md5": "6cb8be9c4df051d98c25d3049377f716",
+              "size": 11008
             }
           }
         },
         "all": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-lowlatency-tools-common_5.15.0-100.110_all.deb": {
-              "size": 89566,
-              "md5": "d08977ca136df3e15d55b41a58c2eb8c"
+              "md5": "d08977ca136df3e15d55b41a58c2eb8c",
+              "size": 89566
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-lowlatency-headers-5.15.0-100_5.15.0-100.110_all.deb": {
-              "size": 12338234,
-              "md5": "3c7bbefc52274f2d3020ce2d818b8082"
+              "md5": "3c7bbefc52274f2d3020ce2d818b8082",
+              "size": 12338234
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-lowlatency-cloud-tools-common_5.15.0-100.110_all.deb": {
-              "size": 89534,
-              "md5": "6eb71d371eb23c82ec762b69f83fa328"
+              "md5": "6eb71d371eb23c82ec762b69f83fa328",
+              "size": 89534
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-lowlatency-tools-host_5.15.0-100.110_all.deb": {
-              "size": 89500,
-              "md5": "b93cb4b56afe1e52d94c9890e9483e49"
+              "md5": "b93cb4b56afe1e52d94c9890e9483e49",
+              "size": 89500
+            }
+          }
+        },
+        "armhf": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-tools-raspi-nolpae_5.15.0.1048.46_armhf.deb": {
+              "md5": "6bf18449abb9ce78949887c3c251a807",
+              "size": 1656
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-modules-extra-raspi-nolpae_5.15.0.1048.46_armhf.deb": {
+              "md5": "21e3e1c8b9c38910d6b2799028a0b967",
+              "size": 1672
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-image-raspi-nolpae_5.15.0.1048.46_armhf.deb": {
+              "md5": "d26b9f3b66624861a4628638f28877cd",
+              "size": 1658
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-modules-extra-5.15.0-1048-raspi_5.15.0-1048.51_armhf.deb": {
+              "md5": "b1acb80a8f15a0028cb9bcff79294a6f",
+              "size": 17029068
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-headers-raspi-nolpae_5.15.0.1048.46_armhf.deb": {
+              "md5": "17138f5f86ea6bac2a6cf6e4391ee22f",
+              "size": 1658
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-raspi_5.15.0.1048.46_armhf.deb": {
+              "md5": "ee93129bec3deeda0a3b756dfb58c76a",
+              "size": 1706
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-modules-extra-raspi_5.15.0.1048.46_armhf.deb": {
+              "md5": "8d12a432c5f7a31308ee1cf02591b239",
+              "size": 2366
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-raspi-tools-5.15.0-1048_5.15.0-1048.51_armhf.deb": {
+              "md5": "6a1cc1411f7067e751ce9b09349bbc9d",
+              "size": 6783604
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-buildinfo-5.15.0-1048-raspi_5.15.0-1048.51_armhf.deb": {
+              "md5": "d0fbd5d4bfc72dca1150afed09d57aa6",
+              "size": 482862
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-headers-raspi_5.15.0.1048.46_armhf.deb": {
+              "md5": "b7827e812319d1be33f1b26737450c05",
+              "size": 2350
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-raspi-headers-5.15.0-1048_5.15.0-1048.51_armhf.deb": {
+              "md5": "edd242cababab2d4b3bb037ec360d6ab",
+              "size": 12356588
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-tools-5.15.0-1048-raspi_5.15.0-1048.51_armhf.deb": {
+              "md5": "95c4ae77a979bb572c4a2b5928601c4a",
+              "size": 1716
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-image-raspi_5.15.0.1048.46_armhf.deb": {
+              "md5": "d473a423ad4cffae9090b0c97a184ff7",
+              "size": 2394
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-raspi-nolpae_5.15.0.1048.46_armhf.deb": {
+              "md5": "8b7c5060754166a19e3a614458b87a14",
+              "size": 1668
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-tools-raspi_5.15.0.1048.46_armhf.deb": {
+              "md5": "fd894a21f143b3ab865bff7c7c35fee9",
+              "size": 2352
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-headers-5.15.0-1048-raspi_5.15.0-1048.51_armhf.deb": {
+              "md5": "a01058795d7bdb6e937744919f496988",
+              "size": 1034740
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-modules-5.15.0-1048-raspi_5.15.0-1048.51_armhf.deb": {
+              "md5": "00107cb6008e950bd9689b634f0af7d6",
+              "size": 31293932
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-image-5.15.0-1048-raspi_5.15.0-1048.51_armhf.deb": {
+              "md5": "7cb93ccf7eda731bae77915e7e352cd7",
+              "size": 8519872
             }
           }
         },
         "amd64": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-lowlatency/linux-image-5.15.0-100-lowlatency_5.15.0-100.110_amd64.deb": {
-              "size": 11504772,
-              "md5": "ee1f204d575aa89d136ae5ebfae225e5"
+              "md5": "ee1f204d575aa89d136ae5ebfae225e5",
+              "size": 11504772
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-cloud-tools-lowlatency_5.15.0.100.96_amd64.deb": {
-              "size": 2278,
-              "md5": "eb909018f10d1256bf1951772bce7a69"
+              "md5": "eb909018f10d1256bf1951772bce7a69",
+              "size": 2278
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-tools-5.15.0-100-lowlatency_5.15.0-100.110_amd64.deb": {
-              "size": 1814,
-              "md5": "528f32baba59f502489f329c71dcc677"
+              "md5": "528f32baba59f502489f329c71dcc677",
+              "size": 1814
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-tools-lowlatency-hwe-20.04-edge_5.15.0.100.96_amd64.deb": {
-              "size": 2298,
-              "md5": "cc348fa35f4799e8f08a8aef07e5a707"
+              "md5": "cc348fa35f4799e8f08a8aef07e5a707",
+              "size": 2298
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-lowlatency-hwe-20.04_5.15.0.100.96_amd64.deb": {
-              "size": 2276,
-              "md5": "3ed35b7a84bc63a987d6b2f43cfa760b"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-lowlatency-cloud-tools-5.15.0-100_5.15.0-100.110_amd64.deb": {
-              "size": 108840,
-              "md5": "d53a487ca07d4b7ad35ccb5351ce3262"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-headers-lowlatency-hwe-20.04-edge_5.15.0.100.96_amd64.deb": {
-              "size": 2302,
-              "md5": "3117ed2ac9c3cb3222c6c7971ae8877a"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-image-lowlatency-hwe-20.04-edge_5.15.0.100.96_amd64.deb": {
-              "size": 2296,
-              "md5": "f0ecfab584ac303789b5669943bc4c75"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-lowlatency_5.15.0.100.96_amd64.deb": {
-              "size": 1694,
-              "md5": "0da83762474bba30c33df5915deb89bc"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-headers-lowlatency-hwe-20.04_5.15.0.100.96_amd64.deb": {
-              "size": 2292,
-              "md5": "f4310278877ac94bc192063915414092"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-modules-iwlwifi-5.15.0-100-lowlatency_5.15.0-100.110_amd64.deb": {
-              "size": 1325446,
-              "md5": "facecd9d08a84995479abfa1650d4891"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-tools-lowlatency_5.15.0.100.96_amd64.deb": {
-              "size": 2254,
-              "md5": "2c39e6e4bc054deff7ec8190fdd895e8"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-lowlatency-tools-5.15.0-100_5.15.0-100.110_amd64.deb": {
-              "size": 7949406,
-              "md5": "a9dc09f069524e737c8bcdb2a44ddbc1"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-image-unsigned-5.15.0-100-lowlatency_5.15.0-100.110_amd64.deb": {
-              "size": 11786432,
-              "md5": "3f26ed821b97c5b538c31bee7cd98c20"
+              "md5": "3ed35b7a84bc63a987d6b2f43cfa760b",
+              "size": 2276
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-headers-lowlatency_5.15.0.100.96_amd64.deb": {
-              "size": 2262,
-              "md5": "705e3e63556e6fa843b92653dddde60a"
+              "md5": "705e3e63556e6fa843b92653dddde60a",
+              "size": 2262
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-buildinfo-5.15.0-100-lowlatency_5.15.0-100.110_amd64.deb": {
-              "size": 528876,
-              "md5": "5868b4e818818bc528f8ae876cf1980d"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-headers-lowlatency-hwe-20.04-edge_5.15.0.100.96_amd64.deb": {
+              "md5": "3117ed2ac9c3cb3222c6c7971ae8877a",
+              "size": 2302
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-image-lowlatency_5.15.0.100.96_amd64.deb": {
-              "size": 2368,
-              "md5": "863d997d4b7799cfc724b064bec56800"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-image-lowlatency-hwe-20.04-edge_5.15.0.100.96_amd64.deb": {
+              "md5": "f0ecfab584ac303789b5669943bc4c75",
+              "size": 2296
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-headers-5.15.0-100-lowlatency_5.15.0-100.110_amd64.deb": {
-              "size": 2901128,
-              "md5": "9223d008fa74b8d3d5ad7792cf95fbb9"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-lowlatency_5.15.0.100.96_amd64.deb": {
+              "md5": "0da83762474bba30c33df5915deb89bc",
+              "size": 1694
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-lowlatency-hwe-20.04-edge_5.15.0.100.96_amd64.deb": {
-              "size": 2284,
-              "md5": "de399ec1577c88ae42bb5954ebf341c5"
+              "md5": "de399ec1577c88ae42bb5954ebf341c5",
+              "size": 2284
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-tools-lowlatency-hwe-20.04_5.15.0.100.96_amd64.deb": {
-              "size": 2290,
-              "md5": "80aeaeb5dccf8c66eb817556d0095840"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-modules-iwlwifi-5.15.0-100-lowlatency_5.15.0-100.110_amd64.deb": {
+              "md5": "facecd9d08a84995479abfa1650d4891",
+              "size": 1325446
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-modules-5.15.0-100-lowlatency_5.15.0-100.110_amd64.deb": {
-              "size": 86086066,
-              "md5": "f1794fe5892aa9e6cad05f24f343f357"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-tools-lowlatency_5.15.0.100.96_amd64.deb": {
+              "md5": "2c39e6e4bc054deff7ec8190fdd895e8",
+              "size": 2254
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-cloud-tools-lowlatency-hwe-20.04_5.15.0.100.96_amd64.deb": {
-              "size": 2300,
-              "md5": "939f860c76a7a74e80365ed5c90870ba"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-cloud-tools-5.15.0-100-lowlatency_5.15.0-100.110_amd64.deb": {
-              "size": 1696,
-              "md5": "5b6f8d6515794935796ddb76d7683be9"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-lowlatency-tools-5.15.0-100_5.15.0-100.110_amd64.deb": {
+              "md5": "a9dc09f069524e737c8bcdb2a44ddbc1",
+              "size": 7949406
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-image-lowlatency-hwe-20.04_5.15.0.100.96_amd64.deb": {
-              "size": 2286,
-              "md5": "66ba33cab74c4b55eea3f233342659cc"
+              "md5": "66ba33cab74c4b55eea3f233342659cc",
+              "size": 2286
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-lowlatency-cloud-tools-5.15.0-100_5.15.0-100.110_amd64.deb": {
+              "md5": "d53a487ca07d4b7ad35ccb5351ce3262",
+              "size": 108840
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-buildinfo-5.15.0-100-lowlatency_5.15.0-100.110_amd64.deb": {
+              "md5": "5868b4e818818bc528f8ae876cf1980d",
+              "size": 528876
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-image-lowlatency_5.15.0.100.96_amd64.deb": {
+              "md5": "863d997d4b7799cfc724b064bec56800",
+              "size": 2368
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-headers-5.15.0-100-lowlatency_5.15.0-100.110_amd64.deb": {
+              "md5": "9223d008fa74b8d3d5ad7792cf95fbb9",
+              "size": 2901128
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-tools-lowlatency-hwe-20.04_5.15.0.100.96_amd64.deb": {
+              "md5": "80aeaeb5dccf8c66eb817556d0095840",
+              "size": 2290
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-modules-5.15.0-100-lowlatency_5.15.0-100.110_amd64.deb": {
+              "md5": "f1794fe5892aa9e6cad05f24f343f357",
+              "size": 86086066
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-cloud-tools-lowlatency-hwe-20.04_5.15.0.100.96_amd64.deb": {
+              "md5": "939f860c76a7a74e80365ed5c90870ba",
+              "size": 2300
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-headers-lowlatency-hwe-20.04_5.15.0.100.96_amd64.deb": {
+              "md5": "f4310278877ac94bc192063915414092",
+              "size": 2292
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-image-unsigned-5.15.0-100-lowlatency_5.15.0-100.110_amd64.deb": {
+              "md5": "3f26ed821b97c5b538c31bee7cd98c20",
+              "size": 11786432
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-lowlatency/linux-cloud-tools-lowlatency-hwe-20.04-edge_5.15.0.100.96_amd64.deb": {
-              "size": 2312,
-              "md5": "09d9cf3e0ec5cfaf108b144d99cef32d"
-            }
-          }
-        },
-        "arm64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-raspi-tools-5.15.0-1048_5.15.0-1048.51_arm64.deb": {
-              "size": 6845450,
-              "md5": "425df4a5c102b274ba4b6eeffb4b0941"
+              "md5": "09d9cf3e0ec5cfaf108b144d99cef32d",
+              "size": 2312
             },
-            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-lowlatency-tools-5.15.0-100_5.15.0-100.110_arm64.deb": {
-              "size": 6935256,
-              "md5": "525c6cdf88f66cca6d3d47121f3f982f"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-image-lowlatency-64k-hwe-20.04-edge_5.15.0.100.96_arm64.deb": {
-              "size": 2306,
-              "md5": "462746087f2ef22bfecf7c09325ac62e"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-image-unsigned-5.15.0-100-lowlatency-64k_5.15.0-100.110_arm64.deb": {
-              "size": 14940352,
-              "md5": "8e2796d0282c46681049b6e68eee5821"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-modules-extra-5.15.0-1048-raspi_5.15.0-1048.51_arm64.deb": {
-              "size": 19733788,
-              "md5": "a5a3b94dfef7c0aeed2ad7f61bbd54f6"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-buildinfo-5.15.0-100-lowlatency_5.15.0-100.110_arm64.deb": {
-              "size": 539538,
-              "md5": "318e9669610ecbcbd4571cfc21cd7b88"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-headers-lowlatency-64k-hwe-20.04-edge_5.15.0.100.96_arm64.deb": {
-              "size": 2318,
-              "md5": "b0c4e5788fedce82cf46759f24453810"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-headers-lowlatency-hwe-20.04_5.15.0.100.96_arm64.deb": {
-              "size": 2292,
-              "md5": "36ef02dd7f06aa9b9340edb1eede00f2"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-image-lowlatency-64k-hwe-20.04_5.15.0.100.96_arm64.deb": {
-              "size": 2300,
-              "md5": "2775abc53fc327a83b26ef5c413f6171"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-headers-lowlatency_5.15.0.100.96_arm64.deb": {
-              "size": 2262,
-              "md5": "caff374b21c2fcb9751026b4ad120e10"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-image-lowlatency-hwe-20.04_5.15.0.100.96_arm64.deb": {
-              "size": 2286,
-              "md5": "b7b1bdaf9795fc17d479750231bd4f2d"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-modules-5.15.0-100-lowlatency_5.15.0-100.110_arm64.deb": {
-              "size": 87574806,
-              "md5": "b7021b19414657b5e26c029c08d75704"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-lowlatency_5.15.0.100.96_arm64.deb": {
-              "size": 1694,
-              "md5": "3f350bfbc7aa296af507a292257b3819"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-headers-lowlatency-64k_5.15.0.100.96_arm64.deb": {
-              "size": 2276,
-              "md5": "b55095adf47aae64e1166188d4ab0d66"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-tools-lowlatency-hwe-20.04_5.15.0.100.96_arm64.deb": {
-              "size": 2290,
-              "md5": "ae8bbb0f0aab7f6626039dac3f2a021e"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-image-raspi_5.15.0.1048.46_arm64.deb": {
-              "size": 2416,
-              "md5": "27f8cc28de77bdc0b6ba1c3e780c0c05"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-tools-lowlatency-64k-hwe-20.04_5.15.0.100.96_arm64.deb": {
-              "size": 2300,
-              "md5": "776995dc7a605086b812c27702c0225b"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-lowlatency-hwe-20.04_5.15.0.100.96_arm64.deb": {
-              "size": 2276,
-              "md5": "ed8d07efcce7aaf03fdc1608b9a04e3a"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-lowlatency/linux-image-5.15.0-100-lowlatency_5.15.0-100.110_arm64.deb": {
-              "size": 14596738,
-              "md5": "0588aac2ef0fdac8b1dadb7dd94d4106"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-headers-lowlatency-64k-hwe-20.04_5.15.0.100.96_arm64.deb": {
-              "size": 2308,
-              "md5": "bccf2301222d910e4e54b159e49ee559"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-image-lowlatency-hwe-20.04-edge_5.15.0.100.96_arm64.deb": {
-              "size": 2296,
-              "md5": "b05206f84bdf4f1626f20be6b842bc93"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-tools-lowlatency-hwe-20.04-edge_5.15.0.100.96_arm64.deb": {
-              "size": 2298,
-              "md5": "fcd1986fd98882a257f7ed0e0bed47df"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-image-lowlatency_5.15.0.100.96_arm64.deb": {
-              "size": 2354,
-              "md5": "d6047933f75b3e241cf5d595a348e7c1"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-tools-5.15.0-100-lowlatency-64k_5.15.0-100.110_arm64.deb": {
-              "size": 1750,
-              "md5": "1338d63dbaec00137890460b0657a29f"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-image-5.15.0-1048-raspi_5.15.0-1048.51_arm64.deb": {
-              "size": 10475712,
-              "md5": "f2173f64e207726dc2c2d3e17c52dc22"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-tools-lowlatency-64k-hwe-20.04-edge_5.15.0.100.96_arm64.deb": {
-              "size": 2304,
-              "md5": "d4b2422f7e5a52a60fa7fbb78257760d"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-lowlatency-hwe-20.04-edge_5.15.0.100.96_arm64.deb": {
-              "size": 2284,
-              "md5": "bfa75cca37382e321c4def0ae00406bf"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-raspi_5.15.0.1048.46_arm64.deb": {
-              "size": 1706,
-              "md5": "2cdd7377b7ae39e9787ecdd50411a3da"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-headers-5.15.0-100-lowlatency_5.15.0-100.110_arm64.deb": {
-              "size": 2579296,
-              "md5": "dc9f2f11f16b7215d8b9c44cce2ca12b"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-buildinfo-5.15.0-1048-raspi_5.15.0-1048.51_arm64.deb": {
-              "size": 483702,
-              "md5": "54e8f1bb59ba1bb59c58554109145ef4"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-lowlatency/linux-image-5.15.0-100-lowlatency-64k_5.15.0-100.110_arm64.deb": {
-              "size": 14594064,
-              "md5": "0ae5a3d393ee694f05d78d3c31b2ffd7"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-raspi-headers-5.15.0-1048_5.15.0-1048.51_arm64.deb": {
-              "size": 12356540,
-              "md5": "377dc5217df019d2f33be25c05723984"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-tools-lowlatency_5.15.0.100.96_arm64.deb": {
-              "size": 2254,
-              "md5": "a02da5885061716028a68b00db6465a6"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-headers-raspi_5.15.0.1048.46_arm64.deb": {
-              "size": 2350,
-              "md5": "ba2036507d7cde8a7efa48932da24a62"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-tools-5.15.0-1048-raspi_5.15.0-1048.51_arm64.deb": {
-              "size": 1708,
-              "md5": "0c31c8d239a6024fa6169185a1288764"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-tools-lowlatency-64k_5.15.0.100.96_arm64.deb": {
-              "size": 2266,
-              "md5": "a847844fe9d037af5b72896b106296ee"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-lowlatency-64k-hwe-20.04-edge_5.15.0.100.96_arm64.deb": {
-              "size": 2294,
-              "md5": "ebd7aa35dd6d697087e5f6abfb8c05c7"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-image-unsigned-5.15.0-100-lowlatency_5.15.0-100.110_arm64.deb": {
-              "size": 14930112,
-              "md5": "20245b57f7e2731fc48f0fd411000165"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-modules-extra-raspi_5.15.0.1048.46_arm64.deb": {
-              "size": 2366,
-              "md5": "38011975af172a8ac5d984ae1776c9fa"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-lowlatency-64k_5.15.0.100.96_arm64.deb": {
-              "size": 1700,
-              "md5": "00e09494fea957981fa1060975062312"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-headers-lowlatency-hwe-20.04-edge_5.15.0.100.96_arm64.deb": {
-              "size": 2302,
-              "md5": "22c07356fab2f3aae2ed13241438e376"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-modules-5.15.0-100-lowlatency-64k_5.15.0-100.110_arm64.deb": {
-              "size": 87564050,
-              "md5": "d00bc5e906c40223ba1e772d70b22822"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-buildinfo-5.15.0-100-lowlatency-64k_5.15.0-100.110_arm64.deb": {
-              "size": 539882,
-              "md5": "e474e7744758045b6e4aa929cad23aff"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-modules-5.15.0-1048-raspi_5.15.0-1048.51_arm64.deb": {
-              "size": 36280620,
-              "md5": "3d9aa202f48a303296659f375ead5383"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-raspi/linux-tools-raspi_5.15.0.1048.46_arm64.deb": {
-              "size": 2350,
-              "md5": "72d773600240e98d65950d99afab5dab"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-tools-5.15.0-100-lowlatency_5.15.0-100.110_arm64.deb": {
-              "size": 1736,
-              "md5": "6047986392a64767433f15868bd3c1d6"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-lowlatency-64k-hwe-20.04_5.15.0.100.96_arm64.deb": {
-              "size": 2282,
-              "md5": "0852bee248cf7dcb58f830a698f0b9f2"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-raspi/linux-headers-5.15.0-1048-raspi_5.15.0-1048.51_arm64.deb": {
-              "size": 1059806,
-              "md5": "39791bdcd41d00f9693449fab94719ff"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-lowlatency/linux-image-lowlatency-64k_5.15.0.100.96_arm64.deb": {
-              "size": 2360,
-              "md5": "6f8de981851881ea0e9531bcbb7afbfe"
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-lowlatency/linux-headers-5.15.0-100-lowlatency-64k_5.15.0-100.110_arm64.deb": {
-              "size": 2573726,
-              "md5": "722cdde448872a0838f7d3d64777e0ff"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-lowlatency/linux-cloud-tools-5.15.0-100-lowlatency_5.15.0-100.110_amd64.deb": {
+              "md5": "5b6f8d6515794935796ddb76d7683be9",
+              "size": 1696
             }
           }
         }
@@ -833,6 +833,8 @@
   "timestamp": 1710350233.469031,
   "summary": "linux-lowlatency, linux-raspi vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
+  "isummary": "Several security issues were fixed in the Linux kernel.\n",
+  "id": "USN-6686-2",
   "cves": [
     "CVE-2023-22995",
     "CVE-2023-4134",
@@ -843,7 +845,5 @@
     "CVE-2023-6121",
     "CVE-2024-0340",
     "CVE-2024-0607"
-  ],
-  "id": "USN-6686-2",
-  "isummary": "Several security issues were fixed in the Linux kernel.\n"
+  ]
 }

@@ -1,6 +1,48 @@
 {
   "description": "USN-4385-1 provided updated Intel Processor Microcode. Unfortunately,\nthat update prevented certain processors in the Intel Skylake family\n(06_4EH) from booting successfully. Additonally, on Ubuntu 20.04\nLTS, late loading of microcode was enabled, which could lead to\nsystem instability. This update reverts the microcode update for\nthe Skylake processor family and disables the late loading option on\nUbuntu 20.04 LTS.\n\nPlease note that the 'dis_ucode_ldr' kernel command line option can be\nadded in the boot menu to disable microcode loading for system recovery.\n\nWe apologize for the inconvenience.\n\nOriginal advisory details:\n\n It was discovered that memory contents previously stored in\n microarchitectural special registers after RDRAND, RDSEED, and SGX EGETKEY\n read operations on Intel client and Xeon E3 processors may be briefly\n exposed to processes on the same or different processor cores. A local\n attacker could use this to expose sensitive information. (CVE-2020-0543)\n\n It was discovered that on some Intel processors, partial data values\n previously read from a vector register on a physical core may be propagated\n into unused portions of the store buffer. A local attacker could possible\n use this to expose sensitive information. (CVE-2020-0548)\n\n It was discovered that on some Intel processors, data from the most\n recently evicted modified L1 data cache (L1D) line may be propagated into\n an unused (invalid) L1D fill buffer. A local attacker could possibly use\n this to expose sensitive information. (CVE-2020-0549)\n",
   "releases": {
+    "focal": {
+      "allbinaries": {
+        "intel-microcode": {
+          "pocket": "security",
+          "version": "3.20200609.0ubuntu0.20.04.2"
+        }
+      },
+      "binaries": {
+        "intel-microcode": {
+          "pocket": "security",
+          "version": "3.20200609.0ubuntu0.20.04.2"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.20.04.2.tar.xz": {
+              "size": 3208728,
+              "md5": "046ecb01568a061715bb9f13ce3e004c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.20.04.2.dsc": {
+              "size": 1928,
+              "md5": "28628e4eeece42239955b251d77a0f8f"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.20.04.2_amd64.deb": {
+              "size": 2526116,
+              "md5": "e8d92d430c4466228c03fcd22d56dca8"
+            }
+          }
+        }
+      },
+      "sources": {
+        "intel-microcode": {
+          "version": "3.20200609.0ubuntu0.20.04.2",
+          "description": "Processor microcode for Intel CPUs"
+        }
+      }
+    },
     "eoan": {
       "allbinaries": {
         "intel-microcode": {
@@ -16,28 +58,28 @@
         "source": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.19.10.2.dsc": {
-              "md5": "8ed540f59158198bbc0c93848f14725a",
-              "size": 1928
+              "size": 1928,
+              "md5": "8ed540f59158198bbc0c93848f14725a"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.19.10.2.tar.xz": {
-              "md5": "32d0204162ad83c8ef2235f4dd0a2275",
-              "size": 3213336
+              "size": 3213336,
+              "md5": "32d0204162ad83c8ef2235f4dd0a2275"
             }
           }
         },
         "i386": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.19.10.2_i386.deb": {
-              "md5": "f9dda3f71f128e57dbad65ae8552f4b8",
-              "size": 2663156
+              "size": 2663156,
+              "md5": "f9dda3f71f128e57dbad65ae8552f4b8"
             }
           }
         },
         "amd64": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.19.10.2_amd64.deb": {
-              "md5": "267b688c3547a03e8ac01f47dd9f0ef4",
-              "size": 2525660
+              "size": 2525660,
+              "md5": "267b688c3547a03e8ac01f47dd9f0ef4"
             }
           }
         }
@@ -45,56 +87,6 @@
       "sources": {
         "intel-microcode": {
           "version": "3.20200609.0ubuntu0.19.10.2",
-          "description": "Processor microcode for Intel CPUs"
-        }
-      }
-    },
-    "bionic": {
-      "allbinaries": {
-        "intel-microcode": {
-          "pocket": "security",
-          "version": "3.20200609.0ubuntu0.18.04.1"
-        }
-      },
-      "binaries": {
-        "intel-microcode": {
-          "pocket": "security",
-          "version": "3.20200609.0ubuntu0.18.04.1"
-        }
-      },
-      "archs": {
-        "source": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.18.04.1.dsc": {
-              "md5": "5899ae3d3380d321f622ff4d695c3298",
-              "size": 1928
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.18.04.1.tar.xz": {
-              "md5": "56010609a85dde38f8a76dafccdf56aa",
-              "size": 3208376
-            }
-          }
-        },
-        "i386": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.18.04.1_i386.deb": {
-              "md5": "cb8ccaaa7e5c88437d6b63e0fffc5171",
-              "size": 2663152
-            }
-          }
-        },
-        "amd64": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.18.04.1_amd64.deb": {
-              "md5": "90030ce2b71b474415aef319216b020f",
-              "size": 2525668
-            }
-          }
-        }
-      },
-      "sources": {
-        "intel-microcode": {
-          "version": "3.20200609.0ubuntu0.18.04.1",
           "description": "Processor microcode for Intel CPUs"
         }
       }
@@ -119,44 +111,52 @@
         }
       }
     },
-    "focal": {
+    "bionic": {
       "allbinaries": {
         "intel-microcode": {
           "pocket": "security",
-          "version": "3.20200609.0ubuntu0.20.04.2"
+          "version": "3.20200609.0ubuntu0.18.04.1"
         }
       },
       "binaries": {
         "intel-microcode": {
           "pocket": "security",
-          "version": "3.20200609.0ubuntu0.20.04.2"
+          "version": "3.20200609.0ubuntu0.18.04.1"
         }
       },
       "archs": {
         "source": {
           "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.20.04.2.tar.xz": {
-              "md5": "046ecb01568a061715bb9f13ce3e004c",
-              "size": 3208728
+            "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.18.04.1.dsc": {
+              "size": 1928,
+              "md5": "5899ae3d3380d321f622ff4d695c3298"
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.20.04.2.dsc": {
-              "md5": "28628e4eeece42239955b251d77a0f8f",
-              "size": 1928
+            "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.18.04.1.tar.xz": {
+              "size": 3208376,
+              "md5": "56010609a85dde38f8a76dafccdf56aa"
+            }
+          }
+        },
+        "i386": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.18.04.1_i386.deb": {
+              "size": 2663152,
+              "md5": "cb8ccaaa7e5c88437d6b63e0fffc5171"
             }
           }
         },
         "amd64": {
           "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.20.04.2_amd64.deb": {
-              "md5": "e8d92d430c4466228c03fcd22d56dca8",
-              "size": 2526116
+            "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.18.04.1_amd64.deb": {
+              "size": 2525668,
+              "md5": "90030ce2b71b474415aef319216b020f"
             }
           }
         }
       },
       "sources": {
         "intel-microcode": {
-          "version": "3.20200609.0ubuntu0.20.04.2",
+          "version": "3.20200609.0ubuntu0.18.04.1",
           "description": "Processor microcode for Intel CPUs"
         }
       }
@@ -178,28 +178,28 @@
         "source": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.16.04.1.dsc": {
-              "md5": "6a5bb047a680cc16cc85df51dc98e002",
-              "size": 1928
+              "size": 1928,
+              "md5": "6a5bb047a680cc16cc85df51dc98e002"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.16.04.1.tar.xz": {
-              "md5": "bd36ac7ec592d56f85338dd15da8a4c5",
-              "size": 3249728
+              "size": 3249728,
+              "md5": "bd36ac7ec592d56f85338dd15da8a4c5"
             }
           }
         },
         "i386": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.16.04.1_i386.deb": {
-              "md5": "2143e3ab6344f9f03a0ac9e0ddb9719b",
-              "size": 2668416
+              "size": 2668416,
+              "md5": "2143e3ab6344f9f03a0ac9e0ddb9719b"
             }
           }
         },
         "amd64": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/i/intel-microcode/intel-microcode_3.20200609.0ubuntu0.16.04.1_amd64.deb": {
-              "md5": "e91d6b41e4da3e31de182252479e6540",
-              "size": 2527516
+              "size": 2527516,
+              "md5": "e91d6b41e4da3e31de182252479e6540"
             }
           }
         }
@@ -216,10 +216,10 @@
   "timestamp": 1591825851.007014,
   "summary": "intel-microcode regression",
   "action": "After a standard system update you need to reboot your computer to\nmake all the necessary changes.\n",
-  "isummary": "USN-4385-1 introduced a regression in the Intel Microcode for some processors.\n",
-  "id": "USN-4385-2",
   "cves": [
     "https://launchpad.net/bugs/1882890",
     "https://launchpad.net/bugs/1883002"
-  ]
+  ],
+  "id": "USN-4385-2",
+  "isummary": "USN-4385-1 introduced a regression in the Intel Microcode for some processors.\n"
 }

@@ -1,5 +1,5 @@
 {
-  "description": "\nKirill Tkhai discovered that the XFS file system implementation in the\nLinux kernel did not calculate size correctly when pre-allocating space in\nsome situations. A local attacker could use this to expose sensitive\ninformation. (CVE-2021-4155)\n\nLee Jones discovered that a use-after-free vulnerability existed in the\nBluetooth implementation in the Linux kernel. A local attacker could use\nthis to cause a denial of service (system crash) or possibly execute\narbitrary code. (CVE-2022-20566)\n\nDuoming Zhou discovered that a race condition existed in the SLIP driver in\nthe Linux kernel, leading to a null pointer dereference vulnerability. An\nattacker could use this to cause a denial of service (system crash).\n(CVE-2022-41858)\n\nTam\u00e1s Koczka discovered that the Bluetooth L2CAP implementation in the\nLinux kernel did not properly initialize memory in some situations. A\nphysically proximate attacker could possibly use this to expose sensitive\ninformation (kernel memory). (CVE-2022-42895)\n\nJos\u00e9 Oliveira and Rodrigo Branco discovered that the prctl syscall\nimplementation in the Linux kernel did not properly protect against\nindirect branch prediction attacks in some situations. A local attacker\ncould possibly use this to expose sensitive information. (CVE-2023-0045)\n\nIt was discovered that the RNDIS USB driver in the Linux kernel contained\nan integer overflow vulnerability. A local attacker with physical access\ncould plug in a malicious USB device to cause a denial of service (system\ncrash) or possibly execute arbitrary code. (CVE-2023-23559)\n\n",
+  "description": "\nKirill Tkhai discovered that the XFS file system implementation in the\nLinux kernel did not calculate size correctly when pre-allocating space in\nsome situations. A local attacker could use this to expose sensitive\ninformation. (CVE-2021-4155)\n\nLee Jones discovered that a use-after-free vulnerability existed in the\nBluetooth implementation in the Linux kernel. A local attacker could use\nthis to cause a denial of service (system crash) or possibly execute\narbitrary code. (CVE-2022-20566)\n\nDuoming Zhou discovered that a race condition existed in the SLIP driver in\nthe Linux kernel, leading to a null pointer dereference vulnerability. An\nattacker could use this to cause a denial of service (system crash).\n(CVE-2022-41858)\n\nTamás Koczka discovered that the Bluetooth L2CAP implementation in the\nLinux kernel did not properly initialize memory in some situations. A\nphysically proximate attacker could possibly use this to expose sensitive\ninformation (kernel memory). (CVE-2022-42895)\n\nJosé Oliveira and Rodrigo Branco discovered that the prctl syscall\nimplementation in the Linux kernel did not properly protect against\nindirect branch prediction attacks in some situations. A local attacker\ncould possibly use this to expose sensitive information. (CVE-2023-0045)\n\nIt was discovered that the RNDIS USB driver in the Linux kernel contained\nan integer overflow vulnerability. A local attacker with physical access\ncould plug in a malicious USB device to cause a denial of service (system\ncrash) or possibly execute arbitrary code. (CVE-2023-23559)\n\n",
   "releases": {
     "xenial": {
       "allbinaries": {
@@ -14,6 +14,11 @@
           "version": "4.4.0-1154.169"
         },
         "linux-aws-tools-4.4.0-1154": {
+          "pocket": "esm-infra",
+          "source": "linux-aws",
+          "version": "4.4.0-1154.169"
+        },
+        "linux-modules-4.4.0-1154-aws": {
           "pocket": "esm-infra",
           "source": "linux-aws",
           "version": "4.4.0-1154.169"
@@ -33,11 +38,6 @@
           "source": "linux-aws",
           "version": "4.4.0-1154.169"
         },
-        "linux-tools-4.4.0-1154-aws": {
-          "pocket": "esm-infra",
-          "source": "linux-aws",
-          "version": "4.4.0-1154.169"
-        },
         "linux-tools-aws": {
           "pocket": "esm-infra",
           "source": "linux-meta-aws",
@@ -53,15 +53,15 @@
           "source": "linux-meta-aws",
           "version": "4.4.0.1154.158"
         },
-        "linux-cloud-tools-4.4.0-1154-aws": {
-          "pocket": "esm-infra",
-          "source": "linux-aws",
-          "version": "4.4.0-1154.169"
-        },
         "linux-image-aws": {
           "pocket": "esm-infra",
           "source": "linux-meta-aws",
           "version": "4.4.0.1154.158"
+        },
+        "linux-cloud-tools-4.4.0-1154-aws": {
+          "pocket": "esm-infra",
+          "source": "linux-aws",
+          "version": "4.4.0-1154.169"
         },
         "linux-aws-headers-4.4.0-1154": {
           "pocket": "esm-infra",
@@ -73,7 +73,7 @@
           "source": "linux-aws",
           "version": "4.4.0-1154.169"
         },
-        "linux-modules-4.4.0-1154-aws": {
+        "linux-tools-4.4.0-1154-aws": {
           "pocket": "esm-infra",
           "source": "linux-aws",
           "version": "4.4.0-1154.169"
@@ -101,6 +101,8 @@
   "timestamp": 1677168592.8107371,
   "summary": "linux-aws vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
+  "isummary": "Several security issues were fixed in the Linux kernel.\n",
+  "id": "USN-5884-1",
   "cves": [
     "CVE-2021-4155",
     "CVE-2022-20566",
@@ -108,7 +110,5 @@
     "CVE-2022-42895",
     "CVE-2023-0045",
     "CVE-2023-23559"
-  ],
-  "id": "USN-5884-1",
-  "isummary": "Several security issues were fixed in the Linux kernel.\n"
+  ]
 }

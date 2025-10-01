@@ -1,5 +1,5 @@
 {
-  "description": "USN-4008-1 fixed vulnerabilities in the Linux kernel for Ubuntu 16.04\nLTS. This update provides the corresponding updates for the Linux\nHardware Enablement (HWE) kernel from Ubuntu 16.04 LTS for Ubuntu\n14.04 ESM.\n\nRobert \u015awi\u0119cki discovered that the Linux kernel did not properly apply\nAddress Space Layout Randomization (ASLR) in some situations for setuid elf\nbinaries. A local attacker could use this to improve the chances of\nexploiting an existing vulnerability in a setuid elf binary.\n(CVE-2019-11190)\n\nIt was discovered that a null pointer dereference vulnerability existed in\nthe LSI Logic MegaRAID driver in the Linux kernel. A local attacker could\nuse this to cause a denial of service (system crash). (CVE-2019-11810)\n\nIt was discovered that a race condition leading to a use-after-free existed\nin the Reliable Datagram Sockets (RDS) protocol implementation in the Linux\nkernel. The RDS protocol is disabled via blocklist by default in Ubuntu. \nIf enabled, a local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2019-11815)\n\nFederico Manuel Bento discovered that the Linux kernel did not properly\napply Address Space Layout Randomization (ASLR) in some situations for\nsetuid a.out binaries. A local attacker could use this to improve the\nchances of exploiting an existing vulnerability in a setuid a.out binary.\n(CVE-2019-11191)\n\nAs a hardening measure, this update disables a.out support.\n",
+  "description": "USN-4008-1 fixed vulnerabilities in the Linux kernel for Ubuntu 16.04\nLTS. This update provides the corresponding updates for the Linux\nHardware Enablement (HWE) kernel from Ubuntu 16.04 LTS for Ubuntu\n14.04 ESM.\n\nRobert Święcki discovered that the Linux kernel did not properly apply\nAddress Space Layout Randomization (ASLR) in some situations for setuid elf\nbinaries. A local attacker could use this to improve the chances of\nexploiting an existing vulnerability in a setuid elf binary.\n(CVE-2019-11190)\n\nIt was discovered that a null pointer dereference vulnerability existed in\nthe LSI Logic MegaRAID driver in the Linux kernel. A local attacker could\nuse this to cause a denial of service (system crash). (CVE-2019-11810)\n\nIt was discovered that a race condition leading to a use-after-free existed\nin the Reliable Datagram Sockets (RDS) protocol implementation in the Linux\nkernel. The RDS protocol is disabled via blocklist by default in Ubuntu. \nIf enabled, a local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2019-11815)\n\nFederico Manuel Bento discovered that the Linux kernel did not properly\napply Address Space Layout Randomization (ASLR) in some situations for\nsetuid a.out binaries. A local attacker could use this to improve the\nchances of exploiting an existing vulnerability in a setuid a.out binary.\n(CVE-2019-11191)\n\nAs a hardening measure, this update disables a.out support.\n",
   "releases": {
     "trusty": {
       "allbinaries": {
@@ -18,26 +18,17 @@
         "linux-image-4.4.0-150-lowlatency": {
           "version": "4.4.0-150.176~14.04.1"
         },
-        "linux-image-generic-lpae-lts-xenial": {
+        "linux-image-lowlatency-lts-xenial": {
           "version": "4.4.0.150.132"
         },
         "linux-image-4.4.0-150-generic-lpae": {
           "version": "4.4.0-150.176~14.04.1"
         },
-        "linux-image-4.4.0-150-powerpc64-smp": {
-          "version": "4.4.0-150.176~14.04.1"
-        },
-        "linux-image-lowlatency-lts-xenial": {
+        "linux-image-powerpc-e500mc-lts-xenial": {
           "version": "4.4.0.150.132"
         },
-        "linux-image-generic-lts-xenial": {
+        "linux-image-generic-lpae-lts-xenial": {
           "version": "4.4.0.150.132"
-        },
-        "linux-image-4.4.0-1045-aws": {
-          "version": "4.4.0-1045.48"
-        },
-        "linux-image-aws": {
-          "version": "4.4.0.1045.46"
         },
         "linux-image-powerpc64-smp-lts-xenial": {
           "version": "4.4.0.150.132"
@@ -45,8 +36,17 @@
         "linux-image-powerpc64-emb-lts-xenial": {
           "version": "4.4.0.150.132"
         },
-        "linux-image-powerpc-e500mc-lts-xenial": {
+        "linux-image-4.4.0-1045-aws": {
+          "version": "4.4.0-1045.48"
+        },
+        "linux-image-generic-lts-xenial": {
           "version": "4.4.0.150.132"
+        },
+        "linux-image-aws": {
+          "version": "4.4.0.1045.46"
+        },
+        "linux-image-4.4.0-150-powerpc64-smp": {
+          "version": "4.4.0-150.176~14.04.1"
         },
         "linux-image-virtual-lts-xenial": {
           "version": "4.4.0.150.132"
@@ -62,13 +62,13 @@
         "linux-image-4.4.0-150-lowlatency": {
           "version": "4.4.0-150.176~14.04.1"
         },
-        "linux-image-generic-lpae-lts-xenial": {
+        "linux-image-lowlatency-lts-xenial": {
           "version": "4.4.0.150.132"
         },
         "linux-image-4.4.0-150-generic-lpae": {
           "version": "4.4.0-150.176~14.04.1"
         },
-        "linux-image-lowlatency-lts-xenial": {
+        "linux-image-generic-lpae-lts-xenial": {
           "version": "4.4.0.150.132"
         },
         "linux-image-4.4.0-1045-aws": {
@@ -97,12 +97,12 @@
   "timestamp": 1559881291.870313,
   "summary": "linux-lts-xenial, linux-aws vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
-  "isummary": "Several security issues were fixed in the Linux kernel.\n",
-  "id": "USN-4008-3",
   "cves": [
     "CVE-2019-11190",
     "CVE-2019-11191",
     "CVE-2019-11810",
     "CVE-2019-11815"
-  ]
+  ],
+  "id": "USN-4008-3",
+  "isummary": "Several security issues were fixed in the Linux kernel.\n"
 }

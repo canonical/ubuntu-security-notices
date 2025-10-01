@@ -1,5 +1,5 @@
 {
-  "description": "It was discovered that the DesignWare USB3 for Qualcomm SoCs driver in the\nLinux kernel did not properly handle certain error conditions during device\nregistration. A local attacker could possibly use this to cause a denial of\nservice (system crash). (CVE-2023-22995)\n\nIt was discovered that a race condition existed in the Cypress touchscreen\ndriver in the Linux kernel during device removal, leading to a use-after-\nfree vulnerability. A physically proximate attacker could use this to cause\na denial of service (system crash) or possibly execute arbitrary code.\n(CVE-2023-4134)\n\n\u9ec4\u601d\u806a discovered that the NFC Controller Interface (NCI) implementation in\nthe Linux kernel did not properly handle certain memory allocation failure\nconditions, leading to a null pointer dereference vulnerability. A local\nattacker could use this to cause a denial of service (system crash).\n(CVE-2023-46343)\n\nIt was discovered that the io_uring subsystem in the Linux kernel contained\na race condition, leading to a null pointer dereference vulnerability. A\nlocal attacker could use this to cause a denial of service (system crash).\n(CVE-2023-46862)\n\nIt was discovered that a race condition existed in the Bluetooth subsystem\nof the Linux kernel, leading to a use-after-free vulnerability. A local\nattacker could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2023-51779)\n\nIt was discovered that a race condition existed in the Rose X.25 protocol\nimplementation in the Linux kernel, leading to a use-after- free\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-51782)\n\nAlon Zahavi discovered that the NVMe-oF/TCP subsystem of the Linux kernel\ndid not properly handle connect command payloads in certain situations,\nleading to an out-of-bounds read vulnerability. A remote attacker could use\nthis to expose sensitive information (kernel memory). (CVE-2023-6121)\n\nIt was discovered that the VirtIO subsystem in the Linux kernel did not\nproperly initialize memory in some situations. A local attacker could use\nthis to possibly expose sensitive information (kernel memory).\n(CVE-2024-0340)\n\nDan Carpenter discovered that the netfilter subsystem in the Linux kernel\ndid not store data in properly sized memory locations. A local user could\nuse this to cause a denial of service (system crash). (CVE-2024-0607)\n",
+  "description": "It was discovered that the DesignWare USB3 for Qualcomm SoCs driver in the\nLinux kernel did not properly handle certain error conditions during device\nregistration. A local attacker could possibly use this to cause a denial of\nservice (system crash). (CVE-2023-22995)\n\nIt was discovered that a race condition existed in the Cypress touchscreen\ndriver in the Linux kernel during device removal, leading to a use-after-\nfree vulnerability. A physically proximate attacker could use this to cause\na denial of service (system crash) or possibly execute arbitrary code.\n(CVE-2023-4134)\n\n黄思聪 discovered that the NFC Controller Interface (NCI) implementation in\nthe Linux kernel did not properly handle certain memory allocation failure\nconditions, leading to a null pointer dereference vulnerability. A local\nattacker could use this to cause a denial of service (system crash).\n(CVE-2023-46343)\n\nIt was discovered that the io_uring subsystem in the Linux kernel contained\na race condition, leading to a null pointer dereference vulnerability. A\nlocal attacker could use this to cause a denial of service (system crash).\n(CVE-2023-46862)\n\nIt was discovered that a race condition existed in the Bluetooth subsystem\nof the Linux kernel, leading to a use-after-free vulnerability. A local\nattacker could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2023-51779)\n\nIt was discovered that a race condition existed in the Rose X.25 protocol\nimplementation in the Linux kernel, leading to a use-after- free\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-51782)\n\nAlon Zahavi discovered that the NVMe-oF/TCP subsystem of the Linux kernel\ndid not properly handle connect command payloads in certain situations,\nleading to an out-of-bounds read vulnerability. A remote attacker could use\nthis to expose sensitive information (kernel memory). (CVE-2023-6121)\n\nIt was discovered that the VirtIO subsystem in the Linux kernel did not\nproperly initialize memory in some situations. A local attacker could use\nthis to possibly expose sensitive information (kernel memory).\n(CVE-2024-0340)\n\nDan Carpenter discovered that the netfilter subsystem in the Linux kernel\ndid not store data in properly sized memory locations. A local user could\nuse this to cause a denial of service (system crash). (CVE-2024-0607)\n",
   "releases": {
     "jammy": {
       "allbinaries": {
@@ -43,6 +43,16 @@
           "source": "linux-meta-intel-iotg",
           "version": "5.15.0.1050.50"
         },
+        "linux-buildinfo-5.15.0-1050-intel-iotg": {
+          "pocket": "security",
+          "source": "linux-intel-iotg",
+          "version": "5.15.0-1050.56"
+        },
+        "linux-headers-5.15.0-1050-intel-iotg": {
+          "pocket": "security",
+          "source": "linux-intel-iotg",
+          "version": "5.15.0-1050.56"
+        },
         "linux-cloud-tools-5.15.0-1050-intel-iotg": {
           "pocket": "security",
           "source": "linux-intel-iotg",
@@ -53,17 +63,7 @@
           "source": "linux-intel-iotg",
           "version": "5.15.0-1050.56"
         },
-        "linux-tools-intel-iotg": {
-          "pocket": "security",
-          "source": "linux-meta-intel-iotg",
-          "version": "5.15.0.1050.50"
-        },
         "linux-intel-iotg-headers-5.15.0-1050": {
-          "pocket": "security",
-          "source": "linux-intel-iotg",
-          "version": "5.15.0-1050.56"
-        },
-        "linux-buildinfo-5.15.0-1050-intel-iotg": {
           "pocket": "security",
           "source": "linux-intel-iotg",
           "version": "5.15.0-1050.56"
@@ -93,10 +93,10 @@
           "source": "linux-intel-iotg",
           "version": "5.15.0-1050.56"
         },
-        "linux-headers-5.15.0-1050-intel-iotg": {
+        "linux-tools-intel-iotg": {
           "pocket": "security",
-          "source": "linux-intel-iotg",
-          "version": "5.15.0-1050.56"
+          "source": "linux-meta-intel-iotg",
+          "version": "5.15.0.1050.50"
         }
       },
       "binaries": {
@@ -113,116 +113,116 @@
         "source": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-intel-iotg/linux-signed-intel-iotg_5.15.0-1050.56.dsc": {
-              "size": 1808,
-              "md5": "9d4a93d6a17f6bae32751e5bb4929fee"
+              "md5": "9d4a93d6a17f6bae32751e5bb4929fee",
+              "size": 1808
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg_5.15.0-1050.56.dsc": {
-              "size": 4969,
-              "md5": "972ca3261fc9960b0ba47b30cb346f16"
+              "md5": "972ca3261fc9960b0ba47b30cb346f16",
+              "size": 4969
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg_5.15.0.orig.tar.gz": {
-              "size": 194969557,
-              "md5": "cd30827a862b74fe1e5174e6aee8e534"
+              "md5": "cd30827a862b74fe1e5174e6aee8e534",
+              "size": 194969557
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-intel-iotg/linux-signed-intel-iotg_5.15.0-1050.56.tar.xz": {
-              "size": 24692,
-              "md5": "49dd23798033880c0ed2e5f9c1477460"
+              "md5": "49dd23798033880c0ed2e5f9c1477460",
+              "size": 24692
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-meta-intel-iotg_5.15.0.1050.50.tar.xz": {
-              "size": 15136,
-              "md5": "183cfe651fbc676f9f4c146dc82e60a9"
+              "md5": "183cfe651fbc676f9f4c146dc82e60a9",
+              "size": 15136
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-meta-intel-iotg_5.15.0.1050.50.dsc": {
-              "size": 1884,
-              "md5": "3f10d13c05554a97a81bf41df7f5b42b"
+              "md5": "3f10d13c05554a97a81bf41df7f5b42b",
+              "size": 1884
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg_5.15.0-1050.56.diff.gz": {
-              "size": 13381865,
-              "md5": "369377d7741621eecc0fc8ab510ba8f5"
+              "md5": "369377d7741621eecc0fc8ab510ba8f5",
+              "size": 13381865
             }
           }
         },
         "all": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-cloud-tools-common_5.15.0-1050.56_all.deb": {
-              "size": 95516,
-              "md5": "4db79588f6e71096b6355f337e12bb0b"
+              "md5": "4db79588f6e71096b6355f337e12bb0b",
+              "size": 95516
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-tools-host_5.15.0-1050.56_all.deb": {
-              "size": 107600,
-              "md5": "3b3c8b710f93d0a2124084ade3a4deb8"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-headers-5.15.0-1050_5.15.0-1050.56_all.deb": {
-              "size": 12350520,
-              "md5": "84cdc1a3ae47c5b38eb1e060d7e9ca71"
+              "md5": "3b3c8b710f93d0a2124084ade3a4deb8",
+              "size": 107600
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-tools-common_5.15.0-1050.56_all.deb": {
-              "size": 304360,
-              "md5": "367deb66bd9633dda85567ed3fe548cf"
+              "md5": "367deb66bd9633dda85567ed3fe548cf",
+              "size": 304360
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-headers-5.15.0-1050_5.15.0-1050.56_all.deb": {
+              "md5": "84cdc1a3ae47c5b38eb1e060d7e9ca71",
+              "size": 12350520
             }
           }
         },
         "amd64": {
           "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-intel-iotg_5.15.0.1050.50_amd64.deb": {
-              "size": 1698,
-              "md5": "562616fb45bbde5a511ff81801db4b68"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-cloud-tools-5.15.0-1050_5.15.0-1050.56_amd64.deb": {
+              "md5": "2c21fdc1f146ef2ba2c5348169f18781",
+              "size": 108918
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-tools-intel-iotg_5.15.0.1050.50_amd64.deb": {
-              "size": 2288,
-              "md5": "867bb41d458c165ce3b0a4bc4e74985c"
+              "md5": "867bb41d458c165ce3b0a4bc4e74985c",
+              "size": 2288
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-headers-5.15.0-1050-intel-iotg_5.15.0-1050.56_amd64.deb": {
-              "size": 2901160,
-              "md5": "ccdd4cc8dc783ac065b0f1ea4c62473e"
+              "md5": "ccdd4cc8dc783ac065b0f1ea4c62473e",
+              "size": 2901160
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-modules-iwlwifi-5.15.0-1050-intel-iotg_5.15.0-1050.56_amd64.deb": {
-              "size": 1310770,
-              "md5": "ddb5054bd0e41641ace67a8912f3cde8"
+              "md5": "ddb5054bd0e41641ace67a8912f3cde8",
+              "size": 1310770
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-modules-extra-5.15.0-1050-intel-iotg_5.15.0-1050.56_amd64.deb": {
-              "size": 64227730,
-              "md5": "7af239de582e50a91f5508e502f2b1da"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-intel-iotg_5.15.0.1050.50_amd64.deb": {
+              "md5": "562616fb45bbde5a511ff81801db4b68",
+              "size": 1698
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-intel-iotg/linux-image-5.15.0-1050-intel-iotg_5.15.0-1050.56_amd64.deb": {
-              "size": 11480190,
-              "md5": "0de8075291ddea2fba2c8d490d23448f"
+              "md5": "0de8075291ddea2fba2c8d490d23448f",
+              "size": 11480190
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-cloud-tools-5.15.0-1050-intel-iotg_5.15.0-1050.56_amd64.deb": {
-              "size": 1698,
-              "md5": "9a99a93815b511d2f4d48e98bfbe27c8"
+              "md5": "9a99a93815b511d2f4d48e98bfbe27c8",
+              "size": 1698
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-image-unsigned-5.15.0-1050-intel-iotg_5.15.0-1050.56_amd64.deb": {
-              "size": 11755712,
-              "md5": "090f9b4bc93dfe5243963c680192b04f"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-image-intel-iotg_5.15.0.1050.50_amd64.deb": {
-              "size": 2398,
-              "md5": "c0729b45c0db8d223cde8ba6442019ce"
+              "md5": "090f9b4bc93dfe5243963c680192b04f",
+              "size": 11755712
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-tools-5.15.0-1050_5.15.0-1050.56_amd64.deb": {
-              "size": 7970120,
-              "md5": "79ba8702ad07bcf49c655915f03f650b"
+              "md5": "79ba8702ad07bcf49c655915f03f650b",
+              "size": 7970120
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-buildinfo-5.15.0-1050-intel-iotg_5.15.0-1050.56_amd64.deb": {
-              "size": 529388,
-              "md5": "bb722d4eaa4f154bc2cdb7a1dfa4e7d5"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-modules-5.15.0-1050-intel-iotg_5.15.0-1050.56_amd64.deb": {
-              "size": 22400470,
-              "md5": "4d9fce1fbbd08467080d3166142fb4d8"
+              "md5": "bb722d4eaa4f154bc2cdb7a1dfa4e7d5",
+              "size": 529388
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-tools-5.15.0-1050-intel-iotg_5.15.0-1050.56_amd64.deb": {
-              "size": 1816,
-              "md5": "18fb3e0d34811482e0da81f3c007d2f1"
+              "md5": "18fb3e0d34811482e0da81f3c007d2f1",
+              "size": 1816
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-cloud-tools-5.15.0-1050_5.15.0-1050.56_amd64.deb": {
-              "size": 108918,
-              "md5": "2c21fdc1f146ef2ba2c5348169f18781"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-image-intel-iotg_5.15.0.1050.50_amd64.deb": {
+              "md5": "c0729b45c0db8d223cde8ba6442019ce",
+              "size": 2398
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-modules-5.15.0-1050-intel-iotg_5.15.0-1050.56_amd64.deb": {
+              "md5": "4d9fce1fbbd08467080d3166142fb4d8",
+              "size": 22400470
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-modules-extra-5.15.0-1050-intel-iotg_5.15.0-1050.56_amd64.deb": {
+              "md5": "7af239de582e50a91f5508e502f2b1da",
+              "size": 64227730
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-headers-intel-iotg_5.15.0.1050.50_amd64.deb": {
-              "size": 2290,
-              "md5": "0d65a17009299673e7defd8569400978"
+              "md5": "0d65a17009299673e7defd8569400978",
+              "size": 2290
             }
           }
         }
@@ -256,7 +256,7 @@
           "source": "linux-meta-intel-iotg-5.15",
           "version": "5.15.0.1050.56~20.04.40"
         },
-        "linux-image-intel-iotg": {
+        "linux-headers-intel": {
           "pocket": "security",
           "source": "linux-meta-intel-iotg-5.15",
           "version": "5.15.0.1050.56~20.04.40"
@@ -276,7 +276,7 @@
           "source": "linux-meta-intel-iotg-5.15",
           "version": "5.15.0.1050.56~20.04.40"
         },
-        "linux-headers-intel": {
+        "linux-image-intel-iotg": {
           "pocket": "security",
           "source": "linux-meta-intel-iotg-5.15",
           "version": "5.15.0.1050.56~20.04.40"
@@ -306,7 +306,7 @@
           "source": "linux-intel-iotg-5.15",
           "version": "5.15.0-1050.56~20.04.1"
         },
-        "linux-intel-iotg-edge": {
+        "linux-image-intel": {
           "pocket": "security",
           "source": "linux-meta-intel-iotg-5.15",
           "version": "5.15.0.1050.56~20.04.40"
@@ -341,7 +341,7 @@
           "source": "linux-meta-intel-iotg-5.15",
           "version": "5.15.0.1050.56~20.04.40"
         },
-        "linux-image-intel": {
+        "linux-intel-iotg-edge": {
           "pocket": "security",
           "source": "linux-meta-intel-iotg-5.15",
           "version": "5.15.0.1050.56~20.04.40"
@@ -394,153 +394,153 @@
       "archs": {
         "source": {
           "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-intel-iotg-5.15/linux-signed-intel-iotg-5.15_5.15.0-1050.56~20.04.1.dsc": {
-              "size": 1889,
-              "md5": "486626156ef8d3546a3448df6d5cd1be"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-intel-iotg-5.15/linux-signed-intel-iotg-5.15_5.15.0-1050.56~20.04.1.tar.xz": {
+              "md5": "536b0cc4f5f0643dd802271c1c005b9a",
+              "size": 24732
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-intel-iotg-5.15_5.15.0.orig.tar.gz": {
-              "size": 194969557,
-              "md5": "cd30827a862b74fe1e5174e6aee8e534"
+              "md5": "cd30827a862b74fe1e5174e6aee8e534",
+              "size": 194969557
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg-5.15/linux-meta-intel-iotg-5.15_5.15.0.1050.56~20.04.40.dsc": {
-              "size": 2647,
-              "md5": "35e4f2ec14adc97a79a68738dd9607d9"
+              "md5": "35e4f2ec14adc97a79a68738dd9607d9",
+              "size": 2647
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-intel-iotg-5.15_5.15.0-1050.56~20.04.1.diff.gz": {
-              "size": 14132631,
-              "md5": "68b5d5910f51e69af0e9c65c544c75d9"
+              "md5": "68b5d5910f51e69af0e9c65c544c75d9",
+              "size": 14132631
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-intel-iotg-5.15_5.15.0-1050.56~20.04.1.dsc": {
-              "size": 5096,
-              "md5": "f507bcfbe5f796bc9082901fd0580e4e"
+              "md5": "f507bcfbe5f796bc9082901fd0580e4e",
+              "size": 5096
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-intel-iotg-5.15/linux-signed-intel-iotg-5.15_5.15.0-1050.56~20.04.1.tar.xz": {
-              "size": 24732,
-              "md5": "536b0cc4f5f0643dd802271c1c005b9a"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-intel-iotg-5.15/linux-signed-intel-iotg-5.15_5.15.0-1050.56~20.04.1.dsc": {
+              "md5": "486626156ef8d3546a3448df6d5cd1be",
+              "size": 1889
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg-5.15/linux-meta-intel-iotg-5.15_5.15.0.1050.56~20.04.40.tar.xz": {
-              "size": 15380,
-              "md5": "a0767387e760d44ca1666301fe240bbd"
+              "md5": "a0767387e760d44ca1666301fe240bbd",
+              "size": 15380
             }
           }
         },
         "all": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-intel-iotg-5.15-headers-5.15.0-1050_5.15.0-1050.56~20.04.1_all.deb": {
-              "size": 12041408,
-              "md5": "3a48b1718e909811921732bc7773492f"
+              "md5": "3a48b1718e909811921732bc7773492f",
+              "size": 12041408
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-intel-iotg-5.15-tools-host_5.15.0-1050.56~20.04.1_all.deb": {
-              "size": 107940,
-              "md5": "204f0042e73daba153a713e4ade42694"
+              "md5": "204f0042e73daba153a713e4ade42694",
+              "size": 107940
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-intel-iotg-5.15-tools-common_5.15.0-1050.56~20.04.1_all.deb": {
-              "size": 306900,
-              "md5": "59970cb8f6753d98e0f622ce31997ab8"
+              "md5": "59970cb8f6753d98e0f622ce31997ab8",
+              "size": 306900
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-intel-iotg-5.15-cloud-tools-common_5.15.0-1050.56~20.04.1_all.deb": {
-              "size": 96660,
-              "md5": "a9968620a628424eabeb6e546d5f72eb"
+              "md5": "a9968620a628424eabeb6e546d5f72eb",
+              "size": 96660
             }
           }
         },
         "amd64": {
           "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg-5.15/linux-cloud-tools-intel_5.15.0.1050.56~20.04.40_amd64.deb": {
-              "size": 2484,
-              "md5": "735e3a940af47fba79507226b3fd0dbb"
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg-5.15/linux-tools-intel-iotg-edge_5.15.0.1050.56~20.04.40_amd64.deb": {
+              "md5": "0ea96ddba99e2ff6a717b630ffd8fad9",
+              "size": 2488
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg-5.15/linux-headers-intel-iotg_5.15.0.1050.56~20.04.40_amd64.deb": {
-              "size": 2476,
-              "md5": "fd89f12ee87fb5684dae73a18eedd6b1"
+              "md5": "fd89f12ee87fb5684dae73a18eedd6b1",
+              "size": 2476
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-modules-5.15.0-1050-intel-iotg_5.15.0-1050.56~20.04.1_amd64.deb": {
-              "size": 20857948,
-              "md5": "b5804dd1d0da38025546eb7a731b263b"
+              "md5": "b5804dd1d0da38025546eb7a731b263b",
+              "size": 20857948
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-intel-iotg-5.15-cloud-tools-5.15.0-1050_5.15.0-1050.56~20.04.1_amd64.deb": {
-              "size": 109144,
-              "md5": "2ee813412581dabf44182f2f4fb1930d"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg-5.15/linux-tools-intel-iotg-edge_5.15.0.1050.56~20.04.40_amd64.deb": {
-              "size": 2488,
-              "md5": "0ea96ddba99e2ff6a717b630ffd8fad9"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-headers-5.15.0-1050-intel-iotg_5.15.0-1050.56~20.04.1_amd64.deb": {
-              "size": 2768676,
-              "md5": "37f492ffea1b775a510243db993e7621"
+              "md5": "2ee813412581dabf44182f2f4fb1930d",
+              "size": 109144
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg-5.15/linux-image-intel_5.15.0.1050.56~20.04.40_amd64.deb": {
-              "size": 1872,
-              "md5": "085759cb82ff63fe0bbf8ddf695b3389"
+              "md5": "085759cb82ff63fe0bbf8ddf695b3389",
+              "size": 1872
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-headers-5.15.0-1050-intel-iotg_5.15.0-1050.56~20.04.1_amd64.deb": {
+              "md5": "37f492ffea1b775a510243db993e7621",
+              "size": 2768676
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg-5.15/linux-cloud-tools-intel_5.15.0.1050.56~20.04.40_amd64.deb": {
+              "md5": "735e3a940af47fba79507226b3fd0dbb",
+              "size": 2484
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg-5.15/linux-image-intel-iotg-edge_5.15.0.1050.56~20.04.40_amd64.deb": {
-              "size": 2584,
-              "md5": "db9e36971540aba2ab29b72d90a23f5b"
+              "md5": "db9e36971540aba2ab29b72d90a23f5b",
+              "size": 2584
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg-5.15/linux-intel_5.15.0.1050.56~20.04.40_amd64.deb": {
-              "size": 1876,
-              "md5": "e3a3e41a7a842c61336c2ad5a0963569"
+              "md5": "e3a3e41a7a842c61336c2ad5a0963569",
+              "size": 1876
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-tools-5.15.0-1050-intel-iotg_5.15.0-1050.56~20.04.1_amd64.deb": {
-              "size": 2020,
-              "md5": "445c4322f0735e3f78f8c8dd76886e3f"
+              "md5": "445c4322f0735e3f78f8c8dd76886e3f",
+              "size": 2020
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg-5.15/linux-tools-intel-iotg_5.15.0.1050.56~20.04.40_amd64.deb": {
-              "size": 2480,
-              "md5": "7f5dff939357ff666dea1b15cdce4325"
+              "md5": "7f5dff939357ff666dea1b15cdce4325",
+              "size": 2480
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-modules-iwlwifi-5.15.0-1050-intel-iotg_5.15.0-1050.56~20.04.1_amd64.deb": {
-              "size": 1172512,
-              "md5": "a8eb1a653f5fffca6520a7c6331eda37"
+              "md5": "a8eb1a653f5fffca6520a7c6331eda37",
+              "size": 1172512
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg-5.15/linux-tools-intel_5.15.0.1050.56~20.04.40_amd64.deb": {
-              "size": 1872,
-              "md5": "65125503bc336daa3cca9c631c72159c"
+              "md5": "65125503bc336daa3cca9c631c72159c",
+              "size": 1872
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg-5.15/linux-intel-iotg-edge_5.15.0.1050.56~20.04.40_amd64.deb": {
-              "size": 1888,
-              "md5": "f4d297ee0c649e017a8af35f4bcd2723"
+              "md5": "f4d297ee0c649e017a8af35f4bcd2723",
+              "size": 1888
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg-5.15/linux-intel-iotg_5.15.0.1050.56~20.04.40_amd64.deb": {
-              "size": 1924,
-              "md5": "03ce6d0e8b16495284d0160bd91046ba"
+              "md5": "03ce6d0e8b16495284d0160bd91046ba",
+              "size": 1924
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-image-unsigned-5.15.0-1050-intel-iotg_5.15.0-1050.56~20.04.1_amd64.deb": {
-              "size": 11653312,
-              "md5": "5bf98777f70952f1e5337b9ec426e32e"
+              "md5": "5bf98777f70952f1e5337b9ec426e32e",
+              "size": 11653312
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-intel-iotg-5.15-tools-5.15.0-1050_5.15.0-1050.56~20.04.1_amd64.deb": {
-              "size": 7326660,
-              "md5": "99272e228dea2bcb2da2ffbd9d19e9ed"
+              "md5": "99272e228dea2bcb2da2ffbd9d19e9ed",
+              "size": 7326660
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-intel-iotg-5.15/linux-image-5.15.0-1050-intel-iotg_5.15.0-1050.56~20.04.1_amd64.deb": {
-              "size": 11369972,
-              "md5": "a5ec6ed45e72bf7fe9c6b64680b77c6b"
+              "md5": "a5ec6ed45e72bf7fe9c6b64680b77c6b",
+              "size": 11369972
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg-5.15/linux-image-intel-iotg_5.15.0.1050.56~20.04.40_amd64.deb": {
-              "size": 2584,
-              "md5": "56c37b67a07705fdbd5be7c9ae154da0"
+              "md5": "56c37b67a07705fdbd5be7c9ae154da0",
+              "size": 2584
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-modules-extra-5.15.0-1050-intel-iotg_5.15.0-1050.56~20.04.1_amd64.deb": {
-              "size": 58213592,
-              "md5": "54a20dcec1bbe036103661e186d1aee9"
+              "md5": "54a20dcec1bbe036103661e186d1aee9",
+              "size": 58213592
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-buildinfo-5.15.0-1050-intel-iotg_5.15.0-1050.56~20.04.1_amd64.deb": {
-              "size": 509884,
-              "md5": "d7c0faebfb0f1b3c290ad897ef94e25a"
+              "md5": "d7c0faebfb0f1b3c290ad897ef94e25a",
+              "size": 509884
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg-5.15/linux-cloud-tools-5.15.0-1050-intel-iotg_5.15.0-1050.56~20.04.1_amd64.deb": {
-              "size": 1904,
-              "md5": "b91fd3b0aa1f8343ca43032903975545"
+              "md5": "b91fd3b0aa1f8343ca43032903975545",
+              "size": 1904
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg-5.15/linux-headers-intel-iotg-edge_5.15.0.1050.56~20.04.40_amd64.deb": {
-              "size": 2480,
-              "md5": "340254edb8f75e8597f1692738fc2280"
+              "md5": "340254edb8f75e8597f1692738fc2280",
+              "size": 2480
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg-5.15/linux-headers-intel_5.15.0.1050.56~20.04.40_amd64.deb": {
-              "size": 1872,
-              "md5": "5df65021dfa9336798cdf89ffec0e0a5"
+              "md5": "5df65021dfa9336798cdf89ffec0e0a5",
+              "size": 1872
             }
           }
         }
@@ -557,6 +557,8 @@
   "timestamp": 1711573431.3149588,
   "summary": "linux-intel-iotg, linux-intel-iotg-5.15 vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
+  "isummary": "Several security issues were fixed in the Linux kernel.\n",
+  "id": "USN-6686-5",
   "cves": [
     "CVE-2023-22995",
     "CVE-2023-4134",
@@ -567,7 +569,5 @@
     "CVE-2023-6121",
     "CVE-2024-0340",
     "CVE-2024-0607"
-  ],
-  "id": "USN-6686-5",
-  "isummary": "Several security issues were fixed in the Linux kernel.\n"
+  ]
 }

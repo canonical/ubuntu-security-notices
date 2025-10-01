@@ -1,4 +1,401 @@
 {
+  "description": "It was discovered that the ATA over Ethernet (AoE) driver in the Linux\nkernel contained a race condition, leading to a use-after-free\nvulnerability. An attacker could use this to cause a denial of service or\npossibly execute arbitrary code. (CVE-2023-6270)\n\nIt was discovered that the Atheros 802.11ac wireless driver did not\nproperly validate certain data structures, leading to a NULL pointer\ndereference. An attacker could possibly use this to cause a denial of\nservice. (CVE-2023-7042)\n\nIt was discovered that the HugeTLB file system component of the Linux\nKernel contained a NULL pointer dereference vulnerability. A privileged\nattacker could possibly use this to to cause a denial of service.\n(CVE-2024-0841)\n\nYuxuan Hu discovered that the Bluetooth RFCOMM protocol driver in the Linux\nKernel contained a race condition, leading to a NULL pointer dereference.\nAn attacker could possibly use this to cause a denial of service (system\ncrash). (CVE-2024-22099)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM32 architecture;\n  - RISC-V architecture;\n  - x86 architecture;\n  - ACPI drivers;\n  - Block layer subsystem;\n  - Clock framework and drivers;\n  - CPU frequency scaling framework;\n  - Cryptographic API;\n  - DMA engine subsystem;\n  - EFI core;\n  - GPU drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - Multiple devices driver;\n  - Media drivers;\n  - MMC subsystem;\n  - Network drivers;\n  - NTB driver;\n  - NVME drivers;\n  - PCI subsystem;\n  - MediaTek PM domains;\n  - Power supply drivers;\n  - SPI subsystem;\n  - Media staging drivers;\n  - TCM subsystem;\n  - USB subsystem;\n  - Framebuffer layer;\n  - AFS file system;\n  - File systems infrastructure;\n  - BTRFS file system;\n  - EROFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - Network file system client;\n  - NTFS3 file system;\n  - Diskquota system;\n  - SMB network file system;\n  - BPF subsystem;\n  - Netfilter;\n  - TLS protocol;\n  - io_uring subsystem;\n  - Bluetooth subsystem;\n  - Memory management;\n  - Ethernet bridge;\n  - Networking core;\n  - HSR network protocol;\n  - IPv4 networking;\n  - IPv6 networking;\n  - L2TP protocol;\n  - MAC80211 subsystem;\n  - Multipath TCP;\n  - Netlink;\n  - NET/ROM layer;\n  - Packet sockets;\n  - RDS protocol;\n  - Sun RPC protocol;\n  - Unix domain sockets;\n  - Wireless networking;\n  - USB sound devices;\n(CVE-2024-35830, CVE-2024-27052, CVE-2023-52620, CVE-2024-26903,\nCVE-2024-27413, CVE-2024-26766, CVE-2024-27077, CVE-2024-27044,\nCVE-2024-27076, CVE-2024-26833, CVE-2024-26874, CVE-2024-26863,\nCVE-2023-52650, CVE-2024-26820, CVE-2024-26787, CVE-2023-52656,\nCVE-2024-26651, CVE-2024-27065, CVE-2024-27053, CVE-2024-26583,\nCVE-2024-26774, CVE-2024-26782, CVE-2023-52640, CVE-2024-26838,\nCVE-2024-27410, CVE-2024-26870, CVE-2024-27024, CVE-2024-26891,\nCVE-2024-26889, CVE-2024-26897, CVE-2024-26857, CVE-2023-52434,\nCVE-2023-52645, CVE-2024-26901, CVE-2024-26872, CVE-2024-27051,\nCVE-2024-27388, CVE-2024-26584, CVE-2024-26802, CVE-2024-26733,\nCVE-2024-27419, CVE-2023-52447, CVE-2024-27054, CVE-2024-26840,\nCVE-2024-27038, CVE-2024-27028, CVE-2024-26883, CVE-2024-27074,\nCVE-2024-26735, CVE-2024-26852, CVE-2024-27034, CVE-2024-26744,\nCVE-2024-26907, CVE-2024-26777, CVE-2024-26835, CVE-2024-35845,\nCVE-2024-35828, CVE-2024-27037, CVE-2024-26764, CVE-2024-26798,\nCVE-2024-27414, CVE-2024-26878, CVE-2024-27390, CVE-2024-26856,\nCVE-2024-26884, CVE-2024-26779, CVE-2024-26895, CVE-2024-27436,\nCVE-2023-52641, CVE-2024-27039, CVE-2024-26776, CVE-2024-26749,\nCVE-2024-27047, CVE-2024-26882, CVE-2023-52652, CVE-2023-52662,\nCVE-2024-26763, CVE-2024-27030, CVE-2024-26772, CVE-2024-26859,\nCVE-2024-26791, CVE-2024-26788, CVE-2024-27046, CVE-2024-26736,\nCVE-2024-26750, CVE-2024-26801, CVE-2024-35811, CVE-2024-26737,\nCVE-2024-27416, CVE-2024-26769, CVE-2024-26906, CVE-2024-26795,\nCVE-2024-27417, CVE-2024-27078, CVE-2024-26790, CVE-2024-27403,\nCVE-2024-27045, CVE-2024-27073, CVE-2024-26585, CVE-2024-26754,\nCVE-2024-27075, CVE-2024-26877, CVE-2024-26861, CVE-2024-27432,\nCVE-2024-27415, CVE-2024-26752, CVE-2024-26601, CVE-2024-26843,\nCVE-2024-26881, CVE-2024-26743, CVE-2024-26792, CVE-2024-26816,\nCVE-2024-26915, CVE-2024-26809, CVE-2024-26862, CVE-2024-26771,\nCVE-2023-52644, CVE-2024-26747, CVE-2024-35844, CVE-2024-26875,\nCVE-2024-26778, CVE-2024-26880, CVE-2024-26846, CVE-2024-27043,\nCVE-2024-26885, CVE-2024-26773, CVE-2023-52497, CVE-2024-35829,\nCVE-2024-26845, CVE-2024-27412, CVE-2024-26894, CVE-2024-26851,\nCVE-2024-26855, CVE-2024-26879, CVE-2024-26803, CVE-2024-26804,\nCVE-2024-26688, CVE-2024-26839, CVE-2024-26793, CVE-2024-26659,\nCVE-2024-26603, CVE-2024-27431, CVE-2024-26751, CVE-2024-27405,\nCVE-2024-26898, CVE-2024-26748, CVE-2024-26805)\n",
+  "releases": {
+    "jammy": {
+      "allbinaries": {
+        "linux-tools-azure-fde-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-azure-fde",
+          "version": "5.15.0.1065.74.43"
+        },
+        "linux-buildinfo-5.15.0-1066-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "5.15.0-1066.75"
+        },
+        "linux-azure-tools-5.15.0-1066": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "5.15.0-1066.75"
+        },
+        "linux-image-azure-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "5.15.0.1066.64"
+        },
+        "linux-azure-headers-5.15.0-1066": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "5.15.0-1066.75"
+        },
+        "linux-headers-5.15.0-1066-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "5.15.0-1066.75"
+        },
+        "linux-tools-5.15.0-1066-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "5.15.0-1066.75"
+        },
+        "linux-image-5.15.0-1065-azure-fde": {
+          "pocket": "security",
+          "source": "linux-signed-azure-fde",
+          "version": "5.15.0-1065.74.1"
+        },
+        "linux-headers-azure-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "5.15.0.1066.64"
+        },
+        "linux-image-unsigned-5.15.0-1065-azure-fde": {
+          "pocket": "security",
+          "source": "linux-azure-fde",
+          "version": "5.15.0-1065.74.1"
+        },
+        "linux-modules-extra-azure-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "5.15.0.1066.64"
+        },
+        "linux-cloud-tools-5.15.0-1066-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "5.15.0-1066.75"
+        },
+        "linux-tools-azure-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "5.15.0.1066.64"
+        },
+        "linux-image-unsigned-5.15.0-1066-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "5.15.0-1066.75"
+        },
+        "linux-headers-azure-fde-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-azure-fde",
+          "version": "5.15.0.1065.74.43"
+        },
+        "linux-cloud-tools-azure-fde-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-azure-fde",
+          "version": "5.15.0.1065.74.43"
+        },
+        "linux-modules-5.15.0-1066-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "5.15.0-1066.75"
+        },
+        "linux-modules-extra-5.15.0-1066-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "5.15.0-1066.75"
+        },
+        "linux-azure-cloud-tools-5.15.0-1066": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "5.15.0-1066.75"
+        },
+        "linux-image-5.15.0-1066-azure": {
+          "pocket": "security",
+          "source": "linux-signed-azure",
+          "version": "5.15.0-1066.75"
+        },
+        "linux-cloud-tools-azure-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "5.15.0.1066.64"
+        },
+        "linux-azure-fde-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-azure-fde",
+          "version": "5.15.0.1065.74.43"
+        },
+        "linux-azure-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "5.15.0.1066.64"
+        },
+        "linux-image-azure-fde-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-azure-fde",
+          "version": "5.15.0.1065.74.43"
+        },
+        "linux-modules-extra-azure-fde-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-azure-fde",
+          "version": "5.15.0.1065.74.43"
+        }
+      },
+      "binaries": {
+        "linux-image-5.15.0-1065-azure-fde": {
+          "pocket": "security",
+          "version": "5.15.0-1065.74.1"
+        },
+        "linux-image-azure-fde-lts-22.04": {
+          "pocket": "security",
+          "version": "5.15.0.1065.74.43"
+        },
+        "linux-image-5.15.0-1066-azure": {
+          "pocket": "security",
+          "version": "5.15.0-1066.75"
+        },
+        "linux-image-azure-lts-22.04": {
+          "pocket": "security",
+          "version": "5.15.0.1066.64"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-fde/linux-meta-azure-fde_5.15.0.1065.74.43.dsc": {
+              "size": 2289,
+              "md5": "eb0405358827191681cc8e288305abbb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_5.15.0.orig.tar.gz": {
+              "size": 194969557,
+              "md5": "cd30827a862b74fe1e5174e6aee8e534"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-fde/linux-meta-azure-fde_5.15.0.1065.74.43.tar.xz": {
+              "size": 6972,
+              "md5": "1fbafbb8c44a00d24bd26331c80bfab0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-signed-azure_5.15.0-1066.75.tar.xz": {
+              "size": 13448,
+              "md5": "d7eb65bf28cbf28d4e1a256fba066542"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-fde/linux-azure-fde_5.15.0-1065.74.1.tar.xz": {
+              "size": 9416,
+              "md5": "d6213d55aaad1ccc3a7c250750d39910"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_5.15.0-1066.75.dsc": {
+              "size": 4545,
+              "md5": "f5de6ad8655e7a4ab4ee787f2210eb66"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-signed-azure_5.15.0-1066.75.dsc": {
+              "size": 1888,
+              "md5": "ecc65f825eb00aca7d3ac722cd567730"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-meta-azure_5.15.0.1066.64.tar.xz": {
+              "size": 6324,
+              "md5": "7df396c89261b96c344ef1e624f6351b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-meta-azure_5.15.0.1066.64.dsc": {
+              "size": 2303,
+              "md5": "c5c159cef8e013d1baae68b7d981ab00"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure-fde/linux-signed-azure-fde_5.15.0-1065.74.1.dsc": {
+              "size": 1826,
+              "md5": "b81c49df4cc1c83dc9e378ed3a8ef943"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_5.15.0-1066.75.diff.gz": {
+              "size": 10532970,
+              "md5": "5f9819b78b2bd71e30a83bf20bec08e7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-fde/linux-azure-fde_5.15.0-1065.74.1.dsc": {
+              "size": 2031,
+              "md5": "1d4ebfdee1d7aeef68310034fa442515"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure-fde/linux-signed-azure-fde_5.15.0-1065.74.1.tar.xz": {
+              "size": 9912,
+              "md5": "f2940d8b1749f720dce29f9996ea2922"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-headers-5.15.0-1066_5.15.0-1066.75_all.deb": {
+              "size": 12332782,
+              "md5": "737c9fb180dbde5d02eaf799884e7962"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-fde/linux-modules-extra-azure-fde-lts-22.04_5.15.0.1065.74.43_amd64.deb": {
+              "size": 3208,
+              "md5": "ca9c46564746bd734da5559965f30a8e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-tools-azure-lts-22.04_5.15.0.1066.64_amd64.deb": {
+              "size": 2346,
+              "md5": "3b3311924a771ae8ffac29946dfc8db8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-headers-5.15.0-1066-azure_5.15.0-1066.75_amd64.deb": {
+              "size": 2670846,
+              "md5": "4b9e611018fa7963409ce963ae359f75"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-fde/linux-cloud-tools-azure-fde-lts-22.04_5.15.0.1065.74.43_amd64.deb": {
+              "size": 3178,
+              "md5": "5ac0fd738b9d1eb6428dbc6fba8942cd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-cloud-tools-5.15.0-1066-azure_5.15.0-1066.75_amd64.deb": {
+              "size": 1690,
+              "md5": "cf6913b49a6f5e070cc16fd952b75730"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-headers-azure-lts-22.04_5.15.0.1066.64_amd64.deb": {
+              "size": 2342,
+              "md5": "bce9ac0d01c2c8ff4cc9e2f0b2807290"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-fde/linux-tools-azure-fde-lts-22.04_5.15.0.1065.74.43_amd64.deb": {
+              "size": 3170,
+              "md5": "8d2ec4bd12d0d8212c4f9538ab863efe"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-fde/linux-azure-fde-lts-22.04_5.15.0.1065.74.43_amd64.deb": {
+              "size": 3216,
+              "md5": "e22ab8ba524aae9e49bc7b8048551020"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-cloud-tools-azure-lts-22.04_5.15.0.1066.64_amd64.deb": {
+              "size": 2364,
+              "md5": "035492599e5cbecb5d1c38e6dfa766f2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-fde/linux-image-unsigned-5.15.0-1065-azure-fde_5.15.0-1065.74.1_amd64.deb": {
+              "size": 42493330,
+              "md5": "6e3be19c31c5b8812d4cc1754028ca83"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure-fde/linux-image-5.15.0-1065-azure-fde_5.15.0-1065.74.1_amd64.deb": {
+              "size": 42494488,
+              "md5": "89deea9c78a8c1c962d5d9213175b7f1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-tools-5.15.0-1066-azure_5.15.0-1066.75_amd64.deb": {
+              "size": 1756,
+              "md5": "f8cd2d5fb1daf5ed331d46588a9e34cd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-image-unsigned-5.15.0-1066-azure_5.15.0-1066.75_amd64.deb": {
+              "size": 11387072,
+              "md5": "5e69111199fff672f6d4dafe323a5da4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-image-5.15.0-1066-azure_5.15.0-1066.75_amd64.deb": {
+              "size": 11115318,
+              "md5": "9d1dfc1016aca3711c8615089376b32f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-modules-extra-azure-lts-22.04_5.15.0.1066.64_amd64.deb": {
+              "size": 2378,
+              "md5": "9ee9b11351a80548d90c3a6d3a2ab645"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-azure-lts-22.04_5.15.0.1066.64_amd64.deb": {
+              "size": 1720,
+              "md5": "c49b6ef262ca07497cacd47b2ae3ea3b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-tools-5.15.0-1066_5.15.0-1066.75_amd64.deb": {
+              "size": 7523834,
+              "md5": "6e76af06522f8edeeafc8e479bb7fd28"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-buildinfo-5.15.0-1066-azure_5.15.0-1066.75_amd64.deb": {
+              "size": 397480,
+              "md5": "90b42222e777457ef9e6f8334827a256"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-fde/linux-image-azure-fde-lts-22.04_5.15.0.1065.74.43_amd64.deb": {
+              "size": 3150,
+              "md5": "a7f694e5af5dde380b8240310ae1fbb9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-cloud-tools-5.15.0-1066_5.15.0-1066.75_amd64.deb": {
+              "size": 96244,
+              "md5": "0bff6fc4c2f62b372ac693d1f5e4589b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-modules-5.15.0-1066-azure_5.15.0-1066.75_amd64.deb": {
+              "size": 20271288,
+              "md5": "dd4fbc5205e2af7b125d77aae52f6db9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-modules-extra-5.15.0-1066-azure_5.15.0-1066.75_amd64.deb": {
+              "size": 29622942,
+              "md5": "33672fc509fb7e3003921ee87569e3a7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-image-azure-lts-22.04_5.15.0.1066.64_amd64.deb": {
+              "size": 2418,
+              "md5": "b1d08df87eb30a4eecafa7ec033b4d0d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-fde/linux-headers-azure-fde-lts-22.04_5.15.0.1065.74.43_amd64.deb": {
+              "size": 3156,
+              "md5": "ff92f412d32a91be444f50c95a4b586d"
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-headers-azure-lts-22.04_5.15.0.1066.64_arm64.deb": {
+              "size": 2342,
+              "md5": "3f2291bfe94d09f85a51951a21fc068d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-headers-5.15.0-1066-azure_5.15.0-1066.75_arm64.deb": {
+              "size": 2374740,
+              "md5": "ba67df182c6dacd7a04528d42f8d7dda"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-azure-tools-5.15.0-1066_5.15.0-1066.75_arm64.deb": {
+              "size": 6826766,
+              "md5": "d4327dfa1ba2cc818628cd986d0c9f7c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-azure-lts-22.04_5.15.0.1066.64_arm64.deb": {
+              "size": 1720,
+              "md5": "4f8f2e18233703117d43d9a811254cb2"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-image-unsigned-5.15.0-1066-azure_5.15.0-1066.75_arm64.deb": {
+              "size": 14940352,
+              "md5": "80d1cbe736b12a94dbc2aff01ff1eb3c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-modules-extra-azure-lts-22.04_5.15.0.1066.64_arm64.deb": {
+              "size": 2380,
+              "md5": "5a8b9b4202e6796b6bd1397fc945fe85"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-tools-5.15.0-1066-azure_5.15.0-1066.75_arm64.deb": {
+              "size": 1698,
+              "md5": "6512ae3dbb2912812d789d223dabd873"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-image-azure-lts-22.04_5.15.0.1066.64_arm64.deb": {
+              "size": 2418,
+              "md5": "a97a1cf807616b6c78254198bdf12a28"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-buildinfo-5.15.0-1066-azure_5.15.0-1066.75_arm64.deb": {
+              "size": 414694,
+              "md5": "beb6dc13e76640b52c853a9c7b82c533"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-modules-5.15.0-1066-azure_5.15.0-1066.75_arm64.deb": {
+              "size": 19499466,
+              "md5": "fe9b82a09f81ab4bcd855f702046b1c6"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-modules-extra-5.15.0-1066-azure_5.15.0-1066.75_arm64.deb": {
+              "size": 32383520,
+              "md5": "edef857f9281503025fe24218aba21e3"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-tools-azure-lts-22.04_5.15.0.1066.64_arm64.deb": {
+              "size": 2346,
+              "md5": "ec102b61e39f0836a36bfd707adc4470"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-cloud-tools-azure-lts-22.04_5.15.0.1066.64_arm64.deb": {
+              "size": 2364,
+              "md5": "5db5ba1122f1f8ca4c15bb9798d9fd60"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-azure-cloud-tools-5.15.0-1066_5.15.0-1066.75_arm64.deb": {
+              "size": 95788,
+              "md5": "810517cd66b76033e8081951e18da0fb"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-azure/linux-image-5.15.0-1066-azure_5.15.0-1066.75_arm64.deb": {
+              "size": 14600046,
+              "md5": "b252789dfb413e681cc50c38e335fff6"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-cloud-tools-5.15.0-1066-azure_5.15.0-1066.75_arm64.deb": {
+              "size": 1688,
+              "md5": "f9b56c08f4530c06e38c3c7e3926d767"
+            }
+          }
+        }
+      },
+      "sources": {
+        "linux-azure-fde": {
+          "version": "5.15.0-1065.74.1",
+          "description": "Linux kernel for Microsoft Azure CVM cloud systems"
+        },
+        "linux-azure": {
+          "version": "5.15.0-1066.75",
+          "description": "Linux kernel for Microsoft Azure Cloud systems"
+        }
+      }
+    }
+  },
+  "title": "Linux kernel (Azure) vulnerabilities",
+  "timestamp": 1718379564.9162621,
+  "summary": "linux-azure, linux-azure-fde vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
   "cves": [
     "CVE-2023-52434",
@@ -153,403 +550,6 @@
     "CVE-2024-35844",
     "CVE-2024-35845"
   ],
-  "description": "It was discovered that the ATA over Ethernet (AoE) driver in the Linux\nkernel contained a race condition, leading to a use-after-free\nvulnerability. An attacker could use this to cause a denial of service or\npossibly execute arbitrary code. (CVE-2023-6270)\n\nIt was discovered that the Atheros 802.11ac wireless driver did not\nproperly validate certain data structures, leading to a NULL pointer\ndereference. An attacker could possibly use this to cause a denial of\nservice. (CVE-2023-7042)\n\nIt was discovered that the HugeTLB file system component of the Linux\nKernel contained a NULL pointer dereference vulnerability. A privileged\nattacker could possibly use this to to cause a denial of service.\n(CVE-2024-0841)\n\nYuxuan Hu discovered that the Bluetooth RFCOMM protocol driver in the Linux\nKernel contained a race condition, leading to a NULL pointer dereference.\nAn attacker could possibly use this to cause a denial of service (system\ncrash). (CVE-2024-22099)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM32 architecture;\n  - RISC-V architecture;\n  - x86 architecture;\n  - ACPI drivers;\n  - Block layer subsystem;\n  - Clock framework and drivers;\n  - CPU frequency scaling framework;\n  - Cryptographic API;\n  - DMA engine subsystem;\n  - EFI core;\n  - GPU drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - Multiple devices driver;\n  - Media drivers;\n  - MMC subsystem;\n  - Network drivers;\n  - NTB driver;\n  - NVME drivers;\n  - PCI subsystem;\n  - MediaTek PM domains;\n  - Power supply drivers;\n  - SPI subsystem;\n  - Media staging drivers;\n  - TCM subsystem;\n  - USB subsystem;\n  - Framebuffer layer;\n  - AFS file system;\n  - File systems infrastructure;\n  - BTRFS file system;\n  - EROFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - Network file system client;\n  - NTFS3 file system;\n  - Diskquota system;\n  - SMB network file system;\n  - BPF subsystem;\n  - Netfilter;\n  - TLS protocol;\n  - io_uring subsystem;\n  - Bluetooth subsystem;\n  - Memory management;\n  - Ethernet bridge;\n  - Networking core;\n  - HSR network protocol;\n  - IPv4 networking;\n  - IPv6 networking;\n  - L2TP protocol;\n  - MAC80211 subsystem;\n  - Multipath TCP;\n  - Netlink;\n  - NET/ROM layer;\n  - Packet sockets;\n  - RDS protocol;\n  - Sun RPC protocol;\n  - Unix domain sockets;\n  - Wireless networking;\n  - USB sound devices;\n(CVE-2024-35830, CVE-2024-27052, CVE-2023-52620, CVE-2024-26903,\nCVE-2024-27413, CVE-2024-26766, CVE-2024-27077, CVE-2024-27044,\nCVE-2024-27076, CVE-2024-26833, CVE-2024-26874, CVE-2024-26863,\nCVE-2023-52650, CVE-2024-26820, CVE-2024-26787, CVE-2023-52656,\nCVE-2024-26651, CVE-2024-27065, CVE-2024-27053, CVE-2024-26583,\nCVE-2024-26774, CVE-2024-26782, CVE-2023-52640, CVE-2024-26838,\nCVE-2024-27410, CVE-2024-26870, CVE-2024-27024, CVE-2024-26891,\nCVE-2024-26889, CVE-2024-26897, CVE-2024-26857, CVE-2023-52434,\nCVE-2023-52645, CVE-2024-26901, CVE-2024-26872, CVE-2024-27051,\nCVE-2024-27388, CVE-2024-26584, CVE-2024-26802, CVE-2024-26733,\nCVE-2024-27419, CVE-2023-52447, CVE-2024-27054, CVE-2024-26840,\nCVE-2024-27038, CVE-2024-27028, CVE-2024-26883, CVE-2024-27074,\nCVE-2024-26735, CVE-2024-26852, CVE-2024-27034, CVE-2024-26744,\nCVE-2024-26907, CVE-2024-26777, CVE-2024-26835, CVE-2024-35845,\nCVE-2024-35828, CVE-2024-27037, CVE-2024-26764, CVE-2024-26798,\nCVE-2024-27414, CVE-2024-26878, CVE-2024-27390, CVE-2024-26856,\nCVE-2024-26884, CVE-2024-26779, CVE-2024-26895, CVE-2024-27436,\nCVE-2023-52641, CVE-2024-27039, CVE-2024-26776, CVE-2024-26749,\nCVE-2024-27047, CVE-2024-26882, CVE-2023-52652, CVE-2023-52662,\nCVE-2024-26763, CVE-2024-27030, CVE-2024-26772, CVE-2024-26859,\nCVE-2024-26791, CVE-2024-26788, CVE-2024-27046, CVE-2024-26736,\nCVE-2024-26750, CVE-2024-26801, CVE-2024-35811, CVE-2024-26737,\nCVE-2024-27416, CVE-2024-26769, CVE-2024-26906, CVE-2024-26795,\nCVE-2024-27417, CVE-2024-27078, CVE-2024-26790, CVE-2024-27403,\nCVE-2024-27045, CVE-2024-27073, CVE-2024-26585, CVE-2024-26754,\nCVE-2024-27075, CVE-2024-26877, CVE-2024-26861, CVE-2024-27432,\nCVE-2024-27415, CVE-2024-26752, CVE-2024-26601, CVE-2024-26843,\nCVE-2024-26881, CVE-2024-26743, CVE-2024-26792, CVE-2024-26816,\nCVE-2024-26915, CVE-2024-26809, CVE-2024-26862, CVE-2024-26771,\nCVE-2023-52644, CVE-2024-26747, CVE-2024-35844, CVE-2024-26875,\nCVE-2024-26778, CVE-2024-26880, CVE-2024-26846, CVE-2024-27043,\nCVE-2024-26885, CVE-2024-26773, CVE-2023-52497, CVE-2024-35829,\nCVE-2024-26845, CVE-2024-27412, CVE-2024-26894, CVE-2024-26851,\nCVE-2024-26855, CVE-2024-26879, CVE-2024-26803, CVE-2024-26804,\nCVE-2024-26688, CVE-2024-26839, CVE-2024-26793, CVE-2024-26659,\nCVE-2024-26603, CVE-2024-27431, CVE-2024-26751, CVE-2024-27405,\nCVE-2024-26898, CVE-2024-26748, CVE-2024-26805)\n",
   "id": "USN-6821-4",
-  "isummary": "Several security issues were fixed in the Linux kernel.\n",
-  "releases": {
-    "jammy": {
-      "allbinaries": {
-        "linux-azure-cloud-tools-5.15.0-1066": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "5.15.0-1066.75"
-        },
-        "linux-azure-fde-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-azure-fde",
-          "version": "5.15.0.1065.74.43"
-        },
-        "linux-azure-headers-5.15.0-1066": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "5.15.0-1066.75"
-        },
-        "linux-azure-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "5.15.0.1066.64"
-        },
-        "linux-azure-tools-5.15.0-1066": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "5.15.0-1066.75"
-        },
-        "linux-buildinfo-5.15.0-1066-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "5.15.0-1066.75"
-        },
-        "linux-cloud-tools-5.15.0-1066-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "5.15.0-1066.75"
-        },
-        "linux-cloud-tools-azure-fde-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-azure-fde",
-          "version": "5.15.0.1065.74.43"
-        },
-        "linux-cloud-tools-azure-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "5.15.0.1066.64"
-        },
-        "linux-headers-5.15.0-1066-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "5.15.0-1066.75"
-        },
-        "linux-headers-azure-fde-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-azure-fde",
-          "version": "5.15.0.1065.74.43"
-        },
-        "linux-headers-azure-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "5.15.0.1066.64"
-        },
-        "linux-image-5.15.0-1065-azure-fde": {
-          "pocket": "security",
-          "source": "linux-signed-azure-fde",
-          "version": "5.15.0-1065.74.1"
-        },
-        "linux-image-5.15.0-1066-azure": {
-          "pocket": "security",
-          "source": "linux-signed-azure",
-          "version": "5.15.0-1066.75"
-        },
-        "linux-image-azure-fde-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-azure-fde",
-          "version": "5.15.0.1065.74.43"
-        },
-        "linux-image-azure-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "5.15.0.1066.64"
-        },
-        "linux-image-unsigned-5.15.0-1065-azure-fde": {
-          "pocket": "security",
-          "source": "linux-azure-fde",
-          "version": "5.15.0-1065.74.1"
-        },
-        "linux-image-unsigned-5.15.0-1066-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "5.15.0-1066.75"
-        },
-        "linux-modules-5.15.0-1066-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "5.15.0-1066.75"
-        },
-        "linux-modules-extra-5.15.0-1066-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "5.15.0-1066.75"
-        },
-        "linux-modules-extra-azure-fde-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-azure-fde",
-          "version": "5.15.0.1065.74.43"
-        },
-        "linux-modules-extra-azure-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "5.15.0.1066.64"
-        },
-        "linux-tools-5.15.0-1066-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "5.15.0-1066.75"
-        },
-        "linux-tools-azure-fde-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-azure-fde",
-          "version": "5.15.0.1065.74.43"
-        },
-        "linux-tools-azure-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "5.15.0.1066.64"
-        }
-      },
-      "archs": {
-        "all": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-headers-5.15.0-1066_5.15.0-1066.75_all.deb": {
-              "md5": "737c9fb180dbde5d02eaf799884e7962",
-              "size": 12332782
-            }
-          }
-        },
-        "amd64": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-fde/linux-image-unsigned-5.15.0-1065-azure-fde_5.15.0-1065.74.1_amd64.deb": {
-              "md5": "6e3be19c31c5b8812d4cc1754028ca83",
-              "size": 42493330
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-cloud-tools-5.15.0-1066_5.15.0-1066.75_amd64.deb": {
-              "md5": "0bff6fc4c2f62b372ac693d1f5e4589b",
-              "size": 96244
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-tools-5.15.0-1066_5.15.0-1066.75_amd64.deb": {
-              "md5": "6e76af06522f8edeeafc8e479bb7fd28",
-              "size": 7523834
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-buildinfo-5.15.0-1066-azure_5.15.0-1066.75_amd64.deb": {
-              "md5": "90b42222e777457ef9e6f8334827a256",
-              "size": 397480
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-cloud-tools-5.15.0-1066-azure_5.15.0-1066.75_amd64.deb": {
-              "md5": "cf6913b49a6f5e070cc16fd952b75730",
-              "size": 1690
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-headers-5.15.0-1066-azure_5.15.0-1066.75_amd64.deb": {
-              "md5": "4b9e611018fa7963409ce963ae359f75",
-              "size": 2670846
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-image-unsigned-5.15.0-1066-azure_5.15.0-1066.75_amd64.deb": {
-              "md5": "5e69111199fff672f6d4dafe323a5da4",
-              "size": 11387072
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-modules-5.15.0-1066-azure_5.15.0-1066.75_amd64.deb": {
-              "md5": "dd4fbc5205e2af7b125d77aae52f6db9",
-              "size": 20271288
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-modules-extra-5.15.0-1066-azure_5.15.0-1066.75_amd64.deb": {
-              "md5": "33672fc509fb7e3003921ee87569e3a7",
-              "size": 29622942
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-tools-5.15.0-1066-azure_5.15.0-1066.75_amd64.deb": {
-              "md5": "f8cd2d5fb1daf5ed331d46588a9e34cd",
-              "size": 1756
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-fde/linux-azure-fde-lts-22.04_5.15.0.1065.74.43_amd64.deb": {
-              "md5": "e22ab8ba524aae9e49bc7b8048551020",
-              "size": 3216
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-fde/linux-cloud-tools-azure-fde-lts-22.04_5.15.0.1065.74.43_amd64.deb": {
-              "md5": "5ac0fd738b9d1eb6428dbc6fba8942cd",
-              "size": 3178
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-fde/linux-headers-azure-fde-lts-22.04_5.15.0.1065.74.43_amd64.deb": {
-              "md5": "ff92f412d32a91be444f50c95a4b586d",
-              "size": 3156
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-fde/linux-image-azure-fde-lts-22.04_5.15.0.1065.74.43_amd64.deb": {
-              "md5": "a7f694e5af5dde380b8240310ae1fbb9",
-              "size": 3150
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-fde/linux-modules-extra-azure-fde-lts-22.04_5.15.0.1065.74.43_amd64.deb": {
-              "md5": "ca9c46564746bd734da5559965f30a8e",
-              "size": 3208
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-fde/linux-tools-azure-fde-lts-22.04_5.15.0.1065.74.43_amd64.deb": {
-              "md5": "8d2ec4bd12d0d8212c4f9538ab863efe",
-              "size": 3170
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-azure-lts-22.04_5.15.0.1066.64_amd64.deb": {
-              "md5": "c49b6ef262ca07497cacd47b2ae3ea3b",
-              "size": 1720
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-cloud-tools-azure-lts-22.04_5.15.0.1066.64_amd64.deb": {
-              "md5": "035492599e5cbecb5d1c38e6dfa766f2",
-              "size": 2364
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-headers-azure-lts-22.04_5.15.0.1066.64_amd64.deb": {
-              "md5": "bce9ac0d01c2c8ff4cc9e2f0b2807290",
-              "size": 2342
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-image-azure-lts-22.04_5.15.0.1066.64_amd64.deb": {
-              "md5": "b1d08df87eb30a4eecafa7ec033b4d0d",
-              "size": 2418
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-modules-extra-azure-lts-22.04_5.15.0.1066.64_amd64.deb": {
-              "md5": "9ee9b11351a80548d90c3a6d3a2ab645",
-              "size": 2378
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-tools-azure-lts-22.04_5.15.0.1066.64_amd64.deb": {
-              "md5": "3b3311924a771ae8ffac29946dfc8db8",
-              "size": 2346
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure-fde/linux-image-5.15.0-1065-azure-fde_5.15.0-1065.74.1_amd64.deb": {
-              "md5": "89deea9c78a8c1c962d5d9213175b7f1",
-              "size": 42494488
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-image-5.15.0-1066-azure_5.15.0-1066.75_amd64.deb": {
-              "md5": "9d1dfc1016aca3711c8615089376b32f",
-              "size": 11115318
-            }
-          }
-        },
-        "arm64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-azure-cloud-tools-5.15.0-1066_5.15.0-1066.75_arm64.deb": {
-              "md5": "810517cd66b76033e8081951e18da0fb",
-              "size": 95788
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-azure-tools-5.15.0-1066_5.15.0-1066.75_arm64.deb": {
-              "md5": "d4327dfa1ba2cc818628cd986d0c9f7c",
-              "size": 6826766
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-buildinfo-5.15.0-1066-azure_5.15.0-1066.75_arm64.deb": {
-              "md5": "beb6dc13e76640b52c853a9c7b82c533",
-              "size": 414694
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-cloud-tools-5.15.0-1066-azure_5.15.0-1066.75_arm64.deb": {
-              "md5": "f9b56c08f4530c06e38c3c7e3926d767",
-              "size": 1688
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-headers-5.15.0-1066-azure_5.15.0-1066.75_arm64.deb": {
-              "md5": "ba67df182c6dacd7a04528d42f8d7dda",
-              "size": 2374740
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-image-unsigned-5.15.0-1066-azure_5.15.0-1066.75_arm64.deb": {
-              "md5": "80d1cbe736b12a94dbc2aff01ff1eb3c",
-              "size": 14940352
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-modules-5.15.0-1066-azure_5.15.0-1066.75_arm64.deb": {
-              "md5": "fe9b82a09f81ab4bcd855f702046b1c6",
-              "size": 19499466
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-modules-extra-5.15.0-1066-azure_5.15.0-1066.75_arm64.deb": {
-              "md5": "edef857f9281503025fe24218aba21e3",
-              "size": 32383520
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-tools-5.15.0-1066-azure_5.15.0-1066.75_arm64.deb": {
-              "md5": "6512ae3dbb2912812d789d223dabd873",
-              "size": 1698
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-azure-lts-22.04_5.15.0.1066.64_arm64.deb": {
-              "md5": "4f8f2e18233703117d43d9a811254cb2",
-              "size": 1720
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-cloud-tools-azure-lts-22.04_5.15.0.1066.64_arm64.deb": {
-              "md5": "5db5ba1122f1f8ca4c15bb9798d9fd60",
-              "size": 2364
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-headers-azure-lts-22.04_5.15.0.1066.64_arm64.deb": {
-              "md5": "3f2291bfe94d09f85a51951a21fc068d",
-              "size": 2342
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-image-azure-lts-22.04_5.15.0.1066.64_arm64.deb": {
-              "md5": "a97a1cf807616b6c78254198bdf12a28",
-              "size": 2418
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-modules-extra-azure-lts-22.04_5.15.0.1066.64_arm64.deb": {
-              "md5": "5a8b9b4202e6796b6bd1397fc945fe85",
-              "size": 2380
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-tools-azure-lts-22.04_5.15.0.1066.64_arm64.deb": {
-              "md5": "ec102b61e39f0836a36bfd707adc4470",
-              "size": 2346
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-azure/linux-image-5.15.0-1066-azure_5.15.0-1066.75_arm64.deb": {
-              "md5": "b252789dfb413e681cc50c38e335fff6",
-              "size": 14600046
-            }
-          }
-        },
-        "source": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-fde/linux-azure-fde_5.15.0-1065.74.1.dsc": {
-              "md5": "1d4ebfdee1d7aeef68310034fa442515",
-              "size": 2031
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-fde/linux-azure-fde_5.15.0-1065.74.1.tar.xz": {
-              "md5": "d6213d55aaad1ccc3a7c250750d39910",
-              "size": 9416
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_5.15.0-1066.75.diff.gz": {
-              "md5": "5f9819b78b2bd71e30a83bf20bec08e7",
-              "size": 10532970
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_5.15.0-1066.75.dsc": {
-              "md5": "f5de6ad8655e7a4ab4ee787f2210eb66",
-              "size": 4545
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_5.15.0.orig.tar.gz": {
-              "md5": "cd30827a862b74fe1e5174e6aee8e534",
-              "size": 194969557
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-fde/linux-meta-azure-fde_5.15.0.1065.74.43.dsc": {
-              "md5": "eb0405358827191681cc8e288305abbb",
-              "size": 2289
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-fde/linux-meta-azure-fde_5.15.0.1065.74.43.tar.xz": {
-              "md5": "1fbafbb8c44a00d24bd26331c80bfab0",
-              "size": 6972
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-meta-azure_5.15.0.1066.64.dsc": {
-              "md5": "c5c159cef8e013d1baae68b7d981ab00",
-              "size": 2303
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-meta-azure_5.15.0.1066.64.tar.xz": {
-              "md5": "7df396c89261b96c344ef1e624f6351b",
-              "size": 6324
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure-fde/linux-signed-azure-fde_5.15.0-1065.74.1.dsc": {
-              "md5": "b81c49df4cc1c83dc9e378ed3a8ef943",
-              "size": 1826
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure-fde/linux-signed-azure-fde_5.15.0-1065.74.1.tar.xz": {
-              "md5": "f2940d8b1749f720dce29f9996ea2922",
-              "size": 9912
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-signed-azure_5.15.0-1066.75.dsc": {
-              "md5": "ecc65f825eb00aca7d3ac722cd567730",
-              "size": 1888
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-signed-azure_5.15.0-1066.75.tar.xz": {
-              "md5": "d7eb65bf28cbf28d4e1a256fba066542",
-              "size": 13448
-            }
-          }
-        }
-      },
-      "binaries": {
-        "linux-image-5.15.0-1065-azure-fde": {
-          "pocket": "security",
-          "version": "5.15.0-1065.74.1"
-        },
-        "linux-image-5.15.0-1066-azure": {
-          "pocket": "security",
-          "version": "5.15.0-1066.75"
-        },
-        "linux-image-azure-fde-lts-22.04": {
-          "pocket": "security",
-          "version": "5.15.0.1065.74.43"
-        },
-        "linux-image-azure-lts-22.04": {
-          "pocket": "security",
-          "version": "5.15.0.1066.64"
-        }
-      },
-      "sources": {
-        "linux-azure": {
-          "description": "Linux kernel for Microsoft Azure Cloud systems",
-          "version": "5.15.0-1066.75"
-        },
-        "linux-azure-fde": {
-          "description": "Linux kernel for Microsoft Azure CVM cloud systems",
-          "version": "5.15.0-1065.74.1"
-        }
-      }
-    }
-  },
-  "summary": "linux-azure, linux-azure-fde vulnerabilities",
-  "timestamp": 1718379564.9162621,
-  "title": "Linux kernel (Azure) vulnerabilities"
+  "isummary": "Several security issues were fixed in the Linux kernel.\n"
 }

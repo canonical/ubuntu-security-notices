@@ -1,14 +1,14 @@
 {
   "description": "Serge Mister and Robert Zuccherato discovered a weakness of the\nsymmetrical encryption algorithm of gnupg. When decrypting a message,\ngnupg uses a feature called \"quick scan\"; this can quickly check\nwhether the key that is used for decryption is (probably) the right\none, so that wrong keys can be determined quickly without decrypting\nthe whole message.\n\nA failure of the quick scan will be determined much faster than a\nsuccessful one.  Mister/Zuccherato demonstrated that this timing\ndifference can be exploited to an attack which allows an attacker to\ndecrypt parts of an encrypted message if an \"oracle\" is available, i.\ne. an automatic system that receives random encrypted messages from\nthe attacker and answers whether it passes the quick scan check.\n\nHowever, since the attack requires a huge amount of oracle answers\n(about 32.000 for every 16 bytes of ciphertext), this attack is mostly\ntheoretical. It does not have any impact on human operation of gnupg\nand is not believed to be exploitable in practice.\n\nThe updated packages disable the quick check, which renders this\ntiming attack impossible.",
   "releases": {
-    "hoary": {
+    "warty": {
       "binaries": {
         "gnupg": {
           "version": ""
         }
       }
     },
-    "warty": {
+    "hoary": {
       "binaries": {
         "gnupg": {
           "version": ""

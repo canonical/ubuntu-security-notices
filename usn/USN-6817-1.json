@@ -1,4 +1,512 @@
 {
+  "description": "Ziming Zhang discovered that the DRM driver for VMware Virtual GPU did not\nproperly handle certain error conditions, leading to a NULL pointer\ndereference. A local attacker could possibly trigger this vulnerability to\ncause a denial of service. (CVE-2022-38096)\n\nZheng Wang discovered that the Broadcom FullMAC WLAN driver in the Linux\nkernel contained a race condition during device removal, leading to a use-\nafter-free vulnerability. A physically proximate attacker could possibly\nuse this to cause a denial of service (system crash). (CVE-2023-47233)\n\nIt was discovered that the ATA over Ethernet (AoE) driver in the Linux\nkernel contained a race condition, leading to a use-after-free\nvulnerability. An attacker could use this to cause a denial of service or\npossibly execute arbitrary code. (CVE-2023-6270)\n\nIt was discovered that the Atheros 802.11ac wireless driver did not\nproperly validate certain data structures, leading to a NULL pointer\ndereference. An attacker could possibly use this to cause a denial of\nservice. (CVE-2023-7042)\n\nGui-Dong Han discovered that the software RAID driver in the Linux kernel\ncontained a race condition, leading to an integer overflow vulnerability. A\nprivileged attacker could possibly use this to cause a denial of service\n(system crash). (CVE-2024-23307)\n\nBai Jiaju discovered that the Xceive XC4000 silicon tuner device driver in\nthe Linux kernel contained a race condition, leading to an integer overflow\nvulnerability. An attacker could possibly use this to cause a denial of\nservice (system crash). (CVE-2024-24861)\n\nChenyuan Yang discovered that the Unsorted Block Images (UBI) flash device\nvolume management subsystem did not properly validate logical eraseblock\nsizes in certain situations. An attacker could possibly use this to cause a\ndenial of service (system crash). (CVE-2024-25739)\n\nIt was discovered that the MediaTek SoC Gigabit Ethernet driver in the\nLinux kernel contained a race condition when stopping the device. A local\nattacker could possibly use this to cause a denial of service (device\nunavailability). (CVE-2024-27432)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM32 architecture;\n  - PowerPC architecture;\n  - x86 architecture;\n  - Block layer subsystem;\n  - ACPI drivers;\n  - Bluetooth drivers;\n  - Clock framework and drivers;\n  - CPU frequency scaling framework;\n  - Cryptographic API;\n  - DPLL subsystem;\n  - ARM SCMI message protocol;\n  - EFI core;\n  - GPU drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - LED subsystem;\n  - Multiple devices driver;\n  - Media drivers;\n  - MMC subsystem;\n  - Network drivers;\n  - NTB driver;\n  - NVME drivers;\n  - PCI subsystem;\n  - Powercap sysfs driver;\n  - SCSI drivers;\n  - Freescale SoC drivers;\n  - SPI subsystem;\n  - Media staging drivers;\n  - Thermal drivers;\n  - TTY drivers;\n  - USB subsystem;\n  - DesignWare USB3 driver;\n  - VFIO drivers;\n  - Backlight driver;\n  - Virtio drivers;\n  - Xen hypervisor drivers;\n  - AFS file system;\n  - File systems infrastructure;\n  - BTRFS file system;\n  - debug file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - FAT file system;\n  - Network file system client;\n  - NILFS2 file system;\n  - Overlay file system;\n  - Pstore file system;\n  - Diskquota system;\n  - SMB network file system;\n  - UBI file system;\n  - io_uring subsystem;\n  - BPF subsystem;\n  - Core kernel;\n  - Memory management;\n  - Bluetooth subsystem;\n  - Networking core;\n  - HSR network protocol;\n  - IPv4 networking;\n  - IPv6 networking;\n  - MAC80211 subsystem;\n  - IEEE 802.15.4 subsystem;\n  - Netfilter;\n  - Packet sockets;\n  - Network traffic control;\n  - Sun RPC protocol;\n  - ALSA SH drivers;\n  - SOF drivers;\n  - USB sound devices;\n  - KVM core;\n(CVE-2024-26859, CVE-2024-26944, CVE-2024-27049, CVE-2024-26868,\nCVE-2024-26932, CVE-2024-35843, CVE-2024-35814, CVE-2024-26866,\nCVE-2024-26941, CVE-2024-27080, CVE-2024-26938, CVE-2024-26889,\nCVE-2024-27075, CVE-2024-27077, CVE-2024-26864, CVE-2024-35787,\nCVE-2024-27071, CVE-2024-26880, CVE-2024-26961, CVE-2024-26945,\nCVE-2024-26863, CVE-2024-35795, CVE-2024-27045, CVE-2024-27066,\nCVE-2024-27046, CVE-2024-26816, CVE-2024-27069, CVE-2024-26861,\nCVE-2024-26968, CVE-2024-26963, CVE-2024-26878, CVE-2024-27073,\nCVE-2024-35806, CVE-2024-26951, CVE-2024-26954, CVE-2024-27026,\nCVE-2024-26956, CVE-2024-35811, CVE-2024-35803, CVE-2024-26964,\nCVE-2024-26848, CVE-2024-27434, CVE-2024-35844, CVE-2024-26977,\nCVE-2024-27031, CVE-2024-35813, CVE-2024-26960, CVE-2024-27067,\nCVE-2024-26937, CVE-2024-26884, CVE-2024-26656, CVE-2024-27068,\nCVE-2024-26871, CVE-2023-52653, CVE-2024-26939, CVE-2024-26967,\nCVE-2024-26966, CVE-2024-27043, CVE-2024-26814, CVE-2024-35829,\nCVE-2024-26973, CVE-2024-35810, CVE-2024-26877, CVE-2024-27392,\nCVE-2024-35805, CVE-2024-26875, CVE-2024-26970, CVE-2024-26657,\nCVE-2024-26874, CVE-2024-26971, CVE-2024-26872, CVE-2024-35798,\nCVE-2024-26931, CVE-2024-26948, CVE-2024-26883, CVE-2024-26955,\nCVE-2024-27039, CVE-2024-27038, CVE-2024-27065, CVE-2024-26899,\nCVE-2024-27048, CVE-2024-35874, CVE-2024-35845, CVE-2024-35799,\nCVE-2024-35827, CVE-2024-26935, CVE-2024-27079, CVE-2024-35821,\nCVE-2024-26950, CVE-2024-26879, CVE-2024-26940, CVE-2024-35788,\nCVE-2024-26891, CVE-2024-27063, CVE-2024-27433, CVE-2024-27036,\nCVE-2024-35819, CVE-2024-26969, CVE-2024-27044, CVE-2024-27028,\nCVE-2024-27070, CVE-2023-52649, CVE-2024-27435, CVE-2024-35830,\nCVE-2024-26929, CVE-2024-26653, CVE-2024-26887, CVE-2024-26869,\nCVE-2024-26942, CVE-2024-35822, CVE-2024-26979, CVE-2024-26881,\nCVE-2024-26655, CVE-2024-26975, CVE-2023-52650, CVE-2024-26651,\nCVE-2024-35828, CVE-2024-26965, CVE-2024-27437, CVE-2024-35794,\nCVE-2024-26962, CVE-2024-27058, CVE-2024-27076, CVE-2024-27035,\nCVE-2024-27074, CVE-2024-27027, CVE-2024-26860, CVE-2024-27042,\nCVE-2024-27390, CVE-2024-26815, CVE-2023-52662, CVE-2024-27051,\nCVE-2024-35796, CVE-2024-27047, CVE-2024-26930, CVE-2024-26865,\nCVE-2024-27064, CVE-2024-35826, CVE-2024-26885, CVE-2024-26873,\nCVE-2024-26943, CVE-2024-26893, CVE-2024-27030, CVE-2024-26976,\nCVE-2024-35793, CVE-2024-26952, CVE-2023-52644, CVE-2024-35797,\nCVE-2024-27029, CVE-2024-26927, CVE-2024-26812, CVE-2024-27432,\nCVE-2024-26897, CVE-2024-26890, CVE-2024-26972, CVE-2024-35800,\nCVE-2024-27032, CVE-2024-27052, CVE-2023-52647, CVE-2024-26898,\nCVE-2023-52652, CVE-2024-35808, CVE-2024-26876, CVE-2024-26933,\nCVE-2024-26862, CVE-2024-27033, CVE-2023-52663, CVE-2024-27041,\nCVE-2023-52648, CVE-2024-26888, CVE-2024-26957, CVE-2024-26953,\nCVE-2023-52659, CVE-2024-27436, CVE-2024-27040, CVE-2024-27054,\nCVE-2024-27050, CVE-2024-26886, CVE-2023-52661, CVE-2024-35831,\nCVE-2024-26946, CVE-2024-26949, CVE-2024-26809, CVE-2024-26892,\nCVE-2024-26654, CVE-2024-26901, CVE-2024-27053, CVE-2024-26882,\nCVE-2024-35809, CVE-2024-26978, CVE-2024-27037, CVE-2024-27391,\nCVE-2024-27034, CVE-2024-26895, CVE-2024-35817, CVE-2024-26900,\nCVE-2024-26896, CVE-2024-26958, CVE-2024-35801, CVE-2024-27388,\nCVE-2024-26934, CVE-2024-27078, CVE-2024-35789, CVE-2024-26894,\nCVE-2024-27389, CVE-2024-35807, CVE-2024-27072, CVE-2024-26947,\nCVE-2024-26870, CVE-2024-26813, CVE-2022-48669, CVE-2024-26959,\nCVE-2024-26810)\n",
+  "releases": {
+    "noble": {
+      "allbinaries": {
+        "linux-modules-extra-aws": {
+          "pocket": "security",
+          "source": "linux-meta-aws",
+          "version": "6.8.0-1009.9"
+        },
+        "linux-tools-aws": {
+          "pocket": "security",
+          "source": "linux-meta-aws",
+          "version": "6.8.0-1009.9"
+        },
+        "linux-gcp-headers-6.8.0-1008": {
+          "pocket": "security",
+          "source": "linux-gcp",
+          "version": "6.8.0-1008.9"
+        },
+        "linux-image-gcp": {
+          "pocket": "security",
+          "source": "linux-meta-gcp",
+          "version": "6.8.0-1008.9"
+        },
+        "linux-modules-extra-6.8.0-1008-gcp": {
+          "pocket": "security",
+          "source": "linux-gcp",
+          "version": "6.8.0-1008.9"
+        },
+        "linux-aws-tools-6.8.0-1009": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.8.0-1009.9"
+        },
+        "linux-cloud-tools-6.8.0-1009-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.8.0-1009.9"
+        },
+        "linux-image-aws": {
+          "pocket": "security",
+          "source": "linux-meta-aws",
+          "version": "6.8.0-1009.9"
+        },
+        "linux-headers-6.8.0-1008-gcp": {
+          "pocket": "security",
+          "source": "linux-gcp",
+          "version": "6.8.0-1008.9"
+        },
+        "linux-modules-6.8.0-1008-gcp": {
+          "pocket": "security",
+          "source": "linux-gcp",
+          "version": "6.8.0-1008.9"
+        },
+        "linux-tools-gcp": {
+          "pocket": "security",
+          "source": "linux-meta-gcp",
+          "version": "6.8.0-1008.9"
+        },
+        "linux-image-6.8.0-1009-aws": {
+          "pocket": "security",
+          "source": "linux-signed-aws",
+          "version": "6.8.0-1009.9"
+        },
+        "linux-aws-cloud-tools-6.8.0-1009": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.8.0-1009.9"
+        },
+        "linux-gcp": {
+          "pocket": "security",
+          "source": "linux-meta-gcp",
+          "version": "6.8.0-1008.9"
+        },
+        "linux-headers-6.8.0-1009-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.8.0-1009.9"
+        },
+        "linux-image-unsigned-6.8.0-1009-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.8.0-1009.9"
+        },
+        "linux-modules-6.8.0-1009-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.8.0-1009.9"
+        },
+        "linux-aws": {
+          "pocket": "security",
+          "source": "linux-meta-aws",
+          "version": "6.8.0-1009.9"
+        },
+        "linux-modules-iwlwifi-gcp": {
+          "pocket": "security",
+          "source": "linux-meta-gcp",
+          "version": "6.8.0-1008.9"
+        },
+        "linux-headers-aws": {
+          "pocket": "security",
+          "source": "linux-meta-aws",
+          "version": "6.8.0-1009.9"
+        },
+        "linux-gcp-tools-6.8.0-1008": {
+          "pocket": "security",
+          "source": "linux-gcp",
+          "version": "6.8.0-1008.9"
+        },
+        "linux-buildinfo-6.8.0-1009-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.8.0-1009.9"
+        },
+        "linux-headers-gcp": {
+          "pocket": "security",
+          "source": "linux-meta-gcp",
+          "version": "6.8.0-1008.9"
+        },
+        "linux-aws-headers-6.8.0-1009": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.8.0-1009.9"
+        },
+        "linux-image-unsigned-6.8.0-1008-gcp": {
+          "pocket": "security",
+          "source": "linux-gcp",
+          "version": "6.8.0-1008.9"
+        },
+        "linux-modules-iwlwifi-6.8.0-1008-gcp": {
+          "pocket": "security",
+          "source": "linux-gcp",
+          "version": "6.8.0-1008.9"
+        },
+        "linux-image-6.8.0-1008-gcp": {
+          "pocket": "security",
+          "source": "linux-signed-gcp",
+          "version": "6.8.0-1008.9"
+        },
+        "linux-modules-extra-gcp": {
+          "pocket": "security",
+          "source": "linux-meta-gcp",
+          "version": "6.8.0-1008.9"
+        },
+        "linux-tools-6.8.0-1009-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.8.0-1009.9"
+        },
+        "linux-modules-extra-6.8.0-1009-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "6.8.0-1009.9"
+        },
+        "linux-buildinfo-6.8.0-1008-gcp": {
+          "pocket": "security",
+          "source": "linux-gcp",
+          "version": "6.8.0-1008.9"
+        },
+        "linux-tools-6.8.0-1008-gcp": {
+          "pocket": "security",
+          "source": "linux-gcp",
+          "version": "6.8.0-1008.9"
+        }
+      },
+      "binaries": {
+        "linux-image-6.8.0-1009-aws": {
+          "pocket": "security",
+          "version": "6.8.0-1009.9"
+        },
+        "linux-image-gcp": {
+          "pocket": "security",
+          "version": "6.8.0-1008.9"
+        },
+        "linux-image-6.8.0-1008-gcp": {
+          "pocket": "security",
+          "version": "6.8.0-1008.9"
+        },
+        "linux-image-aws": {
+          "pocket": "security",
+          "version": "6.8.0-1009.9"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gcp/linux-meta-gcp_6.8.0-1008.9.dsc": {
+              "size": 2146,
+              "md5": "b776bef261e2f0fe4c4c0c89e691519b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-signed-aws_6.8.0-1009.9.tar.xz": {
+              "size": 14208,
+              "md5": "78b721b9fb671eb8ffa1f21b2043acc4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-gcp_6.8.0-1008.9.dsc": {
+              "size": 4889,
+              "md5": "cbc875a37368d5ece75dc882b4c71b0b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_6.8.0.orig.tar.gz": {
+              "size": 230060117,
+              "md5": "3ce3b99b065c7c0507b82ad0f330e2fd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gcp/linux-signed-gcp_6.8.0-1008.9.tar.xz": {
+              "size": 16396,
+              "md5": "e3fd2ff67b2215d4dd156aaa859655b7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-gcp_6.8.0-1008.9.diff.gz": {
+              "size": 2469612,
+              "md5": "8ac1fecde40ddff6848fc369f6204c49"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gcp/linux-meta-gcp_6.8.0-1008.9.tar.xz": {
+              "size": 10960,
+              "md5": "d338b64eef8c3f01623e1aadd3802903"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-gcp_6.8.0.orig.tar.gz": {
+              "size": 230060117,
+              "md5": "3ce3b99b065c7c0507b82ad0f330e2fd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-meta-aws_6.8.0-1009.9.dsc": {
+              "size": 2013,
+              "md5": "39973ec3d4b4a0931b5d8c8690efd9ab"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-meta-aws_6.8.0-1009.9.tar.xz": {
+              "size": 9656,
+              "md5": "cb7cb7cdc1b2bbb362efd7deb22eff8f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gcp/linux-signed-gcp_6.8.0-1008.9.dsc": {
+              "size": 1955,
+              "md5": "d23728d745c5765c0a820349420f7627"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_6.8.0-1009.9.diff.gz": {
+              "size": 1698660,
+              "md5": "50392d27f9481b7ab313fc9946362744"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-signed-aws_6.8.0-1009.9.dsc": {
+              "size": 1910,
+              "md5": "9f58fa4d03a0c682c294ac314abf7eae"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_6.8.0-1009.9.dsc": {
+              "size": 5208,
+              "md5": "ff6a17eab4a48c431abd83c86d06301b"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws-headers-6.8.0-1009_6.8.0-1009.9_all.deb": {
+              "size": 13451832,
+              "md5": "5610eabfb4122252462486884656c59e"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-modules-6.8.0-1008-gcp_6.8.0-1008.9_amd64.deb": {
+              "size": 37611712,
+              "md5": "3392e7a7d254701ebd7f9e3ec366017d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gcp/linux-modules-extra-gcp_6.8.0-1008.9_amd64.deb": {
+              "size": 6214,
+              "md5": "4cb29f5a2533fddc7606d1ce5bbec8c8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-image-6.8.0-1009-aws_6.8.0-1009.9_amd64.deb": {
+              "size": 14595760,
+              "md5": "c9cc34a85d72e969be7f58858884c3ec"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-gcp-tools-6.8.0-1008_6.8.0-1008.9_amd64.deb": {
+              "size": 3801798,
+              "md5": "319005d0ec6b824292586306f62c7273"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gcp/linux-image-gcp_6.8.0-1008.9_amd64.deb": {
+              "size": 6256,
+              "md5": "5cfd68b83027bdcaa6e27de5f0914061"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-modules-6.8.0-1009-aws_6.8.0-1009.9_amd64.deb": {
+              "size": 37376192,
+              "md5": "f12710f92adfbb30bc8778c310e1f597"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-headers-6.8.0-1009-aws_6.8.0-1009.9_amd64.deb": {
+              "size": 3439202,
+              "md5": "7150b65c63db1df0069fd5a3377ed801"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-image-unsigned-6.8.0-1008-gcp_6.8.0-1008.9_amd64.deb": {
+              "size": 15524032,
+              "md5": "0a984f4c09ca24e93d8e2e817872db82"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-tools-6.8.0-1009-aws_6.8.0-1009.9_amd64.deb": {
+              "size": 1782,
+              "md5": "1f890d421ff671a531278033d38316f2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gcp/linux-modules-iwlwifi-gcp_6.8.0-1008.9_amd64.deb": {
+              "size": 6238,
+              "md5": "faa19eb9ca845b2936f5f24d017cc1f1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gcp/linux-headers-gcp_6.8.0-1008.9_amd64.deb": {
+              "size": 6186,
+              "md5": "bc5694d72b905e0d2c419f22f64e0896"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-modules-extra-6.8.0-1009-aws_6.8.0-1009.9_amd64.deb": {
+              "size": 96624832,
+              "md5": "8fd08d675b487396754884e92b83b106"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-headers-aws_6.8.0-1009.9_amd64.deb": {
+              "size": 6234,
+              "md5": "03df2907979613b6a9f2703f8e6881aa"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-modules-iwlwifi-6.8.0-1008-gcp_6.8.0-1008.9_amd64.deb": {
+              "size": 2048192,
+              "md5": "32023a9beca21e3a4aaa6f1aad8e0b9f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-buildinfo-6.8.0-1008-gcp_6.8.0-1008.9_amd64.deb": {
+              "size": 937938,
+              "md5": "9a409b1f21c2b2c6ece1431b17f860f6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-aws_6.8.0-1009.9_amd64.deb": {
+              "size": 1752,
+              "md5": "12005fe5a22d75f23111672f7e4db238"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gcp/linux-gcp_6.8.0-1008.9_amd64.deb": {
+              "size": 1744,
+              "md5": "d1832dbeda7288252003768ad1ae7031"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-headers-6.8.0-1008-gcp_6.8.0-1008.9_amd64.deb": {
+              "size": 3857350,
+              "md5": "081ce5bf6c0f445254352ddde475acb4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-image-aws_6.8.0-1009.9_amd64.deb": {
+              "size": 6332,
+              "md5": "e76022f7774e23b9102118c72f630db1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-tools-aws_6.8.0-1009.9_amd64.deb": {
+              "size": 6248,
+              "md5": "a4990c89990c5aac30dafa05ba991bd4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-image-unsigned-6.8.0-1009-aws_6.8.0-1009.9_amd64.deb": {
+              "size": 14919872,
+              "md5": "0862c2af6910d7d654b1cc47b3b99f6c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-buildinfo-6.8.0-1009-aws_6.8.0-1009.9_amd64.deb": {
+              "size": 481182,
+              "md5": "1d9f00f7d1dfd96ad79195f306a3b9bc"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-modules-extra-aws_6.8.0-1009.9_amd64.deb": {
+              "size": 6272,
+              "md5": "ab9fcca2f95e7c7d7613fc2990dc5bb5"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-modules-extra-6.8.0-1008-gcp_6.8.0-1008.9_amd64.deb": {
+              "size": 113633472,
+              "md5": "33cc1759c2d062d7207471bd225aa7b8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gcp/linux-tools-gcp_6.8.0-1008.9_amd64.deb": {
+              "size": 6186,
+              "md5": "896b703fb59b066d757d63a9bd1fdc35"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-gcp-headers-6.8.0-1008_6.8.0-1008.9_amd64.deb": {
+              "size": 13873282,
+              "md5": "6399e4d8cac0d73b8204c84b4d08af7d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gcp/linux-image-6.8.0-1008-gcp_6.8.0-1008.9_amd64.deb": {
+              "size": 14786516,
+              "md5": "79a7c18718deac483636c46c3a1eb81b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws-tools-6.8.0-1009_6.8.0-1009.9_amd64.deb": {
+              "size": 3387374,
+              "md5": "30807140cb9b06de4c6ee94db2e8d8ea"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-tools-6.8.0-1008-gcp_6.8.0-1008.9_amd64.deb": {
+              "size": 1756,
+              "md5": "e2da6cfddf0782ee79700d2e06dd3667"
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-modules-extra-aws_6.8.0-1009.9_arm64.deb": {
+              "size": 6272,
+              "md5": "75d3ceae3347d7d9f1badbdb64771bde"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-gcp/linux-modules-extra-gcp_6.8.0-1008.9_arm64.deb": {
+              "size": 6214,
+              "md5": "ec29017e47a5e45ae2c50243de381bbc"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gcp/linux-buildinfo-6.8.0-1008-gcp_6.8.0-1008.9_arm64.deb": {
+              "size": 961626,
+              "md5": "aac5b9eb838367a2aa5cf2d75b76b50c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gcp/linux-gcp-headers-6.8.0-1008_6.8.0-1008.9_arm64.deb": {
+              "size": 13873254,
+              "md5": "8b9e8dc2588e94a011092181797f4489"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gcp/linux-modules-6.8.0-1008-gcp_6.8.0-1008.9_arm64.deb": {
+              "size": 32635072,
+              "md5": "acfb06368bbca0b3acddcda36d5599b4"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-buildinfo-6.8.0-1009-aws_6.8.0-1009.9_arm64.deb": {
+              "size": 503358,
+              "md5": "392bf8b341e2c9a5b162444bf9963cdc"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-modules-extra-6.8.0-1009-aws_6.8.0-1009.9_arm64.deb": {
+              "size": 103444672,
+              "md5": "a890f29014ad4af8e59cf2cc41095d50"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gcp/linux-gcp-tools-6.8.0-1008_6.8.0-1008.9_arm64.deb": {
+              "size": 2937880,
+              "md5": "3821e70e7ec2f81b4562b7978eaab38b"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gcp/linux-modules-extra-6.8.0-1008-gcp_6.8.0-1008.9_arm64.deb": {
+              "size": 121886912,
+              "md5": "fce7d77609a935686bc2d11330ca3939"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gcp/linux-tools-6.8.0-1008-gcp_6.8.0-1008.9_arm64.deb": {
+              "size": 1706,
+              "md5": "4d6b2621b56904f92291a8ec664cec0c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-gcp/linux-image-gcp_6.8.0-1008.9_arm64.deb": {
+              "size": 6256,
+              "md5": "c5cfd803f51e32684b7566008289b6ea"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-tools-aws_6.8.0-1009.9_arm64.deb": {
+              "size": 6246,
+              "md5": "e8adcdc3ff9b15299f22d892d21fd529"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-gcp/linux-gcp_6.8.0-1008.9_arm64.deb": {
+              "size": 1744,
+              "md5": "0dc84ead6fd59031c9278e6fce952010"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-headers-aws_6.8.0-1009.9_arm64.deb": {
+              "size": 6234,
+              "md5": "29ca80a4fb2950cef4cd4be58039fc67"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-aws_6.8.0-1009.9_arm64.deb": {
+              "size": 1752,
+              "md5": "d3e17868f6baf45c4b68b44d72ccc7d0"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-gcp/linux-image-6.8.0-1008-gcp_6.8.0-1008.9_arm64.deb": {
+              "size": 18249334,
+              "md5": "ab13c512c60c3304a9b9c956a8240f1b"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-modules-6.8.0-1009-aws_6.8.0-1009.9_arm64.deb": {
+              "size": 32317632,
+              "md5": "23ff7d6fa74014fdf7dc22329aac40fa"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-tools-6.8.0-1009-aws_6.8.0-1009.9_arm64.deb": {
+              "size": 1730,
+              "md5": "187b1f1e0b6ca5bf23cd75618939d787"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-image-unsigned-6.8.0-1009-aws_6.8.0-1009.9_arm64.deb": {
+              "size": 18145472,
+              "md5": "ca14a5528f48aefa021c74a512c9159a"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-cloud-tools-6.8.0-1009-aws_6.8.0-1009.9_arm64.deb": {
+              "size": 1692,
+              "md5": "480969dc315c189a8d4bda1d005d8071"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-image-aws_6.8.0-1009.9_arm64.deb": {
+              "size": 6316,
+              "md5": "2003727b9f5d7007e2b51a3d2fff00af"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-aws-cloud-tools-6.8.0-1009_6.8.0-1009.9_arm64.deb": {
+              "size": 61610,
+              "md5": "7c828166bc7da9057ee51adca833e4e0"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gcp/linux-headers-6.8.0-1008-gcp_6.8.0-1008.9_arm64.deb": {
+              "size": 3448394,
+              "md5": "c44c1021a8f6964237196deefa790d73"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-gcp/linux-tools-gcp_6.8.0-1008.9_arm64.deb": {
+              "size": 6186,
+              "md5": "7f8e10f143eee502fb8549d1d2e0a903"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-aws-tools-6.8.0-1009_6.8.0-1009.9_arm64.deb": {
+              "size": 2523598,
+              "md5": "03fa5520507c2d92f639dce1a1e11bb1"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-gcp/linux-headers-gcp_6.8.0-1008.9_arm64.deb": {
+              "size": 6184,
+              "md5": "80d182dc94328b94ff849ab0cd7f534f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gcp/linux-image-unsigned-6.8.0-1008-gcp_6.8.0-1008.9_arm64.deb": {
+              "size": 19046592,
+              "md5": "f41110e046303660fd305a6f5d37ccdb"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-headers-6.8.0-1009-aws_6.8.0-1009.9_arm64.deb": {
+              "size": 2953690,
+              "md5": "c4c131d8177ab7f1e0db43eefe78cf54"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-aws/linux-image-6.8.0-1009-aws_6.8.0-1009.9_arm64.deb": {
+              "size": 17777592,
+              "md5": "81ff420c933a5c2ab6d20e732a50d402"
+            }
+          }
+        }
+      },
+      "sources": {
+        "linux-gcp": {
+          "version": "6.8.0-1008.9",
+          "description": "Linux kernel for Google Cloud Platform (GCP) systems"
+        },
+        "linux-aws": {
+          "version": "6.8.0-1009.9",
+          "description": "Linux kernel for Amazon Web Services (AWS) systems"
+        }
+      }
+    }
+  },
+  "title": "Linux kernel vulnerabilities",
+  "timestamp": 1717786170.8448174,
+  "summary": "linux-aws, linux-gcp vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
   "cves": [
     "CVE-2022-38096",
@@ -222,514 +730,6 @@
     "CVE-2024-35845",
     "CVE-2024-35874"
   ],
-  "description": "Ziming Zhang discovered that the DRM driver for VMware Virtual GPU did not\nproperly handle certain error conditions, leading to a NULL pointer\ndereference. A local attacker could possibly trigger this vulnerability to\ncause a denial of service. (CVE-2022-38096)\n\nZheng Wang discovered that the Broadcom FullMAC WLAN driver in the Linux\nkernel contained a race condition during device removal, leading to a use-\nafter-free vulnerability. A physically proximate attacker could possibly\nuse this to cause a denial of service (system crash). (CVE-2023-47233)\n\nIt was discovered that the ATA over Ethernet (AoE) driver in the Linux\nkernel contained a race condition, leading to a use-after-free\nvulnerability. An attacker could use this to cause a denial of service or\npossibly execute arbitrary code. (CVE-2023-6270)\n\nIt was discovered that the Atheros 802.11ac wireless driver did not\nproperly validate certain data structures, leading to a NULL pointer\ndereference. An attacker could possibly use this to cause a denial of\nservice. (CVE-2023-7042)\n\nGui-Dong Han discovered that the software RAID driver in the Linux kernel\ncontained a race condition, leading to an integer overflow vulnerability. A\nprivileged attacker could possibly use this to cause a denial of service\n(system crash). (CVE-2024-23307)\n\nBai Jiaju discovered that the Xceive XC4000 silicon tuner device driver in\nthe Linux kernel contained a race condition, leading to an integer overflow\nvulnerability. An attacker could possibly use this to cause a denial of\nservice (system crash). (CVE-2024-24861)\n\nChenyuan Yang discovered that the Unsorted Block Images (UBI) flash device\nvolume management subsystem did not properly validate logical eraseblock\nsizes in certain situations. An attacker could possibly use this to cause a\ndenial of service (system crash). (CVE-2024-25739)\n\nIt was discovered that the MediaTek SoC Gigabit Ethernet driver in the\nLinux kernel contained a race condition when stopping the device. A local\nattacker could possibly use this to cause a denial of service (device\nunavailability). (CVE-2024-27432)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM32 architecture;\n  - PowerPC architecture;\n  - x86 architecture;\n  - Block layer subsystem;\n  - ACPI drivers;\n  - Bluetooth drivers;\n  - Clock framework and drivers;\n  - CPU frequency scaling framework;\n  - Cryptographic API;\n  - DPLL subsystem;\n  - ARM SCMI message protocol;\n  - EFI core;\n  - GPU drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - LED subsystem;\n  - Multiple devices driver;\n  - Media drivers;\n  - MMC subsystem;\n  - Network drivers;\n  - NTB driver;\n  - NVME drivers;\n  - PCI subsystem;\n  - Powercap sysfs driver;\n  - SCSI drivers;\n  - Freescale SoC drivers;\n  - SPI subsystem;\n  - Media staging drivers;\n  - Thermal drivers;\n  - TTY drivers;\n  - USB subsystem;\n  - DesignWare USB3 driver;\n  - VFIO drivers;\n  - Backlight driver;\n  - Virtio drivers;\n  - Xen hypervisor drivers;\n  - AFS file system;\n  - File systems infrastructure;\n  - BTRFS file system;\n  - debug file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - FAT file system;\n  - Network file system client;\n  - NILFS2 file system;\n  - Overlay file system;\n  - Pstore file system;\n  - Diskquota system;\n  - SMB network file system;\n  - UBI file system;\n  - io_uring subsystem;\n  - BPF subsystem;\n  - Core kernel;\n  - Memory management;\n  - Bluetooth subsystem;\n  - Networking core;\n  - HSR network protocol;\n  - IPv4 networking;\n  - IPv6 networking;\n  - MAC80211 subsystem;\n  - IEEE 802.15.4 subsystem;\n  - Netfilter;\n  - Packet sockets;\n  - Network traffic control;\n  - Sun RPC protocol;\n  - ALSA SH drivers;\n  - SOF drivers;\n  - USB sound devices;\n  - KVM core;\n(CVE-2024-26859, CVE-2024-26944, CVE-2024-27049, CVE-2024-26868,\nCVE-2024-26932, CVE-2024-35843, CVE-2024-35814, CVE-2024-26866,\nCVE-2024-26941, CVE-2024-27080, CVE-2024-26938, CVE-2024-26889,\nCVE-2024-27075, CVE-2024-27077, CVE-2024-26864, CVE-2024-35787,\nCVE-2024-27071, CVE-2024-26880, CVE-2024-26961, CVE-2024-26945,\nCVE-2024-26863, CVE-2024-35795, CVE-2024-27045, CVE-2024-27066,\nCVE-2024-27046, CVE-2024-26816, CVE-2024-27069, CVE-2024-26861,\nCVE-2024-26968, CVE-2024-26963, CVE-2024-26878, CVE-2024-27073,\nCVE-2024-35806, CVE-2024-26951, CVE-2024-26954, CVE-2024-27026,\nCVE-2024-26956, CVE-2024-35811, CVE-2024-35803, CVE-2024-26964,\nCVE-2024-26848, CVE-2024-27434, CVE-2024-35844, CVE-2024-26977,\nCVE-2024-27031, CVE-2024-35813, CVE-2024-26960, CVE-2024-27067,\nCVE-2024-26937, CVE-2024-26884, CVE-2024-26656, CVE-2024-27068,\nCVE-2024-26871, CVE-2023-52653, CVE-2024-26939, CVE-2024-26967,\nCVE-2024-26966, CVE-2024-27043, CVE-2024-26814, CVE-2024-35829,\nCVE-2024-26973, CVE-2024-35810, CVE-2024-26877, CVE-2024-27392,\nCVE-2024-35805, CVE-2024-26875, CVE-2024-26970, CVE-2024-26657,\nCVE-2024-26874, CVE-2024-26971, CVE-2024-26872, CVE-2024-35798,\nCVE-2024-26931, CVE-2024-26948, CVE-2024-26883, CVE-2024-26955,\nCVE-2024-27039, CVE-2024-27038, CVE-2024-27065, CVE-2024-26899,\nCVE-2024-27048, CVE-2024-35874, CVE-2024-35845, CVE-2024-35799,\nCVE-2024-35827, CVE-2024-26935, CVE-2024-27079, CVE-2024-35821,\nCVE-2024-26950, CVE-2024-26879, CVE-2024-26940, CVE-2024-35788,\nCVE-2024-26891, CVE-2024-27063, CVE-2024-27433, CVE-2024-27036,\nCVE-2024-35819, CVE-2024-26969, CVE-2024-27044, CVE-2024-27028,\nCVE-2024-27070, CVE-2023-52649, CVE-2024-27435, CVE-2024-35830,\nCVE-2024-26929, CVE-2024-26653, CVE-2024-26887, CVE-2024-26869,\nCVE-2024-26942, CVE-2024-35822, CVE-2024-26979, CVE-2024-26881,\nCVE-2024-26655, CVE-2024-26975, CVE-2023-52650, CVE-2024-26651,\nCVE-2024-35828, CVE-2024-26965, CVE-2024-27437, CVE-2024-35794,\nCVE-2024-26962, CVE-2024-27058, CVE-2024-27076, CVE-2024-27035,\nCVE-2024-27074, CVE-2024-27027, CVE-2024-26860, CVE-2024-27042,\nCVE-2024-27390, CVE-2024-26815, CVE-2023-52662, CVE-2024-27051,\nCVE-2024-35796, CVE-2024-27047, CVE-2024-26930, CVE-2024-26865,\nCVE-2024-27064, CVE-2024-35826, CVE-2024-26885, CVE-2024-26873,\nCVE-2024-26943, CVE-2024-26893, CVE-2024-27030, CVE-2024-26976,\nCVE-2024-35793, CVE-2024-26952, CVE-2023-52644, CVE-2024-35797,\nCVE-2024-27029, CVE-2024-26927, CVE-2024-26812, CVE-2024-27432,\nCVE-2024-26897, CVE-2024-26890, CVE-2024-26972, CVE-2024-35800,\nCVE-2024-27032, CVE-2024-27052, CVE-2023-52647, CVE-2024-26898,\nCVE-2023-52652, CVE-2024-35808, CVE-2024-26876, CVE-2024-26933,\nCVE-2024-26862, CVE-2024-27033, CVE-2023-52663, CVE-2024-27041,\nCVE-2023-52648, CVE-2024-26888, CVE-2024-26957, CVE-2024-26953,\nCVE-2023-52659, CVE-2024-27436, CVE-2024-27040, CVE-2024-27054,\nCVE-2024-27050, CVE-2024-26886, CVE-2023-52661, CVE-2024-35831,\nCVE-2024-26946, CVE-2024-26949, CVE-2024-26809, CVE-2024-26892,\nCVE-2024-26654, CVE-2024-26901, CVE-2024-27053, CVE-2024-26882,\nCVE-2024-35809, CVE-2024-26978, CVE-2024-27037, CVE-2024-27391,\nCVE-2024-27034, CVE-2024-26895, CVE-2024-35817, CVE-2024-26900,\nCVE-2024-26896, CVE-2024-26958, CVE-2024-35801, CVE-2024-27388,\nCVE-2024-26934, CVE-2024-27078, CVE-2024-35789, CVE-2024-26894,\nCVE-2024-27389, CVE-2024-35807, CVE-2024-27072, CVE-2024-26947,\nCVE-2024-26870, CVE-2024-26813, CVE-2022-48669, CVE-2024-26959,\nCVE-2024-26810)\n",
   "id": "USN-6817-1",
-  "isummary": "Several security issues were fixed in the Linux kernel.\n",
-  "releases": {
-    "noble": {
-      "allbinaries": {
-        "linux-aws": {
-          "pocket": "security",
-          "source": "linux-meta-aws",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-aws-cloud-tools-6.8.0-1009": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-aws-headers-6.8.0-1009": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-aws-tools-6.8.0-1009": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-buildinfo-6.8.0-1008-gcp": {
-          "pocket": "security",
-          "source": "linux-gcp",
-          "version": "6.8.0-1008.9"
-        },
-        "linux-buildinfo-6.8.0-1009-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-cloud-tools-6.8.0-1009-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-gcp": {
-          "pocket": "security",
-          "source": "linux-meta-gcp",
-          "version": "6.8.0-1008.9"
-        },
-        "linux-gcp-headers-6.8.0-1008": {
-          "pocket": "security",
-          "source": "linux-gcp",
-          "version": "6.8.0-1008.9"
-        },
-        "linux-gcp-tools-6.8.0-1008": {
-          "pocket": "security",
-          "source": "linux-gcp",
-          "version": "6.8.0-1008.9"
-        },
-        "linux-headers-6.8.0-1008-gcp": {
-          "pocket": "security",
-          "source": "linux-gcp",
-          "version": "6.8.0-1008.9"
-        },
-        "linux-headers-6.8.0-1009-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-headers-aws": {
-          "pocket": "security",
-          "source": "linux-meta-aws",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-headers-gcp": {
-          "pocket": "security",
-          "source": "linux-meta-gcp",
-          "version": "6.8.0-1008.9"
-        },
-        "linux-image-6.8.0-1008-gcp": {
-          "pocket": "security",
-          "source": "linux-signed-gcp",
-          "version": "6.8.0-1008.9"
-        },
-        "linux-image-6.8.0-1009-aws": {
-          "pocket": "security",
-          "source": "linux-signed-aws",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-image-aws": {
-          "pocket": "security",
-          "source": "linux-meta-aws",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-image-gcp": {
-          "pocket": "security",
-          "source": "linux-meta-gcp",
-          "version": "6.8.0-1008.9"
-        },
-        "linux-image-unsigned-6.8.0-1008-gcp": {
-          "pocket": "security",
-          "source": "linux-gcp",
-          "version": "6.8.0-1008.9"
-        },
-        "linux-image-unsigned-6.8.0-1009-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-modules-6.8.0-1008-gcp": {
-          "pocket": "security",
-          "source": "linux-gcp",
-          "version": "6.8.0-1008.9"
-        },
-        "linux-modules-6.8.0-1009-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-modules-extra-6.8.0-1008-gcp": {
-          "pocket": "security",
-          "source": "linux-gcp",
-          "version": "6.8.0-1008.9"
-        },
-        "linux-modules-extra-6.8.0-1009-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-modules-extra-aws": {
-          "pocket": "security",
-          "source": "linux-meta-aws",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-modules-extra-gcp": {
-          "pocket": "security",
-          "source": "linux-meta-gcp",
-          "version": "6.8.0-1008.9"
-        },
-        "linux-modules-iwlwifi-6.8.0-1008-gcp": {
-          "pocket": "security",
-          "source": "linux-gcp",
-          "version": "6.8.0-1008.9"
-        },
-        "linux-modules-iwlwifi-gcp": {
-          "pocket": "security",
-          "source": "linux-meta-gcp",
-          "version": "6.8.0-1008.9"
-        },
-        "linux-tools-6.8.0-1008-gcp": {
-          "pocket": "security",
-          "source": "linux-gcp",
-          "version": "6.8.0-1008.9"
-        },
-        "linux-tools-6.8.0-1009-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-tools-aws": {
-          "pocket": "security",
-          "source": "linux-meta-aws",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-tools-gcp": {
-          "pocket": "security",
-          "source": "linux-meta-gcp",
-          "version": "6.8.0-1008.9"
-        }
-      },
-      "archs": {
-        "all": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws-headers-6.8.0-1009_6.8.0-1009.9_all.deb": {
-              "md5": "5610eabfb4122252462486884656c59e",
-              "size": 13451832
-            }
-          }
-        },
-        "amd64": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws-tools-6.8.0-1009_6.8.0-1009.9_amd64.deb": {
-              "md5": "30807140cb9b06de4c6ee94db2e8d8ea",
-              "size": 3387374
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-buildinfo-6.8.0-1009-aws_6.8.0-1009.9_amd64.deb": {
-              "md5": "1d9f00f7d1dfd96ad79195f306a3b9bc",
-              "size": 481182
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-headers-6.8.0-1009-aws_6.8.0-1009.9_amd64.deb": {
-              "md5": "7150b65c63db1df0069fd5a3377ed801",
-              "size": 3439202
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-image-unsigned-6.8.0-1009-aws_6.8.0-1009.9_amd64.deb": {
-              "md5": "0862c2af6910d7d654b1cc47b3b99f6c",
-              "size": 14919872
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-modules-6.8.0-1009-aws_6.8.0-1009.9_amd64.deb": {
-              "md5": "f12710f92adfbb30bc8778c310e1f597",
-              "size": 37376192
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-modules-extra-6.8.0-1009-aws_6.8.0-1009.9_amd64.deb": {
-              "md5": "8fd08d675b487396754884e92b83b106",
-              "size": 96624832
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-tools-6.8.0-1009-aws_6.8.0-1009.9_amd64.deb": {
-              "md5": "1f890d421ff671a531278033d38316f2",
-              "size": 1782
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-buildinfo-6.8.0-1008-gcp_6.8.0-1008.9_amd64.deb": {
-              "md5": "9a409b1f21c2b2c6ece1431b17f860f6",
-              "size": 937938
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-gcp-headers-6.8.0-1008_6.8.0-1008.9_amd64.deb": {
-              "md5": "6399e4d8cac0d73b8204c84b4d08af7d",
-              "size": 13873282
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-gcp-tools-6.8.0-1008_6.8.0-1008.9_amd64.deb": {
-              "md5": "319005d0ec6b824292586306f62c7273",
-              "size": 3801798
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-headers-6.8.0-1008-gcp_6.8.0-1008.9_amd64.deb": {
-              "md5": "081ce5bf6c0f445254352ddde475acb4",
-              "size": 3857350
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-image-unsigned-6.8.0-1008-gcp_6.8.0-1008.9_amd64.deb": {
-              "md5": "0a984f4c09ca24e93d8e2e817872db82",
-              "size": 15524032
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-modules-6.8.0-1008-gcp_6.8.0-1008.9_amd64.deb": {
-              "md5": "3392e7a7d254701ebd7f9e3ec366017d",
-              "size": 37611712
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-modules-extra-6.8.0-1008-gcp_6.8.0-1008.9_amd64.deb": {
-              "md5": "33cc1759c2d062d7207471bd225aa7b8",
-              "size": 113633472
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-modules-iwlwifi-6.8.0-1008-gcp_6.8.0-1008.9_amd64.deb": {
-              "md5": "32023a9beca21e3a4aaa6f1aad8e0b9f",
-              "size": 2048192
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-tools-6.8.0-1008-gcp_6.8.0-1008.9_amd64.deb": {
-              "md5": "e2da6cfddf0782ee79700d2e06dd3667",
-              "size": 1756
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-aws_6.8.0-1009.9_amd64.deb": {
-              "md5": "12005fe5a22d75f23111672f7e4db238",
-              "size": 1752
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-headers-aws_6.8.0-1009.9_amd64.deb": {
-              "md5": "03df2907979613b6a9f2703f8e6881aa",
-              "size": 6234
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-image-aws_6.8.0-1009.9_amd64.deb": {
-              "md5": "e76022f7774e23b9102118c72f630db1",
-              "size": 6332
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-modules-extra-aws_6.8.0-1009.9_amd64.deb": {
-              "md5": "ab9fcca2f95e7c7d7613fc2990dc5bb5",
-              "size": 6272
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-tools-aws_6.8.0-1009.9_amd64.deb": {
-              "md5": "a4990c89990c5aac30dafa05ba991bd4",
-              "size": 6248
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gcp/linux-gcp_6.8.0-1008.9_amd64.deb": {
-              "md5": "d1832dbeda7288252003768ad1ae7031",
-              "size": 1744
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gcp/linux-headers-gcp_6.8.0-1008.9_amd64.deb": {
-              "md5": "bc5694d72b905e0d2c419f22f64e0896",
-              "size": 6186
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gcp/linux-image-gcp_6.8.0-1008.9_amd64.deb": {
-              "md5": "5cfd68b83027bdcaa6e27de5f0914061",
-              "size": 6256
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gcp/linux-modules-extra-gcp_6.8.0-1008.9_amd64.deb": {
-              "md5": "4cb29f5a2533fddc7606d1ce5bbec8c8",
-              "size": 6214
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gcp/linux-modules-iwlwifi-gcp_6.8.0-1008.9_amd64.deb": {
-              "md5": "faa19eb9ca845b2936f5f24d017cc1f1",
-              "size": 6238
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gcp/linux-tools-gcp_6.8.0-1008.9_amd64.deb": {
-              "md5": "896b703fb59b066d757d63a9bd1fdc35",
-              "size": 6186
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-image-6.8.0-1009-aws_6.8.0-1009.9_amd64.deb": {
-              "md5": "c9cc34a85d72e969be7f58858884c3ec",
-              "size": 14595760
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gcp/linux-image-6.8.0-1008-gcp_6.8.0-1008.9_amd64.deb": {
-              "md5": "79a7c18718deac483636c46c3a1eb81b",
-              "size": 14786516
-            }
-          }
-        },
-        "arm64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-aws-cloud-tools-6.8.0-1009_6.8.0-1009.9_arm64.deb": {
-              "md5": "7c828166bc7da9057ee51adca833e4e0",
-              "size": 61610
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-aws-tools-6.8.0-1009_6.8.0-1009.9_arm64.deb": {
-              "md5": "03fa5520507c2d92f639dce1a1e11bb1",
-              "size": 2523598
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-buildinfo-6.8.0-1009-aws_6.8.0-1009.9_arm64.deb": {
-              "md5": "392bf8b341e2c9a5b162444bf9963cdc",
-              "size": 503358
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-cloud-tools-6.8.0-1009-aws_6.8.0-1009.9_arm64.deb": {
-              "md5": "480969dc315c189a8d4bda1d005d8071",
-              "size": 1692
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-headers-6.8.0-1009-aws_6.8.0-1009.9_arm64.deb": {
-              "md5": "c4c131d8177ab7f1e0db43eefe78cf54",
-              "size": 2953690
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-image-unsigned-6.8.0-1009-aws_6.8.0-1009.9_arm64.deb": {
-              "md5": "ca14a5528f48aefa021c74a512c9159a",
-              "size": 18145472
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-modules-6.8.0-1009-aws_6.8.0-1009.9_arm64.deb": {
-              "md5": "23ff7d6fa74014fdf7dc22329aac40fa",
-              "size": 32317632
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-modules-extra-6.8.0-1009-aws_6.8.0-1009.9_arm64.deb": {
-              "md5": "a890f29014ad4af8e59cf2cc41095d50",
-              "size": 103444672
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-tools-6.8.0-1009-aws_6.8.0-1009.9_arm64.deb": {
-              "md5": "187b1f1e0b6ca5bf23cd75618939d787",
-              "size": 1730
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gcp/linux-buildinfo-6.8.0-1008-gcp_6.8.0-1008.9_arm64.deb": {
-              "md5": "aac5b9eb838367a2aa5cf2d75b76b50c",
-              "size": 961626
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gcp/linux-gcp-headers-6.8.0-1008_6.8.0-1008.9_arm64.deb": {
-              "md5": "8b9e8dc2588e94a011092181797f4489",
-              "size": 13873254
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gcp/linux-gcp-tools-6.8.0-1008_6.8.0-1008.9_arm64.deb": {
-              "md5": "3821e70e7ec2f81b4562b7978eaab38b",
-              "size": 2937880
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gcp/linux-headers-6.8.0-1008-gcp_6.8.0-1008.9_arm64.deb": {
-              "md5": "c44c1021a8f6964237196deefa790d73",
-              "size": 3448394
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gcp/linux-image-unsigned-6.8.0-1008-gcp_6.8.0-1008.9_arm64.deb": {
-              "md5": "f41110e046303660fd305a6f5d37ccdb",
-              "size": 19046592
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gcp/linux-modules-6.8.0-1008-gcp_6.8.0-1008.9_arm64.deb": {
-              "md5": "acfb06368bbca0b3acddcda36d5599b4",
-              "size": 32635072
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gcp/linux-modules-extra-6.8.0-1008-gcp_6.8.0-1008.9_arm64.deb": {
-              "md5": "fce7d77609a935686bc2d11330ca3939",
-              "size": 121886912
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gcp/linux-tools-6.8.0-1008-gcp_6.8.0-1008.9_arm64.deb": {
-              "md5": "4d6b2621b56904f92291a8ec664cec0c",
-              "size": 1706
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-aws_6.8.0-1009.9_arm64.deb": {
-              "md5": "d3e17868f6baf45c4b68b44d72ccc7d0",
-              "size": 1752
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-headers-aws_6.8.0-1009.9_arm64.deb": {
-              "md5": "29ca80a4fb2950cef4cd4be58039fc67",
-              "size": 6234
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-image-aws_6.8.0-1009.9_arm64.deb": {
-              "md5": "2003727b9f5d7007e2b51a3d2fff00af",
-              "size": 6316
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-modules-extra-aws_6.8.0-1009.9_arm64.deb": {
-              "md5": "75d3ceae3347d7d9f1badbdb64771bde",
-              "size": 6272
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-tools-aws_6.8.0-1009.9_arm64.deb": {
-              "md5": "e8adcdc3ff9b15299f22d892d21fd529",
-              "size": 6246
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-gcp/linux-gcp_6.8.0-1008.9_arm64.deb": {
-              "md5": "0dc84ead6fd59031c9278e6fce952010",
-              "size": 1744
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-gcp/linux-headers-gcp_6.8.0-1008.9_arm64.deb": {
-              "md5": "80d182dc94328b94ff849ab0cd7f534f",
-              "size": 6184
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-gcp/linux-image-gcp_6.8.0-1008.9_arm64.deb": {
-              "md5": "c5cfd803f51e32684b7566008289b6ea",
-              "size": 6256
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-gcp/linux-modules-extra-gcp_6.8.0-1008.9_arm64.deb": {
-              "md5": "ec29017e47a5e45ae2c50243de381bbc",
-              "size": 6214
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-gcp/linux-tools-gcp_6.8.0-1008.9_arm64.deb": {
-              "md5": "7f8e10f143eee502fb8549d1d2e0a903",
-              "size": 6186
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-aws/linux-image-6.8.0-1009-aws_6.8.0-1009.9_arm64.deb": {
-              "md5": "81ff420c933a5c2ab6d20e732a50d402",
-              "size": 17777592
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-gcp/linux-image-6.8.0-1008-gcp_6.8.0-1008.9_arm64.deb": {
-              "md5": "ab13c512c60c3304a9b9c956a8240f1b",
-              "size": 18249334
-            }
-          }
-        },
-        "source": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_6.8.0-1009.9.diff.gz": {
-              "md5": "50392d27f9481b7ab313fc9946362744",
-              "size": 1698660
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_6.8.0-1009.9.dsc": {
-              "md5": "ff6a17eab4a48c431abd83c86d06301b",
-              "size": 5208
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_6.8.0.orig.tar.gz": {
-              "md5": "3ce3b99b065c7c0507b82ad0f330e2fd",
-              "size": 230060117
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-gcp_6.8.0-1008.9.diff.gz": {
-              "md5": "8ac1fecde40ddff6848fc369f6204c49",
-              "size": 2469612
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-gcp_6.8.0-1008.9.dsc": {
-              "md5": "cbc875a37368d5ece75dc882b4c71b0b",
-              "size": 4889
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gcp/linux-gcp_6.8.0.orig.tar.gz": {
-              "md5": "3ce3b99b065c7c0507b82ad0f330e2fd",
-              "size": 230060117
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-meta-aws_6.8.0-1009.9.dsc": {
-              "md5": "39973ec3d4b4a0931b5d8c8690efd9ab",
-              "size": 2013
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-meta-aws_6.8.0-1009.9.tar.xz": {
-              "md5": "cb7cb7cdc1b2bbb362efd7deb22eff8f",
-              "size": 9656
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gcp/linux-meta-gcp_6.8.0-1008.9.dsc": {
-              "md5": "b776bef261e2f0fe4c4c0c89e691519b",
-              "size": 2146
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gcp/linux-meta-gcp_6.8.0-1008.9.tar.xz": {
-              "md5": "d338b64eef8c3f01623e1aadd3802903",
-              "size": 10960
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-signed-aws_6.8.0-1009.9.dsc": {
-              "md5": "9f58fa4d03a0c682c294ac314abf7eae",
-              "size": 1910
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-signed-aws_6.8.0-1009.9.tar.xz": {
-              "md5": "78b721b9fb671eb8ffa1f21b2043acc4",
-              "size": 14208
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gcp/linux-signed-gcp_6.8.0-1008.9.dsc": {
-              "md5": "d23728d745c5765c0a820349420f7627",
-              "size": 1955
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gcp/linux-signed-gcp_6.8.0-1008.9.tar.xz": {
-              "md5": "e3fd2ff67b2215d4dd156aaa859655b7",
-              "size": 16396
-            }
-          }
-        }
-      },
-      "binaries": {
-        "linux-image-6.8.0-1008-gcp": {
-          "pocket": "security",
-          "version": "6.8.0-1008.9"
-        },
-        "linux-image-6.8.0-1009-aws": {
-          "pocket": "security",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-image-aws": {
-          "pocket": "security",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-image-gcp": {
-          "pocket": "security",
-          "version": "6.8.0-1008.9"
-        }
-      },
-      "sources": {
-        "linux-aws": {
-          "description": "Linux kernel for Amazon Web Services (AWS) systems",
-          "version": "6.8.0-1009.9"
-        },
-        "linux-gcp": {
-          "description": "Linux kernel for Google Cloud Platform (GCP) systems",
-          "version": "6.8.0-1008.9"
-        }
-      }
-    }
-  },
-  "summary": "linux-aws, linux-gcp vulnerabilities",
-  "timestamp": 1717786170.8448174,
-  "title": "Linux kernel vulnerabilities"
+  "isummary": "Several security issues were fixed in the Linux kernel.\n"
 }

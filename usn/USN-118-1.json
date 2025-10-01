@@ -1,22 +1,22 @@
 {
   "description": "It was discovered that unprivileged users were allowed to call\ninternal character conversion functions. However, since these\nfunctions were not designed to be safe against malicious choices of\nargument values, this could potentially be exploited to execute\narbitrary code with the privileges of the PostgreSQL server (user\n\"postgres\"). (CAN-2005-1409)\n\nAnother vulnerability was found in the \"tsearch2\" module of\npostgresql-contrib. This module declared several functions as\ninternal, although they did not accept any internal argument; this\nbreaks the type safety of \"internal\" by allowing users to construct\nSQL commands that invoke other functions accepting \"internal\"\narguments. This could eventually be exploited to crash the server, or\npossibly even execute arbitrary code with the privileges of the\nPostgreSQL server. (CAN-2005-1410)\n\nThese vulnerabilities must also be fixed in all existing databases\nwhen upgrading. The post-installation script of the updated package\nattempts to do this automatically; if the package installs without any\nerror, all existing databases have been updated to be safe against\nabove vulnerabilities.  Should the installation fail, please contact\nthe Ubuntu security team (security@ubuntu.com) immediately.",
   "releases": {
-    "hoary": {
+    "warty": {
       "binaries": {
-        "postgresql": {
+        "postgresql-contrib": {
           "version": ""
         },
-        "postgresql-contrib": {
+        "postgresql": {
           "version": ""
         }
       }
     },
-    "warty": {
+    "hoary": {
       "binaries": {
-        "postgresql": {
+        "postgresql-contrib": {
           "version": ""
         },
-        "postgresql-contrib": {
+        "postgresql": {
           "version": ""
         }
       }

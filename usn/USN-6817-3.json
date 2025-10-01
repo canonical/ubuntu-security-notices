@@ -1,4 +1,569 @@
 {
+  "description": "Ziming Zhang discovered that the DRM driver for VMware Virtual GPU did not\nproperly handle certain error conditions, leading to a NULL pointer\ndereference. A local attacker could possibly trigger this vulnerability to\ncause a denial of service. (CVE-2022-38096)\n\nZheng Wang discovered that the Broadcom FullMAC WLAN driver in the Linux\nkernel contained a race condition during device removal, leading to a use-\nafter-free vulnerability. A physically proximate attacker could possibly\nuse this to cause a denial of service (system crash). (CVE-2023-47233)\n\nIt was discovered that the ATA over Ethernet (AoE) driver in the Linux\nkernel contained a race condition, leading to a use-after-free\nvulnerability. An attacker could use this to cause a denial of service or\npossibly execute arbitrary code. (CVE-2023-6270)\n\nIt was discovered that the Atheros 802.11ac wireless driver did not\nproperly validate certain data structures, leading to a NULL pointer\ndereference. An attacker could possibly use this to cause a denial of\nservice. (CVE-2023-7042)\n\nGui-Dong Han discovered that the software RAID driver in the Linux kernel\ncontained a race condition, leading to an integer overflow vulnerability. A\nprivileged attacker could possibly use this to cause a denial of service\n(system crash). (CVE-2024-23307)\n\nBai Jiaju discovered that the Xceive XC4000 silicon tuner device driver in\nthe Linux kernel contained a race condition, leading to an integer overflow\nvulnerability. An attacker could possibly use this to cause a denial of\nservice (system crash). (CVE-2024-24861)\n\nChenyuan Yang discovered that the Unsorted Block Images (UBI) flash device\nvolume management subsystem did not properly validate logical eraseblock\nsizes in certain situations. An attacker could possibly use this to cause a\ndenial of service (system crash). (CVE-2024-25739)\n\nIt was discovered that the MediaTek SoC Gigabit Ethernet driver in the\nLinux kernel contained a race condition when stopping the device. A local\nattacker could possibly use this to cause a denial of service (device\nunavailability). (CVE-2024-27432)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM32 architecture;\n  - PowerPC architecture;\n  - x86 architecture;\n  - Block layer subsystem;\n  - ACPI drivers;\n  - Bluetooth drivers;\n  - Clock framework and drivers;\n  - CPU frequency scaling framework;\n  - Cryptographic API;\n  - DPLL subsystem;\n  - ARM SCMI message protocol;\n  - EFI core;\n  - GPU drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - LED subsystem;\n  - Multiple devices driver;\n  - Media drivers;\n  - MMC subsystem;\n  - Network drivers;\n  - NTB driver;\n  - NVME drivers;\n  - PCI subsystem;\n  - Powercap sysfs driver;\n  - SCSI drivers;\n  - Freescale SoC drivers;\n  - SPI subsystem;\n  - Media staging drivers;\n  - Thermal drivers;\n  - TTY drivers;\n  - USB subsystem;\n  - DesignWare USB3 driver;\n  - VFIO drivers;\n  - Backlight driver;\n  - Virtio drivers;\n  - Xen hypervisor drivers;\n  - AFS file system;\n  - File systems infrastructure;\n  - BTRFS file system;\n  - debug file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - FAT file system;\n  - Network file system client;\n  - NILFS2 file system;\n  - Overlay file system;\n  - Pstore file system;\n  - Diskquota system;\n  - SMB network file system;\n  - UBI file system;\n  - io_uring subsystem;\n  - BPF subsystem;\n  - Core kernel;\n  - Memory management;\n  - Bluetooth subsystem;\n  - Networking core;\n  - HSR network protocol;\n  - IPv4 networking;\n  - IPv6 networking;\n  - MAC80211 subsystem;\n  - IEEE 802.15.4 subsystem;\n  - Netfilter;\n  - Packet sockets;\n  - Network traffic control;\n  - Sun RPC protocol;\n  - ALSA SH drivers;\n  - SOF drivers;\n  - USB sound devices;\n  - KVM core;\n(CVE-2024-26859, CVE-2024-26944, CVE-2024-27049, CVE-2024-26868,\nCVE-2024-26932, CVE-2024-35843, CVE-2024-35814, CVE-2024-26866,\nCVE-2024-26941, CVE-2024-27080, CVE-2024-26938, CVE-2024-26889,\nCVE-2024-27075, CVE-2024-27077, CVE-2024-26864, CVE-2024-35787,\nCVE-2024-27071, CVE-2024-26880, CVE-2024-26961, CVE-2024-26945,\nCVE-2024-26863, CVE-2024-35795, CVE-2024-27045, CVE-2024-27066,\nCVE-2024-27046, CVE-2024-26816, CVE-2024-27069, CVE-2024-26861,\nCVE-2024-26968, CVE-2024-26963, CVE-2024-26878, CVE-2024-27073,\nCVE-2024-35806, CVE-2024-26951, CVE-2024-26954, CVE-2024-27026,\nCVE-2024-26956, CVE-2024-35811, CVE-2024-35803, CVE-2024-26964,\nCVE-2024-26848, CVE-2024-27434, CVE-2024-35844, CVE-2024-26977,\nCVE-2024-27031, CVE-2024-35813, CVE-2024-26960, CVE-2024-27067,\nCVE-2024-26937, CVE-2024-26884, CVE-2024-26656, CVE-2024-27068,\nCVE-2024-26871, CVE-2023-52653, CVE-2024-26939, CVE-2024-26967,\nCVE-2024-26966, CVE-2024-27043, CVE-2024-26814, CVE-2024-35829,\nCVE-2024-26973, CVE-2024-35810, CVE-2024-26877, CVE-2024-27392,\nCVE-2024-35805, CVE-2024-26875, CVE-2024-26970, CVE-2024-26657,\nCVE-2024-26874, CVE-2024-26971, CVE-2024-26872, CVE-2024-35798,\nCVE-2024-26931, CVE-2024-26948, CVE-2024-26883, CVE-2024-26955,\nCVE-2024-27039, CVE-2024-27038, CVE-2024-27065, CVE-2024-26899,\nCVE-2024-27048, CVE-2024-35874, CVE-2024-35845, CVE-2024-35799,\nCVE-2024-35827, CVE-2024-26935, CVE-2024-27079, CVE-2024-35821,\nCVE-2024-26950, CVE-2024-26879, CVE-2024-26940, CVE-2024-35788,\nCVE-2024-26891, CVE-2024-27063, CVE-2024-27433, CVE-2024-27036,\nCVE-2024-35819, CVE-2024-26969, CVE-2024-27044, CVE-2024-27028,\nCVE-2024-27070, CVE-2023-52649, CVE-2024-27435, CVE-2024-35830,\nCVE-2024-26929, CVE-2024-26653, CVE-2024-26887, CVE-2024-26869,\nCVE-2024-26942, CVE-2024-35822, CVE-2024-26979, CVE-2024-26881,\nCVE-2024-26655, CVE-2024-26975, CVE-2023-52650, CVE-2024-26651,\nCVE-2024-35828, CVE-2024-26965, CVE-2024-27437, CVE-2024-35794,\nCVE-2024-26962, CVE-2024-27058, CVE-2024-27076, CVE-2024-27035,\nCVE-2024-27074, CVE-2024-27027, CVE-2024-26860, CVE-2024-27042,\nCVE-2024-27390, CVE-2024-26815, CVE-2023-52662, CVE-2024-27051,\nCVE-2024-35796, CVE-2024-27047, CVE-2024-26930, CVE-2024-26865,\nCVE-2024-27064, CVE-2024-35826, CVE-2024-26885, CVE-2024-26873,\nCVE-2024-26943, CVE-2024-26893, CVE-2024-27030, CVE-2024-26976,\nCVE-2024-35793, CVE-2024-26952, CVE-2023-52644, CVE-2024-35797,\nCVE-2024-27029, CVE-2024-26927, CVE-2024-26812, CVE-2024-27432,\nCVE-2024-26897, CVE-2024-26890, CVE-2024-26972, CVE-2024-35800,\nCVE-2024-27032, CVE-2024-27052, CVE-2023-52647, CVE-2024-26898,\nCVE-2023-52652, CVE-2024-35808, CVE-2024-26876, CVE-2024-26933,\nCVE-2024-26862, CVE-2024-27033, CVE-2023-52663, CVE-2024-27041,\nCVE-2023-52648, CVE-2024-26888, CVE-2024-26957, CVE-2024-26953,\nCVE-2023-52659, CVE-2024-27436, CVE-2024-27040, CVE-2024-27054,\nCVE-2024-27050, CVE-2024-26886, CVE-2023-52661, CVE-2024-35831,\nCVE-2024-26946, CVE-2024-26949, CVE-2024-26809, CVE-2024-26892,\nCVE-2024-26654, CVE-2024-26901, CVE-2024-27053, CVE-2024-26882,\nCVE-2024-35809, CVE-2024-26978, CVE-2024-27037, CVE-2024-27391,\nCVE-2024-27034, CVE-2024-26895, CVE-2024-35817, CVE-2024-26900,\nCVE-2024-26896, CVE-2024-26958, CVE-2024-35801, CVE-2024-27388,\nCVE-2024-26934, CVE-2024-27078, CVE-2024-35789, CVE-2024-26894,\nCVE-2024-27389, CVE-2024-35807, CVE-2024-27072, CVE-2024-26947,\nCVE-2024-26870, CVE-2024-26813, CVE-2022-48669, CVE-2024-26959,\nCVE-2024-26810)\n",
+  "releases": {
+    "noble": {
+      "allbinaries": {
+        "linux-image-6.8.0-1008-azure": {
+          "pocket": "security",
+          "source": "linux-signed-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-image-azure-fde": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-azure-tools-6.8.0-1008": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-gke-headers-6.8.0-1004": {
+          "pocket": "security",
+          "source": "linux-gke",
+          "version": "6.8.0-1004.7"
+        },
+        "linux-modules-iwlwifi-6.8.0-1004-gke": {
+          "pocket": "security",
+          "source": "linux-gke",
+          "version": "6.8.0-1004.7"
+        },
+        "linux-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-azure-headers-6.8.0-1008": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-tools-gke": {
+          "pocket": "security",
+          "source": "linux-meta-gke",
+          "version": "6.8.0-1004.7"
+        },
+        "linux-image-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-image-6.8.0-1004-gke": {
+          "pocket": "security",
+          "source": "linux-signed-gke",
+          "version": "6.8.0-1004.7"
+        },
+        "linux-modules-extra-6.8.0-1004-gke": {
+          "pocket": "security",
+          "source": "linux-gke",
+          "version": "6.8.0-1004.7"
+        },
+        "linux-modules-iwlwifi-6.8.0-1008-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-cloud-tools-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-headers-6.8.0-1008-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-gke": {
+          "pocket": "security",
+          "source": "linux-meta-gke",
+          "version": "6.8.0-1004.7"
+        },
+        "linux-buildinfo-6.8.0-1004-gke": {
+          "pocket": "security",
+          "source": "linux-gke",
+          "version": "6.8.0-1004.7"
+        },
+        "linux-tools-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-modules-iwlwifi-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-image-unsigned-6.8.0-1008-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-image-gke": {
+          "pocket": "security",
+          "source": "linux-meta-gke",
+          "version": "6.8.0-1004.7"
+        },
+        "linux-gke-tools-6.8.0-1004": {
+          "pocket": "security",
+          "source": "linux-gke",
+          "version": "6.8.0-1004.7"
+        },
+        "linux-modules-extra-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-image-6.8.0-1008-azure-fde": {
+          "pocket": "security",
+          "source": "linux-signed-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-headers-gke": {
+          "pocket": "security",
+          "source": "linux-meta-gke",
+          "version": "6.8.0-1004.7"
+        },
+        "linux-buildinfo-6.8.0-1008-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-modules-6.8.0-1004-gke": {
+          "pocket": "security",
+          "source": "linux-gke",
+          "version": "6.8.0-1004.7"
+        },
+        "linux-modules-iwlwifi-gke": {
+          "pocket": "security",
+          "source": "linux-meta-gke",
+          "version": "6.8.0-1004.7"
+        },
+        "linux-azure-fde": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-headers-6.8.0-1004-gke": {
+          "pocket": "security",
+          "source": "linux-gke",
+          "version": "6.8.0-1004.7"
+        },
+        "linux-tools-6.8.0-1008-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-modules-6.8.0-1008-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-image-unsigned-6.8.0-1004-gke": {
+          "pocket": "security",
+          "source": "linux-gke",
+          "version": "6.8.0-1004.7"
+        },
+        "linux-azure-cloud-tools-6.8.0-1008": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-headers-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-tools-6.8.0-1004-gke": {
+          "pocket": "security",
+          "source": "linux-gke",
+          "version": "6.8.0-1004.7"
+        },
+        "linux-cloud-tools-6.8.0-1008-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-modules-extra-6.8.0-1008-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.8.0-1008.8"
+        }
+      },
+      "binaries": {
+        "linux-image-gke": {
+          "pocket": "security",
+          "version": "6.8.0-1004.7"
+        },
+        "linux-image-6.8.0-1004-gke": {
+          "pocket": "security",
+          "version": "6.8.0-1004.7"
+        },
+        "linux-image-azure-fde": {
+          "pocket": "security",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-image-6.8.0-1008-azure-fde": {
+          "pocket": "security",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-image-azure": {
+          "pocket": "security",
+          "version": "6.8.0-1008.8"
+        },
+        "linux-image-6.8.0-1008-azure": {
+          "pocket": "security",
+          "version": "6.8.0-1008.8"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke_6.8.0-1004.7.dsc": {
+              "size": 4945,
+              "md5": "c9771553d2ee1b8d238ac6da48c908c3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-signed-azure_6.8.0-1008.8.dsc": {
+              "size": 2176,
+              "md5": "4dcac7b5eb46ea484af27f7913fe8d1d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke_6.8.0.orig.tar.gz": {
+              "size": 230060117,
+              "md5": "3ce3b99b065c7c0507b82ad0f330e2fd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke_6.8.0-1004.7.diff.gz": {
+              "size": 2059569,
+              "md5": "e493818dee228293da884a9d3735bb8c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_6.8.0-1008.8.diff.gz": {
+              "size": 1652497,
+              "md5": "6e8e6e1c5894316073d2d4b3693da54a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-signed-azure_6.8.0-1008.8.tar.xz": {
+              "size": 14220,
+              "md5": "a649288689f6bcf91df486fed886dafc"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-meta-azure_6.8.0-1008.8.dsc": {
+              "size": 2415,
+              "md5": "f132d8087c218418677a2fc093323659"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-meta-azure_6.8.0-1008.8.tar.xz": {
+              "size": 7496,
+              "md5": "2c14e99716ce2367a747823f66bc4cb1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-meta-gke_6.8.0-1004.7.tar.xz": {
+              "size": 16584,
+              "md5": "41dc3edac95ed6df0b1cf7840963453c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_6.8.0-1008.8.dsc": {
+              "size": 5014,
+              "md5": "d6799ea60c1c76018d483e3241dec6e3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-meta-gke_6.8.0-1004.7.dsc": {
+              "size": 2059,
+              "md5": "dcf54614a0b012077511e07d43ed5f41"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gke/linux-signed-gke_6.8.0-1004.7.dsc": {
+              "size": 1955,
+              "md5": "53e25917b4b23650246aa9843a5739d9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_6.8.0.orig.tar.gz": {
+              "size": 230060117,
+              "md5": "3ce3b99b065c7c0507b82ad0f330e2fd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gke/linux-signed-gke_6.8.0-1004.7.tar.xz": {
+              "size": 26472,
+              "md5": "76a11c6b8743cd09d7d2fd84c7fa069d"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-headers-6.8.0-1008_6.8.0-1008.8_all.deb": {
+              "size": 13452238,
+              "md5": "82f20e43829f97dc86cb17dbc3a48fc4"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-tools-6.8.0-1008_6.8.0-1008.8_amd64.deb": {
+              "size": 3380526,
+              "md5": "027b69d9bef0e80f5d04cc7902e0986d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-image-azure_6.8.0-1008.8_amd64.deb": {
+              "size": 2660,
+              "md5": "a0b1d338f31dc1cae6eaa53a9f93cc4b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-gke_6.8.0-1004.7_amd64.deb": {
+              "size": 1704,
+              "md5": "59d1ea7c5d5cd225aaf3f3a58f0c0122"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-buildinfo-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
+              "size": 387464,
+              "md5": "2312d2f58034011d612a4c0e0b5bcf23"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-image-gke_6.8.0-1004.7_amd64.deb": {
+              "size": 10012,
+              "md5": "6abc3780b25ef6eb74a2a3b041a53d79"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/": {
+              "size": 10010,
+              "md5": "7c328b41d77edaeb966f3106f2dd5b56"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-headers-gke_6.8.0-1004.7_amd64.deb": {
+              "size": 9932,
+              "md5": "eeba65694654d6aacd59cf1092dc2c10"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-modules-extra-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
+              "size": 46827712,
+              "md5": "0e519151d37af201128e842e8251e68c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke-headers-6.8.0-1004_6.8.0-1004.7_amd64.deb": {
+              "size": 13675158,
+              "md5": "7083286da8ba705c015b9e8b229fb3d0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-cloud-tools-azure_6.8.0-1008.8_amd64.deb": {
+              "size": 2582,
+              "md5": "afee1b7cbdf4d7fb1972ee560e868e74"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-cloud-tools-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
+              "size": 1702,
+              "md5": "9b97c2d679dcaa44261f38e51016192d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-modules-6.8.0-1004-gke_6.8.0-1004.7_amd64.deb": {
+              "size": 37294272,
+              "md5": "cf2af1e4d7801ba253eb6be0aa6181b6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-azure-fde_6.8.0-1008.8_amd64.deb": {
+              "size": 1742,
+              "md5": "249e3845a4e545ae531c17c8e7c77d83"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke-tools-6.8.0-1004_6.8.0-1004.7_amd64.deb": {
+              "size": 3604264,
+              "md5": "d7cd79355a210edf45ae84bbc80f999e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-headers-azure_6.8.0-1008.8_amd64.deb": {
+              "size": 2558,
+              "md5": "ef65650fd0088a29a4b86eadb747ba94"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-headers-6.8.0-1004-gke_6.8.0-1004.7_amd64.deb": {
+              "size": 3750180,
+              "md5": "d9f431cf8130c6f0a7742ca4d721e649"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-headers-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
+              "size": 3213560,
+              "md5": "6e528609a6680822d61ff5efbdbc8289"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-tools-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
+              "size": 1762,
+              "md5": "02d35ec11dc8cc9484613c0778e384e0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-tools-gke_6.8.0-1004.7_amd64.deb": {
+              "size": 9948,
+              "md5": "8525918f02ca01b6ded95d453c8627fd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-image-unsigned-6.8.0-1004-gke_6.8.0-1004.7_amd64.deb": {
+              "size": 15329472,
+              "md5": "0c91f400559aae23e381ad204cf07b21"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-modules-iwlwifi-azure_6.8.0-1008.8_amd64.deb": {
+              "size": 2632,
+              "md5": "78bef827f3d210cecd38040bda5f1b89"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-modules-extra-azure_6.8.0-1008.8_amd64.deb": {
+              "size": 2598,
+              "md5": "600f6c529116a6b0e14327eedd9d45f6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-tools-6.8.0-1004-gke_6.8.0-1004.7_amd64.deb": {
+              "size": 1760,
+              "md5": "104837747c90dbd4422d0453202d7e42"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-buildinfo-6.8.0-1004-gke_6.8.0-1004.7_amd64.deb": {
+              "size": 739800,
+              "md5": "f59cc4794501dc394fe3e6ab5f592da2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-image-unsigned-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
+              "size": 14377152,
+              "md5": "a2f6870a98aa2de526aef3c020bae1a9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-image-azure-fde_6.8.0-1008.8_amd64.deb": {
+              "size": 2666,
+              "md5": "fb140c8f6375a77644c3a65f30254d43"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-image-6.8.0-1008-azure-fde_6.8.0-1008.8_amd64.deb": {
+              "size": 46657716,
+              "md5": "d59b1f3ce9b45f10715f99661fc55914"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-tools-azure_6.8.0-1008.8_amd64.deb": {
+              "size": 2572,
+              "md5": "d45d686a793d283a62b3e133d91ecab1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-modules-iwlwifi-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
+              "size": 1607872,
+              "md5": "1d5ba00be49495a767062cb840b4eb28"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gke/linux-image-6.8.0-1004-gke_6.8.0-1004.7_amd64.deb": {
+              "size": 14791346,
+              "md5": "93c7af44f3ebb05f2bfd7df1b96f2ceb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-azure_6.8.0-1008.8_amd64.deb": {
+              "size": 1780,
+              "md5": "e7ec59bcd6a5a3553b2cfdb1fb595427"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-image-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
+              "size": 14064988,
+              "md5": "f175fb592613dae007f0706d8e049d3a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-cloud-tools-6.8.0-1008_6.8.0-1008.8_amd64.deb": {
+              "size": 62958,
+              "md5": "3ad7dd065a207f56d4d51ac6c5e3dcaf"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-modules-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
+              "size": 34212032,
+              "md5": "1d7ed9875ed79e27b710106d3f4bcf15"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-modules-extra-6.8.0-1004-gke_6.8.0-1004.7_amd64.deb": {
+              "size": 113838272,
+              "md5": "7573f3bb055616edd27e4739f594a515"
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-modules-extra-6.8.0-1004-gke_6.8.0-1004.7_arm64.deb": {
+              "size": 121999552,
+              "md5": "694f3eb670887188a1a1541bcf3bf970"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-gke-tools-6.8.0-1004_6.8.0-1004.7_arm64.deb": {
+              "size": 2739884,
+              "md5": "4d8d64fc5169a8176c97f5a7e2434c0a"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-image-unsigned-6.8.0-1008-azure_6.8.0-1008.8_arm64.deb": {
+              "size": 18288832,
+              "md5": "6483e713c5db1c06b9c3fa2909bc16d7"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-headers-6.8.0-1004-gke_6.8.0-1004.7_arm64.deb": {
+              "size": 3299740,
+              "md5": "0405d9ae88ab5211cb85a57872aea0c7"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-headers-6.8.0-1008-azure_6.8.0-1008.8_arm64.deb": {
+              "size": 2960882,
+              "md5": "54993ba7c2b9a3a7db7cd7cb7547eaef"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-image-azure_6.8.0-1008.8_arm64.deb": {
+              "size": 2660,
+              "md5": "a83383fc3e0b454648764e20187398ff"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-azure_6.8.0-1008.8_arm64.deb": {
+              "size": 1780,
+              "md5": "9dd37145041381c07a03651f84849b8c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-gke/linux-image-6.8.0-1004-gke_6.8.0-1004.7_arm64.deb": {
+              "size": 18252202,
+              "md5": "b8d3e0afaafe34b23a9f87daac910876"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-azure-cloud-tools-6.8.0-1008_6.8.0-1008.8_arm64.deb": {
+              "size": 62180,
+              "md5": "fe82f68b921a600458094be59c8d4110"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-image-gke_6.8.0-1004.7_arm64.deb": {
+              "size": 9994,
+              "md5": "d9465ca40aff43424b73adfd6dbcc296"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-image-unsigned-6.8.0-1004-gke_6.8.0-1004.7_arm64.deb": {
+              "size": 18852032,
+              "md5": "fe84da31ee0b07e6fa03aa1dddbce69d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-headers-gke_6.8.0-1004.7_arm64.deb": {
+              "size": 9932,
+              "md5": "840a52b6dfa2454850e25e57e365251d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-tools-6.8.0-1004-gke_6.8.0-1004.7_arm64.deb": {
+              "size": 1702,
+              "md5": "7dce37b8a8c8def563c19fcd149931b8"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-azure-tools-6.8.0-1008_6.8.0-1008.8_arm64.deb": {
+              "size": 2516652,
+              "md5": "d1dfcea92035df36fc24e5add723f99b"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-cloud-tools-6.8.0-1008-azure_6.8.0-1008.8_arm64.deb": {
+              "size": 1694,
+              "md5": "42bf84ee49a8d1d5aa3cf3716547a461"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-cloud-tools-azure_6.8.0-1008.8_arm64.deb": {
+              "size": 2582,
+              "md5": "78db24008e60d9cadd029ba7651b7f4f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-tools-azure_6.8.0-1008.8_arm64.deb": {
+              "size": 2572,
+              "md5": "692109a8b86cc96de1fa0eaea26ed3dd"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-buildinfo-6.8.0-1004-gke_6.8.0-1004.7_arm64.deb": {
+              "size": 763514,
+              "md5": "0f785020ca30b6b30326e445f885f191"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-headers-azure_6.8.0-1008.8_arm64.deb": {
+              "size": 2558,
+              "md5": "b34d353d8bd8fc6beecdb7e28e657b34"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-gke-headers-6.8.0-1004_6.8.0-1004.7_arm64.deb": {
+              "size": 13675202,
+              "md5": "6f940c0f41782e90de7fe465359b0a4a"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-tools-6.8.0-1008-azure_6.8.0-1008.8_arm64.deb": {
+              "size": 1708,
+              "md5": "58213b5b2e9862f878720246282dc7ca"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-gke_6.8.0-1004.7_arm64.deb": {
+              "size": 1704,
+              "md5": "306c667fab67df8f7473349fb5ae8b72"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-tools-gke_6.8.0-1004.7_arm64.deb": {
+              "size": 9948,
+              "md5": "318d26440fb2d664b4a1a0736662891e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-buildinfo-6.8.0-1008-azure_6.8.0-1008.8_arm64.deb": {
+              "size": 508028,
+              "md5": "f693a2462ee4033f65c12e30293bb3c8"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-modules-6.8.0-1008-azure_6.8.0-1008.8_arm64.deb": {
+              "size": 31580352,
+              "md5": "cf8459a79b3f2648306b00228c1267fa"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-modules-extra-azure_6.8.0-1008.8_arm64.deb": {
+              "size": 2598,
+              "md5": "6e868528be7cedcaf029f6ac1ff3b197"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-modules-6.8.0-1004-gke_6.8.0-1004.7_arm64.deb": {
+              "size": 32358592,
+              "md5": "27c51adfe9e35afb1dd5b87a7d5215ff"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-azure/linux-image-6.8.0-1008-azure_6.8.0-1008.8_arm64.deb": {
+              "size": 17909546,
+              "md5": "c190dc158ee9938b07d95d059dceaf45"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-modules-extra-6.8.0-1008-azure_6.8.0-1008.8_arm64.deb": {
+              "size": 104755392,
+              "md5": "90e398474c4dbe42af745e8200bb80ef"
+            }
+          }
+        }
+      },
+      "sources": {
+        "linux-gke": {
+          "version": "6.8.0-1004.7",
+          "description": "Linux kernel for Google Container Engine (GKE) systems"
+        },
+        "linux-azure": {
+          "version": "6.8.0-1008.8",
+          "description": "Linux kernel for Microsoft Azure Cloud systems"
+        }
+      }
+    }
+  },
+  "title": "Linux kernel vulnerabilities",
+  "timestamp": 1718385878.7167604,
+  "summary": "linux-azure, linux-gke vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
   "cves": [
     "CVE-2022-38096",
@@ -222,571 +787,6 @@
     "CVE-2024-35845",
     "CVE-2024-35874"
   ],
-  "description": "Ziming Zhang discovered that the DRM driver for VMware Virtual GPU did not\nproperly handle certain error conditions, leading to a NULL pointer\ndereference. A local attacker could possibly trigger this vulnerability to\ncause a denial of service. (CVE-2022-38096)\n\nZheng Wang discovered that the Broadcom FullMAC WLAN driver in the Linux\nkernel contained a race condition during device removal, leading to a use-\nafter-free vulnerability. A physically proximate attacker could possibly\nuse this to cause a denial of service (system crash). (CVE-2023-47233)\n\nIt was discovered that the ATA over Ethernet (AoE) driver in the Linux\nkernel contained a race condition, leading to a use-after-free\nvulnerability. An attacker could use this to cause a denial of service or\npossibly execute arbitrary code. (CVE-2023-6270)\n\nIt was discovered that the Atheros 802.11ac wireless driver did not\nproperly validate certain data structures, leading to a NULL pointer\ndereference. An attacker could possibly use this to cause a denial of\nservice. (CVE-2023-7042)\n\nGui-Dong Han discovered that the software RAID driver in the Linux kernel\ncontained a race condition, leading to an integer overflow vulnerability. A\nprivileged attacker could possibly use this to cause a denial of service\n(system crash). (CVE-2024-23307)\n\nBai Jiaju discovered that the Xceive XC4000 silicon tuner device driver in\nthe Linux kernel contained a race condition, leading to an integer overflow\nvulnerability. An attacker could possibly use this to cause a denial of\nservice (system crash). (CVE-2024-24861)\n\nChenyuan Yang discovered that the Unsorted Block Images (UBI) flash device\nvolume management subsystem did not properly validate logical eraseblock\nsizes in certain situations. An attacker could possibly use this to cause a\ndenial of service (system crash). (CVE-2024-25739)\n\nIt was discovered that the MediaTek SoC Gigabit Ethernet driver in the\nLinux kernel contained a race condition when stopping the device. A local\nattacker could possibly use this to cause a denial of service (device\nunavailability). (CVE-2024-27432)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM32 architecture;\n  - PowerPC architecture;\n  - x86 architecture;\n  - Block layer subsystem;\n  - ACPI drivers;\n  - Bluetooth drivers;\n  - Clock framework and drivers;\n  - CPU frequency scaling framework;\n  - Cryptographic API;\n  - DPLL subsystem;\n  - ARM SCMI message protocol;\n  - EFI core;\n  - GPU drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - LED subsystem;\n  - Multiple devices driver;\n  - Media drivers;\n  - MMC subsystem;\n  - Network drivers;\n  - NTB driver;\n  - NVME drivers;\n  - PCI subsystem;\n  - Powercap sysfs driver;\n  - SCSI drivers;\n  - Freescale SoC drivers;\n  - SPI subsystem;\n  - Media staging drivers;\n  - Thermal drivers;\n  - TTY drivers;\n  - USB subsystem;\n  - DesignWare USB3 driver;\n  - VFIO drivers;\n  - Backlight driver;\n  - Virtio drivers;\n  - Xen hypervisor drivers;\n  - AFS file system;\n  - File systems infrastructure;\n  - BTRFS file system;\n  - debug file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - FAT file system;\n  - Network file system client;\n  - NILFS2 file system;\n  - Overlay file system;\n  - Pstore file system;\n  - Diskquota system;\n  - SMB network file system;\n  - UBI file system;\n  - io_uring subsystem;\n  - BPF subsystem;\n  - Core kernel;\n  - Memory management;\n  - Bluetooth subsystem;\n  - Networking core;\n  - HSR network protocol;\n  - IPv4 networking;\n  - IPv6 networking;\n  - MAC80211 subsystem;\n  - IEEE 802.15.4 subsystem;\n  - Netfilter;\n  - Packet sockets;\n  - Network traffic control;\n  - Sun RPC protocol;\n  - ALSA SH drivers;\n  - SOF drivers;\n  - USB sound devices;\n  - KVM core;\n(CVE-2024-26859, CVE-2024-26944, CVE-2024-27049, CVE-2024-26868,\nCVE-2024-26932, CVE-2024-35843, CVE-2024-35814, CVE-2024-26866,\nCVE-2024-26941, CVE-2024-27080, CVE-2024-26938, CVE-2024-26889,\nCVE-2024-27075, CVE-2024-27077, CVE-2024-26864, CVE-2024-35787,\nCVE-2024-27071, CVE-2024-26880, CVE-2024-26961, CVE-2024-26945,\nCVE-2024-26863, CVE-2024-35795, CVE-2024-27045, CVE-2024-27066,\nCVE-2024-27046, CVE-2024-26816, CVE-2024-27069, CVE-2024-26861,\nCVE-2024-26968, CVE-2024-26963, CVE-2024-26878, CVE-2024-27073,\nCVE-2024-35806, CVE-2024-26951, CVE-2024-26954, CVE-2024-27026,\nCVE-2024-26956, CVE-2024-35811, CVE-2024-35803, CVE-2024-26964,\nCVE-2024-26848, CVE-2024-27434, CVE-2024-35844, CVE-2024-26977,\nCVE-2024-27031, CVE-2024-35813, CVE-2024-26960, CVE-2024-27067,\nCVE-2024-26937, CVE-2024-26884, CVE-2024-26656, CVE-2024-27068,\nCVE-2024-26871, CVE-2023-52653, CVE-2024-26939, CVE-2024-26967,\nCVE-2024-26966, CVE-2024-27043, CVE-2024-26814, CVE-2024-35829,\nCVE-2024-26973, CVE-2024-35810, CVE-2024-26877, CVE-2024-27392,\nCVE-2024-35805, CVE-2024-26875, CVE-2024-26970, CVE-2024-26657,\nCVE-2024-26874, CVE-2024-26971, CVE-2024-26872, CVE-2024-35798,\nCVE-2024-26931, CVE-2024-26948, CVE-2024-26883, CVE-2024-26955,\nCVE-2024-27039, CVE-2024-27038, CVE-2024-27065, CVE-2024-26899,\nCVE-2024-27048, CVE-2024-35874, CVE-2024-35845, CVE-2024-35799,\nCVE-2024-35827, CVE-2024-26935, CVE-2024-27079, CVE-2024-35821,\nCVE-2024-26950, CVE-2024-26879, CVE-2024-26940, CVE-2024-35788,\nCVE-2024-26891, CVE-2024-27063, CVE-2024-27433, CVE-2024-27036,\nCVE-2024-35819, CVE-2024-26969, CVE-2024-27044, CVE-2024-27028,\nCVE-2024-27070, CVE-2023-52649, CVE-2024-27435, CVE-2024-35830,\nCVE-2024-26929, CVE-2024-26653, CVE-2024-26887, CVE-2024-26869,\nCVE-2024-26942, CVE-2024-35822, CVE-2024-26979, CVE-2024-26881,\nCVE-2024-26655, CVE-2024-26975, CVE-2023-52650, CVE-2024-26651,\nCVE-2024-35828, CVE-2024-26965, CVE-2024-27437, CVE-2024-35794,\nCVE-2024-26962, CVE-2024-27058, CVE-2024-27076, CVE-2024-27035,\nCVE-2024-27074, CVE-2024-27027, CVE-2024-26860, CVE-2024-27042,\nCVE-2024-27390, CVE-2024-26815, CVE-2023-52662, CVE-2024-27051,\nCVE-2024-35796, CVE-2024-27047, CVE-2024-26930, CVE-2024-26865,\nCVE-2024-27064, CVE-2024-35826, CVE-2024-26885, CVE-2024-26873,\nCVE-2024-26943, CVE-2024-26893, CVE-2024-27030, CVE-2024-26976,\nCVE-2024-35793, CVE-2024-26952, CVE-2023-52644, CVE-2024-35797,\nCVE-2024-27029, CVE-2024-26927, CVE-2024-26812, CVE-2024-27432,\nCVE-2024-26897, CVE-2024-26890, CVE-2024-26972, CVE-2024-35800,\nCVE-2024-27032, CVE-2024-27052, CVE-2023-52647, CVE-2024-26898,\nCVE-2023-52652, CVE-2024-35808, CVE-2024-26876, CVE-2024-26933,\nCVE-2024-26862, CVE-2024-27033, CVE-2023-52663, CVE-2024-27041,\nCVE-2023-52648, CVE-2024-26888, CVE-2024-26957, CVE-2024-26953,\nCVE-2023-52659, CVE-2024-27436, CVE-2024-27040, CVE-2024-27054,\nCVE-2024-27050, CVE-2024-26886, CVE-2023-52661, CVE-2024-35831,\nCVE-2024-26946, CVE-2024-26949, CVE-2024-26809, CVE-2024-26892,\nCVE-2024-26654, CVE-2024-26901, CVE-2024-27053, CVE-2024-26882,\nCVE-2024-35809, CVE-2024-26978, CVE-2024-27037, CVE-2024-27391,\nCVE-2024-27034, CVE-2024-26895, CVE-2024-35817, CVE-2024-26900,\nCVE-2024-26896, CVE-2024-26958, CVE-2024-35801, CVE-2024-27388,\nCVE-2024-26934, CVE-2024-27078, CVE-2024-35789, CVE-2024-26894,\nCVE-2024-27389, CVE-2024-35807, CVE-2024-27072, CVE-2024-26947,\nCVE-2024-26870, CVE-2024-26813, CVE-2022-48669, CVE-2024-26959,\nCVE-2024-26810)\n",
   "id": "USN-6817-3",
-  "isummary": "Several security issues were fixed in the Linux kernel.\n",
-  "releases": {
-    "noble": {
-      "allbinaries": {
-        "linux-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-azure-cloud-tools-6.8.0-1008": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-azure-fde": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-azure-headers-6.8.0-1008": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-azure-tools-6.8.0-1008": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-buildinfo-6.8.0-1004-gke": {
-          "pocket": "security",
-          "source": "linux-gke",
-          "version": "6.8.0-1004.7"
-        },
-        "linux-buildinfo-6.8.0-1008-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-cloud-tools-6.8.0-1008-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-cloud-tools-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-gke": {
-          "pocket": "security",
-          "source": "linux-meta-gke",
-          "version": "6.8.0-1004.7"
-        },
-        "linux-gke-headers-6.8.0-1004": {
-          "pocket": "security",
-          "source": "linux-gke",
-          "version": "6.8.0-1004.7"
-        },
-        "linux-gke-tools-6.8.0-1004": {
-          "pocket": "security",
-          "source": "linux-gke",
-          "version": "6.8.0-1004.7"
-        },
-        "linux-headers-6.8.0-1004-gke": {
-          "pocket": "security",
-          "source": "linux-gke",
-          "version": "6.8.0-1004.7"
-        },
-        "linux-headers-6.8.0-1008-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-headers-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-headers-gke": {
-          "pocket": "security",
-          "source": "linux-meta-gke",
-          "version": "6.8.0-1004.7"
-        },
-        "linux-image-6.8.0-1004-gke": {
-          "pocket": "security",
-          "source": "linux-signed-gke",
-          "version": "6.8.0-1004.7"
-        },
-        "linux-image-6.8.0-1008-azure": {
-          "pocket": "security",
-          "source": "linux-signed-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-image-6.8.0-1008-azure-fde": {
-          "pocket": "security",
-          "source": "linux-signed-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-image-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-image-azure-fde": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-image-gke": {
-          "pocket": "security",
-          "source": "linux-meta-gke",
-          "version": "6.8.0-1004.7"
-        },
-        "linux-image-unsigned-6.8.0-1004-gke": {
-          "pocket": "security",
-          "source": "linux-gke",
-          "version": "6.8.0-1004.7"
-        },
-        "linux-image-unsigned-6.8.0-1008-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-modules-6.8.0-1004-gke": {
-          "pocket": "security",
-          "source": "linux-gke",
-          "version": "6.8.0-1004.7"
-        },
-        "linux-modules-6.8.0-1008-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-modules-extra-6.8.0-1004-gke": {
-          "pocket": "security",
-          "source": "linux-gke",
-          "version": "6.8.0-1004.7"
-        },
-        "linux-modules-extra-6.8.0-1008-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-modules-extra-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-modules-iwlwifi-6.8.0-1004-gke": {
-          "pocket": "security",
-          "source": "linux-gke",
-          "version": "6.8.0-1004.7"
-        },
-        "linux-modules-iwlwifi-6.8.0-1008-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-modules-iwlwifi-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-modules-iwlwifi-gke": {
-          "pocket": "security",
-          "source": "linux-meta-gke",
-          "version": "6.8.0-1004.7"
-        },
-        "linux-tools-6.8.0-1004-gke": {
-          "pocket": "security",
-          "source": "linux-gke",
-          "version": "6.8.0-1004.7"
-        },
-        "linux-tools-6.8.0-1008-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-tools-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-tools-gke": {
-          "pocket": "security",
-          "source": "linux-meta-gke",
-          "version": "6.8.0-1004.7"
-        }
-      },
-      "archs": {
-        "all": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-headers-6.8.0-1008_6.8.0-1008.8_all.deb": {
-              "md5": "82f20e43829f97dc86cb17dbc3a48fc4",
-              "size": 13452238
-            }
-          }
-        },
-        "amd64": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/": {
-              "md5": "7c328b41d77edaeb966f3106f2dd5b56",
-              "size": 10010
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-cloud-tools-6.8.0-1008_6.8.0-1008.8_amd64.deb": {
-              "md5": "3ad7dd065a207f56d4d51ac6c5e3dcaf",
-              "size": 62958
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-tools-6.8.0-1008_6.8.0-1008.8_amd64.deb": {
-              "md5": "027b69d9bef0e80f5d04cc7902e0986d",
-              "size": 3380526
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-buildinfo-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
-              "md5": "2312d2f58034011d612a4c0e0b5bcf23",
-              "size": 387464
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-cloud-tools-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
-              "md5": "9b97c2d679dcaa44261f38e51016192d",
-              "size": 1702
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-headers-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
-              "md5": "6e528609a6680822d61ff5efbdbc8289",
-              "size": 3213560
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-image-unsigned-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
-              "md5": "a2f6870a98aa2de526aef3c020bae1a9",
-              "size": 14377152
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-modules-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
-              "md5": "1d7ed9875ed79e27b710106d3f4bcf15",
-              "size": 34212032
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-modules-extra-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
-              "md5": "0e519151d37af201128e842e8251e68c",
-              "size": 46827712
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-modules-iwlwifi-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
-              "md5": "1d5ba00be49495a767062cb840b4eb28",
-              "size": 1607872
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-tools-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
-              "md5": "02d35ec11dc8cc9484613c0778e384e0",
-              "size": 1762
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-buildinfo-6.8.0-1004-gke_6.8.0-1004.7_amd64.deb": {
-              "md5": "f59cc4794501dc394fe3e6ab5f592da2",
-              "size": 739800
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke-headers-6.8.0-1004_6.8.0-1004.7_amd64.deb": {
-              "md5": "7083286da8ba705c015b9e8b229fb3d0",
-              "size": 13675158
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke-tools-6.8.0-1004_6.8.0-1004.7_amd64.deb": {
-              "md5": "d7cd79355a210edf45ae84bbc80f999e",
-              "size": 3604264
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-headers-6.8.0-1004-gke_6.8.0-1004.7_amd64.deb": {
-              "md5": "d9f431cf8130c6f0a7742ca4d721e649",
-              "size": 3750180
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-image-unsigned-6.8.0-1004-gke_6.8.0-1004.7_amd64.deb": {
-              "md5": "0c91f400559aae23e381ad204cf07b21",
-              "size": 15329472
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-modules-6.8.0-1004-gke_6.8.0-1004.7_amd64.deb": {
-              "md5": "cf2af1e4d7801ba253eb6be0aa6181b6",
-              "size": 37294272
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-modules-extra-6.8.0-1004-gke_6.8.0-1004.7_amd64.deb": {
-              "md5": "7573f3bb055616edd27e4739f594a515",
-              "size": 113838272
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-tools-6.8.0-1004-gke_6.8.0-1004.7_amd64.deb": {
-              "md5": "104837747c90dbd4422d0453202d7e42",
-              "size": 1760
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-azure-fde_6.8.0-1008.8_amd64.deb": {
-              "md5": "249e3845a4e545ae531c17c8e7c77d83",
-              "size": 1742
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-azure_6.8.0-1008.8_amd64.deb": {
-              "md5": "e7ec59bcd6a5a3553b2cfdb1fb595427",
-              "size": 1780
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-cloud-tools-azure_6.8.0-1008.8_amd64.deb": {
-              "md5": "afee1b7cbdf4d7fb1972ee560e868e74",
-              "size": 2582
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-headers-azure_6.8.0-1008.8_amd64.deb": {
-              "md5": "ef65650fd0088a29a4b86eadb747ba94",
-              "size": 2558
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-image-azure-fde_6.8.0-1008.8_amd64.deb": {
-              "md5": "fb140c8f6375a77644c3a65f30254d43",
-              "size": 2666
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-image-azure_6.8.0-1008.8_amd64.deb": {
-              "md5": "a0b1d338f31dc1cae6eaa53a9f93cc4b",
-              "size": 2660
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-modules-extra-azure_6.8.0-1008.8_amd64.deb": {
-              "md5": "600f6c529116a6b0e14327eedd9d45f6",
-              "size": 2598
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-modules-iwlwifi-azure_6.8.0-1008.8_amd64.deb": {
-              "md5": "78bef827f3d210cecd38040bda5f1b89",
-              "size": 2632
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-tools-azure_6.8.0-1008.8_amd64.deb": {
-              "md5": "d45d686a793d283a62b3e133d91ecab1",
-              "size": 2572
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-gke_6.8.0-1004.7_amd64.deb": {
-              "md5": "59d1ea7c5d5cd225aaf3f3a58f0c0122",
-              "size": 1704
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-headers-gke_6.8.0-1004.7_amd64.deb": {
-              "md5": "eeba65694654d6aacd59cf1092dc2c10",
-              "size": 9932
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-image-gke_6.8.0-1004.7_amd64.deb": {
-              "md5": "6abc3780b25ef6eb74a2a3b041a53d79",
-              "size": 10012
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-tools-gke_6.8.0-1004.7_amd64.deb": {
-              "md5": "8525918f02ca01b6ded95d453c8627fd",
-              "size": 9948
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-image-6.8.0-1008-azure-fde_6.8.0-1008.8_amd64.deb": {
-              "md5": "d59b1f3ce9b45f10715f99661fc55914",
-              "size": 46657716
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-image-6.8.0-1008-azure_6.8.0-1008.8_amd64.deb": {
-              "md5": "f175fb592613dae007f0706d8e049d3a",
-              "size": 14064988
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gke/linux-image-6.8.0-1004-gke_6.8.0-1004.7_amd64.deb": {
-              "md5": "93c7af44f3ebb05f2bfd7df1b96f2ceb",
-              "size": 14791346
-            }
-          }
-        },
-        "arm64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-azure-cloud-tools-6.8.0-1008_6.8.0-1008.8_arm64.deb": {
-              "md5": "fe82f68b921a600458094be59c8d4110",
-              "size": 62180
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-azure-tools-6.8.0-1008_6.8.0-1008.8_arm64.deb": {
-              "md5": "d1dfcea92035df36fc24e5add723f99b",
-              "size": 2516652
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-buildinfo-6.8.0-1008-azure_6.8.0-1008.8_arm64.deb": {
-              "md5": "f693a2462ee4033f65c12e30293bb3c8",
-              "size": 508028
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-cloud-tools-6.8.0-1008-azure_6.8.0-1008.8_arm64.deb": {
-              "md5": "42bf84ee49a8d1d5aa3cf3716547a461",
-              "size": 1694
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-headers-6.8.0-1008-azure_6.8.0-1008.8_arm64.deb": {
-              "md5": "54993ba7c2b9a3a7db7cd7cb7547eaef",
-              "size": 2960882
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-image-unsigned-6.8.0-1008-azure_6.8.0-1008.8_arm64.deb": {
-              "md5": "6483e713c5db1c06b9c3fa2909bc16d7",
-              "size": 18288832
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-modules-6.8.0-1008-azure_6.8.0-1008.8_arm64.deb": {
-              "md5": "cf8459a79b3f2648306b00228c1267fa",
-              "size": 31580352
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-modules-extra-6.8.0-1008-azure_6.8.0-1008.8_arm64.deb": {
-              "md5": "90e398474c4dbe42af745e8200bb80ef",
-              "size": 104755392
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-tools-6.8.0-1008-azure_6.8.0-1008.8_arm64.deb": {
-              "md5": "58213b5b2e9862f878720246282dc7ca",
-              "size": 1708
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-buildinfo-6.8.0-1004-gke_6.8.0-1004.7_arm64.deb": {
-              "md5": "0f785020ca30b6b30326e445f885f191",
-              "size": 763514
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-gke-headers-6.8.0-1004_6.8.0-1004.7_arm64.deb": {
-              "md5": "6f940c0f41782e90de7fe465359b0a4a",
-              "size": 13675202
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-gke-tools-6.8.0-1004_6.8.0-1004.7_arm64.deb": {
-              "md5": "4d8d64fc5169a8176c97f5a7e2434c0a",
-              "size": 2739884
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-headers-6.8.0-1004-gke_6.8.0-1004.7_arm64.deb": {
-              "md5": "0405d9ae88ab5211cb85a57872aea0c7",
-              "size": 3299740
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-image-unsigned-6.8.0-1004-gke_6.8.0-1004.7_arm64.deb": {
-              "md5": "fe84da31ee0b07e6fa03aa1dddbce69d",
-              "size": 18852032
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-modules-6.8.0-1004-gke_6.8.0-1004.7_arm64.deb": {
-              "md5": "27c51adfe9e35afb1dd5b87a7d5215ff",
-              "size": 32358592
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-modules-extra-6.8.0-1004-gke_6.8.0-1004.7_arm64.deb": {
-              "md5": "694f3eb670887188a1a1541bcf3bf970",
-              "size": 121999552
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-tools-6.8.0-1004-gke_6.8.0-1004.7_arm64.deb": {
-              "md5": "7dce37b8a8c8def563c19fcd149931b8",
-              "size": 1702
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-azure_6.8.0-1008.8_arm64.deb": {
-              "md5": "9dd37145041381c07a03651f84849b8c",
-              "size": 1780
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-cloud-tools-azure_6.8.0-1008.8_arm64.deb": {
-              "md5": "78db24008e60d9cadd029ba7651b7f4f",
-              "size": 2582
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-headers-azure_6.8.0-1008.8_arm64.deb": {
-              "md5": "b34d353d8bd8fc6beecdb7e28e657b34",
-              "size": 2558
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-image-azure_6.8.0-1008.8_arm64.deb": {
-              "md5": "a83383fc3e0b454648764e20187398ff",
-              "size": 2660
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-modules-extra-azure_6.8.0-1008.8_arm64.deb": {
-              "md5": "6e868528be7cedcaf029f6ac1ff3b197",
-              "size": 2598
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-tools-azure_6.8.0-1008.8_arm64.deb": {
-              "md5": "692109a8b86cc96de1fa0eaea26ed3dd",
-              "size": 2572
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-gke_6.8.0-1004.7_arm64.deb": {
-              "md5": "306c667fab67df8f7473349fb5ae8b72",
-              "size": 1704
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-headers-gke_6.8.0-1004.7_arm64.deb": {
-              "md5": "840a52b6dfa2454850e25e57e365251d",
-              "size": 9932
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-image-gke_6.8.0-1004.7_arm64.deb": {
-              "md5": "d9465ca40aff43424b73adfd6dbcc296",
-              "size": 9994
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-tools-gke_6.8.0-1004.7_arm64.deb": {
-              "md5": "318d26440fb2d664b4a1a0736662891e",
-              "size": 9948
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-azure/linux-image-6.8.0-1008-azure_6.8.0-1008.8_arm64.deb": {
-              "md5": "c190dc158ee9938b07d95d059dceaf45",
-              "size": 17909546
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-gke/linux-image-6.8.0-1004-gke_6.8.0-1004.7_arm64.deb": {
-              "md5": "b8d3e0afaafe34b23a9f87daac910876",
-              "size": 18252202
-            }
-          }
-        },
-        "source": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_6.8.0-1008.8.diff.gz": {
-              "md5": "6e8e6e1c5894316073d2d4b3693da54a",
-              "size": 1652497
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_6.8.0-1008.8.dsc": {
-              "md5": "d6799ea60c1c76018d483e3241dec6e3",
-              "size": 5014
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_6.8.0.orig.tar.gz": {
-              "md5": "3ce3b99b065c7c0507b82ad0f330e2fd",
-              "size": 230060117
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke_6.8.0-1004.7.diff.gz": {
-              "md5": "e493818dee228293da884a9d3735bb8c",
-              "size": 2059569
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke_6.8.0-1004.7.dsc": {
-              "md5": "c9771553d2ee1b8d238ac6da48c908c3",
-              "size": 4945
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke_6.8.0.orig.tar.gz": {
-              "md5": "3ce3b99b065c7c0507b82ad0f330e2fd",
-              "size": 230060117
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-meta-azure_6.8.0-1008.8.dsc": {
-              "md5": "f132d8087c218418677a2fc093323659",
-              "size": 2415
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-meta-azure_6.8.0-1008.8.tar.xz": {
-              "md5": "2c14e99716ce2367a747823f66bc4cb1",
-              "size": 7496
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-meta-gke_6.8.0-1004.7.dsc": {
-              "md5": "dcf54614a0b012077511e07d43ed5f41",
-              "size": 2059
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-meta-gke_6.8.0-1004.7.tar.xz": {
-              "md5": "41dc3edac95ed6df0b1cf7840963453c",
-              "size": 16584
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-signed-azure_6.8.0-1008.8.dsc": {
-              "md5": "4dcac7b5eb46ea484af27f7913fe8d1d",
-              "size": 2176
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-signed-azure_6.8.0-1008.8.tar.xz": {
-              "md5": "a649288689f6bcf91df486fed886dafc",
-              "size": 14220
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gke/linux-signed-gke_6.8.0-1004.7.dsc": {
-              "md5": "53e25917b4b23650246aa9843a5739d9",
-              "size": 1955
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gke/linux-signed-gke_6.8.0-1004.7.tar.xz": {
-              "md5": "76a11c6b8743cd09d7d2fd84c7fa069d",
-              "size": 26472
-            }
-          }
-        }
-      },
-      "binaries": {
-        "linux-image-6.8.0-1004-gke": {
-          "pocket": "security",
-          "version": "6.8.0-1004.7"
-        },
-        "linux-image-6.8.0-1008-azure": {
-          "pocket": "security",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-image-6.8.0-1008-azure-fde": {
-          "pocket": "security",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-image-azure": {
-          "pocket": "security",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-image-azure-fde": {
-          "pocket": "security",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-image-gke": {
-          "pocket": "security",
-          "version": "6.8.0-1004.7"
-        }
-      },
-      "sources": {
-        "linux-azure": {
-          "description": "Linux kernel for Microsoft Azure Cloud systems",
-          "version": "6.8.0-1008.8"
-        },
-        "linux-gke": {
-          "description": "Linux kernel for Google Container Engine (GKE) systems",
-          "version": "6.8.0-1004.7"
-        }
-      }
-    }
-  },
-  "summary": "linux-azure, linux-gke vulnerabilities",
-  "timestamp": 1718385878.7167604,
-  "title": "Linux kernel vulnerabilities"
+  "isummary": "Several security issues were fixed in the Linux kernel.\n"
 }

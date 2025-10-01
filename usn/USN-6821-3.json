@@ -1,4 +1,599 @@
 {
+  "description": "It was discovered that the ATA over Ethernet (AoE) driver in the Linux\nkernel contained a race condition, leading to a use-after-free\nvulnerability. An attacker could use this to cause a denial of service or\npossibly execute arbitrary code. (CVE-2023-6270)\n\nIt was discovered that the Atheros 802.11ac wireless driver did not\nproperly validate certain data structures, leading to a NULL pointer\ndereference. An attacker could possibly use this to cause a denial of\nservice. (CVE-2023-7042)\n\nIt was discovered that the HugeTLB file system component of the Linux\nKernel contained a NULL pointer dereference vulnerability. A privileged\nattacker could possibly use this to to cause a denial of service.\n(CVE-2024-0841)\n\nYuxuan Hu discovered that the Bluetooth RFCOMM protocol driver in the Linux\nKernel contained a race condition, leading to a NULL pointer dereference.\nAn attacker could possibly use this to cause a denial of service (system\ncrash). (CVE-2024-22099)\n\nIt was discovered that the MediaTek SoC Gigabit Ethernet driver in the\nLinux kernel contained a race condition when stopping the device. A local\nattacker could possibly use this to cause a denial of service (device\nunavailability). (CVE-2024-27432)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM32 architecture;\n  - RISC-V architecture;\n  - x86 architecture;\n  - ACPI drivers;\n  - Block layer subsystem;\n  - Clock framework and drivers;\n  - CPU frequency scaling framework;\n  - Cryptographic API;\n  - DMA engine subsystem;\n  - EFI core;\n  - GPU drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - Multiple devices driver;\n  - Media drivers;\n  - MMC subsystem;\n  - Network drivers;\n  - NTB driver;\n  - NVME drivers;\n  - PCI subsystem;\n  - MediaTek PM domains;\n  - Power supply drivers;\n  - SPI subsystem;\n  - Media staging drivers;\n  - TCM subsystem;\n  - USB subsystem;\n  - Framebuffer layer;\n  - AFS file system;\n  - File systems infrastructure;\n  - BTRFS file system;\n  - EROFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - Network file system client;\n  - NTFS3 file system;\n  - Diskquota system;\n  - SMB network file system;\n  - BPF subsystem;\n  - Netfilter;\n  - TLS protocol;\n  - io_uring subsystem;\n  - Bluetooth subsystem;\n  - Memory management;\n  - Ethernet bridge;\n  - Networking core;\n  - HSR network protocol;\n  - IPv4 networking;\n  - IPv6 networking;\n  - L2TP protocol;\n  - MAC80211 subsystem;\n  - Multipath TCP;\n  - Netlink;\n  - NET/ROM layer;\n  - Packet sockets;\n  - RDS protocol;\n  - Sun RPC protocol;\n  - Unix domain sockets;\n  - Wireless networking;\n  - USB sound devices;\n(CVE-2024-26877, CVE-2024-35829, CVE-2024-26737, CVE-2024-27075,\nCVE-2024-27414, CVE-2024-27053, CVE-2024-26889, CVE-2024-26792,\nCVE-2024-26882, CVE-2024-26906, CVE-2024-26851, CVE-2024-27037,\nCVE-2024-26782, CVE-2024-27388, CVE-2024-26748, CVE-2024-27419,\nCVE-2024-27034, CVE-2023-52662, CVE-2024-27047, CVE-2024-26874,\nCVE-2024-26779, CVE-2024-26872, CVE-2024-26820, CVE-2024-35811,\nCVE-2024-26771, CVE-2024-26733, CVE-2024-26903, CVE-2024-26736,\nCVE-2024-26870, CVE-2024-26883, CVE-2024-27403, CVE-2024-26878,\nCVE-2024-26857, CVE-2023-52645, CVE-2024-26601, CVE-2024-26891,\nCVE-2024-27028, CVE-2024-27054, CVE-2024-26804, CVE-2024-27405,\nCVE-2024-35830, CVE-2024-26898, CVE-2024-26754, CVE-2024-26793,\nCVE-2024-26747, CVE-2024-26901, CVE-2023-52652, CVE-2023-52650,\nCVE-2024-26651, CVE-2024-26816, CVE-2024-35845, CVE-2024-26862,\nCVE-2024-26884, CVE-2024-26752, CVE-2024-26852, CVE-2023-52656,\nCVE-2024-26790, CVE-2024-26603, CVE-2024-27078, CVE-2024-26802,\nCVE-2024-27045, CVE-2024-27024, CVE-2024-27073, CVE-2024-26585,\nCVE-2024-26894, CVE-2024-26583, CVE-2024-27416, CVE-2024-27431,\nCVE-2024-35844, CVE-2024-26838, CVE-2024-27410, CVE-2024-26915,\nCVE-2024-26772, CVE-2024-26897, CVE-2024-26798, CVE-2024-27415,\nCVE-2024-26855, CVE-2024-26833, CVE-2024-26764, CVE-2024-26659,\nCVE-2024-26846, CVE-2024-26895, CVE-2023-52644, CVE-2024-26751,\nCVE-2024-26880, CVE-2024-26863, CVE-2024-26809, CVE-2024-27052,\nCVE-2024-27051, CVE-2024-26907, CVE-2024-27413, CVE-2024-26801,\nCVE-2023-52620, CVE-2024-26749, CVE-2024-26787, CVE-2024-27046,\nCVE-2024-26803, CVE-2024-26744, CVE-2024-26879, CVE-2024-27432,\nCVE-2024-27412, CVE-2024-26791, CVE-2024-26773, CVE-2023-52640,\nCVE-2024-26778, CVE-2024-26859, CVE-2024-27044, CVE-2024-26788,\nCVE-2024-27077, CVE-2024-26750, CVE-2024-26861, CVE-2023-52434,\nCVE-2024-26774, CVE-2024-26795, CVE-2024-26856, CVE-2024-27043,\nCVE-2024-27039, CVE-2024-26777, CVE-2024-27030, CVE-2024-26584,\nCVE-2024-26735, CVE-2024-26805, CVE-2024-26766, CVE-2024-26763,\nCVE-2024-27065, CVE-2023-52641, CVE-2024-27417, CVE-2023-52497,\nCVE-2023-52447, CVE-2024-26769, CVE-2024-26843, CVE-2024-26881,\nCVE-2024-26688, CVE-2024-26743, CVE-2024-27038, CVE-2024-27390,\nCVE-2024-27436, CVE-2024-26839, CVE-2024-27074, CVE-2024-26840,\nCVE-2024-27076, CVE-2024-26835, CVE-2024-26885, CVE-2024-26776,\nCVE-2024-26845, CVE-2024-26875, CVE-2024-35828)\n",
+  "releases": {
+    "jammy": {
+      "allbinaries": {
+        "linux-aws-tools-5.15.0-1063": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "5.15.0-1063.69"
+        },
+        "linux-buildinfo-5.15.0-1063-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "5.15.0-1063.69"
+        },
+        "linux-tools-5.15.0-1063-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "5.15.0-1063.69"
+        },
+        "linux-image-aws-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-aws",
+          "version": "5.15.0.1063.63"
+        },
+        "linux-headers-5.15.0-1063-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "5.15.0-1063.69"
+        },
+        "linux-image-unsigned-5.15.0-1063-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "5.15.0-1063.69"
+        },
+        "linux-cloud-tools-5.15.0-1063-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "5.15.0-1063.69"
+        },
+        "linux-modules-extra-aws-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-aws",
+          "version": "5.15.0.1063.63"
+        },
+        "linux-tools-aws-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-aws",
+          "version": "5.15.0.1063.63"
+        },
+        "linux-modules-extra-5.15.0-1063-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "5.15.0-1063.69"
+        },
+        "linux-aws-headers-5.15.0-1063": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "5.15.0-1063.69"
+        },
+        "linux-image-5.15.0-1063-aws": {
+          "pocket": "security",
+          "source": "linux-signed-aws",
+          "version": "5.15.0-1063.69"
+        },
+        "linux-headers-aws-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-aws",
+          "version": "5.15.0.1063.63"
+        },
+        "linux-modules-5.15.0-1063-aws": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "5.15.0-1063.69"
+        },
+        "linux-aws-cloud-tools-5.15.0-1063": {
+          "pocket": "security",
+          "source": "linux-aws",
+          "version": "5.15.0-1063.69"
+        },
+        "linux-aws-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-aws",
+          "version": "5.15.0.1063.63"
+        }
+      },
+      "binaries": {
+        "linux-image-5.15.0-1063-aws": {
+          "pocket": "security",
+          "version": "5.15.0-1063.69"
+        },
+        "linux-image-aws-lts-22.04": {
+          "pocket": "security",
+          "version": "5.15.0.1063.63"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-meta-aws_5.15.0.1063.63.tar.xz": {
+              "size": 8932,
+              "md5": "c5d7d0cc678603838c92e552936af9fd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_5.15.0-1063.69.dsc": {
+              "size": 4521,
+              "md5": "589f50ddfa7d2c7848f9047714771ffb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-signed-aws_5.15.0-1063.69.dsc": {
+              "size": 1761,
+              "md5": "7ec7064dc7c338eb77e6344f92e971b5"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-meta-aws_5.15.0.1063.63.dsc": {
+              "size": 1986,
+              "md5": "219e03ddd972e2f1a934d4d440a8fb8f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_5.15.0.orig.tar.gz": {
+              "size": 194969557,
+              "md5": "cd30827a862b74fe1e5174e6aee8e534"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-signed-aws_5.15.0-1063.69.tar.xz": {
+              "size": 13508,
+              "md5": "1df24d22f2a406996b503aef61027e2e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_5.15.0-1063.69.diff.gz": {
+              "size": 10167059,
+              "md5": "22764503ce25fced2fe9f017d8c7ab0d"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws-headers-5.15.0-1063_5.15.0-1063.69_all.deb": {
+              "size": 12347146,
+              "md5": "f9af460ea850dab0d080b0e85ed4f316"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-modules-extra-aws-lts-22.04_5.15.0.1063.63_amd64.deb": {
+              "size": 2450,
+              "md5": "25cd04e41c82a5a1b71b6b89bcc63312"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-aws-lts-22.04_5.15.0.1063.63_amd64.deb": {
+              "size": 1732,
+              "md5": "0b002399990672d91fdde22ca0b94905"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-modules-extra-5.15.0-1063-aws_5.15.0-1063.69_amd64.deb": {
+              "size": 57012902,
+              "md5": "7f99c78928f7bc62f874af95abcfe075"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws-tools-5.15.0-1063_5.15.0-1063.69_amd64.deb": {
+              "size": 7628336,
+              "md5": "662dbdadcb4fb7fd6cd143e2b579a1be"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-headers-aws-lts-22.04_5.15.0.1063.63_amd64.deb": {
+              "size": 2426,
+              "md5": "d979497791b3061be7be9debeca31cde"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-tools-5.15.0-1063-aws_5.15.0-1063.69_amd64.deb": {
+              "size": 1780,
+              "md5": "c0bdc3693bbb257b0c07a38d4ac3b854"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-image-aws-lts-22.04_5.15.0.1063.63_amd64.deb": {
+              "size": 2502,
+              "md5": "f2fcb186d91c76119c98fb381f6011c0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-buildinfo-5.15.0-1063-aws_5.15.0-1063.69_amd64.deb": {
+              "size": 508660,
+              "md5": "2e71beea63702ec745bbb237c81fa3ca"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-tools-aws-lts-22.04_5.15.0.1063.63_amd64.deb": {
+              "size": 2432,
+              "md5": "0d61602512e3ca890d06132032ddf671"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-image-unsigned-5.15.0-1063-aws_5.15.0-1063.69_amd64.deb": {
+              "size": 11868352,
+              "md5": "1680a35f9348b2aa9461f2f359db41a3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-image-5.15.0-1063-aws_5.15.0-1063.69_amd64.deb": {
+              "size": 11566484,
+              "md5": "30d1e68f10b932253fe450e628b1e6b0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-headers-5.15.0-1063-aws_5.15.0-1063.69_amd64.deb": {
+              "size": 2824792,
+              "md5": "d37d809cb7de6c793447ef7a053c8a41"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-modules-5.15.0-1063-aws_5.15.0-1063.69_amd64.deb": {
+              "size": 22280100,
+              "md5": "1585c9161a7287e1f4b379e9b4df1adb"
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-modules-extra-5.15.0-1063-aws_5.15.0-1063.69_arm64.deb": {
+              "size": 59473474,
+              "md5": "8a68e0ddc377dcde4882646cddb0995a"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-tools-5.15.0-1063-aws_5.15.0-1063.69_arm64.deb": {
+              "size": 1724,
+              "md5": "1d132a79568381c48389d5f9f140b45e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-cloud-tools-5.15.0-1063-aws_5.15.0-1063.69_arm64.deb": {
+              "size": 1690,
+              "md5": "b24bfbace682f8412c70ca8037d379c5"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-aws/linux-image-5.15.0-1063-aws_5.15.0-1063.69_arm64.deb": {
+              "size": 14794582,
+              "md5": "40d0637efbec6e7fd6d255bf3e913dcc"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-image-aws-lts-22.04_5.15.0.1063.63_arm64.deb": {
+              "size": 2488,
+              "md5": "20a3bfadbd6a43d850705bf6b187b662"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-tools-aws-lts-22.04_5.15.0.1063.63_arm64.deb": {
+              "size": 2432,
+              "md5": "1fbce2ebf9980e1809733161d64430e2"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-modules-5.15.0-1063-aws_5.15.0-1063.69_arm64.deb": {
+              "size": 21121514,
+              "md5": "a149024a5f6d1119543660dd7539b8a8"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-image-unsigned-5.15.0-1063-aws_5.15.0-1063.69_arm64.deb": {
+              "size": 15165632,
+              "md5": "08fe9c2b06d6633627ba0e085375683d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-aws-cloud-tools-5.15.0-1063_5.15.0-1063.69_arm64.deb": {
+              "size": 116780,
+              "md5": "c2eca4f2927885a2216e33333924e3af"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-aws-tools-5.15.0-1063_5.15.0-1063.69_arm64.deb": {
+              "size": 6933434,
+              "md5": "aa37b860a8354de54db1fcf02f984c94"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-headers-aws-lts-22.04_5.15.0.1063.63_arm64.deb": {
+              "size": 2426,
+              "md5": "c74fd83a0dc965469cd26e8ea7ce6408"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-buildinfo-5.15.0-1063-aws_5.15.0-1063.69_arm64.deb": {
+              "size": 522810,
+              "md5": "0884b36596d5a446cdd89b6f5a2d47ac"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-aws-lts-22.04_5.15.0.1063.63_arm64.deb": {
+              "size": 1732,
+              "md5": "aa15fde2f1d2837597f89efbfc2c5292"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-headers-5.15.0-1063-aws_5.15.0-1063.69_arm64.deb": {
+              "size": 2554736,
+              "md5": "1b7eb7d7eeccce564738d593cf896319"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-modules-extra-aws-lts-22.04_5.15.0.1063.63_arm64.deb": {
+              "size": 2450,
+              "md5": "33e3c83f22f746e645d2fb5fb9530806"
+            }
+          }
+        }
+      },
+      "sources": {
+        "linux-aws": {
+          "version": "5.15.0-1063.69",
+          "description": "Linux kernel for Amazon Web Services (AWS) systems"
+        }
+      }
+    },
+    "focal": {
+      "allbinaries": {
+        "linux-modules-extra-aws": {
+          "pocket": "security",
+          "source": "linux-meta-aws-5.15",
+          "version": "5.15.0.1063.69~20.04.1"
+        },
+        "linux-buildinfo-5.15.0-1063-aws": {
+          "pocket": "security",
+          "source": "linux-aws-5.15",
+          "version": "5.15.0-1063.69~20.04.1"
+        },
+        "linux-aws-edge": {
+          "pocket": "security",
+          "source": "linux-meta-aws-5.15",
+          "version": "5.15.0.1063.69~20.04.1"
+        },
+        "linux-modules-extra-aws-edge": {
+          "pocket": "security",
+          "source": "linux-meta-aws-5.15",
+          "version": "5.15.0.1063.69~20.04.1"
+        },
+        "linux-aws-5.15-tools-5.15.0-1063": {
+          "pocket": "security",
+          "source": "linux-aws-5.15",
+          "version": "5.15.0-1063.69~20.04.1"
+        },
+        "linux-image-unsigned-5.15.0-1063-aws": {
+          "pocket": "security",
+          "source": "linux-aws-5.15",
+          "version": "5.15.0-1063.69~20.04.1"
+        },
+        "linux-headers-5.15.0-1063-aws": {
+          "pocket": "security",
+          "source": "linux-aws-5.15",
+          "version": "5.15.0-1063.69~20.04.1"
+        },
+        "linux-image-aws-edge": {
+          "pocket": "security",
+          "source": "linux-meta-aws-5.15",
+          "version": "5.15.0.1063.69~20.04.1"
+        },
+        "linux-tools-5.15.0-1063-aws": {
+          "pocket": "security",
+          "source": "linux-aws-5.15",
+          "version": "5.15.0-1063.69~20.04.1"
+        },
+        "linux-cloud-tools-5.15.0-1063-aws": {
+          "pocket": "security",
+          "source": "linux-aws-5.15",
+          "version": "5.15.0-1063.69~20.04.1"
+        },
+        "linux-tools-aws-edge": {
+          "pocket": "security",
+          "source": "linux-meta-aws-5.15",
+          "version": "5.15.0.1063.69~20.04.1"
+        },
+        "linux-aws-5.15-cloud-tools-5.15.0-1063": {
+          "pocket": "security",
+          "source": "linux-aws-5.15",
+          "version": "5.15.0-1063.69~20.04.1"
+        },
+        "linux-image-5.15.0-1063-aws": {
+          "pocket": "security",
+          "source": "linux-signed-aws-5.15",
+          "version": "5.15.0-1063.69~20.04.1"
+        },
+        "linux-tools-aws": {
+          "pocket": "security",
+          "source": "linux-meta-aws-5.15",
+          "version": "5.15.0.1063.69~20.04.1"
+        },
+        "linux-modules-extra-5.15.0-1063-aws": {
+          "pocket": "security",
+          "source": "linux-aws-5.15",
+          "version": "5.15.0-1063.69~20.04.1"
+        },
+        "linux-headers-aws": {
+          "pocket": "security",
+          "source": "linux-meta-aws-5.15",
+          "version": "5.15.0.1063.69~20.04.1"
+        },
+        "linux-image-aws": {
+          "pocket": "security",
+          "source": "linux-meta-aws-5.15",
+          "version": "5.15.0.1063.69~20.04.1"
+        },
+        "linux-aws-5.15-headers-5.15.0-1063": {
+          "pocket": "security",
+          "source": "linux-aws-5.15",
+          "version": "5.15.0-1063.69~20.04.1"
+        },
+        "linux-headers-aws-edge": {
+          "pocket": "security",
+          "source": "linux-meta-aws-5.15",
+          "version": "5.15.0.1063.69~20.04.1"
+        },
+        "linux-aws": {
+          "pocket": "security",
+          "source": "linux-meta-aws-5.15",
+          "version": "5.15.0.1063.69~20.04.1"
+        },
+        "linux-modules-5.15.0-1063-aws": {
+          "pocket": "security",
+          "source": "linux-aws-5.15",
+          "version": "5.15.0-1063.69~20.04.1"
+        }
+      },
+      "binaries": {
+        "linux-image-aws": {
+          "pocket": "security",
+          "version": "5.15.0.1063.69~20.04.1"
+        },
+        "linux-image-5.15.0-1063-aws": {
+          "pocket": "security",
+          "version": "5.15.0-1063.69~20.04.1"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws-5.15/linux-signed-aws-5.15_5.15.0-1063.69~20.04.1.dsc": {
+              "size": 1809,
+              "md5": "61911a3cc7714a1b1fab63a8af670f7e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-aws-5.15_5.15.0-1063.69~20.04.1.dsc": {
+              "size": 4640,
+              "md5": "f67fc4d223fd434325fbea4b0c8f0ab1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-meta-aws-5.15_5.15.0.1063.69~20.04.1.dsc": {
+              "size": 2356,
+              "md5": "2d3c7dea9c25a87ff8e238401518910e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws-5.15/linux-signed-aws-5.15_5.15.0-1063.69~20.04.1.tar.xz": {
+              "size": 13256,
+              "md5": "fb20bd970eb142d2025d5751552f4029"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-aws-5.15_5.15.0-1063.69~20.04.1.diff.gz": {
+              "size": 10317886,
+              "md5": "0930c6db6b6161142ca8835f13d7fb1a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-aws-5.15_5.15.0.orig.tar.gz": {
+              "size": 194969557,
+              "md5": "cd30827a862b74fe1e5174e6aee8e534"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-meta-aws-5.15_5.15.0.1063.69~20.04.1.tar.xz": {
+              "size": 6212,
+              "md5": "20edfed12e960ed3d54fa204344211b0"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-aws-5.15-headers-5.15.0-1063_5.15.0-1063.69~20.04.1_all.deb": {
+              "size": 12042512,
+              "md5": "ebcbd291dfca7de212e639e5575329a4"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws-5.15/linux-image-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_amd64.deb": {
+              "size": 11425844,
+              "md5": "08e4747aec056a57d8d9ccb4c43040ec"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-image-unsigned-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_amd64.deb": {
+              "size": 11735232,
+              "md5": "526022bf28f0ec5ab7378b0d11594e53"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-tools-aws-edge_5.15.0.1063.69~20.04.1_amd64.deb": {
+              "size": 2624,
+              "md5": "69c1a141cc691c6362a5b5fa137b8a7c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-aws_5.15.0.1063.69~20.04.1_amd64.deb": {
+              "size": 1936,
+              "md5": "6443f11c51699c8b89b8298978a04b44"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-buildinfo-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_amd64.deb": {
+              "size": 500340,
+              "md5": "62f62638071fa7292ea3d581d76670d8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-aws-5.15-tools-5.15.0-1063_5.15.0-1063.69~20.04.1_amd64.deb": {
+              "size": 7044572,
+              "md5": "647e4d87f183d4a1e0e816d4ed900484"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-tools-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_amd64.deb": {
+              "size": 1996,
+              "md5": "7a3492868cf573675f2ad1232c43d693"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-headers-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_amd64.deb": {
+              "size": 2733716,
+              "md5": "fda23b5ec2ece1f577dc42db360aedbd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-headers-aws-edge_5.15.0.1063.69~20.04.1_amd64.deb": {
+              "size": 2624,
+              "md5": "a18ddb4eb779e27f865965ba7103b1fd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-tools-aws_5.15.0.1063.69~20.04.1_amd64.deb": {
+              "size": 2612,
+              "md5": "3f8370cacb952e95f21a68cbbb4843d3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-aws-edge_5.15.0.1063.69~20.04.1_amd64.deb": {
+              "size": 1904,
+              "md5": "f2626e412405c66a19d39861f17097d8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-modules-extra-aws-edge_5.15.0.1063.69~20.04.1_amd64.deb": {
+              "size": 2632,
+              "md5": "80fb61c89bf137b5d9748184152fd878"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-modules-extra-aws_5.15.0.1063.69~20.04.1_amd64.deb": {
+              "size": 2640,
+              "md5": "209bf0ebf52f2432fbe3525ad75a482a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-image-aws-edge_5.15.0.1063.69~20.04.1_amd64.deb": {
+              "size": 2688,
+              "md5": "9d59865b2e06b29211b9923055964790"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-modules-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_amd64.deb": {
+              "size": 21902512,
+              "md5": "cf72a2092da58a5e41a3117922aeaee4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-modules-extra-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_amd64.deb": {
+              "size": 54381692,
+              "md5": "c7083ed7264775b632f6c6ac5a5e730a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-image-aws_5.15.0.1063.69~20.04.1_amd64.deb": {
+              "size": 2684,
+              "md5": "71a29a95fb5ab768c3e2b00d674ac58a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-headers-aws_5.15.0.1063.69~20.04.1_amd64.deb": {
+              "size": 2612,
+              "md5": "ef3fd4007175b684e8e0e96da82a12fb"
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-modules-extra-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_arm64.deb": {
+              "size": 55647872,
+              "md5": "9a47598ddb596cbba97080d6521b788e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-image-aws_5.15.0.1063.69~20.04.1_arm64.deb": {
+              "size": 2668,
+              "md5": "4a3d9ede46d0a041c9f4e3718d039393"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-buildinfo-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_arm64.deb": {
+              "size": 512460,
+              "md5": "972cb0a0357c92dccc00ae5bc2797c3f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-cloud-tools-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_arm64.deb": {
+              "size": 1880,
+              "md5": "ce26c9f3f9034fa546795278d92c1114"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-tools-aws-edge_5.15.0.1063.69~20.04.1_arm64.deb": {
+              "size": 2624,
+              "md5": "366962560888a76e2ac59c2336ba9098"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-image-unsigned-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_arm64.deb": {
+              "size": 15216832,
+              "md5": "9adcff66d6bb750b00ca7bc377b16007"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-tools-aws_5.15.0.1063.69~20.04.1_arm64.deb": {
+              "size": 2612,
+              "md5": "a39da2e5ab499883f324021ae50a6c12"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-headers-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_arm64.deb": {
+              "size": 2158484,
+              "md5": "efa3771b337fa70240139858fb965d02"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-image-aws-edge_5.15.0.1063.69~20.04.1_arm64.deb": {
+              "size": 2676,
+              "md5": "04999f570caab617a8db8b641d7314a3"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-tools-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_arm64.deb": {
+              "size": 1948,
+              "md5": "b5249673f33f7d43854733849fe60d3d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-aws_5.15.0.1063.69~20.04.1_arm64.deb": {
+              "size": 1936,
+              "md5": "3ab8e68db63a7fa15ba756f68836db1e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-aws-edge_5.15.0.1063.69~20.04.1_arm64.deb": {
+              "size": 1904,
+              "md5": "d37a705b7deb073f12e7ecf5e87919bd"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-headers-aws_5.15.0.1063.69~20.04.1_arm64.deb": {
+              "size": 2612,
+              "md5": "911acfa1cbfed3950974e1ab9b4faa36"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-headers-aws-edge_5.15.0.1063.69~20.04.1_arm64.deb": {
+              "size": 2624,
+              "md5": "2a260ffbfd5c56130dfe3a0037e676e7"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-aws-5.15-cloud-tools-5.15.0-1063_5.15.0-1063.69~20.04.1_arm64.deb": {
+              "size": 124296,
+              "md5": "e260925ae43757fc009add837b767a36"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-modules-extra-aws-edge_5.15.0.1063.69~20.04.1_arm64.deb": {
+              "size": 2632,
+              "md5": "5cb5269c97e6216206a9106516aeb085"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-aws-5.15-tools-5.15.0-1063_5.15.0-1063.69~20.04.1_arm64.deb": {
+              "size": 6367924,
+              "md5": "0ec734e258785002d5f09be86de6bfe2"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-aws-5.15/linux-image-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_arm64.deb": {
+              "size": 14796792,
+              "md5": "2c39616c723c5e5f71abebafe29173f4"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-modules-extra-aws_5.15.0.1063.69~20.04.1_arm64.deb": {
+              "size": 2640,
+              "md5": "23ca0c356f461e83b5ad0ea9e7df3ad7"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-modules-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_arm64.deb": {
+              "size": 20321016,
+              "md5": "4e0805077f26a8936cc48bd27e1f1872"
+            }
+          }
+        }
+      },
+      "sources": {
+        "linux-aws-5.15": {
+          "version": "5.15.0-1063.69~20.04.1",
+          "description": "Linux kernel for Amazon Web Services (AWS) systems"
+        }
+      }
+    }
+  },
+  "title": "Linux kernel (AWS) vulnerabilities",
+  "timestamp": 1718139182.5961263,
+  "summary": "linux-aws, linux-aws-5.15 vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
   "cves": [
     "CVE-2023-52434",
@@ -153,601 +748,6 @@
     "CVE-2024-35844",
     "CVE-2024-35845"
   ],
-  "description": "It was discovered that the ATA over Ethernet (AoE) driver in the Linux\nkernel contained a race condition, leading to a use-after-free\nvulnerability. An attacker could use this to cause a denial of service or\npossibly execute arbitrary code. (CVE-2023-6270)\n\nIt was discovered that the Atheros 802.11ac wireless driver did not\nproperly validate certain data structures, leading to a NULL pointer\ndereference. An attacker could possibly use this to cause a denial of\nservice. (CVE-2023-7042)\n\nIt was discovered that the HugeTLB file system component of the Linux\nKernel contained a NULL pointer dereference vulnerability. A privileged\nattacker could possibly use this to to cause a denial of service.\n(CVE-2024-0841)\n\nYuxuan Hu discovered that the Bluetooth RFCOMM protocol driver in the Linux\nKernel contained a race condition, leading to a NULL pointer dereference.\nAn attacker could possibly use this to cause a denial of service (system\ncrash). (CVE-2024-22099)\n\nIt was discovered that the MediaTek SoC Gigabit Ethernet driver in the\nLinux kernel contained a race condition when stopping the device. A local\nattacker could possibly use this to cause a denial of service (device\nunavailability). (CVE-2024-27432)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM32 architecture;\n  - RISC-V architecture;\n  - x86 architecture;\n  - ACPI drivers;\n  - Block layer subsystem;\n  - Clock framework and drivers;\n  - CPU frequency scaling framework;\n  - Cryptographic API;\n  - DMA engine subsystem;\n  - EFI core;\n  - GPU drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - Multiple devices driver;\n  - Media drivers;\n  - MMC subsystem;\n  - Network drivers;\n  - NTB driver;\n  - NVME drivers;\n  - PCI subsystem;\n  - MediaTek PM domains;\n  - Power supply drivers;\n  - SPI subsystem;\n  - Media staging drivers;\n  - TCM subsystem;\n  - USB subsystem;\n  - Framebuffer layer;\n  - AFS file system;\n  - File systems infrastructure;\n  - BTRFS file system;\n  - EROFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - Network file system client;\n  - NTFS3 file system;\n  - Diskquota system;\n  - SMB network file system;\n  - BPF subsystem;\n  - Netfilter;\n  - TLS protocol;\n  - io_uring subsystem;\n  - Bluetooth subsystem;\n  - Memory management;\n  - Ethernet bridge;\n  - Networking core;\n  - HSR network protocol;\n  - IPv4 networking;\n  - IPv6 networking;\n  - L2TP protocol;\n  - MAC80211 subsystem;\n  - Multipath TCP;\n  - Netlink;\n  - NET/ROM layer;\n  - Packet sockets;\n  - RDS protocol;\n  - Sun RPC protocol;\n  - Unix domain sockets;\n  - Wireless networking;\n  - USB sound devices;\n(CVE-2024-26877, CVE-2024-35829, CVE-2024-26737, CVE-2024-27075,\nCVE-2024-27414, CVE-2024-27053, CVE-2024-26889, CVE-2024-26792,\nCVE-2024-26882, CVE-2024-26906, CVE-2024-26851, CVE-2024-27037,\nCVE-2024-26782, CVE-2024-27388, CVE-2024-26748, CVE-2024-27419,\nCVE-2024-27034, CVE-2023-52662, CVE-2024-27047, CVE-2024-26874,\nCVE-2024-26779, CVE-2024-26872, CVE-2024-26820, CVE-2024-35811,\nCVE-2024-26771, CVE-2024-26733, CVE-2024-26903, CVE-2024-26736,\nCVE-2024-26870, CVE-2024-26883, CVE-2024-27403, CVE-2024-26878,\nCVE-2024-26857, CVE-2023-52645, CVE-2024-26601, CVE-2024-26891,\nCVE-2024-27028, CVE-2024-27054, CVE-2024-26804, CVE-2024-27405,\nCVE-2024-35830, CVE-2024-26898, CVE-2024-26754, CVE-2024-26793,\nCVE-2024-26747, CVE-2024-26901, CVE-2023-52652, CVE-2023-52650,\nCVE-2024-26651, CVE-2024-26816, CVE-2024-35845, CVE-2024-26862,\nCVE-2024-26884, CVE-2024-26752, CVE-2024-26852, CVE-2023-52656,\nCVE-2024-26790, CVE-2024-26603, CVE-2024-27078, CVE-2024-26802,\nCVE-2024-27045, CVE-2024-27024, CVE-2024-27073, CVE-2024-26585,\nCVE-2024-26894, CVE-2024-26583, CVE-2024-27416, CVE-2024-27431,\nCVE-2024-35844, CVE-2024-26838, CVE-2024-27410, CVE-2024-26915,\nCVE-2024-26772, CVE-2024-26897, CVE-2024-26798, CVE-2024-27415,\nCVE-2024-26855, CVE-2024-26833, CVE-2024-26764, CVE-2024-26659,\nCVE-2024-26846, CVE-2024-26895, CVE-2023-52644, CVE-2024-26751,\nCVE-2024-26880, CVE-2024-26863, CVE-2024-26809, CVE-2024-27052,\nCVE-2024-27051, CVE-2024-26907, CVE-2024-27413, CVE-2024-26801,\nCVE-2023-52620, CVE-2024-26749, CVE-2024-26787, CVE-2024-27046,\nCVE-2024-26803, CVE-2024-26744, CVE-2024-26879, CVE-2024-27432,\nCVE-2024-27412, CVE-2024-26791, CVE-2024-26773, CVE-2023-52640,\nCVE-2024-26778, CVE-2024-26859, CVE-2024-27044, CVE-2024-26788,\nCVE-2024-27077, CVE-2024-26750, CVE-2024-26861, CVE-2023-52434,\nCVE-2024-26774, CVE-2024-26795, CVE-2024-26856, CVE-2024-27043,\nCVE-2024-27039, CVE-2024-26777, CVE-2024-27030, CVE-2024-26584,\nCVE-2024-26735, CVE-2024-26805, CVE-2024-26766, CVE-2024-26763,\nCVE-2024-27065, CVE-2023-52641, CVE-2024-27417, CVE-2023-52497,\nCVE-2023-52447, CVE-2024-26769, CVE-2024-26843, CVE-2024-26881,\nCVE-2024-26688, CVE-2024-26743, CVE-2024-27038, CVE-2024-27390,\nCVE-2024-27436, CVE-2024-26839, CVE-2024-27074, CVE-2024-26840,\nCVE-2024-27076, CVE-2024-26835, CVE-2024-26885, CVE-2024-26776,\nCVE-2024-26845, CVE-2024-26875, CVE-2024-35828)\n",
   "id": "USN-6821-3",
-  "isummary": "Several security issues were fixed in the Linux kernel.\n",
-  "releases": {
-    "focal": {
-      "allbinaries": {
-        "linux-aws": {
-          "pocket": "security",
-          "source": "linux-meta-aws-5.15",
-          "version": "5.15.0.1063.69~20.04.1"
-        },
-        "linux-aws-5.15-cloud-tools-5.15.0-1063": {
-          "pocket": "security",
-          "source": "linux-aws-5.15",
-          "version": "5.15.0-1063.69~20.04.1"
-        },
-        "linux-aws-5.15-headers-5.15.0-1063": {
-          "pocket": "security",
-          "source": "linux-aws-5.15",
-          "version": "5.15.0-1063.69~20.04.1"
-        },
-        "linux-aws-5.15-tools-5.15.0-1063": {
-          "pocket": "security",
-          "source": "linux-aws-5.15",
-          "version": "5.15.0-1063.69~20.04.1"
-        },
-        "linux-aws-edge": {
-          "pocket": "security",
-          "source": "linux-meta-aws-5.15",
-          "version": "5.15.0.1063.69~20.04.1"
-        },
-        "linux-buildinfo-5.15.0-1063-aws": {
-          "pocket": "security",
-          "source": "linux-aws-5.15",
-          "version": "5.15.0-1063.69~20.04.1"
-        },
-        "linux-cloud-tools-5.15.0-1063-aws": {
-          "pocket": "security",
-          "source": "linux-aws-5.15",
-          "version": "5.15.0-1063.69~20.04.1"
-        },
-        "linux-headers-5.15.0-1063-aws": {
-          "pocket": "security",
-          "source": "linux-aws-5.15",
-          "version": "5.15.0-1063.69~20.04.1"
-        },
-        "linux-headers-aws": {
-          "pocket": "security",
-          "source": "linux-meta-aws-5.15",
-          "version": "5.15.0.1063.69~20.04.1"
-        },
-        "linux-headers-aws-edge": {
-          "pocket": "security",
-          "source": "linux-meta-aws-5.15",
-          "version": "5.15.0.1063.69~20.04.1"
-        },
-        "linux-image-5.15.0-1063-aws": {
-          "pocket": "security",
-          "source": "linux-signed-aws-5.15",
-          "version": "5.15.0-1063.69~20.04.1"
-        },
-        "linux-image-aws": {
-          "pocket": "security",
-          "source": "linux-meta-aws-5.15",
-          "version": "5.15.0.1063.69~20.04.1"
-        },
-        "linux-image-aws-edge": {
-          "pocket": "security",
-          "source": "linux-meta-aws-5.15",
-          "version": "5.15.0.1063.69~20.04.1"
-        },
-        "linux-image-unsigned-5.15.0-1063-aws": {
-          "pocket": "security",
-          "source": "linux-aws-5.15",
-          "version": "5.15.0-1063.69~20.04.1"
-        },
-        "linux-modules-5.15.0-1063-aws": {
-          "pocket": "security",
-          "source": "linux-aws-5.15",
-          "version": "5.15.0-1063.69~20.04.1"
-        },
-        "linux-modules-extra-5.15.0-1063-aws": {
-          "pocket": "security",
-          "source": "linux-aws-5.15",
-          "version": "5.15.0-1063.69~20.04.1"
-        },
-        "linux-modules-extra-aws": {
-          "pocket": "security",
-          "source": "linux-meta-aws-5.15",
-          "version": "5.15.0.1063.69~20.04.1"
-        },
-        "linux-modules-extra-aws-edge": {
-          "pocket": "security",
-          "source": "linux-meta-aws-5.15",
-          "version": "5.15.0.1063.69~20.04.1"
-        },
-        "linux-tools-5.15.0-1063-aws": {
-          "pocket": "security",
-          "source": "linux-aws-5.15",
-          "version": "5.15.0-1063.69~20.04.1"
-        },
-        "linux-tools-aws": {
-          "pocket": "security",
-          "source": "linux-meta-aws-5.15",
-          "version": "5.15.0.1063.69~20.04.1"
-        },
-        "linux-tools-aws-edge": {
-          "pocket": "security",
-          "source": "linux-meta-aws-5.15",
-          "version": "5.15.0.1063.69~20.04.1"
-        }
-      },
-      "archs": {
-        "all": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-aws-5.15-headers-5.15.0-1063_5.15.0-1063.69~20.04.1_all.deb": {
-              "md5": "ebcbd291dfca7de212e639e5575329a4",
-              "size": 12042512
-            }
-          }
-        },
-        "amd64": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-aws-5.15-tools-5.15.0-1063_5.15.0-1063.69~20.04.1_amd64.deb": {
-              "md5": "647e4d87f183d4a1e0e816d4ed900484",
-              "size": 7044572
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-buildinfo-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_amd64.deb": {
-              "md5": "62f62638071fa7292ea3d581d76670d8",
-              "size": 500340
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-headers-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_amd64.deb": {
-              "md5": "fda23b5ec2ece1f577dc42db360aedbd",
-              "size": 2733716
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-image-unsigned-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_amd64.deb": {
-              "md5": "526022bf28f0ec5ab7378b0d11594e53",
-              "size": 11735232
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-modules-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_amd64.deb": {
-              "md5": "cf72a2092da58a5e41a3117922aeaee4",
-              "size": 21902512
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-modules-extra-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_amd64.deb": {
-              "md5": "c7083ed7264775b632f6c6ac5a5e730a",
-              "size": 54381692
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-tools-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_amd64.deb": {
-              "md5": "7a3492868cf573675f2ad1232c43d693",
-              "size": 1996
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-aws-edge_5.15.0.1063.69~20.04.1_amd64.deb": {
-              "md5": "f2626e412405c66a19d39861f17097d8",
-              "size": 1904
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-aws_5.15.0.1063.69~20.04.1_amd64.deb": {
-              "md5": "6443f11c51699c8b89b8298978a04b44",
-              "size": 1936
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-headers-aws-edge_5.15.0.1063.69~20.04.1_amd64.deb": {
-              "md5": "a18ddb4eb779e27f865965ba7103b1fd",
-              "size": 2624
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-headers-aws_5.15.0.1063.69~20.04.1_amd64.deb": {
-              "md5": "ef3fd4007175b684e8e0e96da82a12fb",
-              "size": 2612
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-image-aws-edge_5.15.0.1063.69~20.04.1_amd64.deb": {
-              "md5": "9d59865b2e06b29211b9923055964790",
-              "size": 2688
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-image-aws_5.15.0.1063.69~20.04.1_amd64.deb": {
-              "md5": "71a29a95fb5ab768c3e2b00d674ac58a",
-              "size": 2684
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-modules-extra-aws-edge_5.15.0.1063.69~20.04.1_amd64.deb": {
-              "md5": "80fb61c89bf137b5d9748184152fd878",
-              "size": 2632
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-modules-extra-aws_5.15.0.1063.69~20.04.1_amd64.deb": {
-              "md5": "209bf0ebf52f2432fbe3525ad75a482a",
-              "size": 2640
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-tools-aws-edge_5.15.0.1063.69~20.04.1_amd64.deb": {
-              "md5": "69c1a141cc691c6362a5b5fa137b8a7c",
-              "size": 2624
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-tools-aws_5.15.0.1063.69~20.04.1_amd64.deb": {
-              "md5": "3f8370cacb952e95f21a68cbbb4843d3",
-              "size": 2612
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws-5.15/linux-image-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_amd64.deb": {
-              "md5": "08e4747aec056a57d8d9ccb4c43040ec",
-              "size": 11425844
-            }
-          }
-        },
-        "arm64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-aws-5.15-cloud-tools-5.15.0-1063_5.15.0-1063.69~20.04.1_arm64.deb": {
-              "md5": "e260925ae43757fc009add837b767a36",
-              "size": 124296
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-aws-5.15-tools-5.15.0-1063_5.15.0-1063.69~20.04.1_arm64.deb": {
-              "md5": "0ec734e258785002d5f09be86de6bfe2",
-              "size": 6367924
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-buildinfo-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_arm64.deb": {
-              "md5": "972cb0a0357c92dccc00ae5bc2797c3f",
-              "size": 512460
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-cloud-tools-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_arm64.deb": {
-              "md5": "ce26c9f3f9034fa546795278d92c1114",
-              "size": 1880
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-headers-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_arm64.deb": {
-              "md5": "efa3771b337fa70240139858fb965d02",
-              "size": 2158484
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-image-unsigned-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_arm64.deb": {
-              "md5": "9adcff66d6bb750b00ca7bc377b16007",
-              "size": 15216832
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-modules-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_arm64.deb": {
-              "md5": "4e0805077f26a8936cc48bd27e1f1872",
-              "size": 20321016
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-modules-extra-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_arm64.deb": {
-              "md5": "9a47598ddb596cbba97080d6521b788e",
-              "size": 55647872
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws-5.15/linux-tools-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_arm64.deb": {
-              "md5": "b5249673f33f7d43854733849fe60d3d",
-              "size": 1948
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-aws-edge_5.15.0.1063.69~20.04.1_arm64.deb": {
-              "md5": "d37a705b7deb073f12e7ecf5e87919bd",
-              "size": 1904
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-aws_5.15.0.1063.69~20.04.1_arm64.deb": {
-              "md5": "3ab8e68db63a7fa15ba756f68836db1e",
-              "size": 1936
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-headers-aws-edge_5.15.0.1063.69~20.04.1_arm64.deb": {
-              "md5": "2a260ffbfd5c56130dfe3a0037e676e7",
-              "size": 2624
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-headers-aws_5.15.0.1063.69~20.04.1_arm64.deb": {
-              "md5": "911acfa1cbfed3950974e1ab9b4faa36",
-              "size": 2612
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-image-aws-edge_5.15.0.1063.69~20.04.1_arm64.deb": {
-              "md5": "04999f570caab617a8db8b641d7314a3",
-              "size": 2676
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-image-aws_5.15.0.1063.69~20.04.1_arm64.deb": {
-              "md5": "4a3d9ede46d0a041c9f4e3718d039393",
-              "size": 2668
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-modules-extra-aws-edge_5.15.0.1063.69~20.04.1_arm64.deb": {
-              "md5": "5cb5269c97e6216206a9106516aeb085",
-              "size": 2632
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-modules-extra-aws_5.15.0.1063.69~20.04.1_arm64.deb": {
-              "md5": "23ca0c356f461e83b5ad0ea9e7df3ad7",
-              "size": 2640
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-tools-aws-edge_5.15.0.1063.69~20.04.1_arm64.deb": {
-              "md5": "366962560888a76e2ac59c2336ba9098",
-              "size": 2624
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws-5.15/linux-tools-aws_5.15.0.1063.69~20.04.1_arm64.deb": {
-              "md5": "a39da2e5ab499883f324021ae50a6c12",
-              "size": 2612
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-aws-5.15/linux-image-5.15.0-1063-aws_5.15.0-1063.69~20.04.1_arm64.deb": {
-              "md5": "2c39616c723c5e5f71abebafe29173f4",
-              "size": 14796792
-            }
-          }
-        },
-        "source": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-aws-5.15_5.15.0-1063.69~20.04.1.diff.gz": {
-              "md5": "0930c6db6b6161142ca8835f13d7fb1a",
-              "size": 10317886
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-aws-5.15_5.15.0-1063.69~20.04.1.dsc": {
-              "md5": "f67fc4d223fd434325fbea4b0c8f0ab1",
-              "size": 4640
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws-5.15/linux-aws-5.15_5.15.0.orig.tar.gz": {
-              "md5": "cd30827a862b74fe1e5174e6aee8e534",
-              "size": 194969557
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-meta-aws-5.15_5.15.0.1063.69~20.04.1.dsc": {
-              "md5": "2d3c7dea9c25a87ff8e238401518910e",
-              "size": 2356
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws-5.15/linux-meta-aws-5.15_5.15.0.1063.69~20.04.1.tar.xz": {
-              "md5": "20edfed12e960ed3d54fa204344211b0",
-              "size": 6212
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws-5.15/linux-signed-aws-5.15_5.15.0-1063.69~20.04.1.dsc": {
-              "md5": "61911a3cc7714a1b1fab63a8af670f7e",
-              "size": 1809
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws-5.15/linux-signed-aws-5.15_5.15.0-1063.69~20.04.1.tar.xz": {
-              "md5": "fb20bd970eb142d2025d5751552f4029",
-              "size": 13256
-            }
-          }
-        }
-      },
-      "binaries": {
-        "linux-image-5.15.0-1063-aws": {
-          "pocket": "security",
-          "version": "5.15.0-1063.69~20.04.1"
-        },
-        "linux-image-aws": {
-          "pocket": "security",
-          "version": "5.15.0.1063.69~20.04.1"
-        }
-      },
-      "sources": {
-        "linux-aws-5.15": {
-          "description": "Linux kernel for Amazon Web Services (AWS) systems",
-          "version": "5.15.0-1063.69~20.04.1"
-        }
-      }
-    },
-    "jammy": {
-      "allbinaries": {
-        "linux-aws-cloud-tools-5.15.0-1063": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "5.15.0-1063.69"
-        },
-        "linux-aws-headers-5.15.0-1063": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "5.15.0-1063.69"
-        },
-        "linux-aws-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-aws",
-          "version": "5.15.0.1063.63"
-        },
-        "linux-aws-tools-5.15.0-1063": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "5.15.0-1063.69"
-        },
-        "linux-buildinfo-5.15.0-1063-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "5.15.0-1063.69"
-        },
-        "linux-cloud-tools-5.15.0-1063-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "5.15.0-1063.69"
-        },
-        "linux-headers-5.15.0-1063-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "5.15.0-1063.69"
-        },
-        "linux-headers-aws-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-aws",
-          "version": "5.15.0.1063.63"
-        },
-        "linux-image-5.15.0-1063-aws": {
-          "pocket": "security",
-          "source": "linux-signed-aws",
-          "version": "5.15.0-1063.69"
-        },
-        "linux-image-aws-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-aws",
-          "version": "5.15.0.1063.63"
-        },
-        "linux-image-unsigned-5.15.0-1063-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "5.15.0-1063.69"
-        },
-        "linux-modules-5.15.0-1063-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "5.15.0-1063.69"
-        },
-        "linux-modules-extra-5.15.0-1063-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "5.15.0-1063.69"
-        },
-        "linux-modules-extra-aws-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-aws",
-          "version": "5.15.0.1063.63"
-        },
-        "linux-tools-5.15.0-1063-aws": {
-          "pocket": "security",
-          "source": "linux-aws",
-          "version": "5.15.0-1063.69"
-        },
-        "linux-tools-aws-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-aws",
-          "version": "5.15.0.1063.63"
-        }
-      },
-      "archs": {
-        "all": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws-headers-5.15.0-1063_5.15.0-1063.69_all.deb": {
-              "md5": "f9af460ea850dab0d080b0e85ed4f316",
-              "size": 12347146
-            }
-          }
-        },
-        "amd64": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws-tools-5.15.0-1063_5.15.0-1063.69_amd64.deb": {
-              "md5": "662dbdadcb4fb7fd6cd143e2b579a1be",
-              "size": 7628336
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-buildinfo-5.15.0-1063-aws_5.15.0-1063.69_amd64.deb": {
-              "md5": "2e71beea63702ec745bbb237c81fa3ca",
-              "size": 508660
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-headers-5.15.0-1063-aws_5.15.0-1063.69_amd64.deb": {
-              "md5": "d37d809cb7de6c793447ef7a053c8a41",
-              "size": 2824792
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-image-unsigned-5.15.0-1063-aws_5.15.0-1063.69_amd64.deb": {
-              "md5": "1680a35f9348b2aa9461f2f359db41a3",
-              "size": 11868352
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-modules-5.15.0-1063-aws_5.15.0-1063.69_amd64.deb": {
-              "md5": "1585c9161a7287e1f4b379e9b4df1adb",
-              "size": 22280100
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-modules-extra-5.15.0-1063-aws_5.15.0-1063.69_amd64.deb": {
-              "md5": "7f99c78928f7bc62f874af95abcfe075",
-              "size": 57012902
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-tools-5.15.0-1063-aws_5.15.0-1063.69_amd64.deb": {
-              "md5": "c0bdc3693bbb257b0c07a38d4ac3b854",
-              "size": 1780
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-aws-lts-22.04_5.15.0.1063.63_amd64.deb": {
-              "md5": "0b002399990672d91fdde22ca0b94905",
-              "size": 1732
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-headers-aws-lts-22.04_5.15.0.1063.63_amd64.deb": {
-              "md5": "d979497791b3061be7be9debeca31cde",
-              "size": 2426
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-image-aws-lts-22.04_5.15.0.1063.63_amd64.deb": {
-              "md5": "f2fcb186d91c76119c98fb381f6011c0",
-              "size": 2502
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-modules-extra-aws-lts-22.04_5.15.0.1063.63_amd64.deb": {
-              "md5": "25cd04e41c82a5a1b71b6b89bcc63312",
-              "size": 2450
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-tools-aws-lts-22.04_5.15.0.1063.63_amd64.deb": {
-              "md5": "0d61602512e3ca890d06132032ddf671",
-              "size": 2432
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-image-5.15.0-1063-aws_5.15.0-1063.69_amd64.deb": {
-              "md5": "30d1e68f10b932253fe450e628b1e6b0",
-              "size": 11566484
-            }
-          }
-        },
-        "arm64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-aws-cloud-tools-5.15.0-1063_5.15.0-1063.69_arm64.deb": {
-              "md5": "c2eca4f2927885a2216e33333924e3af",
-              "size": 116780
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-aws-tools-5.15.0-1063_5.15.0-1063.69_arm64.deb": {
-              "md5": "aa37b860a8354de54db1fcf02f984c94",
-              "size": 6933434
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-buildinfo-5.15.0-1063-aws_5.15.0-1063.69_arm64.deb": {
-              "md5": "0884b36596d5a446cdd89b6f5a2d47ac",
-              "size": 522810
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-cloud-tools-5.15.0-1063-aws_5.15.0-1063.69_arm64.deb": {
-              "md5": "b24bfbace682f8412c70ca8037d379c5",
-              "size": 1690
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-headers-5.15.0-1063-aws_5.15.0-1063.69_arm64.deb": {
-              "md5": "1b7eb7d7eeccce564738d593cf896319",
-              "size": 2554736
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-image-unsigned-5.15.0-1063-aws_5.15.0-1063.69_arm64.deb": {
-              "md5": "08fe9c2b06d6633627ba0e085375683d",
-              "size": 15165632
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-modules-5.15.0-1063-aws_5.15.0-1063.69_arm64.deb": {
-              "md5": "a149024a5f6d1119543660dd7539b8a8",
-              "size": 21121514
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-modules-extra-5.15.0-1063-aws_5.15.0-1063.69_arm64.deb": {
-              "md5": "8a68e0ddc377dcde4882646cddb0995a",
-              "size": 59473474
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-aws/linux-tools-5.15.0-1063-aws_5.15.0-1063.69_arm64.deb": {
-              "md5": "1d132a79568381c48389d5f9f140b45e",
-              "size": 1724
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-aws-lts-22.04_5.15.0.1063.63_arm64.deb": {
-              "md5": "aa15fde2f1d2837597f89efbfc2c5292",
-              "size": 1732
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-headers-aws-lts-22.04_5.15.0.1063.63_arm64.deb": {
-              "md5": "c74fd83a0dc965469cd26e8ea7ce6408",
-              "size": 2426
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-image-aws-lts-22.04_5.15.0.1063.63_arm64.deb": {
-              "md5": "20a3bfadbd6a43d850705bf6b187b662",
-              "size": 2488
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-modules-extra-aws-lts-22.04_5.15.0.1063.63_arm64.deb": {
-              "md5": "33e3c83f22f746e645d2fb5fb9530806",
-              "size": 2450
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-aws/linux-tools-aws-lts-22.04_5.15.0.1063.63_arm64.deb": {
-              "md5": "1fbce2ebf9980e1809733161d64430e2",
-              "size": 2432
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-aws/linux-image-5.15.0-1063-aws_5.15.0-1063.69_arm64.deb": {
-              "md5": "40d0637efbec6e7fd6d255bf3e913dcc",
-              "size": 14794582
-            }
-          }
-        },
-        "source": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_5.15.0-1063.69.diff.gz": {
-              "md5": "22764503ce25fced2fe9f017d8c7ab0d",
-              "size": 10167059
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_5.15.0-1063.69.dsc": {
-              "md5": "589f50ddfa7d2c7848f9047714771ffb",
-              "size": 4521
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-aws/linux-aws_5.15.0.orig.tar.gz": {
-              "md5": "cd30827a862b74fe1e5174e6aee8e534",
-              "size": 194969557
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-meta-aws_5.15.0.1063.63.dsc": {
-              "md5": "219e03ddd972e2f1a934d4d440a8fb8f",
-              "size": 1986
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-aws/linux-meta-aws_5.15.0.1063.63.tar.xz": {
-              "md5": "c5d7d0cc678603838c92e552936af9fd",
-              "size": 8932
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-signed-aws_5.15.0-1063.69.dsc": {
-              "md5": "7ec7064dc7c338eb77e6344f92e971b5",
-              "size": 1761
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-aws/linux-signed-aws_5.15.0-1063.69.tar.xz": {
-              "md5": "1df24d22f2a406996b503aef61027e2e",
-              "size": 13508
-            }
-          }
-        }
-      },
-      "binaries": {
-        "linux-image-5.15.0-1063-aws": {
-          "pocket": "security",
-          "version": "5.15.0-1063.69"
-        },
-        "linux-image-aws-lts-22.04": {
-          "pocket": "security",
-          "version": "5.15.0.1063.63"
-        }
-      },
-      "sources": {
-        "linux-aws": {
-          "description": "Linux kernel for Amazon Web Services (AWS) systems",
-          "version": "5.15.0-1063.69"
-        }
-      }
-    }
-  },
-  "summary": "linux-aws, linux-aws-5.15 vulnerabilities",
-  "timestamp": 1718139182.5961263,
-  "title": "Linux kernel (AWS) vulnerabilities"
+  "isummary": "Several security issues were fixed in the Linux kernel.\n"
 }

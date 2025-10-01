@@ -1,5 +1,5 @@
 {
-  "description": "It was discovered that the DesignWare USB3 for Qualcomm SoCs driver in the\nLinux kernel did not properly handle certain error conditions during device\nregistration. A local attacker could possibly use this to cause a denial of\nservice (system crash). (CVE-2023-22995)\n\nIt was discovered that a race condition existed in the Cypress touchscreen\ndriver in the Linux kernel during device removal, leading to a use-after-\nfree vulnerability. A physically proximate attacker could use this to cause\na denial of service (system crash) or possibly execute arbitrary code.\n(CVE-2023-4134)\n\n\u9ec4\u601d\u806a discovered that the NFC Controller Interface (NCI) implementation in\nthe Linux kernel did not properly handle certain memory allocation failure\nconditions, leading to a null pointer dereference vulnerability. A local\nattacker could use this to cause a denial of service (system crash).\n(CVE-2023-46343)\n\nIt was discovered that the io_uring subsystem in the Linux kernel contained\na race condition, leading to a null pointer dereference vulnerability. A\nlocal attacker could use this to cause a denial of service (system crash).\n(CVE-2023-46862)\n\nIt was discovered that a race condition existed in the Bluetooth subsystem\nof the Linux kernel, leading to a use-after-free vulnerability. A local\nattacker could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2023-51779)\n\nIt was discovered that a race condition existed in the Rose X.25 protocol\nimplementation in the Linux kernel, leading to a use-after- free\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-51782)\n\nAlon Zahavi discovered that the NVMe-oF/TCP subsystem of the Linux kernel\ndid not properly handle connect command payloads in certain situations,\nleading to an out-of-bounds read vulnerability. A remote attacker could use\nthis to expose sensitive information (kernel memory). (CVE-2023-6121)\n\nIt was discovered that the VirtIO subsystem in the Linux kernel did not\nproperly initialize memory in some situations. A local attacker could use\nthis to possibly expose sensitive information (kernel memory).\n(CVE-2024-0340)\n\nDan Carpenter discovered that the netfilter subsystem in the Linux kernel\ndid not store data in properly sized memory locations. A local user could\nuse this to cause a denial of service (system crash). (CVE-2024-0607)\n",
+  "description": "It was discovered that the DesignWare USB3 for Qualcomm SoCs driver in the\nLinux kernel did not properly handle certain error conditions during device\nregistration. A local attacker could possibly use this to cause a denial of\nservice (system crash). (CVE-2023-22995)\n\nIt was discovered that a race condition existed in the Cypress touchscreen\ndriver in the Linux kernel during device removal, leading to a use-after-\nfree vulnerability. A physically proximate attacker could use this to cause\na denial of service (system crash) or possibly execute arbitrary code.\n(CVE-2023-4134)\n\n黄思聪 discovered that the NFC Controller Interface (NCI) implementation in\nthe Linux kernel did not properly handle certain memory allocation failure\nconditions, leading to a null pointer dereference vulnerability. A local\nattacker could use this to cause a denial of service (system crash).\n(CVE-2023-46343)\n\nIt was discovered that the io_uring subsystem in the Linux kernel contained\na race condition, leading to a null pointer dereference vulnerability. A\nlocal attacker could use this to cause a denial of service (system crash).\n(CVE-2023-46862)\n\nIt was discovered that a race condition existed in the Bluetooth subsystem\nof the Linux kernel, leading to a use-after-free vulnerability. A local\nattacker could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2023-51779)\n\nIt was discovered that a race condition existed in the Rose X.25 protocol\nimplementation in the Linux kernel, leading to a use-after- free\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash) or possibly execute arbitrary code. (CVE-2023-51782)\n\nAlon Zahavi discovered that the NVMe-oF/TCP subsystem of the Linux kernel\ndid not properly handle connect command payloads in certain situations,\nleading to an out-of-bounds read vulnerability. A remote attacker could use\nthis to expose sensitive information (kernel memory). (CVE-2023-6121)\n\nIt was discovered that the VirtIO subsystem in the Linux kernel did not\nproperly initialize memory in some situations. A local attacker could use\nthis to possibly expose sensitive information (kernel memory).\n(CVE-2024-0340)\n\nDan Carpenter discovered that the netfilter subsystem in the Linux kernel\ndid not store data in properly sized memory locations. A local user could\nuse this to cause a denial of service (system crash). (CVE-2024-0607)\n",
   "releases": {
     "jammy": {
       "allbinaries": {
@@ -33,11 +33,6 @@
           "source": "linux-meta-kvm",
           "version": "5.15.0.1052.48"
         },
-        "linux-headers-5.15.0-1052-kvm": {
-          "pocket": "security",
-          "source": "linux-kvm",
-          "version": "5.15.0-1052.57"
-        },
         "linux-kvm-headers-5.15.0-1052": {
           "pocket": "security",
           "source": "linux-kvm",
@@ -53,15 +48,20 @@
           "source": "linux-kvm",
           "version": "5.15.0-1052.57"
         },
-        "linux-image-kvm": {
+        "linux-headers-5.15.0-1052-kvm": {
           "pocket": "security",
-          "source": "linux-meta-kvm",
-          "version": "5.15.0.1052.48"
+          "source": "linux-kvm",
+          "version": "5.15.0-1052.57"
         },
         "linux-buildinfo-5.15.0-1052-kvm": {
           "pocket": "security",
           "source": "linux-kvm",
           "version": "5.15.0-1052.57"
+        },
+        "linux-image-kvm": {
+          "pocket": "security",
+          "source": "linux-meta-kvm",
+          "version": "5.15.0.1052.48"
         }
       },
       "binaries": {
@@ -78,88 +78,88 @@
         "source": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-kvm/linux-signed-kvm_5.15.0-1052.57.dsc": {
-              "size": 1949,
-              "md5": "a14c613f6dbf74c58c4260b22d93f3b3"
+              "md5": "a14c613f6dbf74c58c4260b22d93f3b3",
+              "size": 1949
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-kvm/linux-meta-kvm_5.15.0.1052.48.dsc": {
-              "size": 1931,
-              "md5": "2e0750f561d70f9d733aef4b743511e7"
+              "md5": "2e0750f561d70f9d733aef4b743511e7",
+              "size": 1931
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-kvm/linux-meta-kvm_5.15.0.1052.48.tar.xz": {
-              "size": 9344,
-              "md5": "e93173ee5edf7d3efe18db8d99fa4a47"
+              "md5": "e93173ee5edf7d3efe18db8d99fa4a47",
+              "size": 9344
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-kvm/linux-kvm_5.15.0.orig.tar.gz": {
-              "size": 194969557,
-              "md5": "cd30827a862b74fe1e5174e6aee8e534"
+              "md5": "cd30827a862b74fe1e5174e6aee8e534",
+              "size": 194969557
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-kvm/linux-kvm_5.15.0-1052.57.diff.gz": {
-              "size": 12776949,
-              "md5": "b68a410ed73d9a7c9c2458ccd74c211c"
+              "md5": "b68a410ed73d9a7c9c2458ccd74c211c",
+              "size": 12776949
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-kvm/linux-signed-kvm_5.15.0-1052.57.tar.xz": {
-              "size": 15324,
-              "md5": "ff10f251aa64cc32e18fcfd3a68dfec5"
+              "md5": "ff10f251aa64cc32e18fcfd3a68dfec5",
+              "size": 15324
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-kvm/linux-kvm_5.15.0-1052.57.dsc": {
-              "size": 4167,
-              "md5": "df99f640102961bbc3c450722f6c63c9"
+              "md5": "df99f640102961bbc3c450722f6c63c9",
+              "size": 4167
             }
           }
         },
         "all": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-kvm/linux-kvm-headers-5.15.0-1052_5.15.0-1052.57_all.deb": {
-              "size": 12335084,
-              "md5": "ab4972178657ee9d0eadec8036901277"
+              "md5": "ab4972178657ee9d0eadec8036901277",
+              "size": 12335084
             }
           }
         },
         "amd64": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-kvm/linux-kvm-tools-5.15.0-1052_5.15.0-1052.57_amd64.deb": {
-              "size": 7538770,
-              "md5": "9849191b6f24a19b725aac13d120d967"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-kvm/linux-image-5.15.0-1052-kvm_5.15.0-1052.57_amd64.deb": {
-              "size": 6898546,
-              "md5": "96f3fd9addce3e4612f01dcad5119f12"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-kvm/linux-image-unsigned-5.15.0-1052-kvm_5.15.0-1052.57_amd64.deb": {
-              "size": 7086272,
-              "md5": "c095584c3aae9cf7932f4114a4b60229"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-kvm/linux-headers-kvm_5.15.0.1052.48_amd64.deb": {
-              "size": 2382,
-              "md5": "b27e9c1df1cf24e5390526684fac9015"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-kvm/linux-image-kvm_5.15.0.1052.48_amd64.deb": {
-              "size": 2454,
-              "md5": "f165c8083deb44a05ec4a4aead0a3446"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-kvm/linux-tools-5.15.0-1052-kvm_5.15.0-1052.57_amd64.deb": {
-              "size": 1758,
-              "md5": "f7dd481c9cd8a8ab22fbc435b40891b4"
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-kvm/linux-kvm_5.15.0.1052.48_amd64.deb": {
-              "size": 1698,
-              "md5": "f2f7b019b280473316b33ccce4912367"
+              "md5": "9849191b6f24a19b725aac13d120d967",
+              "size": 7538770
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-kvm/linux-modules-5.15.0-1052-kvm_5.15.0-1052.57_amd64.deb": {
-              "size": 14650956,
-              "md5": "e7cb720616ce269963cf25ab68b16646"
+              "md5": "e7cb720616ce269963cf25ab68b16646",
+              "size": 14650956
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-kvm/linux-image-unsigned-5.15.0-1052-kvm_5.15.0-1052.57_amd64.deb": {
+              "md5": "c095584c3aae9cf7932f4114a4b60229",
+              "size": 7086272
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-kvm/linux-headers-kvm_5.15.0.1052.48_amd64.deb": {
+              "md5": "b27e9c1df1cf24e5390526684fac9015",
+              "size": 2382
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-kvm/linux-image-kvm_5.15.0.1052.48_amd64.deb": {
+              "md5": "f165c8083deb44a05ec4a4aead0a3446",
+              "size": 2454
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-kvm/linux-tools-5.15.0-1052-kvm_5.15.0-1052.57_amd64.deb": {
+              "md5": "f7dd481c9cd8a8ab22fbc435b40891b4",
+              "size": 1758
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-kvm/linux-kvm_5.15.0.1052.48_amd64.deb": {
+              "md5": "f2f7b019b280473316b33ccce4912367",
+              "size": 1698
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-kvm/linux-image-5.15.0-1052-kvm_5.15.0-1052.57_amd64.deb": {
+              "md5": "96f3fd9addce3e4612f01dcad5119f12",
+              "size": 6898546
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-kvm/linux-buildinfo-5.15.0-1052-kvm_5.15.0-1052.57_amd64.deb": {
-              "size": 270772,
-              "md5": "9627fa5ddf7a7e27162b8d98d569b90e"
+              "md5": "9627fa5ddf7a7e27162b8d98d569b90e",
+              "size": 270772
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-kvm/linux-headers-5.15.0-1052-kvm_5.15.0-1052.57_amd64.deb": {
-              "size": 2473178,
-              "md5": "cf0da0a793c82d5dca9a3f1dcf672437"
+              "md5": "cf0da0a793c82d5dca9a3f1dcf672437",
+              "size": 2473178
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-kvm/linux-tools-kvm_5.15.0.1052.48_amd64.deb": {
-              "size": 2380,
-              "md5": "22dbf694b30320cd5e7b4539c430ba18"
+              "md5": "22dbf694b30320cd5e7b4539c430ba18",
+              "size": 2380
             }
           }
         }
@@ -176,6 +176,8 @@
   "timestamp": 1710940190.3590686,
   "summary": "linux-kvm vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
+  "isummary": "Several security issues were fixed in the Linux kernel.\n",
+  "id": "USN-6686-4",
   "cves": [
     "CVE-2023-22995",
     "CVE-2023-4134",
@@ -186,7 +188,5 @@
     "CVE-2023-6121",
     "CVE-2024-0340",
     "CVE-2024-0607"
-  ],
-  "id": "USN-6686-4",
-  "isummary": "Several security issues were fixed in the Linux kernel.\n"
+  ]
 }

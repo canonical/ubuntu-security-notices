@@ -1,15 +1,647 @@
 {
-  "action": "After a standard system update you need to restart all QEMU virtual\nmachines to make all the necessary changes.\n",
-  "cves": [
-    "https://launchpad.net/bugs/2065579"
-  ],
   "description": "USN-6567-1 fixed vulnerabilities QEMU. The fix for CVE-2023-2861 was too\nrestrictive and introduced a behaviour change leading to a regression in\ncertain environments. This update fixes the problem.\n\nOriginal advisory details:\n\n Gaoning Pan and Xingwei Li discovered that QEMU incorrectly handled the\n USB xHCI controller device. A privileged guest attacker could possibly use\n this issue to cause QEMU to crash, leading to a denial of service. This\n issue only affected Ubuntu 20.04 LTS and Ubuntu 22.04 LTS. (CVE-2020-14394)\n \n It was discovered that QEMU incorrectly handled the TCG Accelerator. A\n local attacker could use this issue to cause QEMU to crash, leading to a\n denial of service, or possibly execute arbitrary code and esclate\n privileges. This issue only affected Ubuntu 20.04 LTS. (CVE-2020-24165)\n \n It was discovered that QEMU incorrectly handled the Intel HD audio device.\n A malicious guest attacker could use this issue to cause QEMU to crash,\n leading to a denial of service. This issue only affected Ubuntu 22.04 LTS.\n (CVE-2021-3611)\n \n It was discovered that QEMU incorrectly handled the ATI VGA device. A\n malicious guest attacker could use this issue to cause QEMU to crash,\n leading to a denial of service. This issue only affected Ubuntu 20.04 LTS.\n (CVE-2021-3638)\n \n It was discovered that QEMU incorrectly handled the VMWare paravirtual RDMA\n device. A malicious guest attacker could use this issue to cause QEMU to\n crash, leading to a denial of service. (CVE-2023-1544)\n \n It was discovered that QEMU incorrectly handled the 9p passthrough\n filesystem. A malicious guest attacker could possibly use this issue to\n open special files and escape the exported 9p tree. This issue only\n affected Ubuntu 20.04 LTS, Ubuntu 22.04 LTS, and Ubuntu 23.04.\n (CVE-2023-2861)\n \n It was discovered that QEMU incorrectly handled the virtual crypto device.\n A malicious guest attacker could use this issue to cause QEMU to crash,\n leading to a denial of service, or possibly execute arbitrary code. This\n issue only affected Ubuntu 20.04 LTS, Ubuntu 22.04 LTS, and Ubuntu 23.04.\n (CVE-2023-3180)\n \n It was discovered that QEMU incorrectly handled the built-in VNC server.\n A remote authenticated attacker could possibly use this issue to cause QEMU\n to stop responding, resulting in a denial of service. This issue only\n affected Ubuntu 22.04 LTS and Ubuntu 23.04. (CVE-2023-3255)\n \n It was discovered that QEMU incorrectly handled net device hot-unplugging.\n A malicious guest attacker could use this issue to cause QEMU to crash,\n leading to a denial of service. This issue only affected Ubuntu 22.04 LTS\n and Ubuntu 23.04. (CVE-2023-3301)\n \n It was discovered that QEMU incorrectly handled the built-in VNC server.\n A remote attacker could possibly use this issue to cause QEMU to crash,\n resulting in a denial of service. This issue only affected Ubuntu 20.04\n LTS, Ubuntu 22.04 LTS, and Ubuntu 23.04. (CVE-2023-3354)\n \n It was discovered that QEMU incorrectly handled NVME devices. A malicious\n guest attacker could use this issue to cause QEMU to crash, leading to a\n denial of service. This issue only affected Ubuntu 23.10. (CVE-2023-40360)\n \n It was discovered that QEMU incorrectly handled NVME devices. A malicious\n guest attacker could use this issue to cause QEMU to crash, leading to a\n denial of service, or possibly obtain sensitive information. This issue\n only affected Ubuntu 23.10. (CVE-2023-4135)\n \n It was discovered that QEMU incorrectly handled SCSI devices. A malicious\n guest attacker could use this issue to cause QEMU to crash, leading to a\n denial of service. This issue only affected Ubuntu 23.04 and Ubuntu 23.10.\n (CVE-2023-42467)\n \n It was discovered that QEMU incorrectly handled certain disk offsets. A\n malicious guest attacker could possibly use this issue to gain control of\n the host in certain nested virtualization scenarios. (CVE-2023-5088)\n",
-  "id": "USN-6567-2",
-  "isummary": "USN-6567-1 introduced a regression in QEMU.\n",
   "releases": {
+    "jammy": {
+      "allbinaries": {
+        "qemu-system-x86-microvm": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-common": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-data": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-misc": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-utils": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-block-extra": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-s390x": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-user": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-guest-agent": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-x86-xen": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-user-static": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-user-binfmt": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-x86": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-sparc": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-gui": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-arm": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-ppc": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-mips": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        }
+      },
+      "binaries": {
+        "qemu-system-s390x": {
+          "pocket": "security",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-x86-microvm": {
+          "pocket": "security",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-misc": {
+          "pocket": "security",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system": {
+          "pocket": "security",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-x86-xen": {
+          "pocket": "security",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-x86": {
+          "pocket": "security",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-sparc": {
+          "pocket": "security",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-arm": {
+          "pocket": "security",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-ppc": {
+          "pocket": "security",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        },
+        "qemu-system-mips": {
+          "pocket": "security",
+          "version": "1:6.2+dfsg-2ubuntu6.21"
+        }
+      },
+      "archs": {
+        "riscv64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
+              "size": 12734,
+              "md5": "0903167f624799428517c03d36ddccf8"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
+              "size": 4421822,
+              "md5": "59f64482591626d6a4926ea9021876a0"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
+              "size": 211698,
+              "md5": "4d0ff12b9841200fcdacfdbfff4a2009"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
+              "size": 13950,
+              "md5": "9c29c6fd8f220bfa1f10223d5ad65614"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
+              "size": 6649238,
+              "md5": "73be5c2877a317ae3050e5dc7f0f9204"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
+              "size": 50522,
+              "md5": "06ca5f086a205db62efbe9078d9b8e4f"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
+              "size": 29926950,
+              "md5": "deaf845f67226d0b30faca8c480387bb"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
+              "size": 1218816,
+              "md5": "c61b2e34f320bb3f26036499217ecdda"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
+              "size": 13017486,
+              "md5": "ceb9af081397b2d705486c27b81c06c4"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
+              "size": 188432,
+              "md5": "fc13a15bf6fa5ce21827372aca490edf"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
+              "size": 12897684,
+              "md5": "bb04ee3d2ad84fb45ff708e28911584d"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
+              "size": 12492696,
+              "md5": "644661ba5d63fac342c7eefe37549559"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
+              "size": 7165182,
+              "md5": "59d9c83e2fed72e36e73ee28f71e8b92"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
+              "size": 3588,
+              "md5": "4f5ef263ac2396fa94828ea3952ab6a0"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
+              "size": 1726330,
+              "md5": "1d92d20a835305d90d01a92c5e86153d"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
+              "size": 2370794,
+              "md5": "e5021bec680fd94b6dad6dd128691545"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
+              "size": 8624440,
+              "md5": "54f7036e3ff05943f8c97152f0fb0fb9"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-data_6.2+dfsg-2ubuntu6.21_all.deb": {
+              "size": 1430522,
+              "md5": "dfe652b0525e6664797ffacd606b576c"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-gui_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 219996,
+              "md5": "45d438280c8065bcb538a0c09ca10d8b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-block-extra_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 68190,
+              "md5": "6ac7ce787dde8ec5a647b3cdabd032df"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-arm_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 10095248,
+              "md5": "e3105b4d6448b753437dfc8b9110eb6e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-user-binfmt_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 3590,
+              "md5": "816509e0aa2e7e45915ff7edf099caf6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-ppc_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 8418316,
+              "md5": "e876f12db1eb24e072b993cc5092390b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-misc_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 41246340,
+              "md5": "024298bc36f27b39369bf3952173be71"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-system-x86-microvm_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 11118,
+              "md5": "2acb106840de98aa807fa9d8ed49a951"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-guest-agent_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 250832,
+              "md5": "0b57a50335c8b3fcb078a226b289e1c7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-sparc_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 5735256,
+              "md5": "6cb19eb26cfbafbd3b471e58487446b7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-utils_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 1524634,
+              "md5": "eb7ac283ca7e5fc195e12aef3a2f604a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-s390x_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 2869230,
+              "md5": "da6e777e189c03b31ce108c8a9983e9f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-common_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 2047644,
+              "md5": "6c0b636e68c7194249a6d9cb4f1a4d66"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-user-static_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 12970748,
+              "md5": "75794dd03c08a1fc4056028d105f6683"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 13950,
+              "md5": "2e66ef8152671a11c4d47060cef6d2ec"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 12730,
+              "md5": "e501a4cb041e13a0c095f3e5b8e32834"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-system-x86-xen_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 8225278,
+              "md5": "d38f4a1f067a4768729fe83f68f03b40"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-user_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 16008366,
+              "md5": "8b86fa559cb13e0e0f8bca20778b80af"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-x86_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 10074574,
+              "md5": "42e1bc8a5c66166ec4131b5fc050de9b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-mips_6.2+dfsg-2ubuntu6.21_amd64.deb": {
+              "size": 15118408,
+              "md5": "afb827d076ed0ed18add829814672b18"
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu_6.2+dfsg-2ubuntu6.21.dsc": {
+              "size": 7547,
+              "md5": "a9473b91418638e3082240b0d364a603"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu_6.2+dfsg-2ubuntu6.21.debian.tar.xz": {
+              "size": 253536,
+              "md5": "7c7ff5d21f0442fb963ade2b9edc5d48"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu_6.2+dfsg.orig.tar.xz": {
+              "size": 23049712,
+              "md5": "612a03cd5bd4aba2cfaf3b60a87ae64c"
+            }
+          }
+        },
+        "ppc64el": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
+              "size": 16327974,
+              "md5": "fb3dd18d0e3dd5d5f75290736cc439ff"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
+              "size": 12740,
+              "md5": "173c4fe9f65cc838540cd8734ca4fa5f"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
+              "size": 8431692,
+              "md5": "242cccd5b2865d41409ee132f216a1e0"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
+              "size": 3638,
+              "md5": "2774fd1ab33d3b22978c1f7ffb93ccbb"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
+              "size": 1564694,
+              "md5": "43bfda604cc574bf52bdb58c1331b037"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
+              "size": 279478,
+              "md5": "c41946866bf1256c7623f4e6e59d504b"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
+              "size": 16383352,
+              "md5": "e9bc73d07ba2801f2b6edfff7eea6013"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
+              "size": 51824948,
+              "md5": "f5cdca4d1e4349b3928b1e49111ab3c1"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
+              "size": 13950,
+              "md5": "af9e6ab02c77dca7c31b2f89d682e3c8"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
+              "size": 9093952,
+              "md5": "328e674c77f980f0ed9242889966fb4a"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
+              "size": 2169618,
+              "md5": "0c7bee570c47b5dfc5d8bca97172b457"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
+              "size": 253016,
+              "md5": "2207ee56fbbb02ea2ee562ee0ace5102"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
+              "size": 17392706,
+              "md5": "bd4fc5126d779eb049efb8e941a9b456"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
+              "size": 11005930,
+              "md5": "071eef1ae151c8b1af6aff6a921160c8"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
+              "size": 6229622,
+              "md5": "2709969328fffedc63bcbc0be6147086"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
+              "size": 74346,
+              "md5": "9187d24b59ac5e39d06cc0c947f9feb8"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
+              "size": 3105414,
+              "md5": "830d59e78907811378e0ef46de3f789b"
+            }
+          }
+        },
+        "s390x": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_6.2+dfsg-2ubuntu6.21_s390x.deb": {
+              "size": 13607994,
+              "md5": "a990a0dff071344e7cda3335f92d5b00"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu_6.2+dfsg-2ubuntu6.21_s390x.deb": {
+              "size": 13948,
+              "md5": "afc2828e05b422419938f007424b7fac"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_6.2+dfsg-2ubuntu6.21_s390x.deb": {
+              "size": 2620970,
+              "md5": "74ad4119c57a92f0ea9f205ae581deb1"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_6.2+dfsg-2ubuntu6.21_s390x.deb": {
+              "size": 36698402,
+              "md5": "d204f766444c7b63048ac7da099b60c4"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_6.2+dfsg-2ubuntu6.21_s390x.deb": {
+              "size": 7540266,
+              "md5": "e7bb56476d2f8f5183feeb441ab3e2bd"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_6.2+dfsg-2ubuntu6.21_s390x.deb": {
+              "size": 65804,
+              "md5": "3ccc85e10025c13c6c95da643827f8d0"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_6.2+dfsg-2ubuntu6.21_s390x.deb": {
+              "size": 3652,
+              "md5": "75ff64f3edce73cd5d96ec224f5815c9"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_6.2+dfsg-2ubuntu6.21_s390x.deb": {
+              "size": 234910,
+              "md5": "42ebf1f27d325949a35dcaed86a5cc52"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_6.2+dfsg-2ubuntu6.21_s390x.deb": {
+              "size": 1858816,
+              "md5": "1a9c9bd3720b89d2aba22ae38d97fd91"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_6.2+dfsg-2ubuntu6.21_s390x.deb": {
+              "size": 9042524,
+              "md5": "5111623b0283f7d207389f365eac6869"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_6.2+dfsg-2ubuntu6.21_s390x.deb": {
+              "size": 12734,
+              "md5": "6dff83647666fb37e2d81bea43c51c8e"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_6.2+dfsg-2ubuntu6.21_s390x.deb": {
+              "size": 5043272,
+              "md5": "00131dbfc6ee4fb425ecfd0f10d36fc6"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_6.2+dfsg-2ubuntu6.21_s390x.deb": {
+              "size": 209550,
+              "md5": "92343801e2a7b7698297de82fdf79e39"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_6.2+dfsg-2ubuntu6.21_s390x.deb": {
+              "size": 14256156,
+              "md5": "d63f28620d6dc68bbdbf54bb42fa46f6"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_6.2+dfsg-2ubuntu6.21_s390x.deb": {
+              "size": 1325486,
+              "md5": "3fc6810ba20497eed5f9baabeb6928bb"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_6.2+dfsg-2ubuntu6.21_s390x.deb": {
+              "size": 7096858,
+              "md5": "d7cc9a394a2969b1aa28ce6fd2043fbb"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_6.2+dfsg-2ubuntu6.21_s390x.deb": {
+              "size": 13579126,
+              "md5": "937494892e43c71898b720b6d24e2165"
+            }
+          }
+        },
+        "armhf": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_6.2+dfsg-2ubuntu6.21_armhf.deb": {
+              "size": 3754140,
+              "md5": "36b5b53400c48511bdf2a9f5ec87c208"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_6.2+dfsg-2ubuntu6.21_armhf.deb": {
+              "size": 62616,
+              "md5": "81d220b90975604a7a6a305b825d1a67"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_6.2+dfsg-2ubuntu6.21_armhf.deb": {
+              "size": 8724396,
+              "md5": "18c50e3f37faf00de324a2745d8500b2"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_6.2+dfsg-2ubuntu6.21_armhf.deb": {
+              "size": 191842,
+              "md5": "1fdd79e5cc1ba7de8f55738fdf4c3c30"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_6.2+dfsg-2ubuntu6.21_armhf.deb": {
+              "size": 1808174,
+              "md5": "093627bfb5340fe96ea5652888ebd1e6"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_6.2+dfsg-2ubuntu6.21_armhf.deb": {
+              "size": 12727956,
+              "md5": "166b2536d111eaf6f96d8fd163c48bb9"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu_6.2+dfsg-2ubuntu6.21_armhf.deb": {
+              "size": 13948,
+              "md5": "222dac481105527cc9c5c504a7346514"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_6.2+dfsg-2ubuntu6.21_armhf.deb": {
+              "size": 7310952,
+              "md5": "37841aefcaab2d456594c7ba3f2e3194"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_6.2+dfsg-2ubuntu6.21_armhf.deb": {
+              "size": 6849924,
+              "md5": "cda8f6d0169011d898490b638b4ad83b"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_6.2+dfsg-2ubuntu6.21_armhf.deb": {
+              "size": 11827820,
+              "md5": "3d1ff983d486e9ca86b74d27d8e4cf53"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_6.2+dfsg-2ubuntu6.21_armhf.deb": {
+              "size": 219788,
+              "md5": "06620aebaf2f4cfae0aaec808a6d51a0"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_6.2+dfsg-2ubuntu6.21_armhf.deb": {
+              "size": 23579132,
+              "md5": "a01223c7b32e68882ff2be64d1a04af2"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_6.2+dfsg-2ubuntu6.21_armhf.deb": {
+              "size": 2525882,
+              "md5": "6e79c4fb5876590832afe6c593cffa24"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_6.2+dfsg-2ubuntu6.21_armhf.deb": {
+              "size": 12730,
+              "md5": "a0616068c03859db52d24c81b60328ed"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_6.2+dfsg-2ubuntu6.21_armhf.deb": {
+              "size": 13299266,
+              "md5": "9c8db20f75ffaeddfd602fda178fc626"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_6.2+dfsg-2ubuntu6.21_armhf.deb": {
+              "size": 1252146,
+              "md5": "e9eb84a88f79e71f18feeeaa9829c6b2"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_6.2+dfsg-2ubuntu6.21_armhf.deb": {
+              "size": 3612,
+              "md5": "576900714cac8aec5080fa302f8a27c3"
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_6.2+dfsg-2ubuntu6.21_arm64.deb": {
+              "size": 13987098,
+              "md5": "b1074d905c00a51713009dc73d152ba9"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_6.2+dfsg-2ubuntu6.21_arm64.deb": {
+              "size": 7269958,
+              "md5": "a9be9ce5cd510b5345bcc18bf873f2e3"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_6.2+dfsg-2ubuntu6.21_arm64.deb": {
+              "size": 3612,
+              "md5": "af1c71b9e547f21c9548e1a5939981c4"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_6.2+dfsg-2ubuntu6.21_arm64.deb": {
+              "size": 7773574,
+              "md5": "fce3e77c4b8d7c303e71ca0fc1d2c9f4"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_6.2+dfsg-2ubuntu6.21_arm64.deb": {
+              "size": 211108,
+              "md5": "69732628868b5d197d284247f184d0e9"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_6.2+dfsg-2ubuntu6.21_arm64.deb": {
+              "size": 1936960,
+              "md5": "e3d218b7ca6a70384d4976d22fcd2e63"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu_6.2+dfsg-2ubuntu6.21_arm64.deb": {
+              "size": 13950,
+              "md5": "2be614aa47f16b8bcc3c00f6ef6ddf0b"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_6.2+dfsg-2ubuntu6.21_arm64.deb": {
+              "size": 9352786,
+              "md5": "817be2fb6359b3d17365923ab441dda2"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_6.2+dfsg-2ubuntu6.21_arm64.deb": {
+              "size": 1378828,
+              "md5": "4ae209c85780202a1fb6634e8498020a"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_6.2+dfsg-2ubuntu6.21_arm64.deb": {
+              "size": 238934,
+              "md5": "e25da9d0d599e3ed1a264a636f8f49aa"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_6.2+dfsg-2ubuntu6.21_arm64.deb": {
+              "size": 14182390,
+              "md5": "10eb60deed29a4290d72d0a8f2ca6d83"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_6.2+dfsg-2ubuntu6.21_arm64.deb": {
+              "size": 65486,
+              "md5": "cfea3576cb0f1bb18c2e629a3c4570d7"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_6.2+dfsg-2ubuntu6.21_arm64.deb": {
+              "size": 5166378,
+              "md5": "7374536356434e5b2c72c6869cea2b61"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_6.2+dfsg-2ubuntu6.21_arm64.deb": {
+              "size": 2649802,
+              "md5": "886f2ea2fd84fc3b650a847aaf054e08"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_6.2+dfsg-2ubuntu6.21_arm64.deb": {
+              "size": 13984400,
+              "md5": "7092abf5312bbb6fc2a51751f8bc1bd1"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_6.2+dfsg-2ubuntu6.21_arm64.deb": {
+              "size": 12730,
+              "md5": "fdf248956d99206798efbad75f67f293"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_6.2+dfsg-2ubuntu6.21_arm64.deb": {
+              "size": 38188758,
+              "md5": "05e0d98910449d61e0efb1ec59056ee5"
+            }
+          }
+        }
+      },
+      "sources": {
+        "qemu": {
+          "version": "1:6.2+dfsg-2ubuntu6.21",
+          "description": "Machine emulator and virtualizer"
+        }
+      }
+    },
     "focal": {
       "allbinaries": {
-        "qemu": {
+        "qemu-system-x86-microvm": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-system-common": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-system-data": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-system-misc": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-utils": {
           "pocket": "security",
           "source": "qemu",
           "version": "1:4.2-3ubuntu6.29"
@@ -19,7 +651,7 @@
           "source": "qemu",
           "version": "1:4.2-3ubuntu6.29"
         },
-        "qemu-guest-agent": {
+        "qemu-system-s390x": {
           "pocket": "security",
           "source": "qemu",
           "version": "1:4.2-3ubuntu6.29"
@@ -29,62 +661,17 @@
           "source": "qemu",
           "version": "1:4.2-3ubuntu6.29"
         },
+        "qemu-user": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-guest-agent": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:4.2-3ubuntu6.29"
+        },
         "qemu-system": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-arm": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-common": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-data": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-gui": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-mips": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-misc": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-ppc": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-s390x": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-sparc": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-x86": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-x86-microvm": {
           "pocket": "security",
           "source": "qemu",
           "version": "1:4.2-3ubuntu6.29"
@@ -94,7 +681,12 @@
           "source": "qemu",
           "version": "1:4.2-3ubuntu6.29"
         },
-        "qemu-user": {
+        "qemu-user-static": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu": {
           "pocket": "security",
           "source": "qemu",
           "version": "1:4.2-3ubuntu6.29"
@@ -104,1172 +696,580 @@
           "source": "qemu",
           "version": "1:4.2-3ubuntu6.29"
         },
-        "qemu-user-static": {
+        "qemu-system-x86": {
           "pocket": "security",
           "source": "qemu",
           "version": "1:4.2-3ubuntu6.29"
         },
-        "qemu-utils": {
+        "qemu-system-sparc": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-system-gui": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-system-arm": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-system-ppc": {
+          "pocket": "security",
+          "source": "qemu",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-system-mips": {
           "pocket": "security",
           "source": "qemu",
           "version": "1:4.2-3ubuntu6.29"
         }
       },
+      "binaries": {
+        "qemu-system-s390x": {
+          "pocket": "security",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-system-x86-microvm": {
+          "pocket": "security",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-system-misc": {
+          "pocket": "security",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-system": {
+          "pocket": "security",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-system-x86-xen": {
+          "pocket": "security",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-system-x86": {
+          "pocket": "security",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-system-sparc": {
+          "pocket": "security",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-system-arm": {
+          "pocket": "security",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-system-ppc": {
+          "pocket": "security",
+          "version": "1:4.2-3ubuntu6.29"
+        },
+        "qemu-system-mips": {
+          "pocket": "security",
+          "version": "1:4.2-3ubuntu6.29"
+        }
+      },
       "archs": {
+        "riscv64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_4.2-3ubuntu6.29_riscv64.deb": {
+              "size": 4432508,
+              "md5": "d4ccb0524206f41010566652ee7f57fa"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_4.2-3ubuntu6.29_riscv64.deb": {
+              "size": 12260,
+              "md5": "571fa7efa258427a069feea99da68967"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_4.2-3ubuntu6.29_riscv64.deb": {
+              "size": 41160,
+              "md5": "61d93f41b3daebd706a03537806af45b"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_4.2-3ubuntu6.29_riscv64.deb": {
+              "size": 173672,
+              "md5": "ed74295def51fa9a3153190f0aff2179"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_4.2-3ubuntu6.29_riscv64.deb": {
+              "size": 11467272,
+              "md5": "8f83082ae263f478f81f1cb1492d1c43"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_4.2-3ubuntu6.29_riscv64.deb": {
+              "size": 13933716,
+              "md5": "5f6d69cabd50e514d708f16a6ce7838a"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_4.2-3ubuntu6.29_riscv64.deb": {
+              "size": 6103576,
+              "md5": "f3a824f09be9caa923e4eaac8d8fae93"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_4.2-3ubuntu6.29_riscv64.deb": {
+              "size": 1007724,
+              "md5": "6792e18d9164ce04e4e9de86bbea3a6c"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_4.2-3ubuntu6.29_riscv64.deb": {
+              "size": 35032,
+              "md5": "fbf14e3f99d08eb3576d584288de8b57"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_4.2-3ubuntu6.29_riscv64.deb": {
+              "size": 6933236,
+              "md5": "193300d850814ccbdfb83443e226d16b"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu_4.2-3ubuntu6.29_riscv64.deb": {
+              "size": 14052,
+              "md5": "9a8a919f365ca0d9b9b275c5e88e2c94"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_4.2-3ubuntu6.29_riscv64.deb": {
+              "size": 3124,
+              "md5": "44daf80dcea1e9a7e9263c464981cec4"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_4.2-3ubuntu6.29_riscv64.deb": {
+              "size": 5894140,
+              "md5": "9da9d4b9bcde09fb80d5a69cb1f2398c"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_4.2-3ubuntu6.29_riscv64.deb": {
+              "size": 2268456,
+              "md5": "43abbee40286a6c6f98a458afa9c17ef"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_4.2-3ubuntu6.29_riscv64.deb": {
+              "size": 17544680,
+              "md5": "fa49713a61d9bc491ee14397aaf4e524"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_4.2-3ubuntu6.29_riscv64.deb": {
+              "size": 853820,
+              "md5": "4cd82f2b9635350a80a6998a763c730b"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_4.2-3ubuntu6.29_riscv64.deb": {
+              "size": 31889912,
+              "md5": "28c0e741eaf8fab8977b4ca0c647cdd2"
+            }
+          }
+        },
         "all": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-data_4.2-3ubuntu6.29_all.deb": {
-              "md5": "3ef4ed2e19d1306eff4d9b0a0cb4fb64",
-              "size": 562384
+              "size": 562384,
+              "md5": "3ef4ed2e19d1306eff4d9b0a0cb4fb64"
             }
           }
         },
         "amd64": {
           "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-block-extra_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "b850f42e09ce33fd7ac4567c7a97e8aa",
-              "size": 53688
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-kvm_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "7dcf5cae108ffc5792656ee2c1f136b4",
-              "size": 13132
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-arm_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "f8f876e4edec5b9cb7df86f0e8c67723",
-              "size": 7728332
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-common_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "2b60c489d56d6aacdaeeaacc8c7e0818",
-              "size": 1058092
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-gui_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "b9eac41bb184b93a24aa790e5129ff26",
-              "size": 39700
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-mips_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "2d94f195ff260a466dc86e0802826e65",
-              "size": 12849880
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-misc_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "f4f18f43672f8539b57401ee38428aaa",
-              "size": 43504076
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-ppc_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "22ccfd3960bc855746e5684b797d5149",
-              "size": 6875444
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-s390x_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "997aa89cfda2655a08edc5c940578b3b",
-              "size": 2572704
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-sparc_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "2e649e47e427c4f1c8010154d79e0032",
-              "size": 5089872
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-x86_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "9b9749250c10e9e2fe91f11f83f040bd",
-              "size": 6727616
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "755d45ce1b3ace7af7ad014db03371d0",
-              "size": 12260
+            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-user-binfmt_4.2-3ubuntu6.29_amd64.deb": {
+              "size": 3124,
+              "md5": "16698ec3cc021e5b7fb7f19912791696"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-utils_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "c7fdf8602a76cde182e86405b79fb392",
-              "size": 968200
+              "size": 968200,
+              "md5": "c7fdf8602a76cde182e86405b79fb392"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-block-extra_4.2-3ubuntu6.29_amd64.deb": {
+              "size": 53688,
+              "md5": "b850f42e09ce33fd7ac4567c7a97e8aa"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-misc_4.2-3ubuntu6.29_amd64.deb": {
+              "size": 43504076,
+              "md5": "f4f18f43672f8539b57401ee38428aaa"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-mips_4.2-3ubuntu6.29_amd64.deb": {
+              "size": 12849880,
+              "md5": "2d94f195ff260a466dc86e0802826e65"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system_4.2-3ubuntu6.29_amd64.deb": {
+              "size": 12260,
+              "md5": "755d45ce1b3ace7af7ad014db03371d0"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "f04384c6868abd48385fcaf529564c0f",
-              "size": 14056
-            },
-            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-guest-agent_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "e0b0fa57af5663d93dcddb1374771295",
-              "size": 192860
-            },
-            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-system-x86-microvm_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "9d6355218ff319d60b7963db35d1cff8",
-              "size": 1929580
-            },
-            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-system-x86-xen_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "de23012a5c98f9a05363fcb776d9abb8",
-              "size": 6403960
-            },
-            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-user-binfmt_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "16698ec3cc021e5b7fb7f19912791696",
-              "size": 3124
-            },
-            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-user-static_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "ef9365519f1684fa5ccf75a69419ebd4",
-              "size": 21334260
+              "size": 14056,
+              "md5": "f04384c6868abd48385fcaf529564c0f"
             },
             "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-user_4.2-3ubuntu6.29_amd64.deb": {
-              "md5": "9df51ba42e9cfd3755bd15fe669fa72b",
-              "size": 16086864
-            }
-          }
-        },
-        "arm64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "48df87dcf3fb1c5a73dd3a26557556ef",
-              "size": 50504
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-kvm_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "653ebbbd2ca4aca34397e933910e95ff",
-              "size": 12440
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "043f6a37a738aaaf165731a9c6ed72d1",
-              "size": 7126360
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "b173bbe0cf6b8a6386966f953ed1bb08",
-              "size": 1038872
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "89a0e5c7530f4ba211c357105c303290",
-              "size": 37364
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "0090e51a961ba2d1c3e11d35074d5d71",
-              "size": 11867620
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "1f437fd4427213d4ac0846cf5a2f3610",
-              "size": 40334892
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "8653abe3fc547673c75cc19978b66804",
-              "size": 6392948
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "4aa0e10faf27aca0bca4b0ec25ebb5a6",
-              "size": 2386452
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "8199f1a8cfe62c787d77bef4f559770e",
-              "size": 4722704
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "d05345a545b9ba4cf9d1d5da4b11aac2",
-              "size": 6211944
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "5dd8446152b1e73c6f337429730288e5",
-              "size": 12260
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "d8dce98b606d88d379de02f906a38509",
-              "size": 923704
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "44345948169d43537e377e3ac3f0f3f0",
-              "size": 14052
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "47acab0d2eab8cd90cca87be707b7480",
-              "size": 184564
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "9e90d3167ee551dec25741fb779dc13a",
-              "size": 3140
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "4be7d286e6527afbd131b3ac881c5c6f",
-              "size": 17179716
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_4.2-3ubuntu6.29_arm64.deb": {
-              "md5": "eee0f53c193944c9bfde6a6daa9adf4e",
-              "size": 14781552
-            }
-          }
-        },
-        "armhf": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "4f4d8dd212289467e69e1ac8917ac96f",
-              "size": 49140
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-kvm_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "e32d74d2b77fdd492a392b2f70a9e789",
-              "size": 12432
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "e13cc178d385f3d00a00aa62fa0ba64b",
-              "size": 6924472
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "a3872ed1748a3a951cf0fbf25131a732",
-              "size": 1005040
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "dbce0b6c01469fc92896c7667b34b7c0",
-              "size": 34820
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "9fe4173a700cad563e7f76dac0d04070",
-              "size": 11699116
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "725fc47b8eceb890ccfddad0e3ec298f",
-              "size": 25298980
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "5a8683d4276f49bc5a8b4f5fcdfb5cb1",
-              "size": 6218532
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "a08f1b1e4ed34977955e331ff776f1e4",
-              "size": 2340356
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "485a8cb5a9a4f34944a5ddb7adda7cac",
-              "size": 3192640
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "e1bc545bb624a04e3c606b66144d2185",
-              "size": 5989616
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "38affe160b27c121dd547a7283809169",
-              "size": 12260
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "1398de9def4fc4789af430e02be328c5",
-              "size": 854128
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "9ae02b7f349b1c5b7fac5d18dcc22910",
-              "size": 14052
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "633b9f1592430e48a20fce58c4cfe843",
-              "size": 175360
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "89dfaa9824e8389404e5d5674518494f",
-              "size": 3140
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "5ff77cbb59ee159c8f2fce558b26ccbe",
-              "size": 14914092
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_4.2-3ubuntu6.29_armhf.deb": {
-              "md5": "1acc40febf62bc31ec162866c27c7f88",
-              "size": 12247676
-            }
-          }
-        },
-        "ppc64el": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "ec358e18c56e650b22772906323be87d",
-              "size": 56008
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-kvm_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "1b908c316d551ec791c97d989eb6420a",
-              "size": 12648
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "9838add21188c356d1d2a36f0e3fc77b",
-              "size": 7697952
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "ddd98539551a850b9fba24a5ad20eb72",
-              "size": 1068280
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "d1a551e5fcb1acba6fef26fc36a5eeaa",
-              "size": 40956
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "83e2480f9a6fe808e35daaf3f6efae48",
-              "size": 12803192
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "76595e05c224f2a95c4b25522c123c8d",
-              "size": 43575400
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "d19916ab6d0754405ed3b142d2be91bd",
-              "size": 6868172
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "6f68dee46bde944f590d939d9e4cd4bb",
-              "size": 2566516
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "8a7f47a8dd44c280f4dc62357f8f8964",
-              "size": 5088392
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "8ca55cf9ea1ec47f4a4ed4db0fa425df",
-              "size": 6626084
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "39e291f6a9df743001e88348dade968c",
-              "size": 12260
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "ca9303c379e08b3248ceb668690c16f8",
-              "size": 997056
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "37ee37b464eb4a63e0534b81d645483c",
-              "size": 14052
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "e4a30ea3d68154dc19910eff615faf6a",
-              "size": 199900
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "bf17861b051e1b337ff7bd1b4634051b",
-              "size": 3160
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "a3a85abdb6afa4492f06b237f1904fc7",
-              "size": 20976572
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_4.2-3ubuntu6.29_ppc64el.deb": {
-              "md5": "b6c1400e3f0a5ce0edc0a62444bfeabc",
-              "size": 16158584
-            }
-          }
-        },
-        "riscv64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_4.2-3ubuntu6.29_riscv64.deb": {
-              "md5": "61d93f41b3daebd706a03537806af45b",
-              "size": 41160
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_4.2-3ubuntu6.29_riscv64.deb": {
-              "md5": "193300d850814ccbdfb83443e226d16b",
-              "size": 6933236
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_4.2-3ubuntu6.29_riscv64.deb": {
-              "md5": "6792e18d9164ce04e4e9de86bbea3a6c",
-              "size": 1007724
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_4.2-3ubuntu6.29_riscv64.deb": {
-              "md5": "fbf14e3f99d08eb3576d584288de8b57",
-              "size": 35032
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_4.2-3ubuntu6.29_riscv64.deb": {
-              "md5": "8f83082ae263f478f81f1cb1492d1c43",
-              "size": 11467272
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_4.2-3ubuntu6.29_riscv64.deb": {
-              "md5": "28c0e741eaf8fab8977b4ca0c647cdd2",
-              "size": 31889912
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_4.2-3ubuntu6.29_riscv64.deb": {
-              "md5": "f3a824f09be9caa923e4eaac8d8fae93",
-              "size": 6103576
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_4.2-3ubuntu6.29_riscv64.deb": {
-              "md5": "43abbee40286a6c6f98a458afa9c17ef",
-              "size": 2268456
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_4.2-3ubuntu6.29_riscv64.deb": {
-              "md5": "d4ccb0524206f41010566652ee7f57fa",
-              "size": 4432508
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_4.2-3ubuntu6.29_riscv64.deb": {
-              "md5": "9da9d4b9bcde09fb80d5a69cb1f2398c",
-              "size": 5894140
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_4.2-3ubuntu6.29_riscv64.deb": {
-              "md5": "571fa7efa258427a069feea99da68967",
-              "size": 12260
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_4.2-3ubuntu6.29_riscv64.deb": {
-              "md5": "4cd82f2b9635350a80a6998a763c730b",
-              "size": 853820
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu_4.2-3ubuntu6.29_riscv64.deb": {
-              "md5": "9a8a919f365ca0d9b9b275c5e88e2c94",
-              "size": 14052
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_4.2-3ubuntu6.29_riscv64.deb": {
-              "md5": "ed74295def51fa9a3153190f0aff2179",
-              "size": 173672
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_4.2-3ubuntu6.29_riscv64.deb": {
-              "md5": "44daf80dcea1e9a7e9263c464981cec4",
-              "size": 3124
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_4.2-3ubuntu6.29_riscv64.deb": {
-              "md5": "fa49713a61d9bc491ee14397aaf4e524",
-              "size": 17544680
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_4.2-3ubuntu6.29_riscv64.deb": {
-              "md5": "5f6d69cabd50e514d708f16a6ce7838a",
-              "size": 13933716
-            }
-          }
-        },
-        "s390x": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "d39e83d1de762c198f2b90c1a28e901e",
-              "size": 50192
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-kvm_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "9698f63e025e85bf877dd50fffb1f819",
-              "size": 12440
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "302d02c01e85c30f226eaa2cb67b5794",
-              "size": 7021732
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "27c9085076411f4515c206c2b15b250b",
-              "size": 1026572
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "c68c0451064c1135621253414037b82a",
-              "size": 37416
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "1ca016efc03733282c4b21792c90424e",
-              "size": 11574108
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "25c790478361cbffcfb20745095a04bf",
-              "size": 39088732
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "06cd1b9158c5cce426669fa614f6684e",
-              "size": 6212216
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "140df790d277218423be55c9acf4c55e",
-              "size": 2335356
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "dc7590e8928deddae8991b30b0a1703b",
-              "size": 4581236
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "4e71ca80f0dcf8d43f9c3f30f844f822",
-              "size": 5987792
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "d02f0a3daa8bcdb0eac0549d0b56f551",
-              "size": 12256
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "33523518bd827347ab7989d525a24e4b",
-              "size": 884556
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "cdd0f146fcbbcec12411367cdaabb2f1",
-              "size": 14052
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "8863ef9ba382498d015b56474f888f06",
-              "size": 181484
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "4948b40c71a42b2bd68ba299939d15ad",
-              "size": 3168
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "83b60cfb3516d12a4526390d6d20dd1d",
-              "size": 17648480
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_4.2-3ubuntu6.29_s390x.deb": {
-              "md5": "e71365dad1e92211194766ddee9c9209",
-              "size": 14621308
+              "size": 16086864,
+              "md5": "9df51ba42e9cfd3755bd15fe669fa72b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-ppc_4.2-3ubuntu6.29_amd64.deb": {
+              "size": 6875444,
+              "md5": "22ccfd3960bc855746e5684b797d5149"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-guest-agent_4.2-3ubuntu6.29_amd64.deb": {
+              "size": 192860,
+              "md5": "e0b0fa57af5663d93dcddb1374771295"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-arm_4.2-3ubuntu6.29_amd64.deb": {
+              "size": 7728332,
+              "md5": "f8f876e4edec5b9cb7df86f0e8c67723"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-kvm_4.2-3ubuntu6.29_amd64.deb": {
+              "size": 13132,
+              "md5": "7dcf5cae108ffc5792656ee2c1f136b4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-common_4.2-3ubuntu6.29_amd64.deb": {
+              "size": 1058092,
+              "md5": "2b60c489d56d6aacdaeeaacc8c7e0818"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-s390x_4.2-3ubuntu6.29_amd64.deb": {
+              "size": 2572704,
+              "md5": "997aa89cfda2655a08edc5c940578b3b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-user-static_4.2-3ubuntu6.29_amd64.deb": {
+              "size": 21334260,
+              "md5": "ef9365519f1684fa5ccf75a69419ebd4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-x86_4.2-3ubuntu6.29_amd64.deb": {
+              "size": 6727616,
+              "md5": "9b9749250c10e9e2fe91f11f83f040bd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-sparc_4.2-3ubuntu6.29_amd64.deb": {
+              "size": 5089872,
+              "md5": "2e649e47e427c4f1c8010154d79e0032"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-system-x86-xen_4.2-3ubuntu6.29_amd64.deb": {
+              "size": 6403960,
+              "md5": "de23012a5c98f9a05363fcb776d9abb8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-gui_4.2-3ubuntu6.29_amd64.deb": {
+              "size": 39700,
+              "md5": "b9eac41bb184b93a24aa790e5129ff26"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-system-x86-microvm_4.2-3ubuntu6.29_amd64.deb": {
+              "size": 1929580,
+              "md5": "9d6355218ff319d60b7963db35d1cff8"
             }
           }
         },
         "source": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu_4.2-3ubuntu6.29.debian.tar.xz": {
-              "md5": "1e634f08d7c96662c63f5470b5fc535a",
-              "size": 334240
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu_4.2-3ubuntu6.29.dsc": {
-              "md5": "ffc4c60b9a87387376b8582cde9d35d3",
-              "size": 7320
+              "size": 334240,
+              "md5": "1e634f08d7c96662c63f5470b5fc535a"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu_4.2.orig.tar.xz": {
-              "md5": "278eeb294e4b497e79af7a57e660cb9a",
-              "size": 62222068
-            }
-          }
-        }
-      },
-      "binaries": {
-        "qemu-system": {
-          "pocket": "security",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-arm": {
-          "pocket": "security",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-mips": {
-          "pocket": "security",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-misc": {
-          "pocket": "security",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-ppc": {
-          "pocket": "security",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-s390x": {
-          "pocket": "security",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-sparc": {
-          "pocket": "security",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-x86": {
-          "pocket": "security",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-x86-microvm": {
-          "pocket": "security",
-          "version": "1:4.2-3ubuntu6.29"
-        },
-        "qemu-system-x86-xen": {
-          "pocket": "security",
-          "version": "1:4.2-3ubuntu6.29"
-        }
-      },
-      "sources": {
-        "qemu": {
-          "description": "Machine emulator and virtualizer",
-          "version": "1:4.2-3ubuntu6.29"
-        }
-      }
-    },
-    "jammy": {
-      "allbinaries": {
-        "qemu": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-block-extra": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-guest-agent": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-arm": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-common": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-data": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-gui": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-mips": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-misc": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-ppc": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-s390x": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-sparc": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-x86": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-x86-microvm": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-x86-xen": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-user": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-user-binfmt": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-user-static": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-utils": {
-          "pocket": "security",
-          "source": "qemu",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        }
-      },
-      "archs": {
-        "all": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-data_6.2+dfsg-2ubuntu6.21_all.deb": {
-              "md5": "dfe652b0525e6664797ffacd606b576c",
-              "size": 1430522
-            }
-          }
-        },
-        "amd64": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-block-extra_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "6ac7ce787dde8ec5a647b3cdabd032df",
-              "size": 68190
+              "size": 62222068,
+              "md5": "278eeb294e4b497e79af7a57e660cb9a"
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-arm_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "e3105b4d6448b753437dfc8b9110eb6e",
-              "size": 10095248
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-common_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "6c0b636e68c7194249a6d9cb4f1a4d66",
-              "size": 2047644
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-gui_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "45d438280c8065bcb538a0c09ca10d8b",
-              "size": 219996
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-mips_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "afb827d076ed0ed18add829814672b18",
-              "size": 15118408
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-misc_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "024298bc36f27b39369bf3952173be71",
-              "size": 41246340
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-ppc_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "e876f12db1eb24e072b993cc5092390b",
-              "size": 8418316
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-s390x_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "da6e777e189c03b31ce108c8a9983e9f",
-              "size": 2869230
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-sparc_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "6cb19eb26cfbafbd3b471e58487446b7",
-              "size": 5735256
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system-x86_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "42e1bc8a5c66166ec4131b5fc050de9b",
-              "size": 10074574
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-system_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "e501a4cb041e13a0c095f3e5b8e32834",
-              "size": 12730
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu-utils_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "eb7ac283ca7e5fc195e12aef3a2f604a",
-              "size": 1524634
-            },
-            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-guest-agent_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "0b57a50335c8b3fcb078a226b289e1c7",
-              "size": 250832
-            },
-            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-system-x86-microvm_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "2acb106840de98aa807fa9d8ed49a951",
-              "size": 11118
-            },
-            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-system-x86-xen_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "d38f4a1f067a4768729fe83f68f03b40",
-              "size": 8225278
-            },
-            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-user-binfmt_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "816509e0aa2e7e45915ff7edf099caf6",
-              "size": 3590
-            },
-            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-user-static_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "75794dd03c08a1fc4056028d105f6683",
-              "size": 12970748
-            },
-            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-user_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "8b86fa559cb13e0e0f8bca20778b80af",
-              "size": 16008366
-            },
-            "http://security.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu_6.2+dfsg-2ubuntu6.21_amd64.deb": {
-              "md5": "2e66ef8152671a11c4d47060cef6d2ec",
-              "size": 13950
-            }
-          }
-        },
-        "arm64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_6.2+dfsg-2ubuntu6.21_arm64.deb": {
-              "md5": "cfea3576cb0f1bb18c2e629a3c4570d7",
-              "size": 65486
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_6.2+dfsg-2ubuntu6.21_arm64.deb": {
-              "md5": "817be2fb6359b3d17365923ab441dda2",
-              "size": 9352786
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_6.2+dfsg-2ubuntu6.21_arm64.deb": {
-              "md5": "e3d218b7ca6a70384d4976d22fcd2e63",
-              "size": 1936960
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_6.2+dfsg-2ubuntu6.21_arm64.deb": {
-              "md5": "69732628868b5d197d284247f184d0e9",
-              "size": 211108
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_6.2+dfsg-2ubuntu6.21_arm64.deb": {
-              "md5": "7092abf5312bbb6fc2a51751f8bc1bd1",
-              "size": 13984400
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_6.2+dfsg-2ubuntu6.21_arm64.deb": {
-              "md5": "05e0d98910449d61e0efb1ec59056ee5",
-              "size": 38188758
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_6.2+dfsg-2ubuntu6.21_arm64.deb": {
-              "md5": "fce3e77c4b8d7c303e71ca0fc1d2c9f4",
-              "size": 7773574
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_6.2+dfsg-2ubuntu6.21_arm64.deb": {
-              "md5": "886f2ea2fd84fc3b650a847aaf054e08",
-              "size": 2649802
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_6.2+dfsg-2ubuntu6.21_arm64.deb": {
-              "md5": "7374536356434e5b2c72c6869cea2b61",
-              "size": 5166378
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_6.2+dfsg-2ubuntu6.21_arm64.deb": {
-              "md5": "a9be9ce5cd510b5345bcc18bf873f2e3",
-              "size": 7269958
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_6.2+dfsg-2ubuntu6.21_arm64.deb": {
-              "md5": "fdf248956d99206798efbad75f67f293",
-              "size": 12730
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_6.2+dfsg-2ubuntu6.21_arm64.deb": {
-              "md5": "4ae209c85780202a1fb6634e8498020a",
-              "size": 1378828
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_6.2+dfsg-2ubuntu6.21_arm64.deb": {
-              "md5": "e25da9d0d599e3ed1a264a636f8f49aa",
-              "size": 238934
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_6.2+dfsg-2ubuntu6.21_arm64.deb": {
-              "md5": "af1c71b9e547f21c9548e1a5939981c4",
-              "size": 3612
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_6.2+dfsg-2ubuntu6.21_arm64.deb": {
-              "md5": "b1074d905c00a51713009dc73d152ba9",
-              "size": 13987098
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_6.2+dfsg-2ubuntu6.21_arm64.deb": {
-              "md5": "10eb60deed29a4290d72d0a8f2ca6d83",
-              "size": 14182390
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu_6.2+dfsg-2ubuntu6.21_arm64.deb": {
-              "md5": "2be614aa47f16b8bcc3c00f6ef6ddf0b",
-              "size": 13950
-            }
-          }
-        },
-        "armhf": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_6.2+dfsg-2ubuntu6.21_armhf.deb": {
-              "md5": "81d220b90975604a7a6a305b825d1a67",
-              "size": 62616
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_6.2+dfsg-2ubuntu6.21_armhf.deb": {
-              "md5": "18c50e3f37faf00de324a2745d8500b2",
-              "size": 8724396
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_6.2+dfsg-2ubuntu6.21_armhf.deb": {
-              "md5": "093627bfb5340fe96ea5652888ebd1e6",
-              "size": 1808174
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_6.2+dfsg-2ubuntu6.21_armhf.deb": {
-              "md5": "1fdd79e5cc1ba7de8f55738fdf4c3c30",
-              "size": 191842
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_6.2+dfsg-2ubuntu6.21_armhf.deb": {
-              "md5": "9c8db20f75ffaeddfd602fda178fc626",
-              "size": 13299266
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_6.2+dfsg-2ubuntu6.21_armhf.deb": {
-              "md5": "a01223c7b32e68882ff2be64d1a04af2",
-              "size": 23579132
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_6.2+dfsg-2ubuntu6.21_armhf.deb": {
-              "md5": "37841aefcaab2d456594c7ba3f2e3194",
-              "size": 7310952
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_6.2+dfsg-2ubuntu6.21_armhf.deb": {
-              "md5": "6e79c4fb5876590832afe6c593cffa24",
-              "size": 2525882
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_6.2+dfsg-2ubuntu6.21_armhf.deb": {
-              "md5": "36b5b53400c48511bdf2a9f5ec87c208",
-              "size": 3754140
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_6.2+dfsg-2ubuntu6.21_armhf.deb": {
-              "md5": "cda8f6d0169011d898490b638b4ad83b",
-              "size": 6849924
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_6.2+dfsg-2ubuntu6.21_armhf.deb": {
-              "md5": "a0616068c03859db52d24c81b60328ed",
-              "size": 12730
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_6.2+dfsg-2ubuntu6.21_armhf.deb": {
-              "md5": "e9eb84a88f79e71f18feeeaa9829c6b2",
-              "size": 1252146
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_6.2+dfsg-2ubuntu6.21_armhf.deb": {
-              "md5": "06620aebaf2f4cfae0aaec808a6d51a0",
-              "size": 219788
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_6.2+dfsg-2ubuntu6.21_armhf.deb": {
-              "md5": "576900714cac8aec5080fa302f8a27c3",
-              "size": 3612
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_6.2+dfsg-2ubuntu6.21_armhf.deb": {
-              "md5": "166b2536d111eaf6f96d8fd163c48bb9",
-              "size": 12727956
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_6.2+dfsg-2ubuntu6.21_armhf.deb": {
-              "md5": "3d1ff983d486e9ca86b74d27d8e4cf53",
-              "size": 11827820
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu_6.2+dfsg-2ubuntu6.21_armhf.deb": {
-              "md5": "222dac481105527cc9c5c504a7346514",
-              "size": 13948
+            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu_4.2-3ubuntu6.29.dsc": {
+              "size": 7320,
+              "md5": "ffc4c60b9a87387376b8582cde9d35d3"
             }
           }
         },
         "ppc64el": {
           "urls": {
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
-              "md5": "9187d24b59ac5e39d06cc0c947f9feb8",
-              "size": 74346
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 14052,
+              "md5": "37ee37b464eb4a63e0534b81d645483c"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
-              "md5": "071eef1ae151c8b1af6aff6a921160c8",
-              "size": 11005930
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 5088392,
+              "md5": "8a7f47a8dd44c280f4dc62357f8f8964"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
-              "md5": "0c7bee570c47b5dfc5d8bca97172b457",
-              "size": 2169618
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 12260,
+              "md5": "39e291f6a9df743001e88348dade968c"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
-              "md5": "2207ee56fbbb02ea2ee562ee0ace5102",
-              "size": 253016
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 40956,
+              "md5": "d1a551e5fcb1acba6fef26fc36a5eeaa"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
-              "md5": "fb3dd18d0e3dd5d5f75290736cc439ff",
-              "size": 16327974
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 997056,
+              "md5": "ca9303c379e08b3248ceb668690c16f8"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
-              "md5": "f5cdca4d1e4349b3928b1e49111ab3c1",
-              "size": 51824948
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 56008,
+              "md5": "ec358e18c56e650b22772906323be87d"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
-              "md5": "328e674c77f980f0ed9242889966fb4a",
-              "size": 9093952
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-kvm_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 12648,
+              "md5": "1b908c316d551ec791c97d989eb6420a"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
-              "md5": "830d59e78907811378e0ef46de3f789b",
-              "size": 3105414
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 7697952,
+              "md5": "9838add21188c356d1d2a36f0e3fc77b"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
-              "md5": "2709969328fffedc63bcbc0be6147086",
-              "size": 6229622
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 16158584,
+              "md5": "b6c1400e3f0a5ce0edc0a62444bfeabc"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
-              "md5": "242cccd5b2865d41409ee132f216a1e0",
-              "size": 8431692
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 6868172,
+              "md5": "d19916ab6d0754405ed3b142d2be91bd"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
-              "md5": "173c4fe9f65cc838540cd8734ca4fa5f",
-              "size": 12740
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 3160,
+              "md5": "bf17861b051e1b337ff7bd1b4634051b"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
-              "md5": "43bfda604cc574bf52bdb58c1331b037",
-              "size": 1564694
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 1068280,
+              "md5": "ddd98539551a850b9fba24a5ad20eb72"
             },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
-              "md5": "c41946866bf1256c7623f4e6e59d504b",
-              "size": 279478
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 6626084,
+              "md5": "8ca55cf9ea1ec47f4a4ed4db0fa425df"
             },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
-              "md5": "2774fd1ab33d3b22978c1f7ffb93ccbb",
-              "size": 3638
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 2566516,
+              "md5": "6f68dee46bde944f590d939d9e4cd4bb"
             },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
-              "md5": "bd4fc5126d779eb049efb8e941a9b456",
-              "size": 17392706
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 20976572,
+              "md5": "a3a85abdb6afa4492f06b237f1904fc7"
             },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
-              "md5": "e9bc73d07ba2801f2b6edfff7eea6013",
-              "size": 16383352
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 43575400,
+              "md5": "76595e05c224f2a95c4b25522c123c8d"
             },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu_6.2+dfsg-2ubuntu6.21_ppc64el.deb": {
-              "md5": "af9e6ab02c77dca7c31b2f89d682e3c8",
-              "size": 13950
-            }
-          }
-        },
-        "riscv64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
-              "md5": "06ca5f086a205db62efbe9078d9b8e4f",
-              "size": 50522
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 199900,
+              "md5": "e4a30ea3d68154dc19910eff615faf6a"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
-              "md5": "54f7036e3ff05943f8c97152f0fb0fb9",
-              "size": 8624440
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
-              "md5": "1d92d20a835305d90d01a92c5e86153d",
-              "size": 1726330
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
-              "md5": "fc13a15bf6fa5ce21827372aca490edf",
-              "size": 188432
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
-              "md5": "bb04ee3d2ad84fb45ff708e28911584d",
-              "size": 12897684
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
-              "md5": "deaf845f67226d0b30faca8c480387bb",
-              "size": 29926950
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
-              "md5": "59d9c83e2fed72e36e73ee28f71e8b92",
-              "size": 7165182
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
-              "md5": "e5021bec680fd94b6dad6dd128691545",
-              "size": 2370794
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
-              "md5": "59f64482591626d6a4926ea9021876a0",
-              "size": 4421822
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
-              "md5": "73be5c2877a317ae3050e5dc7f0f9204",
-              "size": 6649238
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
-              "md5": "0903167f624799428517c03d36ddccf8",
-              "size": 12734
-            },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
-              "md5": "c61b2e34f320bb3f26036499217ecdda",
-              "size": 1218816
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
-              "md5": "4d0ff12b9841200fcdacfdbfff4a2009",
-              "size": 211698
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
-              "md5": "4f5ef263ac2396fa94828ea3952ab6a0",
-              "size": 3588
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
-              "md5": "ceb9af081397b2d705486c27b81c06c4",
-              "size": 13017486
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
-              "md5": "644661ba5d63fac342c7eefe37549559",
-              "size": 12492696
-            },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu_6.2+dfsg-2ubuntu6.21_riscv64.deb": {
-              "md5": "9c29c6fd8f220bfa1f10223d5ad65614",
-              "size": 13950
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_4.2-3ubuntu6.29_ppc64el.deb": {
+              "size": 12803192,
+              "md5": "83e2480f9a6fe808e35daaf3f6efae48"
             }
           }
         },
         "s390x": {
           "urls": {
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_6.2+dfsg-2ubuntu6.21_s390x.deb": {
-              "md5": "3ccc85e10025c13c6c95da643827f8d0",
-              "size": 65804
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 17648480,
+              "md5": "83b60cfb3516d12a4526390d6d20dd1d"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_6.2+dfsg-2ubuntu6.21_s390x.deb": {
-              "md5": "5111623b0283f7d207389f365eac6869",
-              "size": 9042524
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 884556,
+              "md5": "33523518bd827347ab7989d525a24e4b"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_6.2+dfsg-2ubuntu6.21_s390x.deb": {
-              "md5": "1a9c9bd3720b89d2aba22ae38d97fd91",
-              "size": 1858816
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 12256,
+              "md5": "d02f0a3daa8bcdb0eac0549d0b56f551"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_6.2+dfsg-2ubuntu6.21_s390x.deb": {
-              "md5": "92343801e2a7b7698297de82fdf79e39",
-              "size": 209550
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-kvm_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 12440,
+              "md5": "9698f63e025e85bf877dd50fffb1f819"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_6.2+dfsg-2ubuntu6.21_s390x.deb": {
-              "md5": "a990a0dff071344e7cda3335f92d5b00",
-              "size": 13607994
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 181484,
+              "md5": "8863ef9ba382498d015b56474f888f06"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_6.2+dfsg-2ubuntu6.21_s390x.deb": {
-              "md5": "d204f766444c7b63048ac7da099b60c4",
-              "size": 36698402
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 37416,
+              "md5": "c68c0451064c1135621253414037b82a"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_6.2+dfsg-2ubuntu6.21_s390x.deb": {
-              "md5": "e7bb56476d2f8f5183feeb441ab3e2bd",
-              "size": 7540266
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 5987792,
+              "md5": "4e71ca80f0dcf8d43f9c3f30f844f822"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_6.2+dfsg-2ubuntu6.21_s390x.deb": {
-              "md5": "74ad4119c57a92f0ea9f205ae581deb1",
-              "size": 2620970
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 39088732,
+              "md5": "25c790478361cbffcfb20745095a04bf"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_6.2+dfsg-2ubuntu6.21_s390x.deb": {
-              "md5": "00131dbfc6ee4fb425ecfd0f10d36fc6",
-              "size": 5043272
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 3168,
+              "md5": "4948b40c71a42b2bd68ba299939d15ad"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_6.2+dfsg-2ubuntu6.21_s390x.deb": {
-              "md5": "d7cc9a394a2969b1aa28ce6fd2043fbb",
-              "size": 7096858
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 14621308,
+              "md5": "e71365dad1e92211194766ddee9c9209"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_6.2+dfsg-2ubuntu6.21_s390x.deb": {
-              "md5": "6dff83647666fb37e2d81bea43c51c8e",
-              "size": 12734
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 6212216,
+              "md5": "06cd1b9158c5cce426669fa614f6684e"
             },
-            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_6.2+dfsg-2ubuntu6.21_s390x.deb": {
-              "md5": "3fc6810ba20497eed5f9baabeb6928bb",
-              "size": 1325486
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 1026572,
+              "md5": "27c9085076411f4515c206c2b15b250b"
             },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_6.2+dfsg-2ubuntu6.21_s390x.deb": {
-              "md5": "42ebf1f27d325949a35dcaed86a5cc52",
-              "size": 234910
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 14052,
+              "md5": "cdd0f146fcbbcec12411367cdaabb2f1"
             },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_6.2+dfsg-2ubuntu6.21_s390x.deb": {
-              "md5": "75ff64f3edce73cd5d96ec224f5815c9",
-              "size": 3652
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 7021732,
+              "md5": "302d02c01e85c30f226eaa2cb67b5794"
             },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_6.2+dfsg-2ubuntu6.21_s390x.deb": {
-              "md5": "937494892e43c71898b720b6d24e2165",
-              "size": 13579126
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 4581236,
+              "md5": "dc7590e8928deddae8991b30b0a1703b"
             },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_6.2+dfsg-2ubuntu6.21_s390x.deb": {
-              "md5": "d63f28620d6dc68bbdbf54bb42fa46f6",
-              "size": 14256156
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 11574108,
+              "md5": "1ca016efc03733282c4b21792c90424e"
             },
-            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu_6.2+dfsg-2ubuntu6.21_s390x.deb": {
-              "md5": "afc2828e05b422419938f007424b7fac",
-              "size": 13948
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 2335356,
+              "md5": "140df790d277218423be55c9acf4c55e"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_4.2-3ubuntu6.29_s390x.deb": {
+              "size": 50192,
+              "md5": "d39e83d1de762c198f2b90c1a28e901e"
             }
           }
         },
-        "source": {
+        "armhf": {
           "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu_6.2+dfsg-2ubuntu6.21.debian.tar.xz": {
-              "md5": "7c7ff5d21f0442fb963ade2b9edc5d48",
-              "size": 253536
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 11699116,
+              "md5": "9fe4173a700cad563e7f76dac0d04070"
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu_6.2+dfsg-2ubuntu6.21.dsc": {
-              "md5": "a9473b91418638e3082240b0d364a603",
-              "size": 7547
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 2340356,
+              "md5": "a08f1b1e4ed34977955e331ff776f1e4"
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/q/qemu/qemu_6.2+dfsg.orig.tar.xz": {
-              "md5": "612a03cd5bd4aba2cfaf3b60a87ae64c",
-              "size": 23049712
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 854128,
+              "md5": "1398de9def4fc4789af430e02be328c5"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 49140,
+              "md5": "4f4d8dd212289467e69e1ac8917ac96f"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 14052,
+              "md5": "9ae02b7f349b1c5b7fac5d18dcc22910"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 5989616,
+              "md5": "e1bc545bb624a04e3c606b66144d2185"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 14914092,
+              "md5": "5ff77cbb59ee159c8f2fce558b26ccbe"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 25298980,
+              "md5": "725fc47b8eceb890ccfddad0e3ec298f"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 1005040,
+              "md5": "a3872ed1748a3a951cf0fbf25131a732"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 6218532,
+              "md5": "5a8683d4276f49bc5a8b4f5fcdfb5cb1"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 6924472,
+              "md5": "e13cc178d385f3d00a00aa62fa0ba64b"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 34820,
+              "md5": "dbce0b6c01469fc92896c7667b34b7c0"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 3140,
+              "md5": "89dfaa9824e8389404e5d5674518494f"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 175360,
+              "md5": "633b9f1592430e48a20fce58c4cfe843"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 12260,
+              "md5": "38affe160b27c121dd547a7283809169"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 12247676,
+              "md5": "1acc40febf62bc31ec162866c27c7f88"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-kvm_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 12432,
+              "md5": "e32d74d2b77fdd492a392b2f70a9e789"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_4.2-3ubuntu6.29_armhf.deb": {
+              "size": 3192640,
+              "md5": "485a8cb5a9a4f34944a5ddb7adda7cac"
             }
           }
-        }
-      },
-      "binaries": {
-        "qemu-system": {
-          "pocket": "security",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
         },
-        "qemu-system-arm": {
-          "pocket": "security",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-mips": {
-          "pocket": "security",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-misc": {
-          "pocket": "security",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-ppc": {
-          "pocket": "security",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-s390x": {
-          "pocket": "security",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-sparc": {
-          "pocket": "security",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-x86": {
-          "pocket": "security",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-x86-microvm": {
-          "pocket": "security",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
-        },
-        "qemu-system-x86-xen": {
-          "pocket": "security",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-block-extra_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 50504,
+              "md5": "48df87dcf3fb1c5a73dd3a26557556ef"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-static_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 17179716,
+              "md5": "4be7d286e6527afbd131b3ac881c5c6f"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-arm_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 7126360,
+              "md5": "043f6a37a738aaaf165731a9c6ed72d1"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user-binfmt_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 3140,
+              "md5": "9e90d3167ee551dec25741fb779dc13a"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-mips_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 11867620,
+              "md5": "0090e51a961ba2d1c3e11d35074d5d71"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-user_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 14781552,
+              "md5": "eee0f53c193944c9bfde6a6daa9adf4e"
+            },
+            "http://ports.ubuntu.com/pool/universe/q/qemu/qemu-guest-agent_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 184564,
+              "md5": "47acab0d2eab8cd90cca87be707b7480"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-misc_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 40334892,
+              "md5": "1f437fd4427213d4ac0846cf5a2f3610"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-x86_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 6211944,
+              "md5": "d05345a545b9ba4cf9d1d5da4b11aac2"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 12260,
+              "md5": "5dd8446152b1e73c6f337429730288e5"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-gui_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 37364,
+              "md5": "89a0e5c7530f4ba211c357105c303290"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-kvm_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 12440,
+              "md5": "653ebbbd2ca4aca34397e933910e95ff"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-ppc_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 6392948,
+              "md5": "8653abe3fc547673c75cc19978b66804"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-s390x_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 2386452,
+              "md5": "4aa0e10faf27aca0bca4b0ec25ebb5a6"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-utils_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 923704,
+              "md5": "d8dce98b606d88d379de02f906a38509"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 14052,
+              "md5": "44345948169d43537e377e3ac3f0f3f0"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-sparc_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 4722704,
+              "md5": "8199f1a8cfe62c787d77bef4f559770e"
+            },
+            "http://ports.ubuntu.com/pool/main/q/qemu/qemu-system-common_4.2-3ubuntu6.29_arm64.deb": {
+              "size": 1038872,
+              "md5": "b173bbe0cf6b8a6386966f953ed1bb08"
+            }
+          }
         }
       },
       "sources": {
         "qemu": {
-          "description": "Machine emulator and virtualizer",
-          "version": "1:6.2+dfsg-2ubuntu6.21"
+          "version": "1:4.2-3ubuntu6.29",
+          "description": "Machine emulator and virtualizer"
         }
       }
     }
   },
-  "summary": "qemu regression",
+  "title": "QEMU regression",
   "timestamp": 1717676995.128687,
-  "title": "QEMU regression"
+  "summary": "qemu regression",
+  "action": "After a standard system update you need to restart all QEMU virtual\nmachines to make all the necessary changes.\n",
+  "cves": [
+    "https://launchpad.net/bugs/2065579"
+  ],
+  "id": "USN-6567-2",
+  "isummary": "USN-6567-1 introduced a regression in QEMU.\n"
 }

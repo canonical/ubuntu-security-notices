@@ -1,5 +1,5 @@
 {
-  "description": "\nBrad Spengler discovered that the kernel did not correctly account for\nuserspace memory allocations during exec() calls. A local attacker could\nexploit this to consume all system memory, leading to a denial of service.\n(CVE-2010-4243)\n\nAlexander Duyck discovered that the Intel Gigabit Ethernet driver did not\ncorrectly handle certain configurations. If such a device was configured\nwithout VLANs, a remote attacker could crash the system, leading to a\ndenial of service. (CVE-2010-4263)\n\nNelson Elhage discovered that Econet did not correctly handle AUN packets\nover UDP. A local attacker could send specially crafted traffic to crash\nthe system, leading to a denial of service. (CVE-2010-4342)\n\nDan Rosenberg discovered that IRDA did not correctly check the size of\nbuffers. On non-x86 systems, a local attacker could exploit this to read\nkernel heap memory, leading to a loss of privacy. (CVE-2010-4529)\n\nDan Rosenburg discovered that the CAN subsystem leaked kernel addresses\ninto the /proc filesystem. A local attacker could use this to increase the\nchances of a successful memory corruption exploit. (CVE-2010-4565)\n\nKees Cook discovered that the IOWarrior USB device driver did not correctly\ncheck certain size fields. A local attacker with physical access could plug\nin a specially crafted USB device to crash the system or potentially gain\nroot privileges. (CVE-2010-4656)\n\nGoldwyn Rodrigues discovered that the OCFS2 filesystem did not correctly\nclear memory when writing certain file holes. A local attacker could\nexploit this to read uninitialized data from the disk, leading to a loss of\nprivacy. (CVE-2011-0463)\n\nDan Carpenter discovered that the TTPCI DVB driver did not check certain\nvalues during an ioctl. If the dvb-ttpci module was loaded, a local\nattacker could exploit this to crash the system, leading to a denial of\nservice, or possibly gain root privileges. (CVE-2011-0521)\n\nJens Kuehnel discovered that the InfiniBand driver contained a race\ncondition. On systems using InfiniBand, a local attacker could send\nspecially crafted requests to crash the system, leading to a denial of\nservice. (CVE-2011-0695)\n\nDan Rosenberg discovered that XFS did not correctly initialize memory. A\nlocal attacker could make crafted ioctl calls to leak portions of kernel\nstack memory, leading to a loss of privacy. (CVE-2011-0711)\n\nRafael Dominguez Vega discovered that the caiaq Native Instruments USB\ndriver did not correctly validate string lengths. A local attacker with\nphysical access could plug in a specially crafted USB device to crash the\nsystem or potentially gain root privileges. (CVE-2011-0712)\n\nKees Cook reported that /proc/pid/stat did not correctly filter certain\nmemory locations. A local attacker could determine the memory layout of\nprocesses in an attempt to increase the chances of a successful memory\ncorruption exploit. (CVE-2011-0726)\n\nTimo Warns discovered that MAC partition parsing routines did not correctly\ncalculate block counts. A local attacker with physical access could plug in\na specially crafted block device to crash the system or potentially gain\nroot privileges. (CVE-2011-1010)\n\nTimo Warns discovered that LDM partition parsing routines did not correctly\ncalculate block counts. A local attacker with physical access could plug in\na specially crafted block device to crash the system, leading to a denial\nof service. (CVE-2011-1012)\n\nMatthiew Herrb discovered that the drm modeset interface did not correctly\nhandle a signed comparison. A local attacker could exploit this to crash\nthe system or possibly gain root privileges. (CVE-2011-1013)\n\nMarek Ol\u0161\u00e1k discovered that the Radeon GPU drivers did not correctly\nvalidate certain registers. On systems with specific hardware, a local\nattacker could exploit this to write to arbitrary video memory.\n(CVE-2011-1016)\n\nVasiliy Kulikov discovered that the CAP_SYS_MODULE capability was not\nneeded to load kernel modules. A local attacker with the CAP_NET_ADMIN\ncapability could load existing kernel modules, possibly increasing the\nattack surface available on the system. (CVE-2011-1019)\n\nVasiliy Kulikov discovered that the Bluetooth stack did not correctly clear\nmemory. A local attacker could exploit this to read kernel stack memory,\nleading to a loss of privacy. (CVE-2011-1078)\n\nVasiliy Kulikov discovered that the Bluetooth stack did not correctly check\nthat device name strings were NULL terminated. A local attacker could\nexploit this to crash the system, leading to a denial of service, or leak\ncontents of kernel stack memory, leading to a loss of privacy.\n(CVE-2011-1079)\n\nVasiliy Kulikov discovered that bridge network filtering did not check that\nname fields were NULL terminated. A local attacker could exploit this to\nleak contents of kernel stack memory, leading to a loss of privacy.\n(CVE-2011-1080)\n\nNelson Elhage discovered that the epoll subsystem did not correctly handle\ncertain structures. A local attacker could create malicious requests that\nwould hang the system, leading to a denial of service. (CVE-2011-1082)\n\nJohan Hovold discovered that the DCCP network stack did not correctly\nhandle certain packet combinations. A remote attacker could send specially\ncrafted network traffic that would crash the system, leading to a denial of\nservice. (CVE-2011-1093)\n\nPeter Huewe discovered that the TPM device did not correctly initialize\nmemory. A local attacker could exploit this to read kernel heap memory\ncontents, leading to a loss of privacy. (CVE-2011-1160)\n\nVasiliy Kulikov discovered that the netfilter code did not check certain\nstrings copied from userspace. A local attacker with netfilter access could\nexploit this to read kernel memory or crash the system, leading to a denial\nof service. (CVE-2011-1170, CVE-2011-1171, CVE-2011-1172, CVE-2011-2534)\n\nVasiliy Kulikov discovered that the Acorn Universal Networking driver did\nnot correctly initialize memory. A remote attacker could send specially\ncrafted traffic to read kernel stack memory, leading to a loss of privacy.\n(CVE-2011-1173)\n\nDan Rosenberg discovered that the IRDA subsystem did not correctly check\ncertain field sizes. If a system was using IRDA, a remote attacker could\nsend specially crafted traffic to crash the system or gain root privileges.\n(CVE-2011-1180)\n\nJulien Tinnes discovered that the kernel did not correctly validate the\nsignal structure from tkill(). A local attacker could exploit this to send\nsignals to arbitrary threads, possibly bypassing expected restrictions.\n(CVE-2011-1182)\n\nDan Rosenberg reported errors in the OSS (Open Sound System) MIDI\ninterface. A local attacker on non-x86 systems might be able to cause a\ndenial of service. (CVE-2011-1476)\n\nDan Rosenberg reported errors in the kernel's OSS (Open Sound System)\ndriver for Yamaha FM synthesizer chips. A local user can exploit this to\ncause memory corruption, causing a denial of service or privilege\nescalation. (CVE-2011-1477)\n\nRyan Sweat discovered that the GRO code did not correctly validate memory.\nIn some configurations on systems using VLANs, a remote attacker could send\nspecially crafted traffic to crash the system, leading to a denial of\nservice. (CVE-2011-1478)\n\nIt was discovered that the Stream Control Transmission Protocol (SCTP)\nimplementation incorrectly calculated lengths. If the net.sctp.addip_enable\nvariable was turned on, a remote attacker could send specially crafted\ntraffic to crash the system. (CVE-2011-1573)\n\nA flaw was found in the b43 driver in the Linux kernel. An attacker could\nuse this flaw to cause a denial of service if the system has an active\nwireless interface using the b43 driver. (CVE-2011-3359)\n\nMaynard Johnson discovered that on POWER7, certain speculative events may\nraise a performance monitor exception. A local attacker could exploit this\nto crash the system, leading to a denial of service. (CVE-2011-4611)\n\nDan Rosenberg discovered flaws in the linux Rose (X.25 PLP) layer used by\namateur radio. A local user or a remote user on an X.25 network could\nexploit these flaws to execute arbitrary code as root. (CVE-2011-4913)\n",
+  "description": "\nBrad Spengler discovered that the kernel did not correctly account for\nuserspace memory allocations during exec() calls. A local attacker could\nexploit this to consume all system memory, leading to a denial of service.\n(CVE-2010-4243)\n\nAlexander Duyck discovered that the Intel Gigabit Ethernet driver did not\ncorrectly handle certain configurations. If such a device was configured\nwithout VLANs, a remote attacker could crash the system, leading to a\ndenial of service. (CVE-2010-4263)\n\nNelson Elhage discovered that Econet did not correctly handle AUN packets\nover UDP. A local attacker could send specially crafted traffic to crash\nthe system, leading to a denial of service. (CVE-2010-4342)\n\nDan Rosenberg discovered that IRDA did not correctly check the size of\nbuffers. On non-x86 systems, a local attacker could exploit this to read\nkernel heap memory, leading to a loss of privacy. (CVE-2010-4529)\n\nDan Rosenburg discovered that the CAN subsystem leaked kernel addresses\ninto the /proc filesystem. A local attacker could use this to increase the\nchances of a successful memory corruption exploit. (CVE-2010-4565)\n\nKees Cook discovered that the IOWarrior USB device driver did not correctly\ncheck certain size fields. A local attacker with physical access could plug\nin a specially crafted USB device to crash the system or potentially gain\nroot privileges. (CVE-2010-4656)\n\nGoldwyn Rodrigues discovered that the OCFS2 filesystem did not correctly\nclear memory when writing certain file holes. A local attacker could\nexploit this to read uninitialized data from the disk, leading to a loss of\nprivacy. (CVE-2011-0463)\n\nDan Carpenter discovered that the TTPCI DVB driver did not check certain\nvalues during an ioctl. If the dvb-ttpci module was loaded, a local\nattacker could exploit this to crash the system, leading to a denial of\nservice, or possibly gain root privileges. (CVE-2011-0521)\n\nJens Kuehnel discovered that the InfiniBand driver contained a race\ncondition. On systems using InfiniBand, a local attacker could send\nspecially crafted requests to crash the system, leading to a denial of\nservice. (CVE-2011-0695)\n\nDan Rosenberg discovered that XFS did not correctly initialize memory. A\nlocal attacker could make crafted ioctl calls to leak portions of kernel\nstack memory, leading to a loss of privacy. (CVE-2011-0711)\n\nRafael Dominguez Vega discovered that the caiaq Native Instruments USB\ndriver did not correctly validate string lengths. A local attacker with\nphysical access could plug in a specially crafted USB device to crash the\nsystem or potentially gain root privileges. (CVE-2011-0712)\n\nKees Cook reported that /proc/pid/stat did not correctly filter certain\nmemory locations. A local attacker could determine the memory layout of\nprocesses in an attempt to increase the chances of a successful memory\ncorruption exploit. (CVE-2011-0726)\n\nTimo Warns discovered that MAC partition parsing routines did not correctly\ncalculate block counts. A local attacker with physical access could plug in\na specially crafted block device to crash the system or potentially gain\nroot privileges. (CVE-2011-1010)\n\nTimo Warns discovered that LDM partition parsing routines did not correctly\ncalculate block counts. A local attacker with physical access could plug in\na specially crafted block device to crash the system, leading to a denial\nof service. (CVE-2011-1012)\n\nMatthiew Herrb discovered that the drm modeset interface did not correctly\nhandle a signed comparison. A local attacker could exploit this to crash\nthe system or possibly gain root privileges. (CVE-2011-1013)\n\nMarek Olšák discovered that the Radeon GPU drivers did not correctly\nvalidate certain registers. On systems with specific hardware, a local\nattacker could exploit this to write to arbitrary video memory.\n(CVE-2011-1016)\n\nVasiliy Kulikov discovered that the CAP_SYS_MODULE capability was not\nneeded to load kernel modules. A local attacker with the CAP_NET_ADMIN\ncapability could load existing kernel modules, possibly increasing the\nattack surface available on the system. (CVE-2011-1019)\n\nVasiliy Kulikov discovered that the Bluetooth stack did not correctly clear\nmemory. A local attacker could exploit this to read kernel stack memory,\nleading to a loss of privacy. (CVE-2011-1078)\n\nVasiliy Kulikov discovered that the Bluetooth stack did not correctly check\nthat device name strings were NULL terminated. A local attacker could\nexploit this to crash the system, leading to a denial of service, or leak\ncontents of kernel stack memory, leading to a loss of privacy.\n(CVE-2011-1079)\n\nVasiliy Kulikov discovered that bridge network filtering did not check that\nname fields were NULL terminated. A local attacker could exploit this to\nleak contents of kernel stack memory, leading to a loss of privacy.\n(CVE-2011-1080)\n\nNelson Elhage discovered that the epoll subsystem did not correctly handle\ncertain structures. A local attacker could create malicious requests that\nwould hang the system, leading to a denial of service. (CVE-2011-1082)\n\nJohan Hovold discovered that the DCCP network stack did not correctly\nhandle certain packet combinations. A remote attacker could send specially\ncrafted network traffic that would crash the system, leading to a denial of\nservice. (CVE-2011-1093)\n\nPeter Huewe discovered that the TPM device did not correctly initialize\nmemory. A local attacker could exploit this to read kernel heap memory\ncontents, leading to a loss of privacy. (CVE-2011-1160)\n\nVasiliy Kulikov discovered that the netfilter code did not check certain\nstrings copied from userspace. A local attacker with netfilter access could\nexploit this to read kernel memory or crash the system, leading to a denial\nof service. (CVE-2011-1170, CVE-2011-1171, CVE-2011-1172, CVE-2011-2534)\n\nVasiliy Kulikov discovered that the Acorn Universal Networking driver did\nnot correctly initialize memory. A remote attacker could send specially\ncrafted traffic to read kernel stack memory, leading to a loss of privacy.\n(CVE-2011-1173)\n\nDan Rosenberg discovered that the IRDA subsystem did not correctly check\ncertain field sizes. If a system was using IRDA, a remote attacker could\nsend specially crafted traffic to crash the system or gain root privileges.\n(CVE-2011-1180)\n\nJulien Tinnes discovered that the kernel did not correctly validate the\nsignal structure from tkill(). A local attacker could exploit this to send\nsignals to arbitrary threads, possibly bypassing expected restrictions.\n(CVE-2011-1182)\n\nDan Rosenberg reported errors in the OSS (Open Sound System) MIDI\ninterface. A local attacker on non-x86 systems might be able to cause a\ndenial of service. (CVE-2011-1476)\n\nDan Rosenberg reported errors in the kernel's OSS (Open Sound System)\ndriver for Yamaha FM synthesizer chips. A local user can exploit this to\ncause memory corruption, causing a denial of service or privilege\nescalation. (CVE-2011-1477)\n\nRyan Sweat discovered that the GRO code did not correctly validate memory.\nIn some configurations on systems using VLANs, a remote attacker could send\nspecially crafted traffic to crash the system, leading to a denial of\nservice. (CVE-2011-1478)\n\nIt was discovered that the Stream Control Transmission Protocol (SCTP)\nimplementation incorrectly calculated lengths. If the net.sctp.addip_enable\nvariable was turned on, a remote attacker could send specially crafted\ntraffic to crash the system. (CVE-2011-1573)\n\nA flaw was found in the b43 driver in the Linux kernel. An attacker could\nuse this flaw to cause a denial of service if the system has an active\nwireless interface using the b43 driver. (CVE-2011-3359)\n\nMaynard Johnson discovered that on POWER7, certain speculative events may\nraise a performance monitor exception. A local attacker could exploit this\nto crash the system, leading to a denial of service. (CVE-2011-4611)\n\nDan Rosenberg discovered flaws in the linux Rose (X.25 PLP) layer used by\namateur radio. A local user or a remote user on an X.25 network could\nexploit these flaws to execute arbitrary code as root. (CVE-2011-4913)\n",
   "releases": {
     "lucid": {
       "sources": {
@@ -37,7 +37,7 @@
         "linux-image-2.6.32-32-generic-pae": {
           "version": "2.6.32-32.62"
         },
-        "linux-image-2.6.32-32-preempt": {
+        "linux-image-2.6.32-32-generic": {
           "version": "2.6.32-32.62"
         },
         "linux-image-2.6.32-32-powerpc-smp": {
@@ -52,7 +52,7 @@
         "linux-image-2.6.32-32-powerpc": {
           "version": "2.6.32-32.62"
         },
-        "linux-image-2.6.32-32-generic": {
+        "linux-image-2.6.32-32-preempt": {
           "version": "2.6.32-32.62"
         },
         "linux-image-2.6.32-32-sparc64": {
@@ -63,1060 +63,1060 @@
         "all": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ec2/linux-headers-2.6.32-316_2.6.32-316.31_all.deb": {
-              "md5": "c0843e558997b1ef045f44b080cbb1e3",
-              "size": 10055186
+              "size": 10055186,
+              "md5": "c0843e558997b1ef045f44b080cbb1e3"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ec2/linux-ec2-source-2.6.32_2.6.32-316.31_all.deb": {
-              "md5": "c6e4b4334beeace2da986b74d96349c3",
-              "size": 68189102
+              "size": 68189102,
+              "md5": "c6e4b4334beeace2da986b74d96349c3"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-tools-common_2.6.32-32.62_all.deb": {
-              "md5": "df157d19fec48c7dc3d138f2235b2a67",
-              "size": 106370
+              "size": 106370,
+              "md5": "df157d19fec48c7dc3d138f2235b2a67"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-source-2.6.32_2.6.32-32.62_all.deb": {
-              "md5": "cc7ae0b37f8f40d59bff1cba27c54dcf",
-              "size": 67065558
+              "size": 67065558,
+              "md5": "cc7ae0b37f8f40d59bff1cba27c54dcf"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ec2/linux-ec2-doc_2.6.32-316.31_all.deb": {
-              "md5": "c361c6df936925a63105ee5e142ed8a9",
-              "size": 6440436
+              "size": 6440436,
+              "md5": "c361c6df936925a63105ee5e142ed8a9"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-headers-2.6.32-32_2.6.32-32.62_all.deb": {
-              "md5": "f2e888d5c6b77987040b9e3a7c5b4a59",
-              "size": 10142326
+              "size": 10142326,
+              "md5": "f2e888d5c6b77987040b9e3a7c5b4a59"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-doc_2.6.32-32.62_all.deb": {
-              "md5": "151b6917b1dc3d37329d32b92b90d90c",
-              "size": 6757264
+              "size": 6757264,
+              "md5": "151b6917b1dc3d37329d32b92b90d90c"
             }
           }
         },
         "amd64": {
           "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/char-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "84e7f4a0dbf3393d2e96f3eb00ae2c36",
-              "size": 16458
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-image-2.6.32-32-virtual_2.6.32-32.62_amd64.deb": {
+              "size": 12541176,
+              "md5": "6efcc2f4d89912b2a85d3394e2b826f3"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-image-2.6.32-32-server_2.6.32-32.62_amd64.deb": {
-              "md5": "0261aec880e5d6b5fc65803f8e6e3c99",
-              "size": 31767358
+              "size": 31767358,
+              "md5": "0261aec880e5d6b5fc65803f8e6e3c99"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-headers-2.6.32-32-generic_2.6.32-32.62_amd64.deb": {
-              "md5": "292dcd8465e4ac913664009592785869",
-              "size": 805990
+              "size": 805990,
+              "md5": "292dcd8465e4ac913664009592785869"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/fs-core-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "c7ef1ba7da7505465733dcf4b01db9de",
-              "size": 539274
+              "size": 539274,
+              "md5": "c7ef1ba7da7505465733dcf4b01db9de"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/kernel-image-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "af37e90ff5edf99cc5c1668c2bf71800",
-              "size": 4461594
+              "size": 4461594,
+              "md5": "af37e90ff5edf99cc5c1668c2bf71800"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/sata-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "6db3664b9a6ba85108bc2a96a7986847",
-              "size": 104330
+              "size": 104330,
+              "md5": "6db3664b9a6ba85108bc2a96a7986847"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/irda-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "2817c5a9c36092ba3b7ce410f22673c8",
-              "size": 324234
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-image-2.6.32-32-generic_2.6.32-32.62_amd64.deb": {
-              "md5": "c55dce3db865fad434d3651de9e19cc1",
-              "size": 31710560
+              "size": 324234,
+              "md5": "2817c5a9c36092ba3b7ce410f22673c8"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nic-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "9e77e1aacfa5ad3633c46e3d199eff17",
-              "size": 2425968
+              "size": 2425968,
+              "md5": "9e77e1aacfa5ad3633c46e3d199eff17"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/firewire-core-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "acff11ff0dea20f7d9c84793124d6836",
-              "size": 94738
+              "size": 94738,
+              "md5": "acff11ff0dea20f7d9c84793124d6836"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ec2/linux-headers-2.6.32-316-ec2_2.6.32-316.31_amd64.deb": {
-              "md5": "810137800a36f9c3c752e0b2d7592b68",
-              "size": 692592
+              "size": 692592,
+              "md5": "810137800a36f9c3c752e0b2d7592b68"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/plip-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "f05c8ac977fb1d62993ef9554ef8d345",
-              "size": 9740
+              "size": 9740,
+              "md5": "f05c8ac977fb1d62993ef9554ef8d345"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-image-2.6.32-32-preempt_2.6.32-32.62_amd64.deb": {
-              "md5": "47707026cfe3f26ea8bcd2ebac38fec2",
-              "size": 31952050
+              "size": 31952050,
+              "md5": "47707026cfe3f26ea8bcd2ebac38fec2"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/mouse-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "d7e5e4de58d1d9bfa4d5bb18f603fc3b",
-              "size": 32456
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/md-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "8c4f595506999e70627de15351fe768b",
-              "size": 177458
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nfs-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "63715e7c11758284a6bbabd5c598e13e",
-              "size": 331714
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/storage-core-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "1e338ae9a4a6d648347defb422a2ec75",
-              "size": 53366
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/pcmcia-storage-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "9ebf24b5dd8ffa72a3c9458e208cb14c",
-              "size": 22994
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/squashfs-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "9508df426546d7a942004947d58d40bb",
-              "size": 15464
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/ppp-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "6c914d2c9c10b7e0f198bedeb2cf8f01",
-              "size": 40790
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nic-pcmcia-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "bb77627ae54b0d24209b3ca8597ed748",
-              "size": 163668
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/vlan-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "b75657b6d69b8349a8adf2d62582e3da",
-              "size": 22406
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-image-2.6.32-32-virtual_2.6.32-32.62_amd64.deb": {
-              "md5": "6efcc2f4d89912b2a85d3394e2b826f3",
-              "size": 12541176
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/scsi-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "700f0071204cbb6111bd6ee9a9220022",
-              "size": 1476230
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nic-shared-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "e3221b440cbcc8f2b2a7edb54f53dce1",
-              "size": 245978
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/pcmcia-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "2f0ffdbc98c2764e029e0dfca0fb56d8",
-              "size": 77344
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/fat-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "8a90171253e31ab62bd39326eb805882",
-              "size": 46196
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/crypto-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "d695714ae6575583bddf7c4560cc9831",
-              "size": 50462
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/message-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "20c552b73a4a10c8f19de1e49f112615",
-              "size": 267008
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/floppy-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "b3f667dc987e284cbfcc3c1e79677ccb",
-              "size": 38652
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-headers-2.6.32-32-server_2.6.32-32.62_amd64.deb": {
-              "md5": "7362d84e9170c46f9c755f34990d8adf",
-              "size": 804250
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/virtio-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "98040f04c2b5ede9b9ab0b4c06bc6dae",
-              "size": 16546
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-tools-2.6.32-32_2.6.32-32.62_amd64.deb": {
-              "md5": "a858d941c53b2afc96563580e1ffa65d",
-              "size": 234622
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ec2/linux-image-2.6.32-316-ec2_2.6.32-316.31_amd64.deb": {
-              "md5": "bcef8e1933c14da945961fe852584b13",
-              "size": 19916716
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/input-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "ea6ff579bcb90147698442d313797051",
-              "size": 100858
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/fs-secondary-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "2001134e422245b9971998d2b84325a7",
-              "size": 133664
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/parport-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "78162679645ed7de81e22de117d775c5",
-              "size": 39262
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/fb-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "52351e248a7de9f18d4619e38122ec4d",
-              "size": 52024
+              "size": 32456,
+              "md5": "d7e5e4de58d1d9bfa4d5bb18f603fc3b"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nic-usb-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "6c0e45ed5dea4bcd86c4c686871ec5b1",
-              "size": 180544
+              "size": 180544,
+              "md5": "6c0e45ed5dea4bcd86c4c686871ec5b1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/md-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 177458,
+              "md5": "8c4f595506999e70627de15351fe768b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nfs-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 331714,
+              "md5": "63715e7c11758284a6bbabd5c598e13e"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/block-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "e8d88c8f6adc2b7b0a6b94189e8be659",
-              "size": 245308
+              "size": 245308,
+              "md5": "e8d88c8f6adc2b7b0a6b94189e8be659"
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/pata-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "3579ddc66075e880da4f5ca471fd3f2c",
-              "size": 152458
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/storage-core-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 53366,
+              "md5": "1e338ae9a4a6d648347defb422a2ec75"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/pcmcia-storage-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 22994,
+              "md5": "9ebf24b5dd8ffa72a3c9458e208cb14c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/squashfs-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 15464,
+              "md5": "9508df426546d7a942004947d58d40bb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/ppp-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 40790,
+              "md5": "6c914d2c9c10b7e0f198bedeb2cf8f01"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nic-pcmcia-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 163668,
+              "md5": "bb77627ae54b0d24209b3ca8597ed748"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/vlan-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 22406,
+              "md5": "b75657b6d69b8349a8adf2d62582e3da"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/char-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 16458,
+              "md5": "84e7f4a0dbf3393d2e96f3eb00ae2c36"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/serial-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "a9a988435c7ab58b45c4b939b0e0c26c",
-              "size": 40932
+              "size": 40932,
+              "md5": "a9a988435c7ab58b45c4b939b0e0c26c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nic-shared-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 245978,
+              "md5": "e3221b440cbcc8f2b2a7edb54f53dce1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/pcmcia-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 77344,
+              "md5": "2f0ffdbc98c2764e029e0dfca0fb56d8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/fat-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 46196,
+              "md5": "8a90171253e31ab62bd39326eb805882"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/crypto-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 50462,
+              "md5": "d695714ae6575583bddf7c4560cc9831"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/message-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 267008,
+              "md5": "20c552b73a4a10c8f19de1e49f112615"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/floppy-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 38652,
+              "md5": "b3f667dc987e284cbfcc3c1e79677ccb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-headers-2.6.32-32-server_2.6.32-32.62_amd64.deb": {
+              "size": 804250,
+              "md5": "7362d84e9170c46f9c755f34990d8adf"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/virtio-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 16546,
+              "md5": "98040f04c2b5ede9b9ab0b4c06bc6dae"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ec2/linux-image-2.6.32-316-ec2_2.6.32-316.31_amd64.deb": {
+              "size": 19916716,
+              "md5": "bcef8e1933c14da945961fe852584b13"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/input-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 100858,
+              "md5": "ea6ff579bcb90147698442d313797051"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/fs-secondary-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 133664,
+              "md5": "2001134e422245b9971998d2b84325a7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/parport-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 39262,
+              "md5": "78162679645ed7de81e22de117d775c5"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/fb-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 52024,
+              "md5": "52351e248a7de9f18d4619e38122ec4d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-tools-2.6.32-32_2.6.32-32.62_amd64.deb": {
+              "size": 234622,
+              "md5": "a858d941c53b2afc96563580e1ffa65d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-image-2.6.32-32-generic_2.6.32-32.62_amd64.deb": {
+              "size": 31710560,
+              "md5": "c55dce3db865fad434d3651de9e19cc1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/pata-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 152458,
+              "md5": "3579ddc66075e880da4f5ca471fd3f2c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/scsi-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
+              "size": 1476230,
+              "md5": "700f0071204cbb6111bd6ee9a9220022"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/usb-modules-2.6.32-32-generic-di_2.6.32-32.62_amd64.udeb": {
-              "md5": "cb943045215978602ae077901c7b48f7",
-              "size": 134500
+              "size": 134500,
+              "md5": "cb943045215978602ae077901c7b48f7"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-libc-dev_2.6.32-32.62_amd64.deb": {
-              "md5": "2ef974a47f7689d43c39bf95fda48c9b",
-              "size": 836380
+              "size": 836380,
+              "md5": "2ef974a47f7689d43c39bf95fda48c9b"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-headers-2.6.32-32-preempt_2.6.32-32.62_amd64.deb": {
-              "md5": "70a88d267591ff796c77185482df224c",
-              "size": 804194
+              "size": 804194,
+              "md5": "70a88d267591ff796c77185482df224c"
             }
           }
         },
         "i386": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nic-usb-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "84e1df0c905016518b58b66ba657a204",
-              "size": 165652
+              "size": 165652,
+              "md5": "84e1df0c905016518b58b66ba657a204"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/char-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "6317a7b4709981aa32e75bc032084ea9",
-              "size": 34256
+              "size": 34256,
+              "md5": "6317a7b4709981aa32e75bc032084ea9"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/message-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "41d8375f809ed06698191aa132f51a09",
-              "size": 252840
+              "size": 252840,
+              "md5": "41d8375f809ed06698191aa132f51a09"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/pcmcia-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "5630495dfaadfb1f627d722aeb3bb852",
-              "size": 90114
+              "size": 90114,
+              "md5": "5630495dfaadfb1f627d722aeb3bb852"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-image-2.6.32-32-generic-pae_2.6.32-32.62_i386.deb": {
-              "md5": "738c91805937c86e026b90a8d403f985",
-              "size": 31892722
+              "size": 31892722,
+              "md5": "738c91805937c86e026b90a8d403f985"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-image-2.6.32-32-generic_2.6.32-32.62_i386.deb": {
-              "md5": "7d68fa8506af4270b8d21b789e915ea4",
-              "size": 31702072
+              "size": 31702072,
+              "md5": "7d68fa8506af4270b8d21b789e915ea4"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/block-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "a5c230a12636d22cdeb0d937b71b0ffa",
-              "size": 212890
+              "size": 212890,
+              "md5": "a5c230a12636d22cdeb0d937b71b0ffa"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/pata-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "aa3df206d2cf5fe852d5f8863ccbebec",
-              "size": 158488
+              "size": 158488,
+              "md5": "aa3df206d2cf5fe852d5f8863ccbebec"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/serial-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "9075c5c7e49420896897bb2d3aba9cd7",
-              "size": 38182
+              "size": 38182,
+              "md5": "9075c5c7e49420896897bb2d3aba9cd7"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/parport-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "cd3635a67d0e190f8e5f5c762f20e0c1",
-              "size": 36488
+              "size": 36488,
+              "md5": "cd3635a67d0e190f8e5f5c762f20e0c1"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/fs-core-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "7a796d3b227f94b00ea4f38f371f6664",
-              "size": 534574
+              "size": 534574,
+              "md5": "7a796d3b227f94b00ea4f38f371f6664"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/plip-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "41e7aa0c607ef5c65ddba1014b600964",
-              "size": 9108
+              "size": 9108,
+              "md5": "41e7aa0c607ef5c65ddba1014b600964"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nic-pcmcia-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "0c738e6c5583941bff4f99226cda27a6",
-              "size": 147986
+              "size": 147986,
+              "md5": "0c738e6c5583941bff4f99226cda27a6"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/crypto-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "3dab823d3b4c8ac960a17de6699a03f1",
-              "size": 48236
+              "size": 48236,
+              "md5": "3dab823d3b4c8ac960a17de6699a03f1"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/fb-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "c2626067c92915e50b8c1e61c252c91d",
-              "size": 47716
+              "size": 47716,
+              "md5": "c2626067c92915e50b8c1e61c252c91d"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/virtio-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "8207a1dd158a8f89fbde5d2ae703869c",
-              "size": 15320
+              "size": 15320,
+              "md5": "8207a1dd158a8f89fbde5d2ae703869c"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/scsi-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "ebecb392706c53b2a64ad0935814025e",
-              "size": 1598208
+              "size": 1598208,
+              "md5": "ebecb392706c53b2a64ad0935814025e"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/usb-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "abe7426f826592a17adb8c2ef614cb12",
-              "size": 124778
+              "size": 124778,
+              "md5": "abe7426f826592a17adb8c2ef614cb12"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/vlan-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "4cb4324d592dd27947b4389b70a37044",
-              "size": 20884
+              "size": 20884,
+              "md5": "4cb4324d592dd27947b4389b70a37044"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/block-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "4e8017b558e48045ed03df3e9dc7a55d",
-              "size": 217508
+              "size": 217508,
+              "md5": "4e8017b558e48045ed03df3e9dc7a55d"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/sata-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "d05899113892fec998b507bbc630a069",
-              "size": 95426
+              "size": 95426,
+              "md5": "d05899113892fec998b507bbc630a069"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/fs-core-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "93581df065d8bc6038d7631961a78b36",
-              "size": 534408
+              "size": 534408,
+              "md5": "93581df065d8bc6038d7631961a78b36"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/fs-secondary-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "4d0dc7b95bdf3a41bb4cb8340e6f11a1",
-              "size": 131014
+              "size": 131014,
+              "md5": "4d0dc7b95bdf3a41bb4cb8340e6f11a1"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/squashfs-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "6a2d7029ae453935369ad5c8aa8c5425",
-              "size": 15608
+              "size": 15608,
+              "md5": "6a2d7029ae453935369ad5c8aa8c5425"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/plip-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "8c4ea319a6376a801b529465804cf9da",
-              "size": 9118
+              "size": 9118,
+              "md5": "8c4ea319a6376a801b529465804cf9da"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/floppy-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "560fba0b4492d73180d373c4052543d1",
-              "size": 34698
+              "size": 34698,
+              "md5": "560fba0b4492d73180d373c4052543d1"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/kernel-image-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "5342254a48cbcec45a00cd5d10a059d7",
-              "size": 4309700
+              "size": 4309700,
+              "md5": "5342254a48cbcec45a00cd5d10a059d7"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/virtio-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "a32da3b432986fd3a2deb2c4946ee0c6",
-              "size": 5704
+              "size": 5704,
+              "md5": "a32da3b432986fd3a2deb2c4946ee0c6"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/pata-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "3cb9aca55a2b44e7dfe6a218f35890d9",
-              "size": 158324
+              "size": 158324,
+              "md5": "3cb9aca55a2b44e7dfe6a218f35890d9"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/parport-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "57bf93968d9e0edcf57ec0c13e4c7a99",
-              "size": 36366
+              "size": 36366,
+              "md5": "57bf93968d9e0edcf57ec0c13e4c7a99"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/fb-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "937a1213b906b59484d67337124c028f",
-              "size": 47662
+              "size": 47662,
+              "md5": "937a1213b906b59484d67337124c028f"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/sata-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "dd083076df68112d001b3927413dfa9e",
-              "size": 96008
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nic-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "e12ec08d4a066332afc41de0e17e7ce4",
-              "size": 2559474
+              "size": 96008,
+              "md5": "dd083076df68112d001b3927413dfa9e"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/fs-secondary-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "098e84aa00ffc5ea0a2f09d4ec0b541a",
-              "size": 131020
+              "size": 131020,
+              "md5": "098e84aa00ffc5ea0a2f09d4ec0b541a"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nic-pcmcia-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "48c3e9141c9e1d9662bbd3a9b1c29ac6",
-              "size": 147926
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/kernel-image-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "b08dad6d8943b52710c74adf758ef0fa",
-              "size": 4441778
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/floppy-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "910683552af47ddcb90f0f421bb61d8d",
-              "size": 34644
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/fat-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "ec18158fe9ea346d88bf9943e9736b94",
-              "size": 43822
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/scsi-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "0a65bdcf02a3b3e52841ade253c49899",
-              "size": 1549620
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/storage-core-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "ccaa4d97d088b3461f64916a3a8a09a7",
-              "size": 50364
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/input-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "5e4273b02d25bbb0e52b1199d306eb4b",
-              "size": 93520
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-image-2.6.32-32-386_2.6.32-32.62_i386.deb": {
-              "md5": "3c3c23aed45e28d72d8d3bd1cc6c1c4e",
-              "size": 31688308
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-headers-2.6.32-32-386_2.6.32-32.62_i386.deb": {
-              "md5": "0e9a54683c4f204b4d466b91c0070d5f",
-              "size": 790014
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/md-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "e642b726be71542707e5f68e4272132b",
-              "size": 184260
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/md-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "035cabf2c14b6b8daa37426e7a1f01ff",
-              "size": 184012
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ec2/linux-headers-2.6.32-316-ec2_2.6.32-316.31_i386.deb": {
-              "md5": "13b108dcc8d81117fa530a07092d0d64",
-              "size": 667198
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/pcmcia-storage-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "057ba75e869a0563dcb64171df574dc2",
-              "size": 47320
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/crypto-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "a914f56a181f3e3c7056a95a81575a10",
-              "size": 48238
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/message-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "c43c1125cb5dbd4c9ac26943da8e8be3",
-              "size": 250116
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/irda-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "fb1442f995caa42dc228566ccdd852a0",
-              "size": 308950
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/firewire-core-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "ee277511f9bdab143b5e68b62dac4ea7",
-              "size": 89766
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/fat-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "23e369f6bce3d16fe458e8eb98287f0b",
-              "size": 43802
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/firewire-core-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "f779ce4982ce215e7b75880e9cbbaf6f",
-              "size": 90074
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/serial-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "cb11b8f964cf86b377bcbc4144e3da4b",
-              "size": 38172
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/pcmcia-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "e2538387abe949011c739d6c2d3ef0f0",
-              "size": 89228
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-image-2.6.32-32-virtual_2.6.32-32.62_i386.deb": {
-              "md5": "529020d0f1f37bb80774d2c26af8afe1",
-              "size": 12075542
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/storage-core-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "e30d28a77a5f51f9ec2da1b0d14c923c",
-              "size": 50300
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/char-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "69f6d6900a2ee23a486acad90c7ac640",
-              "size": 34558
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/irda-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "caeb9b3b1be38d6acd33a9cdd65b033e",
-              "size": 308412
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nfs-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "571380757cb8a482625097f6176fd81d",
-              "size": 310260
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/usb-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "60960439815c58e48dc5231a92be4471",
-              "size": 125214
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ec2/linux-image-2.6.32-316-ec2_2.6.32-316.31_i386.deb": {
-              "md5": "e643fc4af8ec7e43599b999c528afe78",
-              "size": 19248042
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/vlan-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "b87c3413c0044b529f061bd586aa8bcd",
-              "size": 20906
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nfs-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "77a354fe3adfd7b68647abc02ac98a66",
-              "size": 310286
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-libc-dev_2.6.32-32.62_i386.deb": {
-              "md5": "946a963d881ab6e4c041cc4a23215bf8",
-              "size": 837554
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nic-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "1432247963ee933ba0af4c6ee1d97e15",
-              "size": 2540506
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/squashfs-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "d04387c9a8f85f722ae312191c82fc8a",
-              "size": 15596
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/mouse-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "9ec5d6f2fd1548ca39b2cb4dfa04553c",
-              "size": 33838
+              "size": 147926,
+              "md5": "48c3e9141c9e1d9662bbd3a9b1c29ac6"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/pcmcia-storage-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "4c746e88eed4089ba6808b4ff6ab1537",
-              "size": 47380
+              "size": 47380,
+              "md5": "4c746e88eed4089ba6808b4ff6ab1537"
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-headers-2.6.32-32-generic-pae_2.6.32-32.62_i386.deb": {
-              "md5": "670eebd41d0f741eba949c47f436d762",
-              "size": 794164
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/kernel-image-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
+              "size": 4441778,
+              "md5": "b08dad6d8943b52710c74adf758ef0fa"
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-tools-2.6.32-32_2.6.32-32.62_i386.deb": {
-              "md5": "1b97bd022626420328cf1773b3e0695b",
-              "size": 225910
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/floppy-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 34644,
+              "md5": "910683552af47ddcb90f0f421bb61d8d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/fat-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
+              "size": 43822,
+              "md5": "ec18158fe9ea346d88bf9943e9736b94"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/scsi-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
+              "size": 1549620,
+              "md5": "0a65bdcf02a3b3e52841ade253c49899"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/storage-core-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
+              "size": 50364,
+              "md5": "ccaa4d97d088b3461f64916a3a8a09a7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/input-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 93520,
+              "md5": "5e4273b02d25bbb0e52b1199d306eb4b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-headers-2.6.32-32-386_2.6.32-32.62_i386.deb": {
+              "size": 790014,
+              "md5": "0e9a54683c4f204b4d466b91c0070d5f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/md-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
+              "size": 184260,
+              "md5": "e642b726be71542707e5f68e4272132b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/md-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 184012,
+              "md5": "035cabf2c14b6b8daa37426e7a1f01ff"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ec2/linux-headers-2.6.32-316-ec2_2.6.32-316.31_i386.deb": {
+              "size": 667198,
+              "md5": "13b108dcc8d81117fa530a07092d0d64"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/pcmcia-storage-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 47320,
+              "md5": "057ba75e869a0563dcb64171df574dc2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/crypto-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 48238,
+              "md5": "a914f56a181f3e3c7056a95a81575a10"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/message-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 250116,
+              "md5": "c43c1125cb5dbd4c9ac26943da8e8be3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/irda-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
+              "size": 308950,
+              "md5": "fb1442f995caa42dc228566ccdd852a0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/firewire-core-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 89766,
+              "md5": "ee277511f9bdab143b5e68b62dac4ea7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/fat-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 43802,
+              "md5": "23e369f6bce3d16fe458e8eb98287f0b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/firewire-core-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
+              "size": 90074,
+              "md5": "f779ce4982ce215e7b75880e9cbbaf6f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/serial-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 38172,
+              "md5": "cb11b8f964cf86b377bcbc4144e3da4b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/pcmcia-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 89228,
+              "md5": "e2538387abe949011c739d6c2d3ef0f0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-image-2.6.32-32-386_2.6.32-32.62_i386.deb": {
+              "size": 31688308,
+              "md5": "3c3c23aed45e28d72d8d3bd1cc6c1c4e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/storage-core-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 50300,
+              "md5": "e30d28a77a5f51f9ec2da1b0d14c923c"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/ppp-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "6f5f62843f7b67abc1d7d0a6d44924dd",
-              "size": 36226
+              "size": 36226,
+              "md5": "6f5f62843f7b67abc1d7d0a6d44924dd"
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-headers-2.6.32-32-generic_2.6.32-32.62_i386.deb": {
-              "md5": "be836fd1f3afa85cde653993d25602a7",
-              "size": 790982
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/char-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
+              "size": 34558,
+              "md5": "69f6d6900a2ee23a486acad90c7ac640"
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/ppp-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "684bd80bd9cb14bcc12ca3b55d0e4740",
-              "size": 36220
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/irda-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 308412,
+              "md5": "caeb9b3b1be38d6acd33a9cdd65b033e"
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/mouse-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "7f9e9ea8234a1c730762a59032f10712",
-              "size": 33854
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nfs-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 310260,
+              "md5": "571380757cb8a482625097f6176fd81d"
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nic-shared-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "1d0bf14c96c473133e8cca41130e5546",
-              "size": 228076
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/usb-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
+              "size": 125214,
+              "md5": "60960439815c58e48dc5231a92be4471"
             },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/input-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "8b9d584591d917595a844943db0bf5e6",
-              "size": 93560
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ec2/linux-image-2.6.32-316-ec2_2.6.32-316.31_i386.deb": {
+              "size": 19248042,
+              "md5": "e643fc4af8ec7e43599b999c528afe78"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/mouse-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 33838,
+              "md5": "9ec5d6f2fd1548ca39b2cb4dfa04553c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nfs-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
+              "size": 310286,
+              "md5": "77a354fe3adfd7b68647abc02ac98a66"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-libc-dev_2.6.32-32.62_i386.deb": {
+              "size": 837554,
+              "md5": "946a963d881ab6e4c041cc4a23215bf8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nic-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 2540506,
+              "md5": "1432247963ee933ba0af4c6ee1d97e15"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/squashfs-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 15596,
+              "md5": "d04387c9a8f85f722ae312191c82fc8a"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nic-shared-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
-              "md5": "d5fe44af9b53217c72f0d9962924463a",
-              "size": 228142
+              "size": 228142,
+              "md5": "d5fe44af9b53217c72f0d9962924463a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nic-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
+              "size": 2559474,
+              "md5": "e12ec08d4a066332afc41de0e17e7ce4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/vlan-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
+              "size": 20906,
+              "md5": "b87c3413c0044b529f061bd586aa8bcd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-tools-2.6.32-32_2.6.32-32.62_i386.deb": {
+              "size": 225910,
+              "md5": "1b97bd022626420328cf1773b3e0695b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-headers-2.6.32-32-generic-pae_2.6.32-32.62_i386.deb": {
+              "size": 794164,
+              "md5": "670eebd41d0f741eba949c47f436d762"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-headers-2.6.32-32-generic_2.6.32-32.62_i386.deb": {
+              "size": 790982,
+              "md5": "be836fd1f3afa85cde653993d25602a7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/ppp-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 36220,
+              "md5": "684bd80bd9cb14bcc12ca3b55d0e4740"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/mouse-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
+              "size": 33854,
+              "md5": "7f9e9ea8234a1c730762a59032f10712"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nic-shared-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
+              "size": 228076,
+              "md5": "1d0bf14c96c473133e8cca41130e5546"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/input-modules-2.6.32-32-generic-pae-di_2.6.32-32.62_i386.udeb": {
+              "size": 93560,
+              "md5": "8b9d584591d917595a844943db0bf5e6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-image-2.6.32-32-virtual_2.6.32-32.62_i386.deb": {
+              "size": 12075542,
+              "md5": "529020d0f1f37bb80774d2c26af8afe1"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/nic-usb-modules-2.6.32-32-generic-di_2.6.32-32.62_i386.udeb": {
-              "md5": "813887754f0d671ae4292f5f0871aa66",
-              "size": 165660
+              "size": 165660,
+              "md5": "813887754f0d671ae4292f5f0871aa66"
             }
           }
         },
         "powerpc": {
           "urls": {
             "http://ports.ubuntu.com/pool/main/l/linux/floppy-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "194a0d15e93de409ab4b003348d1d745",
-              "size": 41002
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/serial-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "d6696e7f1e3888f38335f2a9d23938f6",
-              "size": 78108
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/linux-image-2.6.32-32-powerpc-smp_2.6.32-32.62_powerpc.deb": {
-              "md5": "bdb4df0d2b90229b322b6e6684c86d27",
-              "size": 27814822
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/pata-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "9c07f392a87da56dca5d029a912c1cd9",
-              "size": 108028
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/mouse-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "b81afccb473c3d946c891b00c09101cc",
-              "size": 36482
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/message-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "cc88a2755afcd1deae828b7d7572b131",
-              "size": 224248
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/storage-core-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "a68eb759659162d64c755737a442cf66",
-              "size": 68252
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/fat-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "97af3b7dfad15c685737310f0abf2f66",
-              "size": 48384
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/nic-usb-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "7930950f99d5a60bcd362632991b8f8d",
-              "size": 132080
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/pcmcia-storage-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "7295a3a1262fd324981bf2b626dc933b",
-              "size": 77220
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/mouse-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "0dd9d74a0a22e85d5a4c6ac9acb45a8a",
-              "size": 31952
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/fat-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "adb4f618b743e35047eb7a17b15357e5",
-              "size": 53132
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/irda-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "12633030445206c641fe1974f5ff989b",
-              "size": 355348
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/sata-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "8980538b53264139a3e75793b12a6ad4",
-              "size": 107288
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/floppy-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "116f417480274d4680b0149877f7b139",
-              "size": 40390
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/fs-secondary-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "2ed9cb8e58ad8f347ea5839301b2e0a0",
-              "size": 155052
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/ppp-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "2fd8552315f87b63797d2cda8f4e822a",
-              "size": 62036
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/kernel-image-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "1958139bac48778a80e049ab93f3b2b7",
-              "size": 5620102
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/nic-shared-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "421ecd357b4133d9772f39c8358de5ff",
-              "size": 260506
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/pata-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "7b52039642b2e2ffb223559af00f0e33",
-              "size": 123944
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/nic-pcmcia-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "8316672f04d08f4a95075e6c7bab13c8",
-              "size": 223040
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/scsi-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "f4370cf13f2469ff6dbd156c163e3816",
-              "size": 1576430
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/nic-pcmcia-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "dff8c4cdabf7e646e975fdae7007a2ed",
-              "size": 217360
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/crypto-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "fda5f06fe669ef3699601162423d1c6e",
-              "size": 60554
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/md-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "f696caa2292c1b2d7156c4fa5705a9ec",
-              "size": 257332
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/parport-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "b67121b83ec99b7759723c68c26b0f99",
-              "size": 50966
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/pcmcia-storage-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "5382751d1995ea5836f5eaef334f49a9",
-              "size": 28410
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/squashfs-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "90938a195e44c3d2fe6bb349fbb2f2e5",
-              "size": 18530
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/fs-core-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "949651f8e12bf57e5b73adee055e159c",
-              "size": 597756
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/pcmcia-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "4279d90c365e91b96610bd4dd27775d4",
-              "size": 89972
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/nic-shared-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "a738c30a6c2f473795b49a4057f0fa9a",
-              "size": 296264
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/crypto-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "5b7f7dd7398bcd8194890d08c05cc8e0",
-              "size": 68714
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/fs-secondary-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "45f0beb31e3decd1444dbcf132822381",
-              "size": 150506
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/nic-usb-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "da56b1e83c9487eaea25e09965c20775",
-              "size": 154932
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/pcmcia-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "127d81d70b2c17d38c3da8b1e3108a75",
-              "size": 84344
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/linux-libc-dev_2.6.32-32.62_powerpc.deb": {
-              "md5": "fac01b35cfc4f575b7cf01a90b7dc237",
-              "size": 806078
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/nfs-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "d01b5fe2b70e67c5bb0490ae0d0c2f14",
-              "size": 344200
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/firewire-core-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "0f8a8bda807b49dbcbe5bd042a70954f",
-              "size": 96786
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/nic-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "54abf6c43c19a7305442f1b8efc2d760",
-              "size": 2175748
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/firewire-core-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "3303c6355c1295f77656f26818e83d72",
-              "size": 109858
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/ppp-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "99c99d8fbc617ab15a76fa4ac2f9e27d",
-              "size": 72338
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/usb-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "e7d1d1e0865595194251fef6652b0d7c",
-              "size": 152196
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/usb-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "81f086568ed86fa1f8c62ae64b7544d9",
-              "size": 159744
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/fs-core-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "f6339dd45fb0a016f7c43d23c6757d58",
-              "size": 631422
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/block-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "34d5e653731c6d93c147ddf5d9de97dc",
-              "size": 340834
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/kernel-image-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "9681b2d9695614af3441cfa358839625",
-              "size": 4226104
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/plip-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "ac1e6febe8c77ac5b8b5a64e69116e5a",
-              "size": 10188
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/plip-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "7a68bce23e3c36670098a015cbe3c654",
-              "size": 8954
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/block-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "d187e473f6db963a43a79225e5c587dc",
-              "size": 281702
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/linux-headers-2.6.32-32-powerpc-smp_2.6.32-32.62_powerpc.deb": {
-              "md5": "a143149cc47978e181d94f601a84a9a2",
-              "size": 878732
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/vlan-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "8a7d5497ce43fffcb0558d8078a09968",
-              "size": 22584
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/linux-headers-2.6.32-32-powerpc_2.6.32-32.62_powerpc.deb": {
-              "md5": "59d78ac54a5ee0275c7fc2fe4584ee3c",
-              "size": 879050
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/input-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "f97f379de4704f4ccb14916b55152b43",
-              "size": 106278
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/nic-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "ee1559572178adb1d2a2da9da31dac08",
-              "size": 2374394
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/parport-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "5933bccf1f0175bdb9838e6879b34792",
-              "size": 45510
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/irda-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "e50d5718bfee2b9aec245097e19718a0",
-              "size": 419030
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/squashfs-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "08995ae4f906fa9d2fe0b40ee129d603",
-              "size": 17478
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/linux-image-2.6.32-32-powerpc_2.6.32-32.62_powerpc.deb": {
-              "md5": "e799a48ad9b8bfec5a5f0f93a744ba19",
-              "size": 27577448
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/vlan-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "312985b05652f2d9a4c5ec24bf3bc48c",
-              "size": 25884
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/storage-core-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "134fd1647d4e2841ce029d5b46165ff5",
-              "size": 80670
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/scsi-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "1348559f90f59a95d289be8151b8df62",
-              "size": 1649228
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/linux-image-2.6.32-32-powerpc64-smp_2.6.32-32.62_powerpc.deb": {
-              "md5": "270091d5359d803d1d8793950c5e7216",
-              "size": 28655810
+              "size": 41002,
+              "md5": "194a0d15e93de409ab4b003348d1d745"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/input-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "53e7fac90570288b15d3849df9f6fef8",
-              "size": 110294
+              "size": 110294,
+              "md5": "53e7fac90570288b15d3849df9f6fef8"
             },
-            "http://ports.ubuntu.com/pool/main/l/linux/message-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "a90b48e66e6dedd2433c371f976fe5b7",
-              "size": 221536
+            "http://ports.ubuntu.com/pool/main/l/linux/linux-image-2.6.32-32-powerpc-smp_2.6.32-32.62_powerpc.deb": {
+              "size": 27814822,
+              "md5": "bdb4df0d2b90229b322b6e6684c86d27"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/pata-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 108028,
+              "md5": "9c07f392a87da56dca5d029a912c1cd9"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/mouse-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 36482,
+              "md5": "b81afccb473c3d946c891b00c09101cc"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/nic-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 2175748,
+              "md5": "54abf6c43c19a7305442f1b8efc2d760"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/storage-core-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 68252,
+              "md5": "a68eb759659162d64c755737a442cf66"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/fat-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 48384,
+              "md5": "97af3b7dfad15c685737310f0abf2f66"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/nic-usb-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 132080,
+              "md5": "7930950f99d5a60bcd362632991b8f8d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/mouse-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 31952,
+              "md5": "0dd9d74a0a22e85d5a4c6ac9acb45a8a"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/fat-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 53132,
+              "md5": "adb4f618b743e35047eb7a17b15357e5"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/irda-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 355348,
+              "md5": "12633030445206c641fe1974f5ff989b"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/sata-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 107288,
+              "md5": "8980538b53264139a3e75793b12a6ad4"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/floppy-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 40390,
+              "md5": "116f417480274d4680b0149877f7b139"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/fs-secondary-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 155052,
+              "md5": "2ed9cb8e58ad8f347ea5839301b2e0a0"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/ppp-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 62036,
+              "md5": "2fd8552315f87b63797d2cda8f4e822a"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/kernel-image-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 5620102,
+              "md5": "1958139bac48778a80e049ab93f3b2b7"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/nic-shared-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 260506,
+              "md5": "421ecd357b4133d9772f39c8358de5ff"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/pata-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 123944,
+              "md5": "7b52039642b2e2ffb223559af00f0e33"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/nic-pcmcia-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 223040,
+              "md5": "8316672f04d08f4a95075e6c7bab13c8"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/scsi-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 1576430,
+              "md5": "f4370cf13f2469ff6dbd156c163e3816"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/nic-pcmcia-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 217360,
+              "md5": "dff8c4cdabf7e646e975fdae7007a2ed"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/crypto-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 60554,
+              "md5": "fda5f06fe669ef3699601162423d1c6e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/md-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 257332,
+              "md5": "f696caa2292c1b2d7156c4fa5705a9ec"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/parport-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 50966,
+              "md5": "b67121b83ec99b7759723c68c26b0f99"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/pcmcia-storage-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 28410,
+              "md5": "5382751d1995ea5836f5eaef334f49a9"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/squashfs-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 18530,
+              "md5": "90938a195e44c3d2fe6bb349fbb2f2e5"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/irda-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 419030,
+              "md5": "e50d5718bfee2b9aec245097e19718a0"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/pcmcia-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 89972,
+              "md5": "4279d90c365e91b96610bd4dd27775d4"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/nic-shared-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 296264,
+              "md5": "a738c30a6c2f473795b49a4057f0fa9a"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/crypto-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 68714,
+              "md5": "5b7f7dd7398bcd8194890d08c05cc8e0"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/fs-secondary-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 150506,
+              "md5": "45f0beb31e3decd1444dbcf132822381"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/md-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "90cc4df2e79253a7c135419acaa99a66",
-              "size": 244086
+              "size": 244086,
+              "md5": "90cc4df2e79253a7c135419acaa99a66"
             },
-            "http://ports.ubuntu.com/pool/main/l/linux/sata-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "abc65908c83ac4e0d4f95ef7d6de5f27",
-              "size": 136888
+            "http://ports.ubuntu.com/pool/main/l/linux/pcmcia-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 84344,
+              "md5": "127d81d70b2c17d38c3da8b1e3108a75"
             },
-            "http://ports.ubuntu.com/pool/main/l/linux/serial-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "b0c69bc76cc503421da9f02e4bc6c77a",
-              "size": 83424
+            "http://ports.ubuntu.com/pool/main/l/linux/linux-libc-dev_2.6.32-32.62_powerpc.deb": {
+              "size": 806078,
+              "md5": "fac01b35cfc4f575b7cf01a90b7dc237"
             },
-            "http://ports.ubuntu.com/pool/main/l/linux/nfs-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
-              "md5": "45e37712ba7647ce1e2be7d37672bc6e",
-              "size": 385950
+            "http://ports.ubuntu.com/pool/main/l/linux/vlan-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 22584,
+              "md5": "8a7d5497ce43fffcb0558d8078a09968"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/nfs-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 344200,
+              "md5": "d01b5fe2b70e67c5bb0490ae0d0c2f14"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/firewire-core-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 96786,
+              "md5": "0f8a8bda807b49dbcbe5bd042a70954f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/message-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 224248,
+              "md5": "cc88a2755afcd1deae828b7d7572b131"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/firewire-core-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 109858,
+              "md5": "3303c6355c1295f77656f26818e83d72"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/ppp-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 72338,
+              "md5": "99c99d8fbc617ab15a76fa4ac2f9e27d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/usb-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 152196,
+              "md5": "e7d1d1e0865595194251fef6652b0d7c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/usb-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 159744,
+              "md5": "81f086568ed86fa1f8c62ae64b7544d9"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/fs-core-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 631422,
+              "md5": "f6339dd45fb0a016f7c43d23c6757d58"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/block-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 340834,
+              "md5": "34d5e653731c6d93c147ddf5d9de97dc"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/kernel-image-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 4226104,
+              "md5": "9681b2d9695614af3441cfa358839625"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/plip-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 10188,
+              "md5": "ac1e6febe8c77ac5b8b5a64e69116e5a"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/plip-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 8954,
+              "md5": "7a68bce23e3c36670098a015cbe3c654"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/block-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 281702,
+              "md5": "d187e473f6db963a43a79225e5c587dc"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/linux-headers-2.6.32-32-powerpc-smp_2.6.32-32.62_powerpc.deb": {
+              "size": 878732,
+              "md5": "a143149cc47978e181d94f601a84a9a2"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/pcmcia-storage-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 77220,
+              "md5": "7295a3a1262fd324981bf2b626dc933b"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/linux-headers-2.6.32-32-powerpc_2.6.32-32.62_powerpc.deb": {
+              "size": 879050,
+              "md5": "59d78ac54a5ee0275c7fc2fe4584ee3c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/input-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 106278,
+              "md5": "f97f379de4704f4ccb14916b55152b43"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/nic-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 2374394,
+              "md5": "ee1559572178adb1d2a2da9da31dac08"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/parport-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 45510,
+              "md5": "5933bccf1f0175bdb9838e6879b34792"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/fs-core-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 597756,
+              "md5": "949651f8e12bf57e5b73adee055e159c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/squashfs-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 17478,
+              "md5": "08995ae4f906fa9d2fe0b40ee129d603"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/linux-image-2.6.32-32-powerpc_2.6.32-32.62_powerpc.deb": {
+              "size": 27577448,
+              "md5": "e799a48ad9b8bfec5a5f0f93a744ba19"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/vlan-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 25884,
+              "md5": "312985b05652f2d9a4c5ec24bf3bc48c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/storage-core-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 80670,
+              "md5": "134fd1647d4e2841ce029d5b46165ff5"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/linux-image-2.6.32-32-powerpc64-smp_2.6.32-32.62_powerpc.deb": {
+              "size": 28655810,
+              "md5": "270091d5359d803d1d8793950c5e7216"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/serial-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 78108,
+              "md5": "d6696e7f1e3888f38335f2a9d23938f6"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/linux-tools-2.6.32-32_2.6.32-32.62_powerpc.deb": {
-              "md5": "ea60cfc6e85112ec1ea913bd5e0162e9",
-              "size": 241956
+              "size": 241956,
+              "md5": "ea60cfc6e85112ec1ea913bd5e0162e9"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/message-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 221536,
+              "md5": "a90b48e66e6dedd2433c371f976fe5b7"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/nic-usb-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 154932,
+              "md5": "da56b1e83c9487eaea25e09965c20775"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/sata-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 136888,
+              "md5": "abc65908c83ac4e0d4f95ef7d6de5f27"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/serial-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 83424,
+              "md5": "b0c69bc76cc503421da9f02e4bc6c77a"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/nfs-modules-2.6.32-32-powerpc64-smp-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 385950,
+              "md5": "45e37712ba7647ce1e2be7d37672bc6e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/scsi-modules-2.6.32-32-powerpc-di_2.6.32-32.62_powerpc.udeb": {
+              "size": 1649228,
+              "md5": "1348559f90f59a95d289be8151b8df62"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/linux-headers-2.6.32-32-powerpc64-smp_2.6.32-32.62_powerpc.deb": {
-              "md5": "727b3b95f7985c0d8c6615f827c53ae0",
-              "size": 897590
+              "size": 897590,
+              "md5": "727b3b95f7985c0d8c6615f827c53ae0"
             }
           }
         },
         "source": {
           "urls": {
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ec2/linux-ec2_2.6.32-316.31.diff.gz": {
-              "md5": "68f8b40c0edd390d92757984416c3884",
-              "size": 9142121
+              "size": 9142121,
+              "md5": "68f8b40c0edd390d92757984416c3884"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux_2.6.32-32.62.dsc": {
-              "md5": "a82c22e30d1b97b9e9a90e07c3aa3442",
-              "size": 4135
+              "size": 4135,
+              "md5": "a82c22e30d1b97b9e9a90e07c3aa3442"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ec2/linux-ec2_2.6.32.orig.tar.gz": {
-              "md5": "4b1f6f6fac43a23e783079db589fc7e2",
-              "size": 81900940
+              "size": 81900940,
+              "md5": "4b1f6f6fac43a23e783079db589fc7e2"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ec2/linux-ec2_2.6.32-316.31.dsc": {
-              "md5": "ab4fed53a4c216498c4818ca32040c82",
-              "size": 1464
+              "size": 1464,
+              "md5": "ab4fed53a4c216498c4818ca32040c82"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux_2.6.32-32.62.diff.gz": {
-              "md5": "6f091ff09acb8cdf4da54e804370cfc6",
-              "size": 5241290
+              "size": 5241290,
+              "md5": "6f091ff09acb8cdf4da54e804370cfc6"
             },
             "http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux_2.6.32.orig.tar.gz": {
-              "md5": "4b1f6f6fac43a23e783079db589fc7e2",
-              "size": 81900940
+              "size": 81900940,
+              "md5": "4b1f6f6fac43a23e783079db589fc7e2"
             }
           }
         },
         "sparc": {
           "urls": {
             "http://ports.ubuntu.com/pool/main/l/linux/linux-headers-2.6.32-32-sparc64-smp_2.6.32-32.62_sparc.deb": {
-              "md5": "d4915cb515da44f5d90e506692d645e1",
-              "size": 698478
+              "size": 698478,
+              "md5": "d4915cb515da44f5d90e506692d645e1"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/nic-shared-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "4f55054c6eea074697782f1e37b2a7ea",
-              "size": 247416
+              "size": 247416,
+              "md5": "4f55054c6eea074697782f1e37b2a7ea"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/nfs-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "56c686027d08a89a7f8ce59ab84d262f",
-              "size": 337346
+              "size": 337346,
+              "md5": "56c686027d08a89a7f8ce59ab84d262f"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/firewire-core-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "8dfc367e7bc08515e8dfcc1f36f857d3",
-              "size": 98040
+              "size": 98040,
+              "md5": "8dfc367e7bc08515e8dfcc1f36f857d3"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/squashfs-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "d122dd1678815a04307f3a1ceb0287e7",
-              "size": 17734
+              "size": 17734,
+              "md5": "d122dd1678815a04307f3a1ceb0287e7"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/fs-secondary-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "9c3f9cd360747d7f20500c49ea8dffca",
-              "size": 151648
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/mouse-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "b991055090791479b277b5b13cf370e2",
-              "size": 31900
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/usb-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "786f58c02707ee53d76930740c46889a",
-              "size": 194164
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/pata-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "2b593f0e56ee0465a9139ba9ece7b1a1",
-              "size": 207128
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/linux-headers-2.6.32-32-sparc64_2.6.32-32.62_sparc.deb": {
-              "md5": "1f48b98a012ab9e4461b9027c87bf8af",
-              "size": 697108
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/sata-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "224592b8240d411e2939b8b7105165ea",
-              "size": 213422
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/kernel-image-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "24f212400d1b064f8d89d1843486d789",
-              "size": 3229926
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/crypto-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "c923b1e3f069ecefc377f6b1a9fa01f1",
-              "size": 71442
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/nic-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "361def14b9fbf6c732ea559feff0d4e4",
-              "size": 1814772
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/linux-image-2.6.32-32-sparc64-smp_2.6.32-32.62_sparc.deb": {
-              "md5": "f5f114b87ebab735113a307d037d8c9a",
-              "size": 22722132
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/input-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "6467ec5a76d4ec89886832b892338212",
-              "size": 99462
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/linux-libc-dev_2.6.32-32.62_sparc.deb": {
-              "md5": "b0329389ccf3278153fc0adcb29eb8d5",
-              "size": 816474
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/linux-tools-2.6.32-32_2.6.32-32.62_sparc.deb": {
-              "md5": "615ab9499bf5e3829ccff70f81714fc2",
-              "size": 243506
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/parport-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "a3978807fb6162120f1b8cbc621f1108",
-              "size": 39940
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/scsi-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "d13846d8a9386cf4c0707e3cf6bf3ff7",
-              "size": 1304872
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux/ppp-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "ecf0793d86b29fceb256bea006544459",
-              "size": 64528
+              "size": 151648,
+              "md5": "9c3f9cd360747d7f20500c49ea8dffca"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/nic-usb-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "c10b7c9b504293413d437d1b4c3ebd27",
-              "size": 140216
+              "size": 140216,
+              "md5": "c10b7c9b504293413d437d1b4c3ebd27"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/usb-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
+              "size": 194164,
+              "md5": "786f58c02707ee53d76930740c46889a"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/pata-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
+              "size": 207128,
+              "md5": "2b593f0e56ee0465a9139ba9ece7b1a1"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/linux-headers-2.6.32-32-sparc64_2.6.32-32.62_sparc.deb": {
+              "size": 697108,
+              "md5": "1f48b98a012ab9e4461b9027c87bf8af"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/sata-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
+              "size": 213422,
+              "md5": "224592b8240d411e2939b8b7105165ea"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/kernel-image-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
+              "size": 3229926,
+              "md5": "24f212400d1b064f8d89d1843486d789"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/crypto-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
+              "size": 71442,
+              "md5": "c923b1e3f069ecefc377f6b1a9fa01f1"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/nic-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
+              "size": 1814772,
+              "md5": "361def14b9fbf6c732ea559feff0d4e4"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/linux-image-2.6.32-32-sparc64-smp_2.6.32-32.62_sparc.deb": {
+              "size": 22722132,
+              "md5": "f5f114b87ebab735113a307d037d8c9a"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/input-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
+              "size": 99462,
+              "md5": "6467ec5a76d4ec89886832b892338212"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/linux-libc-dev_2.6.32-32.62_sparc.deb": {
+              "size": 816474,
+              "md5": "b0329389ccf3278153fc0adcb29eb8d5"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/linux-tools-2.6.32-32_2.6.32-32.62_sparc.deb": {
+              "size": 243506,
+              "md5": "615ab9499bf5e3829ccff70f81714fc2"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/parport-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
+              "size": 39940,
+              "md5": "a3978807fb6162120f1b8cbc621f1108"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/scsi-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
+              "size": 1304872,
+              "md5": "d13846d8a9386cf4c0707e3cf6bf3ff7"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/ppp-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
+              "size": 64528,
+              "md5": "ecf0793d86b29fceb256bea006544459"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux/mouse-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
+              "size": 31900,
+              "md5": "b991055090791479b277b5b13cf370e2"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/linux-image-2.6.32-32-sparc64_2.6.32-32.62_sparc.deb": {
-              "md5": "d1694f306e9598637e225e83de2b27f9",
-              "size": 22272234
+              "size": 22272234,
+              "md5": "d1694f306e9598637e225e83de2b27f9"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/serial-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "be94ce7c42fd529703dc87ddb6bd3500",
-              "size": 96596
+              "size": 96596,
+              "md5": "be94ce7c42fd529703dc87ddb6bd3500"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/block-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "5991523f4f46f2262cdb567091b03d67",
-              "size": 146440
+              "size": 146440,
+              "md5": "5991523f4f46f2262cdb567091b03d67"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/fs-core-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "9377a9b2b25bdf87e205177570515da0",
-              "size": 590702
+              "size": 590702,
+              "md5": "9377a9b2b25bdf87e205177570515da0"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/plip-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "505aead96ccf2016cafa5969143c8c7d",
-              "size": 9186
+              "size": 9186,
+              "md5": "505aead96ccf2016cafa5969143c8c7d"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/storage-core-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "fd654e03d2326a199e1849505d953a99",
-              "size": 208810
+              "size": 208810,
+              "md5": "fd654e03d2326a199e1849505d953a99"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/vlan-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "d012dfc7504a3e762c87b857dd5fac83",
-              "size": 27222
+              "size": 27222,
+              "md5": "d012dfc7504a3e762c87b857dd5fac83"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/md-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "ecf5a9c5a988e8ba63e3a6b5f2e025f7",
-              "size": 234914
+              "size": 234914,
+              "md5": "ecf5a9c5a988e8ba63e3a6b5f2e025f7"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/message-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "72f9d1c82bf3b2ebf21151bbfe98fc87",
-              "size": 215222
+              "size": 215222,
+              "md5": "72f9d1c82bf3b2ebf21151bbfe98fc87"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/fat-modules-2.6.32-32-sparc64-di_2.6.32-32.62_sparc.udeb": {
-              "md5": "aa9c583d3ee9f134a93cbeb8bff138b4",
-              "size": 47608
+              "size": 47608,
+              "md5": "aa9c583d3ee9f134a93cbeb8bff138b4"
             }
           }
         },
         "armel": {
           "urls": {
             "http://ports.ubuntu.com/pool/main/l/linux/linux-libc-dev_2.6.32-32.62_armel.deb": {
-              "md5": "99c4c2ddd82d46e716c7571eac0b3cd0",
-              "size": 814616
+              "size": 814616,
+              "md5": "99c4c2ddd82d46e716c7571eac0b3cd0"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/linux-image-2.6.32-32-versatile_2.6.32-32.62_armel.deb": {
-              "md5": "fc839f4bf9e270ffe026bbfcd5cda059",
-              "size": 20320852
+              "size": 20320852,
+              "md5": "fc839f4bf9e270ffe026bbfcd5cda059"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/input-modules-2.6.32-32-versatile-di_2.6.32-32.62_armel.udeb": {
-              "md5": "f2f3c6ab83ce51c7feba92c623f6b35a",
-              "size": 92124
+              "size": 92124,
+              "md5": "f2f3c6ab83ce51c7feba92c623f6b35a"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/scsi-modules-2.6.32-32-versatile-di_2.6.32-32.62_armel.udeb": {
-              "md5": "53d02e9760dbb840f8ce708f40c172d7",
-              "size": 50756
+              "size": 50756,
+              "md5": "53d02e9760dbb840f8ce708f40c172d7"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/fat-modules-2.6.32-32-versatile-di_2.6.32-32.62_armel.udeb": {
-              "md5": "b9f107f40e4de066e86eb683fdb13c4c",
-              "size": 43410
+              "size": 43410,
+              "md5": "b9f107f40e4de066e86eb683fdb13c4c"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/block-modules-2.6.32-32-versatile-di_2.6.32-32.62_armel.udeb": {
-              "md5": "c146a28f5235449c96725e40df66b8a2",
-              "size": 129896
+              "size": 129896,
+              "md5": "c146a28f5235449c96725e40df66b8a2"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/sata-modules-2.6.32-32-versatile-di_2.6.32-32.62_armel.udeb": {
-              "md5": "938e08843fc3061be5be78cefb3d89f9",
-              "size": 94864
+              "size": 94864,
+              "md5": "938e08843fc3061be5be78cefb3d89f9"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/squashfs-modules-2.6.32-32-versatile-di_2.6.32-32.62_armel.udeb": {
-              "md5": "0592cc90220ed3e458b3f4a787af3784",
-              "size": 14912
+              "size": 14912,
+              "md5": "0592cc90220ed3e458b3f4a787af3784"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/ppp-modules-2.6.32-32-versatile-di_2.6.32-32.62_armel.udeb": {
-              "md5": "b61c2f166ac01661d43553d50bd7b366",
-              "size": 38362
+              "size": 38362,
+              "md5": "b61c2f166ac01661d43553d50bd7b366"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/pata-modules-2.6.32-32-versatile-di_2.6.32-32.62_armel.udeb": {
-              "md5": "19baa4d7aa3e91bbc4e242db60999ca0",
-              "size": 94330
+              "size": 94330,
+              "md5": "19baa4d7aa3e91bbc4e242db60999ca0"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/nic-modules-2.6.32-32-versatile-di_2.6.32-32.62_armel.udeb": {
-              "md5": "e9f13b1ac359ada7e2f58060dc2e43dd",
-              "size": 446842
+              "size": 446842,
+              "md5": "e9f13b1ac359ada7e2f58060dc2e43dd"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/linux-headers-2.6.32-32-versatile_2.6.32-32.62_armel.deb": {
-              "md5": "8a49003d269cd2b605bfb2fed39fe008",
-              "size": 752806
+              "size": 752806,
+              "md5": "8a49003d269cd2b605bfb2fed39fe008"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/md-modules-2.6.32-32-versatile-di_2.6.32-32.62_armel.udeb": {
-              "md5": "f8f1d30395a25607bfd6356925e1c0ac",
-              "size": 165002
+              "size": 165002,
+              "md5": "f8f1d30395a25607bfd6356925e1c0ac"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/firewire-core-modules-2.6.32-32-versatile-di_2.6.32-32.62_armel.udeb": {
-              "md5": "3c7bb58b2e00902af42db1e251c7446e",
-              "size": 88144
+              "size": 88144,
+              "md5": "3c7bb58b2e00902af42db1e251c7446e"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/usb-modules-2.6.32-32-versatile-di_2.6.32-32.62_armel.udeb": {
-              "md5": "c67f8f91790535ab8504c0dbc0942a14",
-              "size": 210672
+              "size": 210672,
+              "md5": "c67f8f91790535ab8504c0dbc0942a14"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/vlan-modules-2.6.32-32-versatile-di_2.6.32-32.62_armel.udeb": {
-              "md5": "edf3e7f5315a7c161a52b4f9ff66033e",
-              "size": 21066
+              "size": 21066,
+              "md5": "edf3e7f5315a7c161a52b4f9ff66033e"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/message-modules-2.6.32-32-versatile-di_2.6.32-32.62_armel.udeb": {
-              "md5": "7250a80733700b199ad4727bbccac350",
-              "size": 279854
+              "size": 279854,
+              "md5": "7250a80733700b199ad4727bbccac350"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/kernel-image-2.6.32-32-versatile-di_2.6.32-32.62_armel.udeb": {
-              "md5": "1f88c292b2338e30470b5a0427c01125",
-              "size": 3195110
+              "size": 3195110,
+              "md5": "1f88c292b2338e30470b5a0427c01125"
             },
             "http://ports.ubuntu.com/pool/main/l/linux/nic-shared-modules-2.6.32-32-versatile-di_2.6.32-32.62_armel.udeb": {
-              "md5": "1de5bc0cf5fd990583f26b7559eee9e8",
-              "size": 227838
+              "size": 227838,
+              "md5": "1de5bc0cf5fd990583f26b7559eee9e8"
             }
           }
         }
@@ -1127,8 +1127,6 @@
   "timestamp": 1306886441.970993,
   "summary": "linux, linux-ec2 vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed. If\nyou use linux-restricted-modules, you have to update that package as\nwell to get modules which work with the new kernel version. Unless you\nmanually uninstalled the standard kernel metapackages (e.g. linux-generic,\nlinux-server, linux-powerpc), a standard system upgrade will automatically\nperform this as well.\n",
-  "isummary": "Multiple kernel vulnerabilities have been fixed.\n",
-  "id": "USN-1141-1",
   "cves": [
     "CVE-2010-4243",
     "CVE-2010-4263",
@@ -1167,5 +1165,7 @@
     "CVE-2011-3359",
     "CVE-2011-4611",
     "CVE-2011-4913"
-  ]
+  ],
+  "id": "USN-1141-1",
+  "isummary": "Multiple kernel vulnerabilities have been fixed.\n"
 }

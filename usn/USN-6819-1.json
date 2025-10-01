@@ -1,4 +1,952 @@
 {
+  "description": "Alon Zahavi discovered that the NVMe-oF/TCP subsystem in the Linux kernel\ndid not properly validate H2C PDU data, leading to a null pointer\ndereference vulnerability. A remote attacker could use this to cause a\ndenial of service (system crash). (CVE-2023-6356, CVE-2023-6535,\nCVE-2023-6536)\n\nChenyuan Yang discovered that the RDS Protocol implementation in the Linux\nkernel contained an out-of-bounds read vulnerability. An attacker could use\nthis to possibly cause a denial of service (system crash). (CVE-2024-23849)\n\nIt was discovered that a race condition existed in the Bluetooth subsystem\nin the Linux kernel, leading to a null pointer dereference vulnerability. A\nprivileged local attacker could use this to possibly cause a denial of\nservice (system crash). (CVE-2024-24860)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM64 architecture;\n  - PowerPC architecture;\n  - RISC-V architecture;\n  - S390 architecture;\n  - Core kernel;\n  - x86 architecture;\n  - Block layer subsystem;\n  - Cryptographic API;\n  - ACPI drivers;\n  - Android drivers;\n  - Drivers core;\n  - Power management core;\n  - Bus devices;\n  - Device frequency scaling framework;\n  - DMA engine subsystem;\n  - EDAC drivers;\n  - ARM SCMI message protocol;\n  - GPU drivers;\n  - IIO ADC drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - Media drivers;\n  - Multifunction device drivers;\n  - MTD block device drivers;\n  - Network drivers;\n  - NVME drivers;\n  - Device tree and open firmware driver;\n  - PCI driver for MicroSemi Switchtec;\n  - Power supply drivers;\n  - RPMSG subsystem;\n  - SCSI drivers;\n  - QCOM SoC drivers;\n  - SPMI drivers;\n  - Thermal drivers;\n  - TTY drivers;\n  - VFIO drivers;\n  - BTRFS file system;\n  - Ceph distributed file system;\n  - EFI Variable file system;\n  - EROFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - GFS2 file system;\n  - JFS file system;\n  - Network file systems library;\n  - Network file system server daemon;\n  - File systems infrastructure;\n  - Pstore file system;\n  - ReiserFS file system;\n  - SMB network file system;\n  - BPF subsystem;\n  - Memory management;\n  - TLS protocol;\n  - Ethernet bridge;\n  - Networking core;\n  - IPv4 networking;\n  - IPv6 networking;\n  - Logical Link layer;\n  - MAC80211 subsystem;\n  - Multipath TCP;\n  - Netfilter;\n  - NetLabel subsystem;\n  - Network traffic control;\n  - SMC sockets;\n  - Sun RPC protocol;\n  - AppArmor security module;\n  - Intel ASoC drivers;\n  - MediaTek ASoC drivers;\n  - USB sound devices;\n(CVE-2023-52612, CVE-2024-26808, CVE-2023-52691, CVE-2023-52618,\nCVE-2023-52463, CVE-2023-52447, CVE-2024-26668, CVE-2023-52454,\nCVE-2024-26670, CVE-2024-26646, CVE-2023-52472, CVE-2024-26586,\nCVE-2023-52681, CVE-2023-52453, CVE-2023-52611, CVE-2023-52622,\nCVE-2024-26641, CVE-2023-52616, CVE-2024-26592, CVE-2023-52606,\nCVE-2024-26620, CVE-2023-52692, CVE-2024-26669, CVE-2023-52623,\nCVE-2023-52588, CVE-2024-26616, CVE-2024-26610, CVE-2024-35839,\nCVE-2023-52490, CVE-2023-52672, CVE-2024-26612, CVE-2023-52617,\nCVE-2023-52697, CVE-2024-26644, CVE-2023-52458, CVE-2023-52598,\nCVE-2024-35841, CVE-2023-52664, CVE-2023-52635, CVE-2023-52676,\nCVE-2023-52669, CVE-2024-26632, CVE-2023-52486, CVE-2024-26625,\nCVE-2023-52608, CVE-2024-26634, CVE-2023-52599, CVE-2024-26618,\nCVE-2024-26640, CVE-2023-52489, CVE-2023-52675, CVE-2023-52678,\nCVE-2024-26583, CVE-2023-52693, CVE-2023-52498, CVE-2024-26649,\nCVE-2023-52670, CVE-2023-52473, CVE-2023-52449, CVE-2023-52667,\nCVE-2023-52467, CVE-2023-52686, CVE-2024-26633, CVE-2023-52666,\nCVE-2024-35840, CVE-2024-26629, CVE-2024-26595, CVE-2023-52593,\nCVE-2023-52687, CVE-2023-52465, CVE-2024-26627, CVE-2023-52493,\nCVE-2023-52491, CVE-2024-26636, CVE-2024-26584, CVE-2023-52587,\nCVE-2023-52597, CVE-2023-52462, CVE-2023-52633, CVE-2023-52696,\nCVE-2024-26585, CVE-2023-52589, CVE-2023-52456, CVE-2023-52470,\nCVE-2024-35838, CVE-2024-26645, CVE-2023-52591, CVE-2023-52464,\nCVE-2023-52609, CVE-2024-26608, CVE-2023-52450, CVE-2023-52584,\nCVE-2023-52469, CVE-2023-52583, CVE-2023-52451, CVE-2023-52495,\nCVE-2023-52626, CVE-2023-52595, CVE-2023-52680, CVE-2023-52632,\nCVE-2024-26582, CVE-2024-35837, CVE-2023-52494, CVE-2023-52614,\nCVE-2023-52443, CVE-2023-52698, CVE-2023-52448, CVE-2024-26615,\nCVE-2023-52452, CVE-2023-52492, CVE-2024-26647, CVE-2023-52468,\nCVE-2023-52594, CVE-2023-52621, CVE-2024-26638, CVE-2024-26594,\nCVE-2024-26673, CVE-2023-52457, CVE-2023-52677, CVE-2023-52607,\nCVE-2024-26623, CVE-2023-52488, CVE-2023-52497, CVE-2023-52445,\nCVE-2024-26607, CVE-2023-52610, CVE-2024-35842, CVE-2023-52690,\nCVE-2023-52683, CVE-2023-52444, CVE-2024-26671, CVE-2023-52455,\nCVE-2023-52679, CVE-2024-26598, CVE-2023-52674, CVE-2023-52627,\nCVE-2023-52619, CVE-2023-52487, CVE-2023-52446, CVE-2024-35835,\nCVE-2023-52682, CVE-2023-52685, CVE-2023-52694, CVE-2024-26631)\n",
+  "releases": {
+    "jammy": {
+      "allbinaries": {
+        "linux-image-starfive": {
+          "pocket": "security",
+          "source": "linux-meta-starfive-6.5",
+          "version": "6.5.0.1015.16~22.04.1"
+        },
+        "linux-tools-6.5.0-1022-azure": {
+          "pocket": "security",
+          "source": "linux-azure-6.5",
+          "version": "6.5.0-1022.23~22.04.1"
+        },
+        "linux-image-azure-fde": {
+          "pocket": "security",
+          "source": "linux-meta-azure-6.5",
+          "version": "6.5.0.1022.23~22.04.1"
+        },
+        "linux-buildinfo-6.5.0-1022-azure": {
+          "pocket": "security",
+          "source": "linux-azure-6.5",
+          "version": "6.5.0-1022.23~22.04.1"
+        },
+        "linux-azure-6.5-tools-6.5.0-1022": {
+          "pocket": "security",
+          "source": "linux-azure-6.5",
+          "version": "6.5.0-1022.23~22.04.1"
+        },
+        "linux-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure-6.5",
+          "version": "6.5.0.1022.23~22.04.1"
+        },
+        "linux-image-6.5.0-1015-starfive": {
+          "pocket": "security",
+          "source": "linux-starfive-6.5",
+          "version": "6.5.0-1015.16~22.04.1"
+        },
+        "linux-image-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure-6.5",
+          "version": "6.5.0.1022.23~22.04.1"
+        },
+        "linux-tools-6.5.0-1015-starfive": {
+          "pocket": "security",
+          "source": "linux-starfive-6.5",
+          "version": "6.5.0-1015.16~22.04.1"
+        },
+        "linux-azure-6.5-cloud-tools-6.5.0-1022": {
+          "pocket": "security",
+          "source": "linux-azure-6.5",
+          "version": "6.5.0-1022.23~22.04.1"
+        },
+        "linux-cloud-tools-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure-6.5",
+          "version": "6.5.0.1022.23~22.04.1"
+        },
+        "linux-buildinfo-6.5.0-1015-starfive": {
+          "pocket": "security",
+          "source": "linux-starfive-6.5",
+          "version": "6.5.0-1015.16~22.04.1"
+        },
+        "linux-starfive-6.5-tools-6.5.0-1015": {
+          "pocket": "security",
+          "source": "linux-starfive-6.5",
+          "version": "6.5.0-1015.16~22.04.1"
+        },
+        "linux-headers-6.5.0-1022-azure": {
+          "pocket": "security",
+          "source": "linux-azure-6.5",
+          "version": "6.5.0-1022.23~22.04.1"
+        },
+        "linux-tools-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure-6.5",
+          "version": "6.5.0.1022.23~22.04.1"
+        },
+        "linux-modules-extra-6.5.0-1015-starfive": {
+          "pocket": "security",
+          "source": "linux-starfive-6.5",
+          "version": "6.5.0-1015.16~22.04.1"
+        },
+        "linux-tools-starfive": {
+          "pocket": "security",
+          "source": "linux-meta-starfive-6.5",
+          "version": "6.5.0.1015.16~22.04.1"
+        },
+        "linux-headers-6.5.0-1015-starfive": {
+          "pocket": "security",
+          "source": "linux-starfive-6.5",
+          "version": "6.5.0-1015.16~22.04.1"
+        },
+        "linux-modules-extra-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure-6.5",
+          "version": "6.5.0.1022.23~22.04.1"
+        },
+        "linux-modules-6.5.0-1015-starfive": {
+          "pocket": "security",
+          "source": "linux-starfive-6.5",
+          "version": "6.5.0-1015.16~22.04.1"
+        },
+        "linux-modules-6.5.0-1022-azure": {
+          "pocket": "security",
+          "source": "linux-azure-6.5",
+          "version": "6.5.0-1022.23~22.04.1"
+        },
+        "linux-cloud-tools-6.5.0-1022-azure": {
+          "pocket": "security",
+          "source": "linux-azure-6.5",
+          "version": "6.5.0-1022.23~22.04.1"
+        },
+        "linux-azure-fde": {
+          "pocket": "security",
+          "source": "linux-meta-azure-6.5",
+          "version": "6.5.0.1022.23~22.04.1"
+        },
+        "linux-azure-6.5-headers-6.5.0-1022": {
+          "pocket": "security",
+          "source": "linux-azure-6.5",
+          "version": "6.5.0-1022.23~22.04.1"
+        },
+        "linux-image-6.5.0-1022-azure-fde": {
+          "pocket": "security",
+          "source": "linux-signed-azure-6.5",
+          "version": "6.5.0-1022.23~22.04.1"
+        },
+        "linux-starfive": {
+          "pocket": "security",
+          "source": "linux-meta-starfive-6.5",
+          "version": "6.5.0.1015.16~22.04.1"
+        },
+        "linux-image-6.5.0-1022-azure": {
+          "pocket": "security",
+          "source": "linux-signed-azure-6.5",
+          "version": "6.5.0-1022.23~22.04.1"
+        },
+        "linux-image-unsigned-6.5.0-1022-azure": {
+          "pocket": "security",
+          "source": "linux-azure-6.5",
+          "version": "6.5.0-1022.23~22.04.1"
+        },
+        "linux-starfive-6.5-headers-6.5.0-1015": {
+          "pocket": "security",
+          "source": "linux-starfive-6.5",
+          "version": "6.5.0-1015.16~22.04.1"
+        },
+        "linux-headers-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure-6.5",
+          "version": "6.5.0.1022.23~22.04.1"
+        },
+        "linux-modules-extra-6.5.0-1022-azure": {
+          "pocket": "security",
+          "source": "linux-azure-6.5",
+          "version": "6.5.0-1022.23~22.04.1"
+        },
+        "linux-headers-starfive": {
+          "pocket": "security",
+          "source": "linux-meta-starfive-6.5",
+          "version": "6.5.0.1015.16~22.04.1"
+        }
+      },
+      "binaries": {
+        "linux-image-starfive": {
+          "pocket": "security",
+          "version": "6.5.0.1015.16~22.04.1"
+        },
+        "linux-image-6.5.0-1022-azure-fde": {
+          "pocket": "security",
+          "version": "6.5.0-1022.23~22.04.1"
+        },
+        "linux-image-azure-fde": {
+          "pocket": "security",
+          "version": "6.5.0.1022.23~22.04.1"
+        },
+        "linux-image-6.5.0-1022-azure": {
+          "pocket": "security",
+          "version": "6.5.0-1022.23~22.04.1"
+        },
+        "linux-image-6.5.0-1015-starfive": {
+          "pocket": "security",
+          "version": "6.5.0-1015.16~22.04.1"
+        },
+        "linux-image-azure": {
+          "pocket": "security",
+          "version": "6.5.0.1022.23~22.04.1"
+        }
+      },
+      "archs": {
+        "riscv64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-starfive-6.5/linux-headers-6.5.0-1015-starfive_6.5.0-1015.16~22.04.1_riscv64.deb": {
+              "size": 6315416,
+              "md5": "d99acd41c6a651060b154ae6824b1478"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-starfive-6.5/linux-buildinfo-6.5.0-1015-starfive_6.5.0-1015.16~22.04.1_riscv64.deb": {
+              "size": 562612,
+              "md5": "db52b37152672ae26b04ee55e5d8a451"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-starfive-6.5/linux-modules-6.5.0-1015-starfive_6.5.0-1015.16~22.04.1_riscv64.deb": {
+              "size": 25460316,
+              "md5": "41cb1c2d83e2a8916301214b0b6cdcbd"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-starfive-6.5/linux-starfive_6.5.0.1015.16~22.04.1_riscv64.deb": {
+              "size": 1714,
+              "md5": "e2cac507b19be653b337344ff0642a9f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-starfive-6.5/linux-starfive-6.5-tools-6.5.0-1015_6.5.0-1015.16~22.04.1_riscv64.deb": {
+              "size": 6597284,
+              "md5": "c4001a65272787cc00549eb6f2ad776e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-starfive-6.5/linux-tools-6.5.0-1015-starfive_6.5.0-1015.16~22.04.1_riscv64.deb": {
+              "size": 1768,
+              "md5": "e2176aeb6ecb1f78dffed6d014f36958"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-starfive-6.5/linux-headers-starfive_6.5.0.1015.16~22.04.1_riscv64.deb": {
+              "size": 2374,
+              "md5": "4e2a735adbd145f0b8a4098fd54e283c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-starfive-6.5/linux-image-6.5.0-1015-starfive_6.5.0-1015.16~22.04.1_riscv64.deb": {
+              "size": 36208832,
+              "md5": "fdbc650763c06797d18999fc7ee3c389"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-starfive-6.5/linux-tools-starfive_6.5.0.1015.16~22.04.1_riscv64.deb": {
+              "size": 2374,
+              "md5": "b18df5757031e8f5861cfdf85b457ba6"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-starfive-6.5/linux-image-starfive_6.5.0.1015.16~22.04.1_riscv64.deb": {
+              "size": 2442,
+              "md5": "2aabede9d7ddbaf37acec82ee9d5f958"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-starfive-6.5/linux-modules-extra-6.5.0-1015-starfive_6.5.0-1015.16~22.04.1_riscv64.deb": {
+              "size": 76570786,
+              "md5": "ba667691be8e896aa319961dd381c11d"
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-starfive-6.5/linux-meta-starfive-6.5_6.5.0.1015.16~22.04.1.tar.xz": {
+              "size": 6656,
+              "md5": "a7d10b9d408e9a3801fd637aa9c8fc10"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-starfive-6.5/linux-starfive-6.5_6.5.0-1015.16~22.04.1.dsc": {
+              "size": 4846,
+              "md5": "0a76590205fca9f3bb75519bb715fe12"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-starfive-6.5/linux-meta-starfive-6.5_6.5.0.1015.16~22.04.1.dsc": {
+              "size": 2085,
+              "md5": "52f76299444e7153745c945824fe9f7d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-azure-6.5_6.5.0.orig.tar.gz": {
+              "size": 223513863,
+              "md5": "8290e3447d70a1a709986624233cb6df"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-starfive-6.5/linux-starfive-6.5_6.5.0-1015.16~22.04.1.diff.gz": {
+              "size": 4742064,
+              "md5": "05087bd8b52c21ce5393f8f0f41dfbb0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure-6.5/linux-signed-azure-6.5_6.5.0-1022.23~22.04.1.tar.xz": {
+              "size": 13592,
+              "md5": "f9d4c90702b9d01d10a76637d0d3ed0e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-azure-6.5_6.5.0-1022.23~22.04.1.dsc": {
+              "size": 5118,
+              "md5": "73b2dab1d9a4533e2bc6cef30855315d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-starfive-6.5/linux-starfive-6.5_6.5.0.orig.tar.gz": {
+              "size": 223513863,
+              "md5": "8290e3447d70a1a709986624233cb6df"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure-6.5/linux-signed-azure-6.5_6.5.0-1022.23~22.04.1.dsc": {
+              "size": 2278,
+              "md5": "6e219f45cd19629c697dc809998edc80"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-meta-azure-6.5_6.5.0.1022.23~22.04.1.tar.xz": {
+              "size": 6612,
+              "md5": "31a251790975cf208cca6a4c9c94530b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-azure-6.5_6.5.0-1022.23~22.04.1.diff.gz": {
+              "size": 3835174,
+              "md5": "5d46f07c6d361164e66574c2f3a3500f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-meta-azure-6.5_6.5.0.1022.23~22.04.1.dsc": {
+              "size": 2382,
+              "md5": "7b761e120e06cbeaf9c6d44ceb3750c6"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-starfive-6.5/linux-starfive-6.5-headers-6.5.0-1015_6.5.0-1015.16~22.04.1_all.deb": {
+              "size": 13325546,
+              "md5": "aaadcd6dadca8a999bd085bdb72c396a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-azure-6.5-headers-6.5.0-1022_6.5.0-1022.23~22.04.1_all.deb": {
+              "size": 13318478,
+              "md5": "fa6bef9e9a35570a9d8adc82ac0ff926"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-cloud-tools-azure_6.5.0.1022.23~22.04.1_amd64.deb": {
+              "size": 2380,
+              "md5": "cbdb662ae0e8b0381637879f99eba314"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-image-unsigned-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_amd64.deb": {
+              "size": 13772992,
+              "md5": "122fd1a8b2896659297348989e74d8fa"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-azure-6.5-cloud-tools-6.5.0-1022_6.5.0-1022.23~22.04.1_amd64.deb": {
+              "size": 137066,
+              "md5": "f0cf4493f3c8fa28a2409a78ac690801"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-modules-extra-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_amd64.deb": {
+              "size": 35500080,
+              "md5": "32f33d64345a3627f0ed4f037c99da6b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure-6.5/linux-image-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_amd64.deb": {
+              "size": 13389016,
+              "md5": "779fa25db6b25152998c6f4759bb8862"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-azure-fde_6.5.0.1022.23~22.04.1_amd64.deb": {
+              "size": 1752,
+              "md5": "84e187bd83204537718fc64682db945d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-modules-extra-azure_6.5.0.1022.23~22.04.1_amd64.deb": {
+              "size": 2378,
+              "md5": "f3e0cbd199751e728e3ecd7f2911f7d8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-buildinfo-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_amd64.deb": {
+              "size": 456318,
+              "md5": "6d0e229a83f5b2c1a61ecab679680459"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-modules-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_amd64.deb": {
+              "size": 23560646,
+              "md5": "7e92a3f98f31eab43a84da6eca4875d3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-azure_6.5.0.1022.23~22.04.1_amd64.deb": {
+              "size": 1760,
+              "md5": "778d13227f4881622ba2b310e37432ec"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-cloud-tools-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_amd64.deb": {
+              "size": 1708,
+              "md5": "1d844007c7f8a073143f21a0d1436fec"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-headers-azure_6.5.0.1022.23~22.04.1_amd64.deb": {
+              "size": 2350,
+              "md5": "cc9c12453a8dbf61c24e952ea8533e35"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-image-azure-fde_6.5.0.1022.23~22.04.1_amd64.deb": {
+              "size": 2466,
+              "md5": "4e32bdd550ef4a7b8066195ddbe10d58"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-headers-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_amd64.deb": {
+              "size": 3305652,
+              "md5": "12384f4a726c7593c0d2305b7c115214"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-tools-azure_6.5.0.1022.23~22.04.1_amd64.deb": {
+              "size": 2366,
+              "md5": "446032a48bab237a2d18999fd1bc510b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-azure-6.5-tools-6.5.0-1022_6.5.0-1022.23~22.04.1_amd64.deb": {
+              "size": 7642082,
+              "md5": "e040931457262c7e741774a1b6f2e818"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure-6.5/linux-image-6.5.0-1022-azure-fde_6.5.0-1022.23~22.04.1_amd64.deb": {
+              "size": 44703252,
+              "md5": "b266498a9ffc620608b0256d56bdb5b8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-image-azure_6.5.0.1022.23~22.04.1_amd64.deb": {
+              "size": 2460,
+              "md5": "5c042a850a8dec381e2321f761610866"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-tools-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_amd64.deb": {
+              "size": 1776,
+              "md5": "7ff302ed339692d4066d28e172951def"
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-modules-extra-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_arm64.deb": {
+              "size": 68628538,
+              "md5": "080ce9d232d1170da4b1355d510aebc6"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-azure-6.5-tools-6.5.0-1022_6.5.0-1022.23~22.04.1_arm64.deb": {
+              "size": 6906548,
+              "md5": "6580ae9d111fffb98a35de0c1e5c3984"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure-6.5/linux-headers-azure_6.5.0.1022.23~22.04.1_arm64.deb": {
+              "size": 2352,
+              "md5": "b4a13460977977647c7f51d05de409fc"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure-6.5/linux-azure_6.5.0.1022.23~22.04.1_arm64.deb": {
+              "size": 1760,
+              "md5": "0ba67300ad7ecc212690864cb29454a7"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-buildinfo-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_arm64.deb": {
+              "size": 576864,
+              "md5": "9f62f90a9ee5edf87b29371de07b0577"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure-6.5/linux-tools-azure_6.5.0.1022.23~22.04.1_arm64.deb": {
+              "size": 2366,
+              "md5": "b1876597cc1f08af734e35eff11bef07"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure-6.5/linux-image-azure_6.5.0.1022.23~22.04.1_arm64.deb": {
+              "size": 2460,
+              "md5": "e55a262f8b8415dd82aa9a0175f66364"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-azure-6.5/linux-image-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_arm64.deb": {
+              "size": 17014122,
+              "md5": "1dcc27a197546809add94b6998f39cfb"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-headers-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_arm64.deb": {
+              "size": 2907978,
+              "md5": "9485e76ae9539a01b3c27d217fa1e4e0"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-modules-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_arm64.deb": {
+              "size": 21151498,
+              "md5": "80ebff0ecebd3b26a0cd3d4c92b0239f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-cloud-tools-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_arm64.deb": {
+              "size": 1706,
+              "md5": "4448dcc2473a271a3fcf0f2436bc5dfb"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure-6.5/linux-cloud-tools-azure_6.5.0.1022.23~22.04.1_arm64.deb": {
+              "size": 2380,
+              "md5": "9ea7bacfd6c785e4d7cfb20f2abc730d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-azure-6.5-cloud-tools-6.5.0-1022_6.5.0-1022.23~22.04.1_arm64.deb": {
+              "size": 136586,
+              "md5": "30fdac8a3228743c8bf9bc24011e0e73"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-tools-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_arm64.deb": {
+              "size": 1712,
+              "md5": "000553d72e103f9400355a790720d753"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure-6.5/linux-modules-extra-azure_6.5.0.1022.23~22.04.1_arm64.deb": {
+              "size": 2378,
+              "md5": "c70cd1350b5e5e20dd8e23f2342bfd4a"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-image-unsigned-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_arm64.deb": {
+              "size": 17449152,
+              "md5": "6b24954fd84e41b05e74d9fbe2ae6431"
+            }
+          }
+        }
+      },
+      "sources": {
+        "linux-azure-6.5": {
+          "version": "6.5.0-1022.23~22.04.1",
+          "description": "Linux kernel for Microsoft Azure cloud systems"
+        },
+        "linux-starfive-6.5": {
+          "version": "6.5.0-1015.16~22.04.1",
+          "description": "Linux kernel for StarFive processors"
+        }
+      }
+    },
+    "mantic": {
+      "allbinaries": {
+        "linux-image-starfive": {
+          "pocket": "security",
+          "source": "linux-meta-starfive",
+          "version": "6.5.0.1015.17"
+        },
+        "linux-tools-6.5.0-1022-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.5.0-1022.23"
+        },
+        "linux-image-azure-fde": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.5.0.1022.26"
+        },
+        "linux-buildinfo-6.5.0-1022-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.5.0-1022.23"
+        },
+        "linux-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.5.0.1022.26"
+        },
+        "linux-image-6.5.0-1015-starfive": {
+          "pocket": "security",
+          "source": "linux-starfive",
+          "version": "6.5.0-1015.16"
+        },
+        "linux-image-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.5.0.1022.26"
+        },
+        "linux-starfive-headers-6.5.0-1015": {
+          "pocket": "security",
+          "source": "linux-starfive",
+          "version": "6.5.0-1015.16"
+        },
+        "linux-tools-6.5.0-1015-starfive": {
+          "pocket": "security",
+          "source": "linux-starfive",
+          "version": "6.5.0-1015.16"
+        },
+        "linux-starfive-tools-6.5.0-1015": {
+          "pocket": "security",
+          "source": "linux-starfive",
+          "version": "6.5.0-1015.16"
+        },
+        "linux-cloud-tools-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.5.0.1022.26"
+        },
+        "linux-buildinfo-6.5.0-1015-starfive": {
+          "pocket": "security",
+          "source": "linux-starfive",
+          "version": "6.5.0-1015.16"
+        },
+        "linux-headers-6.5.0-1022-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.5.0-1022.23"
+        },
+        "linux-azure-tools-6.5.0-1022": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.5.0-1022.23"
+        },
+        "linux-tools-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.5.0.1022.26"
+        },
+        "linux-modules-iwlwifi-6.5.0-1022-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.5.0-1022.23"
+        },
+        "linux-modules-extra-6.5.0-1015-starfive": {
+          "pocket": "security",
+          "source": "linux-starfive",
+          "version": "6.5.0-1015.16"
+        },
+        "linux-modules-iwlwifi-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.5.0.1022.26"
+        },
+        "linux-headers-6.5.0-1015-starfive": {
+          "pocket": "security",
+          "source": "linux-starfive",
+          "version": "6.5.0-1015.16"
+        },
+        "linux-modules-extra-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.5.0.1022.26"
+        },
+        "linux-modules-6.5.0-1015-starfive": {
+          "pocket": "security",
+          "source": "linux-starfive",
+          "version": "6.5.0-1015.16"
+        },
+        "linux-modules-6.5.0-1022-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.5.0-1022.23"
+        },
+        "linux-cloud-tools-6.5.0-1022-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.5.0-1022.23"
+        },
+        "linux-azure-fde": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.5.0.1022.26"
+        },
+        "linux-image-6.5.0-1022-azure-fde": {
+          "pocket": "security",
+          "source": "linux-signed-azure",
+          "version": "6.5.0-1022.23"
+        },
+        "linux-starfive": {
+          "pocket": "security",
+          "source": "linux-meta-starfive",
+          "version": "6.5.0.1015.17"
+        },
+        "linux-azure-cloud-tools-6.5.0-1022": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.5.0-1022.23"
+        },
+        "linux-azure-headers-6.5.0-1022": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.5.0-1022.23"
+        },
+        "linux-image-6.5.0-1022-azure": {
+          "pocket": "security",
+          "source": "linux-signed-azure",
+          "version": "6.5.0-1022.23"
+        },
+        "linux-image-unsigned-6.5.0-1022-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.5.0-1022.23"
+        },
+        "linux-tools-starfive": {
+          "pocket": "security",
+          "source": "linux-meta-starfive",
+          "version": "6.5.0.1015.17"
+        },
+        "linux-headers-azure": {
+          "pocket": "security",
+          "source": "linux-meta-azure",
+          "version": "6.5.0.1022.26"
+        },
+        "linux-modules-extra-6.5.0-1022-azure": {
+          "pocket": "security",
+          "source": "linux-azure",
+          "version": "6.5.0-1022.23"
+        },
+        "linux-headers-starfive": {
+          "pocket": "security",
+          "source": "linux-meta-starfive",
+          "version": "6.5.0.1015.17"
+        }
+      },
+      "binaries": {
+        "linux-image-starfive": {
+          "pocket": "security",
+          "version": "6.5.0.1015.17"
+        },
+        "linux-image-6.5.0-1022-azure-fde": {
+          "pocket": "security",
+          "version": "6.5.0-1022.23"
+        },
+        "linux-image-azure-fde": {
+          "pocket": "security",
+          "version": "6.5.0.1022.26"
+        },
+        "linux-image-6.5.0-1022-azure": {
+          "pocket": "security",
+          "version": "6.5.0-1022.23"
+        },
+        "linux-image-6.5.0-1015-starfive": {
+          "pocket": "security",
+          "version": "6.5.0-1015.16"
+        },
+        "linux-image-azure": {
+          "pocket": "security",
+          "version": "6.5.0.1022.26"
+        }
+      },
+      "archs": {
+        "riscv64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-starfive/linux-modules-extra-6.5.0-1015-starfive_6.5.0-1015.16_riscv64.deb": {
+              "size": 109629632,
+              "md5": "7a31a1ed3f418108b14855bac54bd9cd"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-starfive/linux-tools-starfive_6.5.0.1015.17_riscv64.deb": {
+              "size": 2326,
+              "md5": "66fd64476d9bd4f56bfd52f277a4e869"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-starfive/linux-image-6.5.0-1015-starfive_6.5.0-1015.16_riscv64.deb": {
+              "size": 36423872,
+              "md5": "e9fe691a826bdb4012cc52516b6e4cad"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-starfive/linux-starfive_6.5.0.1015.17_riscv64.deb": {
+              "size": 1708,
+              "md5": "bf089e9db12d59b753d761598d88dd6f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-starfive/linux-modules-6.5.0-1015-starfive_6.5.0-1015.16_riscv64.deb": {
+              "size": 34355392,
+              "md5": "838c1f51811c35960814cc8d09d2d4aa"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-starfive/linux-starfive-tools-6.5.0-1015_6.5.0-1015.16_riscv64.deb": {
+              "size": 6875408,
+              "md5": "18d3fbc0c54d9823d7c7d289fdaae545"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-starfive/linux-headers-6.5.0-1015-starfive_6.5.0-1015.16_riscv64.deb": {
+              "size": 7249070,
+              "md5": "73b4aa0124258156af995e85caf26547"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-starfive/linux-tools-6.5.0-1015-starfive_6.5.0-1015.16_riscv64.deb": {
+              "size": 1740,
+              "md5": "8f8a50a6c69e839017a771815a83374e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-starfive/linux-buildinfo-6.5.0-1015-starfive_6.5.0-1015.16_riscv64.deb": {
+              "size": 768482,
+              "md5": "eaf71a9c107c37a05de8a5e516859067"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-starfive/linux-headers-starfive_6.5.0.1015.17_riscv64.deb": {
+              "size": 2318,
+              "md5": "40df9193cbcfe657fa3ca28afe82054d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-starfive/linux-image-starfive_6.5.0.1015.17_riscv64.deb": {
+              "size": 2382,
+              "md5": "1447b54a80fb0a437f381eb70c154b98"
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-signed-azure_6.5.0-1022.23.tar.xz": {
+              "size": 13708,
+              "md5": "ff81ffc1787d0a4f0da9a89dd68f3889"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-starfive/linux-starfive_6.5.0-1015.16.dsc": {
+              "size": 5003,
+              "md5": "a4de700b38f3ea393c4183307ca882a6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-meta-azure_6.5.0.1022.26.dsc": {
+              "size": 2420,
+              "md5": "ccd869b9a94eaba86c605e5176f78592"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-starfive/linux-starfive_6.5.0-1015.16.diff.gz": {
+              "size": 4262742,
+              "md5": "4494da69a22676250dd326b14435d9eb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-meta-azure_6.5.0.1022.26.tar.xz": {
+              "size": 7352,
+              "md5": "ae29cf37f640e6829ad8ae839e0efc41"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_6.5.0-1022.23.diff.gz": {
+              "size": 3739227,
+              "md5": "2cd17b2d846187533cf1d29d66fbcd2a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_6.5.0.orig.tar.gz": {
+              "size": 223513863,
+              "md5": "8290e3447d70a1a709986624233cb6df"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-starfive/linux-starfive_6.5.0.orig.tar.gz": {
+              "size": 223513863,
+              "md5": "8290e3447d70a1a709986624233cb6df"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-starfive/linux-meta-starfive_6.5.0.1015.17.tar.xz": {
+              "size": 6712,
+              "md5": "e0e093072d14d8d6d4a8a4c482f0a9f6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_6.5.0-1022.23.dsc": {
+              "size": 5068,
+              "md5": "1dd52802c1a5f037621ce97f5dd02dad"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-signed-azure_6.5.0-1022.23.dsc": {
+              "size": 2128,
+              "md5": "f93f1471758463e15ca4a87235b9f630"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-starfive/linux-meta-starfive_6.5.0.1015.17.dsc": {
+              "size": 2034,
+              "md5": "250c9e238d94ff8112b823eb35790556"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-starfive/linux-starfive-headers-6.5.0-1015_6.5.0-1015.16_all.deb": {
+              "size": 13529562,
+              "md5": "498c7fd63eac6910f7da05e996585a1f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-headers-6.5.0-1022_6.5.0-1022.23_all.deb": {
+              "size": 13306318,
+              "md5": "6612e183b474f7200684bae51e7f5976"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-headers-azure_6.5.0.1022.26_amd64.deb": {
+              "size": 2316,
+              "md5": "b45d75be53c24ee75c184ed68c5837a8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-tools-azure_6.5.0.1022.26_amd64.deb": {
+              "size": 2326,
+              "md5": "a5e83aea1cb35d7600fbe4c3228ec533"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-buildinfo-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
+              "size": 453684,
+              "md5": "8b9bd438c99b66a114aaaf22289ed650"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-image-azure_6.5.0.1022.26_amd64.deb": {
+              "size": 2422,
+              "md5": "f42b6f80096461f0efe85c24ef71f9dd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-image-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
+              "size": 13378574,
+              "md5": "ced05b82065dddc9739d5405adedd863"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-headers-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
+              "size": 3221820,
+              "md5": "8509be50ffa03d90849be815e449ea85"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-cloud-tools-6.5.0-1022_6.5.0-1022.23_amd64.deb": {
+              "size": 137440,
+              "md5": "7564f8a79cb0339d33a572ff9c8f0e0b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-tools-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
+              "size": 1758,
+              "md5": "9262a373eb32b68516d008e9cbefb314"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-image-6.5.0-1022-azure-fde_6.5.0-1022.23_amd64.deb": {
+              "size": 48510886,
+              "md5": "b286ddcaad7ffb7700060d143aad4245"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-modules-iwlwifi-azure_6.5.0.1022.26_amd64.deb": {
+              "size": 2392,
+              "md5": "108cadb3861ad148bd0f300feddc2972"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-azure_6.5.0.1022.26_amd64.deb": {
+              "size": 1750,
+              "md5": "9d73e76ab269111071e1e6f97946981a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-image-azure-fde_6.5.0.1022.26_amd64.deb": {
+              "size": 2430,
+              "md5": "ef24b83ea41fc1b28db85147e1657efd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-modules-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
+              "size": 34068672,
+              "md5": "03b5982f59cf35ac457723440f6ca4f7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-cloud-tools-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
+              "size": 1690,
+              "md5": "d18c1b56f6df3e49f50bd7093affa032"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-tools-6.5.0-1022_6.5.0-1022.23_amd64.deb": {
+              "size": 7604810,
+              "md5": "1dd58c06444c78b6a2777ed906218b61"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-image-unsigned-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
+              "size": 13752512,
+              "md5": "a822445554896e347129985f15fb9db3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-modules-extra-azure_6.5.0.1022.26_amd64.deb": {
+              "size": 2350,
+              "md5": "2cf2a2935429b859859d3dfd51b201da"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-cloud-tools-azure_6.5.0.1022.26_amd64.deb": {
+              "size": 2344,
+              "md5": "1abb4dd85fd46268e4ef01c07533346c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-azure-fde_6.5.0.1022.26_amd64.deb": {
+              "size": 1744,
+              "md5": "6d2048103e9f3c67cf896a3ecfed711a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-modules-iwlwifi-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
+              "size": 1689792,
+              "md5": "ee252188548e1040a542d50780cfec6f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-modules-extra-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
+              "size": 43622592,
+              "md5": "8dbd0fe340fc68f35206faae25705057"
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-headers-azure_6.5.0.1022.26_arm64.deb": {
+              "size": 2316,
+              "md5": "be167a166dfa55b61dee04418046db45"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-modules-6.5.0-1022-azure_6.5.0-1022.23_arm64.deb": {
+              "size": 31539392,
+              "md5": "8dcd475daf50ad8663599ba4153a54e7"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-buildinfo-6.5.0-1022-azure_6.5.0-1022.23_arm64.deb": {
+              "size": 574400,
+              "md5": "90b55683d7b582f98a23938ca3b12edd"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-image-azure_6.5.0.1022.26_arm64.deb": {
+              "size": 2422,
+              "md5": "9f88958278efdd9213cf1007eec4259e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-tools-6.5.0-1022-azure_6.5.0-1022.23_arm64.deb": {
+              "size": 1706,
+              "md5": "786fde39d6913f06f81983472a63e040"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-cloud-tools-azure_6.5.0.1022.26_arm64.deb": {
+              "size": 2344,
+              "md5": "677363bd39c82c4715a80174beaeddd8"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-azure-tools-6.5.0-1022_6.5.0-1022.23_arm64.deb": {
+              "size": 6907546,
+              "md5": "a22a1c457e7b502797b56255f4cdfd9d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-image-unsigned-6.5.0-1022-azure_6.5.0-1022.23_arm64.deb": {
+              "size": 17592512,
+              "md5": "2f9f911ef3349cc3fda0d13b0a04ad79"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-azure_6.5.0.1022.26_arm64.deb": {
+              "size": 1750,
+              "md5": "78cebec25b3cd319400cceaa050bc38b"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-tools-azure_6.5.0.1022.26_arm64.deb": {
+              "size": 2326,
+              "md5": "e2aaae4e401dcabbacd40d2f185035b1"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-cloud-tools-6.5.0-1022-azure_6.5.0-1022.23_arm64.deb": {
+              "size": 1690,
+              "md5": "19c2e15ea60f42b4af06875e32a1fc11"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-modules-extra-6.5.0-1022-azure_6.5.0-1022.23_arm64.deb": {
+              "size": 101970112,
+              "md5": "876731e9f5aa4d87e7a7cc76590f88e5"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-headers-6.5.0-1022-azure_6.5.0-1022.23_arm64.deb": {
+              "size": 2859394,
+              "md5": "992f497279678e3d1672b095b70218da"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-modules-extra-azure_6.5.0.1022.26_arm64.deb": {
+              "size": 2350,
+              "md5": "faf41ebf5718409294d783dc0d41a142"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-azure-cloud-tools-6.5.0-1022_6.5.0-1022.23_arm64.deb": {
+              "size": 136628,
+              "md5": "e4a94bb75fd70f650ef925326c5fbd1e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-azure/linux-image-6.5.0-1022-azure_6.5.0-1022.23_arm64.deb": {
+              "size": 17151830,
+              "md5": "1beecb2534c982ca67faf9ac83fec4f0"
+            }
+          }
+        }
+      },
+      "sources": {
+        "linux-starfive": {
+          "version": "6.5.0-1015.16",
+          "description": "Linux kernel for StarFive processors"
+        },
+        "linux-azure": {
+          "version": "6.5.0-1022.23",
+          "description": "Linux kernel for Microsoft Azure Cloud systems"
+        }
+      }
+    }
+  },
+  "title": "Linux kernel vulnerabilities",
+  "timestamp": 1717792397.505933,
+  "summary": "linux-azure, linux-azure-6.5, linux-starfive, linux-starfive-6.5 vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
   "cves": [
     "CVE-2023-52443",
@@ -151,954 +1099,6 @@
     "CVE-2024-35841",
     "CVE-2024-35842"
   ],
-  "description": "Alon Zahavi discovered that the NVMe-oF/TCP subsystem in the Linux kernel\ndid not properly validate H2C PDU data, leading to a null pointer\ndereference vulnerability. A remote attacker could use this to cause a\ndenial of service (system crash). (CVE-2023-6356, CVE-2023-6535,\nCVE-2023-6536)\n\nChenyuan Yang discovered that the RDS Protocol implementation in the Linux\nkernel contained an out-of-bounds read vulnerability. An attacker could use\nthis to possibly cause a denial of service (system crash). (CVE-2024-23849)\n\nIt was discovered that a race condition existed in the Bluetooth subsystem\nin the Linux kernel, leading to a null pointer dereference vulnerability. A\nprivileged local attacker could use this to possibly cause a denial of\nservice (system crash). (CVE-2024-24860)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM64 architecture;\n  - PowerPC architecture;\n  - RISC-V architecture;\n  - S390 architecture;\n  - Core kernel;\n  - x86 architecture;\n  - Block layer subsystem;\n  - Cryptographic API;\n  - ACPI drivers;\n  - Android drivers;\n  - Drivers core;\n  - Power management core;\n  - Bus devices;\n  - Device frequency scaling framework;\n  - DMA engine subsystem;\n  - EDAC drivers;\n  - ARM SCMI message protocol;\n  - GPU drivers;\n  - IIO ADC drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - Media drivers;\n  - Multifunction device drivers;\n  - MTD block device drivers;\n  - Network drivers;\n  - NVME drivers;\n  - Device tree and open firmware driver;\n  - PCI driver for MicroSemi Switchtec;\n  - Power supply drivers;\n  - RPMSG subsystem;\n  - SCSI drivers;\n  - QCOM SoC drivers;\n  - SPMI drivers;\n  - Thermal drivers;\n  - TTY drivers;\n  - VFIO drivers;\n  - BTRFS file system;\n  - Ceph distributed file system;\n  - EFI Variable file system;\n  - EROFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - GFS2 file system;\n  - JFS file system;\n  - Network file systems library;\n  - Network file system server daemon;\n  - File systems infrastructure;\n  - Pstore file system;\n  - ReiserFS file system;\n  - SMB network file system;\n  - BPF subsystem;\n  - Memory management;\n  - TLS protocol;\n  - Ethernet bridge;\n  - Networking core;\n  - IPv4 networking;\n  - IPv6 networking;\n  - Logical Link layer;\n  - MAC80211 subsystem;\n  - Multipath TCP;\n  - Netfilter;\n  - NetLabel subsystem;\n  - Network traffic control;\n  - SMC sockets;\n  - Sun RPC protocol;\n  - AppArmor security module;\n  - Intel ASoC drivers;\n  - MediaTek ASoC drivers;\n  - USB sound devices;\n(CVE-2023-52612, CVE-2024-26808, CVE-2023-52691, CVE-2023-52618,\nCVE-2023-52463, CVE-2023-52447, CVE-2024-26668, CVE-2023-52454,\nCVE-2024-26670, CVE-2024-26646, CVE-2023-52472, CVE-2024-26586,\nCVE-2023-52681, CVE-2023-52453, CVE-2023-52611, CVE-2023-52622,\nCVE-2024-26641, CVE-2023-52616, CVE-2024-26592, CVE-2023-52606,\nCVE-2024-26620, CVE-2023-52692, CVE-2024-26669, CVE-2023-52623,\nCVE-2023-52588, CVE-2024-26616, CVE-2024-26610, CVE-2024-35839,\nCVE-2023-52490, CVE-2023-52672, CVE-2024-26612, CVE-2023-52617,\nCVE-2023-52697, CVE-2024-26644, CVE-2023-52458, CVE-2023-52598,\nCVE-2024-35841, CVE-2023-52664, CVE-2023-52635, CVE-2023-52676,\nCVE-2023-52669, CVE-2024-26632, CVE-2023-52486, CVE-2024-26625,\nCVE-2023-52608, CVE-2024-26634, CVE-2023-52599, CVE-2024-26618,\nCVE-2024-26640, CVE-2023-52489, CVE-2023-52675, CVE-2023-52678,\nCVE-2024-26583, CVE-2023-52693, CVE-2023-52498, CVE-2024-26649,\nCVE-2023-52670, CVE-2023-52473, CVE-2023-52449, CVE-2023-52667,\nCVE-2023-52467, CVE-2023-52686, CVE-2024-26633, CVE-2023-52666,\nCVE-2024-35840, CVE-2024-26629, CVE-2024-26595, CVE-2023-52593,\nCVE-2023-52687, CVE-2023-52465, CVE-2024-26627, CVE-2023-52493,\nCVE-2023-52491, CVE-2024-26636, CVE-2024-26584, CVE-2023-52587,\nCVE-2023-52597, CVE-2023-52462, CVE-2023-52633, CVE-2023-52696,\nCVE-2024-26585, CVE-2023-52589, CVE-2023-52456, CVE-2023-52470,\nCVE-2024-35838, CVE-2024-26645, CVE-2023-52591, CVE-2023-52464,\nCVE-2023-52609, CVE-2024-26608, CVE-2023-52450, CVE-2023-52584,\nCVE-2023-52469, CVE-2023-52583, CVE-2023-52451, CVE-2023-52495,\nCVE-2023-52626, CVE-2023-52595, CVE-2023-52680, CVE-2023-52632,\nCVE-2024-26582, CVE-2024-35837, CVE-2023-52494, CVE-2023-52614,\nCVE-2023-52443, CVE-2023-52698, CVE-2023-52448, CVE-2024-26615,\nCVE-2023-52452, CVE-2023-52492, CVE-2024-26647, CVE-2023-52468,\nCVE-2023-52594, CVE-2023-52621, CVE-2024-26638, CVE-2024-26594,\nCVE-2024-26673, CVE-2023-52457, CVE-2023-52677, CVE-2023-52607,\nCVE-2024-26623, CVE-2023-52488, CVE-2023-52497, CVE-2023-52445,\nCVE-2024-26607, CVE-2023-52610, CVE-2024-35842, CVE-2023-52690,\nCVE-2023-52683, CVE-2023-52444, CVE-2024-26671, CVE-2023-52455,\nCVE-2023-52679, CVE-2024-26598, CVE-2023-52674, CVE-2023-52627,\nCVE-2023-52619, CVE-2023-52487, CVE-2023-52446, CVE-2024-35835,\nCVE-2023-52682, CVE-2023-52685, CVE-2023-52694, CVE-2024-26631)\n",
   "id": "USN-6819-1",
-  "isummary": "Several security issues were fixed in the Linux kernel.\n",
-  "releases": {
-    "jammy": {
-      "allbinaries": {
-        "linux-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure-6.5",
-          "version": "6.5.0.1022.23~22.04.1"
-        },
-        "linux-azure-6.5-cloud-tools-6.5.0-1022": {
-          "pocket": "security",
-          "source": "linux-azure-6.5",
-          "version": "6.5.0-1022.23~22.04.1"
-        },
-        "linux-azure-6.5-headers-6.5.0-1022": {
-          "pocket": "security",
-          "source": "linux-azure-6.5",
-          "version": "6.5.0-1022.23~22.04.1"
-        },
-        "linux-azure-6.5-tools-6.5.0-1022": {
-          "pocket": "security",
-          "source": "linux-azure-6.5",
-          "version": "6.5.0-1022.23~22.04.1"
-        },
-        "linux-azure-fde": {
-          "pocket": "security",
-          "source": "linux-meta-azure-6.5",
-          "version": "6.5.0.1022.23~22.04.1"
-        },
-        "linux-buildinfo-6.5.0-1015-starfive": {
-          "pocket": "security",
-          "source": "linux-starfive-6.5",
-          "version": "6.5.0-1015.16~22.04.1"
-        },
-        "linux-buildinfo-6.5.0-1022-azure": {
-          "pocket": "security",
-          "source": "linux-azure-6.5",
-          "version": "6.5.0-1022.23~22.04.1"
-        },
-        "linux-cloud-tools-6.5.0-1022-azure": {
-          "pocket": "security",
-          "source": "linux-azure-6.5",
-          "version": "6.5.0-1022.23~22.04.1"
-        },
-        "linux-cloud-tools-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure-6.5",
-          "version": "6.5.0.1022.23~22.04.1"
-        },
-        "linux-headers-6.5.0-1015-starfive": {
-          "pocket": "security",
-          "source": "linux-starfive-6.5",
-          "version": "6.5.0-1015.16~22.04.1"
-        },
-        "linux-headers-6.5.0-1022-azure": {
-          "pocket": "security",
-          "source": "linux-azure-6.5",
-          "version": "6.5.0-1022.23~22.04.1"
-        },
-        "linux-headers-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure-6.5",
-          "version": "6.5.0.1022.23~22.04.1"
-        },
-        "linux-headers-starfive": {
-          "pocket": "security",
-          "source": "linux-meta-starfive-6.5",
-          "version": "6.5.0.1015.16~22.04.1"
-        },
-        "linux-image-6.5.0-1015-starfive": {
-          "pocket": "security",
-          "source": "linux-starfive-6.5",
-          "version": "6.5.0-1015.16~22.04.1"
-        },
-        "linux-image-6.5.0-1022-azure": {
-          "pocket": "security",
-          "source": "linux-signed-azure-6.5",
-          "version": "6.5.0-1022.23~22.04.1"
-        },
-        "linux-image-6.5.0-1022-azure-fde": {
-          "pocket": "security",
-          "source": "linux-signed-azure-6.5",
-          "version": "6.5.0-1022.23~22.04.1"
-        },
-        "linux-image-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure-6.5",
-          "version": "6.5.0.1022.23~22.04.1"
-        },
-        "linux-image-azure-fde": {
-          "pocket": "security",
-          "source": "linux-meta-azure-6.5",
-          "version": "6.5.0.1022.23~22.04.1"
-        },
-        "linux-image-starfive": {
-          "pocket": "security",
-          "source": "linux-meta-starfive-6.5",
-          "version": "6.5.0.1015.16~22.04.1"
-        },
-        "linux-image-unsigned-6.5.0-1022-azure": {
-          "pocket": "security",
-          "source": "linux-azure-6.5",
-          "version": "6.5.0-1022.23~22.04.1"
-        },
-        "linux-modules-6.5.0-1015-starfive": {
-          "pocket": "security",
-          "source": "linux-starfive-6.5",
-          "version": "6.5.0-1015.16~22.04.1"
-        },
-        "linux-modules-6.5.0-1022-azure": {
-          "pocket": "security",
-          "source": "linux-azure-6.5",
-          "version": "6.5.0-1022.23~22.04.1"
-        },
-        "linux-modules-extra-6.5.0-1015-starfive": {
-          "pocket": "security",
-          "source": "linux-starfive-6.5",
-          "version": "6.5.0-1015.16~22.04.1"
-        },
-        "linux-modules-extra-6.5.0-1022-azure": {
-          "pocket": "security",
-          "source": "linux-azure-6.5",
-          "version": "6.5.0-1022.23~22.04.1"
-        },
-        "linux-modules-extra-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure-6.5",
-          "version": "6.5.0.1022.23~22.04.1"
-        },
-        "linux-starfive": {
-          "pocket": "security",
-          "source": "linux-meta-starfive-6.5",
-          "version": "6.5.0.1015.16~22.04.1"
-        },
-        "linux-starfive-6.5-headers-6.5.0-1015": {
-          "pocket": "security",
-          "source": "linux-starfive-6.5",
-          "version": "6.5.0-1015.16~22.04.1"
-        },
-        "linux-starfive-6.5-tools-6.5.0-1015": {
-          "pocket": "security",
-          "source": "linux-starfive-6.5",
-          "version": "6.5.0-1015.16~22.04.1"
-        },
-        "linux-tools-6.5.0-1015-starfive": {
-          "pocket": "security",
-          "source": "linux-starfive-6.5",
-          "version": "6.5.0-1015.16~22.04.1"
-        },
-        "linux-tools-6.5.0-1022-azure": {
-          "pocket": "security",
-          "source": "linux-azure-6.5",
-          "version": "6.5.0-1022.23~22.04.1"
-        },
-        "linux-tools-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure-6.5",
-          "version": "6.5.0.1022.23~22.04.1"
-        },
-        "linux-tools-starfive": {
-          "pocket": "security",
-          "source": "linux-meta-starfive-6.5",
-          "version": "6.5.0.1015.16~22.04.1"
-        }
-      },
-      "archs": {
-        "all": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-azure-6.5-headers-6.5.0-1022_6.5.0-1022.23~22.04.1_all.deb": {
-              "md5": "fa6bef9e9a35570a9d8adc82ac0ff926",
-              "size": 13318478
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-starfive-6.5/linux-starfive-6.5-headers-6.5.0-1015_6.5.0-1015.16~22.04.1_all.deb": {
-              "md5": "aaadcd6dadca8a999bd085bdb72c396a",
-              "size": 13325546
-            }
-          }
-        },
-        "amd64": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-azure-6.5-cloud-tools-6.5.0-1022_6.5.0-1022.23~22.04.1_amd64.deb": {
-              "md5": "f0cf4493f3c8fa28a2409a78ac690801",
-              "size": 137066
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-azure-6.5-tools-6.5.0-1022_6.5.0-1022.23~22.04.1_amd64.deb": {
-              "md5": "e040931457262c7e741774a1b6f2e818",
-              "size": 7642082
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-buildinfo-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_amd64.deb": {
-              "md5": "6d0e229a83f5b2c1a61ecab679680459",
-              "size": 456318
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-cloud-tools-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_amd64.deb": {
-              "md5": "1d844007c7f8a073143f21a0d1436fec",
-              "size": 1708
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-headers-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_amd64.deb": {
-              "md5": "12384f4a726c7593c0d2305b7c115214",
-              "size": 3305652
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-image-unsigned-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_amd64.deb": {
-              "md5": "122fd1a8b2896659297348989e74d8fa",
-              "size": 13772992
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-modules-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_amd64.deb": {
-              "md5": "7e92a3f98f31eab43a84da6eca4875d3",
-              "size": 23560646
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-modules-extra-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_amd64.deb": {
-              "md5": "32f33d64345a3627f0ed4f037c99da6b",
-              "size": 35500080
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-tools-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_amd64.deb": {
-              "md5": "7ff302ed339692d4066d28e172951def",
-              "size": 1776
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-azure-fde_6.5.0.1022.23~22.04.1_amd64.deb": {
-              "md5": "84e187bd83204537718fc64682db945d",
-              "size": 1752
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-azure_6.5.0.1022.23~22.04.1_amd64.deb": {
-              "md5": "778d13227f4881622ba2b310e37432ec",
-              "size": 1760
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-cloud-tools-azure_6.5.0.1022.23~22.04.1_amd64.deb": {
-              "md5": "cbdb662ae0e8b0381637879f99eba314",
-              "size": 2380
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-headers-azure_6.5.0.1022.23~22.04.1_amd64.deb": {
-              "md5": "cc9c12453a8dbf61c24e952ea8533e35",
-              "size": 2350
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-image-azure-fde_6.5.0.1022.23~22.04.1_amd64.deb": {
-              "md5": "4e32bdd550ef4a7b8066195ddbe10d58",
-              "size": 2466
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-image-azure_6.5.0.1022.23~22.04.1_amd64.deb": {
-              "md5": "5c042a850a8dec381e2321f761610866",
-              "size": 2460
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-modules-extra-azure_6.5.0.1022.23~22.04.1_amd64.deb": {
-              "md5": "f3e0cbd199751e728e3ecd7f2911f7d8",
-              "size": 2378
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-tools-azure_6.5.0.1022.23~22.04.1_amd64.deb": {
-              "md5": "446032a48bab237a2d18999fd1bc510b",
-              "size": 2366
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure-6.5/linux-image-6.5.0-1022-azure-fde_6.5.0-1022.23~22.04.1_amd64.deb": {
-              "md5": "b266498a9ffc620608b0256d56bdb5b8",
-              "size": 44703252
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure-6.5/linux-image-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_amd64.deb": {
-              "md5": "779fa25db6b25152998c6f4759bb8862",
-              "size": 13389016
-            }
-          }
-        },
-        "arm64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-azure-6.5-cloud-tools-6.5.0-1022_6.5.0-1022.23~22.04.1_arm64.deb": {
-              "md5": "30fdac8a3228743c8bf9bc24011e0e73",
-              "size": 136586
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-azure-6.5-tools-6.5.0-1022_6.5.0-1022.23~22.04.1_arm64.deb": {
-              "md5": "6580ae9d111fffb98a35de0c1e5c3984",
-              "size": 6906548
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-buildinfo-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_arm64.deb": {
-              "md5": "9f62f90a9ee5edf87b29371de07b0577",
-              "size": 576864
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-cloud-tools-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_arm64.deb": {
-              "md5": "4448dcc2473a271a3fcf0f2436bc5dfb",
-              "size": 1706
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-headers-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_arm64.deb": {
-              "md5": "9485e76ae9539a01b3c27d217fa1e4e0",
-              "size": 2907978
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-image-unsigned-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_arm64.deb": {
-              "md5": "6b24954fd84e41b05e74d9fbe2ae6431",
-              "size": 17449152
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-modules-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_arm64.deb": {
-              "md5": "80ebff0ecebd3b26a0cd3d4c92b0239f",
-              "size": 21151498
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-modules-extra-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_arm64.deb": {
-              "md5": "080ce9d232d1170da4b1355d510aebc6",
-              "size": 68628538
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure-6.5/linux-tools-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_arm64.deb": {
-              "md5": "000553d72e103f9400355a790720d753",
-              "size": 1712
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure-6.5/linux-azure_6.5.0.1022.23~22.04.1_arm64.deb": {
-              "md5": "0ba67300ad7ecc212690864cb29454a7",
-              "size": 1760
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure-6.5/linux-cloud-tools-azure_6.5.0.1022.23~22.04.1_arm64.deb": {
-              "md5": "9ea7bacfd6c785e4d7cfb20f2abc730d",
-              "size": 2380
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure-6.5/linux-headers-azure_6.5.0.1022.23~22.04.1_arm64.deb": {
-              "md5": "b4a13460977977647c7f51d05de409fc",
-              "size": 2352
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure-6.5/linux-image-azure_6.5.0.1022.23~22.04.1_arm64.deb": {
-              "md5": "e55a262f8b8415dd82aa9a0175f66364",
-              "size": 2460
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure-6.5/linux-modules-extra-azure_6.5.0.1022.23~22.04.1_arm64.deb": {
-              "md5": "c70cd1350b5e5e20dd8e23f2342bfd4a",
-              "size": 2378
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure-6.5/linux-tools-azure_6.5.0.1022.23~22.04.1_arm64.deb": {
-              "md5": "b1876597cc1f08af734e35eff11bef07",
-              "size": 2366
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-azure-6.5/linux-image-6.5.0-1022-azure_6.5.0-1022.23~22.04.1_arm64.deb": {
-              "md5": "1dcc27a197546809add94b6998f39cfb",
-              "size": 17014122
-            }
-          }
-        },
-        "riscv64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-starfive-6.5/linux-headers-starfive_6.5.0.1015.16~22.04.1_riscv64.deb": {
-              "md5": "4e2a735adbd145f0b8a4098fd54e283c",
-              "size": 2374
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-starfive-6.5/linux-image-starfive_6.5.0.1015.16~22.04.1_riscv64.deb": {
-              "md5": "2aabede9d7ddbaf37acec82ee9d5f958",
-              "size": 2442
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-starfive-6.5/linux-starfive_6.5.0.1015.16~22.04.1_riscv64.deb": {
-              "md5": "e2cac507b19be653b337344ff0642a9f",
-              "size": 1714
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-starfive-6.5/linux-tools-starfive_6.5.0.1015.16~22.04.1_riscv64.deb": {
-              "md5": "b18df5757031e8f5861cfdf85b457ba6",
-              "size": 2374
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-starfive-6.5/linux-buildinfo-6.5.0-1015-starfive_6.5.0-1015.16~22.04.1_riscv64.deb": {
-              "md5": "db52b37152672ae26b04ee55e5d8a451",
-              "size": 562612
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-starfive-6.5/linux-headers-6.5.0-1015-starfive_6.5.0-1015.16~22.04.1_riscv64.deb": {
-              "md5": "d99acd41c6a651060b154ae6824b1478",
-              "size": 6315416
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-starfive-6.5/linux-image-6.5.0-1015-starfive_6.5.0-1015.16~22.04.1_riscv64.deb": {
-              "md5": "fdbc650763c06797d18999fc7ee3c389",
-              "size": 36208832
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-starfive-6.5/linux-modules-6.5.0-1015-starfive_6.5.0-1015.16~22.04.1_riscv64.deb": {
-              "md5": "41cb1c2d83e2a8916301214b0b6cdcbd",
-              "size": 25460316
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-starfive-6.5/linux-modules-extra-6.5.0-1015-starfive_6.5.0-1015.16~22.04.1_riscv64.deb": {
-              "md5": "ba667691be8e896aa319961dd381c11d",
-              "size": 76570786
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-starfive-6.5/linux-starfive-6.5-tools-6.5.0-1015_6.5.0-1015.16~22.04.1_riscv64.deb": {
-              "md5": "c4001a65272787cc00549eb6f2ad776e",
-              "size": 6597284
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-starfive-6.5/linux-tools-6.5.0-1015-starfive_6.5.0-1015.16~22.04.1_riscv64.deb": {
-              "md5": "e2176aeb6ecb1f78dffed6d014f36958",
-              "size": 1768
-            }
-          }
-        },
-        "source": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-azure-6.5_6.5.0-1022.23~22.04.1.diff.gz": {
-              "md5": "5d46f07c6d361164e66574c2f3a3500f",
-              "size": 3835174
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-azure-6.5_6.5.0-1022.23~22.04.1.dsc": {
-              "md5": "73b2dab1d9a4533e2bc6cef30855315d",
-              "size": 5118
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure-6.5/linux-azure-6.5_6.5.0.orig.tar.gz": {
-              "md5": "8290e3447d70a1a709986624233cb6df",
-              "size": 223513863
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-meta-azure-6.5_6.5.0.1022.23~22.04.1.dsc": {
-              "md5": "7b761e120e06cbeaf9c6d44ceb3750c6",
-              "size": 2382
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure-6.5/linux-meta-azure-6.5_6.5.0.1022.23~22.04.1.tar.xz": {
-              "md5": "31a251790975cf208cca6a4c9c94530b",
-              "size": 6612
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-starfive-6.5/linux-meta-starfive-6.5_6.5.0.1015.16~22.04.1.dsc": {
-              "md5": "52f76299444e7153745c945824fe9f7d",
-              "size": 2085
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-starfive-6.5/linux-meta-starfive-6.5_6.5.0.1015.16~22.04.1.tar.xz": {
-              "md5": "a7d10b9d408e9a3801fd637aa9c8fc10",
-              "size": 6656
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure-6.5/linux-signed-azure-6.5_6.5.0-1022.23~22.04.1.dsc": {
-              "md5": "6e219f45cd19629c697dc809998edc80",
-              "size": 2278
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure-6.5/linux-signed-azure-6.5_6.5.0-1022.23~22.04.1.tar.xz": {
-              "md5": "f9d4c90702b9d01d10a76637d0d3ed0e",
-              "size": 13592
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-starfive-6.5/linux-starfive-6.5_6.5.0-1015.16~22.04.1.diff.gz": {
-              "md5": "05087bd8b52c21ce5393f8f0f41dfbb0",
-              "size": 4742064
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-starfive-6.5/linux-starfive-6.5_6.5.0-1015.16~22.04.1.dsc": {
-              "md5": "0a76590205fca9f3bb75519bb715fe12",
-              "size": 4846
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-starfive-6.5/linux-starfive-6.5_6.5.0.orig.tar.gz": {
-              "md5": "8290e3447d70a1a709986624233cb6df",
-              "size": 223513863
-            }
-          }
-        }
-      },
-      "binaries": {
-        "linux-image-6.5.0-1015-starfive": {
-          "pocket": "security",
-          "version": "6.5.0-1015.16~22.04.1"
-        },
-        "linux-image-6.5.0-1022-azure": {
-          "pocket": "security",
-          "version": "6.5.0-1022.23~22.04.1"
-        },
-        "linux-image-6.5.0-1022-azure-fde": {
-          "pocket": "security",
-          "version": "6.5.0-1022.23~22.04.1"
-        },
-        "linux-image-azure": {
-          "pocket": "security",
-          "version": "6.5.0.1022.23~22.04.1"
-        },
-        "linux-image-azure-fde": {
-          "pocket": "security",
-          "version": "6.5.0.1022.23~22.04.1"
-        },
-        "linux-image-starfive": {
-          "pocket": "security",
-          "version": "6.5.0.1015.16~22.04.1"
-        }
-      },
-      "sources": {
-        "linux-azure-6.5": {
-          "description": "Linux kernel for Microsoft Azure cloud systems",
-          "version": "6.5.0-1022.23~22.04.1"
-        },
-        "linux-starfive-6.5": {
-          "description": "Linux kernel for StarFive processors",
-          "version": "6.5.0-1015.16~22.04.1"
-        }
-      }
-    },
-    "mantic": {
-      "allbinaries": {
-        "linux-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.5.0.1022.26"
-        },
-        "linux-azure-cloud-tools-6.5.0-1022": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.5.0-1022.23"
-        },
-        "linux-azure-fde": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.5.0.1022.26"
-        },
-        "linux-azure-headers-6.5.0-1022": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.5.0-1022.23"
-        },
-        "linux-azure-tools-6.5.0-1022": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.5.0-1022.23"
-        },
-        "linux-buildinfo-6.5.0-1015-starfive": {
-          "pocket": "security",
-          "source": "linux-starfive",
-          "version": "6.5.0-1015.16"
-        },
-        "linux-buildinfo-6.5.0-1022-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.5.0-1022.23"
-        },
-        "linux-cloud-tools-6.5.0-1022-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.5.0-1022.23"
-        },
-        "linux-cloud-tools-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.5.0.1022.26"
-        },
-        "linux-headers-6.5.0-1015-starfive": {
-          "pocket": "security",
-          "source": "linux-starfive",
-          "version": "6.5.0-1015.16"
-        },
-        "linux-headers-6.5.0-1022-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.5.0-1022.23"
-        },
-        "linux-headers-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.5.0.1022.26"
-        },
-        "linux-headers-starfive": {
-          "pocket": "security",
-          "source": "linux-meta-starfive",
-          "version": "6.5.0.1015.17"
-        },
-        "linux-image-6.5.0-1015-starfive": {
-          "pocket": "security",
-          "source": "linux-starfive",
-          "version": "6.5.0-1015.16"
-        },
-        "linux-image-6.5.0-1022-azure": {
-          "pocket": "security",
-          "source": "linux-signed-azure",
-          "version": "6.5.0-1022.23"
-        },
-        "linux-image-6.5.0-1022-azure-fde": {
-          "pocket": "security",
-          "source": "linux-signed-azure",
-          "version": "6.5.0-1022.23"
-        },
-        "linux-image-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.5.0.1022.26"
-        },
-        "linux-image-azure-fde": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.5.0.1022.26"
-        },
-        "linux-image-starfive": {
-          "pocket": "security",
-          "source": "linux-meta-starfive",
-          "version": "6.5.0.1015.17"
-        },
-        "linux-image-unsigned-6.5.0-1022-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.5.0-1022.23"
-        },
-        "linux-modules-6.5.0-1015-starfive": {
-          "pocket": "security",
-          "source": "linux-starfive",
-          "version": "6.5.0-1015.16"
-        },
-        "linux-modules-6.5.0-1022-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.5.0-1022.23"
-        },
-        "linux-modules-extra-6.5.0-1015-starfive": {
-          "pocket": "security",
-          "source": "linux-starfive",
-          "version": "6.5.0-1015.16"
-        },
-        "linux-modules-extra-6.5.0-1022-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.5.0-1022.23"
-        },
-        "linux-modules-extra-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.5.0.1022.26"
-        },
-        "linux-modules-iwlwifi-6.5.0-1022-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.5.0-1022.23"
-        },
-        "linux-modules-iwlwifi-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.5.0.1022.26"
-        },
-        "linux-starfive": {
-          "pocket": "security",
-          "source": "linux-meta-starfive",
-          "version": "6.5.0.1015.17"
-        },
-        "linux-starfive-headers-6.5.0-1015": {
-          "pocket": "security",
-          "source": "linux-starfive",
-          "version": "6.5.0-1015.16"
-        },
-        "linux-starfive-tools-6.5.0-1015": {
-          "pocket": "security",
-          "source": "linux-starfive",
-          "version": "6.5.0-1015.16"
-        },
-        "linux-tools-6.5.0-1015-starfive": {
-          "pocket": "security",
-          "source": "linux-starfive",
-          "version": "6.5.0-1015.16"
-        },
-        "linux-tools-6.5.0-1022-azure": {
-          "pocket": "security",
-          "source": "linux-azure",
-          "version": "6.5.0-1022.23"
-        },
-        "linux-tools-azure": {
-          "pocket": "security",
-          "source": "linux-meta-azure",
-          "version": "6.5.0.1022.26"
-        },
-        "linux-tools-starfive": {
-          "pocket": "security",
-          "source": "linux-meta-starfive",
-          "version": "6.5.0.1015.17"
-        }
-      },
-      "archs": {
-        "all": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-headers-6.5.0-1022_6.5.0-1022.23_all.deb": {
-              "md5": "6612e183b474f7200684bae51e7f5976",
-              "size": 13306318
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-starfive/linux-starfive-headers-6.5.0-1015_6.5.0-1015.16_all.deb": {
-              "md5": "498c7fd63eac6910f7da05e996585a1f",
-              "size": 13529562
-            }
-          }
-        },
-        "amd64": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-cloud-tools-6.5.0-1022_6.5.0-1022.23_amd64.deb": {
-              "md5": "7564f8a79cb0339d33a572ff9c8f0e0b",
-              "size": 137440
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure-tools-6.5.0-1022_6.5.0-1022.23_amd64.deb": {
-              "md5": "1dd58c06444c78b6a2777ed906218b61",
-              "size": 7604810
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-buildinfo-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
-              "md5": "8b9bd438c99b66a114aaaf22289ed650",
-              "size": 453684
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-cloud-tools-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
-              "md5": "d18c1b56f6df3e49f50bd7093affa032",
-              "size": 1690
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-headers-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
-              "md5": "8509be50ffa03d90849be815e449ea85",
-              "size": 3221820
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-image-unsigned-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
-              "md5": "a822445554896e347129985f15fb9db3",
-              "size": 13752512
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-modules-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
-              "md5": "03b5982f59cf35ac457723440f6ca4f7",
-              "size": 34068672
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-modules-extra-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
-              "md5": "8dbd0fe340fc68f35206faae25705057",
-              "size": 43622592
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-modules-iwlwifi-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
-              "md5": "ee252188548e1040a542d50780cfec6f",
-              "size": 1689792
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-tools-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
-              "md5": "9262a373eb32b68516d008e9cbefb314",
-              "size": 1758
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-azure-fde_6.5.0.1022.26_amd64.deb": {
-              "md5": "6d2048103e9f3c67cf896a3ecfed711a",
-              "size": 1744
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-azure_6.5.0.1022.26_amd64.deb": {
-              "md5": "9d73e76ab269111071e1e6f97946981a",
-              "size": 1750
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-cloud-tools-azure_6.5.0.1022.26_amd64.deb": {
-              "md5": "1abb4dd85fd46268e4ef01c07533346c",
-              "size": 2344
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-headers-azure_6.5.0.1022.26_amd64.deb": {
-              "md5": "b45d75be53c24ee75c184ed68c5837a8",
-              "size": 2316
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-image-azure-fde_6.5.0.1022.26_amd64.deb": {
-              "md5": "ef24b83ea41fc1b28db85147e1657efd",
-              "size": 2430
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-image-azure_6.5.0.1022.26_amd64.deb": {
-              "md5": "f42b6f80096461f0efe85c24ef71f9dd",
-              "size": 2422
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-modules-extra-azure_6.5.0.1022.26_amd64.deb": {
-              "md5": "2cf2a2935429b859859d3dfd51b201da",
-              "size": 2350
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-modules-iwlwifi-azure_6.5.0.1022.26_amd64.deb": {
-              "md5": "108cadb3861ad148bd0f300feddc2972",
-              "size": 2392
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-tools-azure_6.5.0.1022.26_amd64.deb": {
-              "md5": "a5e83aea1cb35d7600fbe4c3228ec533",
-              "size": 2326
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-image-6.5.0-1022-azure-fde_6.5.0-1022.23_amd64.deb": {
-              "md5": "b286ddcaad7ffb7700060d143aad4245",
-              "size": 48510886
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-image-6.5.0-1022-azure_6.5.0-1022.23_amd64.deb": {
-              "md5": "ced05b82065dddc9739d5405adedd863",
-              "size": 13378574
-            }
-          }
-        },
-        "arm64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-azure-cloud-tools-6.5.0-1022_6.5.0-1022.23_arm64.deb": {
-              "md5": "e4a94bb75fd70f650ef925326c5fbd1e",
-              "size": 136628
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-azure-tools-6.5.0-1022_6.5.0-1022.23_arm64.deb": {
-              "md5": "a22a1c457e7b502797b56255f4cdfd9d",
-              "size": 6907546
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-buildinfo-6.5.0-1022-azure_6.5.0-1022.23_arm64.deb": {
-              "md5": "90b55683d7b582f98a23938ca3b12edd",
-              "size": 574400
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-cloud-tools-6.5.0-1022-azure_6.5.0-1022.23_arm64.deb": {
-              "md5": "19c2e15ea60f42b4af06875e32a1fc11",
-              "size": 1690
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-headers-6.5.0-1022-azure_6.5.0-1022.23_arm64.deb": {
-              "md5": "992f497279678e3d1672b095b70218da",
-              "size": 2859394
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-image-unsigned-6.5.0-1022-azure_6.5.0-1022.23_arm64.deb": {
-              "md5": "2f9f911ef3349cc3fda0d13b0a04ad79",
-              "size": 17592512
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-modules-6.5.0-1022-azure_6.5.0-1022.23_arm64.deb": {
-              "md5": "8dcd475daf50ad8663599ba4153a54e7",
-              "size": 31539392
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-modules-extra-6.5.0-1022-azure_6.5.0-1022.23_arm64.deb": {
-              "md5": "876731e9f5aa4d87e7a7cc76590f88e5",
-              "size": 101970112
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-azure/linux-tools-6.5.0-1022-azure_6.5.0-1022.23_arm64.deb": {
-              "md5": "786fde39d6913f06f81983472a63e040",
-              "size": 1706
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-azure_6.5.0.1022.26_arm64.deb": {
-              "md5": "78cebec25b3cd319400cceaa050bc38b",
-              "size": 1750
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-cloud-tools-azure_6.5.0.1022.26_arm64.deb": {
-              "md5": "677363bd39c82c4715a80174beaeddd8",
-              "size": 2344
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-headers-azure_6.5.0.1022.26_arm64.deb": {
-              "md5": "be167a166dfa55b61dee04418046db45",
-              "size": 2316
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-image-azure_6.5.0.1022.26_arm64.deb": {
-              "md5": "9f88958278efdd9213cf1007eec4259e",
-              "size": 2422
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-modules-extra-azure_6.5.0.1022.26_arm64.deb": {
-              "md5": "faf41ebf5718409294d783dc0d41a142",
-              "size": 2350
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-azure/linux-tools-azure_6.5.0.1022.26_arm64.deb": {
-              "md5": "e2aaae4e401dcabbacd40d2f185035b1",
-              "size": 2326
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-azure/linux-image-6.5.0-1022-azure_6.5.0-1022.23_arm64.deb": {
-              "md5": "1beecb2534c982ca67faf9ac83fec4f0",
-              "size": 17151830
-            }
-          }
-        },
-        "riscv64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-starfive/linux-headers-starfive_6.5.0.1015.17_riscv64.deb": {
-              "md5": "40df9193cbcfe657fa3ca28afe82054d",
-              "size": 2318
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-starfive/linux-image-starfive_6.5.0.1015.17_riscv64.deb": {
-              "md5": "1447b54a80fb0a437f381eb70c154b98",
-              "size": 2382
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-starfive/linux-starfive_6.5.0.1015.17_riscv64.deb": {
-              "md5": "bf089e9db12d59b753d761598d88dd6f",
-              "size": 1708
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-starfive/linux-tools-starfive_6.5.0.1015.17_riscv64.deb": {
-              "md5": "66fd64476d9bd4f56bfd52f277a4e869",
-              "size": 2326
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-starfive/linux-buildinfo-6.5.0-1015-starfive_6.5.0-1015.16_riscv64.deb": {
-              "md5": "eaf71a9c107c37a05de8a5e516859067",
-              "size": 768482
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-starfive/linux-headers-6.5.0-1015-starfive_6.5.0-1015.16_riscv64.deb": {
-              "md5": "73b4aa0124258156af995e85caf26547",
-              "size": 7249070
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-starfive/linux-image-6.5.0-1015-starfive_6.5.0-1015.16_riscv64.deb": {
-              "md5": "e9fe691a826bdb4012cc52516b6e4cad",
-              "size": 36423872
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-starfive/linux-modules-6.5.0-1015-starfive_6.5.0-1015.16_riscv64.deb": {
-              "md5": "838c1f51811c35960814cc8d09d2d4aa",
-              "size": 34355392
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-starfive/linux-modules-extra-6.5.0-1015-starfive_6.5.0-1015.16_riscv64.deb": {
-              "md5": "7a31a1ed3f418108b14855bac54bd9cd",
-              "size": 109629632
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-starfive/linux-starfive-tools-6.5.0-1015_6.5.0-1015.16_riscv64.deb": {
-              "md5": "18d3fbc0c54d9823d7c7d289fdaae545",
-              "size": 6875408
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-starfive/linux-tools-6.5.0-1015-starfive_6.5.0-1015.16_riscv64.deb": {
-              "md5": "8f8a50a6c69e839017a771815a83374e",
-              "size": 1740
-            }
-          }
-        },
-        "source": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_6.5.0-1022.23.diff.gz": {
-              "md5": "2cd17b2d846187533cf1d29d66fbcd2a",
-              "size": 3739227
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_6.5.0-1022.23.dsc": {
-              "md5": "1dd52802c1a5f037621ce97f5dd02dad",
-              "size": 5068
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-azure/linux-azure_6.5.0.orig.tar.gz": {
-              "md5": "8290e3447d70a1a709986624233cb6df",
-              "size": 223513863
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-meta-azure_6.5.0.1022.26.dsc": {
-              "md5": "ccd869b9a94eaba86c605e5176f78592",
-              "size": 2420
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-azure/linux-meta-azure_6.5.0.1022.26.tar.xz": {
-              "md5": "ae29cf37f640e6829ad8ae839e0efc41",
-              "size": 7352
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-starfive/linux-meta-starfive_6.5.0.1015.17.dsc": {
-              "md5": "250c9e238d94ff8112b823eb35790556",
-              "size": 2034
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-starfive/linux-meta-starfive_6.5.0.1015.17.tar.xz": {
-              "md5": "e0e093072d14d8d6d4a8a4c482f0a9f6",
-              "size": 6712
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-signed-azure_6.5.0-1022.23.dsc": {
-              "md5": "f93f1471758463e15ca4a87235b9f630",
-              "size": 2128
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-azure/linux-signed-azure_6.5.0-1022.23.tar.xz": {
-              "md5": "ff81ffc1787d0a4f0da9a89dd68f3889",
-              "size": 13708
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-starfive/linux-starfive_6.5.0-1015.16.diff.gz": {
-              "md5": "4494da69a22676250dd326b14435d9eb",
-              "size": 4262742
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-starfive/linux-starfive_6.5.0-1015.16.dsc": {
-              "md5": "a4de700b38f3ea393c4183307ca882a6",
-              "size": 5003
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-starfive/linux-starfive_6.5.0.orig.tar.gz": {
-              "md5": "8290e3447d70a1a709986624233cb6df",
-              "size": 223513863
-            }
-          }
-        }
-      },
-      "binaries": {
-        "linux-image-6.5.0-1015-starfive": {
-          "pocket": "security",
-          "version": "6.5.0-1015.16"
-        },
-        "linux-image-6.5.0-1022-azure": {
-          "pocket": "security",
-          "version": "6.5.0-1022.23"
-        },
-        "linux-image-6.5.0-1022-azure-fde": {
-          "pocket": "security",
-          "version": "6.5.0-1022.23"
-        },
-        "linux-image-azure": {
-          "pocket": "security",
-          "version": "6.5.0.1022.26"
-        },
-        "linux-image-azure-fde": {
-          "pocket": "security",
-          "version": "6.5.0.1022.26"
-        },
-        "linux-image-starfive": {
-          "pocket": "security",
-          "version": "6.5.0.1015.17"
-        }
-      },
-      "sources": {
-        "linux-azure": {
-          "description": "Linux kernel for Microsoft Azure Cloud systems",
-          "version": "6.5.0-1022.23"
-        },
-        "linux-starfive": {
-          "description": "Linux kernel for StarFive processors",
-          "version": "6.5.0-1015.16"
-        }
-      }
-    }
-  },
-  "summary": "linux-azure, linux-azure-6.5, linux-starfive, linux-starfive-6.5 vulnerabilities",
-  "timestamp": 1717792397.505933,
-  "title": "Linux kernel vulnerabilities"
+  "isummary": "Several security issues were fixed in the Linux kernel.\n"
 }

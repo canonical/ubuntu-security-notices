@@ -1,118 +1,6 @@
 {
   "description": "David Howells discovered a local Denial of Service vulnerability in\nthe key session joining function. Under certain user-triggerable\nconditions, a semaphore was not released properly, which caused\nprocesses which also attempted to join a key session to hang forever.\nThis only affects Ubuntu 5.04 (Hoary Hedgehog). (CAN-2005-2098)\n\nDavid Howells discovered a local Denial of Service vulnerability in\nthe keyring allocator. A local attacker could exploit this to crash\nthe kernel by attempting to add a specially crafted invalid keyring.\nThis only affects Ubuntu 5.04 (Hoary Hedgehog). (CAN-2005-2099)\n\nBalazs Scheidler discovered a local Denial of Service vulnerability in\nthe xfrm_compile_policy() function. By calling setsockopt() with an\ninvalid xfrm_user policy message, a local attacker could cause the\nkernel to write to an array beyond its boundaries, thus causing a\nkernel crash. (CAN-2005-2456)\n\nTim Yamin discovered that the driver for compressed ISO file systems\ndid not sufficiently validate the iput data. By tricking an user into\nmounting a malicious CD-ROM with a specially crafted compressed ISO\nfile system, he could cause a kernel crash. (CAN-2005-2457)\n\nIt was discovered that the kernel's embedded zlib compression library\nwas still vulnerable to two old vulnerabilities of the standalone zlib\nlibrary. This library is used by various drivers and can also be used\nby third party modules, so the impact varies. (CAN-2005-2458,\nCAN-2005-2459)\n\nPeter Sandstrom discovered a remote Denial of Service vulnerability in\nthe SNMP handler. Certain UDP packages lead to a function call with\nthe wrong argument, which resulted in a crash of the network stack.\nThis only affects Ubuntu 4.10 (Warty Warthog). (CAN-2005-2548)\n\nHerbert Xu discovered that the setsockopt() function was not\nrestricted to privileged users. This allowed a local attacker to\nbypass intended IPSec policies, set invalid policies to exploit flaws\nlike CAN-2005-2456, or cause a Denial of Service by adding policies\nuntil kernel memory is exhausted. Now the call is restricted to\nprocesses with the CAP_NET_ADMIN capability. (CAN-2005-2555)\n\nThe Ubuntu 5.04 kernel update also fixes a memory leak in the \"md\"\n(Software RAID) driver which eventually lead to kernel memory\nexhaustion. Ubuntu 4.10 is not affected by this.\n(http://bugs.debian.org/317787)",
   "releases": {
-    "hoary": {
-      "binaries": {
-        "linux-patch-ubuntu-2.6.10": {
-          "version": ""
-        },
-        "linux-image-2.6.8.1-5-powerpc-smp": {
-          "version": ""
-        },
-        "linux-image-2.6.8.1-5-power4-smp": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-386": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-itanium-smp": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-power4": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-amd64-k8": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-amd64-xeon": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-mckinley-smp": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-power4-smp": {
-          "version": ""
-        },
-        "linux-image-2.6.8.1-5-amd64-generic": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-amd64-k8-smp": {
-          "version": ""
-        },
-        "linux-image-2.6.8.1-5-k7-smp": {
-          "version": ""
-        },
-        "linux-image-2.6.8.1-5-power3-smp": {
-          "version": ""
-        },
-        "linux-image-2.6.8.1-5-amd64-xeon": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-powerpc-smp": {
-          "version": ""
-        },
-        "linux-image-2.6.8.1-5-power3": {
-          "version": ""
-        },
-        "linux-image-2.6.8.1-5-power4": {
-          "version": ""
-        },
-        "linux-image-2.6.8.1-5-powerpc": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-mckinley": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-itanium": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-power3-smp": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-k7": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-power3": {
-          "version": ""
-        },
-        "linux-image-2.6.8.1-5-amd64-k8-smp": {
-          "version": ""
-        },
-        "linux-image-2.6.8.1-5-686": {
-          "version": ""
-        },
-        "linux-image-2.6.8.1-5-686-smp": {
-          "version": ""
-        },
-        "linux-patch-debian-2.6.8.1": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-powerpc": {
-          "version": ""
-        },
-        "linux-image-2.6.8.1-5-k7": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-k7-smp": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-amd64-generic": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-686-smp": {
-          "version": ""
-        },
-        "linux-image-2.6.8.1-5-386": {
-          "version": ""
-        },
-        "linux-image-2.6.10-5-686": {
-          "version": ""
-        },
-        "linux-image-2.6.8.1-5-amd64-k8": {
-          "version": ""
-        }
-      }
-    },
     "warty": {
       "binaries": {
         "linux-patch-ubuntu-2.6.10": {
@@ -136,7 +24,7 @@
         "linux-image-2.6.10-5-amd64-k8": {
           "version": ""
         },
-        "linux-image-2.6.10-5-amd64-xeon": {
+        "linux-image-2.6.8.1-5-k7": {
           "version": ""
         },
         "linux-image-2.6.10-5-mckinley-smp": {
@@ -181,7 +69,7 @@
         "linux-image-2.6.10-5-power3-smp": {
           "version": ""
         },
-        "linux-image-2.6.10-5-k7": {
+        "linux-image-2.6.10-5-686-smp": {
           "version": ""
         },
         "linux-image-2.6.10-5-power3": {
@@ -202,7 +90,7 @@
         "linux-image-2.6.10-5-powerpc": {
           "version": ""
         },
-        "linux-image-2.6.8.1-5-k7": {
+        "linux-image-2.6.10-5-amd64-xeon": {
           "version": ""
         },
         "linux-image-2.6.10-5-k7-smp": {
@@ -211,16 +99,128 @@
         "linux-image-2.6.10-5-amd64-generic": {
           "version": ""
         },
-        "linux-image-2.6.10-5-686-smp": {
+        "linux-image-2.6.10-5-k7": {
           "version": ""
         },
-        "linux-image-2.6.8.1-5-386": {
+        "linux-image-2.6.8.1-5-amd64-k8": {
           "version": ""
         },
         "linux-image-2.6.10-5-686": {
           "version": ""
         },
+        "linux-image-2.6.8.1-5-386": {
+          "version": ""
+        }
+      }
+    },
+    "hoary": {
+      "binaries": {
+        "linux-patch-ubuntu-2.6.10": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-5-powerpc-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-5-power4-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-386": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-itanium-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-power4": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-amd64-k8": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-5-k7": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-mckinley-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-power4-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-5-amd64-generic": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-amd64-k8-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-5-k7-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-5-power3-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-5-amd64-xeon": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-powerpc-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-5-power3": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-5-power4": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-5-powerpc": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-mckinley": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-itanium": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-power3-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-686-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-power3": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-5-amd64-k8-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-5-686": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-5-686-smp": {
+          "version": ""
+        },
+        "linux-patch-debian-2.6.8.1": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-powerpc": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-amd64-xeon": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-k7-smp": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-amd64-generic": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-k7": {
+          "version": ""
+        },
         "linux-image-2.6.8.1-5-amd64-k8": {
+          "version": ""
+        },
+        "linux-image-2.6.10-5-686": {
+          "version": ""
+        },
+        "linux-image-2.6.8.1-5-386": {
           "version": ""
         }
       }

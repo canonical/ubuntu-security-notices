@@ -1,4 +1,901 @@
 {
+  "description": "It was discovered that the ATA over Ethernet (AoE) driver in the Linux\nkernel contained a race condition, leading to a use-after-free\nvulnerability. An attacker could use this to cause a denial of service or\npossibly execute arbitrary code. (CVE-2023-6270)\n\nIt was discovered that the Atheros 802.11ac wireless driver did not\nproperly validate certain data structures, leading to a NULL pointer\ndereference. An attacker could possibly use this to cause a denial of\nservice. (CVE-2023-7042)\n\nIt was discovered that the HugeTLB file system component of the Linux\nKernel contained a NULL pointer dereference vulnerability. A privileged\nattacker could possibly use this to to cause a denial of service.\n(CVE-2024-0841)\n\nYuxuan Hu discovered that the Bluetooth RFCOMM protocol driver in the Linux\nKernel contained a race condition, leading to a NULL pointer dereference.\nAn attacker could possibly use this to cause a denial of service (system\ncrash). (CVE-2024-22099)\n\nIt was discovered that the MediaTek SoC Gigabit Ethernet driver in the\nLinux kernel contained a race condition when stopping the device. A local\nattacker could possibly use this to cause a denial of service (device\nunavailability). (CVE-2024-27432)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM32 architecture;\n  - RISC-V architecture;\n  - x86 architecture;\n  - ACPI drivers;\n  - Block layer subsystem;\n  - Clock framework and drivers;\n  - CPU frequency scaling framework;\n  - Cryptographic API;\n  - DMA engine subsystem;\n  - EFI core;\n  - GPU drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - Multiple devices driver;\n  - Media drivers;\n  - MMC subsystem;\n  - Network drivers;\n  - NTB driver;\n  - NVME drivers;\n  - PCI subsystem;\n  - MediaTek PM domains;\n  - Power supply drivers;\n  - SPI subsystem;\n  - Media staging drivers;\n  - TCM subsystem;\n  - USB subsystem;\n  - Framebuffer layer;\n  - AFS file system;\n  - File systems infrastructure;\n  - BTRFS file system;\n  - EROFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - Network file system client;\n  - NTFS3 file system;\n  - Diskquota system;\n  - SMB network file system;\n  - BPF subsystem;\n  - Netfilter;\n  - TLS protocol;\n  - io_uring subsystem;\n  - Bluetooth subsystem;\n  - Memory management;\n  - Ethernet bridge;\n  - Networking core;\n  - HSR network protocol;\n  - IPv4 networking;\n  - IPv6 networking;\n  - L2TP protocol;\n  - MAC80211 subsystem;\n  - Multipath TCP;\n  - Netlink;\n  - NET/ROM layer;\n  - Packet sockets;\n  - RDS protocol;\n  - Sun RPC protocol;\n  - Unix domain sockets;\n  - Wireless networking;\n  - USB sound devices;\n(CVE-2024-26877, CVE-2024-35829, CVE-2024-26737, CVE-2024-27075,\nCVE-2024-27414, CVE-2024-27053, CVE-2024-26889, CVE-2024-26792,\nCVE-2024-26882, CVE-2024-26906, CVE-2024-26851, CVE-2024-27037,\nCVE-2024-26782, CVE-2024-27388, CVE-2024-26748, CVE-2024-27419,\nCVE-2024-27034, CVE-2023-52662, CVE-2024-27047, CVE-2024-26874,\nCVE-2024-26779, CVE-2024-26872, CVE-2024-26820, CVE-2024-35811,\nCVE-2024-26771, CVE-2024-26733, CVE-2024-26903, CVE-2024-26736,\nCVE-2024-26870, CVE-2024-26883, CVE-2024-27403, CVE-2024-26878,\nCVE-2024-26857, CVE-2023-52645, CVE-2024-26601, CVE-2024-26891,\nCVE-2024-27028, CVE-2024-27054, CVE-2024-26804, CVE-2024-27405,\nCVE-2024-35830, CVE-2024-26898, CVE-2024-26754, CVE-2024-26793,\nCVE-2024-26747, CVE-2024-26901, CVE-2023-52652, CVE-2023-52650,\nCVE-2024-26651, CVE-2024-26816, CVE-2024-35845, CVE-2024-26862,\nCVE-2024-26884, CVE-2024-26752, CVE-2024-26852, CVE-2023-52656,\nCVE-2024-26790, CVE-2024-26603, CVE-2024-27078, CVE-2024-26802,\nCVE-2024-27045, CVE-2024-27024, CVE-2024-27073, CVE-2024-26585,\nCVE-2024-26894, CVE-2024-26583, CVE-2024-27416, CVE-2024-27431,\nCVE-2024-35844, CVE-2024-26838, CVE-2024-27410, CVE-2024-26915,\nCVE-2024-26772, CVE-2024-26897, CVE-2024-26798, CVE-2024-27415,\nCVE-2024-26855, CVE-2024-26833, CVE-2024-26764, CVE-2024-26659,\nCVE-2024-26846, CVE-2024-26895, CVE-2023-52644, CVE-2024-26751,\nCVE-2024-26880, CVE-2024-26863, CVE-2024-26809, CVE-2024-27052,\nCVE-2024-27051, CVE-2024-26907, CVE-2024-27413, CVE-2024-26801,\nCVE-2023-52620, CVE-2024-26749, CVE-2024-26787, CVE-2024-27046,\nCVE-2024-26803, CVE-2024-26744, CVE-2024-26879, CVE-2024-27432,\nCVE-2024-27412, CVE-2024-26791, CVE-2024-26773, CVE-2023-52640,\nCVE-2024-26778, CVE-2024-26859, CVE-2024-27044, CVE-2024-26788,\nCVE-2024-27077, CVE-2024-26750, CVE-2024-26861, CVE-2023-52434,\nCVE-2024-26774, CVE-2024-26795, CVE-2024-26856, CVE-2024-27043,\nCVE-2024-27039, CVE-2024-26777, CVE-2024-27030, CVE-2024-26584,\nCVE-2024-26735, CVE-2024-26805, CVE-2024-26766, CVE-2024-26763,\nCVE-2024-27065, CVE-2023-52641, CVE-2024-27417, CVE-2023-52497,\nCVE-2023-52447, CVE-2024-26769, CVE-2024-26843, CVE-2024-26881,\nCVE-2024-26688, CVE-2024-26743, CVE-2024-27038, CVE-2024-27390,\nCVE-2024-27436, CVE-2024-26839, CVE-2024-27074, CVE-2024-26840,\nCVE-2024-27076, CVE-2024-26835, CVE-2024-26885, CVE-2024-26776,\nCVE-2024-26845, CVE-2024-26875, CVE-2024-35828)\n",
+  "releases": {
+    "jammy": {
+      "allbinaries": {
+        "linux-ibm-tools-common": {
+          "pocket": "security",
+          "source": "linux-ibm",
+          "version": "5.15.0-1056.59"
+        },
+        "linux-headers-5.15.0-1060-gke": {
+          "pocket": "security",
+          "source": "linux-gke",
+          "version": "5.15.0-1060.66"
+        },
+        "linux-modules-5.15.0-1056-ibm": {
+          "pocket": "security",
+          "source": "linux-ibm",
+          "version": "5.15.0-1056.59"
+        },
+        "linux-tools-5.15.0-1056-ibm": {
+          "pocket": "security",
+          "source": "linux-ibm",
+          "version": "5.15.0-1056.59"
+        },
+        "linux-modules-5.15.0-1058-intel-iotg": {
+          "pocket": "security",
+          "source": "linux-intel-iotg",
+          "version": "5.15.0-1058.64"
+        },
+        "linux-image-ibm": {
+          "pocket": "security",
+          "source": "linux-meta-ibm",
+          "version": "5.15.0.1056.52"
+        },
+        "linux-intel-iotg": {
+          "pocket": "security",
+          "source": "linux-meta-intel-iotg",
+          "version": "5.15.0.1058.58"
+        },
+        "linux-intel-iotg-headers-5.15.0-1058": {
+          "pocket": "security",
+          "source": "linux-intel-iotg",
+          "version": "5.15.0-1058.64"
+        },
+        "linux-image-oracle-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "5.15.0.1061.57"
+        },
+        "linux-intel-iotg-tools-5.15.0-1058": {
+          "pocket": "security",
+          "source": "linux-intel-iotg",
+          "version": "5.15.0-1058.64"
+        },
+        "linux-modules-iwlwifi-5.15.0-1058-intel-iotg": {
+          "pocket": "security",
+          "source": "linux-intel-iotg",
+          "version": "5.15.0-1058.64"
+        },
+        "linux-modules-extra-5.15.0-1058-intel-iotg": {
+          "pocket": "security",
+          "source": "linux-intel-iotg",
+          "version": "5.15.0-1058.64"
+        },
+        "linux-ibm-headers-5.15.0-1056": {
+          "pocket": "security",
+          "source": "linux-ibm",
+          "version": "5.15.0-1056.59"
+        },
+        "linux-tools-gke-5.15": {
+          "pocket": "security",
+          "source": "linux-meta-gke",
+          "version": "5.15.0.1060.59"
+        },
+        "linux-tools-oracle-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "5.15.0.1061.57"
+        },
+        "linux-oracle-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "5.15.0.1061.57"
+        },
+        "linux-buildinfo-5.15.0-1056-ibm": {
+          "pocket": "security",
+          "source": "linux-ibm",
+          "version": "5.15.0-1056.59"
+        },
+        "linux-intel-iotg-tools-common": {
+          "pocket": "security",
+          "source": "linux-intel-iotg",
+          "version": "5.15.0-1058.64"
+        },
+        "linux-image-intel-iotg": {
+          "pocket": "security",
+          "source": "linux-meta-intel-iotg",
+          "version": "5.15.0.1058.58"
+        },
+        "linux-intel-iotg-cloud-tools-common": {
+          "pocket": "security",
+          "source": "linux-intel-iotg",
+          "version": "5.15.0-1058.64"
+        },
+        "linux-image-unsigned-5.15.0-1061-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "5.15.0-1061.67"
+        },
+        "linux-tools-gke": {
+          "pocket": "security",
+          "source": "linux-meta-gke",
+          "version": "5.15.0.1060.59"
+        },
+        "linux-buildinfo-5.15.0-1060-gke": {
+          "pocket": "security",
+          "source": "linux-gke",
+          "version": "5.15.0-1060.66"
+        },
+        "linux-cloud-tools-5.15.0-1058-intel-iotg": {
+          "pocket": "security",
+          "source": "linux-intel-iotg",
+          "version": "5.15.0-1058.64"
+        },
+        "linux-headers-5.15.0-1061-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "5.15.0-1061.67"
+        },
+        "linux-tools-ibm": {
+          "pocket": "security",
+          "source": "linux-meta-ibm",
+          "version": "5.15.0.1056.52"
+        },
+        "linux-headers-gke-5.15": {
+          "pocket": "security",
+          "source": "linux-meta-gke",
+          "version": "5.15.0.1060.59"
+        },
+        "linux-ibm-source-5.15.0": {
+          "pocket": "security",
+          "source": "linux-ibm",
+          "version": "5.15.0-1056.59"
+        },
+        "linux-tools-5.15.0-1061-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "5.15.0-1061.67"
+        },
+        "linux-gke": {
+          "pocket": "security",
+          "source": "linux-meta-gke",
+          "version": "5.15.0.1060.59"
+        },
+        "linux-ibm-tools-5.15.0-1056": {
+          "pocket": "security",
+          "source": "linux-ibm",
+          "version": "5.15.0-1056.59"
+        },
+        "linux-gke-headers-5.15.0-1060": {
+          "pocket": "security",
+          "source": "linux-gke",
+          "version": "5.15.0-1060.66"
+        },
+        "linux-buildinfo-5.15.0-1058-intel-iotg": {
+          "pocket": "security",
+          "source": "linux-intel-iotg",
+          "version": "5.15.0-1058.64"
+        },
+        "linux-image-unsigned-5.15.0-1060-gke": {
+          "pocket": "security",
+          "source": "linux-gke",
+          "version": "5.15.0-1060.66"
+        },
+        "linux-image-gke": {
+          "pocket": "security",
+          "source": "linux-meta-gke",
+          "version": "5.15.0.1060.59"
+        },
+        "linux-modules-5.15.0-1060-gke": {
+          "pocket": "security",
+          "source": "linux-gke",
+          "version": "5.15.0-1060.66"
+        },
+        "linux-headers-intel-iotg": {
+          "pocket": "security",
+          "source": "linux-meta-intel-iotg",
+          "version": "5.15.0.1058.58"
+        },
+        "linux-modules-extra-5.15.0-1060-gke": {
+          "pocket": "security",
+          "source": "linux-gke",
+          "version": "5.15.0-1060.66"
+        },
+        "linux-image-5.15.0-1056-ibm": {
+          "pocket": "security",
+          "source": "linux-signed-ibm",
+          "version": "5.15.0-1056.59"
+        },
+        "linux-headers-ibm": {
+          "pocket": "security",
+          "source": "linux-meta-ibm",
+          "version": "5.15.0.1056.52"
+        },
+        "linux-image-5.15.0-1058-intel-iotg": {
+          "pocket": "security",
+          "source": "linux-signed-intel-iotg",
+          "version": "5.15.0-1058.64"
+        },
+        "linux-headers-gke": {
+          "pocket": "security",
+          "source": "linux-meta-gke",
+          "version": "5.15.0.1060.59"
+        },
+        "linux-intel-iotg-tools-host": {
+          "pocket": "security",
+          "source": "linux-intel-iotg",
+          "version": "5.15.0-1058.64"
+        },
+        "linux-gke-5.15": {
+          "pocket": "security",
+          "source": "linux-meta-gke",
+          "version": "5.15.0.1060.59"
+        },
+        "linux-tools-5.15.0-1060-gke": {
+          "pocket": "security",
+          "source": "linux-gke",
+          "version": "5.15.0-1060.66"
+        },
+        "linux-image-5.15.0-1061-oracle": {
+          "pocket": "security",
+          "source": "linux-signed-oracle",
+          "version": "5.15.0-1061.67"
+        },
+        "linux-headers-5.15.0-1058-intel-iotg": {
+          "pocket": "security",
+          "source": "linux-intel-iotg",
+          "version": "5.15.0-1058.64"
+        },
+        "linux-tools-intel-iotg": {
+          "pocket": "security",
+          "source": "linux-meta-intel-iotg",
+          "version": "5.15.0.1058.58"
+        },
+        "linux-modules-extra-5.15.0-1056-ibm": {
+          "pocket": "security",
+          "source": "linux-ibm",
+          "version": "5.15.0-1056.59"
+        },
+        "linux-headers-5.15.0-1056-ibm": {
+          "pocket": "security",
+          "source": "linux-ibm",
+          "version": "5.15.0-1056.59"
+        },
+        "linux-modules-5.15.0-1061-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "5.15.0-1061.67"
+        },
+        "linux-gke-tools-5.15.0-1060": {
+          "pocket": "security",
+          "source": "linux-gke",
+          "version": "5.15.0-1060.66"
+        },
+        "linux-image-5.15.0-1060-gke": {
+          "pocket": "security",
+          "source": "linux-signed-gke",
+          "version": "5.15.0-1060.66"
+        },
+        "linux-intel-iotg-cloud-tools-5.15.0-1058": {
+          "pocket": "security",
+          "source": "linux-intel-iotg",
+          "version": "5.15.0-1058.64"
+        },
+        "linux-ibm-cloud-tools-common": {
+          "pocket": "security",
+          "source": "linux-ibm",
+          "version": "5.15.0-1056.59"
+        },
+        "linux-image-gke-5.15": {
+          "pocket": "security",
+          "source": "linux-meta-gke",
+          "version": "5.15.0.1060.59"
+        },
+        "linux-headers-oracle-lts-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-oracle",
+          "version": "5.15.0.1061.57"
+        },
+        "linux-oracle-tools-5.15.0-1061": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "5.15.0-1061.67"
+        },
+        "linux-image-unsigned-5.15.0-1056-ibm": {
+          "pocket": "security",
+          "source": "linux-ibm",
+          "version": "5.15.0-1056.59"
+        },
+        "linux-tools-5.15.0-1058-intel-iotg": {
+          "pocket": "security",
+          "source": "linux-intel-iotg",
+          "version": "5.15.0-1058.64"
+        },
+        "linux-image-unsigned-5.15.0-1058-intel-iotg": {
+          "pocket": "security",
+          "source": "linux-intel-iotg",
+          "version": "5.15.0-1058.64"
+        },
+        "linux-ibm": {
+          "pocket": "security",
+          "source": "linux-meta-ibm",
+          "version": "5.15.0.1056.52"
+        },
+        "linux-oracle-headers-5.15.0-1061": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "5.15.0-1061.67"
+        },
+        "linux-buildinfo-5.15.0-1061-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "5.15.0-1061.67"
+        },
+        "linux-modules-extra-5.15.0-1061-oracle": {
+          "pocket": "security",
+          "source": "linux-oracle",
+          "version": "5.15.0-1061.67"
+        }
+      },
+      "binaries": {
+        "linux-image-gke": {
+          "pocket": "security",
+          "version": "5.15.0.1060.59"
+        },
+        "linux-image-ibm": {
+          "pocket": "security",
+          "version": "5.15.0.1056.52"
+        },
+        "linux-image-5.15.0-1060-gke": {
+          "pocket": "security",
+          "version": "5.15.0-1060.66"
+        },
+        "linux-image-oracle-lts-22.04": {
+          "pocket": "security",
+          "version": "5.15.0.1061.57"
+        },
+        "linux-image-gke-5.15": {
+          "pocket": "security",
+          "version": "5.15.0.1060.59"
+        },
+        "linux-image-5.15.0-1058-intel-iotg": {
+          "pocket": "security",
+          "version": "5.15.0-1058.64"
+        },
+        "linux-image-5.15.0-1056-ibm": {
+          "pocket": "security",
+          "version": "5.15.0-1056.59"
+        },
+        "linux-image-intel-iotg": {
+          "pocket": "security",
+          "version": "5.15.0.1058.58"
+        },
+        "linux-image-5.15.0-1061-oracle": {
+          "pocket": "security",
+          "version": "5.15.0-1061.67"
+        }
+      },
+      "archs": {
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke_5.15.0-1060.66.diff.gz": {
+              "size": 10990141,
+              "md5": "2037532e384dc0251cabd3c603c19ebb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-intel-iotg/linux-signed-intel-iotg_5.15.0-1058.64.tar.xz": {
+              "size": 23756,
+              "md5": "b11588e48fbbcec400596838d57a4168"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-meta-oracle_5.15.0.1061.57.dsc": {
+              "size": 2102,
+              "md5": "0949175e7e96d4afbdf1dbf991c39c97"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-intel-iotg/linux-signed-intel-iotg_5.15.0-1058.64.dsc": {
+              "size": 1991,
+              "md5": "e0f87e6640d3ffbbd650107e3fba6e56"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-ibm_5.15.0-1056.59.diff.gz": {
+              "size": 10343588,
+              "md5": "650864784433edcaedbdd482116ac13f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oracle/linux-signed-oracle_5.15.0-1061.67.dsc": {
+              "size": 1955,
+              "md5": "40c444cc1e3129196a3bcb5715d49047"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oracle/linux-signed-oracle_5.15.0-1061.67.tar.xz": {
+              "size": 15520,
+              "md5": "52c1d3f57cf7aa06d200fdb7a6dc9a26"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-ibm_5.15.0-1056.59.dsc": {
+              "size": 4544,
+              "md5": "2a121290ea80ac96df28baf24fcf1cef"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gke/linux-signed-gke_5.15.0-1060.66.dsc": {
+              "size": 1922,
+              "md5": "0efa18ac4bc1933a63526892623e4d1e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle_5.15.0-1061.67.diff.gz": {
+              "size": 10290891,
+              "md5": "7f93864884fdd365b62b870d09d92cd9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg_5.15.0-1058.64.dsc": {
+              "size": 5152,
+              "md5": "d137a54ec46a5e4c4579ecf10d1fd08d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke_5.15.0-1060.66.dsc": {
+              "size": 4306,
+              "md5": "a6349d84bde3a1b83cdda1d739d02c57"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-meta-gke_5.15.0.1060.59.dsc": {
+              "size": 2290,
+              "md5": "09d27824cc22fbc5a44f1381f36f94c4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-ibm/linux-signed-ibm_5.15.0-1056.59.dsc": {
+              "size": 1900,
+              "md5": "9b59cb5ca5ff5101190c4aa206bbd573"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-ibm/linux-meta-ibm_5.15.0.1056.52.dsc": {
+              "size": 1944,
+              "md5": "9f29cc373dedccc5aedb709676e1186d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-meta-oracle_5.15.0.1061.57.tar.xz": {
+              "size": 8584,
+              "md5": "bda8440d0c54a1a479c678237b58ebed"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle_5.15.0-1061.67.dsc": {
+              "size": 4323,
+              "md5": "4db0b3327923a990ef841cac579b8db3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg_5.15.0.orig.tar.gz": {
+              "size": 194969557,
+              "md5": "cd30827a862b74fe1e5174e6aee8e534"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-ibm/linux-meta-ibm_5.15.0.1056.52.tar.xz": {
+              "size": 6476,
+              "md5": "01fc4cd72cd2cf57fcdfafcf9d692e68"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg_5.15.0-1058.64.diff.gz": {
+              "size": 11017980,
+              "md5": "471eb8873052a8336a93719db4b37530"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-ibm_5.15.0.orig.tar.gz": {
+              "size": 194969557,
+              "md5": "cd30827a862b74fe1e5174e6aee8e534"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-meta-gke_5.15.0.1060.59.tar.xz": {
+              "size": 6364,
+              "md5": "13246833fdac90b98a3aa61f26f01842"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-meta-intel-iotg_5.15.0.1058.58.tar.xz": {
+              "size": 14116,
+              "md5": "d072497d88c1e3c3ef60a7ffabdf35ec"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-meta-intel-iotg_5.15.0.1058.58.dsc": {
+              "size": 2067,
+              "md5": "c5bd24ff066d57ec61273647b834e543"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gke/linux-signed-gke_5.15.0-1060.66.tar.xz": {
+              "size": 13484,
+              "md5": "49e11601e894b6b0388962f1e381d3d4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke_5.15.0.orig.tar.gz": {
+              "size": 194969557,
+              "md5": "cd30827a862b74fe1e5174e6aee8e534"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-ibm/linux-signed-ibm_5.15.0-1056.59.tar.xz": {
+              "size": 13440,
+              "md5": "388e59f3dafeea39a049d040df9b6538"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle_5.15.0.orig.tar.gz": {
+              "size": 194969557,
+              "md5": "cd30827a862b74fe1e5174e6aee8e534"
+            }
+          }
+        },
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-ibm-cloud-tools-common_5.15.0-1056.59_all.deb": {
+              "size": 97746,
+              "md5": "66402d4570c6b09f3392c10b92e6a5cb"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-ibm-headers-5.15.0-1056_5.15.0-1056.59_all.deb": {
+              "size": 12346154,
+              "md5": "38c1a1d7d1769e05cf8b5ef06bcc86d6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle-headers-5.15.0-1061_5.15.0-1061.67_all.deb": {
+              "size": 12347040,
+              "md5": "367593250bad77bbd3cf9249048206c3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-ibm-source-5.15.0_5.15.0-1056.59_all.deb": {
+              "size": 98012,
+              "md5": "341fd695a4343c919a582421c4b1c279"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-ibm-tools-common_5.15.0-1056.59_all.deb": {
+              "size": 97776,
+              "md5": "f72e2b0a79872dbef49954ed49a8bdbc"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-tools-host_5.15.0-1058.64_all.deb": {
+              "size": 92358,
+              "md5": "577b066ebc4cae7e077c2ef506e7bcdf"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-headers-5.15.0-1058_5.15.0-1058.64_all.deb": {
+              "size": 12337362,
+              "md5": "b70e9ec604c742a620cc876110196239"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-cloud-tools-common_5.15.0-1058.64_all.deb": {
+              "size": 80214,
+              "md5": "c4c6485c56cf6a56a3276cf18ffd1e4e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-tools-common_5.15.0-1058.64_all.deb": {
+              "size": 289158,
+              "md5": "65006bd8b5623abe5224cdf65548301b"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-headers-oracle-lts-22.04_5.15.0.1061.57_amd64.deb": {
+              "size": 2422,
+              "md5": "b8349cd2255d156c2d1aafe0cd859bff"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-modules-5.15.0-1056-ibm_5.15.0-1056.59_amd64.deb": {
+              "size": 22296676,
+              "md5": "19707f844115da3ad7d66e06b4b5d6e6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-modules-5.15.0-1060-gke_5.15.0-1060.66_amd64.deb": {
+              "size": 21759924,
+              "md5": "ea6361db4f2e44e0068c82f4006b2acf"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-modules-iwlwifi-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
+              "size": 1293150,
+              "md5": "651b853a6051fe78d7a44aa1acffcae4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-modules-extra-5.15.0-1056-ibm_5.15.0-1056.59_amd64.deb": {
+              "size": 64263034,
+              "md5": "e159f1ffa2c440640f58d42f18fc72fc"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-image-gke-5.15_5.15.0.1060.59_amd64.deb": {
+              "size": 2450,
+              "md5": "de6e5f7eec2119abd4d8a61bc3e85eb1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-cloud-tools-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
+              "size": 1700,
+              "md5": "928c28d6336321b9da899bdcd8e5573e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-modules-extra-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
+              "size": 64295124,
+              "md5": "65fb7896243535725bc76df0710a0e7f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-image-unsigned-5.15.0-1061-oracle_5.15.0-1061.67_amd64.deb": {
+              "size": 11806912,
+              "md5": "f880cdd3eb537295393225ffc6a53c08"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-cloud-tools-5.15.0-1058_5.15.0-1058.64_amd64.deb": {
+              "size": 93668,
+              "md5": "af65be0b983503a8942df035cdbdf662"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-image-unsigned-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
+              "size": 11796672,
+              "md5": "56eb84c114489dc1c4520f91287d71d1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-ibm/linux-headers-ibm_5.15.0.1056.52_amd64.deb": {
+              "size": 2376,
+              "md5": "4ad4039bf8cb8b5b80fb6c78217a4099"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-headers-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
+              "size": 2877634,
+              "md5": "3b8caddba3aa0643343008de94fa5545"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-image-unsigned-5.15.0-1056-ibm_5.15.0-1056.59_amd64.deb": {
+              "size": 11817152,
+              "md5": "a1050e39b647adbb61eb37035c30c65f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-intel-iotg_5.15.0.1058.58_amd64.deb": {
+              "size": 1704,
+              "md5": "eea4dbb8025c6bfd2cbfc86bb467e91b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-gke-5.15_5.15.0.1060.59_amd64.deb": {
+              "size": 1658,
+              "md5": "d7205b2ee9b83bbf3d0e647869ceb3ce"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke-tools-5.15.0-1060_5.15.0-1060.66_amd64.deb": {
+              "size": 7544828,
+              "md5": "07e6fb75c686de578782842b338a5f9d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-tools-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
+              "size": 1820,
+              "md5": "0e2d7c2862ca4ea6470d5069ca3406e3"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-image-gke_5.15.0.1060.59_amd64.deb": {
+              "size": 2436,
+              "md5": "d7ba441bb316afaf916a4f3bbc22ea11"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-headers-gke_5.15.0.1060.59_amd64.deb": {
+              "size": 2382,
+              "md5": "f68d96659f0a8131265718fbce05a0fa"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-tools-gke_5.15.0.1060.59_amd64.deb": {
+              "size": 2382,
+              "md5": "898eb55aeef4481275be54cdef78a6c0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-headers-5.15.0-1056-ibm_5.15.0-1056.59_amd64.deb": {
+              "size": 2863712,
+              "md5": "e72299b773288dce1ce902f2848099d8"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-gke_5.15.0.1060.59_amd64.deb": {
+              "size": 1702,
+              "md5": "fd8f451c5365b2a7da5848d5b8abbff1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-buildinfo-5.15.0-1056-ibm_5.15.0-1056.59_amd64.deb": {
+              "size": 536936,
+              "md5": "a2fcd61ea27b15729e4415f2cd80eed6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-ibm/linux-tools-ibm_5.15.0.1056.52_amd64.deb": {
+              "size": 2376,
+              "md5": "f3a331599cb5bc5e5d43dccc0ca9940b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-modules-extra-5.15.0-1061-oracle_5.15.0-1061.67_amd64.deb": {
+              "size": 64151190,
+              "md5": "9eb089ff707145816c03e46d34a2f36a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-headers-5.15.0-1061-oracle_5.15.0-1061.67_amd64.deb": {
+              "size": 2879112,
+              "md5": "c0484d14e3b1cb2dd1b98cb67cbd5c11"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-headers-intel-iotg_5.15.0.1058.58_amd64.deb": {
+              "size": 2342,
+              "md5": "8abe56901c7d05410701a81b11c43af5"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-oracle-lts-22.04_5.15.0.1061.57_amd64.deb": {
+              "size": 1722,
+              "md5": "e3dc641360fc2ee45c7190652e680714"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-tools-gke-5.15_5.15.0.1060.59_amd64.deb": {
+              "size": 2400,
+              "md5": "6904904f41e45f921646197fdd6bcc2e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-image-oracle-lts-22.04_5.15.0.1061.57_amd64.deb": {
+              "size": 2524,
+              "md5": "b094ba88d8959a870cd0a5b3c952e32f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-headers-5.15.0-1060-gke_5.15.0-1060.66_amd64.deb": {
+              "size": 2855652,
+              "md5": "11d0e023d96089dd66557a16b1739446"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-image-intel-iotg_5.15.0.1058.58_amd64.deb": {
+              "size": 2456,
+              "md5": "8090a359069a060afc2cd18ded81c324"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gke/linux-image-5.15.0-1060-gke_5.15.0-1060.66_amd64.deb": {
+              "size": 11657870,
+              "md5": "0b9cab47c5209506490d8d1badeff998"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-headers-gke-5.15_5.15.0.1060.59_amd64.deb": {
+              "size": 2386,
+              "md5": "0fa8f0a7547a75d1f9502aad48d95daa"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-buildinfo-5.15.0-1061-oracle_5.15.0-1061.67_amd64.deb": {
+              "size": 536658,
+              "md5": "f5ba6fc925129d872cb39f07c9fd699b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-ibm/linux-image-5.15.0-1056-ibm_5.15.0-1056.59_amd64.deb": {
+              "size": 11523508,
+              "md5": "213dd061d98b9f0c605b6d43406ecc0c"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oracle/linux-image-5.15.0-1061-oracle_5.15.0-1061.67_amd64.deb": {
+              "size": 11512536,
+              "md5": "74b9b906c5f42bf1a090699b09f5a48d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-ibm/linux-image-ibm_5.15.0.1056.52_amd64.deb": {
+              "size": 2454,
+              "md5": "d9fe8c00e65c50f84133cd66862180ed"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-modules-extra-5.15.0-1060-gke_5.15.0-1060.66_amd64.deb": {
+              "size": 64585730,
+              "md5": "d1c7bdf586e34d9082c70066fb9020f2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-modules-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
+              "size": 22400494,
+              "md5": "f27ce4d73477b88da52f553b8bbe1098"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-tools-5.15.0-1056-ibm_5.15.0-1056.59_amd64.deb": {
+              "size": 1800,
+              "md5": "a954e5d253d1ad1f5b2bd05e95c2f6c2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-intel-iotg/linux-image-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
+              "size": 11537350,
+              "md5": "b797844ef0f3fdba88c2106c7fae8d06"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-buildinfo-5.15.0-1060-gke_5.15.0-1060.66_amd64.deb": {
+              "size": 537598,
+              "md5": "1857e8e6fbd39f5db02ef0bab663c47a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-tools-5.15.0-1061-oracle_5.15.0-1061.67_amd64.deb": {
+              "size": 1818,
+              "md5": "d537170048aea491b7ed1e7c61773a96"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-tools-5.15.0-1060-gke_5.15.0-1060.66_amd64.deb": {
+              "size": 1762,
+              "md5": "1566d0a6e26b9f4d29f50b8c8e389212"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-tools-intel-iotg_5.15.0.1058.58_amd64.deb": {
+              "size": 2342,
+              "md5": "5bcb177d3e033ad3a4d6cddeaf047a2a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle-tools-5.15.0-1061_5.15.0-1061.67_amd64.deb": {
+              "size": 7957480,
+              "md5": "316c7827a88555d6da537cc37f4b4efa"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke-headers-5.15.0-1060_5.15.0-1060.66_amd64.deb": {
+              "size": 12347740,
+              "md5": "a7056e26945650c64f4220ed067ddf93"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-buildinfo-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
+              "size": 513876,
+              "md5": "3530996d708ab503740696fcdb4c21bd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-image-unsigned-5.15.0-1060-gke_5.15.0-1060.66_amd64.deb": {
+              "size": 11960512,
+              "md5": "6a64119199d1a819559765f1dac6e8b4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-tools-5.15.0-1058_5.15.0-1058.64_amd64.deb": {
+              "size": 7944846,
+              "md5": "056aabd7872d6de5560f1b9a8e51e8d2"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-ibm/linux-ibm_5.15.0.1056.52_amd64.deb": {
+              "size": 1706,
+              "md5": "d1029096db95986fb76eb47f0ad31e8b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-modules-5.15.0-1061-oracle_5.15.0-1061.67_amd64.deb": {
+              "size": 22312932,
+              "md5": "bd4448d798924dc61e606434ea02f6b5"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-ibm-tools-5.15.0-1056_5.15.0-1056.59_amd64.deb": {
+              "size": 7956992,
+              "md5": "82076f43b960ade7a0f5b6bb770b749e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-tools-oracle-lts-22.04_5.15.0.1061.57_amd64.deb": {
+              "size": 2434,
+              "md5": "560191165b304a374538774354706f2c"
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-oracle-tools-5.15.0-1061_5.15.0-1061.67_arm64.deb": {
+              "size": 6862636,
+              "md5": "09d6b74d865feaca9bfa8c1d34feed89"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-gke_5.15.0.1060.59_arm64.deb": {
+              "size": 1702,
+              "md5": "d3139e31692b54896fe3f611e93a9865"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-gke-5.15_5.15.0.1060.59_arm64.deb": {
+              "size": 1658,
+              "md5": "9e19baf2badc3920ee940333390d80cf"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-oracle-lts-22.04_5.15.0.1061.57_arm64.deb": {
+              "size": 1722,
+              "md5": "f1dbd8f686e110fcbc5b999708fbcb93"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-tools-5.15.0-1061-oracle_5.15.0-1061.67_arm64.deb": {
+              "size": 1706,
+              "md5": "b747e258e304897906550699b86dd931"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-buildinfo-5.15.0-1061-oracle_5.15.0-1061.67_arm64.deb": {
+              "size": 548016,
+              "md5": "df49b03d9b393a75d30f0456e37c8ab2"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-image-gke-5.15_5.15.0.1060.59_arm64.deb": {
+              "size": 2438,
+              "md5": "39e4829bb1ffcbf01c2668ab8bab596c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-gke/linux-image-5.15.0-1060-gke_5.15.0-1060.66_arm64.deb": {
+              "size": 15128320,
+              "md5": "78e9f4fca7d09a5de6359f1696745df7"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-headers-gke-5.15_5.15.0.1060.59_arm64.deb": {
+              "size": 2386,
+              "md5": "29844903339818b2a6858c12f1a0703f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-modules-extra-5.15.0-1061-oracle_5.15.0-1061.67_arm64.deb": {
+              "size": 67296106,
+              "md5": "6fb010eca221b35f1a327d10bfb2c99f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-modules-5.15.0-1061-oracle_5.15.0-1061.67_arm64.deb": {
+              "size": 21201204,
+              "md5": "d917de45e540ba3909784d2711b9d543"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-buildinfo-5.15.0-1060-gke_5.15.0-1060.66_arm64.deb": {
+              "size": 548632,
+              "md5": "2bf9d31cd4afdc45d759d9e1f5347f05"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-image-unsigned-5.15.0-1061-oracle_5.15.0-1061.67_arm64.deb": {
+              "size": 15308992,
+              "md5": "1abb9f4c789a7cf7b0fef8f660e5b747"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-modules-5.15.0-1060-gke_5.15.0-1060.66_arm64.deb": {
+              "size": 20732026,
+              "md5": "676d9b3fa6293cec1d48c728a5fbdc78"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-headers-5.15.0-1060-gke_5.15.0-1060.66_arm64.deb": {
+              "size": 2597966,
+              "md5": "0db2ff63b4f95420e318cfe00a972458"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-image-unsigned-5.15.0-1060-gke_5.15.0-1060.66_arm64.deb": {
+              "size": 15503552,
+              "md5": "0d7e7534edee158c05de9b230c8eccfa"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-oracle/linux-image-5.15.0-1061-oracle_5.15.0-1061.67_arm64.deb": {
+              "size": 14949472,
+              "md5": "823ff5d9fc59401729a2b2d6fba3e260"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-tools-gke-5.15_5.15.0.1060.59_arm64.deb": {
+              "size": 2400,
+              "md5": "00a65b7757fe9d6ecf5236eda1034897"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-image-oracle-lts-22.04_5.15.0.1061.57_arm64.deb": {
+              "size": 2504,
+              "md5": "69ff6d8d0df61b7823f1bf3c795537c6"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-gke-headers-5.15.0-1060_5.15.0-1060.66_arm64.deb": {
+              "size": 12347740,
+              "md5": "77240359354c97bb9558e61824966459"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-tools-5.15.0-1060-gke_5.15.0-1060.66_arm64.deb": {
+              "size": 1704,
+              "md5": "e2b8ed25215aa8a7fef88754a842aa39"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-image-gke_5.15.0.1060.59_arm64.deb": {
+              "size": 2424,
+              "md5": "022b7766e1a66f695eca6679c51c6bc1"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-modules-extra-5.15.0-1060-gke_5.15.0-1060.66_arm64.deb": {
+              "size": 67710054,
+              "md5": "e6eccd1ac2facad44b01aee49f4f8f31"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-gke-tools-5.15.0-1060_5.15.0-1060.66_arm64.deb": {
+              "size": 6862890,
+              "md5": "1685b61446766cef5814a084c6f2bf6e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-headers-oracle-lts-22.04_5.15.0.1061.57_arm64.deb": {
+              "size": 2422,
+              "md5": "6d7acc14f7d6cbd64659ee6ba3ec3bf5"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-tools-oracle-lts-22.04_5.15.0.1061.57_arm64.deb": {
+              "size": 2434,
+              "md5": "c00d4666c25fece9b2fee579b3c88fea"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-headers-gke_5.15.0.1060.59_arm64.deb": {
+              "size": 2382,
+              "md5": "84b8ae58751dd14e691507cb6eb15c60"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-tools-gke_5.15.0.1060.59_arm64.deb": {
+              "size": 2382,
+              "md5": "ab94351ec7e98f73b8414d0da7fd4375"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-headers-5.15.0-1061-oracle_5.15.0-1061.67_arm64.deb": {
+              "size": 2585366,
+              "md5": "c97234277d405b5f2ab59f63c62cfe43"
+            }
+          }
+        }
+      },
+      "sources": {
+        "linux-ibm": {
+          "version": "5.15.0-1056.59",
+          "description": "Linux kernel for IBM cloud systems"
+        },
+        "linux-oracle": {
+          "version": "5.15.0-1061.67",
+          "description": "Linux kernel for Oracle Cloud systems"
+        },
+        "linux-intel-iotg": {
+          "version": "5.15.0-1058.64",
+          "description": "Linux kernel for Intel IoT platforms"
+        },
+        "linux-gke": {
+          "version": "5.15.0-1060.66",
+          "description": "Linux kernel for Google Container Engine (GKE) systems"
+        }
+      }
+    }
+  },
+  "title": "Linux kernel vulnerabilities",
+  "timestamp": 1717800706.774605,
+  "summary": "linux-gke, linux-ibm, linux-intel-iotg, linux-oracle vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
   "cves": [
     "CVE-2023-52434",
@@ -153,903 +1050,6 @@
     "CVE-2024-35844",
     "CVE-2024-35845"
   ],
-  "description": "It was discovered that the ATA over Ethernet (AoE) driver in the Linux\nkernel contained a race condition, leading to a use-after-free\nvulnerability. An attacker could use this to cause a denial of service or\npossibly execute arbitrary code. (CVE-2023-6270)\n\nIt was discovered that the Atheros 802.11ac wireless driver did not\nproperly validate certain data structures, leading to a NULL pointer\ndereference. An attacker could possibly use this to cause a denial of\nservice. (CVE-2023-7042)\n\nIt was discovered that the HugeTLB file system component of the Linux\nKernel contained a NULL pointer dereference vulnerability. A privileged\nattacker could possibly use this to to cause a denial of service.\n(CVE-2024-0841)\n\nYuxuan Hu discovered that the Bluetooth RFCOMM protocol driver in the Linux\nKernel contained a race condition, leading to a NULL pointer dereference.\nAn attacker could possibly use this to cause a denial of service (system\ncrash). (CVE-2024-22099)\n\nIt was discovered that the MediaTek SoC Gigabit Ethernet driver in the\nLinux kernel contained a race condition when stopping the device. A local\nattacker could possibly use this to cause a denial of service (device\nunavailability). (CVE-2024-27432)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM32 architecture;\n  - RISC-V architecture;\n  - x86 architecture;\n  - ACPI drivers;\n  - Block layer subsystem;\n  - Clock framework and drivers;\n  - CPU frequency scaling framework;\n  - Cryptographic API;\n  - DMA engine subsystem;\n  - EFI core;\n  - GPU drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - Multiple devices driver;\n  - Media drivers;\n  - MMC subsystem;\n  - Network drivers;\n  - NTB driver;\n  - NVME drivers;\n  - PCI subsystem;\n  - MediaTek PM domains;\n  - Power supply drivers;\n  - SPI subsystem;\n  - Media staging drivers;\n  - TCM subsystem;\n  - USB subsystem;\n  - Framebuffer layer;\n  - AFS file system;\n  - File systems infrastructure;\n  - BTRFS file system;\n  - EROFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - Network file system client;\n  - NTFS3 file system;\n  - Diskquota system;\n  - SMB network file system;\n  - BPF subsystem;\n  - Netfilter;\n  - TLS protocol;\n  - io_uring subsystem;\n  - Bluetooth subsystem;\n  - Memory management;\n  - Ethernet bridge;\n  - Networking core;\n  - HSR network protocol;\n  - IPv4 networking;\n  - IPv6 networking;\n  - L2TP protocol;\n  - MAC80211 subsystem;\n  - Multipath TCP;\n  - Netlink;\n  - NET/ROM layer;\n  - Packet sockets;\n  - RDS protocol;\n  - Sun RPC protocol;\n  - Unix domain sockets;\n  - Wireless networking;\n  - USB sound devices;\n(CVE-2024-26877, CVE-2024-35829, CVE-2024-26737, CVE-2024-27075,\nCVE-2024-27414, CVE-2024-27053, CVE-2024-26889, CVE-2024-26792,\nCVE-2024-26882, CVE-2024-26906, CVE-2024-26851, CVE-2024-27037,\nCVE-2024-26782, CVE-2024-27388, CVE-2024-26748, CVE-2024-27419,\nCVE-2024-27034, CVE-2023-52662, CVE-2024-27047, CVE-2024-26874,\nCVE-2024-26779, CVE-2024-26872, CVE-2024-26820, CVE-2024-35811,\nCVE-2024-26771, CVE-2024-26733, CVE-2024-26903, CVE-2024-26736,\nCVE-2024-26870, CVE-2024-26883, CVE-2024-27403, CVE-2024-26878,\nCVE-2024-26857, CVE-2023-52645, CVE-2024-26601, CVE-2024-26891,\nCVE-2024-27028, CVE-2024-27054, CVE-2024-26804, CVE-2024-27405,\nCVE-2024-35830, CVE-2024-26898, CVE-2024-26754, CVE-2024-26793,\nCVE-2024-26747, CVE-2024-26901, CVE-2023-52652, CVE-2023-52650,\nCVE-2024-26651, CVE-2024-26816, CVE-2024-35845, CVE-2024-26862,\nCVE-2024-26884, CVE-2024-26752, CVE-2024-26852, CVE-2023-52656,\nCVE-2024-26790, CVE-2024-26603, CVE-2024-27078, CVE-2024-26802,\nCVE-2024-27045, CVE-2024-27024, CVE-2024-27073, CVE-2024-26585,\nCVE-2024-26894, CVE-2024-26583, CVE-2024-27416, CVE-2024-27431,\nCVE-2024-35844, CVE-2024-26838, CVE-2024-27410, CVE-2024-26915,\nCVE-2024-26772, CVE-2024-26897, CVE-2024-26798, CVE-2024-27415,\nCVE-2024-26855, CVE-2024-26833, CVE-2024-26764, CVE-2024-26659,\nCVE-2024-26846, CVE-2024-26895, CVE-2023-52644, CVE-2024-26751,\nCVE-2024-26880, CVE-2024-26863, CVE-2024-26809, CVE-2024-27052,\nCVE-2024-27051, CVE-2024-26907, CVE-2024-27413, CVE-2024-26801,\nCVE-2023-52620, CVE-2024-26749, CVE-2024-26787, CVE-2024-27046,\nCVE-2024-26803, CVE-2024-26744, CVE-2024-26879, CVE-2024-27432,\nCVE-2024-27412, CVE-2024-26791, CVE-2024-26773, CVE-2023-52640,\nCVE-2024-26778, CVE-2024-26859, CVE-2024-27044, CVE-2024-26788,\nCVE-2024-27077, CVE-2024-26750, CVE-2024-26861, CVE-2023-52434,\nCVE-2024-26774, CVE-2024-26795, CVE-2024-26856, CVE-2024-27043,\nCVE-2024-27039, CVE-2024-26777, CVE-2024-27030, CVE-2024-26584,\nCVE-2024-26735, CVE-2024-26805, CVE-2024-26766, CVE-2024-26763,\nCVE-2024-27065, CVE-2023-52641, CVE-2024-27417, CVE-2023-52497,\nCVE-2023-52447, CVE-2024-26769, CVE-2024-26843, CVE-2024-26881,\nCVE-2024-26688, CVE-2024-26743, CVE-2024-27038, CVE-2024-27390,\nCVE-2024-27436, CVE-2024-26839, CVE-2024-27074, CVE-2024-26840,\nCVE-2024-27076, CVE-2024-26835, CVE-2024-26885, CVE-2024-26776,\nCVE-2024-26845, CVE-2024-26875, CVE-2024-35828)\n",
   "id": "USN-6821-1",
-  "isummary": "Several security issues were fixed in the Linux kernel.\n",
-  "releases": {
-    "jammy": {
-      "allbinaries": {
-        "linux-buildinfo-5.15.0-1056-ibm": {
-          "pocket": "security",
-          "source": "linux-ibm",
-          "version": "5.15.0-1056.59"
-        },
-        "linux-buildinfo-5.15.0-1058-intel-iotg": {
-          "pocket": "security",
-          "source": "linux-intel-iotg",
-          "version": "5.15.0-1058.64"
-        },
-        "linux-buildinfo-5.15.0-1060-gke": {
-          "pocket": "security",
-          "source": "linux-gke",
-          "version": "5.15.0-1060.66"
-        },
-        "linux-buildinfo-5.15.0-1061-oracle": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "5.15.0-1061.67"
-        },
-        "linux-cloud-tools-5.15.0-1058-intel-iotg": {
-          "pocket": "security",
-          "source": "linux-intel-iotg",
-          "version": "5.15.0-1058.64"
-        },
-        "linux-gke": {
-          "pocket": "security",
-          "source": "linux-meta-gke",
-          "version": "5.15.0.1060.59"
-        },
-        "linux-gke-5.15": {
-          "pocket": "security",
-          "source": "linux-meta-gke",
-          "version": "5.15.0.1060.59"
-        },
-        "linux-gke-headers-5.15.0-1060": {
-          "pocket": "security",
-          "source": "linux-gke",
-          "version": "5.15.0-1060.66"
-        },
-        "linux-gke-tools-5.15.0-1060": {
-          "pocket": "security",
-          "source": "linux-gke",
-          "version": "5.15.0-1060.66"
-        },
-        "linux-headers-5.15.0-1056-ibm": {
-          "pocket": "security",
-          "source": "linux-ibm",
-          "version": "5.15.0-1056.59"
-        },
-        "linux-headers-5.15.0-1058-intel-iotg": {
-          "pocket": "security",
-          "source": "linux-intel-iotg",
-          "version": "5.15.0-1058.64"
-        },
-        "linux-headers-5.15.0-1060-gke": {
-          "pocket": "security",
-          "source": "linux-gke",
-          "version": "5.15.0-1060.66"
-        },
-        "linux-headers-5.15.0-1061-oracle": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "5.15.0-1061.67"
-        },
-        "linux-headers-gke": {
-          "pocket": "security",
-          "source": "linux-meta-gke",
-          "version": "5.15.0.1060.59"
-        },
-        "linux-headers-gke-5.15": {
-          "pocket": "security",
-          "source": "linux-meta-gke",
-          "version": "5.15.0.1060.59"
-        },
-        "linux-headers-ibm": {
-          "pocket": "security",
-          "source": "linux-meta-ibm",
-          "version": "5.15.0.1056.52"
-        },
-        "linux-headers-intel-iotg": {
-          "pocket": "security",
-          "source": "linux-meta-intel-iotg",
-          "version": "5.15.0.1058.58"
-        },
-        "linux-headers-oracle-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-oracle",
-          "version": "5.15.0.1061.57"
-        },
-        "linux-ibm": {
-          "pocket": "security",
-          "source": "linux-meta-ibm",
-          "version": "5.15.0.1056.52"
-        },
-        "linux-ibm-cloud-tools-common": {
-          "pocket": "security",
-          "source": "linux-ibm",
-          "version": "5.15.0-1056.59"
-        },
-        "linux-ibm-headers-5.15.0-1056": {
-          "pocket": "security",
-          "source": "linux-ibm",
-          "version": "5.15.0-1056.59"
-        },
-        "linux-ibm-source-5.15.0": {
-          "pocket": "security",
-          "source": "linux-ibm",
-          "version": "5.15.0-1056.59"
-        },
-        "linux-ibm-tools-5.15.0-1056": {
-          "pocket": "security",
-          "source": "linux-ibm",
-          "version": "5.15.0-1056.59"
-        },
-        "linux-ibm-tools-common": {
-          "pocket": "security",
-          "source": "linux-ibm",
-          "version": "5.15.0-1056.59"
-        },
-        "linux-image-5.15.0-1056-ibm": {
-          "pocket": "security",
-          "source": "linux-signed-ibm",
-          "version": "5.15.0-1056.59"
-        },
-        "linux-image-5.15.0-1058-intel-iotg": {
-          "pocket": "security",
-          "source": "linux-signed-intel-iotg",
-          "version": "5.15.0-1058.64"
-        },
-        "linux-image-5.15.0-1060-gke": {
-          "pocket": "security",
-          "source": "linux-signed-gke",
-          "version": "5.15.0-1060.66"
-        },
-        "linux-image-5.15.0-1061-oracle": {
-          "pocket": "security",
-          "source": "linux-signed-oracle",
-          "version": "5.15.0-1061.67"
-        },
-        "linux-image-gke": {
-          "pocket": "security",
-          "source": "linux-meta-gke",
-          "version": "5.15.0.1060.59"
-        },
-        "linux-image-gke-5.15": {
-          "pocket": "security",
-          "source": "linux-meta-gke",
-          "version": "5.15.0.1060.59"
-        },
-        "linux-image-ibm": {
-          "pocket": "security",
-          "source": "linux-meta-ibm",
-          "version": "5.15.0.1056.52"
-        },
-        "linux-image-intel-iotg": {
-          "pocket": "security",
-          "source": "linux-meta-intel-iotg",
-          "version": "5.15.0.1058.58"
-        },
-        "linux-image-oracle-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-oracle",
-          "version": "5.15.0.1061.57"
-        },
-        "linux-image-unsigned-5.15.0-1056-ibm": {
-          "pocket": "security",
-          "source": "linux-ibm",
-          "version": "5.15.0-1056.59"
-        },
-        "linux-image-unsigned-5.15.0-1058-intel-iotg": {
-          "pocket": "security",
-          "source": "linux-intel-iotg",
-          "version": "5.15.0-1058.64"
-        },
-        "linux-image-unsigned-5.15.0-1060-gke": {
-          "pocket": "security",
-          "source": "linux-gke",
-          "version": "5.15.0-1060.66"
-        },
-        "linux-image-unsigned-5.15.0-1061-oracle": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "5.15.0-1061.67"
-        },
-        "linux-intel-iotg": {
-          "pocket": "security",
-          "source": "linux-meta-intel-iotg",
-          "version": "5.15.0.1058.58"
-        },
-        "linux-intel-iotg-cloud-tools-5.15.0-1058": {
-          "pocket": "security",
-          "source": "linux-intel-iotg",
-          "version": "5.15.0-1058.64"
-        },
-        "linux-intel-iotg-cloud-tools-common": {
-          "pocket": "security",
-          "source": "linux-intel-iotg",
-          "version": "5.15.0-1058.64"
-        },
-        "linux-intel-iotg-headers-5.15.0-1058": {
-          "pocket": "security",
-          "source": "linux-intel-iotg",
-          "version": "5.15.0-1058.64"
-        },
-        "linux-intel-iotg-tools-5.15.0-1058": {
-          "pocket": "security",
-          "source": "linux-intel-iotg",
-          "version": "5.15.0-1058.64"
-        },
-        "linux-intel-iotg-tools-common": {
-          "pocket": "security",
-          "source": "linux-intel-iotg",
-          "version": "5.15.0-1058.64"
-        },
-        "linux-intel-iotg-tools-host": {
-          "pocket": "security",
-          "source": "linux-intel-iotg",
-          "version": "5.15.0-1058.64"
-        },
-        "linux-modules-5.15.0-1056-ibm": {
-          "pocket": "security",
-          "source": "linux-ibm",
-          "version": "5.15.0-1056.59"
-        },
-        "linux-modules-5.15.0-1058-intel-iotg": {
-          "pocket": "security",
-          "source": "linux-intel-iotg",
-          "version": "5.15.0-1058.64"
-        },
-        "linux-modules-5.15.0-1060-gke": {
-          "pocket": "security",
-          "source": "linux-gke",
-          "version": "5.15.0-1060.66"
-        },
-        "linux-modules-5.15.0-1061-oracle": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "5.15.0-1061.67"
-        },
-        "linux-modules-extra-5.15.0-1056-ibm": {
-          "pocket": "security",
-          "source": "linux-ibm",
-          "version": "5.15.0-1056.59"
-        },
-        "linux-modules-extra-5.15.0-1058-intel-iotg": {
-          "pocket": "security",
-          "source": "linux-intel-iotg",
-          "version": "5.15.0-1058.64"
-        },
-        "linux-modules-extra-5.15.0-1060-gke": {
-          "pocket": "security",
-          "source": "linux-gke",
-          "version": "5.15.0-1060.66"
-        },
-        "linux-modules-extra-5.15.0-1061-oracle": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "5.15.0-1061.67"
-        },
-        "linux-modules-iwlwifi-5.15.0-1058-intel-iotg": {
-          "pocket": "security",
-          "source": "linux-intel-iotg",
-          "version": "5.15.0-1058.64"
-        },
-        "linux-oracle-headers-5.15.0-1061": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "5.15.0-1061.67"
-        },
-        "linux-oracle-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-oracle",
-          "version": "5.15.0.1061.57"
-        },
-        "linux-oracle-tools-5.15.0-1061": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "5.15.0-1061.67"
-        },
-        "linux-tools-5.15.0-1056-ibm": {
-          "pocket": "security",
-          "source": "linux-ibm",
-          "version": "5.15.0-1056.59"
-        },
-        "linux-tools-5.15.0-1058-intel-iotg": {
-          "pocket": "security",
-          "source": "linux-intel-iotg",
-          "version": "5.15.0-1058.64"
-        },
-        "linux-tools-5.15.0-1060-gke": {
-          "pocket": "security",
-          "source": "linux-gke",
-          "version": "5.15.0-1060.66"
-        },
-        "linux-tools-5.15.0-1061-oracle": {
-          "pocket": "security",
-          "source": "linux-oracle",
-          "version": "5.15.0-1061.67"
-        },
-        "linux-tools-gke": {
-          "pocket": "security",
-          "source": "linux-meta-gke",
-          "version": "5.15.0.1060.59"
-        },
-        "linux-tools-gke-5.15": {
-          "pocket": "security",
-          "source": "linux-meta-gke",
-          "version": "5.15.0.1060.59"
-        },
-        "linux-tools-ibm": {
-          "pocket": "security",
-          "source": "linux-meta-ibm",
-          "version": "5.15.0.1056.52"
-        },
-        "linux-tools-intel-iotg": {
-          "pocket": "security",
-          "source": "linux-meta-intel-iotg",
-          "version": "5.15.0.1058.58"
-        },
-        "linux-tools-oracle-lts-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-oracle",
-          "version": "5.15.0.1061.57"
-        }
-      },
-      "archs": {
-        "all": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-ibm-cloud-tools-common_5.15.0-1056.59_all.deb": {
-              "md5": "66402d4570c6b09f3392c10b92e6a5cb",
-              "size": 97746
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-ibm-headers-5.15.0-1056_5.15.0-1056.59_all.deb": {
-              "md5": "38c1a1d7d1769e05cf8b5ef06bcc86d6",
-              "size": 12346154
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-ibm-source-5.15.0_5.15.0-1056.59_all.deb": {
-              "md5": "341fd695a4343c919a582421c4b1c279",
-              "size": 98012
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-ibm-tools-common_5.15.0-1056.59_all.deb": {
-              "md5": "f72e2b0a79872dbef49954ed49a8bdbc",
-              "size": 97776
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-cloud-tools-common_5.15.0-1058.64_all.deb": {
-              "md5": "c4c6485c56cf6a56a3276cf18ffd1e4e",
-              "size": 80214
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-headers-5.15.0-1058_5.15.0-1058.64_all.deb": {
-              "md5": "b70e9ec604c742a620cc876110196239",
-              "size": 12337362
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-tools-common_5.15.0-1058.64_all.deb": {
-              "md5": "65006bd8b5623abe5224cdf65548301b",
-              "size": 289158
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-tools-host_5.15.0-1058.64_all.deb": {
-              "md5": "577b066ebc4cae7e077c2ef506e7bcdf",
-              "size": 92358
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle-headers-5.15.0-1061_5.15.0-1061.67_all.deb": {
-              "md5": "367593250bad77bbd3cf9249048206c3",
-              "size": 12347040
-            }
-          }
-        },
-        "amd64": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-buildinfo-5.15.0-1060-gke_5.15.0-1060.66_amd64.deb": {
-              "md5": "1857e8e6fbd39f5db02ef0bab663c47a",
-              "size": 537598
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke-headers-5.15.0-1060_5.15.0-1060.66_amd64.deb": {
-              "md5": "a7056e26945650c64f4220ed067ddf93",
-              "size": 12347740
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke-tools-5.15.0-1060_5.15.0-1060.66_amd64.deb": {
-              "md5": "07e6fb75c686de578782842b338a5f9d",
-              "size": 7544828
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-headers-5.15.0-1060-gke_5.15.0-1060.66_amd64.deb": {
-              "md5": "11d0e023d96089dd66557a16b1739446",
-              "size": 2855652
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-image-unsigned-5.15.0-1060-gke_5.15.0-1060.66_amd64.deb": {
-              "md5": "6a64119199d1a819559765f1dac6e8b4",
-              "size": 11960512
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-modules-5.15.0-1060-gke_5.15.0-1060.66_amd64.deb": {
-              "md5": "ea6361db4f2e44e0068c82f4006b2acf",
-              "size": 21759924
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-modules-extra-5.15.0-1060-gke_5.15.0-1060.66_amd64.deb": {
-              "md5": "d1c7bdf586e34d9082c70066fb9020f2",
-              "size": 64585730
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-tools-5.15.0-1060-gke_5.15.0-1060.66_amd64.deb": {
-              "md5": "1566d0a6e26b9f4d29f50b8c8e389212",
-              "size": 1762
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-buildinfo-5.15.0-1056-ibm_5.15.0-1056.59_amd64.deb": {
-              "md5": "a2fcd61ea27b15729e4415f2cd80eed6",
-              "size": 536936
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-headers-5.15.0-1056-ibm_5.15.0-1056.59_amd64.deb": {
-              "md5": "e72299b773288dce1ce902f2848099d8",
-              "size": 2863712
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-ibm-tools-5.15.0-1056_5.15.0-1056.59_amd64.deb": {
-              "md5": "82076f43b960ade7a0f5b6bb770b749e",
-              "size": 7956992
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-image-unsigned-5.15.0-1056-ibm_5.15.0-1056.59_amd64.deb": {
-              "md5": "a1050e39b647adbb61eb37035c30c65f",
-              "size": 11817152
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-modules-5.15.0-1056-ibm_5.15.0-1056.59_amd64.deb": {
-              "md5": "19707f844115da3ad7d66e06b4b5d6e6",
-              "size": 22296676
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-modules-extra-5.15.0-1056-ibm_5.15.0-1056.59_amd64.deb": {
-              "md5": "e159f1ffa2c440640f58d42f18fc72fc",
-              "size": 64263034
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-tools-5.15.0-1056-ibm_5.15.0-1056.59_amd64.deb": {
-              "md5": "a954e5d253d1ad1f5b2bd05e95c2f6c2",
-              "size": 1800
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-buildinfo-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
-              "md5": "3530996d708ab503740696fcdb4c21bd",
-              "size": 513876
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-cloud-tools-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
-              "md5": "928c28d6336321b9da899bdcd8e5573e",
-              "size": 1700
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-headers-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
-              "md5": "3b8caddba3aa0643343008de94fa5545",
-              "size": 2877634
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-image-unsigned-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
-              "md5": "56eb84c114489dc1c4520f91287d71d1",
-              "size": 11796672
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-cloud-tools-5.15.0-1058_5.15.0-1058.64_amd64.deb": {
-              "md5": "af65be0b983503a8942df035cdbdf662",
-              "size": 93668
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg-tools-5.15.0-1058_5.15.0-1058.64_amd64.deb": {
-              "md5": "056aabd7872d6de5560f1b9a8e51e8d2",
-              "size": 7944846
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-modules-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
-              "md5": "f27ce4d73477b88da52f553b8bbe1098",
-              "size": 22400494
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-modules-extra-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
-              "md5": "65fb7896243535725bc76df0710a0e7f",
-              "size": 64295124
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-modules-iwlwifi-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
-              "md5": "651b853a6051fe78d7a44aa1acffcae4",
-              "size": 1293150
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-tools-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
-              "md5": "0e2d7c2862ca4ea6470d5069ca3406e3",
-              "size": 1820
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-gke-5.15_5.15.0.1060.59_amd64.deb": {
-              "md5": "d7205b2ee9b83bbf3d0e647869ceb3ce",
-              "size": 1658
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-gke_5.15.0.1060.59_amd64.deb": {
-              "md5": "fd8f451c5365b2a7da5848d5b8abbff1",
-              "size": 1702
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-headers-gke-5.15_5.15.0.1060.59_amd64.deb": {
-              "md5": "0fa8f0a7547a75d1f9502aad48d95daa",
-              "size": 2386
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-headers-gke_5.15.0.1060.59_amd64.deb": {
-              "md5": "f68d96659f0a8131265718fbce05a0fa",
-              "size": 2382
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-image-gke-5.15_5.15.0.1060.59_amd64.deb": {
-              "md5": "de6e5f7eec2119abd4d8a61bc3e85eb1",
-              "size": 2450
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-image-gke_5.15.0.1060.59_amd64.deb": {
-              "md5": "d7ba441bb316afaf916a4f3bbc22ea11",
-              "size": 2436
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-tools-gke-5.15_5.15.0.1060.59_amd64.deb": {
-              "md5": "6904904f41e45f921646197fdd6bcc2e",
-              "size": 2400
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-tools-gke_5.15.0.1060.59_amd64.deb": {
-              "md5": "898eb55aeef4481275be54cdef78a6c0",
-              "size": 2382
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-ibm/linux-headers-ibm_5.15.0.1056.52_amd64.deb": {
-              "md5": "4ad4039bf8cb8b5b80fb6c78217a4099",
-              "size": 2376
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-ibm/linux-ibm_5.15.0.1056.52_amd64.deb": {
-              "md5": "d1029096db95986fb76eb47f0ad31e8b",
-              "size": 1706
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-ibm/linux-image-ibm_5.15.0.1056.52_amd64.deb": {
-              "md5": "d9fe8c00e65c50f84133cd66862180ed",
-              "size": 2454
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-ibm/linux-tools-ibm_5.15.0.1056.52_amd64.deb": {
-              "md5": "f3a331599cb5bc5e5d43dccc0ca9940b",
-              "size": 2376
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-headers-intel-iotg_5.15.0.1058.58_amd64.deb": {
-              "md5": "8abe56901c7d05410701a81b11c43af5",
-              "size": 2342
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-image-intel-iotg_5.15.0.1058.58_amd64.deb": {
-              "md5": "8090a359069a060afc2cd18ded81c324",
-              "size": 2456
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-intel-iotg_5.15.0.1058.58_amd64.deb": {
-              "md5": "eea4dbb8025c6bfd2cbfc86bb467e91b",
-              "size": 1704
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-tools-intel-iotg_5.15.0.1058.58_amd64.deb": {
-              "md5": "5bcb177d3e033ad3a4d6cddeaf047a2a",
-              "size": 2342
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-headers-oracle-lts-22.04_5.15.0.1061.57_amd64.deb": {
-              "md5": "b8349cd2255d156c2d1aafe0cd859bff",
-              "size": 2422
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-image-oracle-lts-22.04_5.15.0.1061.57_amd64.deb": {
-              "md5": "b094ba88d8959a870cd0a5b3c952e32f",
-              "size": 2524
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-oracle-lts-22.04_5.15.0.1061.57_amd64.deb": {
-              "md5": "e3dc641360fc2ee45c7190652e680714",
-              "size": 1722
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-tools-oracle-lts-22.04_5.15.0.1061.57_amd64.deb": {
-              "md5": "560191165b304a374538774354706f2c",
-              "size": 2434
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-buildinfo-5.15.0-1061-oracle_5.15.0-1061.67_amd64.deb": {
-              "md5": "f5ba6fc925129d872cb39f07c9fd699b",
-              "size": 536658
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-headers-5.15.0-1061-oracle_5.15.0-1061.67_amd64.deb": {
-              "md5": "c0484d14e3b1cb2dd1b98cb67cbd5c11",
-              "size": 2879112
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-image-unsigned-5.15.0-1061-oracle_5.15.0-1061.67_amd64.deb": {
-              "md5": "f880cdd3eb537295393225ffc6a53c08",
-              "size": 11806912
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-modules-5.15.0-1061-oracle_5.15.0-1061.67_amd64.deb": {
-              "md5": "bd4448d798924dc61e606434ea02f6b5",
-              "size": 22312932
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-modules-extra-5.15.0-1061-oracle_5.15.0-1061.67_amd64.deb": {
-              "md5": "9eb089ff707145816c03e46d34a2f36a",
-              "size": 64151190
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle-tools-5.15.0-1061_5.15.0-1061.67_amd64.deb": {
-              "md5": "316c7827a88555d6da537cc37f4b4efa",
-              "size": 7957480
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-tools-5.15.0-1061-oracle_5.15.0-1061.67_amd64.deb": {
-              "md5": "d537170048aea491b7ed1e7c61773a96",
-              "size": 1818
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gke/linux-image-5.15.0-1060-gke_5.15.0-1060.66_amd64.deb": {
-              "md5": "0b9cab47c5209506490d8d1badeff998",
-              "size": 11657870
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-ibm/linux-image-5.15.0-1056-ibm_5.15.0-1056.59_amd64.deb": {
-              "md5": "213dd061d98b9f0c605b6d43406ecc0c",
-              "size": 11523508
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-intel-iotg/linux-image-5.15.0-1058-intel-iotg_5.15.0-1058.64_amd64.deb": {
-              "md5": "b797844ef0f3fdba88c2106c7fae8d06",
-              "size": 11537350
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oracle/linux-image-5.15.0-1061-oracle_5.15.0-1061.67_amd64.deb": {
-              "md5": "74b9b906c5f42bf1a090699b09f5a48d",
-              "size": 11512536
-            }
-          }
-        },
-        "arm64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-buildinfo-5.15.0-1060-gke_5.15.0-1060.66_arm64.deb": {
-              "md5": "2bf9d31cd4afdc45d759d9e1f5347f05",
-              "size": 548632
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-gke-headers-5.15.0-1060_5.15.0-1060.66_arm64.deb": {
-              "md5": "77240359354c97bb9558e61824966459",
-              "size": 12347740
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-gke-tools-5.15.0-1060_5.15.0-1060.66_arm64.deb": {
-              "md5": "1685b61446766cef5814a084c6f2bf6e",
-              "size": 6862890
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-headers-5.15.0-1060-gke_5.15.0-1060.66_arm64.deb": {
-              "md5": "0db2ff63b4f95420e318cfe00a972458",
-              "size": 2597966
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-image-unsigned-5.15.0-1060-gke_5.15.0-1060.66_arm64.deb": {
-              "md5": "0d7e7534edee158c05de9b230c8eccfa",
-              "size": 15503552
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-modules-5.15.0-1060-gke_5.15.0-1060.66_arm64.deb": {
-              "md5": "676d9b3fa6293cec1d48c728a5fbdc78",
-              "size": 20732026
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-modules-extra-5.15.0-1060-gke_5.15.0-1060.66_arm64.deb": {
-              "md5": "e6eccd1ac2facad44b01aee49f4f8f31",
-              "size": 67710054
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-gke/linux-tools-5.15.0-1060-gke_5.15.0-1060.66_arm64.deb": {
-              "md5": "e2b8ed25215aa8a7fef88754a842aa39",
-              "size": 1704
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-gke-5.15_5.15.0.1060.59_arm64.deb": {
-              "md5": "9e19baf2badc3920ee940333390d80cf",
-              "size": 1658
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-gke_5.15.0.1060.59_arm64.deb": {
-              "md5": "d3139e31692b54896fe3f611e93a9865",
-              "size": 1702
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-headers-gke-5.15_5.15.0.1060.59_arm64.deb": {
-              "md5": "29844903339818b2a6858c12f1a0703f",
-              "size": 2386
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-headers-gke_5.15.0.1060.59_arm64.deb": {
-              "md5": "84b8ae58751dd14e691507cb6eb15c60",
-              "size": 2382
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-image-gke-5.15_5.15.0.1060.59_arm64.deb": {
-              "md5": "39e4829bb1ffcbf01c2668ab8bab596c",
-              "size": 2438
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-image-gke_5.15.0.1060.59_arm64.deb": {
-              "md5": "022b7766e1a66f695eca6679c51c6bc1",
-              "size": 2424
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-tools-gke-5.15_5.15.0.1060.59_arm64.deb": {
-              "md5": "00a65b7757fe9d6ecf5236eda1034897",
-              "size": 2400
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-gke/linux-tools-gke_5.15.0.1060.59_arm64.deb": {
-              "md5": "ab94351ec7e98f73b8414d0da7fd4375",
-              "size": 2382
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-headers-oracle-lts-22.04_5.15.0.1061.57_arm64.deb": {
-              "md5": "6d7acc14f7d6cbd64659ee6ba3ec3bf5",
-              "size": 2422
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-image-oracle-lts-22.04_5.15.0.1061.57_arm64.deb": {
-              "md5": "69ff6d8d0df61b7823f1bf3c795537c6",
-              "size": 2504
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-oracle-lts-22.04_5.15.0.1061.57_arm64.deb": {
-              "md5": "f1dbd8f686e110fcbc5b999708fbcb93",
-              "size": 1722
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-oracle/linux-tools-oracle-lts-22.04_5.15.0.1061.57_arm64.deb": {
-              "md5": "c00d4666c25fece9b2fee579b3c88fea",
-              "size": 2434
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-buildinfo-5.15.0-1061-oracle_5.15.0-1061.67_arm64.deb": {
-              "md5": "df49b03d9b393a75d30f0456e37c8ab2",
-              "size": 548016
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-headers-5.15.0-1061-oracle_5.15.0-1061.67_arm64.deb": {
-              "md5": "c97234277d405b5f2ab59f63c62cfe43",
-              "size": 2585366
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-image-unsigned-5.15.0-1061-oracle_5.15.0-1061.67_arm64.deb": {
-              "md5": "1abb9f4c789a7cf7b0fef8f660e5b747",
-              "size": 15308992
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-modules-5.15.0-1061-oracle_5.15.0-1061.67_arm64.deb": {
-              "md5": "d917de45e540ba3909784d2711b9d543",
-              "size": 21201204
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-modules-extra-5.15.0-1061-oracle_5.15.0-1061.67_arm64.deb": {
-              "md5": "6fb010eca221b35f1a327d10bfb2c99f",
-              "size": 67296106
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-oracle-tools-5.15.0-1061_5.15.0-1061.67_arm64.deb": {
-              "md5": "09d6b74d865feaca9bfa8c1d34feed89",
-              "size": 6862636
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-oracle/linux-tools-5.15.0-1061-oracle_5.15.0-1061.67_arm64.deb": {
-              "md5": "b747e258e304897906550699b86dd931",
-              "size": 1706
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-gke/linux-image-5.15.0-1060-gke_5.15.0-1060.66_arm64.deb": {
-              "md5": "78e9f4fca7d09a5de6359f1696745df7",
-              "size": 15128320
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-oracle/linux-image-5.15.0-1061-oracle_5.15.0-1061.67_arm64.deb": {
-              "md5": "823ff5d9fc59401729a2b2d6fba3e260",
-              "size": 14949472
-            }
-          }
-        },
-        "source": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke_5.15.0-1060.66.diff.gz": {
-              "md5": "2037532e384dc0251cabd3c603c19ebb",
-              "size": 10990141
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke_5.15.0-1060.66.dsc": {
-              "md5": "a6349d84bde3a1b83cdda1d739d02c57",
-              "size": 4306
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-gke/linux-gke_5.15.0.orig.tar.gz": {
-              "md5": "cd30827a862b74fe1e5174e6aee8e534",
-              "size": 194969557
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-ibm_5.15.0-1056.59.diff.gz": {
-              "md5": "650864784433edcaedbdd482116ac13f",
-              "size": 10343588
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-ibm_5.15.0-1056.59.dsc": {
-              "md5": "2a121290ea80ac96df28baf24fcf1cef",
-              "size": 4544
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-ibm/linux-ibm_5.15.0.orig.tar.gz": {
-              "md5": "cd30827a862b74fe1e5174e6aee8e534",
-              "size": 194969557
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg_5.15.0-1058.64.diff.gz": {
-              "md5": "471eb8873052a8336a93719db4b37530",
-              "size": 11017980
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg_5.15.0-1058.64.dsc": {
-              "md5": "d137a54ec46a5e4c4579ecf10d1fd08d",
-              "size": 5152
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-intel-iotg/linux-intel-iotg_5.15.0.orig.tar.gz": {
-              "md5": "cd30827a862b74fe1e5174e6aee8e534",
-              "size": 194969557
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-meta-gke_5.15.0.1060.59.dsc": {
-              "md5": "09d27824cc22fbc5a44f1381f36f94c4",
-              "size": 2290
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-gke/linux-meta-gke_5.15.0.1060.59.tar.xz": {
-              "md5": "13246833fdac90b98a3aa61f26f01842",
-              "size": 6364
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-ibm/linux-meta-ibm_5.15.0.1056.52.dsc": {
-              "md5": "9f29cc373dedccc5aedb709676e1186d",
-              "size": 1944
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-ibm/linux-meta-ibm_5.15.0.1056.52.tar.xz": {
-              "md5": "01fc4cd72cd2cf57fcdfafcf9d692e68",
-              "size": 6476
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-meta-intel-iotg_5.15.0.1058.58.dsc": {
-              "md5": "c5bd24ff066d57ec61273647b834e543",
-              "size": 2067
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-intel-iotg/linux-meta-intel-iotg_5.15.0.1058.58.tar.xz": {
-              "md5": "d072497d88c1e3c3ef60a7ffabdf35ec",
-              "size": 14116
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-meta-oracle_5.15.0.1061.57.dsc": {
-              "md5": "0949175e7e96d4afbdf1dbf991c39c97",
-              "size": 2102
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-oracle/linux-meta-oracle_5.15.0.1061.57.tar.xz": {
-              "md5": "bda8440d0c54a1a479c678237b58ebed",
-              "size": 8584
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle_5.15.0-1061.67.diff.gz": {
-              "md5": "7f93864884fdd365b62b870d09d92cd9",
-              "size": 10290891
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle_5.15.0-1061.67.dsc": {
-              "md5": "4db0b3327923a990ef841cac579b8db3",
-              "size": 4323
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-oracle/linux-oracle_5.15.0.orig.tar.gz": {
-              "md5": "cd30827a862b74fe1e5174e6aee8e534",
-              "size": 194969557
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gke/linux-signed-gke_5.15.0-1060.66.dsc": {
-              "md5": "0efa18ac4bc1933a63526892623e4d1e",
-              "size": 1922
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-gke/linux-signed-gke_5.15.0-1060.66.tar.xz": {
-              "md5": "49e11601e894b6b0388962f1e381d3d4",
-              "size": 13484
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-ibm/linux-signed-ibm_5.15.0-1056.59.dsc": {
-              "md5": "9b59cb5ca5ff5101190c4aa206bbd573",
-              "size": 1900
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-ibm/linux-signed-ibm_5.15.0-1056.59.tar.xz": {
-              "md5": "388e59f3dafeea39a049d040df9b6538",
-              "size": 13440
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-intel-iotg/linux-signed-intel-iotg_5.15.0-1058.64.dsc": {
-              "md5": "e0f87e6640d3ffbbd650107e3fba6e56",
-              "size": 1991
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-intel-iotg/linux-signed-intel-iotg_5.15.0-1058.64.tar.xz": {
-              "md5": "b11588e48fbbcec400596838d57a4168",
-              "size": 23756
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oracle/linux-signed-oracle_5.15.0-1061.67.dsc": {
-              "md5": "40c444cc1e3129196a3bcb5715d49047",
-              "size": 1955
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-oracle/linux-signed-oracle_5.15.0-1061.67.tar.xz": {
-              "md5": "52c1d3f57cf7aa06d200fdb7a6dc9a26",
-              "size": 15520
-            }
-          }
-        }
-      },
-      "binaries": {
-        "linux-image-5.15.0-1056-ibm": {
-          "pocket": "security",
-          "version": "5.15.0-1056.59"
-        },
-        "linux-image-5.15.0-1058-intel-iotg": {
-          "pocket": "security",
-          "version": "5.15.0-1058.64"
-        },
-        "linux-image-5.15.0-1060-gke": {
-          "pocket": "security",
-          "version": "5.15.0-1060.66"
-        },
-        "linux-image-5.15.0-1061-oracle": {
-          "pocket": "security",
-          "version": "5.15.0-1061.67"
-        },
-        "linux-image-gke": {
-          "pocket": "security",
-          "version": "5.15.0.1060.59"
-        },
-        "linux-image-gke-5.15": {
-          "pocket": "security",
-          "version": "5.15.0.1060.59"
-        },
-        "linux-image-ibm": {
-          "pocket": "security",
-          "version": "5.15.0.1056.52"
-        },
-        "linux-image-intel-iotg": {
-          "pocket": "security",
-          "version": "5.15.0.1058.58"
-        },
-        "linux-image-oracle-lts-22.04": {
-          "pocket": "security",
-          "version": "5.15.0.1061.57"
-        }
-      },
-      "sources": {
-        "linux-gke": {
-          "description": "Linux kernel for Google Container Engine (GKE) systems",
-          "version": "5.15.0-1060.66"
-        },
-        "linux-ibm": {
-          "description": "Linux kernel for IBM cloud systems",
-          "version": "5.15.0-1056.59"
-        },
-        "linux-intel-iotg": {
-          "description": "Linux kernel for Intel IoT platforms",
-          "version": "5.15.0-1058.64"
-        },
-        "linux-oracle": {
-          "description": "Linux kernel for Oracle Cloud systems",
-          "version": "5.15.0-1061.67"
-        }
-      }
-    }
-  },
-  "summary": "linux-gke, linux-ibm, linux-intel-iotg, linux-oracle vulnerabilities",
-  "timestamp": 1717800706.774605,
-  "title": "Linux kernel vulnerabilities"
+  "isummary": "Several security issues were fixed in the Linux kernel.\n"
 }

@@ -1,4 +1,769 @@
 {
+  "description": "Alon Zahavi discovered that the NVMe-oF/TCP subsystem in the Linux kernel\ndid not properly validate H2C PDU data, leading to a null pointer\ndereference vulnerability. A remote attacker could use this to cause a\ndenial of service (system crash). (CVE-2023-6356, CVE-2023-6535,\nCVE-2023-6536)\n\nIt was discovered that the Intel Data Streaming and Intel Analytics\nAccelerator drivers in the Linux kernel allowed direct access to the\ndevices for unprivileged users and virtual machines. A local attacker could\nuse this to cause a denial of service. (CVE-2024-21823)\n\nChenyuan Yang discovered that the RDS Protocol implementation in the Linux\nkernel contained an out-of-bounds read vulnerability. An attacker could use\nthis to possibly cause a denial of service (system crash). (CVE-2024-23849)\n\nIt was discovered that a race condition existed in the Bluetooth subsystem\nin the Linux kernel, leading to a null pointer dereference vulnerability. A\nprivileged local attacker could use this to possibly cause a denial of\nservice (system crash). (CVE-2024-24860)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM64 architecture;\n  - PowerPC architecture;\n  - RISC-V architecture;\n  - S390 architecture;\n  - Core kernel;\n  - x86 architecture;\n  - Block layer subsystem;\n  - Cryptographic API;\n  - ACPI drivers;\n  - Android drivers;\n  - Drivers core;\n  - Power management core;\n  - Bus devices;\n  - Device frequency scaling framework;\n  - DMA engine subsystem;\n  - EDAC drivers;\n  - ARM SCMI message protocol;\n  - GPU drivers;\n  - IIO ADC drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - Media drivers;\n  - Multifunction device drivers;\n  - MTD block device drivers;\n  - Network drivers;\n  - NVME drivers;\n  - Device tree and open firmware driver;\n  - PCI driver for MicroSemi Switchtec;\n  - Power supply drivers;\n  - RPMSG subsystem;\n  - SCSI drivers;\n  - QCOM SoC drivers;\n  - SPMI drivers;\n  - Thermal drivers;\n  - TTY drivers;\n  - VFIO drivers;\n  - BTRFS file system;\n  - Ceph distributed file system;\n  - EFI Variable file system;\n  - EROFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - GFS2 file system;\n  - JFS file system;\n  - Network file systems library;\n  - Network file system server daemon;\n  - File systems infrastructure;\n  - Pstore file system;\n  - ReiserFS file system;\n  - SMB network file system;\n  - BPF subsystem;\n  - Memory management;\n  - TLS protocol;\n  - Ethernet bridge;\n  - Networking core;\n  - IPv4 networking;\n  - IPv6 networking;\n  - Logical Link layer;\n  - MAC80211 subsystem;\n  - Multipath TCP;\n  - Netfilter;\n  - NetLabel subsystem;\n  - Network traffic control;\n  - SMC sockets;\n  - Sun RPC protocol;\n  - AppArmor security module;\n  - Intel ASoC drivers;\n  - MediaTek ASoC drivers;\n  - USB sound devices;\n(CVE-2023-52598, CVE-2023-52676, CVE-2023-52609, CVE-2024-26620,\nCVE-2023-52487, CVE-2023-52465, CVE-2023-52473, CVE-2023-52467,\nCVE-2024-26583, CVE-2023-52669, CVE-2023-52664, CVE-2023-52449,\nCVE-2023-52614, CVE-2024-26595, CVE-2023-52611, CVE-2023-52696,\nCVE-2023-52591, CVE-2023-52491, CVE-2024-35839, CVE-2023-52679,\nCVE-2024-26607, CVE-2023-52587, CVE-2023-52469, CVE-2023-52608,\nCVE-2023-52617, CVE-2023-52698, CVE-2024-26673, CVE-2024-35835,\nCVE-2024-26808, CVE-2024-26668, CVE-2023-52626, CVE-2023-52621,\nCVE-2024-35837, CVE-2023-52489, CVE-2023-52597, CVE-2024-26649,\nCVE-2024-26615, CVE-2024-35838, CVE-2023-52693, CVE-2023-52497,\nCVE-2024-35842, CVE-2024-26618, CVE-2024-26610, CVE-2024-26631,\nCVE-2024-26644, CVE-2024-26627, CVE-2023-52677, CVE-2023-52472,\nCVE-2023-52627, CVE-2023-52486, CVE-2023-52632, CVE-2023-52494,\nCVE-2023-52468, CVE-2024-26634, CVE-2023-52588, CVE-2024-26646,\nCVE-2024-26584, CVE-2023-52443, CVE-2023-52691, CVE-2024-26612,\nCVE-2023-52595, CVE-2024-26592, CVE-2024-26623, CVE-2023-52492,\nCVE-2024-26670, CVE-2023-52583, CVE-2023-52681, CVE-2023-52635,\nCVE-2023-52457, CVE-2023-52445, CVE-2024-26629, CVE-2024-26594,\nCVE-2023-52675, CVE-2023-52488, CVE-2023-52446, CVE-2024-26625,\nCVE-2023-52697, CVE-2023-52453, CVE-2023-52498, CVE-2023-52686,\nCVE-2023-52593, CVE-2023-52612, CVE-2023-52687, CVE-2023-52470,\nCVE-2023-52455, CVE-2023-52444, CVE-2024-26608, CVE-2024-26633,\nCVE-2024-26645, CVE-2023-52451, CVE-2023-52456, CVE-2024-26640,\nCVE-2023-52670, CVE-2023-52589, CVE-2024-26598, CVE-2024-35841,\nCVE-2024-26647, CVE-2024-26636, CVE-2023-52680, CVE-2023-52616,\nCVE-2023-52685, CVE-2024-26582, CVE-2024-26638, CVE-2023-52694,\nCVE-2024-35840, CVE-2023-52448, CVE-2023-52623, CVE-2023-52462,\nCVE-2023-52452, CVE-2024-26641, CVE-2023-52683, CVE-2023-52682,\nCVE-2023-52594, CVE-2023-52490, CVE-2023-52493, CVE-2023-52633,\nCVE-2023-52606, CVE-2024-26669, CVE-2023-52584, CVE-2024-26585,\nCVE-2023-52610, CVE-2023-52672, CVE-2023-52450, CVE-2023-52666,\nCVE-2023-52458, CVE-2023-52622, CVE-2023-52674, CVE-2023-52619,\nCVE-2024-26586, CVE-2023-52667, CVE-2024-26616, CVE-2023-52463,\nCVE-2024-26632, CVE-2023-52447, CVE-2023-52692, CVE-2023-52678,\nCVE-2023-52607, CVE-2023-52618, CVE-2023-52464, CVE-2024-26671,\nCVE-2023-52599, CVE-2023-52454, CVE-2023-52495, CVE-2023-52690)\n",
+  "releases": {
+    "jammy": {
+      "allbinaries": {
+        "linux-hwe-6.5-tools-host": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-headers-6.5.0-41-generic-64k": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-buildinfo-6.5.0-41-generic": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-image-uc-6.5.0-41-generic-64k": {
+          "pocket": "security",
+          "source": "linux-signed-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-virtual-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-cloud-tools-virtual-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-generic-64k-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-image-extra-virtual-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-cloud-tools-generic-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-image-virtual-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-generic-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-tools-6.5.0-41-generic": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-buildinfo-6.5.0-41-generic-64k": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-modules-iwlwifi-6.5.0-41-generic": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-image-uc-generic-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-cloud-tools-6.5.0-41-generic": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-hwe-6.5-headers-6.5.0-41": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-tools-generic-64k-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-image-generic-64k-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-headers-generic-64k-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-headers-virtual-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-image-generic-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-modules-iwlwifi-generic-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-tools-generic-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-modules-ivsc-generic-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-image-6.5.0-41-generic-64k": {
+          "pocket": "security",
+          "source": "linux-signed-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-modules-ivsc-6.5.0-41-generic": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-image-6.5.0-41-generic": {
+          "pocket": "security",
+          "source": "linux-signed-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-modules-extra-6.5.0-41-generic": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-modules-6.5.0-41-generic-64k": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-modules-ipu6-6.5.0-41-generic": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-hwe-6.5-cloud-tools-6.5.0-41": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-source-6.5.0": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-hwe-6.5-cloud-tools-common": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-headers-6.5.0-41-generic": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-image-unsigned-6.5.0-41-generic-64k": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-modules-ipu6-generic-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-modules-6.5.0-41-generic": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-headers-generic-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-tools-6.5.0-41-generic-64k": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-image-uc-6.5.0-41-generic": {
+          "pocket": "security",
+          "source": "linux-signed-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-hwe-6.5-tools-6.5.0-41": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-tools-virtual-hwe-22.04": {
+          "pocket": "security",
+          "source": "linux-meta-hwe-6.5",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-image-unsigned-6.5.0-41-generic": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-hwe-6.5-tools-common": {
+          "pocket": "security",
+          "source": "linux-hwe-6.5",
+          "version": "6.5.0-41.41~22.04.2"
+        }
+      },
+      "binaries": {
+        "linux-image-6.5.0-41-generic-64k": {
+          "pocket": "security",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-image-generic-hwe-22.04": {
+          "pocket": "security",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-image-generic-64k-hwe-22.04": {
+          "pocket": "security",
+          "version": "6.5.0.41.41~22.04.2"
+        },
+        "linux-image-6.5.0-41-generic": {
+          "pocket": "security",
+          "version": "6.5.0-41.41~22.04.2"
+        },
+        "linux-image-virtual-hwe-22.04": {
+          "pocket": "security",
+          "version": "6.5.0.41.41~22.04.2"
+        }
+      },
+      "archs": {
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-source-6.5.0_6.5.0-41.41~22.04.2_all.deb": {
+              "size": 336179392,
+              "md5": "4f49af5dfd68d9111a2a9b9c08c68372"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-cloud-tools-common_6.5.0-41.41~22.04.2_all.deb": {
+              "size": 124812,
+              "md5": "929d0497a2aa52432ac0126fe0f5b224"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-headers-6.5.0-41_6.5.0-41.41~22.04.2_all.deb": {
+              "size": 13321308,
+              "md5": "ac3e7e49f6257c98b8536d36e5046db0"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-tools-common_6.5.0-41.41~22.04.2_all.deb": {
+              "size": 124856,
+              "md5": "5e7e6fdbf9a0ad0f763f99df708f5a2f"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-tools-host_6.5.0-41.41~22.04.2_all.deb": {
+              "size": 124772,
+              "md5": "7c142a2b2f434aee23d2934809f02f96"
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-image-unsigned-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
+              "size": 14428352,
+              "md5": "975394e94d7127a4e880aacfd574e330"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-headers-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
+              "size": 3555418,
+              "md5": "8cad9dc224deeb2b9e661fe3f2bccd00"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-headers-virtual-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
+              "size": 1654,
+              "md5": "95176d469bbc36e90fe3c96a22718c42"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-tools-6.5.0-41_6.5.0-41.41~22.04.2_amd64.deb": {
+              "size": 8042848,
+              "md5": "0619a953a8c9cb052d885294663afa8a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-image-uc-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
+              "size": 2482,
+              "md5": "5b3cd1597943b59ec52179742df97798"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-hwe-6.5/linux-image-uc-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
+              "size": 54281414,
+              "md5": "9bb6aea0faa6ee6e1578caacf40b3912"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-cloud-tools-virtual-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
+              "size": 2400,
+              "md5": "5d4d30f307f9222232b8bbb048ab1ea7"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-image-extra-virtual-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
+              "size": 1710,
+              "md5": "06f8f5b059b9180260ebb207f92fc8d6"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-virtual-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
+              "size": 1708,
+              "md5": "6520e1224c1b8011cf44818564dec913"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-modules-ipu6-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
+              "size": 2456,
+              "md5": "716980f1c606dac958b37688be4baf1b"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-cloud-tools-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
+              "size": 2386,
+              "md5": "8a4d08ca6d35ed845b0e5ad7ca1c65e1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-cloud-tools-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
+              "size": 1704,
+              "md5": "9ea501c799045d06a7ac70b363812e52"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-modules-iwlwifi-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
+              "size": 2450,
+              "md5": "3daa6f1075328f6ef7dee53ebff221d4"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-cloud-tools-6.5.0-41_6.5.0-41.41~22.04.2_amd64.deb": {
+              "size": 144124,
+              "md5": "8ba50e8d23564ac40206fde34c8293b5"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-tools-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
+              "size": 1808,
+              "md5": "0c48f30d0abe954e942b42fadbf9efa1"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-tools-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
+              "size": 2374,
+              "md5": "83f48bdd788b89f91d6af0f1c3708b55"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-tools-virtual-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
+              "size": 2386,
+              "md5": "c2dfb580e9e2e4a96be0440af91b620a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-modules-ivsc-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
+              "size": 189006,
+              "md5": "a9f0821e3219953e8d102bb8d099a240"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-headers-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
+              "size": 2362,
+              "md5": "dae76efa06fb4b8a213ad818ca5c0a8a"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-modules-extra-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
+              "size": 76811960,
+              "md5": "56f82d2294401f63bd6652e8a62cce2d"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-modules-ivsc-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
+              "size": 2456,
+              "md5": "22dff255ea1b2e482f475b2c52294fbf"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-modules-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
+              "size": 25693430,
+              "md5": "4fdff799b424493f74ebfc03a16411cd"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
+              "size": 1722,
+              "md5": "3fb95a35424ccefaa28dfd192ef62122"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-image-virtual-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
+              "size": 2454,
+              "md5": "0b21dbd7b16ec09dcd57deea50b11316"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-buildinfo-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
+              "size": 592424,
+              "md5": "31817a42c99344d3a6c7f683771ef2c9"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-hwe-6.5/linux-image-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
+              "size": 14051638,
+              "md5": "fa00bc3793dfd3e85279631ed9738694"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-image-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
+              "size": 2510,
+              "md5": "c681c97d092eb09e33b6287364604d0e"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-modules-ipu6-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
+              "size": 339720,
+              "md5": "0ddf74d47d4b21a148fa20fc87eab612"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-modules-iwlwifi-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
+              "size": 1690316,
+              "md5": "521abc52e6cb4376a58111923eee0d7c"
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-hwe-6.5/linux-signed-hwe-6.5_6.5.0-41.41~22.04.2.tar.xz": {
+              "size": 26396,
+              "md5": "33e558086d01146811b3c953c04b15aa"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5_6.5.0.orig.tar.gz": {
+              "size": 223513863,
+              "md5": "8290e3447d70a1a709986624233cb6df"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5_6.5.0-41.41~22.04.2.diff.gz": {
+              "size": 4041847,
+              "md5": "973fe73733f4230232f149c80beea898"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-meta-hwe-6.5_6.5.0.41.41~22.04.2.tar.xz": {
+              "size": 17780,
+              "md5": "50b95f00dc2b693434d40e92b1c9b5fe"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5_6.5.0-41.41~22.04.2.dsc": {
+              "size": 9186,
+              "md5": "0be05212da72403b4f75a1b17f71da39"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-hwe-6.5/linux-signed-hwe-6.5_6.5.0-41.41~22.04.2.dsc": {
+              "size": 2785,
+              "md5": "dabe8422ffcc8b4954b764fbc1fcc059"
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-meta-hwe-6.5_6.5.0.41.41~22.04.2.dsc": {
+              "size": 3860,
+              "md5": "8bd898539bd13fdd1bd4bb21c4f6d370"
+            }
+          }
+        },
+        "ppc64el": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-virtual-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
+              "size": 2388,
+              "md5": "548b9abc38129452bd73e0e057bb669c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-virtual-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
+              "size": 1710,
+              "md5": "3655fc55fe396afb681eea8e18a0cbf7"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-tools-6.5.0-41-generic_6.5.0-41.41~22.04.2_ppc64el.deb": {
+              "size": 1756,
+              "md5": "222f5e7d70bf2f977d435fb243f92f35"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-modules-6.5.0-41-generic_6.5.0-41.41~22.04.2_ppc64el.deb": {
+              "size": 22541562,
+              "md5": "04424d42f58b9c2e70a746f931bf651b"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-generic-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
+              "size": 2364,
+              "md5": "e1104ca1eb9467e1696cfd497f6395ff"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-buildinfo-6.5.0-41-generic_6.5.0-41.41~22.04.2_ppc64el.deb": {
+              "size": 565142,
+              "md5": "f64e26c812bbe9a4ba27ead945f465c8"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-virtual-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
+              "size": 1658,
+              "md5": "6f8b008dbe10c861d8d8f1e499b1fc60"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-generic-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
+              "size": 2462,
+              "md5": "f0f33fd41d63cafe8ec79e5231b6782f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-headers-6.5.0-41-generic_6.5.0-41.41~22.04.2_ppc64el.deb": {
+              "size": 4151740,
+              "md5": "2b72411915c17b09df5e4dc53310a1aa"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-modules-extra-6.5.0-41-generic_6.5.0-41.41~22.04.2_ppc64el.deb": {
+              "size": 67081150,
+              "md5": "eadd4baac756e375dfc38bf4e9e31c67"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-virtual-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
+              "size": 2458,
+              "md5": "b62d5eefcd672661369da81c85919a60"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-extra-virtual-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
+              "size": 1712,
+              "md5": "fd7011974b5d88af13d84038e24040ab"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-image-6.5.0-41-generic_6.5.0-41.41~22.04.2_ppc64el.deb": {
+              "size": 63641792,
+              "md5": "ee437e293fe8bcf0c391f8ad03e4badf"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-generic-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
+              "size": 1726,
+              "md5": "e72fa08d07cdaccc5369ec6e92053af0"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-tools-6.5.0-41_6.5.0-41.41~22.04.2_ppc64el.deb": {
+              "size": 7319804,
+              "md5": "273eb5060ad914a6e20c8a8f689f0465"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-generic-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
+              "size": 2376,
+              "md5": "a7ae8d41b16a170408fd11a51cfc0544"
+            }
+          }
+        },
+        "s390x": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-extra-virtual-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
+              "size": 1712,
+              "md5": "0770a898af1c99d75ac0cf31aa540127"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-generic-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
+              "size": 2374,
+              "md5": "006369663ed6806dd1a6aee18a1cee27"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-modules-6.5.0-41-generic_6.5.0-41.41~22.04.2_s390x.deb": {
+              "size": 14094904,
+              "md5": "f5e03c61f469b69e711df4c781d3303f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-generic-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
+              "size": 1724,
+              "md5": "d14b05b02e3f5244948116703ab30b82"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-generic-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
+              "size": 2362,
+              "md5": "bcb86bfaff0751caf92b54bfe434aab7"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-headers-6.5.0-41-generic_6.5.0-41.41~22.04.2_s390x.deb": {
+              "size": 2310044,
+              "md5": "367ee4b47775a9ad4f9dc0fce79f8732"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-virtual-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
+              "size": 1708,
+              "md5": "8c3d37ed6ae87ebba764395cbd10d714"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-modules-extra-6.5.0-41-generic_6.5.0-41.41~22.04.2_s390x.deb": {
+              "size": 9330986,
+              "md5": "b441a7dbabeb1eeeddeee4188fdf6274"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-hwe-6.5/linux-image-6.5.0-41-generic_6.5.0-41.41~22.04.2_s390x.deb": {
+              "size": 9156648,
+              "md5": "4ff7224ceee9f63a3d0f36fd1029684a"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-virtual-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
+              "size": 2454,
+              "md5": "f77c2dea9327cf54826ffe96e3587912"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-virtual-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
+              "size": 2390,
+              "md5": "a27990eec00ca15eb8935cd1d827419c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-buildinfo-6.5.0-41-generic_6.5.0-41.41~22.04.2_s390x.deb": {
+              "size": 348880,
+              "md5": "132997c72ab4d456022e123767656b58"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-generic-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
+              "size": 2452,
+              "md5": "5fb5f842ec2af3bd318dbf2255140b93"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-image-unsigned-6.5.0-41-generic_6.5.0-41.41~22.04.2_s390x.deb": {
+              "size": 9543872,
+              "md5": "ba04e56e3063f831416a4b4b840732fe"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-virtual-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
+              "size": 1656,
+              "md5": "f54b0e3fd573a7dc28757437d5b58061"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-tools-6.5.0-41_6.5.0-41.41~22.04.2_s390x.deb": {
+              "size": 6691312,
+              "md5": "65577a4b4601fa6d7515164be472b0c2"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-tools-6.5.0-41-generic_6.5.0-41.41~22.04.2_s390x.deb": {
+              "size": 1748,
+              "md5": "a5f1199427c9aa5d5ef86e7acfd7e461"
+            }
+          }
+        },
+        "armhf": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-image-6.5.0-41-generic_6.5.0-41.41~22.04.2_armhf.deb": {
+              "size": 12554432,
+              "md5": "13676678fa95ae9cee02e5958b9a99f6"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-virtual-hwe-22.04_6.5.0.41.41~22.04.2_armhf.deb": {
+              "size": 2422,
+              "md5": "2868910ef0e66b53c830a0e06456fa7b"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-modules-6.5.0-41-generic_6.5.0-41.41~22.04.2_armhf.deb": {
+              "size": 74751674,
+              "md5": "374c829aba1b36a3a7a3ccd348872efc"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-generic-hwe-22.04_6.5.0.41.41~22.04.2_armhf.deb": {
+              "size": 1722,
+              "md5": "38111ea3f41ecfd7886b465c00c70cdd"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-generic-hwe-22.04_6.5.0.41.41~22.04.2_armhf.deb": {
+              "size": 2374,
+              "md5": "102e438ebfe2011857629eca83cde3b4"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-tools-6.5.0-41_6.5.0-41.41~22.04.2_armhf.deb": {
+              "size": 6939218,
+              "md5": "d8f60df548d48ac4119056d4f0c585bc"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-generic-hwe-22.04_6.5.0.41.41~22.04.2_armhf.deb": {
+              "size": 2418,
+              "md5": "ee30b7173172b1560685743db28a4184"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-generic-hwe-22.04_6.5.0.41.41~22.04.2_armhf.deb": {
+              "size": 2362,
+              "md5": "69b6e3fe7a852981047ab2363318cec2"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-buildinfo-6.5.0-41-generic_6.5.0-41.41~22.04.2_armhf.deb": {
+              "size": 589752,
+              "md5": "3fc007a266c5d81775e55769df213de9"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-tools-6.5.0-41-generic_6.5.0-41.41~22.04.2_armhf.deb": {
+              "size": 1752,
+              "md5": "84f80915ab6609b9f3d054c8be8d44da"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-virtual-hwe-22.04_6.5.0.41.41~22.04.2_armhf.deb": {
+              "size": 1708,
+              "md5": "44fabb428f2acbf9f814a656332c3d60"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-virtual-hwe-22.04_6.5.0.41.41~22.04.2_armhf.deb": {
+              "size": 1654,
+              "md5": "78d9a38074c13b2a174efa12de3263f7"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-virtual-hwe-22.04_6.5.0.41.41~22.04.2_armhf.deb": {
+              "size": 2386,
+              "md5": "f900b0083b964fcddfe697af8e372be9"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-headers-6.5.0-41-generic_6.5.0-41.41~22.04.2_armhf.deb": {
+              "size": 1210694,
+              "md5": "8b8c449d5d2bb21af502afe3b94fafd3"
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-modules-6.5.0-41-generic_6.5.0-41.41~22.04.2_arm64.deb": {
+              "size": 25278406,
+              "md5": "e0f657c07104a18e42aec86a0695422c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-virtual-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
+              "size": 2454,
+              "md5": "6df381c9f58d0c4977a664f42c146b14"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-virtual-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
+              "size": 1708,
+              "md5": "974fa05c6d64d9f5620268d1c3bd2367"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-generic-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
+              "size": 2360,
+              "md5": "1b41e15560c4d5fd2b0387795ecf6d62"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-generic-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
+              "size": 1722,
+              "md5": "d833b192f39b1d90c6b2958ba49b7882"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-extra-virtual-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
+              "size": 1710,
+              "md5": "4a2530350ea28228ed10574e02f8a2e4"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-image-unsigned-6.5.0-41-generic_6.5.0-41.41~22.04.2_arm64.deb": {
+              "size": 17479872,
+              "md5": "516059db1c95d786c2bb25b92f40be6f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-modules-6.5.0-41-generic-64k_6.5.0-41.41~22.04.2_arm64.deb": {
+              "size": 102437022,
+              "md5": "51b0826147d7e3424a51ae08c56897a3"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-uc-generic-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
+              "size": 2472,
+              "md5": "665ae5fe8d29511efbbd729f76938b3f"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-hwe-6.5/linux-image-6.5.0-41-generic-64k_6.5.0-41.41~22.04.2_arm64.deb": {
+              "size": 17061188,
+              "md5": "1479d727a4883c73fd6f31f251a55370"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-tools-6.5.0-41-generic_6.5.0-41.41~22.04.2_arm64.deb": {
+              "size": 1746,
+              "md5": "ca29df9e5913bb216d4b223c07088f08"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-headers-6.5.0-41-generic-64k_6.5.0-41.41~22.04.2_arm64.deb": {
+              "size": 2946080,
+              "md5": "c36e5cd17a677903eea5e5226bd1339c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-hwe-6.5/linux-image-uc-6.5.0-41-generic-64k_6.5.0-41.41~22.04.2_arm64.deb": {
+              "size": 40695878,
+              "md5": "c22223c16959d29890096e5152d76517"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-hwe-6.5/linux-image-uc-6.5.0-41-generic_6.5.0-41.41~22.04.2_arm64.deb": {
+              "size": 41115682,
+              "md5": "7cd67237d33a8dd24d500caae1a7b994"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-generic-64k-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
+              "size": 1728,
+              "md5": "031ba43a4cdb03039cab412d08b972b6"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-generic-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
+              "size": 2458,
+              "md5": "ff794e9fd80367e6f472fbeed80ecc82"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-virtual-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
+              "size": 2386,
+              "md5": "102730e9bf0a887a94855b985cfce60c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-buildinfo-6.5.0-41-generic_6.5.0-41.41~22.04.2_arm64.deb": {
+              "size": 615852,
+              "md5": "5b079a8d7ffc3313d30f1d0d1d091f2e"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-buildinfo-6.5.0-41-generic-64k_6.5.0-41.41~22.04.2_arm64.deb": {
+              "size": 615708,
+              "md5": "dfeeffcfe6c70d2e582aa4cb9022df9d"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-generic-64k-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
+              "size": 2408,
+              "md5": "1e3d6a001b2455354cd39df428f7e711"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-virtual-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
+              "size": 1654,
+              "md5": "c75ccd9c6945e0c5a4d980ece613b6e2"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-tools-6.5.0-41_6.5.0-41.41~22.04.2_arm64.deb": {
+              "size": 7001150,
+              "md5": "d3a1921bbe2b81fe0c800cf9fdce4303"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-modules-extra-6.5.0-41-generic_6.5.0-41.41~22.04.2_arm64.deb": {
+              "size": 77528790,
+              "md5": "c5f21787da057f92c89c0a32eae50ffa"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-tools-6.5.0-41-generic-64k_6.5.0-41.41~22.04.2_arm64.deb": {
+              "size": 1752,
+              "md5": "0767eea36ad214f30bedcb4bf2a3ad05"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-signed-hwe-6.5/linux-image-6.5.0-41-generic_6.5.0-41.41~22.04.2_arm64.deb": {
+              "size": 17063264,
+              "md5": "a5c1341d6d92e8238a476151a040423c"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-generic-64k-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
+              "size": 2374,
+              "md5": "a8450ea0fe2e77d44c3a2d6c3e869495"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-headers-6.5.0-41-generic_6.5.0-41.41~22.04.2_arm64.deb": {
+              "size": 2951874,
+              "md5": "11ca7c2b6ae61df20260654fe9fa3250"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-generic-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
+              "size": 2374,
+              "md5": "61831f71499dd36da591acedc7e9b7a2"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-generic-64k-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
+              "size": 2372,
+              "md5": "72845a2d83b44a86992eacc0418e11c6"
+            },
+            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-image-unsigned-6.5.0-41-generic-64k_6.5.0-41.41~22.04.2_arm64.deb": {
+              "size": 17479872,
+              "md5": "69481f808eb79e7aa1659ad5018379ba"
+            }
+          }
+        }
+      },
+      "sources": {
+        "linux-hwe-6.5": {
+          "version": "6.5.0-41.41~22.04.2",
+          "description": "Linux hardware enablement (HWE) kernel"
+        }
+      }
+    }
+  },
+  "title": "Linux kernel (HWE) vulnerabilities",
+  "timestamp": 1718753096.1707585,
+  "summary": "linux-hwe-6.5 vulnerabilities",
   "action": "After a standard system update you need to reboot your computer to make\nall the necessary changes.\n\nATTENTION: Due to an unavoidable ABI change the kernel updates have\nbeen given a new version number, which requires you to recompile and\nreinstall all third party kernel modules you might have installed.\nUnless you manually uninstalled the standard kernel metapackages\n(e.g. linux-generic, linux-generic-lts-RELEASE, linux-virtual,\nlinux-powerpc), a standard system upgrade will automatically perform\nthis as well.\n",
   "cves": [
     "CVE-2023-52443",
@@ -152,771 +917,6 @@
     "CVE-2024-35841",
     "CVE-2024-35842"
   ],
-  "description": "Alon Zahavi discovered that the NVMe-oF/TCP subsystem in the Linux kernel\ndid not properly validate H2C PDU data, leading to a null pointer\ndereference vulnerability. A remote attacker could use this to cause a\ndenial of service (system crash). (CVE-2023-6356, CVE-2023-6535,\nCVE-2023-6536)\n\nIt was discovered that the Intel Data Streaming and Intel Analytics\nAccelerator drivers in the Linux kernel allowed direct access to the\ndevices for unprivileged users and virtual machines. A local attacker could\nuse this to cause a denial of service. (CVE-2024-21823)\n\nChenyuan Yang discovered that the RDS Protocol implementation in the Linux\nkernel contained an out-of-bounds read vulnerability. An attacker could use\nthis to possibly cause a denial of service (system crash). (CVE-2024-23849)\n\nIt was discovered that a race condition existed in the Bluetooth subsystem\nin the Linux kernel, leading to a null pointer dereference vulnerability. A\nprivileged local attacker could use this to possibly cause a denial of\nservice (system crash). (CVE-2024-24860)\n\nSeveral security issues were discovered in the Linux kernel.\nAn attacker could possibly use these to compromise the system.\nThis update corrects flaws in the following subsystems:\n  - ARM64 architecture;\n  - PowerPC architecture;\n  - RISC-V architecture;\n  - S390 architecture;\n  - Core kernel;\n  - x86 architecture;\n  - Block layer subsystem;\n  - Cryptographic API;\n  - ACPI drivers;\n  - Android drivers;\n  - Drivers core;\n  - Power management core;\n  - Bus devices;\n  - Device frequency scaling framework;\n  - DMA engine subsystem;\n  - EDAC drivers;\n  - ARM SCMI message protocol;\n  - GPU drivers;\n  - IIO ADC drivers;\n  - InfiniBand drivers;\n  - IOMMU subsystem;\n  - Media drivers;\n  - Multifunction device drivers;\n  - MTD block device drivers;\n  - Network drivers;\n  - NVME drivers;\n  - Device tree and open firmware driver;\n  - PCI driver for MicroSemi Switchtec;\n  - Power supply drivers;\n  - RPMSG subsystem;\n  - SCSI drivers;\n  - QCOM SoC drivers;\n  - SPMI drivers;\n  - Thermal drivers;\n  - TTY drivers;\n  - VFIO drivers;\n  - BTRFS file system;\n  - Ceph distributed file system;\n  - EFI Variable file system;\n  - EROFS file system;\n  - Ext4 file system;\n  - F2FS file system;\n  - GFS2 file system;\n  - JFS file system;\n  - Network file systems library;\n  - Network file system server daemon;\n  - File systems infrastructure;\n  - Pstore file system;\n  - ReiserFS file system;\n  - SMB network file system;\n  - BPF subsystem;\n  - Memory management;\n  - TLS protocol;\n  - Ethernet bridge;\n  - Networking core;\n  - IPv4 networking;\n  - IPv6 networking;\n  - Logical Link layer;\n  - MAC80211 subsystem;\n  - Multipath TCP;\n  - Netfilter;\n  - NetLabel subsystem;\n  - Network traffic control;\n  - SMC sockets;\n  - Sun RPC protocol;\n  - AppArmor security module;\n  - Intel ASoC drivers;\n  - MediaTek ASoC drivers;\n  - USB sound devices;\n(CVE-2023-52598, CVE-2023-52676, CVE-2023-52609, CVE-2024-26620,\nCVE-2023-52487, CVE-2023-52465, CVE-2023-52473, CVE-2023-52467,\nCVE-2024-26583, CVE-2023-52669, CVE-2023-52664, CVE-2023-52449,\nCVE-2023-52614, CVE-2024-26595, CVE-2023-52611, CVE-2023-52696,\nCVE-2023-52591, CVE-2023-52491, CVE-2024-35839, CVE-2023-52679,\nCVE-2024-26607, CVE-2023-52587, CVE-2023-52469, CVE-2023-52608,\nCVE-2023-52617, CVE-2023-52698, CVE-2024-26673, CVE-2024-35835,\nCVE-2024-26808, CVE-2024-26668, CVE-2023-52626, CVE-2023-52621,\nCVE-2024-35837, CVE-2023-52489, CVE-2023-52597, CVE-2024-26649,\nCVE-2024-26615, CVE-2024-35838, CVE-2023-52693, CVE-2023-52497,\nCVE-2024-35842, CVE-2024-26618, CVE-2024-26610, CVE-2024-26631,\nCVE-2024-26644, CVE-2024-26627, CVE-2023-52677, CVE-2023-52472,\nCVE-2023-52627, CVE-2023-52486, CVE-2023-52632, CVE-2023-52494,\nCVE-2023-52468, CVE-2024-26634, CVE-2023-52588, CVE-2024-26646,\nCVE-2024-26584, CVE-2023-52443, CVE-2023-52691, CVE-2024-26612,\nCVE-2023-52595, CVE-2024-26592, CVE-2024-26623, CVE-2023-52492,\nCVE-2024-26670, CVE-2023-52583, CVE-2023-52681, CVE-2023-52635,\nCVE-2023-52457, CVE-2023-52445, CVE-2024-26629, CVE-2024-26594,\nCVE-2023-52675, CVE-2023-52488, CVE-2023-52446, CVE-2024-26625,\nCVE-2023-52697, CVE-2023-52453, CVE-2023-52498, CVE-2023-52686,\nCVE-2023-52593, CVE-2023-52612, CVE-2023-52687, CVE-2023-52470,\nCVE-2023-52455, CVE-2023-52444, CVE-2024-26608, CVE-2024-26633,\nCVE-2024-26645, CVE-2023-52451, CVE-2023-52456, CVE-2024-26640,\nCVE-2023-52670, CVE-2023-52589, CVE-2024-26598, CVE-2024-35841,\nCVE-2024-26647, CVE-2024-26636, CVE-2023-52680, CVE-2023-52616,\nCVE-2023-52685, CVE-2024-26582, CVE-2024-26638, CVE-2023-52694,\nCVE-2024-35840, CVE-2023-52448, CVE-2023-52623, CVE-2023-52462,\nCVE-2023-52452, CVE-2024-26641, CVE-2023-52683, CVE-2023-52682,\nCVE-2023-52594, CVE-2023-52490, CVE-2023-52493, CVE-2023-52633,\nCVE-2023-52606, CVE-2024-26669, CVE-2023-52584, CVE-2024-26585,\nCVE-2023-52610, CVE-2023-52672, CVE-2023-52450, CVE-2023-52666,\nCVE-2023-52458, CVE-2023-52622, CVE-2023-52674, CVE-2023-52619,\nCVE-2024-26586, CVE-2023-52667, CVE-2024-26616, CVE-2023-52463,\nCVE-2024-26632, CVE-2023-52447, CVE-2023-52692, CVE-2023-52678,\nCVE-2023-52607, CVE-2023-52618, CVE-2023-52464, CVE-2024-26671,\nCVE-2023-52599, CVE-2023-52454, CVE-2023-52495, CVE-2023-52690)\n",
   "id": "USN-6818-4",
-  "isummary": "Several security issues were fixed in the Linux kernel.\n",
-  "releases": {
-    "jammy": {
-      "allbinaries": {
-        "linux-buildinfo-6.5.0-41-generic": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-buildinfo-6.5.0-41-generic-64k": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-cloud-tools-6.5.0-41-generic": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-cloud-tools-generic-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-cloud-tools-virtual-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-generic-64k-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-generic-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-headers-6.5.0-41-generic": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-headers-6.5.0-41-generic-64k": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-headers-generic-64k-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-headers-generic-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-headers-virtual-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-hwe-6.5-cloud-tools-6.5.0-41": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-hwe-6.5-cloud-tools-common": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-hwe-6.5-headers-6.5.0-41": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-hwe-6.5-tools-6.5.0-41": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-hwe-6.5-tools-common": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-hwe-6.5-tools-host": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-image-6.5.0-41-generic": {
-          "pocket": "security",
-          "source": "linux-signed-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-image-6.5.0-41-generic-64k": {
-          "pocket": "security",
-          "source": "linux-signed-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-image-extra-virtual-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-image-generic-64k-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-image-generic-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-image-uc-6.5.0-41-generic": {
-          "pocket": "security",
-          "source": "linux-signed-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-image-uc-6.5.0-41-generic-64k": {
-          "pocket": "security",
-          "source": "linux-signed-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-image-uc-generic-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-image-unsigned-6.5.0-41-generic": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-image-unsigned-6.5.0-41-generic-64k": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-image-virtual-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-modules-6.5.0-41-generic": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-modules-6.5.0-41-generic-64k": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-modules-extra-6.5.0-41-generic": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-modules-ipu6-6.5.0-41-generic": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-modules-ipu6-generic-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-modules-ivsc-6.5.0-41-generic": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-modules-ivsc-generic-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-modules-iwlwifi-6.5.0-41-generic": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-modules-iwlwifi-generic-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-source-6.5.0": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-tools-6.5.0-41-generic": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-tools-6.5.0-41-generic-64k": {
-          "pocket": "security",
-          "source": "linux-hwe-6.5",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-tools-generic-64k-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-tools-generic-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-tools-virtual-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-virtual-hwe-22.04": {
-          "pocket": "security",
-          "source": "linux-meta-hwe-6.5",
-          "version": "6.5.0.41.41~22.04.2"
-        }
-      },
-      "archs": {
-        "all": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-cloud-tools-common_6.5.0-41.41~22.04.2_all.deb": {
-              "md5": "929d0497a2aa52432ac0126fe0f5b224",
-              "size": 124812
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-headers-6.5.0-41_6.5.0-41.41~22.04.2_all.deb": {
-              "md5": "ac3e7e49f6257c98b8536d36e5046db0",
-              "size": 13321308
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-tools-common_6.5.0-41.41~22.04.2_all.deb": {
-              "md5": "5e7e6fdbf9a0ad0f763f99df708f5a2f",
-              "size": 124856
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-tools-host_6.5.0-41.41~22.04.2_all.deb": {
-              "md5": "7c142a2b2f434aee23d2934809f02f96",
-              "size": 124772
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-source-6.5.0_6.5.0-41.41~22.04.2_all.deb": {
-              "md5": "4f49af5dfd68d9111a2a9b9c08c68372",
-              "size": 336179392
-            }
-          }
-        },
-        "amd64": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-buildinfo-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
-              "md5": "31817a42c99344d3a6c7f683771ef2c9",
-              "size": 592424
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-cloud-tools-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
-              "md5": "9ea501c799045d06a7ac70b363812e52",
-              "size": 1704
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-headers-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
-              "md5": "8cad9dc224deeb2b9e661fe3f2bccd00",
-              "size": 3555418
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-cloud-tools-6.5.0-41_6.5.0-41.41~22.04.2_amd64.deb": {
-              "md5": "8ba50e8d23564ac40206fde34c8293b5",
-              "size": 144124
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-tools-6.5.0-41_6.5.0-41.41~22.04.2_amd64.deb": {
-              "md5": "0619a953a8c9cb052d885294663afa8a",
-              "size": 8042848
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-image-unsigned-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
-              "md5": "975394e94d7127a4e880aacfd574e330",
-              "size": 14428352
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-modules-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
-              "md5": "4fdff799b424493f74ebfc03a16411cd",
-              "size": 25693430
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-modules-extra-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
-              "md5": "56f82d2294401f63bd6652e8a62cce2d",
-              "size": 76811960
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-modules-ipu6-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
-              "md5": "0ddf74d47d4b21a148fa20fc87eab612",
-              "size": 339720
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-modules-ivsc-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
-              "md5": "a9f0821e3219953e8d102bb8d099a240",
-              "size": 189006
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-modules-iwlwifi-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
-              "md5": "521abc52e6cb4376a58111923eee0d7c",
-              "size": 1690316
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-tools-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
-              "md5": "0c48f30d0abe954e942b42fadbf9efa1",
-              "size": 1808
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-cloud-tools-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
-              "md5": "8a4d08ca6d35ed845b0e5ad7ca1c65e1",
-              "size": 2386
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-cloud-tools-virtual-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
-              "md5": "5d4d30f307f9222232b8bbb048ab1ea7",
-              "size": 2400
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
-              "md5": "3fb95a35424ccefaa28dfd192ef62122",
-              "size": 1722
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-headers-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
-              "md5": "dae76efa06fb4b8a213ad818ca5c0a8a",
-              "size": 2362
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-headers-virtual-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
-              "md5": "95176d469bbc36e90fe3c96a22718c42",
-              "size": 1654
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-image-extra-virtual-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
-              "md5": "06f8f5b059b9180260ebb207f92fc8d6",
-              "size": 1710
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-image-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
-              "md5": "c681c97d092eb09e33b6287364604d0e",
-              "size": 2510
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-image-uc-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
-              "md5": "5b3cd1597943b59ec52179742df97798",
-              "size": 2482
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-image-virtual-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
-              "md5": "0b21dbd7b16ec09dcd57deea50b11316",
-              "size": 2454
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-modules-ipu6-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
-              "md5": "716980f1c606dac958b37688be4baf1b",
-              "size": 2456
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-modules-ivsc-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
-              "md5": "22dff255ea1b2e482f475b2c52294fbf",
-              "size": 2456
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-modules-iwlwifi-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
-              "md5": "3daa6f1075328f6ef7dee53ebff221d4",
-              "size": 2450
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-tools-generic-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
-              "md5": "83f48bdd788b89f91d6af0f1c3708b55",
-              "size": 2374
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-tools-virtual-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
-              "md5": "c2dfb580e9e2e4a96be0440af91b620a",
-              "size": 2386
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-virtual-hwe-22.04_6.5.0.41.41~22.04.2_amd64.deb": {
-              "md5": "6520e1224c1b8011cf44818564dec913",
-              "size": 1708
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-hwe-6.5/linux-image-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
-              "md5": "fa00bc3793dfd3e85279631ed9738694",
-              "size": 14051638
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-hwe-6.5/linux-image-uc-6.5.0-41-generic_6.5.0-41.41~22.04.2_amd64.deb": {
-              "md5": "9bb6aea0faa6ee6e1578caacf40b3912",
-              "size": 54281414
-            }
-          }
-        },
-        "arm64": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-buildinfo-6.5.0-41-generic-64k_6.5.0-41.41~22.04.2_arm64.deb": {
-              "md5": "dfeeffcfe6c70d2e582aa4cb9022df9d",
-              "size": 615708
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-buildinfo-6.5.0-41-generic_6.5.0-41.41~22.04.2_arm64.deb": {
-              "md5": "5b079a8d7ffc3313d30f1d0d1d091f2e",
-              "size": 615852
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-headers-6.5.0-41-generic-64k_6.5.0-41.41~22.04.2_arm64.deb": {
-              "md5": "c36e5cd17a677903eea5e5226bd1339c",
-              "size": 2946080
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-headers-6.5.0-41-generic_6.5.0-41.41~22.04.2_arm64.deb": {
-              "md5": "11ca7c2b6ae61df20260654fe9fa3250",
-              "size": 2951874
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-tools-6.5.0-41_6.5.0-41.41~22.04.2_arm64.deb": {
-              "md5": "d3a1921bbe2b81fe0c800cf9fdce4303",
-              "size": 7001150
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-image-unsigned-6.5.0-41-generic-64k_6.5.0-41.41~22.04.2_arm64.deb": {
-              "md5": "69481f808eb79e7aa1659ad5018379ba",
-              "size": 17479872
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-image-unsigned-6.5.0-41-generic_6.5.0-41.41~22.04.2_arm64.deb": {
-              "md5": "516059db1c95d786c2bb25b92f40be6f",
-              "size": 17479872
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-modules-6.5.0-41-generic-64k_6.5.0-41.41~22.04.2_arm64.deb": {
-              "md5": "51b0826147d7e3424a51ae08c56897a3",
-              "size": 102437022
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-modules-6.5.0-41-generic_6.5.0-41.41~22.04.2_arm64.deb": {
-              "md5": "e0f657c07104a18e42aec86a0695422c",
-              "size": 25278406
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-modules-extra-6.5.0-41-generic_6.5.0-41.41~22.04.2_arm64.deb": {
-              "md5": "c5f21787da057f92c89c0a32eae50ffa",
-              "size": 77528790
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-tools-6.5.0-41-generic-64k_6.5.0-41.41~22.04.2_arm64.deb": {
-              "md5": "0767eea36ad214f30bedcb4bf2a3ad05",
-              "size": 1752
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-tools-6.5.0-41-generic_6.5.0-41.41~22.04.2_arm64.deb": {
-              "md5": "ca29df9e5913bb216d4b223c07088f08",
-              "size": 1746
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-generic-64k-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
-              "md5": "031ba43a4cdb03039cab412d08b972b6",
-              "size": 1728
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-generic-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
-              "md5": "d833b192f39b1d90c6b2958ba49b7882",
-              "size": 1722
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-generic-64k-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
-              "md5": "72845a2d83b44a86992eacc0418e11c6",
-              "size": 2372
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-generic-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
-              "md5": "1b41e15560c4d5fd2b0387795ecf6d62",
-              "size": 2360
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-virtual-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
-              "md5": "c75ccd9c6945e0c5a4d980ece613b6e2",
-              "size": 1654
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-extra-virtual-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
-              "md5": "4a2530350ea28228ed10574e02f8a2e4",
-              "size": 1710
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-generic-64k-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
-              "md5": "1e3d6a001b2455354cd39df428f7e711",
-              "size": 2408
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-generic-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
-              "md5": "ff794e9fd80367e6f472fbeed80ecc82",
-              "size": 2458
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-uc-generic-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
-              "md5": "665ae5fe8d29511efbbd729f76938b3f",
-              "size": 2472
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-virtual-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
-              "md5": "6df381c9f58d0c4977a664f42c146b14",
-              "size": 2454
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-generic-64k-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
-              "md5": "a8450ea0fe2e77d44c3a2d6c3e869495",
-              "size": 2374
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-generic-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
-              "md5": "61831f71499dd36da591acedc7e9b7a2",
-              "size": 2374
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-virtual-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
-              "md5": "102730e9bf0a887a94855b985cfce60c",
-              "size": 2386
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-virtual-hwe-22.04_6.5.0.41.41~22.04.2_arm64.deb": {
-              "md5": "974fa05c6d64d9f5620268d1c3bd2367",
-              "size": 1708
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-hwe-6.5/linux-image-6.5.0-41-generic-64k_6.5.0-41.41~22.04.2_arm64.deb": {
-              "md5": "1479d727a4883c73fd6f31f251a55370",
-              "size": 17061188
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-hwe-6.5/linux-image-6.5.0-41-generic_6.5.0-41.41~22.04.2_arm64.deb": {
-              "md5": "a5c1341d6d92e8238a476151a040423c",
-              "size": 17063264
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-hwe-6.5/linux-image-uc-6.5.0-41-generic-64k_6.5.0-41.41~22.04.2_arm64.deb": {
-              "md5": "c22223c16959d29890096e5152d76517",
-              "size": 40695878
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-hwe-6.5/linux-image-uc-6.5.0-41-generic_6.5.0-41.41~22.04.2_arm64.deb": {
-              "md5": "7cd67237d33a8dd24d500caae1a7b994",
-              "size": 41115682
-            }
-          }
-        },
-        "armhf": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-buildinfo-6.5.0-41-generic_6.5.0-41.41~22.04.2_armhf.deb": {
-              "md5": "3fc007a266c5d81775e55769df213de9",
-              "size": 589752
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-headers-6.5.0-41-generic_6.5.0-41.41~22.04.2_armhf.deb": {
-              "md5": "8b8c449d5d2bb21af502afe3b94fafd3",
-              "size": 1210694
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-tools-6.5.0-41_6.5.0-41.41~22.04.2_armhf.deb": {
-              "md5": "d8f60df548d48ac4119056d4f0c585bc",
-              "size": 6939218
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-image-6.5.0-41-generic_6.5.0-41.41~22.04.2_armhf.deb": {
-              "md5": "13676678fa95ae9cee02e5958b9a99f6",
-              "size": 12554432
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-modules-6.5.0-41-generic_6.5.0-41.41~22.04.2_armhf.deb": {
-              "md5": "374c829aba1b36a3a7a3ccd348872efc",
-              "size": 74751674
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-tools-6.5.0-41-generic_6.5.0-41.41~22.04.2_armhf.deb": {
-              "md5": "84f80915ab6609b9f3d054c8be8d44da",
-              "size": 1752
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-generic-hwe-22.04_6.5.0.41.41~22.04.2_armhf.deb": {
-              "md5": "38111ea3f41ecfd7886b465c00c70cdd",
-              "size": 1722
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-generic-hwe-22.04_6.5.0.41.41~22.04.2_armhf.deb": {
-              "md5": "69b6e3fe7a852981047ab2363318cec2",
-              "size": 2362
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-virtual-hwe-22.04_6.5.0.41.41~22.04.2_armhf.deb": {
-              "md5": "78d9a38074c13b2a174efa12de3263f7",
-              "size": 1654
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-generic-hwe-22.04_6.5.0.41.41~22.04.2_armhf.deb": {
-              "md5": "ee30b7173172b1560685743db28a4184",
-              "size": 2418
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-virtual-hwe-22.04_6.5.0.41.41~22.04.2_armhf.deb": {
-              "md5": "2868910ef0e66b53c830a0e06456fa7b",
-              "size": 2422
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-generic-hwe-22.04_6.5.0.41.41~22.04.2_armhf.deb": {
-              "md5": "102e438ebfe2011857629eca83cde3b4",
-              "size": 2374
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-virtual-hwe-22.04_6.5.0.41.41~22.04.2_armhf.deb": {
-              "md5": "f900b0083b964fcddfe697af8e372be9",
-              "size": 2386
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-virtual-hwe-22.04_6.5.0.41.41~22.04.2_armhf.deb": {
-              "md5": "44fabb428f2acbf9f814a656332c3d60",
-              "size": 1708
-            }
-          }
-        },
-        "ppc64el": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-buildinfo-6.5.0-41-generic_6.5.0-41.41~22.04.2_ppc64el.deb": {
-              "md5": "f64e26c812bbe9a4ba27ead945f465c8",
-              "size": 565142
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-headers-6.5.0-41-generic_6.5.0-41.41~22.04.2_ppc64el.deb": {
-              "md5": "2b72411915c17b09df5e4dc53310a1aa",
-              "size": 4151740
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-tools-6.5.0-41_6.5.0-41.41~22.04.2_ppc64el.deb": {
-              "md5": "273eb5060ad914a6e20c8a8f689f0465",
-              "size": 7319804
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-image-6.5.0-41-generic_6.5.0-41.41~22.04.2_ppc64el.deb": {
-              "md5": "ee437e293fe8bcf0c391f8ad03e4badf",
-              "size": 63641792
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-modules-6.5.0-41-generic_6.5.0-41.41~22.04.2_ppc64el.deb": {
-              "md5": "04424d42f58b9c2e70a746f931bf651b",
-              "size": 22541562
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-modules-extra-6.5.0-41-generic_6.5.0-41.41~22.04.2_ppc64el.deb": {
-              "md5": "eadd4baac756e375dfc38bf4e9e31c67",
-              "size": 67081150
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-tools-6.5.0-41-generic_6.5.0-41.41~22.04.2_ppc64el.deb": {
-              "md5": "222f5e7d70bf2f977d435fb243f92f35",
-              "size": 1756
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-generic-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
-              "md5": "e72fa08d07cdaccc5369ec6e92053af0",
-              "size": 1726
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-generic-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
-              "md5": "e1104ca1eb9467e1696cfd497f6395ff",
-              "size": 2364
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-virtual-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
-              "md5": "6f8b008dbe10c861d8d8f1e499b1fc60",
-              "size": 1658
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-extra-virtual-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
-              "md5": "fd7011974b5d88af13d84038e24040ab",
-              "size": 1712
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-generic-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
-              "md5": "f0f33fd41d63cafe8ec79e5231b6782f",
-              "size": 2462
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-virtual-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
-              "md5": "b62d5eefcd672661369da81c85919a60",
-              "size": 2458
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-generic-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
-              "md5": "a7ae8d41b16a170408fd11a51cfc0544",
-              "size": 2376
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-virtual-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
-              "md5": "548b9abc38129452bd73e0e057bb669c",
-              "size": 2388
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-virtual-hwe-22.04_6.5.0.41.41~22.04.2_ppc64el.deb": {
-              "md5": "3655fc55fe396afb681eea8e18a0cbf7",
-              "size": 1710
-            }
-          }
-        },
-        "s390x": {
-          "urls": {
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-buildinfo-6.5.0-41-generic_6.5.0-41.41~22.04.2_s390x.deb": {
-              "md5": "132997c72ab4d456022e123767656b58",
-              "size": 348880
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-headers-6.5.0-41-generic_6.5.0-41.41~22.04.2_s390x.deb": {
-              "md5": "367ee4b47775a9ad4f9dc0fce79f8732",
-              "size": 2310044
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-hwe-6.5-tools-6.5.0-41_6.5.0-41.41~22.04.2_s390x.deb": {
-              "md5": "65577a4b4601fa6d7515164be472b0c2",
-              "size": 6691312
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-image-unsigned-6.5.0-41-generic_6.5.0-41.41~22.04.2_s390x.deb": {
-              "md5": "ba04e56e3063f831416a4b4b840732fe",
-              "size": 9543872
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-modules-6.5.0-41-generic_6.5.0-41.41~22.04.2_s390x.deb": {
-              "md5": "f5e03c61f469b69e711df4c781d3303f",
-              "size": 14094904
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-modules-extra-6.5.0-41-generic_6.5.0-41.41~22.04.2_s390x.deb": {
-              "md5": "b441a7dbabeb1eeeddeee4188fdf6274",
-              "size": 9330986
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-hwe-6.5/linux-tools-6.5.0-41-generic_6.5.0-41.41~22.04.2_s390x.deb": {
-              "md5": "a5f1199427c9aa5d5ef86e7acfd7e461",
-              "size": 1748
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-generic-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
-              "md5": "d14b05b02e3f5244948116703ab30b82",
-              "size": 1724
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-generic-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
-              "md5": "bcb86bfaff0751caf92b54bfe434aab7",
-              "size": 2362
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-headers-virtual-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
-              "md5": "f54b0e3fd573a7dc28757437d5b58061",
-              "size": 1656
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-extra-virtual-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
-              "md5": "0770a898af1c99d75ac0cf31aa540127",
-              "size": 1712
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-generic-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
-              "md5": "5fb5f842ec2af3bd318dbf2255140b93",
-              "size": 2452
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-image-virtual-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
-              "md5": "f77c2dea9327cf54826ffe96e3587912",
-              "size": 2454
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-generic-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
-              "md5": "006369663ed6806dd1a6aee18a1cee27",
-              "size": 2374
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-tools-virtual-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
-              "md5": "a27990eec00ca15eb8935cd1d827419c",
-              "size": 2390
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-meta-hwe-6.5/linux-virtual-hwe-22.04_6.5.0.41.41~22.04.2_s390x.deb": {
-              "md5": "8c3d37ed6ae87ebba764395cbd10d714",
-              "size": 1708
-            },
-            "http://ports.ubuntu.com/pool/main/l/linux-signed-hwe-6.5/linux-image-6.5.0-41-generic_6.5.0-41.41~22.04.2_s390x.deb": {
-              "md5": "4ff7224ceee9f63a3d0f36fd1029684a",
-              "size": 9156648
-            }
-          }
-        },
-        "source": {
-          "urls": {
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5_6.5.0-41.41~22.04.2.diff.gz": {
-              "md5": "973fe73733f4230232f149c80beea898",
-              "size": 4041847
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5_6.5.0-41.41~22.04.2.dsc": {
-              "md5": "0be05212da72403b4f75a1b17f71da39",
-              "size": 9186
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-hwe-6.5/linux-hwe-6.5_6.5.0.orig.tar.gz": {
-              "md5": "8290e3447d70a1a709986624233cb6df",
-              "size": 223513863
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-meta-hwe-6.5_6.5.0.41.41~22.04.2.dsc": {
-              "md5": "8bd898539bd13fdd1bd4bb21c4f6d370",
-              "size": 3860
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-meta-hwe-6.5/linux-meta-hwe-6.5_6.5.0.41.41~22.04.2.tar.xz": {
-              "md5": "50b95f00dc2b693434d40e92b1c9b5fe",
-              "size": 17780
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-hwe-6.5/linux-signed-hwe-6.5_6.5.0-41.41~22.04.2.dsc": {
-              "md5": "dabe8422ffcc8b4954b764fbc1fcc059",
-              "size": 2785
-            },
-            "http://security.ubuntu.com/ubuntu/pool/main/l/linux-signed-hwe-6.5/linux-signed-hwe-6.5_6.5.0-41.41~22.04.2.tar.xz": {
-              "md5": "33e558086d01146811b3c953c04b15aa",
-              "size": 26396
-            }
-          }
-        }
-      },
-      "binaries": {
-        "linux-image-6.5.0-41-generic": {
-          "pocket": "security",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-image-6.5.0-41-generic-64k": {
-          "pocket": "security",
-          "version": "6.5.0-41.41~22.04.2"
-        },
-        "linux-image-generic-64k-hwe-22.04": {
-          "pocket": "security",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-image-generic-hwe-22.04": {
-          "pocket": "security",
-          "version": "6.5.0.41.41~22.04.2"
-        },
-        "linux-image-virtual-hwe-22.04": {
-          "pocket": "security",
-          "version": "6.5.0.41.41~22.04.2"
-        }
-      },
-      "sources": {
-        "linux-hwe-6.5": {
-          "description": "Linux hardware enablement (HWE) kernel",
-          "version": "6.5.0-41.41~22.04.2"
-        }
-      }
-    }
-  },
-  "summary": "linux-hwe-6.5 vulnerabilities",
-  "timestamp": 1718753096.1707585,
-  "title": "Linux kernel (HWE) vulnerabilities"
+  "isummary": "Several security issues were fixed in the Linux kernel.\n"
 }
