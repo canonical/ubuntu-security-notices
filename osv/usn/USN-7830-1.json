@@ -1,0 +1,793 @@
+{
+  "schema_version": "1.7.0",
+  "id": "USN-7830-1",
+  "summary": "ffmpeg vulnerabilities",
+  "details": "It was discovered that FFmpeg incorrectly handled the return values of\nfunctions in its Firequalizer filter and in the HTTP Live Streaming (HLS)\nimplementation, leading to a NULL pointer dereference. If a user was \ntricked into loading a crafted media file, a remote attacker could \npossibly use this issue to make FFmpeg crash, resulting in a denial\nof service. (CVE-2023-6603, CVE-2025-10256)\n\nIt was discovered that FFmpeg did not enforce an input format before\ntriggering the HTTP demuxer. A remote attacker could possibly use this\nissue to perform a Server-Side Request Forgery (SSRF) attack.\n(CVE-2025-6605)\n\nIt was discovered that FFmpeg incorrectly handled memory allocation in the\nALS audio decoder. If a user was tricked into loading a crafted media file,\na remote attacker could possibly use this issue to make FFmpeg crash,\nresulting in a denial of service. (CVE-2025-7700)\n\nIt was discovered that FFmpeg incorrectly handled memory in the JPEG 2000\ndecoder, which could lead to a heap buffer overflow. If a user or \napplication were tricked into opening a specially crafted file, an \nattacker could possibly use this issue to cause a denial of service \nor leak sensitive information. (CVE-2025-9951)",
+  "aliases": [],
+  "upstream": [
+    "UBUNTU-CVE-2023-6603",
+    "UBUNTU-CVE-2023-6605",
+    "UBUNTU-CVE-2025-7700",
+    "UBUNTU-CVE-2025-9951",
+    "UBUNTU-CVE-2025-10256"
+  ],
+  "related": [],
+  "published": "2025-10-21T11:20:52.583255Z",
+  "modified": "2025-10-21T11:20:52.583255Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:18.04:LTS",
+        "name": "ffmpeg",
+        "purl": "pkg:deb/ubuntu/ffmpeg@7:3.4.11-0ubuntu0.1+esm11?arch=source&distro=esm-apps/bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "7:3.4.11-0ubuntu0.1+esm11"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "7:3.3.4-2",
+        "7:3.3.4-2build3",
+        "7:3.4-2ubuntu2",
+        "7:3.4-4",
+        "7:3.4-4build1",
+        "7:3.4.1-1",
+        "7:3.4.1-1build1",
+        "7:3.4.2-1",
+        "7:3.4.2-1build1",
+        "7:3.4.2-2",
+        "7:3.4.4-0ubuntu0.18.04.1",
+        "7:3.4.6-0ubuntu0.18.04.1",
+        "7:3.4.8-0ubuntu0.2",
+        "7:3.4.11-0ubuntu0.1",
+        "7:3.4.11-0ubuntu0.1+esm1",
+        "7:3.4.11-0ubuntu0.1+esm2",
+        "7:3.4.11-0ubuntu0.1+esm3",
+        "7:3.4.11-0ubuntu0.1+esm4",
+        "7:3.4.11-0ubuntu0.1+esm5",
+        "7:3.4.11-0ubuntu0.1+esm6",
+        "7:3.4.11-0ubuntu0.1+esm7",
+        "7:3.4.11-0ubuntu0.1+esm8",
+        "7:3.4.11-0ubuntu0.1+esm9",
+        "7:3.4.11-0ubuntu0.1+esm10"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "ffmpeg",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavcodec-dev",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavcodec-extra",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavcodec-extra57",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavcodec57",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavdevice-dev",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavdevice57",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavfilter-dev",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavfilter-extra",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavfilter-extra6",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavfilter6",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavformat-dev",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavformat57",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavresample-dev",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavresample3",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavutil-dev",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavutil55",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libpostproc-dev",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libpostproc54",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libswresample-dev",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libswresample2",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libswscale-dev",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libswscale4",
+            "binary_version": "7:3.4.11-0ubuntu0.1+esm11"
+          }
+        ],
+        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:Pro:18.04:LTS",
+          "cves": [
+            {
+              "id": "CVE-2023-6603",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-10256",
+              "severity": [
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:20.04:LTS",
+        "name": "ffmpeg",
+        "purl": "pkg:deb/ubuntu/ffmpeg@7:4.2.7-0ubuntu0.1+esm11?arch=source&distro=esm-apps/focal"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "7:4.2.7-0ubuntu0.1+esm11"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "7:4.1.4-1build2",
+        "7:4.2.1-2",
+        "7:4.2.1-2ubuntu1",
+        "7:4.2.2-1build1",
+        "7:4.2.2-1ubuntu1",
+        "7:4.2.4-1ubuntu0.1",
+        "7:4.2.4-1ubuntu0.1+esm1",
+        "7:4.2.7-0ubuntu0.1",
+        "7:4.2.7-0ubuntu0.1+esm1",
+        "7:4.2.7-0ubuntu0.1+esm2",
+        "7:4.2.7-0ubuntu0.1+esm3",
+        "7:4.2.7-0ubuntu0.1+esm4",
+        "7:4.2.7-0ubuntu0.1+esm5",
+        "7:4.2.7-0ubuntu0.1+esm6",
+        "7:4.2.7-0ubuntu0.1+esm7",
+        "7:4.2.7-0ubuntu0.1+esm8",
+        "7:4.2.7-0ubuntu0.1+esm9",
+        "7:4.2.7-0ubuntu0.1+esm10"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "ffmpeg",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavcodec-dev",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavcodec-extra",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavcodec-extra58",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavcodec58",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavdevice-dev",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavdevice58",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavfilter-dev",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavfilter-extra",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavfilter-extra7",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavfilter7",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavformat-dev",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavformat58",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavresample-dev",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavresample4",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavutil-dev",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libavutil56",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libpostproc-dev",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libpostproc55",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libswresample-dev",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libswresample3",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libswscale-dev",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          },
+          {
+            "binary_name": "libswscale5",
+            "binary_version": "7:4.2.7-0ubuntu0.1+esm11"
+          }
+        ],
+        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:Pro:20.04:LTS",
+          "cves": [
+            {
+              "id": "CVE-2023-6603",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2023-6605",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-10256",
+              "severity": [
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:22.04:LTS",
+        "name": "ffmpeg",
+        "purl": "pkg:deb/ubuntu/ffmpeg@7:4.4.2-0ubuntu0.22.04.1+esm10?arch=source&distro=esm-apps/jammy"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "7:4.4-6ubuntu5",
+        "7:4.4.1-2ubuntu1",
+        "7:4.4.1-3ubuntu1",
+        "7:4.4.1-3ubuntu2",
+        "7:4.4.1-3ubuntu3",
+        "7:4.4.1-3ubuntu5",
+        "7:4.4.2-0ubuntu0.22.04.1",
+        "7:4.4.2-0ubuntu0.22.04.1+esm1",
+        "7:4.4.2-0ubuntu0.22.04.1+esm2",
+        "7:4.4.2-0ubuntu0.22.04.1+esm3",
+        "7:4.4.2-0ubuntu0.22.04.1+esm4",
+        "7:4.4.2-0ubuntu0.22.04.1+esm5",
+        "7:4.4.2-0ubuntu0.22.04.1+esm6",
+        "7:4.4.2-0ubuntu0.22.04.1+esm7",
+        "7:4.4.2-0ubuntu0.22.04.1+esm8",
+        "7:4.4.2-0ubuntu0.22.04.1+esm9"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "ffmpeg",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libavcodec-dev",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libavcodec-extra",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libavcodec-extra58",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libavcodec58",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libavdevice-dev",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libavdevice58",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libavfilter-dev",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libavfilter-extra",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libavfilter-extra7",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libavfilter7",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libavformat-dev",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libavformat-extra",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libavformat-extra58",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libavformat58",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libavutil-dev",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libavutil56",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libpostproc-dev",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libpostproc55",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libswresample-dev",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libswresample3",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libswscale-dev",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          },
+          {
+            "binary_name": "libswscale5",
+            "binary_version": "7:4.4.2-0ubuntu0.22.04.1+esm10"
+          }
+        ],
+        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:Pro:22.04:LTS",
+          "cves": [
+            {
+              "id": "CVE-2023-6603",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2023-6605",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-10256",
+              "severity": [
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:24.04:LTS",
+        "name": "ffmpeg",
+        "purl": "pkg:deb/ubuntu/ffmpeg@7:6.1.1-3ubuntu5+esm6?arch=source&distro=esm-apps/noble"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "7:6.1.1-3ubuntu5+esm6"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "7:6.0-6ubuntu1",
+        "7:6.0-9ubuntu1",
+        "7:6.1-2ubuntu1",
+        "7:6.1-3ubuntu1",
+        "7:6.1-4ubuntu1",
+        "7:6.1-5ubuntu1",
+        "7:6.1.1-1ubuntu1",
+        "7:6.1.1-3ubuntu1",
+        "7:6.1.1-3ubuntu5",
+        "7:6.1.1-3ubuntu5+esm1",
+        "7:6.1.1-3ubuntu5+esm2",
+        "7:6.1.1-3ubuntu5+esm3",
+        "7:6.1.1-3ubuntu5+esm4",
+        "7:6.1.1-3ubuntu5+esm5"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "ffmpeg",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libavcodec-dev",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libavcodec-extra",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libavcodec-extra60",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libavcodec60",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libavdevice-dev",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libavdevice60",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libavfilter-dev",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libavfilter-extra",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libavfilter-extra9",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libavfilter9",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libavformat-dev",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libavformat-extra",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libavformat-extra60",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libavformat60",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libavutil-dev",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libavutil58",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libpostproc-dev",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libpostproc57",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libswresample-dev",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libswresample4",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libswscale-dev",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          },
+          {
+            "binary_name": "libswscale7",
+            "binary_version": "7:6.1.1-3ubuntu5+esm6"
+          }
+        ],
+        "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:Pro:24.04:LTS",
+          "cves": [
+            {
+              "id": "CVE-2023-6605",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-7700",
+              "severity": [
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-9951",
+              "severity": [
+                {
+                  "type": "CVSS_V4",
+                  "score": "CVSS:4.0/AV:N/AC:H/AT:N/PR:L/UI:N/VC:N/VI:H/VA:H/SC:N/SI:H/SA:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-10256",
+              "severity": [
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-7830-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-6603"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-6605"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-7700"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-9951"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-10256"
+    }
+  ]
+}
