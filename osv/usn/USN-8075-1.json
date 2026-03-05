@@ -1,25 +1,25 @@
 {
   "schema_version": "1.7.0",
-  "id": "USN-8057-1",
+  "id": "USN-8075-1",
   "summary": "gimp vulnerabilities",
-  "details": "Hanno B\u00f6ck discovered that GIMP allocated FLI images using only the\ninformation present in the file header, which allowed for a maliciously-\ncrafted file to cause out-of-bounds writes. An attacker could possibly use\nthis issue to cause a denial of service or execute arbitrary code. This\nissue only affected Ubuntu 16.04 LTS. (CVE-2017-17785)\n\nMichael Randrianantenaina discovered that that opening a maliciously\ncrafted FLI file could cause GIMP to index out-of-bounds. An attacker could\npossibly use this issue to cause a denial or service or execute arbitrary\ncode. (CVE-2025-2761)\n\nIt was discovered that opening a maliciously-crafted DCM file could cause\nGIMP to index out-of-bounds. An attacker could possibly use this issue to\ncause a denial of service or execute arbitrary code. (CVE-2025-10922)\n\nIt was discovered that GIMP's JP2 parser did not account for precision when\nallocating an image buffer. An attacker could possibly use this to cause a\ndenial of service or execute arbitrary code when a maliciously crafted file\nis opened. This issue only affected Ubuntu 20.04 LTS, Ubuntu 22.04 LTS, and\nUbuntu 24.04 LTS. (CVE-2025-14425)\n\nIt was discovered that GIMP's PSP parser erroneously queried the color\nchannels of a greyscale image, which resulted in an invalid memory pointer.\nAn attacker could possibly use this to cause a denial of service or execute\narbitrary code when a maliciously-crafted file is opened. This issue only\naffected Ubuntu 22.04 LTS and Ubuntu 24.04 LTS. (CVE-2025-15059)",
+  "details": "Michael Randrianantenaina discovered that calculating the linear size of a\nDDS file could overflow on 32-bit systems. An attacker could possibly use\nthis issue to cause a denial of service or execute arbitrary code. This\nissue only affected Ubuntu 20.04 LTS, Ubuntu 22.04 LTS, and Ubuntu 24.04\nLTS. (CVE-2025-2760)\n\nMichael Randrianantenaina discovered that GIMP did not perform any bounds\nchecking when calculating an offset into XWD Colormaps. An attacker could\npossibly use this issue to cause a denial of service or execute arbitrary\ncode. (CVE-2025-10934)\n\nIt was discovered that GIMP's PNM loader did not sufficiently check that\nthe image could fit within the allocated memory, which could cause GIMP to\nread or write out-of-bounds. An attacker could possibly use this issue to\ncause a denial of service or execute arbitrary code. (CVE-2025-14422)\n\nIt was discovered that maliciously-crafted TGA files could cause memory\ncorruption and leave GIMP in an inconsistent state. An attacker could\npossibly use this issue to cause a denial of service or execute arbitrary\ncode. (CVE-2025-48797)\n\nIt was discovered that a maliciously-crafted XCF file could cause GIMP to\nfree the same memory region twice, or access an already freed address. An\nattacker could possibly use this issue to cause a denial of service or\nexecute arbitrary code. (CVE-2025-48798)",
   "aliases": [],
   "upstream": [
-    "UBUNTU-CVE-2017-17785",
-    "UBUNTU-CVE-2025-2761",
-    "UBUNTU-CVE-2025-10922",
-    "UBUNTU-CVE-2025-14425",
-    "UBUNTU-CVE-2025-15059"
+    "UBUNTU-CVE-2025-2760",
+    "UBUNTU-CVE-2025-10934",
+    "UBUNTU-CVE-2025-14422",
+    "UBUNTU-CVE-2025-48797",
+    "UBUNTU-CVE-2025-48798"
   ],
   "related": [],
-  "published": "2026-02-23T20:09:36Z",
-  "modified": "2026-03-05T04:57:37Z",
+  "published": "2026-03-04T17:42:21Z",
+  "modified": "2026-03-04T17:42:21Z",
   "affected": [
     {
       "package": {
         "ecosystem": "Ubuntu:Pro:16.04:LTS",
         "name": "gimp",
-        "purl": "pkg:deb/ubuntu/gimp@2.8.16-1ubuntu1.1+esm1?arch=source&distro=esm-apps/xenial"
+        "purl": "pkg:deb/ubuntu/gimp@2.8.16-1ubuntu1.1+esm2?arch=source&distro=esm-apps/xenial"
       },
       "ranges": [
         {
@@ -29,7 +29,7 @@
               "introduced": "0"
             },
             {
-              "fixed": "2.8.16-1ubuntu1.1+esm1"
+              "fixed": "2.8.16-1ubuntu1.1+esm2"
             }
           ]
         }
@@ -38,25 +38,26 @@
         "2.8.14-1ubuntu2",
         "2.8.14-1.2ubuntu1",
         "2.8.16-1ubuntu1",
-        "2.8.16-1ubuntu1.1"
+        "2.8.16-1ubuntu1.1",
+        "2.8.16-1ubuntu1.1+esm1"
       ],
       "ecosystem_specific": {
         "binaries": [
           {
             "binary_name": "gimp",
-            "binary_version": "2.8.16-1ubuntu1.1+esm1"
+            "binary_version": "2.8.16-1ubuntu1.1+esm2"
           },
           {
             "binary_name": "gimp-data",
-            "binary_version": "2.8.16-1ubuntu1.1+esm1"
+            "binary_version": "2.8.16-1ubuntu1.1+esm2"
           },
           {
             "binary_name": "libgimp2.0",
-            "binary_version": "2.8.16-1ubuntu1.1+esm1"
+            "binary_version": "2.8.16-1ubuntu1.1+esm2"
           },
           {
             "binary_name": "libgimp2.0-dev",
-            "binary_version": "2.8.16-1ubuntu1.1+esm1"
+            "binary_version": "2.8.16-1ubuntu1.1+esm2"
           }
         ],
         "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
@@ -66,37 +67,7 @@
           "ecosystem": "Ubuntu:Pro:16.04:LTS",
           "cves": [
             {
-              "id": "CVE-2017-17785",
-              "severity": [
-                {
-                  "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
-                },
-                {
-                  "type": "Ubuntu",
-                  "score": "low"
-                }
-              ]
-            },
-            {
-              "id": "CVE-2025-2761",
-              "severity": [
-                {
-                  "type": "CVSS_V3",
-                  "score": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
-                },
-                {
-                  "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
-                },
-                {
-                  "type": "Ubuntu",
-                  "score": "medium"
-                }
-              ]
-            },
-            {
-              "id": "CVE-2025-10922",
+              "id": "CVE-2025-10934",
               "severity": [
                 {
                   "type": "CVSS_V3",
@@ -109,11 +80,37 @@
               ]
             },
             {
-              "id": "CVE-2025-14425",
+              "id": "CVE-2025-14422",
               "severity": [
                 {
                   "type": "CVSS_V3",
                   "score": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-48797",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-48798",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
                 },
                 {
                   "type": "Ubuntu",
@@ -129,7 +126,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:18.04:LTS",
         "name": "gimp",
-        "purl": "pkg:deb/ubuntu/gimp@2.8.22-1ubuntu0.1~esm1?arch=source&distro=esm-apps/bionic"
+        "purl": "pkg:deb/ubuntu/gimp@2.8.22-1ubuntu0.1~esm2?arch=source&distro=esm-apps/bionic"
       },
       "ranges": [
         {
@@ -139,7 +136,7 @@
               "introduced": "0"
             },
             {
-              "fixed": "2.8.22-1ubuntu0.1~esm1"
+              "fixed": "2.8.22-1ubuntu0.1~esm2"
             }
           ]
         }
@@ -148,25 +145,26 @@
         "2.8.20-1",
         "2.8.20-1.1",
         "2.8.20-2",
-        "2.8.22-1"
+        "2.8.22-1",
+        "2.8.22-1ubuntu0.1~esm1"
       ],
       "ecosystem_specific": {
         "binaries": [
           {
             "binary_name": "gimp",
-            "binary_version": "2.8.22-1ubuntu0.1~esm1"
+            "binary_version": "2.8.22-1ubuntu0.1~esm2"
           },
           {
             "binary_name": "gimp-data",
-            "binary_version": "2.8.22-1ubuntu0.1~esm1"
+            "binary_version": "2.8.22-1ubuntu0.1~esm2"
           },
           {
             "binary_name": "libgimp2.0",
-            "binary_version": "2.8.22-1ubuntu0.1~esm1"
+            "binary_version": "2.8.22-1ubuntu0.1~esm2"
           },
           {
             "binary_name": "libgimp2.0-dev",
-            "binary_version": "2.8.22-1ubuntu0.1~esm1"
+            "binary_version": "2.8.22-1ubuntu0.1~esm2"
           }
         ],
         "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
@@ -176,24 +174,7 @@
           "ecosystem": "Ubuntu:Pro:18.04:LTS",
           "cves": [
             {
-              "id": "CVE-2025-2761",
-              "severity": [
-                {
-                  "type": "CVSS_V3",
-                  "score": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
-                },
-                {
-                  "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
-                },
-                {
-                  "type": "Ubuntu",
-                  "score": "medium"
-                }
-              ]
-            },
-            {
-              "id": "CVE-2025-10922",
+              "id": "CVE-2025-10934",
               "severity": [
                 {
                   "type": "CVSS_V3",
@@ -206,11 +187,37 @@
               ]
             },
             {
-              "id": "CVE-2025-14425",
+              "id": "CVE-2025-14422",
               "severity": [
                 {
                   "type": "CVSS_V3",
                   "score": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-48797",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-48798",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
                 },
                 {
                   "type": "Ubuntu",
@@ -226,7 +233,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:20.04:LTS",
         "name": "gimp",
-        "purl": "pkg:deb/ubuntu/gimp@2.10.18-1ubuntu0.1+esm1?arch=source&distro=esm-apps/focal"
+        "purl": "pkg:deb/ubuntu/gimp@2.10.18-1ubuntu0.1+esm2?arch=source&distro=esm-apps/focal"
       },
       "ranges": [
         {
@@ -236,7 +243,7 @@
               "introduced": "0"
             },
             {
-              "fixed": "2.10.18-1ubuntu0.1+esm1"
+              "fixed": "2.10.18-1ubuntu0.1+esm2"
             }
           ]
         }
@@ -248,25 +255,26 @@
         "2.10.14-2ubuntu1",
         "2.10.14-3",
         "2.10.18-1",
-        "2.10.18-1ubuntu0.1"
+        "2.10.18-1ubuntu0.1",
+        "2.10.18-1ubuntu0.1+esm1"
       ],
       "ecosystem_specific": {
         "binaries": [
           {
             "binary_name": "gimp",
-            "binary_version": "2.10.18-1ubuntu0.1+esm1"
+            "binary_version": "2.10.18-1ubuntu0.1+esm2"
           },
           {
             "binary_name": "gimp-data",
-            "binary_version": "2.10.18-1ubuntu0.1+esm1"
+            "binary_version": "2.10.18-1ubuntu0.1+esm2"
           },
           {
             "binary_name": "libgimp2.0",
-            "binary_version": "2.10.18-1ubuntu0.1+esm1"
+            "binary_version": "2.10.18-1ubuntu0.1+esm2"
           },
           {
             "binary_name": "libgimp2.0-dev",
-            "binary_version": "2.10.18-1ubuntu0.1+esm1"
+            "binary_version": "2.10.18-1ubuntu0.1+esm2"
           }
         ],
         "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
@@ -276,7 +284,7 @@
           "ecosystem": "Ubuntu:Pro:20.04:LTS",
           "cves": [
             {
-              "id": "CVE-2025-2761",
+              "id": "CVE-2025-2760",
               "severity": [
                 {
                   "type": "CVSS_V3",
@@ -293,7 +301,7 @@
               ]
             },
             {
-              "id": "CVE-2025-10922",
+              "id": "CVE-2025-10934",
               "severity": [
                 {
                   "type": "CVSS_V3",
@@ -306,11 +314,37 @@
               ]
             },
             {
-              "id": "CVE-2025-14425",
+              "id": "CVE-2025-14422",
               "severity": [
                 {
                   "type": "CVSS_V3",
                   "score": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-48797",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-48798",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
                 },
                 {
                   "type": "Ubuntu",
@@ -326,7 +360,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:22.04:LTS",
         "name": "gimp",
-        "purl": "pkg:deb/ubuntu/gimp@2.10.30-1ubuntu0.1+esm1?arch=source&distro=esm-apps/jammy"
+        "purl": "pkg:deb/ubuntu/gimp@2.10.30-1ubuntu0.1+esm2?arch=source&distro=esm-apps/jammy"
       },
       "ranges": [
         {
@@ -336,7 +370,7 @@
               "introduced": "0"
             },
             {
-              "fixed": "2.10.30-1ubuntu0.1+esm1"
+              "fixed": "2.10.30-1ubuntu0.1+esm2"
             }
           ]
         }
@@ -346,25 +380,26 @@
         "2.10.28-1",
         "2.10.30-1",
         "2.10.30-1build1",
-        "2.10.30-1ubuntu0.1"
+        "2.10.30-1ubuntu0.1",
+        "2.10.30-1ubuntu0.1+esm1"
       ],
       "ecosystem_specific": {
         "binaries": [
           {
             "binary_name": "gimp",
-            "binary_version": "2.10.30-1ubuntu0.1+esm1"
+            "binary_version": "2.10.30-1ubuntu0.1+esm2"
           },
           {
             "binary_name": "gimp-data",
-            "binary_version": "2.10.30-1ubuntu0.1+esm1"
+            "binary_version": "2.10.30-1ubuntu0.1+esm2"
           },
           {
             "binary_name": "libgimp2.0",
-            "binary_version": "2.10.30-1ubuntu0.1+esm1"
+            "binary_version": "2.10.30-1ubuntu0.1+esm2"
           },
           {
             "binary_name": "libgimp2.0-dev",
-            "binary_version": "2.10.30-1ubuntu0.1+esm1"
+            "binary_version": "2.10.30-1ubuntu0.1+esm2"
           }
         ],
         "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
@@ -374,7 +409,7 @@
           "ecosystem": "Ubuntu:Pro:22.04:LTS",
           "cves": [
             {
-              "id": "CVE-2025-2761",
+              "id": "CVE-2025-2760",
               "severity": [
                 {
                   "type": "CVSS_V3",
@@ -391,7 +426,7 @@
               ]
             },
             {
-              "id": "CVE-2025-10922",
+              "id": "CVE-2025-10934",
               "severity": [
                 {
                   "type": "CVSS_V3",
@@ -404,7 +439,7 @@
               ]
             },
             {
-              "id": "CVE-2025-14425",
+              "id": "CVE-2025-14422",
               "severity": [
                 {
                   "type": "CVSS_V3",
@@ -417,11 +452,24 @@
               ]
             },
             {
-              "id": "CVE-2025-15059",
+              "id": "CVE-2025-48797",
               "severity": [
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-48798",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
                 },
                 {
                   "type": "Ubuntu",
@@ -437,7 +485,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:24.04:LTS",
         "name": "gimp",
-        "purl": "pkg:deb/ubuntu/gimp@2.10.36-3ubuntu0.24.04.1+esm1?arch=source&distro=esm-apps/noble"
+        "purl": "pkg:deb/ubuntu/gimp@2.10.36-3ubuntu0.24.04.1+esm2?arch=source&distro=esm-apps/noble"
       },
       "ranges": [
         {
@@ -447,7 +495,7 @@
               "introduced": "0"
             },
             {
-              "fixed": "2.10.36-3ubuntu0.24.04.1+esm1"
+              "fixed": "2.10.36-3ubuntu0.24.04.1+esm2"
             }
           ]
         }
@@ -458,25 +506,26 @@
         "2.10.36-2",
         "2.10.36-3build2",
         "2.10.36-3build3",
-        "2.10.36-3ubuntu0.24.04.1"
+        "2.10.36-3ubuntu0.24.04.1",
+        "2.10.36-3ubuntu0.24.04.1+esm1"
       ],
       "ecosystem_specific": {
         "binaries": [
           {
             "binary_name": "gimp",
-            "binary_version": "2.10.36-3ubuntu0.24.04.1+esm1"
+            "binary_version": "2.10.36-3ubuntu0.24.04.1+esm2"
           },
           {
             "binary_name": "gimp-data",
-            "binary_version": "2.10.36-3ubuntu0.24.04.1+esm1"
+            "binary_version": "2.10.36-3ubuntu0.24.04.1+esm2"
           },
           {
             "binary_name": "libgimp2.0-dev",
-            "binary_version": "2.10.36-3ubuntu0.24.04.1+esm1"
+            "binary_version": "2.10.36-3ubuntu0.24.04.1+esm2"
           },
           {
             "binary_name": "libgimp2.0t64",
-            "binary_version": "2.10.36-3ubuntu0.24.04.1+esm1"
+            "binary_version": "2.10.36-3ubuntu0.24.04.1+esm2"
           }
         ],
         "availability": "Available with Ubuntu Pro: https://ubuntu.com/pro"
@@ -486,7 +535,7 @@
           "ecosystem": "Ubuntu:Pro:24.04:LTS",
           "cves": [
             {
-              "id": "CVE-2025-2761",
+              "id": "CVE-2025-2760",
               "severity": [
                 {
                   "type": "CVSS_V3",
@@ -503,7 +552,7 @@
               ]
             },
             {
-              "id": "CVE-2025-10922",
+              "id": "CVE-2025-10934",
               "severity": [
                 {
                   "type": "CVSS_V3",
@@ -516,7 +565,7 @@
               ]
             },
             {
-              "id": "CVE-2025-14425",
+              "id": "CVE-2025-14422",
               "severity": [
                 {
                   "type": "CVSS_V3",
@@ -529,11 +578,24 @@
               ]
             },
             {
-              "id": "CVE-2025-15059",
+              "id": "CVE-2025-48797",
               "severity": [
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-48798",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
                 },
                 {
                   "type": "Ubuntu",
@@ -549,27 +611,27 @@
   "references": [
     {
       "type": "ADVISORY",
-      "url": "https://ubuntu.com/security/notices/USN-8057-1"
+      "url": "https://ubuntu.com/security/notices/USN-8075-1"
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2017-17785"
+      "url": "https://ubuntu.com/security/CVE-2025-2760"
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2025-2761"
+      "url": "https://ubuntu.com/security/CVE-2025-10934"
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2025-10922"
+      "url": "https://ubuntu.com/security/CVE-2025-14422"
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2025-14425"
+      "url": "https://ubuntu.com/security/CVE-2025-48797"
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2025-15059"
+      "url": "https://ubuntu.com/security/CVE-2025-48798"
     }
   ]
 }
