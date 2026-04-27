@@ -4,10 +4,19 @@
   "summary": "grub2, grub2-signed vulnerabilities",
   "details": "Jesse Michael and Mickey Shkatov discovered that the configuration parser\nin GRUB2 did not properly exit when errors were discovered, resulting in\nheap-based buffer overflows. A local attacker could use this to execute\narbitrary code and bypass UEFI Secure Boot restrictions. (CVE-2020-10713)\n\nChris Coulson discovered that the GRUB2 function handling code did not\nproperly handle a function being redefined, leading to a use-after-free\nvulnerability. A local attacker could use this to execute arbitrary code\nand bypass UEFI Secure Boot restrictions. (CVE-2020-15706)\n\nChris Coulson discovered that multiple integer overflows existed in GRUB2\nwhen handling certain filesystems or font files, leading to heap-based\nbuffer overflows. A local attacker could use these to execute arbitrary\ncode and bypass UEFI Secure Boot restrictions. (CVE-2020-14309,\nCVE-2020-14310, CVE-2020-14311)\n\nIt was discovered that the memory allocator for GRUB2 did not validate\nallocation size, resulting in multiple integer overflows and heap-based\nbuffer overflows when handling certain filesystems, PNG images or disk\nmetadata. A local attacker could use this to execute arbitrary code and\nbypass UEFI Secure Boot restrictions. (CVE-2020-14308)\n\nMathieu Trudel-Lapierre discovered that in certain situations, GRUB2\nfailed to validate kernel signatures. A local attacker could use this\nto bypass Secure Boot restrictions. (CVE-2020-15705)\n\nColin Watson and Chris Coulson discovered that an integer overflow\nexisted in GRUB2 when handling the initrd command, leading to a heap-based\nbuffer overflow. A local attacker could use this to execute arbitrary code\nand bypass UEFI Secure Boot restrictions. (CVE-2020-15707)\n",
   "aliases": [],
-  "upstream": [],
+  "upstream": [
+    "UBUNTU-CVE-2020-10713",
+    "UBUNTU-CVE-2020-14308",
+    "UBUNTU-CVE-2020-14309",
+    "UBUNTU-CVE-2020-14310",
+    "UBUNTU-CVE-2020-14311",
+    "UBUNTU-CVE-2020-15705",
+    "UBUNTU-CVE-2020-15706",
+    "UBUNTU-CVE-2020-15707"
+  ],
   "related": [],
   "published": "2020-07-29T18:50:12Z",
-  "modified": "2026-04-24T08:06:50Z",
+  "modified": "2026-04-27T14:11:25Z",
   "affected": [
     {
       "package": {
@@ -172,7 +181,144 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:Pro:14.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2020-10713",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14308",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14309",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14310",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14311",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15705",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15706",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15707",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
         }
       }
     },
@@ -235,7 +381,144 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:Pro:14.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2020-10713",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14308",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14309",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14310",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14311",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15705",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15706",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15707",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
         }
       }
     },
@@ -409,7 +692,144 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:16.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2020-10713",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14308",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14309",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14310",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14311",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15705",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15706",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15707",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
         }
       }
     },
@@ -479,7 +899,144 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:16.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2020-10713",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14308",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14309",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14310",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14311",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15705",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15706",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15707",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
         }
       }
     },
@@ -643,7 +1200,144 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:18.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2020-10713",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14308",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14309",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14310",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14311",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15705",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15706",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15707",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
         }
       }
     },
@@ -704,7 +1398,144 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:18.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2020-10713",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14308",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14309",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14310",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14311",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15705",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15706",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15707",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
         }
       }
     },
@@ -869,7 +1700,144 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:20.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2020-10713",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14308",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14309",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14310",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14311",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15705",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15706",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15707",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
         }
       }
     },
@@ -925,7 +1893,144 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:20.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2020-10713",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14308",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14309",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14310",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-14311",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15705",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15706",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2020-15707",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
         }
       }
     }
@@ -934,6 +2039,38 @@
     {
       "type": "ADVISORY",
       "url": "https://ubuntu.com/security/notices/USN-4432-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2020-10713"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2020-14308"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2020-14309"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2020-14310"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2020-14311"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2020-15705"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2020-15706"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2020-15707"
     }
   ]
 }

@@ -5,14 +5,19 @@
   "details": "It was discovered that curl incorrectly handled cookies when redirected\nfrom secure to insecure connections. An attacker could possibly use this\nissue to cause a denial of service, or obtain sensitive information.\nThis issue only affected Ubuntu 25.10. (CVE-2025-9086)\n\nCalvin Ruocco discovered that curl did not properly handle WebSocket\ncommunications under certain circumstances. A malicious server could\npossibly use this issue to poison proxy caches with malicious content.\nThis issue only affected Ubuntu 24.04 LTS and Ubuntu 25.10.\n(CVE-2025-10148)\n\nStanislav Fort discovered that wcurl did not properly handle URLs with\ncertain encoded characters. If a user were tricked into processing\na specially crafted URL, an attacker could possibly use this issue to\nwrite files outside the intended directory. This issue only affected\nUbuntu 25.10. (CVE-2025-11563)\n\nStanislav Fort discovered that curl did not properly validate pinned\npublic keys under certain circumstances. A remote attacker could\npossibly use this issue to perform a machine-in-the-middle attack. This\nissue only affected Ubuntu 25.10.(CVE-2025-13034)\n\nStanislav Fort discovered that curl did not properly manage TLS options\nwhen performing LDAP over TLS transfers in multi-threaded environments.\nUnder certain circumstances, certificate verification could be\nunintentionally and unknowingly disabled. (CVE-2025-14017)\n\nIt was discovered that curl incorrectly handled Oauth2 bearer tokens\nwhen following redirects. A remote attacker could possibly use this\nissue to obtain authentication credentials. (CVE-2025-14524)\n\nStanislav Fort discovered that curl did not properly validate TLS\ncertificates when reusing connections. A remote attacker could possibly\nuse this issue to bypass expected certificate verification. This issue\nonly affected Ubuntu 24.04 LTS and Ubuntu 25.10. (CVE-2025-14819)\n\nHarry Sintonen discovered that curl did not properly validate SSH host\nkeys when performing SSH-based file transfers. This issue could lead to\nunintended bypass of custom known_hosts file. This issue only\naffected Ubuntu 22.04 LTS and Ubuntu 24.04 LTS. (CVE-2025-15079)\n\nHarry Sintonen discovered that curl built with libssh did not properly\nhandle authentication when performing SSH-based file transfers. This\ncould result in unintended authentication operations. This issue only\naffected Ubuntu 22.04 LTS and Ubuntu 24.04 LTS. (CVE-2025-15224)",
   "aliases": [],
   "upstream": [
+    "UBUNTU-CVE-2025-9086",
     "UBUNTU-CVE-2025-10148",
     "UBUNTU-CVE-2025-11563",
     "UBUNTU-CVE-2025-13034",
-    "UBUNTU-CVE-2025-14819"
+    "UBUNTU-CVE-2025-14017",
+    "UBUNTU-CVE-2025-14524",
+    "UBUNTU-CVE-2025-14819",
+    "UBUNTU-CVE-2025-15079",
+    "UBUNTU-CVE-2025-15224"
   ],
   "related": [],
   "published": "2026-02-25T00:34:27Z",
-  "modified": "2026-04-24T08:07:00Z",
+  "modified": "2026-04-27T14:11:49Z",
   "affected": [
     {
       "package": {
@@ -81,7 +86,60 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:22.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2025-14017",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-14524",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-15079",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-15224",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            }
+          ]
         }
       }
     },
@@ -155,11 +213,63 @@
               ]
             },
             {
+              "id": "CVE-2025-14017",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-14524",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
               "id": "CVE-2025-14819",
               "severity": [
                 {
                   "type": "CVSS_V3",
                   "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-15079",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-15224",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N"
                 },
                 {
                   "type": "Ubuntu",
@@ -219,6 +329,19 @@
           "ecosystem": "Ubuntu:25.10",
           "cves": [
             {
+              "id": "CVE-2025-9086",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
               "id": "CVE-2025-10148",
               "severity": [
                 {
@@ -258,6 +381,32 @@
               ]
             },
             {
+              "id": "CVE-2025-14017",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2025-14524",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
               "id": "CVE-2025-14819",
               "severity": [
                 {
@@ -282,6 +431,10 @@
     },
     {
       "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-9086"
+    },
+    {
+      "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2025-10148"
     },
     {
@@ -294,7 +447,23 @@
     },
     {
       "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-14017"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-14524"
+    },
+    {
+      "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2025-14819"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-15079"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2025-15224"
     }
   ]
 }

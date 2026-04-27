@@ -4,10 +4,14 @@
   "summary": "openssl, openssl1.0 vulnerabilities",
   "details": "It was discovered that OpenSSL was not properly managing file locks when\nprocessing policy constraints. If a user or automated system were tricked\ninto processing a certificate chain with specially crafted policy\nconstraints, a remote attacker could possibly use this issue to cause a\ndenial of service. This issue only affected Ubuntu 22.04 LTS and Ubuntu\n22.10. (CVE-2022-3996)\n\nDavid Benjamin discovered that OpenSSL was not properly performing the\nverification of X.509 certificate chains that include policy constraints,\nwhich could lead to excessive resource consumption. If a user or automated\nsystem were tricked into processing a specially crafted X.509 certificate\nchain that includes policy constraints, a remote attacker could possibly\nuse this issue to cause a denial of service. (CVE-2023-0464)\n\nDavid Benjamin discovered that OpenSSL was not properly handling invalid\ncertificate policies in leaf certificates, which would result in certain\npolicy checks being skipped for the certificate. If a user or automated\nsystem were tricked into processing a specially crafted certificate, a\nremote attacker could possibly use this issue to assert invalid\ncertificate policies and circumvent policy checking. (CVE-2023-0465)\n\nDavid Benjamin discovered that OpenSSL incorrectly documented the\nfunctionalities of function X509_VERIFY_PARAM_add0_policy, stating that\nit would implicitly enable certificate policy checks when doing\ncertificate verifications, contrary to its implementation. This could\ncause users and applications to not perform certificate policy checks\neven when expected to do so. (CVE-2023-0466)\n",
   "aliases": [],
-  "upstream": [],
+  "upstream": [
+    "UBUNTU-CVE-2022-3996",
+    "UBUNTU-CVE-2023-0464",
+    "UBUNTU-CVE-2023-0466"
+  ],
   "related": [],
   "published": "2023-04-25T15:53:53Z",
-  "modified": "2026-04-24T08:06:53Z",
+  "modified": "2026-04-27T14:11:30Z",
   "affected": [
     {
       "package": {
@@ -81,7 +85,42 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:Pro:14.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2023-0464",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2023-0466",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "negligible"
+                }
+              ]
+            }
+          ]
         }
       }
     },
@@ -153,7 +192,42 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:Pro:16.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2023-0464",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2023-0466",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "negligible"
+                }
+              ]
+            }
+          ]
         }
       }
     },
@@ -220,7 +294,42 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:18.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2023-0464",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2023-0466",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "negligible"
+                }
+              ]
+            }
+          ]
         }
       }
     },
@@ -276,7 +385,42 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:18.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2023-0464",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2023-0466",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "negligible"
+                }
+              ]
+            }
+          ]
         }
       }
     },
@@ -336,7 +480,42 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:20.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2023-0464",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2023-0466",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "negligible"
+                }
+              ]
+            }
+          ]
         }
       }
     },
@@ -388,7 +567,59 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:22.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2022-3996",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2023-0464",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2023-0466",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "negligible"
+                }
+              ]
+            }
+          ]
         }
       }
     }
@@ -397,6 +628,18 @@
     {
       "type": "ADVISORY",
       "url": "https://ubuntu.com/security/notices/USN-6039-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2022-3996"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-0464"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-0466"
     }
   ]
 }

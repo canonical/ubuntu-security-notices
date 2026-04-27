@@ -4,10 +4,18 @@
   "summary": "linux-oem-6.1 vulnerabilities",
   "details": "Yu Hao discovered that the UBI driver in the Linux kernel did not properly\ncheck for MTD with zero erasesize during device attachment. A local\nprivileged attacker could use this to cause a denial of service (system\ncrash). (CVE-2023-31085)\n\nMarek Marczykowski-G\u00f3recki discovered that the Xen event channel\ninfrastructure implementation in the Linux kernel contained a race\ncondition. An attacker in a guest VM could possibly use this to cause a\ndenial of service (paravirtualized device unavailability). (CVE-2023-34324)\n\nLucas Leong discovered that the netfilter subsystem in the Linux kernel did\nnot properly validate some attributes passed from userspace. A local\nattacker could use this to cause a denial of service (system crash) or\npossibly expose sensitive information (kernel memory). (CVE-2023-39189)\n\nBien Pham discovered that the netfiler subsystem in the Linux kernel\ncontained a race condition, leading to a use-after-free vulnerability. A\nlocal user could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2023-4244)\n\nKyle Zeng discovered that the IPv4 implementation in the Linux kernel did\nnot properly handle socket buffers (skb) when performing IP routing in\ncertain circumstances, leading to a null pointer dereference vulnerability.\nA privileged attacker could use this to cause a denial of service (system\ncrash). (CVE-2023-42754)\n\nIt was discovered that the Quick Fair Queueing scheduler implementation in\nthe Linux kernel did not properly handle network packets in certain\nconditions, leading to a use after free vulnerability. A local attacker\ncould use this to cause a denial of service (system crash) or possibly\nexecute arbitrary code. (CVE-2023-4921)\n\nIt was discovered that the SMB network file sharing protocol implementation\nin the Linux kernel did not properly handle certain error conditions,\nleading to a use-after-free vulnerability. A local attacker could use this\nto cause a denial of service (system crash) or possibly execute arbitrary\ncode. (CVE-2023-5345)\n\n",
   "aliases": [],
-  "upstream": [],
+  "upstream": [
+    "UBUNTU-CVE-2023-4244",
+    "UBUNTU-CVE-2023-4921",
+    "UBUNTU-CVE-2023-5345",
+    "UBUNTU-CVE-2023-31085",
+    "UBUNTU-CVE-2023-34324",
+    "UBUNTU-CVE-2023-39189",
+    "UBUNTU-CVE-2023-42754"
+  ],
   "related": [],
   "published": "2023-10-31T12:51:27Z",
-  "modified": "2026-04-24T08:06:54Z",
+  "modified": "2026-04-27T14:11:31Z",
   "affected": [
     {
       "package": {
@@ -100,7 +108,123 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:22.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2023-4244",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2023-4921",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2023-5345",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2023-31085",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2023-34324",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2023-39189",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:L"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2023-42754",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
         }
       }
     }
@@ -109,6 +233,34 @@
     {
       "type": "ADVISORY",
       "url": "https://ubuntu.com/security/notices/USN-6461-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-4244"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-4921"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-5345"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-31085"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-34324"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-39189"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2023-42754"
     }
   ]
 }

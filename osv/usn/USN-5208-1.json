@@ -5,11 +5,17 @@
   "details": "Nadav Amit discovered that the hugetlb implementation in the Linux kernel\ndid not perform TLB flushes under certain conditions. A local attacker\ncould use this to leak or alter data from other processes that use huge\npages. (CVE-2021-4002)\n\nIt was discovered that a race condition existed in the overlay file system\nimplementation in the Linux kernel. A local attacker could use this to\ncause a denial of service (system crash). (CVE-2021-20321)\n\nIt was discovered that the NFC subsystem in the Linux kernel contained a\nuse-after-free vulnerability in its NFC Controller Interface (NCI)\nimplementation. A local attacker could possibly use this to cause a denial\nof service (system crash) or execute arbitrary code. (CVE-2021-3760)\n\nIt was discovered that an integer overflow could be triggered in the eBPF\nimplementation in the Linux kernel when preallocating objects for stack\nmaps. A privileged local attacker could use this to cause a denial of\nservice or possibly execute arbitrary code. (CVE-2021-41864)\n\nIt was discovered that the KVM implementation for POWER8 processors in the\nLinux kernel did not properly keep track if a wakeup event could be\nresolved by a guest. An attacker in a guest VM could possibly use this to\ncause a denial of service (host OS crash). (CVE-2021-43056)\n\nIt was discovered that the TIPC Protocol implementation in the Linux kernel\ndid not properly validate MSG_CRYPTO messages in some situations. An\nattacker could use this to cause a denial of service (system crash) or\npossibly execute arbitrary code. (CVE-2021-43267)\n\nIt was discovered that the ISDN CAPI implementation in the Linux kernel\ncontained a race condition in certain situations that could trigger an\narray out-of-bounds bug. A privileged local attacker could possibly use\nthis to cause a denial of service or execute arbitrary code.\n(CVE-2021-43389)\n",
   "aliases": [],
   "upstream": [
-    "UBUNTU-CVE-2021-43267"
+    "UBUNTU-CVE-2021-3760",
+    "UBUNTU-CVE-2021-4002",
+    "UBUNTU-CVE-2021-20321",
+    "UBUNTU-CVE-2021-41864",
+    "UBUNTU-CVE-2021-43056",
+    "UBUNTU-CVE-2021-43267",
+    "UBUNTU-CVE-2021-43389"
   ],
   "related": [],
   "published": "2022-01-06T02:05:41Z",
-  "modified": "2026-04-24T08:06:51Z",
+  "modified": "2026-04-27T14:11:27Z",
   "affected": [
     {
       "package": {
@@ -90,6 +96,71 @@
           "ecosystem": "Ubuntu:20.04:LTS",
           "cves": [
             {
+              "id": "CVE-2021-3760",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-4002",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-20321",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-41864",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-43056",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
               "id": "CVE-2021-43267",
               "severity": [
                 {
@@ -99,6 +170,19 @@
                 {
                   "type": "Ubuntu",
                   "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-43389",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
                 }
               ]
             }
@@ -186,6 +270,71 @@
           "ecosystem": "Ubuntu:20.04:LTS",
           "cves": [
             {
+              "id": "CVE-2021-3760",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-4002",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-20321",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-41864",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-43056",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
               "id": "CVE-2021-43267",
               "severity": [
                 {
@@ -195,6 +344,19 @@
                 {
                   "type": "Ubuntu",
                   "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-43389",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
                 }
               ]
             }
@@ -273,6 +435,71 @@
           "ecosystem": "Ubuntu:20.04:LTS",
           "cves": [
             {
+              "id": "CVE-2021-3760",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-4002",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-20321",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-41864",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-43056",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
               "id": "CVE-2021-43267",
               "severity": [
                 {
@@ -282,6 +509,19 @@
                 {
                   "type": "Ubuntu",
                   "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-43389",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
                 }
               ]
             }
@@ -798,6 +1038,71 @@
           "ecosystem": "Ubuntu:20.04:LTS",
           "cves": [
             {
+              "id": "CVE-2021-3760",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-4002",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-20321",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-41864",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-43056",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
               "id": "CVE-2021-43267",
               "severity": [
                 {
@@ -807,6 +1112,19 @@
                 {
                   "type": "Ubuntu",
                   "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-43389",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
                 }
               ]
             }
@@ -885,6 +1203,71 @@
           "ecosystem": "Ubuntu:20.04:LTS",
           "cves": [
             {
+              "id": "CVE-2021-3760",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-4002",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "high"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-20321",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-41864",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-43056",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
               "id": "CVE-2021-43267",
               "severity": [
                 {
@@ -894,6 +1277,19 @@
                 {
                   "type": "Ubuntu",
                   "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2021-43389",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
                 }
               ]
             }
@@ -909,7 +1305,31 @@
     },
     {
       "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2021-3760"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2021-4002"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2021-20321"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2021-41864"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2021-43056"
+    },
+    {
+      "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2021-43267"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2021-43389"
     }
   ]
 }

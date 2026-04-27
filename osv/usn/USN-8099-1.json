@@ -4,10 +4,14 @@
   "summary": "curl vulnerabilities",
   "details": "Zhicheng Chen discovered that curl could incorrectly reuse the wrong\nconnection for Negotiate-authenticated HTTP or HTTPS requests. This could\nresult in the use of credentials from a different connection, contrary to\nexpectations. This issue only affected Ubuntu 20.04 LTS. (CVE-2026-1965)\n\nIt was discovered that curl incorrectly leaked OAuth2 bearer tokens when\nfollowing a redirect. This could result in tokens being sent to the wrong\nhost, contrary to expectations. This issue only affected Ubuntu 20.04 LTS.\n(CVE-2026-3783)\n\nMuhamad Arga Reksapati discovered that curl incorrectly reused existing\nHTTP proxy connections even if the request used different credentials. This\ncould result in the use of incorrect credentials, contrary to expectations.\n(CVE-2026-3784)",
   "aliases": [],
-  "upstream": [],
+  "upstream": [
+    "UBUNTU-CVE-2026-1965",
+    "UBUNTU-CVE-2026-3783",
+    "UBUNTU-CVE-2026-3784"
+  ],
   "related": [],
   "published": "2026-03-16T17:35:41Z",
-  "modified": "2026-04-24T08:07:00Z",
+  "modified": "2026-04-27T14:11:50Z",
   "affected": [
     {
       "package": {
@@ -88,7 +92,21 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:Pro:18.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2026-3784",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            }
+          ]
         }
       }
     },
@@ -165,7 +183,47 @@
       "database_specific": {
         "cves_map": {
           "ecosystem": "Ubuntu:Pro:20.04:LTS",
-          "cves": []
+          "cves": [
+            {
+              "id": "CVE-2026-1965",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-3783",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-3784",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "low"
+                }
+              ]
+            }
+          ]
         }
       }
     }
@@ -174,6 +232,18 @@
     {
       "type": "ADVISORY",
       "url": "https://ubuntu.com/security/notices/USN-8099-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-1965"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-3783"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-3784"
     }
   ]
 }
