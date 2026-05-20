@@ -1,0 +1,393 @@
+{
+  "action": "In general, a standard system update will make all the necessary\nchanges. After a standard system update you need to restart rsync\ndaemons if configured to make all the necessary changes.",
+  "cves": [
+    "CVE-2026-43619",
+    "CVE-2026-43617",
+    "CVE-2026-43620",
+    "CVE-2025-10158",
+    "CVE-2026-29518",
+    "CVE-2026-43618",
+    "CVE-2026-41035",
+    "CVE-2026-45232"
+  ],
+  "description": "Calum Hutton discovered that rsync contained a heap-based out-of-bounds\nread when handling file transfers. A remote attacker with read access\nto an rsync server could possibly use this issue to cause a denial of\nservice. This issue only affected Ubuntu 22.04 LTS, Ubuntu 24.04 LTS,\nand Ubuntu 25.10. (CVE-2025-10158)\n\nBatuhan Sancak, Damien Neil, and Michael Stapelberg discovered that\nrsync daemons configured without chroot protection were exposed to a\nrace condition on parent path components. A local attacker with write\naccess to a module could possibly use this issue to overwrite files,\nobtain sensitive information, or escalate privileges.\n(CVE-2026-29518)\n\nIt was discovered that rsync did not properly validate a length value\nwhile sorting extended attributes. An attacker could possibly use this\nissue to cause a denial of service. (CVE-2026-41035)\n\nIt was discovered that rsync performed reverse-DNS lookups after\nchrooting in some daemon configurations. A remote attacker could\npossibly use this issue to bypass hostname-based access controls and\naccess network services. (CVE-2026-43617)\n\nOmar Elsayed discovered that rsync did not properly check for integer\noverflows while decoding compressed tokens. A remote attacker could\npossibly use this issue to obtain sensitive information.\n(CVE-2026-43618)\n\nAndrew Tridgell discovered that rsync did not fully fix a symlink race\ncondition in path-based system calls for daemons configured without\nchroot protection. A local attacker could possibly use this issue to\noverwrite files, obtain sensitive information, or escalate privileges.\n(CVE-2026-43619)\n\nPratham Gupta discovered that rsync did not properly validate an index\nwhile processing file lists. A remote attacker could possibly use this\nissue to cause rsync to crash, resulting in a denial of service.\n(CVE-2026-43620)\n\nMichal Ruprich discovered that rsync contained an off-by-one error\nwhile handling HTTP proxy responses. An attacker able to intercept network\ncommunications or a malicious proxy server could possibly use this issue to\ncause a denial of service. (CVE-2026-45232)",
+  "id": "USN-8283-1",
+  "isummary": "Several security issues were fixed in rsync.",
+  "releases": {
+    "jammy": {
+      "allbinaries": {
+        "rsync": {
+          "pocket": "security",
+          "source": "rsync",
+          "version": "3.2.7-0ubuntu0.22.04.6"
+        }
+      },
+      "archs": {
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.2.7-0ubuntu0.22.04.6_amd64.deb": {
+              "md5": "ab437d30d2a802e837f83005cde2a110",
+              "size": 444096
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.2.7-0ubuntu0.22.04.6_arm64.deb": {
+              "md5": "45daeb20e6ebec4dd637393a3dbe1934",
+              "size": 436462
+            }
+          }
+        },
+        "armhf": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.2.7-0ubuntu0.22.04.6_armhf.deb": {
+              "md5": "6db2e32a2410bc167d43623fafd2a302",
+              "size": 421836
+            }
+          }
+        },
+        "i386": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.2.7-0ubuntu0.22.04.6_i386.deb": {
+              "md5": "104a667247734962d1e08def3aef4e74",
+              "size": 452310
+            }
+          }
+        },
+        "ppc64el": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.2.7-0ubuntu0.22.04.6_ppc64el.deb": {
+              "md5": "3136f3d8a7b1d69000a4b0102f8e94c0",
+              "size": 496466
+            }
+          }
+        },
+        "riscv64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.2.7-0ubuntu0.22.04.6_riscv64.deb": {
+              "md5": "0c4598abbd52833a537e77dc041e40f6",
+              "size": 423378
+            }
+          }
+        },
+        "s390x": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.2.7-0ubuntu0.22.04.6_s390x.deb": {
+              "md5": "eee285adc7b98b936c2c29bf7436d003",
+              "size": 433752
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.2.7-0ubuntu0.22.04.6.debian.tar.xz": {
+              "md5": "903dda34e8124297faefe1dc1677c701",
+              "size": 100492
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.2.7-0ubuntu0.22.04.6.dsc": {
+              "md5": "94b898418a05d8fef22c9b9d73ce6989",
+              "size": 2402
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.2.7.orig.tar.gz": {
+              "md5": "f216f350ef56b9ba61bc313cb6ec2ed6",
+              "size": 1149787
+            }
+          }
+        }
+      },
+      "binaries": {
+        "rsync": {
+          "pocket": "security",
+          "version": "3.2.7-0ubuntu0.22.04.6"
+        }
+      },
+      "sources": {
+        "rsync": {
+          "description": "fast, versatile, remote (and local) file-copying tool",
+          "version": "3.2.7-0ubuntu0.22.04.6"
+        }
+      }
+    },
+    "noble": {
+      "allbinaries": {
+        "rsync": {
+          "pocket": "security",
+          "source": "rsync",
+          "version": "3.2.7-1ubuntu1.4"
+        }
+      },
+      "archs": {
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.2.7-1ubuntu1.4_amd64.deb": {
+              "md5": "48940bc8bea800cfe8a2f9e7096cde46",
+              "size": 442294
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.2.7-1ubuntu1.4_arm64.deb": {
+              "md5": "52571623d4d716a964e112f11d7e1ad2",
+              "size": 434980
+            }
+          }
+        },
+        "armhf": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.2.7-1ubuntu1.4_armhf.deb": {
+              "md5": "4ce723c7b235acf77f98f5c1f4f9a5bb",
+              "size": 420088
+            }
+          }
+        },
+        "ppc64el": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.2.7-1ubuntu1.4_ppc64el.deb": {
+              "md5": "bd321ba68662ce1a378d7b22674a6a7d",
+              "size": 492818
+            }
+          }
+        },
+        "riscv64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.2.7-1ubuntu1.4_riscv64.deb": {
+              "md5": "163c2651b7809d05956ca04f0adb32a7",
+              "size": 451236
+            }
+          }
+        },
+        "s390x": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.2.7-1ubuntu1.4_s390x.deb": {
+              "md5": "7bf2be6979184ce3a4705a42522672c5",
+              "size": 452008
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.2.7-1ubuntu1.4.debian.tar.xz": {
+              "md5": "20d6e0f4c892da0b9267300fa3cfd6c2",
+              "size": 101108
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.2.7-1ubuntu1.4.dsc": {
+              "md5": "8cb71071ccfdd71f58da8db4d3b33a48",
+              "size": 2408
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.2.7.orig.tar.gz": {
+              "md5": "f216f350ef56b9ba61bc313cb6ec2ed6",
+              "size": 1149787
+            }
+          }
+        }
+      },
+      "binaries": {
+        "rsync": {
+          "pocket": "security",
+          "version": "3.2.7-1ubuntu1.4"
+        }
+      },
+      "sources": {
+        "rsync": {
+          "description": "fast, versatile, remote (and local) file-copying tool",
+          "version": "3.2.7-1ubuntu1.4"
+        }
+      }
+    },
+    "questing": {
+      "allbinaries": {
+        "rsync": {
+          "pocket": "security",
+          "source": "rsync",
+          "version": "3.4.1+ds1-5ubuntu1.2"
+        }
+      },
+      "archs": {
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.4.1+ds1-5ubuntu1.2_amd64.deb": {
+              "md5": "0ce95def15c917d933c14ea728296aef",
+              "size": 452470
+            }
+          }
+        },
+        "amd64v3": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.4.1+ds1-5ubuntu1.2_amd64v3.deb": {
+              "md5": "14a6ea6810b4e1bafdf6631c7752df18",
+              "size": 450800
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.4.1+ds1-5ubuntu1.2_arm64.deb": {
+              "md5": "a83076353a00b0e139ef92619120e3ba",
+              "size": 439738
+            }
+          }
+        },
+        "armhf": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.4.1+ds1-5ubuntu1.2_armhf.deb": {
+              "md5": "2e206a6bcc3580830adcb5eca080afd2",
+              "size": 428332
+            }
+          }
+        },
+        "ppc64el": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.4.1+ds1-5ubuntu1.2_ppc64el.deb": {
+              "md5": "06c09e0c60bcfeaec7a2e8ec70676279",
+              "size": 509776
+            }
+          }
+        },
+        "riscv64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.4.1+ds1-5ubuntu1.2_riscv64.deb": {
+              "md5": "4eaedea39cf5706003973932b88cc2c5",
+              "size": 463458
+            }
+          }
+        },
+        "s390x": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.4.1+ds1-5ubuntu1.2_s390x.deb": {
+              "md5": "48ebad338b0c0df6367caadd07b475a8",
+              "size": 459856
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.4.1+ds1-5ubuntu1.2.debian.tar.xz": {
+              "md5": "c61bd5345add6ca01eaf436a750b72b7",
+              "size": 91772
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.4.1+ds1-5ubuntu1.2.dsc": {
+              "md5": "40fe267671c5f0f8073273e71b7e92dc",
+              "size": 2307
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.4.1+ds1.orig.tar.xz": {
+              "md5": "6ed869a0c4012385c8da8cc272cab3b8",
+              "size": 646840
+            }
+          }
+        }
+      },
+      "binaries": {
+        "rsync": {
+          "pocket": "security",
+          "version": "3.4.1+ds1-5ubuntu1.2"
+        }
+      },
+      "sources": {
+        "rsync": {
+          "description": "fast, versatile, remote (and local) file-copying tool",
+          "version": "3.4.1+ds1-5ubuntu1.2"
+        }
+      }
+    },
+    "resolute": {
+      "allbinaries": {
+        "rsync": {
+          "pocket": "security",
+          "source": "rsync",
+          "version": "3.4.1+ds1-7ubuntu0.2"
+        }
+      },
+      "archs": {
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.4.1+ds1-7ubuntu0.2_amd64.deb": {
+              "md5": "4ef1aa51fc6a6248b9556f3bb2110243",
+              "size": 447888
+            }
+          }
+        },
+        "amd64v3": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.4.1+ds1-7ubuntu0.2_amd64v3.deb": {
+              "md5": "9690db75809643e5dde5110dc5abcc78",
+              "size": 446054
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.4.1+ds1-7ubuntu0.2_arm64.deb": {
+              "md5": "e9e59717da9f3eb93b94d07c3d6e7476",
+              "size": 434910
+            }
+          }
+        },
+        "armhf": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.4.1+ds1-7ubuntu0.2_armhf.deb": {
+              "md5": "fc52083c25943ec029376f457bf0ca56",
+              "size": 423962
+            }
+          }
+        },
+        "ppc64el": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.4.1+ds1-7ubuntu0.2_ppc64el.deb": {
+              "md5": "a02565e2a28517b8289989b979f6bc76",
+              "size": 504934
+            }
+          }
+        },
+        "riscv64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.4.1+ds1-7ubuntu0.2_riscv64.deb": {
+              "md5": "fccdcbea6077f650fc73a891c4c3fc17",
+              "size": 455542
+            }
+          }
+        },
+        "s390x": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/r/rsync/rsync_3.4.1+ds1-7ubuntu0.2_s390x.deb": {
+              "md5": "400d30bf842046f6bc52a30a2332b7b3",
+              "size": 454606
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.4.1+ds1-7ubuntu0.2.debian.tar.xz": {
+              "md5": "57ecfca4eb92b8f97ef6831fcc0ee0de",
+              "size": 92168
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.4.1+ds1-7ubuntu0.2.dsc": {
+              "md5": "6e4966402aacfa75cb168aa4a39a7d6d",
+              "size": 2271
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.4.1+ds1.orig.tar.xz": {
+              "md5": "6ed869a0c4012385c8da8cc272cab3b8",
+              "size": 646840
+            }
+          }
+        }
+      },
+      "binaries": {
+        "rsync": {
+          "pocket": "security",
+          "version": "3.4.1+ds1-7ubuntu0.2"
+        }
+      },
+      "sources": {
+        "rsync": {
+          "description": "fast, versatile, remote (and local) file-copying tool",
+          "version": "3.4.1+ds1-7ubuntu0.2"
+        }
+      }
+    }
+  },
+  "summary": "rsync vulnerabilities",
+  "timestamp": 1779280904.253842,
+  "title": "rsync vulnerabilities"
+}
