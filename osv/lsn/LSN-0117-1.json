@@ -5,27 +5,18 @@
   "details": "In the Linux kernel, the following vulnerability has been\nresolved: e100: Fix possible use after free in e100_xmit_prepare In\ne100_xmit_prepare(), if we can't map the skb, then return -ENOMEM, so\ne100_xmit_frame() will return NETDEV_TX_BUSY and the upper layer will\nresend the skb.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: macsec: fix UAF bug for real_dev Create a new macsec device but\nnot get reference to real_dev.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: wifi: ath12k: fix firmware crash due to invalid peer nss\nCurrently, if the access point receives an association request containing\nan Extended HE Capabilities Information Element with an invalid MCS-NSS, it\ntriggers a firmware crash.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: drm/xe/oa: Fix overflow in oa batch buffer By default\nxe_bb_create_job() appends a MI_BATCH_BUFFER_END to batch buffer, this is\nnot a problem if batch buffer is only used once but oa reuses the batch\nbuffer for the same metric and at each call it appends a\nMI_BATCH_BUFFER_END, printing the warning below and then overflowing.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: NFSD: Prevent NULL dereference in nfsd4_process_cb_update() @ses\nis initialized to NULL.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: KVM: Explicitly verify target vCPU is online in kvm_get_vcpu()\nExplicitly verify the target vCPU is fully online _prior_ to clamping the\nindex in kvm_get_vcpu().\n\nIn the Linux kernel, the following vulnerability has been\nresolved: sched: sch_cake: add bounds checks to host bulk flow fairness\ncounts Even though we fixed a logic error in the commit cited below, syzbot\nstill managed to trigger an underflow of the per-host bulk flow counters,\nleading to an out of bounds memory access.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: net: sched: fix ets qdisc OOB Indexing Haowei Yan\n<g1042620637@gmail.com> found that ets_class_from_arg() can index an Out-\nOf-Bound class in ets_class_from_arg() when passed clid of 0.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: usb: cdc-acm: Check control transfer buffer size before access If\nthe first fragment is shorter than struct usb_cdc_notification, we can't\ncalculate an expected_size.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: net: davicom: fix UAF in dm9000_drv_remove dm is netdev private\ndata and it cannot be used after free_netdev() call.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: exfat: fix random stack corruption after get_block When get_block\nis called with a buffer_head allocated on the stack, such as\ndo_mpage_readpage, stack corruption due to buffer_head UAF may occur in the\nfollowing race condition situation.",
   "aliases": [],
   "upstream": [
-    "UBUNTU-CVE-2022-49026",
-    "UBUNTU-CVE-2022-49390",
     "UBUNTU-CVE-2024-46827",
-    "UBUNTU-CVE-2024-50090",
-    "UBUNTU-CVE-2024-53217",
-    "UBUNTU-CVE-2024-58083",
-    "UBUNTU-CVE-2025-21647",
-    "UBUNTU-CVE-2025-21692",
-    "UBUNTU-CVE-2025-21704",
-    "UBUNTU-CVE-2025-21715",
-    "UBUNTU-CVE-2025-22036"
+    "UBUNTU-CVE-2024-50090"
   ],
   "related": [],
   "published": "2026-01-29T08:17:55Z",
-  "modified": "2026-04-27T14:11:52Z",
+  "modified": "2026-05-23T01:08:59Z",
   "affected": [
     {
       "package": {
         "ecosystem": "Ubuntu:Pro:18.04:LTS",
         "name": "linux-aws",
-        "purl": "pkg:deb/ubuntu/linux-aws@4.15.0-1189.202?arch=source&distro=esm-infra/bionic"
+        "purl": "pkg:deb/ubuntu/linux-aws@4.15.0-1192.205?arch=source&distro=esm-infra/bionic"
       },
       "ranges": [
         {
@@ -33,9 +24,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-1189.202"
             }
           ]
         }
@@ -172,7 +160,11 @@
         "4.15.0-1185.198",
         "4.15.0-1186.199",
         "4.15.0-1187.200",
-        "4.15.0-1188.201"
+        "4.15.0-1188.201",
+        "4.15.0-1189.202",
+        "4.15.0-1190.203",
+        "4.15.0-1191.204",
+        "4.15.0-1192.205"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -184,7 +176,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:18.04:LTS",
         "name": "linux-azure-4.15",
-        "purl": "pkg:deb/ubuntu/linux-azure-4.15@4.15.0-1197.212?arch=source&distro=esm-infra/bionic"
+        "purl": "pkg:deb/ubuntu/linux-azure-4.15@4.15.0-1201.216?arch=source&distro=esm-infra/bionic"
       },
       "ranges": [
         {
@@ -192,9 +184,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-1197.212"
             }
           ]
         }
@@ -284,7 +273,11 @@
         "4.15.0-1193.208",
         "4.15.0-1194.209",
         "4.15.0-1195.210",
-        "4.15.0-1196.211"
+        "4.15.0-1196.211",
+        "4.15.0-1197.212",
+        "4.15.0-1199.214",
+        "4.15.0-1200.215",
+        "4.15.0-1201.216"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -296,7 +289,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:18.04:LTS",
         "name": "linux-gcp-4.15",
-        "purl": "pkg:deb/ubuntu/linux-gcp-4.15@4.15.0-1182.199?arch=source&distro=esm-infra/bionic"
+        "purl": "pkg:deb/ubuntu/linux-gcp-4.15@4.15.0-1185.202?arch=source&distro=esm-infra/bionic"
       },
       "ranges": [
         {
@@ -304,9 +297,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-1182.199"
             }
           ]
         }
@@ -397,7 +387,11 @@
         "4.15.0-1178.195",
         "4.15.0-1179.196",
         "4.15.0-1180.197",
-        "4.15.0-1181.198"
+        "4.15.0-1181.198",
+        "4.15.0-1182.199",
+        "4.15.0-1183.200",
+        "4.15.0-1184.201",
+        "4.15.0-1185.202"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -409,7 +403,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:18.04:LTS",
         "name": "linux",
-        "purl": "pkg:deb/ubuntu/linux@4.15.0-247.259?arch=source&distro=esm-infra/bionic"
+        "purl": "pkg:deb/ubuntu/linux@4.15.0-250.262?arch=source&distro=esm-infra/bionic"
       },
       "ranges": [
         {
@@ -417,9 +411,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-247.259"
             }
           ]
         }
@@ -570,7 +561,11 @@
         "4.15.0-242.254",
         "4.15.0-243.255",
         "4.15.0-245.257",
-        "4.15.0-246.258"
+        "4.15.0-246.258",
+        "4.15.0-247.259",
+        "4.15.0-248.260",
+        "4.15.0-249.261",
+        "4.15.0-250.262"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -582,7 +577,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:18.04:LTS",
         "name": "linux-hwe-5.4",
-        "purl": "pkg:deb/ubuntu/linux-hwe-5.4@5.4.0-224.244~18.04.1?arch=source&distro=esm-infra/bionic"
+        "purl": "pkg:deb/ubuntu/linux-hwe-5.4@5.4.0-229.249~18.04.1?arch=source&distro=esm-infra/bionic"
       },
       "ranges": [
         {
@@ -590,9 +585,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "5.4.0-224.244~18.04.1"
             }
           ]
         }
@@ -710,7 +702,12 @@
         "5.4.0-220.240~18.04.1",
         "5.4.0-221.241~18.04.1",
         "5.4.0-222.242~18.04.1",
-        "5.4.0-223.243~18.04.1"
+        "5.4.0-223.243~18.04.1",
+        "5.4.0-224.244~18.04.1",
+        "5.4.0-225.245~18.04.1",
+        "5.4.0-227.247~18.04.1",
+        "5.4.0-228.248~18.04.1",
+        "5.4.0-229.249~18.04.1"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -722,7 +719,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:18.04:LTS",
         "name": "linux-oracle",
-        "purl": "pkg:deb/ubuntu/linux-oracle@4.15.0-1151.162?arch=source&distro=esm-infra/bionic"
+        "purl": "pkg:deb/ubuntu/linux-oracle@4.15.0-1154.165?arch=source&distro=esm-infra/bionic"
       },
       "ranges": [
         {
@@ -730,9 +727,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "4.15.0-1151.162"
             }
           ]
         }
@@ -848,7 +842,11 @@
         "4.15.0-1147.158",
         "4.15.0-1148.159",
         "4.15.0-1149.160",
-        "4.15.0-1150.161"
+        "4.15.0-1150.161",
+        "4.15.0-1151.162",
+        "4.15.0-1152.163",
+        "4.15.0-1153.164",
+        "4.15.0-1154.165"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -860,7 +858,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:20.04:LTS",
         "name": "linux-aws-5.15",
-        "purl": "pkg:deb/ubuntu/linux-aws-5.15@5.15.0-1098.105~20.04.1?arch=source&distro=esm-infra/focal"
+        "purl": "pkg:deb/ubuntu/linux-aws-5.15@5.15.0-1108.115~20.04.1?arch=source&distro=esm-infra/focal"
       },
       "ranges": [
         {
@@ -868,9 +866,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-1098.105~20.04.1"
             }
           ]
         }
@@ -942,7 +937,16 @@
         "5.15.0-1093.100~20.04.1",
         "5.15.0-1095.102~20.04.1",
         "5.15.0-1096.103~20.04.1",
-        "5.15.0-1097.104~20.04.1"
+        "5.15.0-1097.104~20.04.1",
+        "5.15.0-1098.105~20.04.1",
+        "5.15.0-1099.106~20.04.1",
+        "5.15.0-1100.107~20.04.2",
+        "5.15.0-1101.108~20.04.1",
+        "5.15.0-1103.110~20.04.1",
+        "5.15.0-1104.111~20.04.1",
+        "5.15.0-1105.112~20.04.1",
+        "5.15.0-1106.113~20.04.1",
+        "5.15.0-1108.115~20.04.1"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -954,7 +958,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:20.04:LTS",
         "name": "linux-aws",
-        "purl": "pkg:deb/ubuntu/linux-aws@5.4.0-1153.163?arch=source&distro=esm-infra/focal"
+        "purl": "pkg:deb/ubuntu/linux-aws@5.4.0-1159.169?arch=source&distro=esm-infra/focal"
       },
       "ranges": [
         {
@@ -962,9 +966,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "5.4.0-1153.163"
             }
           ]
         }
@@ -1084,7 +1085,13 @@
         "5.4.0-1149.159",
         "5.4.0-1150.160",
         "5.4.0-1151.161",
-        "5.4.0-1152.162"
+        "5.4.0-1152.162",
+        "5.4.0-1153.163",
+        "5.4.0-1154.164",
+        "5.4.0-1156.166",
+        "5.4.0-1157.167",
+        "5.4.0-1158.168",
+        "5.4.0-1159.169"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -1096,7 +1103,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:20.04:LTS",
         "name": "linux-azure-5.15",
-        "purl": "pkg:deb/ubuntu/linux-azure-5.15@5.15.0-1102.111~20.04.1?arch=source&distro=esm-infra/focal"
+        "purl": "pkg:deb/ubuntu/linux-azure-5.15@5.15.0-1111.120~20.04.1?arch=source&distro=esm-infra/focal"
       },
       "ranges": [
         {
@@ -1104,9 +1111,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-1102.111~20.04.1"
             }
           ]
         }
@@ -1175,7 +1179,11 @@
         "5.15.0-1095.104~20.04.1",
         "5.15.0-1096.105~20.04.1",
         "5.15.0-1097.106~20.04.1",
-        "5.15.0-1098.107~20.04.1"
+        "5.15.0-1098.107~20.04.1",
+        "5.15.0-1102.111~20.04.1",
+        "5.15.0-1103.112~20.04.1",
+        "5.15.0-1110.119~20.04.1",
+        "5.15.0-1111.120~20.04.1"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -1187,7 +1195,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:20.04:LTS",
         "name": "linux-gcp-5.15",
-        "purl": "pkg:deb/ubuntu/linux-gcp-5.15@5.15.0-1098.107~20.04.1?arch=source&distro=esm-infra/focal"
+        "purl": "pkg:deb/ubuntu/linux-gcp-5.15@5.15.0-1108.117~20.04.1?arch=source&distro=esm-infra/focal"
       },
       "ranges": [
         {
@@ -1195,9 +1203,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-1098.107~20.04.1"
             }
           ]
         }
@@ -1268,7 +1273,15 @@
         "5.15.0-1093.102~20.04.1",
         "5.15.0-1095.104~20.04.1",
         "5.15.0-1096.105~20.04.1",
-        "5.15.0-1097.106~20.04.1"
+        "5.15.0-1097.106~20.04.1",
+        "5.15.0-1098.107~20.04.1",
+        "5.15.0-1099.108~20.04.1",
+        "5.15.0-1100.109~20.04.1",
+        "5.15.0-1101.110~20.04.1",
+        "5.15.0-1103.112~20.04.1",
+        "5.15.0-1104.113~20.04.1",
+        "5.15.0-1106.115~20.04.1",
+        "5.15.0-1108.117~20.04.1"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -1280,7 +1293,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:20.04:LTS",
         "name": "linux-hwe-5.15",
-        "purl": "pkg:deb/ubuntu/linux-hwe-5.15@5.15.0-164.174~20.04.1?arch=source&distro=esm-infra/focal"
+        "purl": "pkg:deb/ubuntu/linux-hwe-5.15@5.15.0-179.189~20.04.1?arch=source&distro=esm-infra/focal"
       },
       "ranges": [
         {
@@ -1288,9 +1301,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-164.174~20.04.1"
             }
           ]
         }
@@ -1363,7 +1373,15 @@
         "5.15.0-157.167~20.04.1",
         "5.15.0-160.170~20.04.1",
         "5.15.0-161.171~20.04.1",
-        "5.15.0-163.173~20.04.1"
+        "5.15.0-163.173~20.04.1",
+        "5.15.0-164.174~20.04.1",
+        "5.15.0-168.178~20.04.1",
+        "5.15.0-170.180~20.04.3",
+        "5.15.0-171.181~20.04.1",
+        "5.15.0-173.183~20.04.1",
+        "5.15.0-176.186~20.04.1",
+        "5.15.0-177.187~20.04.1",
+        "5.15.0-179.189~20.04.1"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -1375,7 +1393,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:20.04:LTS",
         "name": "linux-lowlatency-hwe-5.15",
-        "purl": "pkg:deb/ubuntu/linux-lowlatency-hwe-5.15@5.15.0-164.174~20.04.1?arch=source&distro=esm-infra/focal"
+        "purl": "pkg:deb/ubuntu/linux-lowlatency-hwe-5.15@5.15.0-178.188~20.04.1?arch=source&distro=esm-infra/focal"
       },
       "ranges": [
         {
@@ -1383,9 +1401,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-164.174~20.04.1"
             }
           ]
         }
@@ -1461,7 +1476,16 @@
         "5.15.0-157.167~20.04.1",
         "5.15.0-160.170~20.04.1",
         "5.15.0-161.171~20.04.1",
-        "5.15.0-163.173~20.04.1"
+        "5.15.0-163.173~20.04.1",
+        "5.15.0-164.174~20.04.1",
+        "5.15.0-168.178~20.04.1",
+        "5.15.0-170.180~20.04.1",
+        "5.15.0-171.181~20.04.1",
+        "5.15.0-173.183~20.04.1",
+        "5.15.0-174.184~20.04.1",
+        "5.15.0-175.185~20.04.1",
+        "5.15.0-177.187~20.04.1",
+        "5.15.0-178.188~20.04.1"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -1473,7 +1497,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:20.04:LTS",
         "name": "linux",
-        "purl": "pkg:deb/ubuntu/linux@5.4.0-224.244?arch=source&distro=esm-infra/focal"
+        "purl": "pkg:deb/ubuntu/linux@5.4.0-230.250?arch=source&distro=esm-infra/focal"
       },
       "ranges": [
         {
@@ -1481,9 +1505,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "5.4.0-224.244"
             }
           ]
         }
@@ -1612,7 +1633,13 @@
         "5.4.0-220.240",
         "5.4.0-221.241",
         "5.4.0-222.242",
-        "5.4.0-223.243"
+        "5.4.0-223.243",
+        "5.4.0-224.244",
+        "5.4.0-225.245",
+        "5.4.0-227.247",
+        "5.4.0-228.248",
+        "5.4.0-229.249",
+        "5.4.0-230.250"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -1624,7 +1651,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:20.04:LTS",
         "name": "linux-ibm-5.15",
-        "purl": "pkg:deb/ubuntu/linux-ibm-5.15@5.15.0-1092.95~20.04.1?arch=source&distro=esm-infra/focal"
+        "purl": "pkg:deb/ubuntu/linux-ibm-5.15@5.15.0-1102.105~20.04.1?arch=source&distro=esm-infra/focal"
       },
       "ranges": [
         {
@@ -1632,9 +1659,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-1092.95~20.04.1"
             }
           ]
         }
@@ -1686,7 +1710,16 @@
         "5.15.0-1087.90~20.04.1",
         "5.15.0-1089.92~20.04.1",
         "5.15.0-1090.93~20.04.1",
-        "5.15.0-1091.94~20.04.1"
+        "5.15.0-1091.94~20.04.1",
+        "5.15.0-1092.95~20.04.1",
+        "5.15.0-1093.96~20.04.1",
+        "5.15.0-1094.97~20.04.1",
+        "5.15.0-1095.98~20.04.1",
+        "5.15.0-1097.100~20.04.1",
+        "5.15.0-1098.101~20.04.1",
+        "5.15.0-1099.102~20.04.1",
+        "5.15.0-1100.103~20.04.1",
+        "5.15.0-1102.105~20.04.1"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -1698,7 +1731,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:20.04:LTS",
         "name": "linux-oracle-5.15",
-        "purl": "pkg:deb/ubuntu/linux-oracle-5.15@5.15.0-1095.101~20.04.1?arch=source&distro=esm-infra/focal"
+        "purl": "pkg:deb/ubuntu/linux-oracle-5.15@5.15.0-1102.108~20.04.1?arch=source&distro=esm-infra/focal"
       },
       "ranges": [
         {
@@ -1706,9 +1739,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-1095.101~20.04.1"
             }
           ]
         }
@@ -1780,7 +1810,14 @@
         "5.15.0-1091.97~20.04.1",
         "5.15.0-1092.98~20.04.1",
         "5.15.0-1093.99~20.04.1",
-        "5.15.0-1094.100~20.04.1"
+        "5.15.0-1094.100~20.04.1",
+        "5.15.0-1095.101~20.04.1",
+        "5.15.0-1096.102~20.04.1",
+        "5.15.0-1097.103~20.04.1",
+        "5.15.0-1098.104~20.04.1",
+        "5.15.0-1100.106~20.04.1",
+        "5.15.0-1101.107~20.04.1",
+        "5.15.0-1102.108~20.04.1"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -1792,7 +1829,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:22.04:LTS",
         "name": "linux-aws",
-        "purl": "pkg:deb/ubuntu/linux-aws@5.15.0-1098.105?arch=source&distro=jammy"
+        "purl": "pkg:deb/ubuntu/linux-aws@5.15.0-1108.115?arch=source&distro=jammy"
       },
       "ranges": [
         {
@@ -1800,9 +1837,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-1098.105"
             }
           ]
         }
@@ -1885,7 +1919,16 @@
         "5.15.0-1093.100",
         "5.15.0-1095.102",
         "5.15.0-1096.103",
-        "5.15.0-1097.104"
+        "5.15.0-1097.104",
+        "5.15.0-1098.105",
+        "5.15.0-1099.106",
+        "5.15.0-1100.107",
+        "5.15.0-1101.108",
+        "5.15.0-1103.110",
+        "5.15.0-1104.111",
+        "5.15.0-1105.112",
+        "5.15.0-1106.113",
+        "5.15.0-1108.115"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -1897,7 +1940,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:22.04:LTS",
         "name": "linux-azure",
-        "purl": "pkg:deb/ubuntu/linux-azure@5.15.0-1102.111?arch=source&distro=jammy"
+        "purl": "pkg:deb/ubuntu/linux-azure@5.15.0-1111.120?arch=source&distro=jammy"
       },
       "ranges": [
         {
@@ -1905,9 +1948,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-1102.111"
             }
           ]
         }
@@ -1989,7 +2029,12 @@
         "5.15.0-1097.106",
         "5.15.0-1098.107",
         "5.15.0-1099.108",
-        "5.15.0-1101.110"
+        "5.15.0-1101.110",
+        "5.15.0-1102.111",
+        "5.15.0-1103.112",
+        "5.15.0-1109.118",
+        "5.15.0-1110.119",
+        "5.15.0-1111.120"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -2001,7 +2046,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:22.04:LTS",
         "name": "linux-gcp",
-        "purl": "pkg:deb/ubuntu/linux-gcp@5.15.0-1098.107?arch=source&distro=jammy"
+        "purl": "pkg:deb/ubuntu/linux-gcp@5.15.0-1108.117?arch=source&distro=jammy"
       },
       "ranges": [
         {
@@ -2009,9 +2054,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-1098.107"
             }
           ]
         }
@@ -2095,7 +2137,16 @@
         "5.15.0-1093.102",
         "5.15.0-1095.104",
         "5.15.0-1096.105",
-        "5.15.0-1097.106"
+        "5.15.0-1097.106",
+        "5.15.0-1098.107",
+        "5.15.0-1099.108",
+        "5.15.0-1100.109",
+        "5.15.0-1101.110",
+        "5.15.0-1103.112",
+        "5.15.0-1104.113",
+        "5.15.0-1105.114",
+        "5.15.0-1106.115",
+        "5.15.0-1108.117"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -2107,7 +2158,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:22.04:LTS",
         "name": "linux",
-        "purl": "pkg:deb/ubuntu/linux@5.15.0-164.174?arch=source&distro=jammy"
+        "purl": "pkg:deb/ubuntu/linux@5.15.0-179.189?arch=source&distro=jammy"
       },
       "ranges": [
         {
@@ -2115,9 +2166,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-164.174"
             }
           ]
         }
@@ -2208,7 +2256,16 @@
         "5.15.0-157.167",
         "5.15.0-160.170",
         "5.15.0-161.171",
-        "5.15.0-163.173"
+        "5.15.0-163.173",
+        "5.15.0-164.174",
+        "5.15.0-168.178",
+        "5.15.0-170.180",
+        "5.15.0-171.181",
+        "5.15.0-173.183",
+        "5.15.0-174.184",
+        "5.15.0-176.186",
+        "5.15.0-177.187",
+        "5.15.0-179.189"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -2220,7 +2277,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:22.04:LTS",
         "name": "linux-oracle",
-        "purl": "pkg:deb/ubuntu/linux-oracle@5.15.0-1095.101?arch=source&distro=jammy"
+        "purl": "pkg:deb/ubuntu/linux-oracle@5.15.0-1105.111?arch=source&distro=jammy"
       },
       "ranges": [
         {
@@ -2228,9 +2285,6 @@
           "events": [
             {
               "introduced": "0"
-            },
-            {
-              "fixed": "5.15.0-1095.101"
             }
           ]
         }
@@ -2314,7 +2368,16 @@
         "5.15.0-1091.97",
         "5.15.0-1092.98",
         "5.15.0-1093.99",
-        "5.15.0-1094.100"
+        "5.15.0-1094.100",
+        "5.15.0-1095.101",
+        "5.15.0-1096.102",
+        "5.15.0-1097.103",
+        "5.15.0-1098.104",
+        "5.15.0-1100.106",
+        "5.15.0-1101.107",
+        "5.15.0-1102.108",
+        "5.15.0-1103.109",
+        "5.15.0-1105.111"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -2326,7 +2389,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:24.04:LTS",
         "name": "linux-aws",
-        "purl": "pkg:deb/ubuntu/linux-aws@6.8.0-1041.43?arch=source&distro=noble"
+        "purl": "pkg:deb/ubuntu/linux-aws@6.8.0-1025.27?arch=source&distro=noble"
       },
       "ranges": [
         {
@@ -2336,7 +2399,7 @@
               "introduced": "0"
             },
             {
-              "fixed": "6.8.0-1041.43"
+              "fixed": "6.8.0-1025.27"
             }
           ]
         }
@@ -2361,21 +2424,7 @@
         "6.8.0-1020.22",
         "6.8.0-1021.23",
         "6.8.0-1023.25",
-        "6.8.0-1024.26",
-        "6.8.0-1025.27",
-        "6.8.0-1026.28",
-        "6.8.0-1027.29",
-        "6.8.0-1028.30",
-        "6.8.0-1029.31",
-        "6.8.0-1030.32",
-        "6.8.0-1031.33",
-        "6.8.0-1032.34",
-        "6.8.0-1033.35",
-        "6.8.0-1035.37",
-        "6.8.0-1036.38",
-        "6.8.0-1038.40",
-        "6.8.0-1039.41",
-        "6.8.0-1040.42"
+        "6.8.0-1024.26"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -2387,7 +2436,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:24.04:LTS",
         "name": "linux-azure",
-        "purl": "pkg:deb/ubuntu/linux-azure@6.8.0-1041.47?arch=source&distro=noble"
+        "purl": "pkg:deb/ubuntu/linux-azure@6.8.0-1025.30?arch=source&distro=noble"
       },
       "ranges": [
         {
@@ -2397,7 +2446,7 @@
               "introduced": "0"
             },
             {
-              "fixed": "6.8.0-1041.47"
+              "fixed": "6.8.0-1025.30"
             }
           ]
         }
@@ -2420,17 +2469,7 @@
         "6.8.0-1017.20",
         "6.8.0-1018.21",
         "6.8.0-1020.23",
-        "6.8.0-1021.25",
-        "6.8.0-1025.30",
-        "6.8.0-1026.31",
-        "6.8.0-1027.32",
-        "6.8.0-1028.33",
-        "6.8.0-1029.34",
-        "6.8.0-1030.35",
-        "6.8.0-1031.36",
-        "6.8.0-1034.39",
-        "6.8.0-1038.44",
-        "6.8.0-1040.46"
+        "6.8.0-1021.25"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -2442,7 +2481,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:24.04:LTS",
         "name": "linux-gcp",
-        "purl": "pkg:deb/ubuntu/linux-gcp@6.8.0-1042.45?arch=source&distro=noble"
+        "purl": "pkg:deb/ubuntu/linux-gcp@6.8.0-1026.28?arch=source&distro=noble"
       },
       "ranges": [
         {
@@ -2452,7 +2491,7 @@
               "introduced": "0"
             },
             {
-              "fixed": "6.8.0-1042.45"
+              "fixed": "6.8.0-1026.28"
             }
           ]
         }
@@ -2479,21 +2518,7 @@
         "6.8.0-1020.22",
         "6.8.0-1021.23",
         "6.8.0-1024.26",
-        "6.8.0-1025.27",
-        "6.8.0-1026.28",
-        "6.8.0-1027.29",
-        "6.8.0-1028.30",
-        "6.8.0-1029.31",
-        "6.8.0-1030.32",
-        "6.8.0-1031.33",
-        "6.8.0-1032.34",
-        "6.8.0-1033.35",
-        "6.8.0-1034.36",
-        "6.8.0-1036.38",
-        "6.8.0-1037.39",
-        "6.8.0-1039.41",
-        "6.8.0-1040.42",
-        "6.8.0-1041.43"
+        "6.8.0-1025.27"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -2505,7 +2530,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:24.04:LTS",
         "name": "linux",
-        "purl": "pkg:deb/ubuntu/linux@6.8.0-86.87?arch=source&distro=noble"
+        "purl": "pkg:deb/ubuntu/linux@6.8.0-56.58?arch=source&distro=noble"
       },
       "ranges": [
         {
@@ -2515,7 +2540,7 @@
               "introduced": "0"
             },
             {
-              "fixed": "6.8.0-86.87"
+              "fixed": "6.8.0-56.58"
             }
           ]
         }
@@ -2544,21 +2569,7 @@
         "6.8.0-52.53",
         "6.8.0-53.55",
         "6.8.0-54.56",
-        "6.8.0-55.57",
-        "6.8.0-56.58",
-        "6.8.0-57.59",
-        "6.8.0-58.60",
-        "6.8.0-59.61",
-        "6.8.0-60.63",
-        "6.8.0-62.65",
-        "6.8.0-63.66",
-        "6.8.0-64.67",
-        "6.8.0-71.71",
-        "6.8.0-78.78",
-        "6.8.0-79.79",
-        "6.8.0-83.83",
-        "6.8.0-84.84",
-        "6.8.0-85.85"
+        "6.8.0-55.57"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -2570,7 +2581,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:24.04:LTS",
         "name": "linux-ibm",
-        "purl": "pkg:deb/ubuntu/linux-ibm@6.8.0-1039.39?arch=source&distro=noble"
+        "purl": "pkg:deb/ubuntu/linux-ibm@6.8.0-1022.22?arch=source&distro=noble"
       },
       "ranges": [
         {
@@ -2580,7 +2591,7 @@
               "introduced": "0"
             },
             {
-              "fixed": "6.8.0-1039.39"
+              "fixed": "6.8.0-1022.22"
             }
           ]
         }
@@ -2604,20 +2615,7 @@
         "6.8.0-1016.16",
         "6.8.0-1017.17",
         "6.8.0-1018.18",
-        "6.8.0-1019.19",
-        "6.8.0-1022.22",
-        "6.8.0-1023.23",
-        "6.8.0-1024.24",
-        "6.8.0-1025.25",
-        "6.8.0-1026.26",
-        "6.8.0-1027.27",
-        "6.8.0-1028.28",
-        "6.8.0-1029.29",
-        "6.8.0-1030.30",
-        "6.8.0-1033.33",
-        "6.8.0-1036.36",
-        "6.8.0-1037.37",
-        "6.8.0-1038.38"
+        "6.8.0-1019.19"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -2629,7 +2627,7 @@
       "package": {
         "ecosystem": "Ubuntu:Pro:24.04:LTS",
         "name": "linux-oracle",
-        "purl": "pkg:deb/ubuntu/linux-oracle@6.8.0-1038.39?arch=source&distro=noble"
+        "purl": "pkg:deb/ubuntu/linux-oracle@6.8.0-1022.23?arch=source&distro=noble"
       },
       "ranges": [
         {
@@ -2639,7 +2637,7 @@
               "introduced": "0"
             },
             {
-              "fixed": "6.8.0-1038.39"
+              "fixed": "6.8.0-1022.23"
             }
           ]
         }
@@ -2663,20 +2661,7 @@
         "6.8.0-1018.19",
         "6.8.0-1019.20",
         "6.8.0-1020.21",
-        "6.8.0-1021.22",
-        "6.8.0-1022.23",
-        "6.8.0-1023.24",
-        "6.8.0-1024.25",
-        "6.8.0-1025.26",
-        "6.8.0-1026.27",
-        "6.8.0-1027.28",
-        "6.8.0-1028.29",
-        "6.8.0-1029.30",
-        "6.8.0-1030.31",
-        "6.8.0-1032.33",
-        "6.8.0-1033.34",
-        "6.8.0-1035.36",
-        "6.8.0-1037.38"
+        "6.8.0-1021.22"
       ],
       "ecosystem_specific": {
         "availability": "Livepatch subscription required",
@@ -2692,47 +2677,11 @@
     },
     {
       "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2022-49026"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2022-49390"
-    },
-    {
-      "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2024-46827"
     },
     {
       "type": "REPORT",
       "url": "https://ubuntu.com/security/CVE-2024-50090"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2024-53217"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2024-58083"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2025-21647"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2025-21692"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2025-21704"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2025-21715"
-    },
-    {
-      "type": "REPORT",
-      "url": "https://ubuntu.com/security/CVE-2025-22036"
     }
   ]
 }
