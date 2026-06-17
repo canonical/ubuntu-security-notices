@@ -1,0 +1,1083 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://github.com/canonical/ubuntu-security-notices/blob/main/vex/usn/USN-8412-2",
+  "author": "Canonical Ltd.",
+  "timestamp": "2026-06-16T23:36:34.963832Z",
+  "version": 1,
+  "statements": [
+    {
+      "vulnerability": {
+        "@id": "https://ubuntu.com/security/notices/USN-8412-2",
+        "name": "USN-8412-2",
+        "description": "USN-8412-1 fixed vulnerabilities in QEMU. On both Ubuntu 18.04 LTS and Ubuntu 20.04 LTS, the fix for CVE-2024-7409 was incomplete and resulted in a regression that could cause qemu-nbd to crash when a client connected. This update fixes the problem.  We apologize for the inconvenience.  Original advisory details:   Felipe Franciosi, Raphael Norwitz, and Peter Turschmid discovered that the  iSCSI block driver in QEMU incorrectly handled certain responses from an  iSCSI server. A remote attacker could possibly use this issue to cause QEMU  to crash, resulting in a denial of service, or possibly execute arbitrary  code. This issue only affected Ubuntu 14.04 LTS. (CVE-2020-1711)   It was discovered that the iSCSI block driver in QEMU incorrectly handled  certain memory operations, leading to a heap-based buffer over-read. An  attacker could possibly use this issue to expose sensitive information from  the host. This issue only affected Ubuntu 14.04 LTS. (CVE-2020-11947)   Ziming Zhang discovered that the SM501 display driver in QEMU contained an  integer overflow. A local attacker could possibly use this issue to cause  QEMU to crash, resulting in a denial of service. This issue only affected  Ubuntu 14.04 LTS. (CVE-2020-12829)   Gaoning Pan and Xingwei Li discovered that the USB xHCI controller  implementation in QEMU contained an infinite loop. An attacker inside the  guest could possibly use this issue to cause QEMU to hang, resulting in a  denial of service. This issue only affected Ubuntu 14.04 LTS, Ubuntu 16.04  LTS, and Ubuntu 18.04 LTS. (CVE-2020-14394)   Lei Sun discovered that QEMU incorrectly handled certain MemoryRegionOps  objects, leading to a NULL pointer dereference. An attacker inside the  guest could possibly use this issue to cause QEMU to crash, resulting in a  denial of service. This issue only affected Ubuntu 14.04 LTS and Ubuntu  16.04 LTS. (CVE-2020-15469)   Alexander Bulekov discovered that the e1000e network device implementation  in QEMU contained a use-after-free. An attacker inside the guest could  possibly use this issue to cause QEMU to crash, resulting in a denial of  service. This issue only affected Ubuntu 14.04 LTS. (CVE-2020-15859)   Ziming Zhang discovered that the XGMAC Ethernet controller in QEMU  contained a buffer overflow. An attacker inside the guest could possibly  use this issue to cause QEMU to crash, resulting in a denial of service, or  possibly execute arbitrary code. This issue only affected Ubuntu 14.04 LTS.  (CVE-2020-15863)   Alexander Bulekov discovered that the SDHCI device emulation in QEMU  contained a heap-based buffer overflow. An attacker inside the guest could  possibly use this issue to cause QEMU to crash, resulting in a denial of  service, or possibly execute arbitrary code. This issue only affected  Ubuntu 14.04 LTS. (CVE-2020-17380)   Sergej Schumilo, Cornelius Aschermann, and Simon W\u00f6rner discovered that the  USB xHCI controller implementation in QEMU did not check a return value,  leading to a use-after-free. An attacker inside the guest could possibly  use this issue to cause QEMU to crash, resulting in a denial of service.  This issue only affected Ubuntu 14.04 LTS. (CVE-2020-25084)   Gaoning Pan, Yongkang Jia, and Yi Ren discovered that the USB OHCI  controller implementation in QEMU contained a stack-based buffer over-read.  An attacker inside the guest could possibly use this issue to cause QEMU to  crash, resulting in a denial of service. This issue only affected Ubuntu  14.04 LTS. (CVE-2020-25624)   It was discovered that the USB OHCI controller implementation in QEMU  contained an infinite loop. An attacker inside the guest could possibly use  this issue to cause QEMU to consume resources, resulting in a denial of  service. This issue only affected Ubuntu 14.04 LTS. (CVE-2020-25625)   Cheolwoo Myung discovered that the USB EHCI emulation in QEMU did not  handle DMA memory map failures, leading to a reachable assertion. An  attacker inside the guest could possibly use this issue to cause QEMU to  crash, resulting in a denial of service. This issue only affected Ubuntu  14.04 LTS. (CVE-2020-25723)   Gaoning Pan discovered that the network device emulation in QEMU could be  made to trigger an assertion failure when processing packets that lacked a  valid layer 3 protocol. An attacker inside the guest could possibly use  this issue to cause QEMU to crash, resulting in a denial of service. This  issue only affected Ubuntu 14.04 LTS. (CVE-2020-27617)   Wenxiang Qian discovered that the ATAPI emulation in QEMU did not properly  validate a buffer index, leading to an out-of-bounds read. An attacker  inside the guest could possibly use this issue to expose sensitive  information or cause QEMU to crash, resulting in a denial of service. This  issue only affected Ubuntu 14.04 LTS. (CVE-2020-29443)   Cheolwoo Myung discovered that the ESP SCSI emulation in QEMU contained a  NULL pointer dereference. An attacker inside the guest could possibly use  this issue to cause QEMU to crash, resulting in a denial of service. This  issue only affected Ubuntu 14.04 LTS and Ubuntu 16.04 LTS. (CVE-2020-35504)   Cheolwoo Myung discovered that the am53c974 SCSI host bus adapter emulation  in QEMU contained a NULL pointer dereference. An attacker inside the guest  could possibly use this issue to cause QEMU to crash, resulting in a denial  of service. This issue only affected Ubuntu 14.04 LTS and Ubuntu 16.04 LTS.  (CVE-2020-35505)   It was discovered that the SDHCI controller emulation in QEMU contained  out-of-bounds read and write issues. An attacker inside the guest could  possibly use this issue to cause QEMU to crash, resulting in a denial of  service, or possibly execute arbitrary code. This issue only affected  Ubuntu 14.04 LTS and Ubuntu 16.04 LTS. (CVE-2021-3409)   It was discovered that several network device emulations in QEMU contained  an infinite loop when operating in loopback mode. An attacker inside the  guest could possibly use this issue to cause QEMU to crash, resulting in a  denial of service. This issue only affected Ubuntu 14.04 LTS and Ubuntu  16.04 LTS. (CVE-2021-3416)   Alexander Bulekov discovered that the floppy disk emulation in QEMU  contained a heap-based buffer overflow. An attacker inside the guest could  possibly use this issue to expose sensitive information or cause QEMU to  crash, resulting in a denial of service. This issue only affected Ubuntu  14.04 LTS and Ubuntu 16.04 LTS. (CVE-2021-3507)   Remy Noel discovered that the USB redirector device emulation in QEMU  performed an unbounded stack allocation when combining USB packets. An  attacker inside the guest could possibly use this issue to cause QEMU to  crash, resulting in a denial of service. This issue only affected Ubuntu  14.04 LTS and Ubuntu 16.04 LTS. (CVE-2021-3527)   It was discovered that the QXL display device emulation in QEMU contained  an integer overflow, leading to a heap-based buffer overflow. An attacker  inside the guest could possibly use this issue to cause QEMU to crash,  resulting in a denial of service, or possibly execute arbitrary code. This  issue only affected Ubuntu 14.04 LTS and Ubuntu 16.04 LTS. (CVE-2021-4206)   It was discovered that the QXL display device emulation in QEMU performed a  double fetch of guest-controlled values, leading to a heap-based buffer  overflow. An attacker inside the guest could possibly use this issue to  cause QEMU to crash, resulting in a denial of service, or possibly execute  arbitrary code. This issue only affected Ubuntu 14.04 LTS and Ubuntu 16.04  LTS. (CVE-2021-4207)   It was discovered that the 9pfs server implementation in QEMU contained a  race condition, leading to a use-after-free. A malicious 9p client could  possibly use this issue to escalate privileges. This issue only affected  Ubuntu 14.04 LTS. (CVE-2021-20181)   Gaoning Pan discovered that the floppy disk emulation in QEMU contained a  NULL pointer dereference. An attacker inside the guest could possibly use  this issue to cause QEMU to crash, resulting in a denial of service. This  issue only affected Ubuntu 14.04 LTS and Ubuntu 16.04 LTS. (CVE-2021-20196)   Gaoning Pan discovered that the vmxnet3 network device emulation in QEMU  contained an integer overflow. An attacker inside the guest could possibly  use this issue to cause QEMU to crash, resulting in a denial of service.  This issue only affected Ubuntu 14.04 LTS and Ubuntu 16.04 LTS.  (CVE-2021-20203)   It was discovered that the ARM Generic Interrupt Controller emulation in  QEMU contained an out-of-bounds heap access. An attacker inside the guest  could possibly use this issue to cause QEMU to crash, resulting in a denial  of service. This issue only affected Ubuntu 14.04 LTS and Ubuntu 16.04 LTS.  (CVE-2021-20221)   Alexander Bulekov, Cheolwoo Myung, Sergej Schumilo, Cornelius Aschermann,  and Simon W\u00f6rner discovered that the e1000 network device emulation in QEMU  contained an infinite loop. An attacker inside the guest could possibly use  this issue to cause QEMU to consume resources, resulting in a denial of  service. This issue only affected Ubuntu 14.04 LTS and Ubuntu 16.04 LTS.  (CVE-2021-20257)   It was discovered that the 9p passthrough file system implementation in  QEMU did not prevent opening special files on the host. A malicious guest  could possibly use this issue to escape the exported 9p tree. This issue  only affected Ubuntu 14.04 LTS, Ubuntu 16.04 LTS, and Ubuntu 18.04 LTS.  (CVE-2023-2861)   It was discovered that the virtio crypto device emulation in QEMU did not  properly validate certain buffer lengths, leading to a heap buffer  overflow. An attacker inside the guest could possibly use this issue to  cause QEMU to crash, resulting in a denial of service, or possibly execute  arbitrary code. This issue only affected Ubuntu 18.04 LTS. (CVE-2023-3180)   It was discovered that the built-in VNC server in QEMU contained a NULL  pointer dereference when cleaning up a connection that failed during the  handshake. A remote attacker could possibly use this issue to cause QEMU to  crash, resulting in a denial of service. This issue only affected Ubuntu  18.04 LTS. (CVE-2023-3354)   It was discovered that QEMU could incorrectly direct a guest I/O operation  to disk offset 0 instead of the intended offset. An attacker inside the  guest could possibly use this issue to read or overwrite sensitive data,  potentially gaining control of the host. This issue only affected Ubuntu  14.04 LTS, Ubuntu 16.04 LTS, and Ubuntu 18.04 LTS. (CVE-2023-5088)   It was discovered that several virtio device emulations in QEMU did not  properly guard against DMA reentrancy, leading to a double free. An  attacker inside the guest could possibly use this issue to cause QEMU to  crash, resulting in a denial of service, or possibly execute arbitrary  code. (CVE-2024-3446)   It was discovered that the SDHCI device emulation in QEMU contained a heap-  based buffer overflow. An attacker inside the guest could possibly use this  issue to cause QEMU to crash, resulting in a denial of service.  (CVE-2024-3447)   It was discovered that the QEMU disk image utility (qemu-img) did not  properly handle certain crafted image files. An attacker could possibly use  this issue to cause qemu-img to consume excessive resources or access an  unintended external file, resulting in a denial of service. This issue only  affected Ubuntu 20.04 LTS. (CVE-2024-4467)   Cyrille Chatras discovered that the LSI53C895A SCSI Host Bus Adapter  emulation in QEMU contained a use-after-free. An attacker inside the guest  could possibly use this issue to cause QEMU to crash, resulting in a denial  of service, or possibly execute arbitrary code. (CVE-2024-6519)   It was discovered that the NBD server in QEMU contained an improper  synchronization issue during socket closure. A remote attacker could  possibly use this issue to cause QEMU to crash, resulting in a denial of  service. (CVE-2024-7409)   It was discovered that the USB emulation in QEMU contained a reachable  assertion. An attacker inside the guest could possibly use this issue to  cause QEMU to crash, resulting in a denial of service. (CVE-2024-8354)   It was discovered that QEMU incorrectly handled resources during the VNC  WebSocket handshake, leading to a use-after-free. A remote attacker could  possibly use this issue to cause QEMU to crash, resulting in a denial of  service. This issue only affected Ubuntu 18.04 LTS and Ubuntu 20.04 LTS.  (CVE-2025-11234)   It was discovered that QEMU could be made to read out of bounds when  reading VMDK images. An attacker could possibly use this issue to expose  sensitive information or cause QEMU to crash, resulting in a denial of  service. (CVE-2026-2243)",
+        "aliases": [
+          "CVE-2024-7409"
+        ]
+      },
+      "timestamp": "2026-06-16T19:21:44Z",
+      "products": [
+        {
+          "@id": "pkg:deb/ubuntu/qemu@1:2.11+dfsg-1ubuntu7.42+esm6?arch=source&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-kvm@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-kvm@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-kvm@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-kvm@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-kvm@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-kvm@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-binfmt@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-binfmt@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-binfmt@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-binfmt@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-binfmt@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-binfmt@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=amd64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=arm64&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=armhf&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=i386&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=ppc64el&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils-dbgsym@1:2.11+dfsg-1ubuntu7.42+esm6?arch=s390x&distro=esm-infra/bionic"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu@1:4.2-3ubuntu6.30+esm2?arch=source&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-block-extra-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-guest-agent-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-kvm@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-kvm@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-kvm@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-kvm@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-kvm@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-arm-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-common-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-data@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-data@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-data@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-data@1:4.2-3ubuntu6.30+esm2?arch=i386&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-data@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-data@1:4.2-3ubuntu6.30+esm2?arch=riscv64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-data@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-gui@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-gui@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-gui@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-gui@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-gui@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-gui-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-gui-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-gui-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-gui-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-gui-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-mips-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-misc-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-ppc-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-s390x-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-sparc-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86-microvm@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86-microvm-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86-xen@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-system-x86-xen-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-binfmt@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-binfmt@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-binfmt@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-binfmt@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-binfmt@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-user-static-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=amd64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=arm64&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=armhf&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=ppc64el&distro=esm-infra/focal"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/qemu-utils-dbgsym@1:4.2-3ubuntu6.30+esm2?arch=s390x&distro=esm-infra/focal"
+        }
+      ],
+      "status": "fixed",
+      "status_notes": "USN-8412-1 introduced a regression in QEMU Available with Ubuntu Pro."
+    }
+  ]
+}
