@@ -1,0 +1,649 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://github.com/canonical/ubuntu-security-notices/blob/main/vex/usn/USN-8488-1",
+  "author": "Canonical Ltd.",
+  "timestamp": "2026-07-01T15:53:34.942501Z",
+  "version": 1,
+  "statements": [
+    {
+      "vulnerability": {
+        "@id": "https://ubuntu.com/security/notices/USN-8488-1",
+        "name": "USN-8488-1",
+        "description": "It was discovered that some AMD processors did not properly clear data in the floating point divider unit during speculative execution. A local attacker could use this to expose sensitive information. (CVE-2025-54505)  Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems:   - ARM64 architecture;   - x86 architecture;   - Block layer subsystem;   - Cryptographic API;   - Rados block device (RBD) driver;   - Compressed RAM block device driver;   - Character device driver;   - TPM device driver;   - Hardware crypto device drivers;   - EDAC drivers;   - GPU drivers;   - Greybus drivers;   - HID subsystem;   - Microsoft Hyper-V drivers;   - Hardware monitoring drivers;   - I2C subsystem;   - IIO subsystem;   - InfiniBand drivers;   - Input Device core drivers;   - LED subsystem;   - Multiple devices driver;   - Media drivers;   - IBM Advanced System Management driver;   - MTD block device drivers;   - Network drivers;   - Microsoft Azure Network Adapter (MANA) driver;   - NTB driver;   - NVME drivers;   - Device tree and open firmware driver;   - PCI subsystem;   - Remote Processor subsystem;   - SCSI subsystem;   - SPI subsystem;   - Realtek RTL8723BS SDIO drivers;   - SM750 framebuffer staging driver;   - Thermal drivers;   - USB Gadget drivers;   - USB over IP driver;   - VFIO drivers;   - Framebuffer layer;   - 9P distributed file system;   - AFS file system;   - Ceph distributed file system;   - File systems infrastructure;   - EROFS file system;   - Ext4 file system;   - F2FS file system;   - FUSE (File system in Userspace);   - Journaling layer for block devices (JBD2);   - NILFS2 file system;   - File system notification infrastructure;   - NTFS3 file system;   - OCFS2 file system;   - SMB network file system;   - UDF file system;   - XFS file system;   - Codetag library;   - Memory management;   - Memory Management;   - KVM subsystem;   - Tracing infrastructure;   - User-space API (UAPI);   - io_uring subsystem;   - Locking primitives;   - Timer subsystem;   - Scatterlist API;   - Heterogeneous memory management;   - KASAN memory debugging framework;   - Bluetooth subsystem;   - Ethernet bridge;   - CAIF protocol;   - CAN network layer;   - Ceph Core library;   - IPv4 networking;   - IPv6 networking;   - Multipath TCP;   - Netfilter;   - NFC subsystem;   - Packet sockets;   - Qualcomm IPC Router (QRTR);   - RDS protocol;   - RxRPC session sockets;   - SMC sockets;   - Stream parser;   - Landlock security;   - SELinux security module;   - ALSA framework;   - Generic PCM loopback sound driver;   - FireWire sound drivers;   - Creative Sound Blaster X-Fi driver;   - QCOM ASoC drivers;   - USB sound devices;   - Objtool; (CVE-2026-31532, CVE-2026-31574, CVE-2026-31575, CVE-2026-31576, CVE-2026-31577, CVE-2026-31578, CVE-2026-31579, CVE-2026-31580, CVE-2026-31581, CVE-2026-31582, CVE-2026-31583, CVE-2026-31584, CVE-2026-31585, CVE-2026-31586, CVE-2026-31587, CVE-2026-31588, CVE-2026-31589, CVE-2026-31590, CVE-2026-31591, CVE-2026-31592, CVE-2026-31593, CVE-2026-31594, CVE-2026-31595, CVE-2026-31596, CVE-2026-31597, CVE-2026-31598, CVE-2026-31599, CVE-2026-31600, CVE-2026-31601, CVE-2026-31602, CVE-2026-31603, CVE-2026-31604, CVE-2026-31605, CVE-2026-31606, CVE-2026-31607, CVE-2026-31608, CVE-2026-31609, CVE-2026-31610, CVE-2026-31611, CVE-2026-31612, CVE-2026-31613, CVE-2026-31614, CVE-2026-31615, CVE-2026-31616, CVE-2026-31617, CVE-2026-31618, CVE-2026-31619, CVE-2026-31620, CVE-2026-31621, CVE-2026-31622, CVE-2026-31623, CVE-2026-31624, CVE-2026-31625, CVE-2026-31626, CVE-2026-31627, CVE-2026-31628, CVE-2026-31629, CVE-2026-31686, CVE-2026-31694, CVE-2026-31696, CVE-2026-31697, CVE-2026-31698, CVE-2026-31699, CVE-2026-31700, CVE-2026-31701, CVE-2026-31702, CVE-2026-31703, CVE-2026-31704, CVE-2026-31705, CVE-2026-31706, CVE-2026-31707, CVE-2026-31708, CVE-2026-31709, CVE-2026-31710, CVE-2026-31711, CVE-2026-31712, CVE-2026-31713, CVE-2026-31714, CVE-2026-31715, CVE-2026-31716, CVE-2026-31717, CVE-2026-31718, CVE-2026-31719, CVE-2026-43058, CVE-2026-43071, CVE-2026-43072, CVE-2026-43073, CVE-2026-43348, CVE-2026-43349, CVE-2026-43350, CVE-2026-43491, CVE-2026-43493, CVE-2026-43499, CVE-2026-43501, CVE-2026-45986, CVE-2026-45987, CVE-2026-45988, CVE-2026-45989, CVE-2026-45990, CVE-2026-45991, CVE-2026-45994, CVE-2026-45995, CVE-2026-45996, CVE-2026-45997, CVE-2026-45999, CVE-2026-46001, CVE-2026-46002, CVE-2026-46003, CVE-2026-46004, CVE-2026-46005, CVE-2026-46006, CVE-2026-46007, CVE-2026-46008, CVE-2026-46009, CVE-2026-46010, CVE-2026-46011, CVE-2026-46012, CVE-2026-46013, CVE-2026-46014, CVE-2026-46015, CVE-2026-46016, CVE-2026-46018, CVE-2026-46019, CVE-2026-46020, CVE-2026-46021, CVE-2026-46022, CVE-2026-46023, CVE-2026-46024, CVE-2026-46025, CVE-2026-46026, CVE-2026-46027, CVE-2026-46028, CVE-2026-46029, CVE-2026-46030, CVE-2026-46031, CVE-2026-46032, CVE-2026-46033, CVE-2026-46034, CVE-2026-46035, CVE-2026-46036, CVE-2026-46037, CVE-2026-46038, CVE-2026-46039, CVE-2026-46040, CVE-2026-46041, CVE-2026-46042, CVE-2026-46043, CVE-2026-46044, CVE-2026-46045, CVE-2026-46046, CVE-2026-46047, CVE-2026-46049, CVE-2026-46050, CVE-2026-46051, CVE-2026-46052, CVE-2026-46053, CVE-2026-46054, CVE-2026-46056, CVE-2026-46057, CVE-2026-46058, CVE-2026-46059, CVE-2026-46060, CVE-2026-46061, CVE-2026-46062, CVE-2026-46063, CVE-2026-46064, CVE-2026-46065, CVE-2026-46066, CVE-2026-46067, CVE-2026-46068, CVE-2026-46069, CVE-2026-46070, CVE-2026-46071, CVE-2026-46072, CVE-2026-46073, CVE-2026-46074, CVE-2026-46075, CVE-2026-46076, CVE-2026-46077, CVE-2026-46078, CVE-2026-46079, CVE-2026-46080, CVE-2026-46081, CVE-2026-46082, CVE-2026-46083, CVE-2026-46084, CVE-2026-46085, CVE-2026-46086, CVE-2026-46087, CVE-2026-46088, CVE-2026-46089, CVE-2026-46090, CVE-2026-46091, CVE-2026-46092, CVE-2026-46093, CVE-2026-46094, CVE-2026-46095, CVE-2026-46096, CVE-2026-46097, CVE-2026-46098, CVE-2026-46099, CVE-2026-46100, CVE-2026-46101, CVE-2026-46102, CVE-2026-46103, CVE-2026-46115, CVE-2026-46119, CVE-2026-46135, CVE-2026-46137, CVE-2026-46155, CVE-2026-46185, CVE-2026-46195, CVE-2026-46243, CVE-2026-46244, CVE-2026-46276, CVE-2026-46277, CVE-2026-46278, CVE-2026-46279, CVE-2026-46280, CVE-2026-46281, CVE-2026-46282, CVE-2026-46283, CVE-2026-46284, CVE-2026-46285, CVE-2026-46286, CVE-2026-46287, CVE-2026-46288, CVE-2026-46289, CVE-2026-46316, CVE-2026-46332, CVE-2026-52904, CVE-2026-52905, CVE-2026-52906, CVE-2026-52907, CVE-2026-52933)",
+        "aliases": [
+          "CVE-2025-54505",
+          "CVE-2026-31532",
+          "CVE-2026-31574",
+          "CVE-2026-31575",
+          "CVE-2026-31576",
+          "CVE-2026-31577",
+          "CVE-2026-31578",
+          "CVE-2026-31579",
+          "CVE-2026-31580",
+          "CVE-2026-31581",
+          "CVE-2026-31582",
+          "CVE-2026-31583",
+          "CVE-2026-31584",
+          "CVE-2026-31585",
+          "CVE-2026-31586",
+          "CVE-2026-31587",
+          "CVE-2026-31588",
+          "CVE-2026-31589",
+          "CVE-2026-31590",
+          "CVE-2026-31591",
+          "CVE-2026-31592",
+          "CVE-2026-31593",
+          "CVE-2026-31594",
+          "CVE-2026-31595",
+          "CVE-2026-31596",
+          "CVE-2026-31597",
+          "CVE-2026-31598",
+          "CVE-2026-31599",
+          "CVE-2026-31600",
+          "CVE-2026-31601",
+          "CVE-2026-31602",
+          "CVE-2026-31603",
+          "CVE-2026-31604",
+          "CVE-2026-31605",
+          "CVE-2026-31606",
+          "CVE-2026-31607",
+          "CVE-2026-31608",
+          "CVE-2026-31609",
+          "CVE-2026-31610",
+          "CVE-2026-31611",
+          "CVE-2026-31612",
+          "CVE-2026-31613",
+          "CVE-2026-31614",
+          "CVE-2026-31615",
+          "CVE-2026-31616",
+          "CVE-2026-31617",
+          "CVE-2026-31618",
+          "CVE-2026-31619",
+          "CVE-2026-31620",
+          "CVE-2026-31621",
+          "CVE-2026-31622",
+          "CVE-2026-31623",
+          "CVE-2026-31624",
+          "CVE-2026-31625",
+          "CVE-2026-31626",
+          "CVE-2026-31627",
+          "CVE-2026-31628",
+          "CVE-2026-31629",
+          "CVE-2026-31686",
+          "CVE-2026-31694",
+          "CVE-2026-31696",
+          "CVE-2026-31697",
+          "CVE-2026-31698",
+          "CVE-2026-31699",
+          "CVE-2026-31700",
+          "CVE-2026-31701",
+          "CVE-2026-31702",
+          "CVE-2026-31703",
+          "CVE-2026-31704",
+          "CVE-2026-31705",
+          "CVE-2026-31706",
+          "CVE-2026-31707",
+          "CVE-2026-31708",
+          "CVE-2026-31709",
+          "CVE-2026-31710",
+          "CVE-2026-31711",
+          "CVE-2026-31712",
+          "CVE-2026-31713",
+          "CVE-2026-31714",
+          "CVE-2026-31715",
+          "CVE-2026-31716",
+          "CVE-2026-31717",
+          "CVE-2026-31718",
+          "CVE-2026-31719",
+          "CVE-2026-43058",
+          "CVE-2026-43071",
+          "CVE-2026-43072",
+          "CVE-2026-43073",
+          "CVE-2026-43348",
+          "CVE-2026-43349",
+          "CVE-2026-43350",
+          "CVE-2026-43491",
+          "CVE-2026-43493",
+          "CVE-2026-43499",
+          "CVE-2026-43501",
+          "CVE-2026-45986",
+          "CVE-2026-45987",
+          "CVE-2026-45988",
+          "CVE-2026-45989",
+          "CVE-2026-45990",
+          "CVE-2026-45991",
+          "CVE-2026-45994",
+          "CVE-2026-45995",
+          "CVE-2026-45996",
+          "CVE-2026-45997",
+          "CVE-2026-45999",
+          "CVE-2026-46001",
+          "CVE-2026-46002",
+          "CVE-2026-46003",
+          "CVE-2026-46004",
+          "CVE-2026-46005",
+          "CVE-2026-46006",
+          "CVE-2026-46007",
+          "CVE-2026-46008",
+          "CVE-2026-46009",
+          "CVE-2026-46010",
+          "CVE-2026-46011",
+          "CVE-2026-46012",
+          "CVE-2026-46013",
+          "CVE-2026-46014",
+          "CVE-2026-46015",
+          "CVE-2026-46016",
+          "CVE-2026-46018",
+          "CVE-2026-46019",
+          "CVE-2026-46020",
+          "CVE-2026-46021",
+          "CVE-2026-46022",
+          "CVE-2026-46023",
+          "CVE-2026-46024",
+          "CVE-2026-46025",
+          "CVE-2026-46026",
+          "CVE-2026-46027",
+          "CVE-2026-46028",
+          "CVE-2026-46029",
+          "CVE-2026-46030",
+          "CVE-2026-46031",
+          "CVE-2026-46032",
+          "CVE-2026-46033",
+          "CVE-2026-46034",
+          "CVE-2026-46035",
+          "CVE-2026-46036",
+          "CVE-2026-46037",
+          "CVE-2026-46038",
+          "CVE-2026-46039",
+          "CVE-2026-46040",
+          "CVE-2026-46041",
+          "CVE-2026-46042",
+          "CVE-2026-46043",
+          "CVE-2026-46044",
+          "CVE-2026-46045",
+          "CVE-2026-46046",
+          "CVE-2026-46047",
+          "CVE-2026-46049",
+          "CVE-2026-46050",
+          "CVE-2026-46051",
+          "CVE-2026-46052",
+          "CVE-2026-46053",
+          "CVE-2026-46054",
+          "CVE-2026-46056",
+          "CVE-2026-46057",
+          "CVE-2026-46058",
+          "CVE-2026-46059",
+          "CVE-2026-46060",
+          "CVE-2026-46061",
+          "CVE-2026-46062",
+          "CVE-2026-46063",
+          "CVE-2026-46064",
+          "CVE-2026-46065",
+          "CVE-2026-46066",
+          "CVE-2026-46067",
+          "CVE-2026-46068",
+          "CVE-2026-46069",
+          "CVE-2026-46070",
+          "CVE-2026-46071",
+          "CVE-2026-46072",
+          "CVE-2026-46073",
+          "CVE-2026-46074",
+          "CVE-2026-46075",
+          "CVE-2026-46076",
+          "CVE-2026-46077",
+          "CVE-2026-46078",
+          "CVE-2026-46079",
+          "CVE-2026-46080",
+          "CVE-2026-46081",
+          "CVE-2026-46082",
+          "CVE-2026-46083",
+          "CVE-2026-46084",
+          "CVE-2026-46085",
+          "CVE-2026-46086",
+          "CVE-2026-46087",
+          "CVE-2026-46088",
+          "CVE-2026-46089",
+          "CVE-2026-46090",
+          "CVE-2026-46091",
+          "CVE-2026-46092",
+          "CVE-2026-46093",
+          "CVE-2026-46094",
+          "CVE-2026-46095",
+          "CVE-2026-46096",
+          "CVE-2026-46097",
+          "CVE-2026-46098",
+          "CVE-2026-46099",
+          "CVE-2026-46100",
+          "CVE-2026-46101",
+          "CVE-2026-46102",
+          "CVE-2026-46103",
+          "CVE-2026-46115",
+          "CVE-2026-46119",
+          "CVE-2026-46135",
+          "CVE-2026-46137",
+          "CVE-2026-46155",
+          "CVE-2026-46185",
+          "CVE-2026-46195",
+          "CVE-2026-46243",
+          "CVE-2026-46244",
+          "CVE-2026-46276",
+          "CVE-2026-46277",
+          "CVE-2026-46278",
+          "CVE-2026-46279",
+          "CVE-2026-46280",
+          "CVE-2026-46281",
+          "CVE-2026-46282",
+          "CVE-2026-46283",
+          "CVE-2026-46284",
+          "CVE-2026-46285",
+          "CVE-2026-46286",
+          "CVE-2026-46287",
+          "CVE-2026-46288",
+          "CVE-2026-46289",
+          "CVE-2026-46316",
+          "CVE-2026-46332",
+          "CVE-2026-52904",
+          "CVE-2026-52905",
+          "CVE-2026-52906",
+          "CVE-2026-52907",
+          "CVE-2026-52933"
+        ]
+      },
+      "timestamp": "2026-07-01T14:34:23Z",
+      "products": [
+        {
+          "@id": "pkg:deb/ubuntu/linux@7.0.0-27.27?arch=source&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/bpftool@7.7.0+7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/bpftool@7.7.0+7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/bpftool@7.7.0+7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/bpftool@7.7.0+7.0.0-27.27?arch=armhf&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/bpftool@7.7.0+7.0.0-27.27?arch=ppc64el&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/bpftool@7.7.0+7.0.0-27.27?arch=riscv64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/bpftool@7.7.0+7.0.0-27.27?arch=s390x&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-bpf-dev@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-bpf-dev@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-bpf-dev@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-bpf-dev@7.0.0-27.27?arch=armhf&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-bpf-dev@7.0.0-27.27?arch=ppc64el&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-bpf-dev@7.0.0-27.27?arch=s390x&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-7.0.0-27-generic@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-7.0.0-27-generic@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-7.0.0-27-generic@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-7.0.0-27-generic@7.0.0-27.27?arch=armhf&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-7.0.0-27-generic@7.0.0-27.27?arch=ppc64el&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-7.0.0-27-generic@7.0.0-27.27?arch=s390x&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-7.0.0-27-generic-64k@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-cloud-tools-7.0.0-27@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-cloud-tools-7.0.0-27@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-cloud-tools-7.0.0-27-generic@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-cloud-tools-7.0.0-27-generic@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-cloud-tools-common@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-cloud-tools-common@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-cloud-tools-common@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-cloud-tools-common@7.0.0-27.27?arch=armhf&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-cloud-tools-common@7.0.0-27.27?arch=i386&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-cloud-tools-common@7.0.0-27.27?arch=ppc64el&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-cloud-tools-common@7.0.0-27.27?arch=riscv64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-cloud-tools-common@7.0.0-27.27?arch=s390x&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-doc@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-doc@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-doc@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-doc@7.0.0-27.27?arch=armhf&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-doc@7.0.0-27.27?arch=i386&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-doc@7.0.0-27.27?arch=ppc64el&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-doc@7.0.0-27.27?arch=riscv64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-doc@7.0.0-27.27?arch=s390x&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-7.0.0-27@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-7.0.0-27@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-7.0.0-27@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-7.0.0-27@7.0.0-27.27?arch=armhf&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-7.0.0-27@7.0.0-27.27?arch=i386&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-7.0.0-27@7.0.0-27.27?arch=ppc64el&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-7.0.0-27@7.0.0-27.27?arch=riscv64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-7.0.0-27@7.0.0-27.27?arch=s390x&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-7.0.0-27-generic@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-7.0.0-27-generic@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-7.0.0-27-generic@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-7.0.0-27-generic@7.0.0-27.27?arch=armhf&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-7.0.0-27-generic@7.0.0-27.27?arch=ppc64el&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-7.0.0-27-generic@7.0.0-27.27?arch=s390x&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-7.0.0-27-generic-64k@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-7.0.0-27-generic@7.0.0-27.27?arch=armhf&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-7.0.0-27-generic@7.0.0-27.27?arch=ppc64el&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-7.0.0-27-generic-dbgsym@7.0.0-27.27?arch=armhf&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-7.0.0-27-generic-dbgsym@7.0.0-27.27?arch=ppc64el&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-7.0.0-27-generic@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-7.0.0-27-generic@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-7.0.0-27-generic@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-7.0.0-27-generic@7.0.0-27.27?arch=s390x&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-7.0.0-27-generic-64k@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-7.0.0-27-generic-64k-dbgsym@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-7.0.0-27-generic-dbgsym@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-7.0.0-27-generic-dbgsym@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-7.0.0-27-generic-dbgsym@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-7.0.0-27-generic-dbgsym@7.0.0-27.27?arch=s390x&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-lib-rust-7.0.0-27-generic@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-lib-rust-7.0.0-27-generic@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-27.27?arch=armhf&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-27.27?arch=i386&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-27.27?arch=ppc64el&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-27.27?arch=riscv64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-27.27?arch=s390x&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-7.0.0-27-generic@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-7.0.0-27-generic@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-7.0.0-27-generic@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-7.0.0-27-generic@7.0.0-27.27?arch=armhf&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-7.0.0-27-generic@7.0.0-27.27?arch=ppc64el&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-7.0.0-27-generic@7.0.0-27.27?arch=s390x&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-7.0.0-27-generic-64k@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-perf@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-perf@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-perf@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-perf@7.0.0-27.27?arch=ppc64el&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-perf@7.0.0-27.27?arch=riscv64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-perf@7.0.0-27.27?arch=s390x&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-source-7.0.0@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-source-7.0.0@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-source-7.0.0@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-source-7.0.0@7.0.0-27.27?arch=armhf&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-source-7.0.0@7.0.0-27.27?arch=i386&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-source-7.0.0@7.0.0-27.27?arch=ppc64el&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-source-7.0.0@7.0.0-27.27?arch=riscv64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-source-7.0.0@7.0.0-27.27?arch=s390x&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-7.0.0-27@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-7.0.0-27@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-7.0.0-27@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-7.0.0-27@7.0.0-27.27?arch=armhf&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-7.0.0-27@7.0.0-27.27?arch=ppc64el&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-7.0.0-27@7.0.0-27.27?arch=s390x&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-7.0.0-27-generic@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-7.0.0-27-generic@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-7.0.0-27-generic@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-7.0.0-27-generic@7.0.0-27.27?arch=armhf&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-7.0.0-27-generic@7.0.0-27.27?arch=ppc64el&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-7.0.0-27-generic@7.0.0-27.27?arch=s390x&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-7.0.0-27-generic-64k@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-common@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-common@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-common@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-common@7.0.0-27.27?arch=armhf&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-common@7.0.0-27.27?arch=i386&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-common@7.0.0-27.27?arch=ppc64el&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-common@7.0.0-27.27?arch=riscv64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-common@7.0.0-27.27?arch=s390x&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-host@7.0.0-27.27?arch=amd64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-host@7.0.0-27.27?arch=amd64v3&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-host@7.0.0-27.27?arch=arm64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-host@7.0.0-27.27?arch=armhf&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-host@7.0.0-27.27?arch=i386&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-host@7.0.0-27.27?arch=ppc64el&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-host@7.0.0-27.27?arch=riscv64&distro=resolute"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-host@7.0.0-27.27?arch=s390x&distro=resolute"
+        }
+      ],
+      "status": "fixed",
+      "status_notes": "Several security issues were fixed in the Linux kernel."
+    }
+  ]
+}
