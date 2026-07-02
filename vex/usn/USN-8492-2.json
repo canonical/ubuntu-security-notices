@@ -1,0 +1,880 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://github.com/canonical/ubuntu-security-notices/blob/main/vex/usn/USN-8492-2",
+  "author": "Canonical Ltd.",
+  "timestamp": "2026-07-02T20:20:57.205129Z",
+  "version": 1,
+  "statements": [
+    {
+      "vulnerability": {
+        "@id": "https://ubuntu.com/security/notices/USN-8492-2",
+        "name": "USN-8492-2",
+        "description": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems:   - ARM64 architecture;   - MIPS architecture;   - PowerPC architecture;   - x86 architecture;   - Block layer subsystem;   - Cryptographic API;   - ACPI drivers;   - ATM drivers;   - RNBD block device driver;   - Ublk userspace block driver;   - Bus devices;   - Character device driver;   - TPM device driver;   - Clock framework and drivers;   - Clocksource drivers;   - CPU idle management framework;   - Hardware crypto device drivers;   - DMA engine subsystem;   - EFI core;   - GPIO subsystem;   - GPU drivers;   - HID subsystem;   - Hardware monitoring drivers;   - IIO subsystem;   - InfiniBand drivers;   - IOMMU subsystem;   - Multiple devices driver;   - Media drivers;   - Multifunction device drivers;   - Broadcom VK accelerator driver;   - MOST (Media Oriented Systems Transport) drivers;   - MTD block device drivers;   - Ethernet bonding driver;   - Network drivers;   - Mellanox network drivers;   - STMicroelectronics network drivers;   - NTB driver;   - NVME drivers;   - PCI subsystem;   - Performance monitor drivers;   - Pin controllers subsystem;   - x86 platform drivers;   - Power supply drivers;   - RapidIO drivers;   - RAS (Reliability, Availability, Serviceability) subsystem;   - Remote Processor subsystem;   - RPMSG subsystem;   - S/390 drivers;   - SCSI subsystem;   - MediaTek SoC drivers;   - Texas Instruments SoC drivers;   - SPI subsystem;   - Greybus lights staging drivers;   - Realtek RTL8723BS SDIO drivers;   - UFS subsystem;   - ChipIdea USB driver;   - DesignWare USB3 driver;   - USB over IP driver;   - vDPA drivers;   - Virtio Host (VHOST) subsystem;   - Framebuffer layer;   - BTRFS file system;   - File systems infrastructure;   - Ceph distributed file system;   - Ext4 file system;   - F2FS file system;   - FAT file system;   - GFS2 file system;   - HFS+ file system;   - JFS file system;   - Network file system (NFS) server daemon;   - NILFS2 file system;   - NTFS3 file system;   - OCFS2 file system;   - Proc file system;   - Pstore file system;   - Diskquota system;   - SMB network file system;   - XFS file system;   - Audit subsystem;   - Memory Management;   - IPv6 networking;   - Netfilter;   - Tracing infrastructure;   - Kernel kexec() syscall;   - RCU subsystem;   - Scheduler infrastructure;   - Scatterlist API;   - 9P file system network protocol;   - Asynchronous Transfer Mode (ATM) subsystem;   - B.A.T.M.A.N. meshing protocol;   - Bluetooth subsystem;   - Ethernet bridge;   - Ceph Core library;   - Networking core;   - IPv4 networking;   - KCM (Kernel Connection Multiplexor) sockets driver;   - Multipath TCP;   - NFC subsystem;   - RDS protocol;   - RxRPC session sockets;   - Network traffic control;   - SMC sockets;   - Sun RPC protocol;   - X.25 network layer;   - XFRM subsystem;   - AppArmor security module;   - Simplified Mandatory Access Control Kernel framework;   - SOF drivers;   - USB sound devices; (CVE-2025-40005, CVE-2025-71229, CVE-2025-71231, CVE-2025-71232, CVE-2025-71233, CVE-2025-71235, CVE-2025-71236, CVE-2025-71237, CVE-2025-71238, CVE-2025-71239, CVE-2025-71265, CVE-2025-71266, CVE-2025-71267, CVE-2025-71272, CVE-2025-71273, CVE-2025-71274, CVE-2025-71286, CVE-2025-71291, CVE-2025-71292, CVE-2025-71294, CVE-2025-71295, CVE-2025-71297, CVE-2025-71304, CVE-2025-71305, CVE-2026-23100, CVE-2026-23169, CVE-2026-23220, CVE-2026-23221, CVE-2026-23222, CVE-2026-23228, CVE-2026-23229, CVE-2026-23230, CVE-2026-23233, CVE-2026-23234, CVE-2026-23235, CVE-2026-23236, CVE-2026-23237, CVE-2026-23238, CVE-2026-23241, CVE-2026-23242, CVE-2026-23243, CVE-2026-23249, CVE-2026-23266, CVE-2026-23267, CVE-2026-23272, CVE-2026-23278, CVE-2026-23392, CVE-2026-23428, CVE-2026-23450, CVE-2026-23455, CVE-2026-31402, CVE-2026-31411, CVE-2026-31418, CVE-2026-31436, CVE-2026-31448, CVE-2026-31478, CVE-2026-31607, CVE-2026-31637, CVE-2026-31649, CVE-2026-31657, CVE-2026-31659, CVE-2026-31668, CVE-2026-31669, CVE-2026-31682, CVE-2026-31685, CVE-2026-31687, CVE-2026-31693, CVE-2026-43011, CVE-2026-43037, CVE-2026-43038, CVE-2026-43071, CVE-2026-43114, CVE-2026-43117, CVE-2026-43123, CVE-2026-43124, CVE-2026-43128, CVE-2026-43130, CVE-2026-43132, CVE-2026-43133, CVE-2026-43134, CVE-2026-43135, CVE-2026-43136, CVE-2026-43137, CVE-2026-43139, CVE-2026-43140, CVE-2026-43141, CVE-2026-43143, CVE-2026-43145, CVE-2026-43147, CVE-2026-43148, CVE-2026-43149, CVE-2026-43150, CVE-2026-43152, CVE-2026-43153, CVE-2026-43156, CVE-2026-43157, CVE-2026-43158, CVE-2026-43159, CVE-2026-43163, CVE-2026-43167, CVE-2026-43168, CVE-2026-43169, CVE-2026-43170, CVE-2026-43171, CVE-2026-43173, CVE-2026-43175, CVE-2026-43180, CVE-2026-43182, CVE-2026-43183, CVE-2026-43184, CVE-2026-43186, CVE-2026-43187, CVE-2026-43189, CVE-2026-43190, CVE-2026-43194, CVE-2026-43196, CVE-2026-43199, CVE-2026-43200, CVE-2026-43201, CVE-2026-43202, CVE-2026-43203, CVE-2026-43205, CVE-2026-43206, CVE-2026-43207, CVE-2026-43209, CVE-2026-43211, CVE-2026-43212, CVE-2026-43214, CVE-2026-43215, CVE-2026-43218, CVE-2026-43221, CVE-2026-43222, CVE-2026-43223, CVE-2026-43225, CVE-2026-43226, CVE-2026-43227, CVE-2026-43230, CVE-2026-43231, CVE-2026-43232, CVE-2026-43233, CVE-2026-43236, CVE-2026-43238, CVE-2026-43239, CVE-2026-43241, CVE-2026-43242, CVE-2026-43244, CVE-2026-43246, CVE-2026-43248, CVE-2026-43249, CVE-2026-43250, CVE-2026-43251, CVE-2026-43253, CVE-2026-43255, CVE-2026-43256, CVE-2026-43257, CVE-2026-43258, CVE-2026-43261, CVE-2026-43262, CVE-2026-43264, CVE-2026-43266, CVE-2026-43268, CVE-2026-43269, CVE-2026-43270, CVE-2026-43271, CVE-2026-43273, CVE-2026-43275, CVE-2026-43277, CVE-2026-43278, CVE-2026-43279, CVE-2026-43283, CVE-2026-43287, CVE-2026-43288, CVE-2026-43289, CVE-2026-43291, CVE-2026-43295, CVE-2026-43296, CVE-2026-43297, CVE-2026-43300, CVE-2026-43302, CVE-2026-43304, CVE-2026-43312, CVE-2026-43313, CVE-2026-43314, CVE-2026-43315, CVE-2026-43316, CVE-2026-43317, CVE-2026-43318, CVE-2026-43319, CVE-2026-43320, CVE-2026-43341, CVE-2026-43378, CVE-2026-43383, CVE-2026-43384, CVE-2026-43406, CVE-2026-43407, CVE-2026-43414, CVE-2026-43493, CVE-2026-43501, CVE-2026-45847, CVE-2026-45848, CVE-2026-45849, CVE-2026-45851, CVE-2026-45852, CVE-2026-45856, CVE-2026-45857, CVE-2026-45859, CVE-2026-45860, CVE-2026-45861, CVE-2026-45862, CVE-2026-45864, CVE-2026-45865, CVE-2026-45866, CVE-2026-45867, CVE-2026-45868, CVE-2026-45869, CVE-2026-45870, CVE-2026-45871, CVE-2026-45872, CVE-2026-45873, CVE-2026-45875, CVE-2026-45877, CVE-2026-45878, CVE-2026-45879, CVE-2026-45880, CVE-2026-45881, CVE-2026-45882, CVE-2026-45883, CVE-2026-45884, CVE-2026-45885, CVE-2026-45886, CVE-2026-45890, CVE-2026-45891, CVE-2026-45893, CVE-2026-45895, CVE-2026-45902, CVE-2026-45904, CVE-2026-45905, CVE-2026-45910, CVE-2026-45912, CVE-2026-45913, CVE-2026-45914, CVE-2026-45915, CVE-2026-45916, CVE-2026-45917, CVE-2026-45919, CVE-2026-45921, CVE-2026-45923, CVE-2026-45928, CVE-2026-45935, CVE-2026-45936, CVE-2026-45938, CVE-2026-45941, CVE-2026-45946, CVE-2026-45947, CVE-2026-45948, CVE-2026-45954, CVE-2026-45957, CVE-2026-45960, CVE-2026-45962, CVE-2026-45964, CVE-2026-45965, CVE-2026-45968, CVE-2026-45969, CVE-2026-45970, CVE-2026-45972, CVE-2026-45973, CVE-2026-45974, CVE-2026-45976, CVE-2026-45978, CVE-2026-45981, CVE-2026-45982, CVE-2026-45983, CVE-2026-45984, CVE-2026-45988, CVE-2026-46043, CVE-2026-46115, CVE-2026-46119, CVE-2026-46135, CVE-2026-46185, CVE-2026-46195, CVE-2026-46243, CVE-2026-46244, CVE-2026-46246, CVE-2026-46247, CVE-2026-46249, CVE-2026-46250, CVE-2026-46251, CVE-2026-46253, CVE-2026-46254, CVE-2026-46255, CVE-2026-46259, CVE-2026-46260, CVE-2026-46261, CVE-2026-46265, CVE-2026-46266, CVE-2026-46267, CVE-2026-46270, CVE-2026-46289, CVE-2026-46328)",
+        "aliases": [
+          "CVE-2025-40005",
+          "CVE-2025-71229",
+          "CVE-2025-71231",
+          "CVE-2025-71232",
+          "CVE-2025-71233",
+          "CVE-2025-71235",
+          "CVE-2025-71236",
+          "CVE-2025-71237",
+          "CVE-2025-71238",
+          "CVE-2025-71239",
+          "CVE-2025-71265",
+          "CVE-2025-71266",
+          "CVE-2025-71267",
+          "CVE-2025-71272",
+          "CVE-2025-71273",
+          "CVE-2025-71274",
+          "CVE-2025-71286",
+          "CVE-2025-71291",
+          "CVE-2025-71292",
+          "CVE-2025-71294",
+          "CVE-2025-71295",
+          "CVE-2025-71297",
+          "CVE-2025-71304",
+          "CVE-2025-71305",
+          "CVE-2026-23100",
+          "CVE-2026-23169",
+          "CVE-2026-23220",
+          "CVE-2026-23221",
+          "CVE-2026-23222",
+          "CVE-2026-23228",
+          "CVE-2026-23229",
+          "CVE-2026-23230",
+          "CVE-2026-23233",
+          "CVE-2026-23234",
+          "CVE-2026-23235",
+          "CVE-2026-23236",
+          "CVE-2026-23237",
+          "CVE-2026-23238",
+          "CVE-2026-23241",
+          "CVE-2026-23242",
+          "CVE-2026-23243",
+          "CVE-2026-23249",
+          "CVE-2026-23266",
+          "CVE-2026-23267",
+          "CVE-2026-23272",
+          "CVE-2026-23278",
+          "CVE-2026-23392",
+          "CVE-2026-23428",
+          "CVE-2026-23450",
+          "CVE-2026-23455",
+          "CVE-2026-31402",
+          "CVE-2026-31411",
+          "CVE-2026-31418",
+          "CVE-2026-31436",
+          "CVE-2026-31448",
+          "CVE-2026-31478",
+          "CVE-2026-31607",
+          "CVE-2026-31637",
+          "CVE-2026-31649",
+          "CVE-2026-31657",
+          "CVE-2026-31659",
+          "CVE-2026-31668",
+          "CVE-2026-31669",
+          "CVE-2026-31682",
+          "CVE-2026-31685",
+          "CVE-2026-31687",
+          "CVE-2026-31693",
+          "CVE-2026-43011",
+          "CVE-2026-43037",
+          "CVE-2026-43038",
+          "CVE-2026-43071",
+          "CVE-2026-43114",
+          "CVE-2026-43117",
+          "CVE-2026-43123",
+          "CVE-2026-43124",
+          "CVE-2026-43128",
+          "CVE-2026-43130",
+          "CVE-2026-43132",
+          "CVE-2026-43133",
+          "CVE-2026-43134",
+          "CVE-2026-43135",
+          "CVE-2026-43136",
+          "CVE-2026-43137",
+          "CVE-2026-43139",
+          "CVE-2026-43140",
+          "CVE-2026-43141",
+          "CVE-2026-43143",
+          "CVE-2026-43145",
+          "CVE-2026-43147",
+          "CVE-2026-43148",
+          "CVE-2026-43149",
+          "CVE-2026-43150",
+          "CVE-2026-43152",
+          "CVE-2026-43153",
+          "CVE-2026-43156",
+          "CVE-2026-43157",
+          "CVE-2026-43158",
+          "CVE-2026-43159",
+          "CVE-2026-43163",
+          "CVE-2026-43167",
+          "CVE-2026-43168",
+          "CVE-2026-43169",
+          "CVE-2026-43170",
+          "CVE-2026-43171",
+          "CVE-2026-43173",
+          "CVE-2026-43175",
+          "CVE-2026-43180",
+          "CVE-2026-43182",
+          "CVE-2026-43183",
+          "CVE-2026-43184",
+          "CVE-2026-43186",
+          "CVE-2026-43187",
+          "CVE-2026-43189",
+          "CVE-2026-43190",
+          "CVE-2026-43194",
+          "CVE-2026-43196",
+          "CVE-2026-43199",
+          "CVE-2026-43200",
+          "CVE-2026-43201",
+          "CVE-2026-43202",
+          "CVE-2026-43203",
+          "CVE-2026-43205",
+          "CVE-2026-43206",
+          "CVE-2026-43207",
+          "CVE-2026-43209",
+          "CVE-2026-43211",
+          "CVE-2026-43212",
+          "CVE-2026-43214",
+          "CVE-2026-43215",
+          "CVE-2026-43218",
+          "CVE-2026-43221",
+          "CVE-2026-43222",
+          "CVE-2026-43223",
+          "CVE-2026-43225",
+          "CVE-2026-43226",
+          "CVE-2026-43227",
+          "CVE-2026-43230",
+          "CVE-2026-43231",
+          "CVE-2026-43232",
+          "CVE-2026-43233",
+          "CVE-2026-43236",
+          "CVE-2026-43238",
+          "CVE-2026-43239",
+          "CVE-2026-43241",
+          "CVE-2026-43242",
+          "CVE-2026-43244",
+          "CVE-2026-43246",
+          "CVE-2026-43248",
+          "CVE-2026-43249",
+          "CVE-2026-43250",
+          "CVE-2026-43251",
+          "CVE-2026-43253",
+          "CVE-2026-43255",
+          "CVE-2026-43256",
+          "CVE-2026-43257",
+          "CVE-2026-43258",
+          "CVE-2026-43261",
+          "CVE-2026-43262",
+          "CVE-2026-43264",
+          "CVE-2026-43266",
+          "CVE-2026-43268",
+          "CVE-2026-43269",
+          "CVE-2026-43270",
+          "CVE-2026-43271",
+          "CVE-2026-43273",
+          "CVE-2026-43275",
+          "CVE-2026-43277",
+          "CVE-2026-43278",
+          "CVE-2026-43279",
+          "CVE-2026-43283",
+          "CVE-2026-43287",
+          "CVE-2026-43288",
+          "CVE-2026-43289",
+          "CVE-2026-43291",
+          "CVE-2026-43295",
+          "CVE-2026-43296",
+          "CVE-2026-43297",
+          "CVE-2026-43300",
+          "CVE-2026-43302",
+          "CVE-2026-43304",
+          "CVE-2026-43312",
+          "CVE-2026-43313",
+          "CVE-2026-43314",
+          "CVE-2026-43315",
+          "CVE-2026-43316",
+          "CVE-2026-43317",
+          "CVE-2026-43318",
+          "CVE-2026-43319",
+          "CVE-2026-43320",
+          "CVE-2026-43341",
+          "CVE-2026-43378",
+          "CVE-2026-43383",
+          "CVE-2026-43384",
+          "CVE-2026-43406",
+          "CVE-2026-43407",
+          "CVE-2026-43414",
+          "CVE-2026-43493",
+          "CVE-2026-43501",
+          "CVE-2026-45847",
+          "CVE-2026-45848",
+          "CVE-2026-45849",
+          "CVE-2026-45851",
+          "CVE-2026-45852",
+          "CVE-2026-45856",
+          "CVE-2026-45857",
+          "CVE-2026-45859",
+          "CVE-2026-45860",
+          "CVE-2026-45861",
+          "CVE-2026-45862",
+          "CVE-2026-45864",
+          "CVE-2026-45865",
+          "CVE-2026-45866",
+          "CVE-2026-45867",
+          "CVE-2026-45868",
+          "CVE-2026-45869",
+          "CVE-2026-45870",
+          "CVE-2026-45871",
+          "CVE-2026-45872",
+          "CVE-2026-45873",
+          "CVE-2026-45875",
+          "CVE-2026-45877",
+          "CVE-2026-45878",
+          "CVE-2026-45879",
+          "CVE-2026-45880",
+          "CVE-2026-45881",
+          "CVE-2026-45882",
+          "CVE-2026-45883",
+          "CVE-2026-45884",
+          "CVE-2026-45885",
+          "CVE-2026-45886",
+          "CVE-2026-45890",
+          "CVE-2026-45891",
+          "CVE-2026-45893",
+          "CVE-2026-45895",
+          "CVE-2026-45902",
+          "CVE-2026-45904",
+          "CVE-2026-45905",
+          "CVE-2026-45910",
+          "CVE-2026-45912",
+          "CVE-2026-45913",
+          "CVE-2026-45914",
+          "CVE-2026-45915",
+          "CVE-2026-45916",
+          "CVE-2026-45917",
+          "CVE-2026-45919",
+          "CVE-2026-45921",
+          "CVE-2026-45923",
+          "CVE-2026-45928",
+          "CVE-2026-45935",
+          "CVE-2026-45936",
+          "CVE-2026-45938",
+          "CVE-2026-45941",
+          "CVE-2026-45946",
+          "CVE-2026-45947",
+          "CVE-2026-45948",
+          "CVE-2026-45954",
+          "CVE-2026-45957",
+          "CVE-2026-45960",
+          "CVE-2026-45962",
+          "CVE-2026-45964",
+          "CVE-2026-45965",
+          "CVE-2026-45968",
+          "CVE-2026-45969",
+          "CVE-2026-45970",
+          "CVE-2026-45972",
+          "CVE-2026-45973",
+          "CVE-2026-45974",
+          "CVE-2026-45976",
+          "CVE-2026-45978",
+          "CVE-2026-45981",
+          "CVE-2026-45982",
+          "CVE-2026-45983",
+          "CVE-2026-45984",
+          "CVE-2026-45988",
+          "CVE-2026-46043",
+          "CVE-2026-46115",
+          "CVE-2026-46119",
+          "CVE-2026-46135",
+          "CVE-2026-46185",
+          "CVE-2026-46195",
+          "CVE-2026-46243",
+          "CVE-2026-46244",
+          "CVE-2026-46246",
+          "CVE-2026-46247",
+          "CVE-2026-46249",
+          "CVE-2026-46250",
+          "CVE-2026-46251",
+          "CVE-2026-46253",
+          "CVE-2026-46254",
+          "CVE-2026-46255",
+          "CVE-2026-46259",
+          "CVE-2026-46260",
+          "CVE-2026-46261",
+          "CVE-2026-46265",
+          "CVE-2026-46266",
+          "CVE-2026-46267",
+          "CVE-2026-46270",
+          "CVE-2026-46289",
+          "CVE-2026-46328"
+        ]
+      },
+      "timestamp": "2026-07-02T15:24:59Z",
+      "products": [
+        {
+          "@id": "pkg:deb/ubuntu/linux-aws-6.8@6.8.0-1060.63~22.04.1?arch=source&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-aws-6.8-cloud-tools-6.8.0-1060@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-aws-6.8-headers-6.8.0-1060@6.8.0-1060.63~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-aws-6.8-headers-6.8.0-1060@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-aws-6.8-headers-6.8.0-1060@6.8.0-1060.63~22.04.1?arch=armhf&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-aws-6.8-headers-6.8.0-1060@6.8.0-1060.63~22.04.1?arch=i386&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-aws-6.8-headers-6.8.0-1060@6.8.0-1060.63~22.04.1?arch=ppc64el&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-aws-6.8-headers-6.8.0-1060@6.8.0-1060.63~22.04.1?arch=riscv64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-aws-6.8-headers-6.8.0-1060@6.8.0-1060.63~22.04.1?arch=s390x&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-aws-6.8-tools-6.8.0-1060@6.8.0-1060.63~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-aws-6.8-tools-6.8.0-1060@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-6.8.0-1060-aws@6.8.0-1060.63~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-6.8.0-1060-aws@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-6.8.0-1060-aws-64k@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-cloud-tools-6.8.0-1060-aws@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-cloud-tools-6.8.0-1060-aws-64k@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-6.8.0-1060-aws@6.8.0-1060.63~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-6.8.0-1060-aws@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-6.8.0-1060-aws-64k@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1060-aws@6.8.0-1060.63~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1060-aws@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1060-aws-64k@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1060-aws-64k-dbgsym@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1060-aws-dbgsym@6.8.0-1060.63~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1060-aws-dbgsym@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-6.8.0-1060-aws@6.8.0-1060.63~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-6.8.0-1060-aws@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-6.8.0-1060-aws-64k@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-extra-6.8.0-1060-aws@6.8.0-1060.63~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-extra-6.8.0-1060-aws@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-extra-6.8.0-1060-aws-64k@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-6.8.0-1060-aws@6.8.0-1060.63~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-6.8.0-1060-aws@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-6.8.0-1060-aws-64k@6.8.0-1060.63~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gcp-6.8@6.8.0-1063.69~22.04.1?arch=source&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-6.8.0-1063-gcp@6.8.0-1063.69~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-6.8.0-1063-gcp@6.8.0-1063.69~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-6.8.0-1063-gcp-64k@6.8.0-1063.69~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gcp-6.8-headers-6.8.0-1063@6.8.0-1063.69~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gcp-6.8-headers-6.8.0-1063@6.8.0-1063.69~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gcp-6.8-tools-6.8.0-1063@6.8.0-1063.69~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gcp-6.8-tools-6.8.0-1063@6.8.0-1063.69~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-6.8.0-1063-gcp@6.8.0-1063.69~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-6.8.0-1063-gcp@6.8.0-1063.69~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-6.8.0-1063-gcp-64k@6.8.0-1063.69~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1063-gcp@6.8.0-1063.69~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1063-gcp@6.8.0-1063.69~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1063-gcp-64k@6.8.0-1063.69~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1063-gcp-64k-dbgsym@6.8.0-1063.69~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1063-gcp-dbgsym@6.8.0-1063.69~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1063-gcp-dbgsym@6.8.0-1063.69~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-6.8.0-1063-gcp@6.8.0-1063.69~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-6.8.0-1063-gcp@6.8.0-1063.69~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-6.8.0-1063-gcp-64k@6.8.0-1063.69~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-extra-6.8.0-1063-gcp@6.8.0-1063.69~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-extra-6.8.0-1063-gcp@6.8.0-1063.69~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-extra-6.8.0-1063-gcp-64k@6.8.0-1063.69~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-6.8.0-1063-gcp@6.8.0-1063.69~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-6.8.0-1063-gcp@6.8.0-1063.69~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-6.8.0-1063-gcp-64k@6.8.0-1063.69~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-ibm-6.8@6.8.0-1060.61~22.04.1?arch=source&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-6.8.0-1060-ibm@6.8.0-1060.61~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-6.8.0-1060-ibm@6.8.0-1060.61~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-ibm-6.8-headers-6.8.0-1060@6.8.0-1060.61~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-ibm-6.8-headers-6.8.0-1060@6.8.0-1060.61~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-ibm-6.8-headers-6.8.0-1060@6.8.0-1060.61~22.04.1?arch=armhf&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-ibm-6.8-headers-6.8.0-1060@6.8.0-1060.61~22.04.1?arch=i386&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-ibm-6.8-headers-6.8.0-1060@6.8.0-1060.61~22.04.1?arch=ppc64el&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-ibm-6.8-headers-6.8.0-1060@6.8.0-1060.61~22.04.1?arch=riscv64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-ibm-6.8-headers-6.8.0-1060@6.8.0-1060.61~22.04.1?arch=s390x&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-ibm-6.8-tools-6.8.0-1060@6.8.0-1060.61~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1060-ibm@6.8.0-1060.61~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1060-ibm-dbgsym@6.8.0-1060.61~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-6.8.0-1060-ibm@6.8.0-1060.61~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-extra-6.8.0-1060-ibm@6.8.0-1060.61~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-iwlwifi-6.8.0-1060-ibm@6.8.0-1060.61~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-6.8.0-1060-ibm@6.8.0-1060.61~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-oracle-6.8@6.8.0-1057.58~22.04.1?arch=source&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-6.8.0-1057-oracle@6.8.0-1057.58~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-6.8.0-1057-oracle@6.8.0-1057.58~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-6.8.0-1057-oracle-64k@6.8.0-1057.58~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-6.8.0-1057-oracle@6.8.0-1057.58~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-6.8.0-1057-oracle@6.8.0-1057.58~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-6.8.0-1057-oracle-64k@6.8.0-1057.58~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1057-oracle@6.8.0-1057.58~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1057-oracle@6.8.0-1057.58~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1057-oracle-64k@6.8.0-1057.58~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1057-oracle-64k-dbgsym@6.8.0-1057.58~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1057-oracle-dbgsym@6.8.0-1057.58~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1057-oracle-dbgsym@6.8.0-1057.58~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-6.8.0-1057-oracle@6.8.0-1057.58~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-6.8.0-1057-oracle@6.8.0-1057.58~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-6.8.0-1057-oracle-64k@6.8.0-1057.58~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-extra-6.8.0-1057-oracle@6.8.0-1057.58~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-extra-6.8.0-1057-oracle@6.8.0-1057.58~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-extra-6.8.0-1057-oracle-64k@6.8.0-1057.58~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-oracle-6.8-headers-6.8.0-1057@6.8.0-1057.58~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-oracle-6.8-headers-6.8.0-1057@6.8.0-1057.58~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-oracle-6.8-headers-6.8.0-1057@6.8.0-1057.58~22.04.1?arch=armhf&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-oracle-6.8-headers-6.8.0-1057@6.8.0-1057.58~22.04.1?arch=i386&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-oracle-6.8-headers-6.8.0-1057@6.8.0-1057.58~22.04.1?arch=ppc64el&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-oracle-6.8-headers-6.8.0-1057@6.8.0-1057.58~22.04.1?arch=riscv64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-oracle-6.8-headers-6.8.0-1057@6.8.0-1057.58~22.04.1?arch=s390x&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-oracle-6.8-tools-6.8.0-1057@6.8.0-1057.58~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-oracle-6.8-tools-6.8.0-1057@6.8.0-1057.58~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-6.8.0-1057-oracle@6.8.0-1057.58~22.04.1?arch=amd64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-6.8.0-1057-oracle@6.8.0-1057.58~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-6.8.0-1057-oracle-64k@6.8.0-1057.58~22.04.1?arch=arm64&distro=jammy"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gke@6.8.0-1058.64?arch=source&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-6.8.0-1058-gke@6.8.0-1058.64?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-6.8.0-1058-gke@6.8.0-1058.64?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-6.8.0-1058-gke-64k@6.8.0-1058.64?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gke-headers-6.8.0-1058@6.8.0-1058.64?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gke-headers-6.8.0-1058@6.8.0-1058.64?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gke-tools-6.8.0-1058@6.8.0-1058.64?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gke-tools-6.8.0-1058@6.8.0-1058.64?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-6.8.0-1058-gke@6.8.0-1058.64?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-6.8.0-1058-gke@6.8.0-1058.64?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-6.8.0-1058-gke-64k@6.8.0-1058.64?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1058-gke@6.8.0-1058.64?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1058-gke@6.8.0-1058.64?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1058-gke-64k@6.8.0-1058.64?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1058-gke-64k-dbgsym@6.8.0-1058.64?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1058-gke-dbgsym@6.8.0-1058.64?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1058-gke-dbgsym@6.8.0-1058.64?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-6.8.0-1058-gke@6.8.0-1058.64?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-6.8.0-1058-gke@6.8.0-1058.64?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-6.8.0-1058-gke-64k@6.8.0-1058.64?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-extra-6.8.0-1058-gke@6.8.0-1058.64?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-extra-6.8.0-1058-gke@6.8.0-1058.64?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-extra-6.8.0-1058-gke-64k@6.8.0-1058.64?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-iwlwifi-6.8.0-1058-gke@6.8.0-1058.64?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-6.8.0-1058-gke@6.8.0-1058.64?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-6.8.0-1058-gke@6.8.0-1058.64?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-6.8.0-1058-gke-64k@6.8.0-1058.64?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gkeop@6.8.0-1045.48?arch=source&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-6.8.0-1045-gkeop@6.8.0-1045.48?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-cloud-tools-6.8.0-1045-gkeop@6.8.0-1045.48?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gkeop-cloud-tools-6.8.0-1045@6.8.0-1045.48?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gkeop-headers-6.8.0-1045@6.8.0-1045.48?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gkeop-headers-6.8.0-1045@6.8.0-1045.48?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gkeop-headers-6.8.0-1045@6.8.0-1045.48?arch=armhf&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gkeop-headers-6.8.0-1045@6.8.0-1045.48?arch=i386&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gkeop-headers-6.8.0-1045@6.8.0-1045.48?arch=ppc64el&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gkeop-headers-6.8.0-1045@6.8.0-1045.48?arch=riscv64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gkeop-headers-6.8.0-1045@6.8.0-1045.48?arch=s390x&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-gkeop-tools-6.8.0-1045@6.8.0-1045.48?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-6.8.0-1045-gkeop@6.8.0-1045.48?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1045-gkeop@6.8.0-1045.48?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1045-gkeop-dbgsym@6.8.0-1045.48?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-6.8.0-1045-gkeop@6.8.0-1045.48?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-extra-6.8.0-1045-gkeop@6.8.0-1045.48?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-6.8.0-1045-gkeop@6.8.0-1045.48?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-nvidia-lowlatency@6.8.0-1058.61.1?arch=source&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-6.8.0-1058-nvidia-lowlatency@6.8.0-1058.61.1?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-6.8.0-1058-nvidia-lowlatency@6.8.0-1058.61.1?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-buildinfo-6.8.0-1058-nvidia-lowlatency-64k@6.8.0-1058.61.1?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-6.8.0-1058-nvidia-lowlatency@6.8.0-1058.61.1?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-6.8.0-1058-nvidia-lowlatency@6.8.0-1058.61.1?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-headers-6.8.0-1058-nvidia-lowlatency-64k@6.8.0-1058.61.1?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1058-nvidia-lowlatency@6.8.0-1058.61.1?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1058-nvidia-lowlatency@6.8.0-1058.61.1?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1058-nvidia-lowlatency-64k@6.8.0-1058.61.1?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1058-nvidia-lowlatency-64k-dbgsym@6.8.0-1058.61.1?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1058-nvidia-lowlatency-dbgsym@6.8.0-1058.61.1?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-image-unsigned-6.8.0-1058-nvidia-lowlatency-dbgsym@6.8.0-1058.61.1?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-6.8.0-1058-nvidia-lowlatency@6.8.0-1058.61.1?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-6.8.0-1058-nvidia-lowlatency@6.8.0-1058.61.1?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-6.8.0-1058-nvidia-lowlatency-64k@6.8.0-1058.61.1?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-extra-6.8.0-1058-nvidia-lowlatency@6.8.0-1058.61.1?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-extra-6.8.0-1058-nvidia-lowlatency@6.8.0-1058.61.1?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-nvidia-fs-6.8.0-1058-nvidia-lowlatency@6.8.0-1058.61.1?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-nvidia-fs-6.8.0-1058-nvidia-lowlatency@6.8.0-1058.61.1?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-modules-nvidia-fs-6.8.0-1058-nvidia-lowlatency-64k@6.8.0-1058.61.1?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-nvidia-lowlatency-headers-6.8.0-1058@6.8.0-1058.61.1?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-nvidia-lowlatency-headers-6.8.0-1058@6.8.0-1058.61.1?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-nvidia-lowlatency-headers-6.8.0-1058@6.8.0-1058.61.1?arch=armhf&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-nvidia-lowlatency-headers-6.8.0-1058@6.8.0-1058.61.1?arch=i386&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-nvidia-lowlatency-headers-6.8.0-1058@6.8.0-1058.61.1?arch=ppc64el&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-nvidia-lowlatency-headers-6.8.0-1058@6.8.0-1058.61.1?arch=riscv64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-nvidia-lowlatency-headers-6.8.0-1058@6.8.0-1058.61.1?arch=s390x&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-nvidia-lowlatency-tools-6.8.0-1058@6.8.0-1058.61.1?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-nvidia-lowlatency-tools-6.8.0-1058@6.8.0-1058.61.1?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-6.8.0-1058-nvidia-lowlatency@6.8.0-1058.61.1?arch=amd64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-6.8.0-1058-nvidia-lowlatency@6.8.0-1058.61.1?arch=arm64&distro=noble"
+        },
+        {
+          "@id": "pkg:deb/ubuntu/linux-tools-6.8.0-1058-nvidia-lowlatency-64k@6.8.0-1058.61.1?arch=arm64&distro=noble"
+        }
+      ],
+      "status": "fixed",
+      "status_notes": "Several security issues were fixed in the Linux kernel."
+    }
+  ]
+}
