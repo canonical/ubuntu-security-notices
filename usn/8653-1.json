@@ -1,0 +1,1570 @@
+{
+  "action": "This update uses a new upstream release, which includes additional bug\nfixes. After a standard system update you need to restart PostgreSQL to\nmake all the necessary changes.",
+  "cves": [
+    "CVE-2026-6471",
+    "CVE-2026-14662",
+    "CVE-2026-14677",
+    "CVE-2026-15741",
+    "CVE-2026-18024",
+    "CVE-2026-14664",
+    "CVE-2026-14670",
+    "CVE-2026-14668",
+    "CVE-2026-19385",
+    "CVE-2026-14676",
+    "CVE-2026-14678",
+    "CVE-2025-8714",
+    "CVE-2026-16238",
+    "CVE-2026-6473",
+    "CVE-2026-14666",
+    "CVE-2026-6464",
+    "CVE-2026-6469",
+    "CVE-2026-14679",
+    "CVE-2026-18408",
+    "CVE-2026-14669",
+    "CVE-2026-14663",
+    "CVE-2026-15742",
+    "CVE-2026-14671",
+    "CVE-2026-14673",
+    "CVE-2026-16239",
+    "CVE-2026-16241",
+    "CVE-2026-14672",
+    "CVE-2026-14681",
+    "CVE-2026-6470",
+    "CVE-2026-14680"
+  ],
+  "description": "It was discovered that PostgreSQL incorrectly handled COPY FROM STDIN when\nan early failure occurred. An authenticated user could possibly use this\nissue to execute arbitrary SQL commands. (CVE-2026-6464)\n\nIt was discovered that PostgreSQL incorrectly reset extended statistics\nownership during ALTER TABLE ALTER TYPE operations. An attacker could\npossibly use this issue to obtain sensitive information or gain unintended\nprivileges. (CVE-2026-6469)\n\nIt was discovered that PostgreSQL failed to check the USAGE privilege on\ntypes. An authenticated user could possibly use this issue to obtain\nsensitive information. (CVE-2026-6470)\n\nIt was discovered that PostgreSQL logical decoding could load arbitrary\nshared libraries. An authenticated user could possibly use this issue to\nexecute arbitrary code. (CVE-2026-6471)\n\nIt was discovered that PostgreSQL had integer wraparound issues in tsvector\nand tsquery allocations. An authenticated user could possibly use this\nissue to execute arbitrary code. (CVE-2026-14662)\n\nIt was discovered that PostgreSQL pgcrypto silently used cleartext when\nOpenSSL-disabled ciphers were requested. An authenticated user could\npossibly use this issue to obtain sensitive information. (CVE-2026-14663)\n\nIt was discovered that PostgreSQL had a heap buffer overflow in regular\nexpression processing. An authenticated user could possibly use this issue\nto execute arbitrary code. (CVE-2026-14664)\n\nIt was discovered that PostgreSQL row security policies were not properly\ninvalidated when roles were modified. An attacker could possibly use this\nissue to bypass intended row security restrictions. (CVE-2026-14666)\n\nIt was discovered that PostgreSQL had a type confusion issue in the\nselectivity estimator involving ctid. An authenticated user could possibly\nuse this issue to obtain sensitive information. (CVE-2026-14668)\n\nIt was discovered that PostgreSQL had a heap buffer overflow in the to_char\nfunction. An authenticated user could possibly use this issue to execute\narbitrary code. (CVE-2026-14669)\n\nIt was discovered that PostgreSQL had a heap buffer overflow in the PL/Perl\ntied object handling. An authenticated user could possibly use this issue\nto execute arbitrary code. (CVE-2026-14670)\n\nIt was discovered that PostgreSQL had a type confusion issue in the\nreferential integrity plan cache. An authenticated user could possibly use\nthis issue to execute arbitrary code. (CVE-2026-14671)\n\nIt was discovered that PostgreSQL had an observable response discrepancy\nwhen non-default scram_iterations were used. A remote attacker could\npossibly use this issue to enumerate valid usernames. This issue only\naffected Ubuntu 24.04 LTS and Ubuntu 26.04 LTS. (CVE-2026-14672)\n\nIt was discovered that PostgreSQL amcheck did not clear untrusted search\npaths. An authenticated user could possibly use this issue to execute\narbitrary code. (CVE-2026-14673)\n\nIt was discovered that PostgreSQL had a heap buffer overflow in\npg_stat_statements. An authenticated user could possibly use this issue to\nexecute arbitrary code. This issue only affected Ubuntu 26.04 LTS.\n(CVE-2026-14676)\n\nIt was discovered that PostgreSQL had integer wraparound issues in PL/Tcl\nand PL/Perl allocations on 32-bit systems. An authenticated user could\npossibly use this issue to execute arbitrary code. (CVE-2026-14677)\n\nIt was discovered that PostgreSQL pg_trgm read past the end of a buffer\nduring picksplit operations. An authenticated user could possibly use this\nissue to obtain sensitive information. (CVE-2026-14678)\n\nIt was discovered that PostgreSQL had a stack buffer overflow in argument\nmatching. An authenticated user could possibly use this issue to corrupt\nserver memory. (CVE-2026-14679)\n\nIt was discovered that PostgreSQL had a type confusion issue when functions\nused internal arguments. An authenticated user could possibly use this\nissue to execute arbitrary code. (CVE-2026-14680)\n\nIt was discovered that PostgreSQL did not properly enforce GSSAPI\nencryption when used together with SSL. An attacker could possibly use this\nissue to perform a machine-in-the-middle attack and obtain sensitive\ninformation. This issue only affected Ubuntu 26.04 LTS. (CVE-2026-14681)\n\nIt was discovered that PostgreSQL allowed SQL injection through EXTRACT\narguments during expression deparsing. An authenticated user could possibly\nuse this issue to perform SQL injection attacks. (CVE-2026-15741)\n\nIt was discovered that PostgreSQL fuzzystrmatch had integer wraparound\nissues that could write to arbitrary addresses. An authenticated user could\npossibly use this issue to execute arbitrary code. (CVE-2026-15742)\n\nIt was discovered that PostgreSQL had a type confusion issue in\npg_restore_attribute_stats(). An authenticated user could possibly use this\nissue to execute arbitrary code. This issue only affected Ubuntu 26.04 LTS.\n(CVE-2026-16238)\n\nIt was discovered that PostgreSQL had a type confusion issue when handling\ncursor CLOSE and DECLARE operations. An authenticated user could possibly\nuse this issue to execute arbitrary code. (CVE-2026-16239)\n\nIt was discovered that PostgreSQL had an integer underflow in the ECPG\nclient library. An attacker could possibly use this issue to cause\nPostgreSQL to crash, resulting in a denial of service. (CVE-2026-16241)\n\nIt was discovered that PostgreSQL had an out-of-bounds read in the ascii()\nfunction. An authenticated user could possibly use this issue to obtain\nsensitive information. (CVE-2026-18024)\n\nIt was discovered that the psql \\unrestrict command allowed the superuser\nof a pg_dump origin server to execute arbitrary code in the psql client. An\nattacker could possibly use this issue to execute arbitrary code.\n(CVE-2026-18408)\n\nIt was discovered that PostgreSQL pg_dump had a heap buffer overflow. An\nattacker could possibly use this issue to execute arbitrary code.\n(CVE-2026-19385)",
+  "id": "USN-8653-1",
+  "isummary": "Several security issues were fixed in PostgreSQL.",
+  "releases": {
+    "jammy": {
+      "allbinaries": {
+        "libecpg-compat3": {
+          "pocket": "security",
+          "source": "postgresql-14",
+          "version": "14.24-0ubuntu0.22.04.1"
+        },
+        "libecpg-dev": {
+          "pocket": "security",
+          "source": "postgresql-14",
+          "version": "14.24-0ubuntu0.22.04.1"
+        },
+        "libecpg6": {
+          "pocket": "security",
+          "source": "postgresql-14",
+          "version": "14.24-0ubuntu0.22.04.1"
+        },
+        "libpgtypes3": {
+          "pocket": "security",
+          "source": "postgresql-14",
+          "version": "14.24-0ubuntu0.22.04.1"
+        },
+        "libpq-dev": {
+          "pocket": "security",
+          "source": "postgresql-14",
+          "version": "14.24-0ubuntu0.22.04.1"
+        },
+        "libpq5": {
+          "pocket": "security",
+          "source": "postgresql-14",
+          "version": "14.24-0ubuntu0.22.04.1"
+        },
+        "postgresql-14": {
+          "pocket": "security",
+          "source": "postgresql-14",
+          "version": "14.24-0ubuntu0.22.04.1"
+        },
+        "postgresql-client-14": {
+          "pocket": "security",
+          "source": "postgresql-14",
+          "version": "14.24-0ubuntu0.22.04.1"
+        },
+        "postgresql-doc-14": {
+          "pocket": "security",
+          "source": "postgresql-14",
+          "version": "14.24-0ubuntu0.22.04.1"
+        },
+        "postgresql-plperl-14": {
+          "pocket": "security",
+          "source": "postgresql-14",
+          "version": "14.24-0ubuntu0.22.04.1"
+        },
+        "postgresql-plpython3-14": {
+          "pocket": "security",
+          "source": "postgresql-14",
+          "version": "14.24-0ubuntu0.22.04.1"
+        },
+        "postgresql-pltcl-14": {
+          "pocket": "security",
+          "source": "postgresql-14",
+          "version": "14.24-0ubuntu0.22.04.1"
+        },
+        "postgresql-server-dev-14": {
+          "pocket": "security",
+          "source": "postgresql-14",
+          "version": "14.24-0ubuntu0.22.04.1"
+        }
+      },
+      "archs": {
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/postgresql-doc-14_14.24-0ubuntu0.22.04.1_all.deb": {
+              "md5": "92aa637c2f19dd6b4d770fe54c6c1f4e",
+              "size": 2101170
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/libecpg-compat3_14.24-0ubuntu0.22.04.1_amd64.deb": {
+              "md5": "764b19920d929fd8d296b8f288ac779c",
+              "size": 13610
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/libecpg-dev_14.24-0ubuntu0.22.04.1_amd64.deb": {
+              "md5": "85751a89fd682b2a7fe3e72f102784f2",
+              "size": 265748
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/libecpg6_14.24-0ubuntu0.22.04.1_amd64.deb": {
+              "md5": "6af95c52dd8e2d341904b1e82596b96b",
+              "size": 45158
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/libpgtypes3_14.24-0ubuntu0.22.04.1_amd64.deb": {
+              "md5": "eb2e7e680015d7157b74c7a790aacda3",
+              "size": 53120
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/libpq-dev_14.24-0ubuntu0.22.04.1_amd64.deb": {
+              "md5": "bb82d1571a512a2d0eabd9dfcbc084b5",
+              "size": 149274
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/libpq5_14.24-0ubuntu0.22.04.1_amd64.deb": {
+              "md5": "08c655c91fcdea7b4b094446692da4e3",
+              "size": 157116
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/postgresql-14_14.24-0ubuntu0.22.04.1_amd64.deb": {
+              "md5": "34065b81a7e2df680068a11a7c4c5971",
+              "size": 16300718
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/postgresql-client-14_14.24-0ubuntu0.22.04.1_amd64.deb": {
+              "md5": "952f78ec769dd37c64fa15a82202bc74",
+              "size": 1252526
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/postgresql-plperl-14_14.24-0ubuntu0.22.04.1_amd64.deb": {
+              "md5": "0b0ba64ac995bcbac4d9ac3136f55c57",
+              "size": 82006
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/postgresql-plpython3-14_14.24-0ubuntu0.22.04.1_amd64.deb": {
+              "md5": "feeedfbc71f993ff144fae6e928604c0",
+              "size": 92574
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/postgresql-pltcl-14_14.24-0ubuntu0.22.04.1_amd64.deb": {
+              "md5": "a7b2f5c9cb4e73bb98dece16fc555d33",
+              "size": 41726
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/postgresql-14/postgresql-server-dev-14_14.24-0ubuntu0.22.04.1_amd64.deb": {
+              "md5": "1feabd5c502e6f083ddb284993a35448",
+              "size": 1185996
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libecpg-compat3_14.24-0ubuntu0.22.04.1_arm64.deb": {
+              "md5": "6d3057777888f9eeda7f3376138d42bd",
+              "size": 13112
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libecpg-dev_14.24-0ubuntu0.22.04.1_arm64.deb": {
+              "md5": "7efb96e8a9e203db078d71167a0802bb",
+              "size": 258178
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libecpg6_14.24-0ubuntu0.22.04.1_arm64.deb": {
+              "md5": "001f37e32e6cbabb7a54900ce69757c1",
+              "size": 43356
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libpgtypes3_14.24-0ubuntu0.22.04.1_arm64.deb": {
+              "md5": "bdb4608a1103c423a3d9bcb7863397c0",
+              "size": 53360
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libpq-dev_14.24-0ubuntu0.22.04.1_arm64.deb": {
+              "md5": "e00ea59b43e67aa755aac00f79e2e622",
+              "size": 150010
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libpq5_14.24-0ubuntu0.22.04.1_arm64.deb": {
+              "md5": "c30688dc27f8fb1242b3906ba30bb289",
+              "size": 152400
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-14_14.24-0ubuntu0.22.04.1_arm64.deb": {
+              "md5": "cf01d767a4b1d438c2949fc81fb30145",
+              "size": 16015946
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-client-14_14.24-0ubuntu0.22.04.1_arm64.deb": {
+              "md5": "6c959bb08c879fe22011b4004cd70360",
+              "size": 1248768
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-plperl-14_14.24-0ubuntu0.22.04.1_arm64.deb": {
+              "md5": "99e69b9e8025bebb13d984a93d249d1a",
+              "size": 80062
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-plpython3-14_14.24-0ubuntu0.22.04.1_arm64.deb": {
+              "md5": "e021bc3098ff67c09d7598e8ef6725cb",
+              "size": 89910
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-pltcl-14_14.24-0ubuntu0.22.04.1_arm64.deb": {
+              "md5": "cee08414241f4ba50ef029b7d01719a6",
+              "size": 41154
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-14/postgresql-server-dev-14_14.24-0ubuntu0.22.04.1_arm64.deb": {
+              "md5": "999c9c1326c7a6f4573acc595ceeb0b1",
+              "size": 1183560
+            }
+          }
+        },
+        "armhf": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libecpg-compat3_14.24-0ubuntu0.22.04.1_armhf.deb": {
+              "md5": "1eacb4aa1cac48209dd8715b34410e34",
+              "size": 12160
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libecpg-dev_14.24-0ubuntu0.22.04.1_armhf.deb": {
+              "md5": "40db889c2c2e23feb33d397d2f29800f",
+              "size": 256262
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libecpg6_14.24-0ubuntu0.22.04.1_armhf.deb": {
+              "md5": "5692283e17f797975f30615428196a7a",
+              "size": 38836
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libpgtypes3_14.24-0ubuntu0.22.04.1_armhf.deb": {
+              "md5": "765a83c0aebb6185d61a3ffa423fd537",
+              "size": 51372
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libpq-dev_14.24-0ubuntu0.22.04.1_armhf.deb": {
+              "md5": "77e1d2937c1938b8dde8234ee73c212f",
+              "size": 139294
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libpq5_14.24-0ubuntu0.22.04.1_armhf.deb": {
+              "md5": "5605c7191c8e3587efee300dce05681f",
+              "size": 132470
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-14_14.24-0ubuntu0.22.04.1_armhf.deb": {
+              "md5": "0700e70374f33b86fb169187bdf95870",
+              "size": 15366894
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-client-14_14.24-0ubuntu0.22.04.1_armhf.deb": {
+              "md5": "d6f5a9239160db885032ec9691d7d765",
+              "size": 1208458
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-plperl-14_14.24-0ubuntu0.22.04.1_armhf.deb": {
+              "md5": "946dcf007568efe971601a12c9cf5d3d",
+              "size": 78296
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-plpython3-14_14.24-0ubuntu0.22.04.1_armhf.deb": {
+              "md5": "0dd25b60a4e1d98f48a88b757a552219",
+              "size": 85372
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-pltcl-14_14.24-0ubuntu0.22.04.1_armhf.deb": {
+              "md5": "2b30a4cd5956426d8bc307f1a72cc635",
+              "size": 38808
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-14/postgresql-server-dev-14_14.24-0ubuntu0.22.04.1_armhf.deb": {
+              "md5": "64391a2418cd14ca72ddcb92470ff2e8",
+              "size": 1168860
+            }
+          }
+        },
+        "i386": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/libecpg-compat3_14.24-0ubuntu0.22.04.1_i386.deb": {
+              "md5": "91e025b8669c19c20c31b2d5390aacae",
+              "size": 14144
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/libecpg-dev_14.24-0ubuntu0.22.04.1_i386.deb": {
+              "md5": "61de82e7d83680fca2d04662d483ad4f",
+              "size": 287790
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/libecpg6_14.24-0ubuntu0.22.04.1_i386.deb": {
+              "md5": "c88e4a6c851635e00d719f2775448cce",
+              "size": 51608
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/libpgtypes3_14.24-0ubuntu0.22.04.1_i386.deb": {
+              "md5": "4293cf8ebd8b93ce585dddf5071f820b",
+              "size": 59146
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/libpq-dev_14.24-0ubuntu0.22.04.1_i386.deb": {
+              "md5": "dd14b77aeba0912365a138c9035563d9",
+              "size": 160058
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/libpq5_14.24-0ubuntu0.22.04.1_i386.deb": {
+              "md5": "e24af6b980f7d491b9cc4605c13f5730",
+              "size": 163564
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/postgresql-14_14.24-0ubuntu0.22.04.1_i386.deb": {
+              "md5": "ed50bd94d87070212d449847f5025ceb",
+              "size": 16205912
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/postgresql-client-14_14.24-0ubuntu0.22.04.1_i386.deb": {
+              "md5": "32480ac20f657679e66448bc16f406f2",
+              "size": 1309574
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/postgresql-plperl-14_14.24-0ubuntu0.22.04.1_i386.deb": {
+              "md5": "8c06472e3d0da83b5d7abe58396a88d4",
+              "size": 85950
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/postgresql-plpython3-14_14.24-0ubuntu0.22.04.1_i386.deb": {
+              "md5": "f64089f48dafaf4a8b4a88246e5fc824",
+              "size": 95008
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/postgresql-pltcl-14_14.24-0ubuntu0.22.04.1_i386.deb": {
+              "md5": "571b51631f5bffa58cb5487393d48ab0",
+              "size": 43248
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/postgresql-14/postgresql-server-dev-14_14.24-0ubuntu0.22.04.1_i386.deb": {
+              "md5": "4583c342be6c93204a886215456297d8",
+              "size": 1199624
+            }
+          }
+        },
+        "ppc64el": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libecpg-compat3_14.24-0ubuntu0.22.04.1_ppc64el.deb": {
+              "md5": "ddcd06a069d7890d94d551081767acf6",
+              "size": 14214
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libecpg-dev_14.24-0ubuntu0.22.04.1_ppc64el.deb": {
+              "md5": "106f769eceee25a9de9a67994fd022a4",
+              "size": 277922
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libecpg6_14.24-0ubuntu0.22.04.1_ppc64el.deb": {
+              "md5": "24d887160cdb87efa68b8ce39cc3bf26",
+              "size": 55456
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libpgtypes3_14.24-0ubuntu0.22.04.1_ppc64el.deb": {
+              "md5": "a9c48a8cebd9303cf46190492fa97aae",
+              "size": 59762
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libpq-dev_14.24-0ubuntu0.22.04.1_ppc64el.deb": {
+              "md5": "e32f4f0be4c156043fe29726b1c8b10f",
+              "size": 170458
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libpq5_14.24-0ubuntu0.22.04.1_ppc64el.deb": {
+              "md5": "46e2d3ef201a5ff53bf53ea4d97edad2",
+              "size": 189452
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-14_14.24-0ubuntu0.22.04.1_ppc64el.deb": {
+              "md5": "2bfd6738903d85bd0c4f98c538422b6a",
+              "size": 17522724
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-client-14_14.24-0ubuntu0.22.04.1_ppc64el.deb": {
+              "md5": "9eda718e986b6d907349a90d5108a8f3",
+              "size": 1358394
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-plperl-14_14.24-0ubuntu0.22.04.1_ppc64el.deb": {
+              "md5": "8d6916a10db61743819ad87fe65f4161",
+              "size": 85792
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-plpython3-14_14.24-0ubuntu0.22.04.1_ppc64el.deb": {
+              "md5": "49f69048dc22c5391028e36ce4832dfa",
+              "size": 94084
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-pltcl-14_14.24-0ubuntu0.22.04.1_ppc64el.deb": {
+              "md5": "cade776110fb5120637a03914fb31ea0",
+              "size": 41842
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-14/postgresql-server-dev-14_14.24-0ubuntu0.22.04.1_ppc64el.deb": {
+              "md5": "8dea73bf56b3a3687d4ab7c82533edef",
+              "size": 1226096
+            }
+          }
+        },
+        "riscv64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libecpg-compat3_14.24-0ubuntu0.22.04.1_riscv64.deb": {
+              "md5": "5fc1b23e0c06de687f8ffe5c28cd49be",
+              "size": 11864
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libecpg-dev_14.24-0ubuntu0.22.04.1_riscv64.deb": {
+              "md5": "b7dcd8a7ff67ca234b835534205442ae",
+              "size": 366432
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libecpg6_14.24-0ubuntu0.22.04.1_riscv64.deb": {
+              "md5": "ccda3e15a9ce43d36a03e75113f5a957",
+              "size": 40170
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libpgtypes3_14.24-0ubuntu0.22.04.1_riscv64.deb": {
+              "md5": "aa75b57422a83601e4ed0b1587e23b2a",
+              "size": 52030
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libpq-dev_14.24-0ubuntu0.22.04.1_riscv64.deb": {
+              "md5": "e8fd9720752c0fc45a6ec054bb6e1802",
+              "size": 276202
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libpq5_14.24-0ubuntu0.22.04.1_riscv64.deb": {
+              "md5": "2164c8709a512111e2a22950c5191827",
+              "size": 137152
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-14_14.24-0ubuntu0.22.04.1_riscv64.deb": {
+              "md5": "1a2adacda5bdb071a9dec863828d6f7a",
+              "size": 4555942
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-client-14_14.24-0ubuntu0.22.04.1_riscv64.deb": {
+              "md5": "670ed4421071344c06acedb24d82eb64",
+              "size": 1201400
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-plperl-14_14.24-0ubuntu0.22.04.1_riscv64.deb": {
+              "md5": "2f0e306305c77195aac041e4035fcb09",
+              "size": 55528
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-plpython3-14_14.24-0ubuntu0.22.04.1_riscv64.deb": {
+              "md5": "1385a0d16b99dc11381aa339e430dd86",
+              "size": 64142
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-pltcl-14_14.24-0ubuntu0.22.04.1_riscv64.deb": {
+              "md5": "f838069c43567b405589f0ecafd875da",
+              "size": 39344
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-14/postgresql-server-dev-14_14.24-0ubuntu0.22.04.1_riscv64.deb": {
+              "md5": "1a0d9bdc31bfc736c257ad475b22c0f4",
+              "size": 1355122
+            }
+          }
+        },
+        "s390x": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libecpg-compat3_14.24-0ubuntu0.22.04.1_s390x.deb": {
+              "md5": "d96a87abf2ec5492008c2782833387f6",
+              "size": 13264
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libecpg-dev_14.24-0ubuntu0.22.04.1_s390x.deb": {
+              "md5": "b2be42084c16f5c3af48f436955c805e",
+              "size": 264820
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libecpg6_14.24-0ubuntu0.22.04.1_s390x.deb": {
+              "md5": "8b53bd9063939d68cc40109c24793b93",
+              "size": 43962
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libpgtypes3_14.24-0ubuntu0.22.04.1_s390x.deb": {
+              "md5": "a8885b7a29e7883aa8e9f63532c6c248",
+              "size": 54528
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libpq-dev_14.24-0ubuntu0.22.04.1_s390x.deb": {
+              "md5": "39216cc7d6cc46a287f0755ed28d581b",
+              "size": 148270
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/libpq5_14.24-0ubuntu0.22.04.1_s390x.deb": {
+              "md5": "d48e5702c235d5d2dbbafef18e6d1eb5",
+              "size": 151932
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-14_14.24-0ubuntu0.22.04.1_s390x.deb": {
+              "md5": "c7a8f0ab71abb9bd8bd0074e365258ce",
+              "size": 5131324
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-client-14_14.24-0ubuntu0.22.04.1_s390x.deb": {
+              "md5": "d2a14ad684ea3661bb82863b6698d7b5",
+              "size": 1235112
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-plperl-14_14.24-0ubuntu0.22.04.1_s390x.deb": {
+              "md5": "7903bdb383e8f9bd0f9012821dcf5d27",
+              "size": 58780
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-plpython3-14_14.24-0ubuntu0.22.04.1_s390x.deb": {
+              "md5": "e734f1782ec99094509aa96acca75777",
+              "size": 68530
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-14/postgresql-pltcl-14_14.24-0ubuntu0.22.04.1_s390x.deb": {
+              "md5": "7f67e8c135a2e93ef6adf5df763df3c5",
+              "size": 41430
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-14/postgresql-server-dev-14_14.24-0ubuntu0.22.04.1_s390x.deb": {
+              "md5": "2fbbbc858692631af6bb551b36ad1fe7",
+              "size": 1180898
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/postgresql-14_14.24-0ubuntu0.22.04.1.debian.tar.xz": {
+              "md5": "dd7924acb8283b0d4a4bdba308cd2059",
+              "size": 38992
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/postgresql-14_14.24-0ubuntu0.22.04.1.dsc": {
+              "md5": "220e124f406ed8412a7e2cbc801bd4e0",
+              "size": 3864
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-14/postgresql-14_14.24.orig.tar.gz": {
+              "md5": "c7fdf0fec143ba1f7d650f417359d570",
+              "size": 29709451
+            }
+          }
+        }
+      },
+      "binaries": {
+        "postgresql-14": {
+          "pocket": "security",
+          "version": "14.24-0ubuntu0.22.04.1"
+        }
+      },
+      "sources": {
+        "postgresql-14": {
+          "description": "Object-relational SQL database",
+          "version": "14.24-0ubuntu0.22.04.1"
+        }
+      }
+    },
+    "noble": {
+      "allbinaries": {
+        "libecpg-compat3": {
+          "pocket": "security",
+          "source": "postgresql-16",
+          "version": "16.15-0ubuntu0.24.04.1"
+        },
+        "libecpg-dev": {
+          "pocket": "security",
+          "source": "postgresql-16",
+          "version": "16.15-0ubuntu0.24.04.1"
+        },
+        "libecpg6": {
+          "pocket": "security",
+          "source": "postgresql-16",
+          "version": "16.15-0ubuntu0.24.04.1"
+        },
+        "libpgtypes3": {
+          "pocket": "security",
+          "source": "postgresql-16",
+          "version": "16.15-0ubuntu0.24.04.1"
+        },
+        "libpq-dev": {
+          "pocket": "security",
+          "source": "postgresql-16",
+          "version": "16.15-0ubuntu0.24.04.1"
+        },
+        "libpq5": {
+          "pocket": "security",
+          "source": "postgresql-16",
+          "version": "16.15-0ubuntu0.24.04.1"
+        },
+        "postgresql-16": {
+          "pocket": "security",
+          "source": "postgresql-16",
+          "version": "16.15-0ubuntu0.24.04.1"
+        },
+        "postgresql-client-16": {
+          "pocket": "security",
+          "source": "postgresql-16",
+          "version": "16.15-0ubuntu0.24.04.1"
+        },
+        "postgresql-doc-16": {
+          "pocket": "security",
+          "source": "postgresql-16",
+          "version": "16.15-0ubuntu0.24.04.1"
+        },
+        "postgresql-plperl-16": {
+          "pocket": "security",
+          "source": "postgresql-16",
+          "version": "16.15-0ubuntu0.24.04.1"
+        },
+        "postgresql-plpython3-16": {
+          "pocket": "security",
+          "source": "postgresql-16",
+          "version": "16.15-0ubuntu0.24.04.1"
+        },
+        "postgresql-pltcl-16": {
+          "pocket": "security",
+          "source": "postgresql-16",
+          "version": "16.15-0ubuntu0.24.04.1"
+        },
+        "postgresql-server-dev-16": {
+          "pocket": "security",
+          "source": "postgresql-16",
+          "version": "16.15-0ubuntu0.24.04.1"
+        }
+      },
+      "archs": {
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/postgresql-doc-16_16.15-0ubuntu0.24.04.1_all.deb": {
+              "md5": "d97e72d80238e88997144e2bcc2cc7f2",
+              "size": 2173184
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/libecpg-compat3_16.15-0ubuntu0.24.04.1_amd64.deb": {
+              "md5": "f04d05332fd0427ae713db2841335075",
+              "size": 12378
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/libecpg-dev_16.15-0ubuntu0.24.04.1_amd64.deb": {
+              "md5": "95b59e0b43c28a602f3fec963a776dba",
+              "size": 265798
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/libecpg6_16.15-0ubuntu0.24.04.1_amd64.deb": {
+              "md5": "9e1cd6368028dd635dec9e0795cb3c44",
+              "size": 44656
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/libpgtypes3_16.15-0ubuntu0.24.04.1_amd64.deb": {
+              "md5": "0d273a9f923c7ed3d526a6e74a5cdcec",
+              "size": 51970
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/libpq-dev_16.15-0ubuntu0.24.04.1_amd64.deb": {
+              "md5": "cdcf8126a78b02765ec089052c2b4fb1",
+              "size": 152638
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/libpq5_16.15-0ubuntu0.24.04.1_amd64.deb": {
+              "md5": "1677f01e217d5cccb7f5a20aaa493975",
+              "size": 151262
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/postgresql-16_16.15-0ubuntu0.24.04.1_amd64.deb": {
+              "md5": "1092945ffffdacdadd2f1cd7b5cbff0e",
+              "size": 15610426
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/postgresql-client-16_16.15-0ubuntu0.24.04.1_amd64.deb": {
+              "md5": "768b03cb8b4b0395e43895ec22151b53",
+              "size": 1301302
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/postgresql-plperl-16_16.15-0ubuntu0.24.04.1_amd64.deb": {
+              "md5": "c0de1d3ec9d58695ea7729142d1f89a8",
+              "size": 77062
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/postgresql-plpython3-16_16.15-0ubuntu0.24.04.1_amd64.deb": {
+              "md5": "c7f20b1a5acacaf529d7c83447e40792",
+              "size": 86276
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/postgresql-pltcl-16_16.15-0ubuntu0.24.04.1_amd64.deb": {
+              "md5": "69b03168ff4411a3d955e06eaba47189",
+              "size": 39298
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/postgresql-16/postgresql-server-dev-16_16.15-0ubuntu0.24.04.1_amd64.deb": {
+              "md5": "79fa59bbf3004823be48c487cee96bc6",
+              "size": 1232526
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libecpg-compat3_16.15-0ubuntu0.24.04.1_arm64.deb": {
+              "md5": "390e6329cc0df3725553d6a3bd7cc5d5",
+              "size": 12074
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libecpg-dev_16.15-0ubuntu0.24.04.1_arm64.deb": {
+              "md5": "52ab9e73a468f1e14a91b6ccd8c8b0db",
+              "size": 259778
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libecpg6_16.15-0ubuntu0.24.04.1_arm64.deb": {
+              "md5": "abca68ca757763cbf41cff7391610e71",
+              "size": 43056
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libpgtypes3_16.15-0ubuntu0.24.04.1_arm64.deb": {
+              "md5": "c6c5a261aa0e2c553bd0f1482a09363c",
+              "size": 52224
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libpq-dev_16.15-0ubuntu0.24.04.1_arm64.deb": {
+              "md5": "b3b11632729a7534dd5c61281c14a396",
+              "size": 153958
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libpq5_16.15-0ubuntu0.24.04.1_arm64.deb": {
+              "md5": "0916ced898f1d8270fdefe01809c0538",
+              "size": 148598
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-16_16.15-0ubuntu0.24.04.1_arm64.deb": {
+              "md5": "f4f1a7f22caabadcfe95739598e00acf",
+              "size": 15379218
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-client-16_16.15-0ubuntu0.24.04.1_arm64.deb": {
+              "md5": "a8c03baacb08eb1129d07060469e850f",
+              "size": 1293240
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-plperl-16_16.15-0ubuntu0.24.04.1_arm64.deb": {
+              "md5": "1db5ea3ec12aa3f3c95d6e78237fe5a3",
+              "size": 75658
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-plpython3-16_16.15-0ubuntu0.24.04.1_arm64.deb": {
+              "md5": "a462fb92c2f5c190ef05d6e1ea654463",
+              "size": 84416
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-pltcl-16_16.15-0ubuntu0.24.04.1_arm64.deb": {
+              "md5": "fed4ab2567d6295b797f4f164fcf37d8",
+              "size": 38776
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-16/postgresql-server-dev-16_16.15-0ubuntu0.24.04.1_arm64.deb": {
+              "md5": "5738b71473cecd4315751237668061b4",
+              "size": 1233878
+            }
+          }
+        },
+        "armhf": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libecpg-compat3_16.15-0ubuntu0.24.04.1_armhf.deb": {
+              "md5": "7cc97dea373127119044382726a51daa",
+              "size": 10932
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libecpg-dev_16.15-0ubuntu0.24.04.1_armhf.deb": {
+              "md5": "3ec1639ac4550d5d1802099f1d910037",
+              "size": 258574
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libecpg6_16.15-0ubuntu0.24.04.1_armhf.deb": {
+              "md5": "90ae13dd8e1285595b1e923a4aad1dd9",
+              "size": 38190
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libpgtypes3_16.15-0ubuntu0.24.04.1_armhf.deb": {
+              "md5": "30bf5fe92392947ac4a43b31e3830225",
+              "size": 49806
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libpq-dev_16.15-0ubuntu0.24.04.1_armhf.deb": {
+              "md5": "a35bbc2b46e2513af331b2beac04af71",
+              "size": 141372
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libpq5_16.15-0ubuntu0.24.04.1_armhf.deb": {
+              "md5": "8cd3168a8bc14ec488032e711fab6dd3",
+              "size": 132024
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-16_16.15-0ubuntu0.24.04.1_armhf.deb": {
+              "md5": "f5f5bf4c90664565a48d4e0531dd8d27",
+              "size": 14670600
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-client-16_16.15-0ubuntu0.24.04.1_armhf.deb": {
+              "md5": "b325bf9a273517c6e07b4d38912fa939",
+              "size": 1248616
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-plperl-16_16.15-0ubuntu0.24.04.1_armhf.deb": {
+              "md5": "6514e0e0e4aa9655c4dcba8a3c855cd0",
+              "size": 72710
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-plpython3-16_16.15-0ubuntu0.24.04.1_armhf.deb": {
+              "md5": "e7107be5a21e632972db75541eb59b60",
+              "size": 80038
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-pltcl-16_16.15-0ubuntu0.24.04.1_armhf.deb": {
+              "md5": "dea1081226dbbca4471729d9a3239ad5",
+              "size": 36834
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-16/postgresql-server-dev-16_16.15-0ubuntu0.24.04.1_armhf.deb": {
+              "md5": "cfc22d8587e2c1756c93cf0eb5fc4080",
+              "size": 1215628
+            }
+          }
+        },
+        "i386": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/libecpg-compat3_16.15-0ubuntu0.24.04.1_i386.deb": {
+              "md5": "3b318d15fb4ebf5c8650109272839d1d",
+              "size": 12842
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/libecpg-dev_16.15-0ubuntu0.24.04.1_i386.deb": {
+              "md5": "a837ce2a3348573834f52dd4d40c029a",
+              "size": 281192
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/libecpg6_16.15-0ubuntu0.24.04.1_i386.deb": {
+              "md5": "440cbb62e00052e5ba2563280e040c26",
+              "size": 50456
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/libpgtypes3_16.15-0ubuntu0.24.04.1_i386.deb": {
+              "md5": "775459ac9be6021474a78baeb84654d8",
+              "size": 56506
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/libpq-dev_16.15-0ubuntu0.24.04.1_i386.deb": {
+              "md5": "c944fd6177e5fb6a3121935eb31e9abf",
+              "size": 163600
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/libpq5_16.15-0ubuntu0.24.04.1_i386.deb": {
+              "md5": "dc924cf66886466f0780441cd0b153c7",
+              "size": 160270
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/postgresql-16_16.15-0ubuntu0.24.04.1_i386.deb": {
+              "md5": "b7920e068d8310e998a2614eb41c0c95",
+              "size": 15582116
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/postgresql-client-16_16.15-0ubuntu0.24.04.1_i386.deb": {
+              "md5": "6266186eca249f23345319119e7dbef9",
+              "size": 1360070
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/postgresql-plperl-16_16.15-0ubuntu0.24.04.1_i386.deb": {
+              "md5": "ee64756666e96dd4fe35e0b18cb1c4d0",
+              "size": 80450
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/postgresql-plpython3-16_16.15-0ubuntu0.24.04.1_i386.deb": {
+              "md5": "b23ac75d7e18ca86f0c60eef22c5ae3f",
+              "size": 89612
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/postgresql-pltcl-16_16.15-0ubuntu0.24.04.1_i386.deb": {
+              "md5": "593ecfc1fdb1f111762d6e3b1c1a55d3",
+              "size": 40898
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/postgresql-16/postgresql-server-dev-16_16.15-0ubuntu0.24.04.1_i386.deb": {
+              "md5": "ec5ca5b362849c7aa04a634b91993312",
+              "size": 1249578
+            }
+          }
+        },
+        "ppc64el": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libecpg-compat3_16.15-0ubuntu0.24.04.1_ppc64el.deb": {
+              "md5": "5d0aa29161de7c5016c8bf54069d2579",
+              "size": 13354
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libecpg-dev_16.15-0ubuntu0.24.04.1_ppc64el.deb": {
+              "md5": "e555bcd9f0a1de83b9b747715d8151d9",
+              "size": 281612
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libecpg6_16.15-0ubuntu0.24.04.1_ppc64el.deb": {
+              "md5": "fbbb72d7a438f4dca73f09930dbe471e",
+              "size": 55370
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libpgtypes3_16.15-0ubuntu0.24.04.1_ppc64el.deb": {
+              "md5": "d99d35ff356885af27071bcda2d2645f",
+              "size": 58422
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libpq-dev_16.15-0ubuntu0.24.04.1_ppc64el.deb": {
+              "md5": "aa52cef7687dbcaf9c66d32f582382cb",
+              "size": 172948
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libpq5_16.15-0ubuntu0.24.04.1_ppc64el.deb": {
+              "md5": "630970a70fe9146a16c4de2d7e555eae",
+              "size": 181552
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-16_16.15-0ubuntu0.24.04.1_ppc64el.deb": {
+              "md5": "d5517e478501eaf7d9617c97b4905705",
+              "size": 17002548
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-client-16_16.15-0ubuntu0.24.04.1_ppc64el.deb": {
+              "md5": "91ab854498803095a54323937a5d2e32",
+              "size": 1420432
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-plperl-16_16.15-0ubuntu0.24.04.1_ppc64el.deb": {
+              "md5": "1d74832ddc4d8d54b5dde3b7b65a7d40",
+              "size": 85496
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-plpython3-16_16.15-0ubuntu0.24.04.1_ppc64el.deb": {
+              "md5": "2119ced36887edbf7f6e8fd53cf17a1f",
+              "size": 89254
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-pltcl-16_16.15-0ubuntu0.24.04.1_ppc64el.deb": {
+              "md5": "1eb0c9cd6d9a5d608d27a667cba6c010",
+              "size": 40610
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-16/postgresql-server-dev-16_16.15-0ubuntu0.24.04.1_ppc64el.deb": {
+              "md5": "6d82e3d388ab72998d68e2dc24414ea5",
+              "size": 1277176
+            }
+          }
+        },
+        "riscv64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libecpg-compat3_16.15-0ubuntu0.24.04.1_riscv64.deb": {
+              "md5": "4b831bc845ffa53669db59260b3fdd94",
+              "size": 12452
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libecpg-dev_16.15-0ubuntu0.24.04.1_riscv64.deb": {
+              "md5": "7bb15ab423fc52fbb55436553278115f",
+              "size": 387822
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libecpg6_16.15-0ubuntu0.24.04.1_riscv64.deb": {
+              "md5": "0a8e797ace372fc58be2d6b930957f92",
+              "size": 45676
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libpgtypes3_16.15-0ubuntu0.24.04.1_riscv64.deb": {
+              "md5": "929ca7921f4d2319d153ece6ba055a77",
+              "size": 56194
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libpq-dev_16.15-0ubuntu0.24.04.1_riscv64.deb": {
+              "md5": "feb0984d02f0e84054f0c47d5220b433",
+              "size": 302328
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libpq5_16.15-0ubuntu0.24.04.1_riscv64.deb": {
+              "md5": "44f3db549e22965f90c1c5c1d977dd1a",
+              "size": 154292
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-16_16.15-0ubuntu0.24.04.1_riscv64.deb": {
+              "md5": "c051887ba67c1cb813f9fadcf118cca1",
+              "size": 5328184
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-client-16_16.15-0ubuntu0.24.04.1_riscv64.deb": {
+              "md5": "893037e8f3c31a35b4d26e223f82c160",
+              "size": 1342036
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-plperl-16_16.15-0ubuntu0.24.04.1_riscv64.deb": {
+              "md5": "ced16d96ab7213657a92a6ec5e6da862",
+              "size": 59280
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-plpython3-16_16.15-0ubuntu0.24.04.1_riscv64.deb": {
+              "md5": "a2aa24bb379a0301c5a49c67d053cfcc",
+              "size": 66742
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-pltcl-16_16.15-0ubuntu0.24.04.1_riscv64.deb": {
+              "md5": "ea95cc2c8ec39d9564bdde8859a199d9",
+              "size": 38786
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-16/postgresql-server-dev-16_16.15-0ubuntu0.24.04.1_riscv64.deb": {
+              "md5": "e08c8c96efa81bf947644bbd9fdb8402",
+              "size": 1458000
+            }
+          }
+        },
+        "s390x": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libecpg-compat3_16.15-0ubuntu0.24.04.1_s390x.deb": {
+              "md5": "48b8d3caea32b5e9140c835830ce6be6",
+              "size": 12724
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libecpg-dev_16.15-0ubuntu0.24.04.1_s390x.deb": {
+              "md5": "c182a0194d2e6719e2d3be73c62e61ce",
+              "size": 276952
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libecpg6_16.15-0ubuntu0.24.04.1_s390x.deb": {
+              "md5": "5abd124acf61ad26a46c1c2ee5c7af7b",
+              "size": 47288
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libpgtypes3_16.15-0ubuntu0.24.04.1_s390x.deb": {
+              "md5": "c6e0b149f416b52d7f723aee038e292d",
+              "size": 57344
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libpq-dev_16.15-0ubuntu0.24.04.1_s390x.deb": {
+              "md5": "9512f2730568c22f293d20ceb039c6e6",
+              "size": 156078
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/libpq5_16.15-0ubuntu0.24.04.1_s390x.deb": {
+              "md5": "cdc89cedf030b7d1396b1402937a19a9",
+              "size": 154272
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-16_16.15-0ubuntu0.24.04.1_s390x.deb": {
+              "md5": "f8996deb80417c5500777f488c3b1eed",
+              "size": 16769144
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-client-16_16.15-0ubuntu0.24.04.1_s390x.deb": {
+              "md5": "fa27e59189da556e2d667790ac2241db",
+              "size": 1323452
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-plperl-16_16.15-0ubuntu0.24.04.1_s390x.deb": {
+              "md5": "da35d6a09016233dc4ee0983c57c845e",
+              "size": 79672
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-plpython3-16_16.15-0ubuntu0.24.04.1_s390x.deb": {
+              "md5": "9d2d8ef006bd01d51a5a2883ec8a8991",
+              "size": 86702
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-16/postgresql-pltcl-16_16.15-0ubuntu0.24.04.1_s390x.deb": {
+              "md5": "f68f78066967fd07a27a257bfe350d6f",
+              "size": 40522
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-16/postgresql-server-dev-16_16.15-0ubuntu0.24.04.1_s390x.deb": {
+              "md5": "ec836aab7969b540ca95088bb7c0e5f2",
+              "size": 1238762
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/postgresql-16_16.15-0ubuntu0.24.04.1.debian.tar.xz": {
+              "md5": "a40727a87d14e48db59fb63ae58cf984",
+              "size": 43720
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/postgresql-16_16.15-0ubuntu0.24.04.1.dsc": {
+              "md5": "1424ec89ddd1897b274d4bb1f3d71905",
+              "size": 4336
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-16/postgresql-16_16.15.orig.tar.gz": {
+              "md5": "ac0e604676bda7a306f704b916a4e194",
+              "size": 33138496
+            }
+          }
+        }
+      },
+      "binaries": {
+        "postgresql-16": {
+          "pocket": "security",
+          "version": "16.15-0ubuntu0.24.04.1"
+        }
+      },
+      "sources": {
+        "postgresql-16": {
+          "description": "Object-relational SQL database",
+          "version": "16.15-0ubuntu0.24.04.1"
+        }
+      }
+    },
+    "resolute": {
+      "allbinaries": {
+        "libecpg-compat3": {
+          "pocket": "security",
+          "source": "postgresql-18",
+          "version": "18.6-0ubuntu0.26.04.1"
+        },
+        "libecpg-dev": {
+          "pocket": "security",
+          "source": "postgresql-18",
+          "version": "18.6-0ubuntu0.26.04.1"
+        },
+        "libecpg6": {
+          "pocket": "security",
+          "source": "postgresql-18",
+          "version": "18.6-0ubuntu0.26.04.1"
+        },
+        "libpgtypes3": {
+          "pocket": "security",
+          "source": "postgresql-18",
+          "version": "18.6-0ubuntu0.26.04.1"
+        },
+        "libpq-dev": {
+          "pocket": "security",
+          "source": "postgresql-18",
+          "version": "18.6-0ubuntu0.26.04.1"
+        },
+        "libpq-oauth": {
+          "pocket": "security",
+          "source": "postgresql-18",
+          "version": "18.6-0ubuntu0.26.04.1"
+        },
+        "libpq5": {
+          "pocket": "security",
+          "source": "postgresql-18",
+          "version": "18.6-0ubuntu0.26.04.1"
+        },
+        "postgresql-18": {
+          "pocket": "security",
+          "source": "postgresql-18",
+          "version": "18.6-0ubuntu0.26.04.1"
+        },
+        "postgresql-18-jit": {
+          "pocket": "security",
+          "source": "postgresql-18",
+          "version": "18.6-0ubuntu0.26.04.1"
+        },
+        "postgresql-client-18": {
+          "pocket": "security",
+          "source": "postgresql-18",
+          "version": "18.6-0ubuntu0.26.04.1"
+        },
+        "postgresql-doc-18": {
+          "pocket": "security",
+          "source": "postgresql-18",
+          "version": "18.6-0ubuntu0.26.04.1"
+        },
+        "postgresql-plperl-18": {
+          "pocket": "security",
+          "source": "postgresql-18",
+          "version": "18.6-0ubuntu0.26.04.1"
+        },
+        "postgresql-plpython3-18": {
+          "pocket": "security",
+          "source": "postgresql-18",
+          "version": "18.6-0ubuntu0.26.04.1"
+        },
+        "postgresql-pltcl-18": {
+          "pocket": "security",
+          "source": "postgresql-18",
+          "version": "18.6-0ubuntu0.26.04.1"
+        },
+        "postgresql-server-dev-18": {
+          "pocket": "security",
+          "source": "postgresql-18",
+          "version": "18.6-0ubuntu0.26.04.1"
+        }
+      },
+      "archs": {
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-doc-18_18.6-0ubuntu0.26.04.1_all.deb": {
+              "md5": "253016b824aef8c64e42437d1be837ff",
+              "size": 2222434
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libecpg-compat3_18.6-0ubuntu0.26.04.1_amd64.deb": {
+              "md5": "5ffa9aaa8cd7e1cf215e0b32e18e8aa9",
+              "size": 12556
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libecpg-dev_18.6-0ubuntu0.26.04.1_amd64.deb": {
+              "md5": "aa9ac9b0ab9898fd35a7626ccda75eaa",
+              "size": 226852
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libecpg6_18.6-0ubuntu0.26.04.1_amd64.deb": {
+              "md5": "5d0258c22324f89b3310c72ba7870ad1",
+              "size": 44652
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libpgtypes3_18.6-0ubuntu0.26.04.1_amd64.deb": {
+              "md5": "43884249b1785f2c8e6461954f8e55f6",
+              "size": 50268
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libpq-dev_18.6-0ubuntu0.26.04.1_amd64.deb": {
+              "md5": "98f6aa3fbb5b8007ec72dc12e2271ad9",
+              "size": 175932
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libpq5_18.6-0ubuntu0.26.04.1_amd64.deb": {
+              "md5": "770bc243ff662c19ceb746af4d81d7a7",
+              "size": 163468
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-18-jit_18.6-0ubuntu0.26.04.1_amd64.deb": {
+              "md5": "d4e82e821c13d99fc772d8cb01b4a527",
+              "size": 10404998
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-18_18.6-0ubuntu0.26.04.1_amd64.deb": {
+              "md5": "c31ced0e243f42e11f65cd3c61cf6633",
+              "size": 6002376
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-client-18_18.6-0ubuntu0.26.04.1_amd64.deb": {
+              "md5": "1985c1001e1b4966f01fad107587bf42",
+              "size": 1401208
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-plperl-18_18.6-0ubuntu0.26.04.1_amd64.deb": {
+              "md5": "ca77c2f70b84e1e6e654a476b504fa92",
+              "size": 56686
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-plpython3-18_18.6-0ubuntu0.26.04.1_amd64.deb": {
+              "md5": "b2a4810dfc5afcb81e2233f4ecce8653",
+              "size": 65144
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-pltcl-18_18.6-0ubuntu0.26.04.1_amd64.deb": {
+              "md5": "864e3e757bf1516526c987638dbb7254",
+              "size": 37332
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/postgresql-18/libpq-oauth_18.6-0ubuntu0.26.04.1_amd64.deb": {
+              "md5": "964643d319c9cecd8ae6e044fdcdc614",
+              "size": 35274
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/postgresql-18/postgresql-server-dev-18_18.6-0ubuntu0.26.04.1_amd64.deb": {
+              "md5": "db6d72eb3036cfcc91274caa929a4db3",
+              "size": 1474696
+            }
+          }
+        },
+        "amd64v3": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libecpg-compat3_18.6-0ubuntu0.26.04.1_amd64v3.deb": {
+              "md5": "0d06f6c4280705a22966197ecfa2cc4a",
+              "size": 12544
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libecpg-dev_18.6-0ubuntu0.26.04.1_amd64v3.deb": {
+              "md5": "8a674e2011a9a4673f5c3ef00b7f84c3",
+              "size": 227242
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libecpg6_18.6-0ubuntu0.26.04.1_amd64v3.deb": {
+              "md5": "b458f240a648bd3ba4fa6aff8f31b6a1",
+              "size": 45146
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libpgtypes3_18.6-0ubuntu0.26.04.1_amd64v3.deb": {
+              "md5": "c09d82ecd83d95949c5a65089c485a8e",
+              "size": 50476
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libpq-dev_18.6-0ubuntu0.26.04.1_amd64v3.deb": {
+              "md5": "28c5410c7e13ca39b7db07ada3c5df17",
+              "size": 175974
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libpq5_18.6-0ubuntu0.26.04.1_amd64v3.deb": {
+              "md5": "cb7bfa97b2d83a972240ee5295d8545d",
+              "size": 163902
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-18-jit_18.6-0ubuntu0.26.04.1_amd64v3.deb": {
+              "md5": "a1cb8aaf672b751324d10dd1234a87c1",
+              "size": 10408730
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-18_18.6-0ubuntu0.26.04.1_amd64v3.deb": {
+              "md5": "08636688e2b1c2400388a809ab3afe7c",
+              "size": 6008518
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-client-18_18.6-0ubuntu0.26.04.1_amd64v3.deb": {
+              "md5": "42ec482c2e70bbea95ca6a5f98071998",
+              "size": 1395142
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-plperl-18_18.6-0ubuntu0.26.04.1_amd64v3.deb": {
+              "md5": "efc1c2345c35d7765422a1679748f705",
+              "size": 56898
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-plpython3-18_18.6-0ubuntu0.26.04.1_amd64v3.deb": {
+              "md5": "8afa51ee3eb351abaa0487e8cadcedba",
+              "size": 65250
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-pltcl-18_18.6-0ubuntu0.26.04.1_amd64v3.deb": {
+              "md5": "e12b98842276b3e990fa91dae3805496",
+              "size": 37494
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/postgresql-18/libpq-oauth_18.6-0ubuntu0.26.04.1_amd64v3.deb": {
+              "md5": "4ab802640d9e2f8f2524afbb7e51bbf2",
+              "size": 35540
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/postgresql-18/postgresql-server-dev-18_18.6-0ubuntu0.26.04.1_amd64v3.deb": {
+              "md5": "d5f713d480b4c7d09f35a1f49e6beefd",
+              "size": 1466688
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libecpg-compat3_18.6-0ubuntu0.26.04.1_arm64.deb": {
+              "md5": "74cd26ac110fb70fc6cab26d980bcc36",
+              "size": 12386
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libecpg-dev_18.6-0ubuntu0.26.04.1_arm64.deb": {
+              "md5": "2daa49b711ed6570e848ad4c53aa43cf",
+              "size": 223516
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libecpg6_18.6-0ubuntu0.26.04.1_arm64.deb": {
+              "md5": "ce3146f3ab1a20024e1de779a5a31b9d",
+              "size": 43828
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libpgtypes3_18.6-0ubuntu0.26.04.1_arm64.deb": {
+              "md5": "f04967f5508aaad1880e16c836047e34",
+              "size": 49552
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libpq-dev_18.6-0ubuntu0.26.04.1_arm64.deb": {
+              "md5": "b634220cb90d4f45642a0168dd1d7f13",
+              "size": 176668
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libpq5_18.6-0ubuntu0.26.04.1_arm64.deb": {
+              "md5": "b68c9432c0d97e39b0fea9652da5ca28",
+              "size": 160382
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-18-jit_18.6-0ubuntu0.26.04.1_arm64.deb": {
+              "md5": "1bbcea0c79f84abec2b8ab2c6718d69d",
+              "size": 10317446
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-18_18.6-0ubuntu0.26.04.1_arm64.deb": {
+              "md5": "db0fe249e0d9099616e0cb3063505f36",
+              "size": 5785456
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-client-18_18.6-0ubuntu0.26.04.1_arm64.deb": {
+              "md5": "f91bfabc6b226ddb22a1f7c580bf35b5",
+              "size": 1391052
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-plperl-18_18.6-0ubuntu0.26.04.1_arm64.deb": {
+              "md5": "9202186481cea516ddb49559c721c574",
+              "size": 54128
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-plpython3-18_18.6-0ubuntu0.26.04.1_arm64.deb": {
+              "md5": "d3927ac8dae5b6e8275f004b1837e828",
+              "size": 62360
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-pltcl-18_18.6-0ubuntu0.26.04.1_arm64.deb": {
+              "md5": "8bda835559f329795cdc4a846f704ba4",
+              "size": 36304
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-18/libpq-oauth_18.6-0ubuntu0.26.04.1_arm64.deb": {
+              "md5": "7ffd0ba5ae6e5daec66d645ac956b255",
+              "size": 35000
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-18/postgresql-server-dev-18_18.6-0ubuntu0.26.04.1_arm64.deb": {
+              "md5": "a2c7018123a75e37440cdaf43244ea92",
+              "size": 1469964
+            }
+          }
+        },
+        "armhf": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libecpg-compat3_18.6-0ubuntu0.26.04.1_armhf.deb": {
+              "md5": "0a3df2e0d9bae94114dc95bcb11adef1",
+              "size": 10906
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libecpg-dev_18.6-0ubuntu0.26.04.1_armhf.deb": {
+              "md5": "0e3703fb43018993f0be1fcf84ae259b",
+              "size": 214414
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libecpg6_18.6-0ubuntu0.26.04.1_armhf.deb": {
+              "md5": "73f11a3c5ecbdbf2c0b46bf7201904d8",
+              "size": 38728
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libpgtypes3_18.6-0ubuntu0.26.04.1_armhf.deb": {
+              "md5": "05ac65c160c63066ea4a89b8681b8164",
+              "size": 47686
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libpq-dev_18.6-0ubuntu0.26.04.1_armhf.deb": {
+              "md5": "99c4f113d76ba14d2da3f78b90d7fcb8",
+              "size": 164058
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libpq5_18.6-0ubuntu0.26.04.1_armhf.deb": {
+              "md5": "5a5bda4c0dd331088767218fd7e38574",
+              "size": 145696
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-18_18.6-0ubuntu0.26.04.1_armhf.deb": {
+              "md5": "8f037c8da34ccabef54d69d58e412fd3",
+              "size": 5064882
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-client-18_18.6-0ubuntu0.26.04.1_armhf.deb": {
+              "md5": "0e3a6880609a585a5556035411a7fc97",
+              "size": 1344090
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-plperl-18_18.6-0ubuntu0.26.04.1_armhf.deb": {
+              "md5": "ce908a740a4518dd74c5acc6e0e0b5f0",
+              "size": 53284
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-plpython3-18_18.6-0ubuntu0.26.04.1_armhf.deb": {
+              "md5": "a7afd7bc28132faaea7ca68c4f436818",
+              "size": 59790
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-pltcl-18_18.6-0ubuntu0.26.04.1_armhf.deb": {
+              "md5": "c2d9d7073d8fa8b129c862cac4fc75dc",
+              "size": 34740
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-18/libpq-oauth_18.6-0ubuntu0.26.04.1_armhf.deb": {
+              "md5": "f14f2e176e1d71f6dfd643f20972e71c",
+              "size": 32098
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-18/postgresql-server-dev-18_18.6-0ubuntu0.26.04.1_armhf.deb": {
+              "md5": "1b86c1b0cf9ca813e8597385151bc95e",
+              "size": 1446916
+            }
+          }
+        },
+        "i386": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libecpg-compat3_18.6-0ubuntu0.26.04.1_i386.deb": {
+              "md5": "c9ffa40566accfab227484d61aab2a19",
+              "size": 13100
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libecpg-dev_18.6-0ubuntu0.26.04.1_i386.deb": {
+              "md5": "d62afb2008038056d42eca07f1c7d5cc",
+              "size": 242340
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libecpg6_18.6-0ubuntu0.26.04.1_i386.deb": {
+              "md5": "a5d6ef9a3e1a96d52b7e51e7879ef2f3",
+              "size": 50634
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libpgtypes3_18.6-0ubuntu0.26.04.1_i386.deb": {
+              "md5": "433299e6f9def1d5785932bc5fe5a0eb",
+              "size": 54478
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libpq-dev_18.6-0ubuntu0.26.04.1_i386.deb": {
+              "md5": "ec879d568633b93c6089f21e79571df3",
+              "size": 190482
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/libpq5_18.6-0ubuntu0.26.04.1_i386.deb": {
+              "md5": "d1f9cb2bdcde305f569ae96fa6ba3a78",
+              "size": 177384
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-18_18.6-0ubuntu0.26.04.1_i386.deb": {
+              "md5": "458dbd40c532d0aa46bc6af52eef0cf6",
+              "size": 6024752
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-client-18_18.6-0ubuntu0.26.04.1_i386.deb": {
+              "md5": "80e4c7235f5c4f487a5003cb103d7f68",
+              "size": 1465506
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-plperl-18_18.6-0ubuntu0.26.04.1_i386.deb": {
+              "md5": "c8fcff8d67b97f162c34727e40e2f3dd",
+              "size": 60866
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-plpython3-18_18.6-0ubuntu0.26.04.1_i386.deb": {
+              "md5": "849608be0d87148662820b417e4c0785",
+              "size": 69432
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-pltcl-18_18.6-0ubuntu0.26.04.1_i386.deb": {
+              "md5": "107c42a5b26e5c6a7a14b85eca6e8e5b",
+              "size": 39158
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/postgresql-18/libpq-oauth_18.6-0ubuntu0.26.04.1_i386.deb": {
+              "md5": "aa4ef14eea9ab4aef3beccf9f44c2200",
+              "size": 40222
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/postgresql-18/postgresql-server-dev-18_18.6-0ubuntu0.26.04.1_i386.deb": {
+              "md5": "73f4b547496244b307260ba701f4fa37",
+              "size": 1493028
+            }
+          }
+        },
+        "ppc64el": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libecpg-compat3_18.6-0ubuntu0.26.04.1_ppc64el.deb": {
+              "md5": "dac9e8172b4d8fb72a2976230ba1c679",
+              "size": 14558
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libecpg-dev_18.6-0ubuntu0.26.04.1_ppc64el.deb": {
+              "md5": "666792446c6b749758dd16c89757acd9",
+              "size": 254782
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libecpg6_18.6-0ubuntu0.26.04.1_ppc64el.deb": {
+              "md5": "9465c1c617eb16161fbec4f007c8515b",
+              "size": 58356
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libpgtypes3_18.6-0ubuntu0.26.04.1_ppc64el.deb": {
+              "md5": "ab55a8ccf64753bb0d34702ae9b9bbf7",
+              "size": 59534
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libpq-dev_18.6-0ubuntu0.26.04.1_ppc64el.deb": {
+              "md5": "e008b4cd0a923b26cb3131468b4a8171",
+              "size": 201072
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libpq5_18.6-0ubuntu0.26.04.1_ppc64el.deb": {
+              "md5": "c9dc9fa4eb4b4a336557d8994a4e0be6",
+              "size": 206354
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-18-jit_18.6-0ubuntu0.26.04.1_ppc64el.deb": {
+              "md5": "77b6b40351919f304c93b2514f56ca89",
+              "size": 10569220
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-18_18.6-0ubuntu0.26.04.1_ppc64el.deb": {
+              "md5": "1991431bbf00c5b2e511563f08367d10",
+              "size": 7388118
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-client-18_18.6-0ubuntu0.26.04.1_ppc64el.deb": {
+              "md5": "104fa88b78dc49e11a3791b49784478f",
+              "size": 1553308
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-plperl-18_18.6-0ubuntu0.26.04.1_ppc64el.deb": {
+              "md5": "36a894c25c730451ee018047bb57d20a",
+              "size": 64678
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-plpython3-18_18.6-0ubuntu0.26.04.1_ppc64el.deb": {
+              "md5": "d378b32e9c4007e40f276fd0b0d82826",
+              "size": 68224
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-pltcl-18_18.6-0ubuntu0.26.04.1_ppc64el.deb": {
+              "md5": "a1b363fa9f8cf7742ef14768c1ee420d",
+              "size": 38820
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-18/libpq-oauth_18.6-0ubuntu0.26.04.1_ppc64el.deb": {
+              "md5": "a19872bae7c1d360b951ec0b718ca093",
+              "size": 44144
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-18/postgresql-server-dev-18_18.6-0ubuntu0.26.04.1_ppc64el.deb": {
+              "md5": "161184da142a868497003effd4f2e9f0",
+              "size": 1536128
+            }
+          }
+        },
+        "riscv64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libecpg-compat3_18.6-0ubuntu0.26.04.1_riscv64.deb": {
+              "md5": "cb4d9a251798bbf620a44647a679175b",
+              "size": 12600
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libecpg-dev_18.6-0ubuntu0.26.04.1_riscv64.deb": {
+              "md5": "bb2e7c893bf2baa1e0ce901c0744ff31",
+              "size": 373256
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libecpg6_18.6-0ubuntu0.26.04.1_riscv64.deb": {
+              "md5": "eb1871c4126234cdd965e771f5bece8f",
+              "size": 47120
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libpgtypes3_18.6-0ubuntu0.26.04.1_riscv64.deb": {
+              "md5": "ecc42b27a5a9190f69cdf3148152842f",
+              "size": 54472
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libpq-dev_18.6-0ubuntu0.26.04.1_riscv64.deb": {
+              "md5": "c112088ad289ffc95969f79047bfaf07",
+              "size": 396210
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libpq5_18.6-0ubuntu0.26.04.1_riscv64.deb": {
+              "md5": "80c18c60409d76095ceaf25e914d88fb",
+              "size": 170346
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-18_18.6-0ubuntu0.26.04.1_riscv64.deb": {
+              "md5": "622c61b6f258c8e8964414e345982dee",
+              "size": 5745054
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-client-18_18.6-0ubuntu0.26.04.1_riscv64.deb": {
+              "md5": "7ef96e308694127c55019d7bb674dec4",
+              "size": 1457130
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-plperl-18_18.6-0ubuntu0.26.04.1_riscv64.deb": {
+              "md5": "26b4d22e344d22cd3a6601f54c583251",
+              "size": 57764
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-plpython3-18_18.6-0ubuntu0.26.04.1_riscv64.deb": {
+              "md5": "8eba2653ac74cbed3ff0cb3a3dec9e6a",
+              "size": 64232
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-pltcl-18_18.6-0ubuntu0.26.04.1_riscv64.deb": {
+              "md5": "aa2a83c79f636adb51e445b95ae86857",
+              "size": 36888
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-18/libpq-oauth_18.6-0ubuntu0.26.04.1_riscv64.deb": {
+              "md5": "dcf665862cb09eee3c2fb7a84495d028",
+              "size": 39536
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-18/postgresql-server-dev-18_18.6-0ubuntu0.26.04.1_riscv64.deb": {
+              "md5": "d668cb842321ab3fb5082f2dfcb51289",
+              "size": 1853528
+            }
+          }
+        },
+        "s390x": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libecpg-compat3_18.6-0ubuntu0.26.04.1_s390x.deb": {
+              "md5": "7c2eac19fc06e26878b47ccd86e2463d",
+              "size": 13102
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libecpg-dev_18.6-0ubuntu0.26.04.1_s390x.deb": {
+              "md5": "5413d20cc15517480450c2656cb26e36",
+              "size": 242388
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libecpg6_18.6-0ubuntu0.26.04.1_s390x.deb": {
+              "md5": "c75a6a92fa8524cf335d109359f7de2b",
+              "size": 47846
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libpgtypes3_18.6-0ubuntu0.26.04.1_s390x.deb": {
+              "md5": "97554f70d3521a3631df8bd0018233e7",
+              "size": 54546
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libpq-dev_18.6-0ubuntu0.26.04.1_s390x.deb": {
+              "md5": "f0748e9f34c59374f3eb415ce8523f3b",
+              "size": 178810
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/libpq5_18.6-0ubuntu0.26.04.1_s390x.deb": {
+              "md5": "0559dc6d9f031f53ba60dd4bd32d5385",
+              "size": 166500
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-18-jit_18.6-0ubuntu0.26.04.1_s390x.deb": {
+              "md5": "6047863e3500c03d2f01943de4e38cf2",
+              "size": 10675440
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-18_18.6-0ubuntu0.26.04.1_s390x.deb": {
+              "md5": "4a3f58249bc3f09b0377aa186863f48e",
+              "size": 6225004
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-client-18_18.6-0ubuntu0.26.04.1_s390x.deb": {
+              "md5": "1a89c699473ff48e8cf2560fcc9a4861",
+              "size": 1420914
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-plperl-18_18.6-0ubuntu0.26.04.1_s390x.deb": {
+              "md5": "8322f0e33ed24393569e386d7631b68a",
+              "size": 59184
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-plpython3-18_18.6-0ubuntu0.26.04.1_s390x.deb": {
+              "md5": "a80e0d9dd9eb5accc7759888567a0cd6",
+              "size": 65610
+            },
+            "http://ports.ubuntu.com/pool/main/p/postgresql-18/postgresql-pltcl-18_18.6-0ubuntu0.26.04.1_s390x.deb": {
+              "md5": "fa252e303be0903e839cf1c9e41bcf92",
+              "size": 38326
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-18/libpq-oauth_18.6-0ubuntu0.26.04.1_s390x.deb": {
+              "md5": "97fc0ed9917e1ce3271fc9a35d848a64",
+              "size": 36722
+            },
+            "http://ports.ubuntu.com/pool/universe/p/postgresql-18/postgresql-server-dev-18_18.6-0ubuntu0.26.04.1_s390x.deb": {
+              "md5": "fb439bc5e5e1f4d17c3a0f163a132510",
+              "size": 1477876
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-18_18.6-0ubuntu0.26.04.1.debian.tar.xz": {
+              "md5": "e0185e0e1953547564f421192b276681",
+              "size": 31340
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-18_18.6-0ubuntu0.26.04.1.dsc": {
+              "md5": "f9e6a226db9a5c61b31a47438ff72517",
+              "size": 4888
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/postgresql-18/postgresql-18_18.6.orig.tar.gz": {
+              "md5": "3bdae25168f022365dd4c0780e81b8d0",
+              "size": 29598283
+            }
+          }
+        }
+      },
+      "binaries": {
+        "postgresql-18": {
+          "pocket": "security",
+          "version": "18.6-0ubuntu0.26.04.1"
+        }
+      },
+      "sources": {
+        "postgresql-18": {
+          "description": "Object-relational SQL database",
+          "version": "18.6-0ubuntu0.26.04.1"
+        }
+      }
+    }
+  },
+  "summary": "postgresql-14, postgresql-16, postgresql-18 vulnerabilities",
+  "timestamp": 1787226178.023934,
+  "title": "PostgreSQL vulnerabilities"
+}
