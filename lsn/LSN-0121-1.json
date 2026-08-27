@@ -1,0 +1,440 @@
+{
+  "action": "",
+  "cves": [
+    "CVE-2026-43406",
+    "CVE-2026-43186",
+    "CVE-2026-23428",
+    "CVE-2026-46185",
+    "CVE-2026-31402",
+    "CVE-2026-31657",
+    "CVE-2026-43501",
+    "CVE-2026-43011",
+    "CVE-2026-46274",
+    "CVE-2026-46319",
+    "CVE-2026-31478",
+    "CVE-2026-46195",
+    "CVE-2026-31659",
+    "CVE-2026-43304",
+    "CVE-2026-47333",
+    "CVE-2026-43185",
+    "CVE-2026-31431",
+    "CVE-2026-43038",
+    "CVE-2026-46135",
+    "CVE-2026-46304",
+    "CVE-2026-43037",
+    "CVE-2026-46259",
+    "CVE-2026-43493",
+    "CVE-2026-31607",
+    "CVE-2026-46119",
+    "CVE-2026-31405",
+    "CVE-2026-45988",
+    "CVE-2026-46043",
+    "CVE-2026-43407",
+    "CVE-2026-43341",
+    "CVE-2025-68263",
+    "CVE-2026-31637",
+    "CVE-2026-31705",
+    "CVE-2026-23455"
+  ],
+  "description": "In the Linux kernel, the following vulnerability has been\nresolved: ksmbd: ipc: fix use-after-free in ipc_msg_send_request\nipc_msg_send_request() waits for a generic netlink reply using an\nipc_msg_table_entry on the stack.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ksmbd: fix use-after-free of share_conf in compound request\nsmb2_get_ksmbd_tcon() reuses work->tcon in compound requests without\nvalidating tcon->t_state.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: netfilter: nf_conntrack_h323: check for zero length in\nDecodeQ931() In DecodeQ931(), the UserUserIE code path reads a 16-bit\nlength from the packet, then decrements it by 1 to skip the protocol\ndiscriminator byte before passing it to DecodeH323_UserInformation().\n\nIn the Linux kernel, the following vulnerability has been\nresolved: nfsd: fix heap overflow in NFSv4.0 LOCK replay cache The NFSv4.0\nreplay cache uses a fixed 112-byte inline buffer\n(rp_ibuf.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: media: dvb-net: fix OOB access in ULE extension header tables The\nule_mandatory_ext_handlers.\n\nIt was discovered that the Linux kernel algif_aead module did not properly\nhandle in-place cryptographic operations. This flaw is known as Copy Fail.\nA local attacker could use this to escalate privileges, or possibly escape\na container.)(CVE-2026-31431)\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ksmbd: replace hardcoded hdr2_len with offsetof() in\nsmb2_calc_max_out_buf_len() After this commit (e2b76ab8b5c9 'ksmbd: add\nsupport for read compound'), response buffer management was changed to use\ndynamic iov array.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: usbip: validate number_of_packets in usbip_pack_ret_submit() When\na USB/IP client receives a RET_SUBMIT response, usbip_pack_ret_submit()\nunconditionally overwrites urb->number_of_packets from the network PDU.\nThis value is subsequently used as the loop bound in usbip_recv_iso() and\nusbip_pad_iso() to iterate over urb->iso_frame_desc.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: rxrpc: reject undecryptable rxkad response tickets\nrxkad_decrypt_ticket() decrypts the RXKAD response ticket and then parses\nthe buffer as plaintext without checking whether crypto_skcipher_decrypt()\nsucceeded.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: batman-adv: hold claim backbone gateways by reference\nbatadv_bla_add_claim() can replace claim->backbone_gw and drop the old\ngateway's last reference while readers still follow the pointer.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: batman-adv: reject oversized global TT response buffers\nbatadv_tt_prepare_tvlv_global_data() builds the allocation length for a\nglobal TT response in 16-bit temporaries.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ksmbd: fix out-of-bounds write in smb2_get_ea() EA alignment\nsmb2_get_ea() applies 4-byte alignment padding via memset() after writing\neach EA entry.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: net/x25: Fix potential double free of skb When alloc_skb fails in\nx25_queue_rx_frame it calls kfree_skb(skb) at line 48 and returns 1\n(error).\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ip6_tunnel: clear skb2->cb.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ipv6: icmp: clear skb2->cb.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ksmbd: fix signededness bug in smb_direct_prepare_negotiation()\nsmb_direct_prepare_negotiation() casts an unsigned __u32 value from\nsp->max_recv_size and req->preferred_send_size to a signed int before\ncomputing min_t(int, ...).\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ipv6: ioam: fix heap buffer overflow in __ioam6_fill_trace_data()\nOn the receive path, __ioam6_fill_trace_data() uses trace->nodelen to\ndecide how much data to write for each node.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: libceph: define and enforce CEPH_MAX_KEY_LEN When decoding the\nkey, verify that the key material would fit into a fixed-size buffer in\nprocess_auth_done() and generally has a sane length.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: net/ipv6: ioam6: prevent schema length wraparound in trace fill\nioam6_fill_trace_data() stores the schema contribution to the trace length\nin a u8.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: libceph: prevent potential out-of-bounds reads in\nprocess_message_header() If the message frame is (maliciously) corrupted in\na way that the length of the control segment ends up being less than the\nsize of the message header or a different frame is made to look like a\nmessage frame, out-of-bounds reads may ensue in process_message_header().\nPerform an explicit bounds check before decoding the message header.)(CVE-2026-43406).\n\nIn the Linux kernel, the following vulnerability has been\nresolved: libceph: Fix potential out-of-bounds access in\nceph_handle_auth_reply() This patch fixes an out-of-bounds access in\nceph_handle_auth_reply() that can be triggered by a message of type\nCEPH_MSG_AUTH_REPLY.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: crypto: pcrypt - Fix handling of MAY_BACKLOG requests MAY_BACKLOG\nrequests can return EBUSY.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ipv6: rpl: reserve mac_len headroom when recompressed SRH grows\nipv6_rpl_srh_rcv() decompresses an RFC 6554 Source Routing Header, swaps\nthe next segment into ipv6_hdr->daddr, recompresses, then pulls the old\nheader and pushes the new one plus the IPv6 header back.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: rxrpc: Fix re-decryption of RESPONSE packets If a RESPONSE packet\ngets a temporary failure during processing, it may end up in a partially\ndecrypted state - and then get requeued for a retry.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: RDMA/rxe: Validate pad and ICRC before payload_size() in rxe_rcv\nrxe_rcv() currently checks only that the incoming packet is at least\nheader_size(pkt) bytes long before payload_size() is used.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: libceph: Fix slab-out-of-bounds access in auth message processing\nIf a (potentially corrupted) message of type CEPH_MSG_AUTH_REPLY contains a\npositive value in its result field, it is treated as an error code by\nceph_handle_auth_reply() and returned to handle_auth_reply().\n\nIn the Linux kernel, the following vulnerability has been\nresolved: nvmet-tcp: fix race between ICReq handling and queue teardown\nnvmet_tcp_handle_icreq() updates queue->state after sending an\nInitialization Connection Response (ICResp), but it does so without\nserializing against target-side queue teardown.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: smb/client: fix out-of-bounds read in symlink_data() Since\nsmb2_check_message() returns success without length validation for the\nsymlink error response, in symlink_data() it is possible for iov->iov_len\nto be smaller than sizeof(struct smb2_err_rsp).\n\nIn the Linux kernel, the following vulnerability has been\nresolved: smb: client: validate dacloffset before building DACL pointers\nparse_sec_desc(), build_sec_desc(), and the chown path in\nid_mode_to_cifs_acl() all add the server-supplied dacloffset to pntsd\nbefore proving a DACL header fits inside the returned security descriptor.\nOn 32-bit builds a malicious server can return dacloffset near U32_MAX,\nwrap the derived DACL pointer below end_of_acl, and then slip past the\nlater pointer-based bounds checks.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: procfs: fix missing RCU protection when reading real_parent in\ndo_task_stat() When reading /proc/.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: io-wq: check that the predecessor is hashed in\nio_wq_remove_pending() io_wq_remove_pending() needs to fix up\nwq->hash_tail.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: nvmet: avoid recursive nvmet-wq flush in nvmet_ctrl_free\nnvmet_tcp_release_queue_work() runs on nvmet-wq and can drop the final\ncontroller reference through nvmet_cq_put().\n\nIn the Linux kernel, the following vulnerability has been\nresolved: net/sched: act_ct: Only release RCU read lock after ct_ft When\nlooking up a flow table in act_ct in tcf_ct_flow_table_get(),\nrhashtable_lookup_fast() internally opens and closes an RCU read critical\nsection before returning ct_ft.\n\nTristan Madani discovered that Ubuntu Linux kernel 6.8, 6.17 and 7.0\ncontained a out-of-bounds (OOB) read when handling AppArmor notifications.\nA local attacker could use this to cause kernel memory corruption and,\ntheoretically, influence processing of AppArmor policies.)(CVE-2026-47333)",
+  "id": "LSN-0121-1",
+  "isummary": "Several security issues were fixed in the kernel.",
+  "releases": {
+    "bionic": {
+      "sources": {
+        "aws": {
+          "version": "4.15.0-1159",
+          "description": "Linux kernel for Amazon Web Services (AWS) systems"
+        },
+        "azure-4.15": {
+          "version": "4.15.0-1168",
+          "description": "Linux kernel for Microsoft Azure Cloud systems"
+        },
+        "gcp-4.15": {
+          "version": "4.15.0-1154",
+          "description": "Linux kernel for Google Cloud Platform (GCP) systems"
+        },
+        "generic-4.15": {
+          "version": "4.15.0-214",
+          "description": "Linux kernel"
+        },
+        "lowlatency-4.15": {
+          "version": "4.15.0-214",
+          "description": "Linux kernel"
+        },
+        "generic-5.4": {
+          "version": "5.4.0-150",
+          "description": "Linux hardware enablement (HWE) kernel"
+        },
+        "lowlatency-5.4": {
+          "version": "5.4.0-150",
+          "description": "Linux hardware enablement (HWE) kernel"
+        },
+        "oracle": {
+          "version": "4.15.0-1129",
+          "description": "Linux kernel for Oracle Cloud systems"
+        }
+      },
+      "binaries": {},
+      "allbinaries": {
+        "aws": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_aws_(\\d+)",
+          "version": "121"
+        },
+        "azure-4.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_azure_(\\d+)",
+          "version": "121"
+        },
+        "gcp-4.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_gcp_(\\d+)",
+          "version": "121"
+        },
+        "generic-4.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_generic_(\\d+)",
+          "version": "121"
+        },
+        "lowlatency-4.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_lowlatency_(\\d+)",
+          "version": "121"
+        },
+        "generic-5.4": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_4_0[_|\\d]+_generic_(\\d+)",
+          "version": "121"
+        },
+        "lowlatency-5.4": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_4_0[_|\\d]+_lowlatency_(\\d+)",
+          "version": "121"
+        },
+        "oracle": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_oracle_(\\d+)",
+          "version": "121"
+        }
+      }
+    },
+    "focal": {
+      "sources": {
+        "generic-5.4": {
+          "version": "5.4.0-26",
+          "description": "Linux kernel"
+        },
+        "lowlatency-5.4": {
+          "version": "5.4.0-26",
+          "description": "Linux kernel"
+        }
+      },
+      "binaries": {},
+      "allbinaries": {
+        "generic-5.4": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_4_0[_|\\d]+_generic_(\\d+)",
+          "version": "121"
+        },
+        "lowlatency-5.4": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_4_0[_|\\d]+_lowlatency_(\\d+)",
+          "version": "121"
+        }
+      }
+    },
+    "jammy": {
+      "sources": {
+        "aws": {
+          "version": "5.15.0-1000",
+          "description": "Linux kernel for Amazon Web Services (AWS) systems"
+        },
+        "aws-6.8": {
+          "version": "6.8.0-1000",
+          "description": "Linux kernel for Amazon Web Services (AWS) systems"
+        },
+        "azure": {
+          "version": "5.15.0-1000",
+          "description": "Linux kernel for Microsoft Azure Cloud systems"
+        },
+        "gcp": {
+          "version": "5.15.0-1000",
+          "description": "Linux kernel for Google Cloud Platform (GCP) systems"
+        },
+        "gcp-6.8": {
+          "version": "6.8.0-1000",
+          "description": "Linux kernel for Google Cloud Platform (GCP) systems"
+        },
+        "linux": {
+          "version": "5.15.0-24",
+          "description": "Linux kernel"
+        },
+        "hwe-6.8": {
+          "version": "6.8.0-0",
+          "description": "Linux hardware enablement (HWE) kernel"
+        },
+        "gke": {
+          "version": "5.15.0-1000",
+          "description": "Linux kernel for Google Container Engine (GKE) systems"
+        },
+        "ibm": {
+          "version": "5.15.0-1000",
+          "description": "Linux kernel for IBM cloud systems"
+        },
+        "ibm-6.8": {
+          "version": "6.8.0-1000",
+          "description": "Linux kernel for IBM cloud systems"
+        }
+      },
+      "binaries": {},
+      "allbinaries": {
+        "aws": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_aws_(\\d+)",
+          "version": "121"
+        },
+        "aws-6.8": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_6_8_0[_|\\d]+_aws_(\\d+)",
+          "version": "121"
+        },
+        "azure": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_azure_(\\d+)",
+          "version": "121"
+        },
+        "gcp": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_gcp_(\\d+)",
+          "version": "121"
+        },
+        "gcp-6.8": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_6_8_0[_|\\d]+_gcp_(\\d+)",
+          "version": "121"
+        },
+        "linux": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_linux_(\\d+)",
+          "version": "121"
+        },
+        "hwe-6.8": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_6_8_0[_|\\d]+_hwe_(\\d+)",
+          "version": "121"
+        },
+        "gke": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_gke_(\\d+)",
+          "version": "121"
+        },
+        "ibm": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_5_15_0[_|\\d]+_ibm_(\\d+)",
+          "version": "121"
+        },
+        "ibm-6.8": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_6_8_0[_|\\d]+_ibm_(\\d+)",
+          "version": "121"
+        }
+      }
+    },
+    "noble": {
+      "sources": {
+        "aws": {
+          "version": "6.8.0-1008",
+          "description": "Linux kernel for Amazon Web Services (AWS) systems"
+        },
+        "azure": {
+          "version": "6.8.0-1007",
+          "description": "Linux kernel for Microsoft Azure Cloud systems"
+        },
+        "gcp": {
+          "version": "6.8.0-1007",
+          "description": "Linux kernel for Google Cloud Platform (GCP) systems"
+        },
+        "linux": {
+          "version": "6.8.0-1",
+          "description": "Linux kernel"
+        },
+        "gke": {
+          "version": "6.8.0-1003",
+          "description": "Linux kernel for Google Container Engine (GKE) systems"
+        },
+        "ibm": {
+          "version": "6.8.0-1005",
+          "description": "Linux kernel for IBM cloud systems"
+        },
+        "oracle": {
+          "version": "6.8.0-1005",
+          "description": "Linux kernel for Oracle Cloud systems"
+        }
+      },
+      "binaries": {},
+      "allbinaries": {
+        "aws": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_6_8_0[_|\\d]+_aws_(\\d+)",
+          "version": "121"
+        },
+        "azure": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_6_8_0[_|\\d]+_azure_(\\d+)",
+          "version": "121"
+        },
+        "gcp": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_6_8_0[_|\\d]+_gcp_(\\d+)",
+          "version": "121"
+        },
+        "linux": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_6_8_0[_|\\d]+_linux_(\\d+)",
+          "version": "121"
+        },
+        "gke": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_6_8_0[_|\\d]+_gke_(\\d+)",
+          "version": "121"
+        },
+        "ibm": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_6_8_0[_|\\d]+_ibm_(\\d+)",
+          "version": "121"
+        },
+        "oracle": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_6_8_0[_|\\d]+_oracle_(\\d+)",
+          "version": "121"
+        }
+      }
+    },
+    "resolute": {
+      "sources": {
+        "aws": {
+          "version": "7.0.0-1000",
+          "description": "Linux kernel for Amazon Web Services (AWS) systems"
+        },
+        "azure": {
+          "version": "7.0.0-1000",
+          "description": "Linux kernel for Microsoft Azure Cloud systems"
+        },
+        "gcp": {
+          "version": "7.0.0-1000",
+          "description": "Linux kernel for Google Cloud Platform (GCP) systems"
+        },
+        "linux": {
+          "version": "7.0.0-1",
+          "description": "Linux kernel"
+        }
+      },
+      "binaries": {},
+      "allbinaries": {
+        "aws": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_7_0_0[_|\\d]+_aws_(\\d+)",
+          "version": "121"
+        },
+        "azure": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_7_0_0[_|\\d]+_azure_(\\d+)",
+          "version": "121"
+        },
+        "gcp": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_7_0_0[_|\\d]+_gcp_(\\d+)",
+          "version": "121"
+        },
+        "linux": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_7_0_0[_|\\d]+_linux_(\\d+)",
+          "version": "121"
+        }
+      }
+    },
+    "xenial": {
+      "sources": {
+        "aws-hwe": {
+          "version": "4.15.0-1126",
+          "description": "Linux kernel for Amazon Web Services (AWS-HWE) systems"
+        },
+        "aws": {
+          "version": "4.4.0-1159",
+          "description": "Linux kernel for Amazon Web Services (AWS) systems"
+        },
+        "azure": {
+          "version": "4.15.0-1114",
+          "description": "Linux kernel for Microsoft Azure Cloud systems"
+        },
+        "gcp": {
+          "version": "4.15.0-1118",
+          "description": "Linux kernel for Google Cloud Platform (GCP) systems"
+        },
+        "generic-4.15": {
+          "version": "4.15.0-143",
+          "description": "Linux hardware enablement (HWE) kernel"
+        },
+        "lowlatency-4.15": {
+          "version": "4.15.0-143",
+          "description": "Linux hardware enablement (HWE) kernel"
+        },
+        "generic-4.4": {
+          "version": "4.4.0-243",
+          "description": "Linux kernel"
+        },
+        "lowlatency-4.4": {
+          "version": "4.4.0-243",
+          "description": "Linux kernel"
+        }
+      },
+      "binaries": {},
+      "allbinaries": {
+        "aws-hwe": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_aws_(\\d+)",
+          "version": "121"
+        },
+        "aws": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_4_0[_|\\d]+_aws_(\\d+)",
+          "version": "121"
+        },
+        "azure": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_azure_(\\d+)",
+          "version": "121"
+        },
+        "gcp": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_gcp_(\\d+)",
+          "version": "121"
+        },
+        "generic-4.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_generic_(\\d+)",
+          "version": "121"
+        },
+        "lowlatency-4.15": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_15_0[_|\\d]+_lowlatency_(\\d+)",
+          "version": "121"
+        },
+        "generic-4.4": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_4_0[_|\\d]+_generic_(\\d+)",
+          "version": "121"
+        },
+        "lowlatency-4.4": {
+          "pocket": "livepatch",
+          "module": "lkp_Ubuntu_4_4_0[_|\\d]+_lowlatency_(\\d+)",
+          "version": "121"
+        }
+      }
+    }
+  },
+  "summary": "Kernel Live Patch Security Notice",
+  "timestamp": 1787825278.0,
+  "title": "Kernel Live Patch Security Notice"
+}
