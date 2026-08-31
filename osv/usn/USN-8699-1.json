@@ -1,0 +1,528 @@
+{
+  "schema_version": "1.7.0",
+  "id": "USN-8699-1",
+  "summary": "libssh vulnerabilities",
+  "details": "It was discovered that libssh had a stack buffer overflow in its SFTP\nserver when constructing directory listing entries for long filenames. An\nattacker could possibly use this issue to cause libssh to crash or execute\narbitrary code. This issue only affected Ubuntu 26.04 LTS. (CVE-2026-15370)\n\nIt was discovered that libssh did not correctly handle SSH channel open\nmessages advertising a zero maximum packet size. An authenticated remote\nattacker could possibly use this issue to cause libssh to consume excessive\nCPU resources, leading to a denial of service. (CVE-2026-59843)\n\nIt was discovered that libssh did not correctly limit SFTP read request\nlengths in its server implementation. An authenticated remote attacker\ncould possibly use this issue to cause libssh to allocate excessive memory,\nleading to a denial of service. This issue only affected Ubuntu 26.04 LTS.\n(CVE-2026-59844)\n\nIt was discovered that libssh did not correctly handle ProxyCommand fork()\nfailures. A local attacker could possibly use this issue to cause a denial\nof service. (CVE-2026-59845)\n\nIt was discovered that libssh did not correctly sanitize shell\nmetacharacters when expanding usernames in ProxyCommand strings. An\nattacker could possibly use this issue to obtain sensitive information.\n(CVE-2026-59846)\n\nIt was discovered that libssh had incorrect AES-GCM tag verification when\nbuilt with the OpenSSL backend. A machine-in-the-middle attacker could\npossibly use this issue to modify encrypted traffic without detection.\n(CVE-2026-59847)\n\nIt was discovered that libssh did not correctly handle SFTP server\nresponses for unknown request IDs. An attacker could possibly use this\nissue to cause libssh to use excessive memory, leading to a denial of\nservice. (CVE-2026-59848)\n\nIt was discovered that libssh had logic errors in certificate-based\nauthentication that could cause clients to loop indefinitely when\ncertificates were rejected. An attacker could possibly use this issue to\ncause a denial of service. This issue only affected Ubuntu 26.04 LTS.\n(CVE-2026-59849)\n\nIt was discovered that libssh could invoke data callbacks on channels after\nthey had been closed. An attacker could possibly use this issue to cause\nlibssh to crash or execute arbitrary code. (CVE-2026-59850)",
+  "aliases": [],
+  "upstream": [
+    "UBUNTU-CVE-2026-15370",
+    "UBUNTU-CVE-2026-59843",
+    "UBUNTU-CVE-2026-59844",
+    "UBUNTU-CVE-2026-59845",
+    "UBUNTU-CVE-2026-59846",
+    "UBUNTU-CVE-2026-59847",
+    "UBUNTU-CVE-2026-59848",
+    "UBUNTU-CVE-2026-59849",
+    "UBUNTU-CVE-2026-59850"
+  ],
+  "related": [],
+  "published": "2026-08-31T11:58:26Z",
+  "modified": "2026-08-31T11:58:26Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:22.04:LTS",
+        "name": "libssh",
+        "purl": "pkg:deb/ubuntu/libssh@0.9.6-2ubuntu0.22.04.8?arch=source&distro=jammy"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "0.9.6-2ubuntu0.22.04.8"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "0.9.6-1",
+        "0.9.6-1build1",
+        "0.9.6-2",
+        "0.9.6-2build1",
+        "0.9.6-2ubuntu0.22.04.1",
+        "0.9.6-2ubuntu0.22.04.2",
+        "0.9.6-2ubuntu0.22.04.3",
+        "0.9.6-2ubuntu0.22.04.4",
+        "0.9.6-2ubuntu0.22.04.5",
+        "0.9.6-2ubuntu0.22.04.6",
+        "0.9.6-2ubuntu0.22.04.7"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "libssh-4",
+            "binary_version": "0.9.6-2ubuntu0.22.04.8"
+          },
+          {
+            "binary_name": "libssh-gcrypt-4",
+            "binary_version": "0.9.6-2ubuntu0.22.04.8"
+          }
+        ],
+        "availability": "No subscription required"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:22.04:LTS",
+          "cves": [
+            {
+              "id": "CVE-2026-59843",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59845",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:C/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:C/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59846",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59847",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59848",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59850",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:24.04:LTS",
+        "name": "libssh",
+        "purl": "pkg:deb/ubuntu/libssh@0.10.6-2ubuntu0.5?arch=source&distro=noble"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "0.10.6-2ubuntu0.5"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "0.10.5-3ubuntu1",
+        "0.10.5-3ubuntu2",
+        "0.10.6-2",
+        "0.10.6-2build1",
+        "0.10.6-2build2",
+        "0.10.6-2ubuntu0.1",
+        "0.10.6-2ubuntu0.2",
+        "0.10.6-2ubuntu0.3",
+        "0.10.6-2ubuntu0.4"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "libssh-4",
+            "binary_version": "0.10.6-2ubuntu0.5"
+          },
+          {
+            "binary_name": "libssh-gcrypt-4",
+            "binary_version": "0.10.6-2ubuntu0.5"
+          }
+        ],
+        "availability": "No subscription required"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:24.04:LTS",
+          "cves": [
+            {
+              "id": "CVE-2026-59843",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59845",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:C/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:C/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59846",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59847",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59848",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59850",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:26.04:LTS",
+        "name": "libssh",
+        "purl": "pkg:deb/ubuntu/libssh@0.11.3-1ubuntu2.1?arch=source&distro=resolute"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "0.11.3-1ubuntu2.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "0.11.2-1build1",
+        "0.11.3-1",
+        "0.11.3-1ubuntu1",
+        "0.11.3-1ubuntu2"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "libssh-4",
+            "binary_version": "0.11.3-1ubuntu2.1"
+          }
+        ],
+        "availability": "No subscription required"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:26.04:LTS",
+          "cves": [
+            {
+              "id": "CVE-2026-15370",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59843",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59844",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59845",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:C/C:N/I:N/A:H"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:C/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59846",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59847",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59848",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59849",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-59850",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-8699-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-15370"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-59843"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-59844"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-59845"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-59846"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-59847"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-59848"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-59849"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-59850"
+    }
+  ]
+}
