@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.7.0",
+  "id": "USN-8487-2",
+  "summary": "curl regression",
+  "details": "USN-8487-1 fixed vulnerabilities in curl. Unfortunately that update\ncontained an incomplete fix for CVE-2026-8927. This update fixes the\nproblem.\n\nOriginal advisory details:\n\n Andrew Nesbitt discovered that curl could reuse an existing live\n connection during STARTTLS-based connection upgrades even when the TLS\n configuration did not match. A remote attacker could possibly use this\n issue to cause curl to use an unintended TLS configuration.\n (CVE-2026-8286)\n\n Muhamad Arga Reksapati discovered that curl incorrectly reused connections\n for Negotiate-authenticated requests when different services were\n involved. A remote attacker could possibly use this issue to access\n resources authenticated for another service. This issue only affected\n Ubuntu 18.04 LTS, Ubuntu 20.04 LTS, Ubuntu 22.04 LTS, Ubuntu 24.04 LTS,\n Ubuntu 25.10, and Ubuntu 26.04 LTS. (CVE-2026-8458)\n\n It was discovered that curl incorrectly handled cookie parsing in certain\n circumstances. A remote attacker could possibly use this issue to set\n cookies that would be transmitted to unrelated third-party domains. This\n issue only affected Ubuntu 16.04 LTS, Ubuntu 18.04 LTS, Ubuntu 20.04 LTS,\n Ubuntu 22.04 LTS, Ubuntu 24.04 LTS, Ubuntu 25.10, and Ubuntu 26.04 LTS.\n (CVE-2026-8924)\n\n Joshua Rogers discovered that curl could double-free a GSASL context when\n handling SASL authentication. A remote attacker could possibly use this\n issue to cause a denial of service, or execute arbitrary code. This issue\n only affected Ubuntu 22.04 LTS, Ubuntu 24.04 LTS, Ubuntu 25.10, and Ubuntu\n 26.04 LTS. (CVE-2026-8925)\n\n Joshua Rogers discovered that curl could select the wrong password from a\n .netrc file when a username was specified in the URL without a password. A\n remote attacker could possibly use this issue to obtain sensitive\n information. This issue only affected Ubuntu 25.10 and Ubuntu 26.04 LTS.\n (CVE-2026-8926)\n\n Ady Elouej discovered that curl did not clear proxy authentication state\n between requests when reusing a handle with environment-variable proxy\n configuration. A remote attacker could possibly use this issue to obtain\n sensitive credentials. (CVE-2026-8927)\n\n Guannan Wang, Zhanpeng Liu, Jiashuo Liang, and Guancheng Li discovered\n that curl did not properly clear proxy authentication credentials when\n instructed to do so. A remote attacker could possibly use this issue to\n obtain sensitive credentials. This issue only affected Ubuntu 25.10 and\n Ubuntu 26.04 LTS. (CVE-2026-9079)\n\n Joshua Rogers discovered that curl contained a use-after-free when\n curl_easy_pause() was called within the event-based socket callback. A\n remote attacker could possibly use this issue to cause a denial of service\n or possibly execute arbitrary code. This issue only affected Ubuntu 25.10\n and Ubuntu 26.04 LTS. (CVE-2026-9080)\n\n Eunsoo Kim discovered that curl could send early data on a resumed TLS\n session before enforcing certificate verification failure. A  machine-in-\n the-middle attacker could possibly use this issue to obtain  sensitive\n information. This issue only affected Ubuntu 25.10 and Ubuntu  26.04 LTS.\n (CVE-2026-9545)\n\n Joshua Rogers discovered that curl did not properly reject host key type\n mismatches when using the SSH key callback for SCP and SFTP transfers. A\n machine-in-the-middle attacker could possibly use this issue to\n impersonate a trusted server. This issue only affected Ubuntu 22.04 LTS,\n Ubuntu 24.04 LTS, Ubuntu 25.10, and Ubuntu 26.04 LTS. (CVE-2026-9547)",
+  "aliases": [],
+  "upstream": [],
+  "related": [],
+  "published": "2026-09-28T20:29:10Z",
+  "modified": "2026-09-28T20:29:10Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:14.04:LTS",
+        "name": "curl",
+        "purl": "pkg:deb/ubuntu/curl@7.35.0-1ubuntu2.20+esm23?arch=source&distro=esm-infra-legacy/trusty"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "7.35.0-1ubuntu2.20+esm23"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "7.32.0-1ubuntu1",
+        "7.33.0-1ubuntu1",
+        "7.34.0-1ubuntu1",
+        "7.35.0-1ubuntu1",
+        "7.35.0-1ubuntu2",
+        "7.35.0-1ubuntu2.1",
+        "7.35.0-1ubuntu2.2",
+        "7.35.0-1ubuntu2.3",
+        "7.35.0-1ubuntu2.5",
+        "7.35.0-1ubuntu2.6",
+        "7.35.0-1ubuntu2.7",
+        "7.35.0-1ubuntu2.8",
+        "7.35.0-1ubuntu2.9",
+        "7.35.0-1ubuntu2.10",
+        "7.35.0-1ubuntu2.11",
+        "7.35.0-1ubuntu2.12",
+        "7.35.0-1ubuntu2.13",
+        "7.35.0-1ubuntu2.14",
+        "7.35.0-1ubuntu2.15",
+        "7.35.0-1ubuntu2.16",
+        "7.35.0-1ubuntu2.17",
+        "7.35.0-1ubuntu2.19",
+        "7.35.0-1ubuntu2.20",
+        "7.35.0-1ubuntu2.20+esm2",
+        "7.35.0-1ubuntu2.20+esm3",
+        "7.35.0-1ubuntu2.20+esm4",
+        "7.35.0-1ubuntu2.20+esm5",
+        "7.35.0-1ubuntu2.20+esm6",
+        "7.35.0-1ubuntu2.20+esm7",
+        "7.35.0-1ubuntu2.20+esm8",
+        "7.35.0-1ubuntu2.20+esm9",
+        "7.35.0-1ubuntu2.20+esm10",
+        "7.35.0-1ubuntu2.20+esm11",
+        "7.35.0-1ubuntu2.20+esm12",
+        "7.35.0-1ubuntu2.20+esm13",
+        "7.35.0-1ubuntu2.20+esm14",
+        "7.35.0-1ubuntu2.20+esm15",
+        "7.35.0-1ubuntu2.20+esm16",
+        "7.35.0-1ubuntu2.20+esm17",
+        "7.35.0-1ubuntu2.20+esm18",
+        "7.35.0-1ubuntu2.20+esm19",
+        "7.35.0-1ubuntu2.20+esm20",
+        "7.35.0-1ubuntu2.20+esm21",
+        "7.35.0-1ubuntu2.20+esm22"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "curl",
+            "binary_version": "7.35.0-1ubuntu2.20+esm23"
+          },
+          {
+            "binary_name": "libcurl3",
+            "binary_version": "7.35.0-1ubuntu2.20+esm23"
+          },
+          {
+            "binary_name": "libcurl3-gnutls",
+            "binary_version": "7.35.0-1ubuntu2.20+esm23"
+          },
+          {
+            "binary_name": "libcurl3-nss",
+            "binary_version": "7.35.0-1ubuntu2.20+esm23"
+          }
+        ],
+        "availability": "Available with Ubuntu Pro with Legacy support add-on: https://ubuntu.com/pro"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:Pro:14.04:LTS",
+          "cves": []
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-8487-2"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://bugs.launchpad.net/ubuntu/+source/curl/+bug/2167779"
+    }
+  ]
+}
