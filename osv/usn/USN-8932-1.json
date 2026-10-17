@@ -1,0 +1,565 @@
+{
+  "schema_version": "1.7.0",
+  "id": "USN-8932-1",
+  "summary": "curl vulnerabilities",
+  "details": "Stanislav Fort discovered that curl did not properly clear AWS SigV4\nauthentication state when CURLOPT_AWS_SIGV4 was set to NULL. An attacker\ncould possibly use this issue to obtain sensitive information. This\nissue only affected Ubuntu 22.04 LTS and Ubuntu 24.04 LTS.\n(CVE-2026-86409)\n\nStanislav Fort discovered that an HTTP proxy could trick libcurl into\nsending credentials to the proxy itself by responding to a CONNECT\nrequest with an unexpected authentication challenge. An attacker could\npossibly use this issue to obtain sensitive information.\n(CVE-2026-86414)\n\nStanislav Fort discovered that curl did not correctly handle HSTS\nentries when an includeSubDomains parent entry was imported before a\nlonger-lived child entry. An attacker could possibly use this issue to\ncause curl to use unencrypted HTTP connections. This issue only affected\nUbuntu 22.04 LTS and Ubuntu 24.04 LTS. (CVE-2026-87862)\n\nStanislav Fort discovered that curl did not properly handle HSTS max-age\nvalues that exceeded calendar time structure bounds. An attacker could\npossibly use this issue to cause a denial of service or data loss. This\nissue only affected Ubuntu 24.04 LTS. (CVE-2026-87863)\n\nStanislav Fort discovered that curl did not properly handle IMAP APPEND\ncommands when CURLOPT_CRLF was enabled, allowing overflow bytes to be\ninterpreted as pipelined commands. An authenticated attacker could\npossibly use this issue to inject arbitrary IMAP commands.\n(CVE-2026-87864)\n\nJoshua Rogers discovered that libcurl had a use-after-free vulnerability\nin the FTP wildcard matching code. An attacker could possibly use this\nissue to cause curl to crash, resulting in a denial of service, or\nexecute arbitrary code. (CVE-2026-92388)\n\nJoshua Rogers discovered that libcurl's TFTP state machine did not\nproperly validate transfer directions, allowing a malicious server to\nforce the client into transmit mode. An attacker could possibly use this\nissue to obtain sensitive information. (CVE-2026-92389)\n\nJoshua Rogers discovered that curl had a stack overflow vulnerability\nwhen processing deeply nested MIME structures. An attacker could\npossibly use this issue to cause curl to crash, resulting in a denial of\nservice. This issue only affected Ubuntu 18.04 LTS, Ubuntu 20.04 LTS,\nUbuntu 22.04 LTS and Ubuntu 24.04 LTS. (CVE-2026-92391)\n\nJoshua Rogers discovered that libcurl could expose credentials in the\nURL returned by CURLINFO_EFFECTIVE_URL when credentials were retrieved\nfrom a .netrc file. An attacker could possibly use this issue to obtain\nsensitive information. This issue only affected Ubuntu 20.04 LTS, Ubuntu\n22.04 LTS and Ubuntu 24.04 LTS. (CVE-2026-94266)",
+  "aliases": [],
+  "upstream": [
+    "UBUNTU-CVE-2026-86409",
+    "UBUNTU-CVE-2026-86414",
+    "UBUNTU-CVE-2026-87862",
+    "UBUNTU-CVE-2026-87863",
+    "UBUNTU-CVE-2026-87864",
+    "UBUNTU-CVE-2026-92388",
+    "UBUNTU-CVE-2026-92389",
+    "UBUNTU-CVE-2026-92391",
+    "UBUNTU-CVE-2026-94266"
+  ],
+  "related": [],
+  "published": "2026-10-14T19:26:26Z",
+  "modified": "2026-10-14T19:26:26Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:14.04:LTS",
+        "name": "curl",
+        "purl": "pkg:deb/ubuntu/curl@7.35.0-1ubuntu2.20+esm24?arch=source&distro=esm-infra-legacy/trusty"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "7.35.0-1ubuntu2.20+esm24"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "7.32.0-1ubuntu1",
+        "7.33.0-1ubuntu1",
+        "7.34.0-1ubuntu1",
+        "7.35.0-1ubuntu1",
+        "7.35.0-1ubuntu2",
+        "7.35.0-1ubuntu2.1",
+        "7.35.0-1ubuntu2.2",
+        "7.35.0-1ubuntu2.3",
+        "7.35.0-1ubuntu2.5",
+        "7.35.0-1ubuntu2.6",
+        "7.35.0-1ubuntu2.7",
+        "7.35.0-1ubuntu2.8",
+        "7.35.0-1ubuntu2.9",
+        "7.35.0-1ubuntu2.10",
+        "7.35.0-1ubuntu2.11",
+        "7.35.0-1ubuntu2.12",
+        "7.35.0-1ubuntu2.13",
+        "7.35.0-1ubuntu2.14",
+        "7.35.0-1ubuntu2.15",
+        "7.35.0-1ubuntu2.16",
+        "7.35.0-1ubuntu2.17",
+        "7.35.0-1ubuntu2.19",
+        "7.35.0-1ubuntu2.20",
+        "7.35.0-1ubuntu2.20+esm2",
+        "7.35.0-1ubuntu2.20+esm3",
+        "7.35.0-1ubuntu2.20+esm4",
+        "7.35.0-1ubuntu2.20+esm5",
+        "7.35.0-1ubuntu2.20+esm6",
+        "7.35.0-1ubuntu2.20+esm7",
+        "7.35.0-1ubuntu2.20+esm8",
+        "7.35.0-1ubuntu2.20+esm9",
+        "7.35.0-1ubuntu2.20+esm10",
+        "7.35.0-1ubuntu2.20+esm11",
+        "7.35.0-1ubuntu2.20+esm12",
+        "7.35.0-1ubuntu2.20+esm13",
+        "7.35.0-1ubuntu2.20+esm14",
+        "7.35.0-1ubuntu2.20+esm15",
+        "7.35.0-1ubuntu2.20+esm16",
+        "7.35.0-1ubuntu2.20+esm17",
+        "7.35.0-1ubuntu2.20+esm18",
+        "7.35.0-1ubuntu2.20+esm19",
+        "7.35.0-1ubuntu2.20+esm20",
+        "7.35.0-1ubuntu2.20+esm21",
+        "7.35.0-1ubuntu2.20+esm22",
+        "7.35.0-1ubuntu2.20+esm23"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "curl",
+            "binary_version": "7.35.0-1ubuntu2.20+esm24"
+          },
+          {
+            "binary_name": "libcurl3",
+            "binary_version": "7.35.0-1ubuntu2.20+esm24"
+          },
+          {
+            "binary_name": "libcurl3-gnutls",
+            "binary_version": "7.35.0-1ubuntu2.20+esm24"
+          },
+          {
+            "binary_name": "libcurl3-nss",
+            "binary_version": "7.35.0-1ubuntu2.20+esm24"
+          }
+        ],
+        "availability": "Available with Ubuntu Pro with Legacy support add-on: https://ubuntu.com/pro"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:Pro:14.04:LTS",
+          "cves": []
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:16.04:LTS",
+        "name": "curl",
+        "purl": "pkg:deb/ubuntu/curl@7.47.0-1ubuntu2.19+esm21?arch=source&distro=esm-infra-legacy/xenial"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "7.47.0-1ubuntu2.19+esm21"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "7.43.0-1ubuntu2",
+        "7.45.0-1ubuntu1",
+        "7.46.0-1ubuntu1",
+        "7.47.0-1ubuntu1",
+        "7.47.0-1ubuntu2",
+        "7.47.0-1ubuntu2.1",
+        "7.47.0-1ubuntu2.2",
+        "7.47.0-1ubuntu2.3",
+        "7.47.0-1ubuntu2.4",
+        "7.47.0-1ubuntu2.5",
+        "7.47.0-1ubuntu2.6",
+        "7.47.0-1ubuntu2.7",
+        "7.47.0-1ubuntu2.8",
+        "7.47.0-1ubuntu2.9",
+        "7.47.0-1ubuntu2.11",
+        "7.47.0-1ubuntu2.12",
+        "7.47.0-1ubuntu2.13",
+        "7.47.0-1ubuntu2.14",
+        "7.47.0-1ubuntu2.15",
+        "7.47.0-1ubuntu2.16",
+        "7.47.0-1ubuntu2.18",
+        "7.47.0-1ubuntu2.19",
+        "7.47.0-1ubuntu2.19+esm1",
+        "7.47.0-1ubuntu2.19+esm2",
+        "7.47.0-1ubuntu2.19+esm3",
+        "7.47.0-1ubuntu2.19+esm4",
+        "7.47.0-1ubuntu2.19+esm5",
+        "7.47.0-1ubuntu2.19+esm6",
+        "7.47.0-1ubuntu2.19+esm7",
+        "7.47.0-1ubuntu2.19+esm8",
+        "7.47.0-1ubuntu2.19+esm9",
+        "7.47.0-1ubuntu2.19+esm10",
+        "7.47.0-1ubuntu2.19+esm11",
+        "7.47.0-1ubuntu2.19+esm12",
+        "7.47.0-1ubuntu2.19+esm13",
+        "7.47.0-1ubuntu2.19+esm15",
+        "7.47.0-1ubuntu2.19+esm16",
+        "7.47.0-1ubuntu2.19+esm17",
+        "7.47.0-1ubuntu2.19+esm18",
+        "7.47.0-1ubuntu2.19+esm20"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "curl",
+            "binary_version": "7.47.0-1ubuntu2.19+esm21"
+          },
+          {
+            "binary_name": "libcurl3",
+            "binary_version": "7.47.0-1ubuntu2.19+esm21"
+          },
+          {
+            "binary_name": "libcurl3-gnutls",
+            "binary_version": "7.47.0-1ubuntu2.19+esm21"
+          },
+          {
+            "binary_name": "libcurl3-nss",
+            "binary_version": "7.47.0-1ubuntu2.19+esm21"
+          }
+        ],
+        "availability": "Available with Ubuntu Pro with Legacy support add-on: https://ubuntu.com/pro"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:Pro:16.04:LTS",
+          "cves": []
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:18.04:LTS",
+        "name": "curl",
+        "purl": "pkg:deb/ubuntu/curl@7.58.0-2ubuntu3.24+esm15?arch=source&distro=esm-infra/bionic"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "7.58.0-2ubuntu3.24+esm15"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "7.55.1-1ubuntu2",
+        "7.55.1-1ubuntu2.1",
+        "7.57.0-1ubuntu1",
+        "7.58.0-2ubuntu1",
+        "7.58.0-2ubuntu2",
+        "7.58.0-2ubuntu3",
+        "7.58.0-2ubuntu3.1",
+        "7.58.0-2ubuntu3.2",
+        "7.58.0-2ubuntu3.3",
+        "7.58.0-2ubuntu3.5",
+        "7.58.0-2ubuntu3.6",
+        "7.58.0-2ubuntu3.7",
+        "7.58.0-2ubuntu3.8",
+        "7.58.0-2ubuntu3.9",
+        "7.58.0-2ubuntu3.10",
+        "7.58.0-2ubuntu3.12",
+        "7.58.0-2ubuntu3.13",
+        "7.58.0-2ubuntu3.14",
+        "7.58.0-2ubuntu3.15",
+        "7.58.0-2ubuntu3.16",
+        "7.58.0-2ubuntu3.17",
+        "7.58.0-2ubuntu3.18",
+        "7.58.0-2ubuntu3.19",
+        "7.58.0-2ubuntu3.20",
+        "7.58.0-2ubuntu3.21",
+        "7.58.0-2ubuntu3.22",
+        "7.58.0-2ubuntu3.23",
+        "7.58.0-2ubuntu3.24",
+        "7.58.0-2ubuntu3.24+esm1",
+        "7.58.0-2ubuntu3.24+esm2",
+        "7.58.0-2ubuntu3.24+esm3",
+        "7.58.0-2ubuntu3.24+esm4",
+        "7.58.0-2ubuntu3.24+esm5",
+        "7.58.0-2ubuntu3.24+esm7",
+        "7.58.0-2ubuntu3.24+esm8",
+        "7.58.0-2ubuntu3.24+esm9",
+        "7.58.0-2ubuntu3.24+esm10",
+        "7.58.0-2ubuntu3.24+esm11",
+        "7.58.0-2ubuntu3.24+esm12",
+        "7.58.0-2ubuntu3.24+esm14"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "curl",
+            "binary_version": "7.58.0-2ubuntu3.24+esm15"
+          },
+          {
+            "binary_name": "libcurl3-gnutls",
+            "binary_version": "7.58.0-2ubuntu3.24+esm15"
+          },
+          {
+            "binary_name": "libcurl3-nss",
+            "binary_version": "7.58.0-2ubuntu3.24+esm15"
+          },
+          {
+            "binary_name": "libcurl4",
+            "binary_version": "7.58.0-2ubuntu3.24+esm15"
+          }
+        ],
+        "availability": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:Pro:18.04:LTS",
+          "cves": []
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:Pro:20.04:LTS",
+        "name": "curl",
+        "purl": "pkg:deb/ubuntu/curl@7.68.0-1ubuntu2.25+esm10?arch=source&distro=esm-infra/focal"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "7.68.0-1ubuntu2.25+esm10"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "7.65.3-1ubuntu3",
+        "7.65.3-1ubuntu4",
+        "7.66.0-1ubuntu1",
+        "7.67.0-2ubuntu1",
+        "7.68.0-1ubuntu1",
+        "7.68.0-1ubuntu2",
+        "7.68.0-1ubuntu2.1",
+        "7.68.0-1ubuntu2.2",
+        "7.68.0-1ubuntu2.4",
+        "7.68.0-1ubuntu2.5",
+        "7.68.0-1ubuntu2.6",
+        "7.68.0-1ubuntu2.7",
+        "7.68.0-1ubuntu2.10",
+        "7.68.0-1ubuntu2.11",
+        "7.68.0-1ubuntu2.12",
+        "7.68.0-1ubuntu2.13",
+        "7.68.0-1ubuntu2.14",
+        "7.68.0-1ubuntu2.15",
+        "7.68.0-1ubuntu2.16",
+        "7.68.0-1ubuntu2.18",
+        "7.68.0-1ubuntu2.19",
+        "7.68.0-1ubuntu2.20",
+        "7.68.0-1ubuntu2.21",
+        "7.68.0-1ubuntu2.22",
+        "7.68.0-1ubuntu2.23",
+        "7.68.0-1ubuntu2.24",
+        "7.68.0-1ubuntu2.25",
+        "7.68.0-1ubuntu2.25+esm2",
+        "7.68.0-1ubuntu2.25+esm3",
+        "7.68.0-1ubuntu2.25+esm4",
+        "7.68.0-1ubuntu2.25+esm5",
+        "7.68.0-1ubuntu2.25+esm6",
+        "7.68.0-1ubuntu2.25+esm7",
+        "7.68.0-1ubuntu2.25+esm9"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "curl",
+            "binary_version": "7.68.0-1ubuntu2.25+esm10"
+          },
+          {
+            "binary_name": "libcurl3-gnutls",
+            "binary_version": "7.68.0-1ubuntu2.25+esm10"
+          },
+          {
+            "binary_name": "libcurl3-nss",
+            "binary_version": "7.68.0-1ubuntu2.25+esm10"
+          },
+          {
+            "binary_name": "libcurl4",
+            "binary_version": "7.68.0-1ubuntu2.25+esm10"
+          }
+        ],
+        "availability": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:Pro:20.04:LTS",
+          "cves": []
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:22.04:LTS",
+        "name": "curl",
+        "purl": "pkg:deb/ubuntu/curl@7.81.0-1ubuntu1.30?arch=source&distro=jammy"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "7.81.0-1ubuntu1.30"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "7.74.0-1.3ubuntu2",
+        "7.74.0-1.3ubuntu3",
+        "7.80.0-3",
+        "7.81.0-1",
+        "7.81.0-1ubuntu1.1",
+        "7.81.0-1ubuntu1.2",
+        "7.81.0-1ubuntu1.3",
+        "7.81.0-1ubuntu1.4",
+        "7.81.0-1ubuntu1.6",
+        "7.81.0-1ubuntu1.7",
+        "7.81.0-1ubuntu1.8",
+        "7.81.0-1ubuntu1.10",
+        "7.81.0-1ubuntu1.11",
+        "7.81.0-1ubuntu1.13",
+        "7.81.0-1ubuntu1.14",
+        "7.81.0-1ubuntu1.15",
+        "7.81.0-1ubuntu1.16",
+        "7.81.0-1ubuntu1.17",
+        "7.81.0-1ubuntu1.18",
+        "7.81.0-1ubuntu1.19",
+        "7.81.0-1ubuntu1.20",
+        "7.81.0-1ubuntu1.21",
+        "7.81.0-1ubuntu1.22",
+        "7.81.0-1ubuntu1.23",
+        "7.81.0-1ubuntu1.24",
+        "7.81.0-1ubuntu1.25",
+        "7.81.0-1ubuntu1.26",
+        "7.81.0-1ubuntu1.27",
+        "7.81.0-1ubuntu1.29"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "curl",
+            "binary_version": "7.81.0-1ubuntu1.30"
+          },
+          {
+            "binary_name": "libcurl3-gnutls",
+            "binary_version": "7.81.0-1ubuntu1.30"
+          },
+          {
+            "binary_name": "libcurl3-nss",
+            "binary_version": "7.81.0-1ubuntu1.30"
+          },
+          {
+            "binary_name": "libcurl4",
+            "binary_version": "7.81.0-1ubuntu1.30"
+          }
+        ],
+        "availability": "No subscription required"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:22.04:LTS",
+          "cves": []
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:24.04:LTS",
+        "name": "curl",
+        "purl": "pkg:deb/ubuntu/curl@8.5.0-2ubuntu10.16?arch=source&distro=noble"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "8.5.0-2ubuntu10.16"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "8.2.1-1ubuntu3",
+        "8.2.1-1ubuntu3.1",
+        "8.4.0-2ubuntu1",
+        "8.5.0-2ubuntu1",
+        "8.5.0-2ubuntu2",
+        "8.5.0-2ubuntu8",
+        "8.5.0-2ubuntu9",
+        "8.5.0-2ubuntu10",
+        "8.5.0-2ubuntu10.1",
+        "8.5.0-2ubuntu10.2",
+        "8.5.0-2ubuntu10.3",
+        "8.5.0-2ubuntu10.4",
+        "8.5.0-2ubuntu10.5",
+        "8.5.0-2ubuntu10.6",
+        "8.5.0-2ubuntu10.7",
+        "8.5.0-2ubuntu10.8",
+        "8.5.0-2ubuntu10.9",
+        "8.5.0-2ubuntu10.10",
+        "8.5.0-2ubuntu10.11",
+        "8.5.0-2ubuntu10.12",
+        "8.5.0-2ubuntu10.13",
+        "8.5.0-2ubuntu10.15"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "curl",
+            "binary_version": "8.5.0-2ubuntu10.16"
+          },
+          {
+            "binary_name": "libcurl3t64-gnutls",
+            "binary_version": "8.5.0-2ubuntu10.16"
+          },
+          {
+            "binary_name": "libcurl4t64",
+            "binary_version": "8.5.0-2ubuntu10.16"
+          }
+        ],
+        "availability": "No subscription required"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:24.04:LTS",
+          "cves": []
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-8932-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-86409"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-86414"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-87862"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-87863"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-87864"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-92388"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-92389"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-92391"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-94266"
+    }
+  ]
+}
