@@ -1,0 +1,786 @@
+{
+  "schema_version": "1.7.0",
+  "id": "USN-8969-1",
+  "summary": "bind9 vulnerabilities",
+  "details": "It was discovered that Bind incorrectly handled certain DNS messages\nwith repeated singleton records such as SOA, CNAME, or DNAME records.\nA remote attacker could possibly use this issue to cause Bind to use\nexcessive memory, leading to a denial of service. This issue only affected\nUbuntu 26.10. (CVE-2026-75029)\n\nIt was discovered that Bind incorrectly handled cached DNSSEC proofs.\nA remote attacker could possibly use this issue to cause Bind to crash,\nresulting in a denial of service. This issue only affected\nUbuntu 26.10. (CVE-2026-19662)\n\nIt was discovered that Bind incorrectly handled certain invalid DNSSEC\nrecords. A remote attacker could possibly use this issue to cause Bind\nto use excessive CPU resources, leading to a denial of service. This issue only affected\nUbuntu 26.10.\n(CVE-2026-19668)\n\nIt was discovered that Bind incorrectly handled malformed answers on\nresolvers configured to use DNS64. A remote attacker could possibly use\nthis issue to cause Bind to crash, resulting in a denial of service. This issue only affected\nUbuntu 26.10.\n(CVE-2026-19666)\n\nIt was discovered that Bind incorrectly handled TKEY queries when no\nglobal options block was present. A remote attacker could possibly use\nthis issue to cause Bind to crash, resulting in a denial of service.\nThis issue only affected\nUbuntu 26.10.\n(CVE-2026-76163)\n\nIt was discovered that Bind incorrectly verified TSIG signatures during\nzone transfers. A remote attacker could possibly use this issue to inject\nunauthorized zone contents into a secondary server. This issue only affected\nUbuntu 26.10. (CVE-2026-19033)\n\nIt was discovered that Bind incorrectly handled certain NSEC wildcard\nproofs. A remote attacker could possibly use this issue to forge NXDOMAIN\nresponses and hide the existence of wildcard records. This issue only affected\nUbuntu 26.10. (CVE-2026-19941)\n\nIt was discovered that Bind incorrectly handled DNS-over-HTTPS requests\nwith invalid SIG(0) records. A remote attacker could possibly use this\nissue to cause Bind to crash, resulting in a denial of service. This issue only affected\nUbuntu 26.10. (CVE-2026-77692)\n\nIt was discovered that Bind incorrectly handled malformed zones\ncontaining NS or DNAME nodes above the zone origin. An attacker could\npossibly use this issue to cause Bind to serve out-of-zone records as\nauthoritative, leading to cache poisoning. This issue only affected\nUbuntu 26.10. (CVE-2026-78301)\n\nIt was discovered that Bind incorrectly handled SVCB/HTTPS AliasMode\nrecords referencing large numbers of ServiceMode records. A remote\nattacker could possibly use this issue to cause Bind to exhaust\nresources, leading to a denial of service. This issue only affected\nUbuntu 26.10. (CVE-2026-81563)\n\nIt was discovered that Bind incorrectly validated NSEC3 records from\nunrelated sibling zones. A remote attacker could possibly use this issue\nto perform a DNSSEC downgrade attack and have forged unsigned answers\naccepted. This issue only affected\nUbuntu 26.10. (CVE-2026-77119)\n\nIt was discovered that Bind incorrectly handled wildcard answers with\nmixed NSEC and NSEC3 proofs. A remote attacker could possibly use this\nissue to cause Bind to crash, resulting in a denial of service. This issue only affected\nUbuntu 26.10.\n(CVE-2026-80274)\n\nIt was discovered that Bind incorrectly handled oversized negative\ncache records. A remote attacker could possibly use this issue to cause\nBind to crash, resulting in a denial of service. This issue only affected\nUbuntu 26.10. (CVE-2026-19667)\n\nIt was discovered that Bind incorrectly handled cached trees of\nSVCB/HTTPS AliasMode records. A remote attacker could possibly use this\nissue to cause Bind to use excessive CPU resources, leading to a denial\nof service. This issue only affected\nUbuntu 26.10. (CVE-2026-81736)\n\nIt was discovered that Bind incorrectly limited the processing of\ncompression pointers in inbound DNS messages. A remote attacker could\npossibly use this issue to cause Bind to use excessive CPU and memory\nresources, leading to a denial of service. (CVE-2026-19630)\n\nIt was discovered that Bind incorrectly serialized access to shared\nGSS-TSIG security contexts. A remote attacker could possibly use this\nissue to corrupt memory and execute arbitrary code. (CVE-2026-94300)\n\nIt was discovered that Bind incorrectly handled redirect zones when\nused together with strict QNAME minimization. A remote attacker could\npossibly use this issue to cause Bind to crash, resulting in a denial\nof service. (CVE-2026-96888)\n\nIt was discovered that Bind incorrectly handled certain RPZ\nconfigurations when processing queries with and without recursion. A\nremote attacker could possibly use this issue to cause Bind to crash,\nresulting in a denial of service. (CVE-2026-97313)",
+  "aliases": [],
+  "upstream": [
+    "UBUNTU-CVE-2026-19033",
+    "UBUNTU-CVE-2026-19630",
+    "UBUNTU-CVE-2026-19662",
+    "UBUNTU-CVE-2026-19666",
+    "UBUNTU-CVE-2026-19667",
+    "UBUNTU-CVE-2026-19668",
+    "UBUNTU-CVE-2026-19941",
+    "UBUNTU-CVE-2026-75029",
+    "UBUNTU-CVE-2026-76163",
+    "UBUNTU-CVE-2026-77119",
+    "UBUNTU-CVE-2026-77692",
+    "UBUNTU-CVE-2026-78301",
+    "UBUNTU-CVE-2026-80274",
+    "UBUNTU-CVE-2026-81563",
+    "UBUNTU-CVE-2026-81736",
+    "UBUNTU-CVE-2026-94300",
+    "UBUNTU-CVE-2026-96888",
+    "UBUNTU-CVE-2026-97313"
+  ],
+  "related": [],
+  "published": "2026-11-03T13:45:46Z",
+  "modified": "2026-11-03T13:45:46Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:22.04:LTS",
+        "name": "bind9",
+        "purl": "pkg:deb/ubuntu/bind9@1:9.18.39-0ubuntu0.22.04.8?arch=source&distro=jammy"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1:9.18.39-0ubuntu0.22.04.8"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "1:9.16.15-1ubuntu1",
+        "1:9.16.15-1ubuntu2",
+        "1:9.16.15-1ubuntu3",
+        "1:9.18.0-2ubuntu1",
+        "1:9.18.0-2ubuntu2",
+        "1:9.18.0-2ubuntu3",
+        "1:9.18.1-1ubuntu1",
+        "1:9.18.1-1ubuntu1.1",
+        "1:9.18.1-1ubuntu1.2",
+        "1:9.18.1-1ubuntu1.3",
+        "1:9.18.12-0ubuntu0.22.04.1",
+        "1:9.18.12-0ubuntu0.22.04.2",
+        "1:9.18.12-0ubuntu0.22.04.3",
+        "1:9.18.18-0ubuntu0.22.04.1",
+        "1:9.18.18-0ubuntu0.22.04.2",
+        "1:9.18.24-0ubuntu0.22.04.1",
+        "1:9.18.28-0ubuntu0.22.04.1",
+        "1:9.18.30-0ubuntu0.22.04.1",
+        "1:9.18.30-0ubuntu0.22.04.2",
+        "1:9.18.39-0ubuntu0.22.04.1",
+        "1:9.18.39-0ubuntu0.22.04.2",
+        "1:9.18.39-0ubuntu0.22.04.3",
+        "1:9.18.39-0ubuntu0.22.04.4",
+        "1:9.18.39-0ubuntu0.22.04.5",
+        "1:9.18.39-0ubuntu0.22.04.6",
+        "1:9.18.39-0ubuntu0.22.04.7"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "bind9",
+            "binary_version": "1:9.18.39-0ubuntu0.22.04.8"
+          },
+          {
+            "binary_name": "bind9-dnsutils",
+            "binary_version": "1:9.18.39-0ubuntu0.22.04.8"
+          },
+          {
+            "binary_name": "bind9-host",
+            "binary_version": "1:9.18.39-0ubuntu0.22.04.8"
+          },
+          {
+            "binary_name": "bind9-libs",
+            "binary_version": "1:9.18.39-0ubuntu0.22.04.8"
+          },
+          {
+            "binary_name": "bind9-utils",
+            "binary_version": "1:9.18.39-0ubuntu0.22.04.8"
+          },
+          {
+            "binary_name": "bind9utils",
+            "binary_version": "1:9.18.39-0ubuntu0.22.04.8"
+          },
+          {
+            "binary_name": "dnsutils",
+            "binary_version": "1:9.18.39-0ubuntu0.22.04.8"
+          }
+        ],
+        "availability": "No subscription required"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:22.04:LTS",
+          "cves": [
+            {
+              "id": "CVE-2026-19630",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-94300",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-96888",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-97313",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:24.04:LTS",
+        "name": "bind9",
+        "purl": "pkg:deb/ubuntu/bind9@1:9.18.39-0ubuntu0.24.04.9?arch=source&distro=noble"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1:9.18.39-0ubuntu0.24.04.9"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "1:9.18.18-0ubuntu2",
+        "1:9.18.21-0ubuntu1",
+        "1:9.18.24-0ubuntu3",
+        "1:9.18.24-0ubuntu4",
+        "1:9.18.24-0ubuntu5",
+        "1:9.18.28-0ubuntu0.24.04.1",
+        "1:9.18.30-0ubuntu0.24.04.1",
+        "1:9.18.30-0ubuntu0.24.04.2",
+        "1:9.18.39-0ubuntu0.24.04.1",
+        "1:9.18.39-0ubuntu0.24.04.2",
+        "1:9.18.39-0ubuntu0.24.04.3",
+        "1:9.18.39-0ubuntu0.24.04.5",
+        "1:9.18.39-0ubuntu0.24.04.6",
+        "1:9.18.39-0ubuntu0.24.04.7",
+        "1:9.18.39-0ubuntu0.24.04.8"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "bind9",
+            "binary_version": "1:9.18.39-0ubuntu0.24.04.9"
+          },
+          {
+            "binary_name": "bind9-dnsutils",
+            "binary_version": "1:9.18.39-0ubuntu0.24.04.9"
+          },
+          {
+            "binary_name": "bind9-host",
+            "binary_version": "1:9.18.39-0ubuntu0.24.04.9"
+          },
+          {
+            "binary_name": "bind9-libs",
+            "binary_version": "1:9.18.39-0ubuntu0.24.04.9"
+          },
+          {
+            "binary_name": "bind9-utils",
+            "binary_version": "1:9.18.39-0ubuntu0.24.04.9"
+          },
+          {
+            "binary_name": "bind9utils",
+            "binary_version": "1:9.18.39-0ubuntu0.24.04.9"
+          },
+          {
+            "binary_name": "dnsutils",
+            "binary_version": "1:9.18.39-0ubuntu0.24.04.9"
+          }
+        ],
+        "availability": "No subscription required"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:24.04:LTS",
+          "cves": [
+            {
+              "id": "CVE-2026-19630",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-94300",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-96888",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-97313",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:26.10",
+        "name": "bind9",
+        "purl": "pkg:deb/ubuntu/bind9@1:9.20.24-1ubuntu3.1?arch=source&distro=stonking"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1:9.20.24-1ubuntu3.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "1:9.20.18-1ubuntu2",
+        "1:9.20.23-1ubuntu1",
+        "1:9.20.24-1ubuntu2",
+        "1:9.20.24-1ubuntu3"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "bind9",
+            "binary_version": "1:9.20.24-1ubuntu3.1"
+          },
+          {
+            "binary_name": "bind9-dnsutils",
+            "binary_version": "1:9.20.24-1ubuntu3.1"
+          },
+          {
+            "binary_name": "bind9-host",
+            "binary_version": "1:9.20.24-1ubuntu3.1"
+          },
+          {
+            "binary_name": "bind9-libs",
+            "binary_version": "1:9.20.24-1ubuntu3.1"
+          },
+          {
+            "binary_name": "bind9-utils",
+            "binary_version": "1:9.20.24-1ubuntu3.1"
+          }
+        ],
+        "availability": "No subscription required"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:26.10",
+          "cves": [
+            {
+              "id": "CVE-2026-19033",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:L"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-19630",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-19662",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-19666",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-19667",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-19668",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-19941",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-75029",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-76163",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-77119",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-77692",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-78301",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:C/C:N/I:H/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-80274",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-81563",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-81736",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-94300",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-96888",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-97313",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:26.04:LTS",
+        "name": "bind9",
+        "purl": "pkg:deb/ubuntu/bind9@1:9.20.24-1ubuntu0.5?arch=source&distro=resolute"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1:9.20.24-1ubuntu0.5"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "1:9.20.11-1ubuntu2",
+        "1:9.20.11-1ubuntu3",
+        "1:9.20.18-1ubuntu1",
+        "1:9.20.18-1ubuntu2",
+        "1:9.20.18-1ubuntu2.1",
+        "1:9.20.24-1ubuntu0.1",
+        "1:9.20.24-1ubuntu0.2",
+        "1:9.20.24-1ubuntu0.3",
+        "1:9.20.24-1ubuntu0.4"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "bind9",
+            "binary_version": "1:9.20.24-1ubuntu0.5"
+          },
+          {
+            "binary_name": "bind9-dnsutils",
+            "binary_version": "1:9.20.24-1ubuntu0.5"
+          },
+          {
+            "binary_name": "bind9-host",
+            "binary_version": "1:9.20.24-1ubuntu0.5"
+          },
+          {
+            "binary_name": "bind9-libs",
+            "binary_version": "1:9.20.24-1ubuntu0.5"
+          },
+          {
+            "binary_name": "bind9-utils",
+            "binary_version": "1:9.20.24-1ubuntu0.5"
+          }
+        ],
+        "availability": "No subscription required"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:26.04:LTS",
+          "cves": [
+            {
+              "id": "CVE-2026-19630",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-94300",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-96888",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-97313",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-8969-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-19033"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-19630"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-19662"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-19666"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-19667"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-19668"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-19941"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-75029"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-76163"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-77119"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-77692"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-78301"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-80274"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-81563"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-81736"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-94300"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-96888"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-97313"
+    }
+  ]
+}
