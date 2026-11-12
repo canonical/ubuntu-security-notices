@@ -1,0 +1,419 @@
+{
+  "schema_version": "1.7.0",
+  "id": "USN-9041-1",
+  "summary": "rust-coreutils vulnerabilities",
+  "details": "It was discovered that uutils coreutils mkfifo incorrectly continued\nprocessing when a target file already existed, applying default\npermissions to the existing file. A local attacker could possibly use\nthis issue to obtain sensitive information or modify file permissions\nunexpectedly. (CVE-2026-35341)\n\nIt was discovered that uutils coreutils dd incorrectly suppressed\nerrors during file truncation operations. A local attacker could\npossibly use this issue to cause silent data corruption.\n(CVE-2026-35344)\n\nIt was discovered that uutils coreutils tail incorrectly followed\nsymbolic links when using the --follow=name option. A local attacker\ncould possibly use this issue to obtain sensitive information.\n(CVE-2026-35345)\n\nIt was discovered that uutils coreutils sort crashed when processing\nfilenames containing non-UTF-8 bytes. A local attacker could possibly\nuse this issue to cause a denial of service. (CVE-2026-35348)\n\nIt was discovered that uutils coreutils cp incorrectly preserved\nsetuid and setgid bits when ownership changes failed. A local attacker\ncould possibly use this issue to gain elevated privileges.\n(CVE-2026-35350)\n\nIt was discovered that uutils coreutils mv failed to preserve file\nownership when moving files across file system boundaries. A local\nattacker could possibly use this issue to obtain sensitive information\nor cause unintended access restrictions. (CVE-2026-35351)\n\nIt was discovered that uutils coreutils mv had a time-of-check to\ntime-of-use race condition in its extended attribute preservation\nlogic. A local attacker with write access to a directory could\npossibly use this issue to modify security labels on unintended files.\n(CVE-2026-35354)\n\nIt was discovered that uutils coreutils cp had a race condition in\nits file creation logic, initially creating destination files with\noverly permissive modes. A local attacker could possibly use this\nissue to obtain sensitive information. (CVE-2026-35357)\n\nIt was discovered that uutils coreutils cp had a time-of-check to\ntime-of-use race condition when handling symbolic links. A local\nattacker with write access to a directory could possibly use this\nissue to obtain sensitive information. (CVE-2026-35359)\n\nIt was discovered that uutils coreutils touch had a time-of-check to\ntime-of-use race condition during file creation. A local attacker\ncould possibly use this issue to cause data loss. (CVE-2026-35360)\n\nIt was discovered that uutils coreutils rm failed to recognize\ntrailing slashes on the current directory path. A local attacker could\npossibly use this issue to cause data loss. (CVE-2026-35363)\n\nIt was discovered that uutils coreutils mv had a time-of-check to\ntime-of-use race condition during cross-device operations. A local\nattacker with write access to a directory could possibly use this\nissue to overwrite arbitrary files. (CVE-2026-35364)\n\nIt was discovered that uutils coreutils nohup created its output file\nwith world-readable permissions. A local attacker could possibly use\nthis issue to obtain sensitive information. (CVE-2026-35367)\n\nIt was discovered that uutils coreutils chroot incorrectly resolved\nuser specifications before dropping root privileges, allowing Name\nService Switch modules to be loaded from the new root directory. A\nlocal attacker with write access to the chroot directory could\npossibly use this issue to execute arbitrary code as root.\n(CVE-2026-35368)\n\nIt was discovered that uutils coreutils ln failed to process\nfilenames containing non-UTF-8 bytes, causing the utility to exit\nwith an error. A local attacker could possibly use this issue to\ncause a denial of service. (CVE-2026-35373)\n\nIt was discovered that uutils coreutils split had a time-of-check to\ntime-of-use race condition in its input and output file validation. A\nlocal attacker with write access to a directory could possibly use\nthis issue to cause data loss. (CVE-2026-35374)\n\nIt was discovered that uutils coreutils chcon had a time-of-check to\ntime-of-use race condition during recursive relabeling operations. A\nlocal attacker with write access to a directory could possibly use\nthis issue to modify security labels on unintended files.\n(CVE-2026-35376)\n\nIt was discovered that uutils coreutils env incorrectly handled\nbackslash sequences within single quotes when using the -S option. A\nlocal attacker could possibly use this issue to cause a denial of\nservice. (CVE-2026-35377)\n\nIt was discovered that uutils coreutils install applied setuid and\nsetgid mode bits to destination files before completing ownership\nchanges. A local attacker could possibly use this issue to gain\nelevated privileges. (CVE-2026-93658)",
+  "aliases": [],
+  "upstream": [
+    "UBUNTU-CVE-2026-35341",
+    "UBUNTU-CVE-2026-35344",
+    "UBUNTU-CVE-2026-35345",
+    "UBUNTU-CVE-2026-35348",
+    "UBUNTU-CVE-2026-35350",
+    "UBUNTU-CVE-2026-35351",
+    "UBUNTU-CVE-2026-35354",
+    "UBUNTU-CVE-2026-35357",
+    "UBUNTU-CVE-2026-35359",
+    "UBUNTU-CVE-2026-35360",
+    "UBUNTU-CVE-2026-35363",
+    "UBUNTU-CVE-2026-35364",
+    "UBUNTU-CVE-2026-35367",
+    "UBUNTU-CVE-2026-35368",
+    "UBUNTU-CVE-2026-35373",
+    "UBUNTU-CVE-2026-35374",
+    "UBUNTU-CVE-2026-35376",
+    "UBUNTU-CVE-2026-35377",
+    "UBUNTU-CVE-2026-93658"
+  ],
+  "related": [],
+  "published": "2026-11-11T10:45:28Z",
+  "modified": "2026-11-11T10:45:28Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:26.04:LTS",
+        "name": "rust-coreutils",
+        "purl": "pkg:deb/ubuntu/rust-coreutils@0.10.0-1ubuntu2~26.04.1?arch=source&distro=resolute"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "0.10.0-1ubuntu2~26.04.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "0.2.2-0ubuntu2",
+        "0.2.2-0ubuntu4",
+        "0.5.0-0ubuntu1",
+        "0.5.0-0ubuntu2",
+        "0.6.0-0ubuntu1",
+        "0.7.0-0ubuntu1",
+        "0.8.0-0ubuntu3"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "rust-coreutils",
+            "binary_version": "0.10.0-1ubuntu2~26.04.1"
+          }
+        ],
+        "availability": "No subscription required"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:26.04:LTS",
+          "cves": [
+            {
+              "id": "CVE-2026-35341",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-35344",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-35345",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:L/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-35348",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-35350",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:H/A:L"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-35351",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:L/A:L"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-35354",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:H/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-35357",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-35359",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-35360",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-35363",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:N/I:H/A:L"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-35364",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-35367",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-35368",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-35373",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-35374",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:H/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-35376",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:L"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:L/I:H/A:L"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-35377",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            },
+            {
+              "id": "CVE-2026-93658",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                },
+                {
+                  "type": "CVSS_V4",
+                  "score": "CVSS:4.0/AV:L/AC:H/AT:P/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-9041-1"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35341"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35344"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35345"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35348"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35350"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35351"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35354"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35357"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35359"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35360"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35363"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35364"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35367"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35368"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35373"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35374"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35376"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-35377"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-93658"
+    }
+  ]
+}
