@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.7.0",
+  "id": "USN-9064-2",
+  "summary": "pillow regression",
+  "details": "USN-9064-1 fixed vulnerabilities in Pillow. Unfortunately, the fix for\nCVE-2026-112402 introduced a regression that caused resizing images with\nthe NEAREST filter, and resizing any \"1\" or \"P\" mode image, to fail. This\nupdate fixes the problem.\n\nWe apologize for the inconvenience.\n\nOriginal advisory details:\n\n It was discovered that Pillow could enter an infinite loop while\n determining the frame count of a MIC image. An attacker could\n possibly use this issue to cause a denial of service. This issue\n only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS, and\n Ubuntu 22.04 LTS. (CVE-2026-112390)\n\n It was discovered that Pillow's PdfParser.get_value() could recurse\n without a limit while reading nested PDF objects. An attacker could\n possibly use this issue to cause a denial of service. This issue\n only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS,\n Ubuntu 22.04 LTS, Ubuntu 20.04 LTS, and Ubuntu 18.04 LTS.\n (CVE-2026-112391)\n\n It was discovered that Pillow's rank-based filters could dereference\n invalid image storage for a zero-size image. An attacker could\n possibly use this issue to cause a crash. (CVE-2026-112392)\n\n It was discovered that Pillow had a heap buffer overflow in\n _tiffWriteProc when saving compressed TIFF data. An attacker could\n possibly use this issue to crash the process or execute arbitrary\n code. (CVE-2026-112393)\n\n It was discovered that Pillow's P;2L and P;4L raw decoders could\n read past the end of an input buffer. An attacker could possibly\n use this issue to disclose heap memory or crash the process.\n (CVE-2026-112394)\n\n It was discovered that Pillow's tiled-TIFF decoder could read past\n the tile buffer while copying four-byte pixels. An attacker could\n possibly use this issue to expose heap data or crash the process.\n This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu\n 24.04 LTS, and Ubuntu 22.04 LTS. (CVE-2026-112395)\n\n It was discovered that Pillow had a heap use-after-free when libtiff\n rejects a tag while encoding TIFF data to an in-memory buffer. An\n attacker could possibly use this issue to crash the process or\n execute arbitrary code. This issue only affected Ubuntu 26.10 and\n Ubuntu 26.04 LTS. (CVE-2026-112396)\n\n It was discovered that Pillow's ImageMorph.MorphOp.apply() could\n access memory before a row buffer for a zero-width image. An\n attacker could possibly use this issue to cause a crash.\n (CVE-2026-112397)\n\n It was discovered that Pillow's FlashPix JPEG-tile decoder could\n write decoded scanlines beyond the allocated tile buffer. An\n attacker could possibly use this issue to corrupt heap memory and\n execute arbitrary code. (CVE-2026-112398)\n\n It was discovered that Pillow could allocate an APNG disposal\n background at the full canvas size before applying the\n decompression-bomb check. An attacker could possibly use this\n issue to exhaust memory and cause a denial of service. This issue\n only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS,\n and Ubuntu 22.04 LTS. (CVE-2026-112399)\n\n It was discovered that Pillow could retain a rejected GIF frame\n size after a decompression-bomb exception. An attacker could\n possibly use this issue to exhaust memory and cause a denial of\n service. This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS,\n and Ubuntu 24.04 LTS. (CVE-2026-112400)\n\n It was discovered that Pillow performed quadratic copying while\n parsing GIF comments. An attacker could possibly use this issue\n to cause a denial of service. This issue only affected Ubuntu\n 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS, Ubuntu 22.04 LTS, and\n Ubuntu 20.04 LTS. (CVE-2026-112401)\n\n It was discovered that Pillow could double free image memory when\n ImagingScaleAffine encounters a selective allocation failure. An\n attacker could possibly use this issue to crash the process.\n (CVE-2026-112402)\n\n It was discovered that Pillow's JPEG decoder could write a\n full-width scanline into a buffer sized for a requested draft\n scale. An attacker could possibly use this issue to corrupt heap\n memory or execute arbitrary code. (CVE-2026-112403)\n\n It was discovered that Pillow's TIFF tile and RGBA decode paths\n could read beyond row data produced by libtiff. An attacker could\n possibly use this issue to expose heap data or crash the process.\n This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu\n 24.04 LTS, and Ubuntu 22.04 LTS. (CVE-2026-112404)\n\n It was discovered that Pillow's Image.merge() could dereference a\n null image8 plane. An attacker could possibly use this issue to\n cause a crash. This issue only affected Ubuntu 26.10 and Ubuntu\n 26.04 LTS. (CVE-2026-112405)\n\n It was discovered that Pillow could enter an infinite loop while\n rewriting PDF pages. An attacker could possibly use this issue to\n cause a denial of service. This issue only affected Ubuntu 26.10,\n Ubuntu 26.04 LTS, Ubuntu 24.04 LTS, Ubuntu 22.04 LTS, Ubuntu 20.04\n LTS, and Ubuntu 18.04 LTS. (CVE-2026-112406)\n\n It was discovered that Pillow performed quadratic copying when\n saving a GIF with a long comment. An attacker could possibly use\n this issue to cause a denial of service. This issue only affected\n Ubuntu 26.10, Ubuntu 26.04 LTS, and Ubuntu 24.04 LTS.\n (CVE-2026-112891)\n\n It was discovered that Pillow's MSP RLE decoder could expand a\n small file into an unbounded in-memory buffer. An attacker could\n possibly use this issue to exhaust memory and cause a denial of\n service. This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS,\n Ubuntu 24.04 LTS, Ubuntu 22.04 LTS, Ubuntu 20.04 LTS, and Ubuntu\n 18.04 LTS. (CVE-2026-112892)\n\n It was discovered that Pillow could free an invalid glyph pointer\n during FreeType rendering with an active stroker. An attacker could\n possibly use this issue to corrupt memory or crash the process.\n This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS, and\n Ubuntu 24.04 LTS. (CVE-2026-112893)\n\n It was discovered that Pillow took quadratic time to reserve PDF\n object identifiers when saving many frames. An attacker could\n possibly use this issue to cause a denial of service. This issue\n only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS,\n Ubuntu 22.04 LTS, Ubuntu 20.04 LTS, and Ubuntu 18.04 LTS.\n (CVE-2026-112894)\n\n It was discovered that Pillow could exhaust resources while parsing\n an existing PDF during an append operation. An attacker could\n possibly use this issue to cause a denial of service. This issue\n only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS,\n Ubuntu 22.04 LTS, Ubuntu 20.04 LTS, and Ubuntu 18.04 LTS.\n (CVE-2026-112895)\n\n It was discovered that Pillow's TIFF encoder could read beyond a\n ColorMap buffer when retained TIFF metadata has a plane size\n inconsistent with BitsPerSample. An attacker could possibly use\n this issue to disclose heap memory or crash the process.\n (CVE-2026-112896)\n\n It was discovered that Pillow could return uninitialized memory as\n pixels when libtiff performs a short decode of JPEG-compressed or\n Group 4 fax TIFF data. An attacker could possibly use this issue\n to disclose stale heap contents. This issue only affected Ubuntu\n 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS, and Ubuntu 22.04 LTS.\n (CVE-2026-112897)\n\n It was discovered that Pillow could disclose uninitialized stack\n memory when Image.quantize() uses an empty palette. An attacker\n could possibly use this issue to obtain stack contents. This issue\n only affected Ubuntu 26.10, Ubuntu 26.04 LTS, and Ubuntu 24.04\n LTS. (CVE-2026-112898)\n\n It was discovered that Pillow was vulnerable to argument injection\n when invoking Ghostscript for EPS input. An attacker could possibly\n use this issue to inject Ghostscript arguments and execute\n arbitrary commands. (CVE-2026-112900)\n\n It was discovered that Pillow's XBM header parser was vulnerable\n to regular-expression denial of service. An attacker could\n possibly use this issue to cause a denial of service.\n (CVE-2026-112901)\n\n It was discovered that Pillow could export non-contiguous image\n data to Arrow arrays. An attacker could possibly use this issue to\n disclose uninitialized memory or stale heap contents. This issue\n only affected Ubuntu 26.10 and Ubuntu 26.04 LTS. (CVE-2026-114501)\n\n It was discovered that Pillow could overflow an integer when\n tracking glyph positions for very long strings. An attacker could\n possibly use this issue to cause logic errors or resource\n consumption. This issue only affected Ubuntu 24.04 LTS, Ubuntu\n 22.04 LTS, Ubuntu 20.04 LTS, Ubuntu 18.04 LTS, Ubuntu 16.04 LTS,\n and Ubuntu 14.04 LTS. (CVE-2026-42308)\n\n It was discovered that Pillow could hang indefinitely when\n processing a malicious PDF with a trailer loop. An attacker could\n possibly use this issue to cause a denial of service. This issue\n only affected Ubuntu 24.04 LTS, Ubuntu 22.04 LTS, Ubuntu 20.04\n LTS, and Ubuntu 18.04 LTS. (CVE-2026-42310)\n\n It was discovered that Pillow did not properly apply decompression\n bomb checks after seeking to new frames in MPO, DCX, and MIC\n images. An attacker could possibly use this issue to bypass the\n check and cause memory exhaustion. This issue only affected\n Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS, Ubuntu 22.04\n LTS, Ubuntu 20.04 LTS, Ubuntu 18.04 LTS, and Ubuntu 16.04 LTS.\n (CVE-2026-96636)\n\n It was discovered that Pillow did not properly apply decompression\n bomb checks after seeking to new frames in SPIDER images. An\n attacker could possibly use this issue to cause memory exhaustion.\n This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu\n 24.04 LTS, Ubuntu 22.04 LTS, Ubuntu 20.04 LTS, Ubuntu 18.04 LTS,\n and Ubuntu 16.04 LTS. (CVE-2026-96637)\n\n It was discovered that Pillow's BMP RLE decoder could expand a\n small file into an unbounded in-memory buffer. An attacker could\n possibly use this issue to exhaust memory and cause a denial of\n service. This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS,\n and Ubuntu 24.04 LTS. (CVE-2026-96638)\n\n It was discovered that Pillow's multi-frame loaders could retain\n a stale ImagingCore allocation. An attacker could possibly use\n this issue to cause out-of-bounds writes and crashes. This issue\n only affected Ubuntu 26.10 and Ubuntu 26.04 LTS. (CVE-2026-96639)\n\n It was discovered that Pillow did not properly detect cyclic page\n tree references in PDF parsing. An attacker could possibly use\n this issue to cause a denial of service. This issue only affected\n Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS, Ubuntu 22.04 LTS,\n Ubuntu 20.04 LTS, and Ubuntu 18.04 LTS. (CVE-2026-96640)\n\n It was discovered that Pillow's PILfont text-width accumulation\n could overflow due to unchecked negative glyph advances. An\n attacker could possibly use this issue to cause logic errors or\n resource consumption. (CVE-2026-96641)\n\n It was discovered that Pillow's TarIO initializer accepted a\n negative octal member size. An attacker could possibly use this\n issue to cause an infinite loop and denial of service.\n (CVE-2026-96642)\n\n It was discovered that Pillow's Exif.load() could perform\n quadratic CPU work when processing repeated EXIF headers. An\n attacker could possibly use this issue to cause a denial of\n service. This issue only affected Ubuntu 26.10 and Ubuntu 26.04\n LTS. (CVE-2026-96643)\n\n It was discovered that Pillow could call jpeg_write_marker() for a\n JPEG COM comment when an ICC profile has exactly filled the\n 65536-byte encoder buffer. An attacker could possibly use this\n issue to cause a heap buffer overflow and execute arbitrary code.\n This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS, and\n Ubuntu 24.04 LTS. (CVE-2026-96778)\n",
+  "aliases": [],
+  "upstream": [
+    "UBUNTU-CVE-2026-112402"
+  ],
+  "related": [],
+  "published": "2026-11-16T18:07:22Z",
+  "modified": "2026-11-16T18:07:22Z",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Ubuntu:26.10",
+        "name": "pillow",
+        "purl": "pkg:deb/ubuntu/pillow@12.3.0-1ubuntu2.1?arch=source&distro=stonking"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "12.3.0-1ubuntu2.1"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "12.1.1-2ubuntu1",
+        "12.3.0-1ubuntu1",
+        "12.3.0-1ubuntu2"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "python3-pil",
+            "binary_version": "12.3.0-1ubuntu2.1"
+          },
+          {
+            "binary_name": "python3-pil.imagetk",
+            "binary_version": "12.3.0-1ubuntu2.1"
+          }
+        ],
+        "availability": "No subscription required"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:26.10",
+          "cves": [
+            {
+              "id": "CVE-2026-112402",
+              "severity": [
+                {
+                  "type": "CVSS_V4",
+                  "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Ubuntu:26.04:LTS",
+        "name": "pillow",
+        "purl": "pkg:deb/ubuntu/pillow@12.1.1-2ubuntu1.6?arch=source&distro=resolute"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "12.1.1-2ubuntu1.6"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "11.3.0-1ubuntu1",
+        "11.3.0-1ubuntu2",
+        "12.0.0-1ubuntu1",
+        "12.1.1-1ubuntu1",
+        "12.1.1-2ubuntu1",
+        "12.1.1-2ubuntu1.1",
+        "12.1.1-2ubuntu1.2",
+        "12.1.1-2ubuntu1.3",
+        "12.1.1-2ubuntu1.4",
+        "12.1.1-2ubuntu1.5"
+      ],
+      "ecosystem_specific": {
+        "binaries": [
+          {
+            "binary_name": "python3-pil",
+            "binary_version": "12.1.1-2ubuntu1.6"
+          },
+          {
+            "binary_name": "python3-pil.imagetk",
+            "binary_version": "12.1.1-2ubuntu1.6"
+          }
+        ],
+        "availability": "No subscription required"
+      },
+      "database_specific": {
+        "cves_map": {
+          "ecosystem": "Ubuntu:26.04:LTS",
+          "cves": [
+            {
+              "id": "CVE-2026-112402",
+              "severity": [
+                {
+                  "type": "CVSS_V4",
+                  "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N"
+                },
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                },
+                {
+                  "type": "Ubuntu",
+                  "score": "medium"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://ubuntu.com/security/notices/USN-9064-2"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://ubuntu.com/security/CVE-2026-112402"
+    },
+    {
+      "type": "REPORT",
+      "url": "https://launchpad.net/bugs/2174424"
+    }
+  ]
+}
