@@ -1,0 +1,297 @@
+{
+  "action": "In general, a standard system update will make all the necessary changes.",
+  "cves": [
+    "CVE-2026-112402",
+    "https://launchpad.net/bugs/2174424"
+  ],
+  "description": "USN-9064-1 fixed vulnerabilities in Pillow. Unfortunately, the fix for\nCVE-2026-112402 introduced a regression that caused resizing images with\nthe NEAREST filter, and resizing any \"1\" or \"P\" mode image, to fail. This\nupdate fixes the problem.\n\nWe apologize for the inconvenience.\n\nOriginal advisory details:\n\n It was discovered that Pillow could enter an infinite loop while\n determining the frame count of a MIC image. An attacker could\n possibly use this issue to cause a denial of service. This issue\n only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS, and\n Ubuntu 22.04 LTS. (CVE-2026-112390)\n\n It was discovered that Pillow's PdfParser.get_value() could recurse\n without a limit while reading nested PDF objects. An attacker could\n possibly use this issue to cause a denial of service. This issue\n only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS,\n Ubuntu 22.04 LTS, Ubuntu 20.04 LTS, and Ubuntu 18.04 LTS.\n (CVE-2026-112391)\n\n It was discovered that Pillow's rank-based filters could dereference\n invalid image storage for a zero-size image. An attacker could\n possibly use this issue to cause a crash. (CVE-2026-112392)\n\n It was discovered that Pillow had a heap buffer overflow in\n _tiffWriteProc when saving compressed TIFF data. An attacker could\n possibly use this issue to crash the process or execute arbitrary\n code. (CVE-2026-112393)\n\n It was discovered that Pillow's P;2L and P;4L raw decoders could\n read past the end of an input buffer. An attacker could possibly\n use this issue to disclose heap memory or crash the process.\n (CVE-2026-112394)\n\n It was discovered that Pillow's tiled-TIFF decoder could read past\n the tile buffer while copying four-byte pixels. An attacker could\n possibly use this issue to expose heap data or crash the process.\n This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu\n 24.04 LTS, and Ubuntu 22.04 LTS. (CVE-2026-112395)\n\n It was discovered that Pillow had a heap use-after-free when libtiff\n rejects a tag while encoding TIFF data to an in-memory buffer. An\n attacker could possibly use this issue to crash the process or\n execute arbitrary code. This issue only affected Ubuntu 26.10 and\n Ubuntu 26.04 LTS. (CVE-2026-112396)\n\n It was discovered that Pillow's ImageMorph.MorphOp.apply() could\n access memory before a row buffer for a zero-width image. An\n attacker could possibly use this issue to cause a crash.\n (CVE-2026-112397)\n\n It was discovered that Pillow's FlashPix JPEG-tile decoder could\n write decoded scanlines beyond the allocated tile buffer. An\n attacker could possibly use this issue to corrupt heap memory and\n execute arbitrary code. (CVE-2026-112398)\n\n It was discovered that Pillow could allocate an APNG disposal\n background at the full canvas size before applying the\n decompression-bomb check. An attacker could possibly use this\n issue to exhaust memory and cause a denial of service. This issue\n only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS,\n and Ubuntu 22.04 LTS. (CVE-2026-112399)\n\n It was discovered that Pillow could retain a rejected GIF frame\n size after a decompression-bomb exception. An attacker could\n possibly use this issue to exhaust memory and cause a denial of\n service. This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS,\n and Ubuntu 24.04 LTS. (CVE-2026-112400)\n\n It was discovered that Pillow performed quadratic copying while\n parsing GIF comments. An attacker could possibly use this issue\n to cause a denial of service. This issue only affected Ubuntu\n 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS, Ubuntu 22.04 LTS, and\n Ubuntu 20.04 LTS. (CVE-2026-112401)\n\n It was discovered that Pillow could double free image memory when\n ImagingScaleAffine encounters a selective allocation failure. An\n attacker could possibly use this issue to crash the process.\n (CVE-2026-112402)\n\n It was discovered that Pillow's JPEG decoder could write a\n full-width scanline into a buffer sized for a requested draft\n scale. An attacker could possibly use this issue to corrupt heap\n memory or execute arbitrary code. (CVE-2026-112403)\n\n It was discovered that Pillow's TIFF tile and RGBA decode paths\n could read beyond row data produced by libtiff. An attacker could\n possibly use this issue to expose heap data or crash the process.\n This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu\n 24.04 LTS, and Ubuntu 22.04 LTS. (CVE-2026-112404)\n\n It was discovered that Pillow's Image.merge() could dereference a\n null image8 plane. An attacker could possibly use this issue to\n cause a crash. This issue only affected Ubuntu 26.10 and Ubuntu\n 26.04 LTS. (CVE-2026-112405)\n\n It was discovered that Pillow could enter an infinite loop while\n rewriting PDF pages. An attacker could possibly use this issue to\n cause a denial of service. This issue only affected Ubuntu 26.10,\n Ubuntu 26.04 LTS, Ubuntu 24.04 LTS, Ubuntu 22.04 LTS, Ubuntu 20.04\n LTS, and Ubuntu 18.04 LTS. (CVE-2026-112406)\n\n It was discovered that Pillow performed quadratic copying when\n saving a GIF with a long comment. An attacker could possibly use\n this issue to cause a denial of service. This issue only affected\n Ubuntu 26.10, Ubuntu 26.04 LTS, and Ubuntu 24.04 LTS.\n (CVE-2026-112891)\n\n It was discovered that Pillow's MSP RLE decoder could expand a\n small file into an unbounded in-memory buffer. An attacker could\n possibly use this issue to exhaust memory and cause a denial of\n service. This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS,\n Ubuntu 24.04 LTS, Ubuntu 22.04 LTS, Ubuntu 20.04 LTS, and Ubuntu\n 18.04 LTS. (CVE-2026-112892)\n\n It was discovered that Pillow could free an invalid glyph pointer\n during FreeType rendering with an active stroker. An attacker could\n possibly use this issue to corrupt memory or crash the process.\n This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS, and\n Ubuntu 24.04 LTS. (CVE-2026-112893)\n\n It was discovered that Pillow took quadratic time to reserve PDF\n object identifiers when saving many frames. An attacker could\n possibly use this issue to cause a denial of service. This issue\n only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS,\n Ubuntu 22.04 LTS, Ubuntu 20.04 LTS, and Ubuntu 18.04 LTS.\n (CVE-2026-112894)\n\n It was discovered that Pillow could exhaust resources while parsing\n an existing PDF during an append operation. An attacker could\n possibly use this issue to cause a denial of service. This issue\n only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS,\n Ubuntu 22.04 LTS, Ubuntu 20.04 LTS, and Ubuntu 18.04 LTS.\n (CVE-2026-112895)\n\n It was discovered that Pillow's TIFF encoder could read beyond a\n ColorMap buffer when retained TIFF metadata has a plane size\n inconsistent with BitsPerSample. An attacker could possibly use\n this issue to disclose heap memory or crash the process.\n (CVE-2026-112896)\n\n It was discovered that Pillow could return uninitialized memory as\n pixels when libtiff performs a short decode of JPEG-compressed or\n Group 4 fax TIFF data. An attacker could possibly use this issue\n to disclose stale heap contents. This issue only affected Ubuntu\n 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS, and Ubuntu 22.04 LTS.\n (CVE-2026-112897)\n\n It was discovered that Pillow could disclose uninitialized stack\n memory when Image.quantize() uses an empty palette. An attacker\n could possibly use this issue to obtain stack contents. This issue\n only affected Ubuntu 26.10, Ubuntu 26.04 LTS, and Ubuntu 24.04\n LTS. (CVE-2026-112898)\n\n It was discovered that Pillow was vulnerable to argument injection\n when invoking Ghostscript for EPS input. An attacker could possibly\n use this issue to inject Ghostscript arguments and execute\n arbitrary commands. (CVE-2026-112900)\n\n It was discovered that Pillow's XBM header parser was vulnerable\n to regular-expression denial of service. An attacker could\n possibly use this issue to cause a denial of service.\n (CVE-2026-112901)\n\n It was discovered that Pillow could export non-contiguous image\n data to Arrow arrays. An attacker could possibly use this issue to\n disclose uninitialized memory or stale heap contents. This issue\n only affected Ubuntu 26.10 and Ubuntu 26.04 LTS. (CVE-2026-114501)\n\n It was discovered that Pillow could overflow an integer when\n tracking glyph positions for very long strings. An attacker could\n possibly use this issue to cause logic errors or resource\n consumption. This issue only affected Ubuntu 24.04 LTS, Ubuntu\n 22.04 LTS, Ubuntu 20.04 LTS, Ubuntu 18.04 LTS, Ubuntu 16.04 LTS,\n and Ubuntu 14.04 LTS. (CVE-2026-42308)\n\n It was discovered that Pillow could hang indefinitely when\n processing a malicious PDF with a trailer loop. An attacker could\n possibly use this issue to cause a denial of service. This issue\n only affected Ubuntu 24.04 LTS, Ubuntu 22.04 LTS, Ubuntu 20.04\n LTS, and Ubuntu 18.04 LTS. (CVE-2026-42310)\n\n It was discovered that Pillow did not properly apply decompression\n bomb checks after seeking to new frames in MPO, DCX, and MIC\n images. An attacker could possibly use this issue to bypass the\n check and cause memory exhaustion. This issue only affected\n Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS, Ubuntu 22.04\n LTS, Ubuntu 20.04 LTS, Ubuntu 18.04 LTS, and Ubuntu 16.04 LTS.\n (CVE-2026-96636)\n\n It was discovered that Pillow did not properly apply decompression\n bomb checks after seeking to new frames in SPIDER images. An\n attacker could possibly use this issue to cause memory exhaustion.\n This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu\n 24.04 LTS, Ubuntu 22.04 LTS, Ubuntu 20.04 LTS, Ubuntu 18.04 LTS,\n and Ubuntu 16.04 LTS. (CVE-2026-96637)\n\n It was discovered that Pillow's BMP RLE decoder could expand a\n small file into an unbounded in-memory buffer. An attacker could\n possibly use this issue to exhaust memory and cause a denial of\n service. This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS,\n and Ubuntu 24.04 LTS. (CVE-2026-96638)\n\n It was discovered that Pillow's multi-frame loaders could retain\n a stale ImagingCore allocation. An attacker could possibly use\n this issue to cause out-of-bounds writes and crashes. This issue\n only affected Ubuntu 26.10 and Ubuntu 26.04 LTS. (CVE-2026-96639)\n\n It was discovered that Pillow did not properly detect cyclic page\n tree references in PDF parsing. An attacker could possibly use\n this issue to cause a denial of service. This issue only affected\n Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS, Ubuntu 22.04 LTS,\n Ubuntu 20.04 LTS, and Ubuntu 18.04 LTS. (CVE-2026-96640)\n\n It was discovered that Pillow's PILfont text-width accumulation\n could overflow due to unchecked negative glyph advances. An\n attacker could possibly use this issue to cause logic errors or\n resource consumption. (CVE-2026-96641)\n\n It was discovered that Pillow's TarIO initializer accepted a\n negative octal member size. An attacker could possibly use this\n issue to cause an infinite loop and denial of service.\n (CVE-2026-96642)\n\n It was discovered that Pillow's Exif.load() could perform\n quadratic CPU work when processing repeated EXIF headers. An\n attacker could possibly use this issue to cause a denial of\n service. This issue only affected Ubuntu 26.10 and Ubuntu 26.04\n LTS. (CVE-2026-96643)\n\n It was discovered that Pillow could call jpeg_write_marker() for a\n JPEG COM comment when an ICC profile has exactly filled the\n 65536-byte encoder buffer. An attacker could possibly use this\n issue to cause a heap buffer overflow and execute arbitrary code.\n This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS, and\n Ubuntu 24.04 LTS. (CVE-2026-96778)\n",
+  "id": "USN-9064-2",
+  "isummary": "USN-9064-1 introduced a regression in Pillow",
+  "releases": {
+    "resolute": {
+      "allbinaries": {
+        "python-pil-doc": {
+          "pocket": "security",
+          "source": "pillow",
+          "version": "12.1.1-2ubuntu1.6"
+        },
+        "python3-pil": {
+          "pocket": "security",
+          "source": "pillow",
+          "version": "12.1.1-2ubuntu1.6"
+        },
+        "python3-pil.imagetk": {
+          "pocket": "security",
+          "source": "pillow",
+          "version": "12.1.1-2ubuntu1.6"
+        }
+      },
+      "archs": {
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/pillow/python-pil-doc_12.1.1-2ubuntu1.6_all.deb": {
+              "md5": "51f7d32aaaac2c15731a662ec0c9e4c6",
+              "size": 1085902
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/pillow/python3-pil_12.1.1-2ubuntu1.6_amd64.deb": {
+              "md5": "a71e977834557b49dc3f361d96213cc3",
+              "size": 492490
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/pillow/python3-pil.imagetk_12.1.1-2ubuntu1.6_amd64.deb": {
+              "md5": "cb137c5eb21edff2f9557cf6f5674f0a",
+              "size": 12768
+            }
+          }
+        },
+        "amd64v3": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/pillow/python3-pil_12.1.1-2ubuntu1.6_amd64v3.deb": {
+              "md5": "a64c46d89472682198e753f3eb6a3db6",
+              "size": 493166
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/pillow/python3-pil.imagetk_12.1.1-2ubuntu1.6_amd64v3.deb": {
+              "md5": "f7cab77989ee0f1e3982537aca63aced",
+              "size": 12794
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/pillow/python3-pil_12.1.1-2ubuntu1.6_arm64.deb": {
+              "md5": "5ee3effa44c64630ec3bbb6de3a5b356",
+              "size": 477464
+            },
+            "http://ports.ubuntu.com/pool/universe/p/pillow/python3-pil.imagetk_12.1.1-2ubuntu1.6_arm64.deb": {
+              "md5": "8d06ba1735dc39c9e80482edda9a28e9",
+              "size": 12896
+            }
+          }
+        },
+        "armhf": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/pillow/python3-pil_12.1.1-2ubuntu1.6_armhf.deb": {
+              "md5": "1a5edfc13898e4bfd599937a40873281",
+              "size": 450976
+            },
+            "http://ports.ubuntu.com/pool/universe/p/pillow/python3-pil.imagetk_12.1.1-2ubuntu1.6_armhf.deb": {
+              "md5": "04471e1e33ce9d819d0e11e63215a744",
+              "size": 12206
+            }
+          }
+        },
+        "ppc64el": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/pillow/python3-pil_12.1.1-2ubuntu1.6_ppc64el.deb": {
+              "md5": "197af0a37d7f57a5848ee55c30302a3b",
+              "size": 631998
+            },
+            "http://ports.ubuntu.com/pool/universe/p/pillow/python3-pil.imagetk_12.1.1-2ubuntu1.6_ppc64el.deb": {
+              "md5": "ec494099d59f29831023c9139f484b78",
+              "size": 13406
+            }
+          }
+        },
+        "riscv64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/pillow/python3-pil_12.1.1-2ubuntu1.6_riscv64.deb": {
+              "md5": "3772b1fc67927304e1bc673c5c783dc6",
+              "size": 497572
+            },
+            "http://ports.ubuntu.com/pool/universe/p/pillow/python3-pil.imagetk_12.1.1-2ubuntu1.6_riscv64.deb": {
+              "md5": "e054a770309e9bae659f7468843c3fda",
+              "size": 13014
+            }
+          }
+        },
+        "s390x": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/pillow/python3-pil_12.1.1-2ubuntu1.6_s390x.deb": {
+              "md5": "c2a0ba9eb53469b6416b93f4c6cb1388",
+              "size": 521414
+            },
+            "http://ports.ubuntu.com/pool/universe/p/pillow/python3-pil.imagetk_12.1.1-2ubuntu1.6_s390x.deb": {
+              "md5": "6c811d248f1785f54546c7de2247d22e",
+              "size": 12738
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/pillow/pillow_12.1.1-2ubuntu1.6.debian.tar.xz": {
+              "md5": "a0d1ed3fd3009ef13dc50797fb41b272",
+              "size": 59916
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/pillow/pillow_12.1.1-2ubuntu1.6.dsc": {
+              "md5": "848e249dd4ad83ac216a6305194d9096",
+              "size": 2542
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/pillow/pillow_12.1.1.orig.tar.xz": {
+              "md5": "e673e30777a3d9e68b8cc191e72da640",
+              "size": 37219516
+            }
+          }
+        }
+      },
+      "binaries": {
+        "python3-pil": {
+          "pocket": "security",
+          "version": "12.1.1-2ubuntu1.6"
+        }
+      },
+      "sources": {
+        "pillow": {
+          "description": "Python Imaging Library",
+          "version": "12.1.1-2ubuntu1.6"
+        }
+      }
+    },
+    "stonking": {
+      "allbinaries": {
+        "python-pil-doc": {
+          "pocket": "security",
+          "source": "pillow",
+          "version": "12.3.0-1ubuntu2.1"
+        },
+        "python3-pil": {
+          "pocket": "security",
+          "source": "pillow",
+          "version": "12.3.0-1ubuntu2.1"
+        },
+        "python3-pil.imagetk": {
+          "pocket": "security",
+          "source": "pillow",
+          "version": "12.3.0-1ubuntu2.1"
+        }
+      },
+      "archs": {
+        "all": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/pillow/python-pil-doc_12.3.0-1ubuntu2.1_all.deb": {
+              "md5": "4eaacc76d87d580e3635b261e006ba07",
+              "size": 1099196
+            }
+          }
+        },
+        "amd64": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/pillow/python3-pil_12.3.0-1ubuntu2.1_amd64.deb": {
+              "md5": "65b4aa64891c2ce18a2d5088c5de8f16",
+              "size": 495146
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/pillow/python3-pil.imagetk_12.3.0-1ubuntu2.1_amd64.deb": {
+              "md5": "e91e7b72f75d8005a35da89bc005a635",
+              "size": 12820
+            }
+          }
+        },
+        "amd64v3": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/pillow/python3-pil_12.3.0-1ubuntu2.1_amd64v3.deb": {
+              "md5": "4d7417e1ab1e420dbcc9d82f4cb838ca",
+              "size": 495560
+            },
+            "http://security.ubuntu.com/ubuntu/pool/universe/p/pillow/python3-pil.imagetk_12.3.0-1ubuntu2.1_amd64v3.deb": {
+              "md5": "b6ce9700df3727d3ab5db837d95c21f1",
+              "size": 12838
+            }
+          }
+        },
+        "arm64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/pillow/python3-pil_12.3.0-1ubuntu2.1_arm64.deb": {
+              "md5": "27097d3588d8f0debaa4b1c742e31f4d",
+              "size": 480542
+            },
+            "http://ports.ubuntu.com/pool/universe/p/pillow/python3-pil.imagetk_12.3.0-1ubuntu2.1_arm64.deb": {
+              "md5": "86e708d39acd2f9d470abe5bcbc21432",
+              "size": 12926
+            }
+          }
+        },
+        "armhf": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/pillow/python3-pil_12.3.0-1ubuntu2.1_armhf.deb": {
+              "md5": "93f02ed74bbcbf0fcd53d5cd6963c628",
+              "size": 455008
+            },
+            "http://ports.ubuntu.com/pool/universe/p/pillow/python3-pil.imagetk_12.3.0-1ubuntu2.1_armhf.deb": {
+              "md5": "19d78ae50d1f234fe71d67aee6fafd34",
+              "size": 12250
+            }
+          }
+        },
+        "ppc64el": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/pillow/python3-pil_12.3.0-1ubuntu2.1_ppc64el.deb": {
+              "md5": "d43decc43cca426cbb80d8fa98862027",
+              "size": 654016
+            },
+            "http://ports.ubuntu.com/pool/universe/p/pillow/python3-pil.imagetk_12.3.0-1ubuntu2.1_ppc64el.deb": {
+              "md5": "8d1e43bd045b0e3c05a76785429dc247",
+              "size": 13354
+            }
+          }
+        },
+        "riscv64": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/pillow/python3-pil_12.3.0-1ubuntu2.1_riscv64.deb": {
+              "md5": "3c487ec69d5eabe4b6fea8afc546ac26",
+              "size": 500122
+            },
+            "http://ports.ubuntu.com/pool/universe/p/pillow/python3-pil.imagetk_12.3.0-1ubuntu2.1_riscv64.deb": {
+              "md5": "57ca769fcb4bf2e93a1362c9a2ec5a71",
+              "size": 13046
+            }
+          }
+        },
+        "s390x": {
+          "urls": {
+            "http://ports.ubuntu.com/pool/main/p/pillow/python3-pil_12.3.0-1ubuntu2.1_s390x.deb": {
+              "md5": "ea1a44a683ca2cc63cb8448d3508676d",
+              "size": 527154
+            },
+            "http://ports.ubuntu.com/pool/universe/p/pillow/python3-pil.imagetk_12.3.0-1ubuntu2.1_s390x.deb": {
+              "md5": "80d85968cae58177e4d371d7e1cb05c5",
+              "size": 12774
+            }
+          }
+        },
+        "source": {
+          "urls": {
+            "http://security.ubuntu.com/ubuntu/pool/main/p/pillow/pillow_12.3.0-1ubuntu2.1.debian.tar.xz": {
+              "md5": "6f1760804457d8550751af064c28487a",
+              "size": 48628
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/pillow/pillow_12.3.0-1ubuntu2.1.dsc": {
+              "md5": "b38c0a04104ebbcf485cc7cb8fdd22f2",
+              "size": 2576
+            },
+            "http://security.ubuntu.com/ubuntu/pool/main/p/pillow/pillow_12.3.0.orig.tar.xz": {
+              "md5": "b17540754d790ac75c1077ea8d3da5cb",
+              "size": 37255276
+            }
+          }
+        }
+      },
+      "binaries": {
+        "python3-pil": {
+          "pocket": "security",
+          "version": "12.3.0-1ubuntu2.1"
+        }
+      },
+      "sources": {
+        "pillow": {
+          "description": "Python Imaging Library",
+          "version": "12.3.0-1ubuntu2.1"
+        }
+      }
+    }
+  },
+  "summary": "pillow regression",
+  "timestamp": 1794852442.846645,
+  "title": "Pillow regression"
+}
