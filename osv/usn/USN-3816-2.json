@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.7.0",
+  "schema_version": "1.9.2",
   "id": "USN-3816-2",
   "summary": "systemd vulnerability",
   "details": "USN-3816-1 fixed several vulnerabilities in systemd. However, the fix for\nCVE-2018-6954 was not sufficient. This update provides the remaining fixes.\n\nWe apologize for the inconvenience.\n\nOriginal advisory details:\n\n Jann Horn discovered that unit_deserialize incorrectly handled status messages\n above a certain length. A local attacker could potentially exploit this via\n NotifyAccess to inject arbitrary state across re-execution and obtain root\n privileges. (CVE-2018-15686)\n \n Jann Horn discovered a race condition in chown_one(). A local attacker\n could potentially exploit this by setting arbitrary permissions on certain\n files to obtain root privileges. This issue only affected Ubuntu 18.04 LTS\n and Ubuntu 18.10. (CVE-2018-15687)\n \n It was discovered that systemd-tmpfiles mishandled symlinks in\n non-terminal path components. A local attacker could potentially exploit\n this by gaining ownership of certain files to obtain root privileges. This\n issue only affected Ubuntu 16.04 LTS and Ubuntu 18.04 LTS. (CVE-2018-6954)\n",
@@ -9,7 +9,7 @@
   ],
   "related": [],
   "published": "2018-11-19T22:03:24Z",
-  "modified": "2026-04-22T07:36:36Z",
+  "modified": "2026-11-24T09:37:03Z",
   "affected": [
     {
       "package": {
@@ -237,7 +237,8 @@
               "severity": [
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+                  "source": "NVD"
                 },
                 {
                   "type": "CVSS_V3",
@@ -245,11 +246,13 @@
                 },
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                  "score": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+                  "source": "NVD"
                 },
                 {
                   "type": "Ubuntu",
-                  "score": "medium"
+                  "score": "medium",
+                  "source": "SELF"
                 }
               ]
             }

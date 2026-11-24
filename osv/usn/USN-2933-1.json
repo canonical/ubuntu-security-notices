@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.7.0",
+  "schema_version": "1.9.2",
   "id": "USN-2933-1",
   "summary": "exim4 vulnerabilities",
   "details": "It was discovered that Exim incorrectly filtered environment variables when\nused with the perl_startup configuration option. If the perl_startup option\nwas enabled, a local attacker could use this issue to escalate their\nprivileges to the root user. This issue has been fixed by having Exim clean\nthe complete execution environment by default on startup, including any\nsubprocesses such as transports that call other programs. This change in\nbehaviour may break existing installations and can be adjusted by using two\nnew configuration options, keep_environment and add_environment.\n(CVE-2016-1531)\n\nPatrick William discovered that Exim incorrectly expanded mathematical\ncomparisons twice. A local attacker could possibly use this issue to\nperform arbitrary file operations as the Exim user. This issue only\naffected Ubuntu 12.04 LTS and Ubuntu 14.04 LTS. (CVE-2014-2972)\n",
@@ -10,7 +10,7 @@
   ],
   "related": [],
   "published": "2016-03-15T12:28:25Z",
-  "modified": "2026-04-22T07:36:33Z",
+  "modified": "2026-11-24T09:36:56Z",
   "affected": [
     {
       "package": {
@@ -77,7 +77,8 @@
               "severity": [
                 {
                   "type": "Ubuntu",
-                  "score": "low"
+                  "score": "low",
+                  "source": "SELF"
                 }
               ]
             },
@@ -86,11 +87,13 @@
               "severity": [
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                  "score": "CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+                  "source": "NVD"
                 },
                 {
                   "type": "Ubuntu",
-                  "score": "medium"
+                  "score": "medium",
+                  "source": "SELF"
                 }
               ]
             }

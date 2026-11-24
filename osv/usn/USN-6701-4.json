@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.7.0",
+  "schema_version": "1.9.2",
   "id": "USN-6701-4",
   "summary": "linux-azure vulnerabilities",
   "details": "Ruihan Li discovered that the bluetooth subsystem in the Linux kernel did\nnot properly perform permissions checks when handling HCI sockets. A\nphysically proximate attacker could use this to cause a denial of service\n(bluetooth communication). (CVE-2023-2002)\n\nIt was discovered that the NVIDIA Tegra XUSB pad controller driver in the\nLinux kernel did not properly handle return values in certain error\nconditions. A local attacker could use this to cause a denial of service\n(system crash). (CVE-2023-23000)\n\nIt was discovered that Spectre-BHB mitigations were missing for Ampere\nprocessors. A local attacker could potentially use this to expose sensitive\ninformation. (CVE-2023-3006)\n\nIt was discovered that the ext4 file system implementation in the Linux\nkernel did not properly handle block device modification while it is\nmounted. A privileged attacker could use this to cause a denial of service\n(system crash) or possibly expose sensitive information. (CVE-2023-34256)\n\nEric Dumazet discovered that the netfilter subsystem in the Linux kernel\ndid not properly handle DCCP conntrack buffers in certain situations,\nleading to an out-of-bounds read vulnerability. An attacker could possibly\nuse this to expose sensitive information (kernel memory). (CVE-2023-39197)\n\nIt was discovered that the Siano USB MDTV receiver device driver in the\nLinux kernel did not properly handle device initialization failures in\ncertain situations, leading to a use-after-free vulnerability. A physically\nproximate attacker could use this cause a denial of service (system crash).\n(CVE-2023-4132)\n\nPratyush Yadav discovered that the Xen network backend implementation in\nthe Linux kernel did not properly handle zero length data request, leading\nto a null pointer dereference vulnerability. An attacker in a guest VM\ncould possibly use this to cause a denial of service (host domain crash).\n(CVE-2023-46838)\n\nIt was discovered that a race condition existed in the AppleTalk networking\nsubsystem of the Linux kernel, leading to a use-after-free vulnerability. A\nlocal attacker could use this to cause a denial of service (system crash)\nor possibly execute arbitrary code. (CVE-2023-51781)\n\nAlon Zahavi discovered that the NVMe-oF/TCP subsystem of the Linux kernel\ndid not properly handle connect command payloads in certain situations,\nleading to an out-of-bounds read vulnerability. A remote attacker could use\nthis to expose sensitive information (kernel memory). (CVE-2023-6121)\n\nIt was discovered that the ext4 file system implementation in the Linux\nkernel did not properly handle the remount operation in certain cases,\nleading to a use-after-free vulnerability. A local attacker could use this\nto cause a denial of service (system crash) or possibly expose sensitive\ninformation. (CVE-2024-0775)\n\nNotselwyn discovered that the netfilter subsystem in the Linux kernel did\nnot properly handle verdict parameters in certain cases, leading to a use-\nafter-free vulnerability. A local attacker could use this to cause a denial\nof service (system crash) or possibly execute arbitrary code.\n(CVE-2024-1086)\n\nIt was discovered that a race condition existed in the SCSI Emulex\nLightPulse Fibre Channel driver in the Linux kernel when unregistering FCF\nand re-scanning an HBA FCF table, leading to a null pointer dereference\nvulnerability. A local attacker could use this to cause a denial of service\n(system crash). (CVE-2024-24855)\n",
@@ -20,7 +20,7 @@
   ],
   "related": [],
   "published": "2024-04-09T13:53:55Z",
-  "modified": "2026-10-23T07:18:55Z",
+  "modified": "2026-11-24T09:37:36Z",
   "affected": [
     {
       "package": {
@@ -190,15 +190,18 @@
               "severity": [
                 {
                   "type": "CVSS_V4",
-                  "score": "CVSS:4.0/AV:L/AC:L/AT:P/PR:L/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N"
+                  "score": "CVSS:4.0/AV:L/AC:L/AT:P/PR:L/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N",
+                  "source": "SELF"
                 },
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:A/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:H"
+                  "score": "CVSS:3.1/AV:A/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:H",
+                  "source": "NVD"
                 },
                 {
                   "type": "Ubuntu",
-                  "score": "low"
+                  "score": "low",
+                  "source": "SELF"
                 }
               ]
             },
@@ -207,7 +210,8 @@
               "severity": [
                 {
                   "type": "CVSS_V4",
-                  "score": "CVSS:4.0/AV:L/AC:H/AT:P/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N"
+                  "score": "CVSS:4.0/AV:L/AC:H/AT:P/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+                  "source": "SELF"
                 },
                 {
                   "type": "CVSS_V3",
@@ -215,11 +219,13 @@
                 },
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N"
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+                  "source": "NVD"
                 },
                 {
                   "type": "Ubuntu",
-                  "score": "medium"
+                  "score": "medium",
+                  "source": "SELF"
                 }
               ]
             },
@@ -228,15 +234,18 @@
               "severity": [
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+                  "source": "CNA"
                 },
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+                  "source": "NVD"
                 },
                 {
                   "type": "Ubuntu",
-                  "score": "low"
+                  "score": "low",
+                  "source": "SELF"
                 }
               ]
             },
@@ -245,19 +254,23 @@
               "severity": [
                 {
                   "type": "CVSS_V4",
-                  "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:H/SC:N/SI:N/SA:N"
+                  "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:H/SC:N/SI:N/SA:N",
+                  "source": "SELF"
                 },
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+                  "source": "NVD"
                 },
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+                  "source": "CNA"
                 },
                 {
                   "type": "Ubuntu",
-                  "score": "high"
+                  "score": "high",
+                  "source": "SELF"
                 }
               ]
             },
@@ -270,11 +283,13 @@
                 },
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+                  "source": "NVD"
                 },
                 {
                   "type": "Ubuntu",
-                  "score": "low"
+                  "score": "low",
+                  "source": "SELF"
                 }
               ]
             },
@@ -287,11 +302,13 @@
                 },
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+                  "source": "NVD"
                 },
                 {
                   "type": "Ubuntu",
-                  "score": "low"
+                  "score": "low",
+                  "source": "SELF"
                 }
               ]
             },
@@ -300,19 +317,23 @@
               "severity": [
                 {
                   "type": "CVSS_V4",
-                  "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N"
+                  "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+                  "source": "SELF"
                 },
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+                  "source": "NVD"
                 },
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:N/A:N"
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:N/A:N",
+                  "source": "CNA"
                 },
                 {
                   "type": "Ubuntu",
-                  "score": "medium"
+                  "score": "medium",
+                  "source": "SELF"
                 }
               ]
             },
@@ -321,7 +342,8 @@
               "severity": [
                 {
                   "type": "CVSS_V4",
-                  "score": "CVSS:4.0/AV:L/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H"
+                  "score": "CVSS:4.0/AV:L/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H",
+                  "source": "SELF"
                 },
                 {
                   "type": "CVSS_V3",
@@ -329,11 +351,13 @@
                 },
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+                  "source": "NVD"
                 },
                 {
                   "type": "Ubuntu",
-                  "score": "high"
+                  "score": "high",
+                  "source": "SELF"
                 }
               ]
             },
@@ -342,11 +366,13 @@
               "severity": [
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+                  "source": "NVD"
                 },
                 {
                   "type": "Ubuntu",
-                  "score": "high"
+                  "score": "high",
+                  "source": "SELF"
                 }
               ]
             },
@@ -355,15 +381,18 @@
               "severity": [
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+                  "source": "CNA"
                 },
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H"
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+                  "source": "NVD"
                 },
                 {
                   "type": "Ubuntu",
-                  "score": "low"
+                  "score": "low",
+                  "source": "SELF"
                 }
               ]
             },
@@ -372,15 +401,18 @@
               "severity": [
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+                  "source": "CNA"
                 },
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+                  "source": "NVD"
                 },
                 {
                   "type": "Ubuntu",
-                  "score": "high"
+                  "score": "high",
+                  "source": "SELF"
                 }
               ]
             },
@@ -389,15 +421,18 @@
               "severity": [
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:N/I:L/A:H"
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:N/I:L/A:H",
+                  "source": "CNA"
                 },
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                  "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+                  "source": "NVD"
                 },
                 {
                   "type": "Ubuntu",
-                  "score": "low"
+                  "score": "low",
+                  "source": "SELF"
                 }
               ]
             }

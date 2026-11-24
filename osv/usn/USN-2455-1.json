@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.7.0",
+  "schema_version": "1.9.2",
   "id": "USN-2455-1",
   "summary": "bsd-mailx vulnerability",
   "details": "It was discovered that bsd-mailx contained a feature that allowed\nsyntactically valid email addresses to be treated as shell commands. A\nremote attacker could possibly use this issue with a valid email address to\nexecute arbitrary commands.\n\nThis functionality has now been disabled by default, and can be re-enabled\nwith the \"expandaddr\" configuration option. This update alone does not\nremove all possibilities of command execution. In environments where\nscripts use mailx to process arbitrary email addresses, it is recommended\nto modify them to use a \"--\" separator before the address to properly\nhandle those that begin with \"-\". In addition, specifying sendmail options\nafter the \"--\" separator is no longer supported, existing scripts may need\nto be modified to use the \"-a\" option instead.\n",
@@ -9,7 +9,7 @@
   ],
   "related": [],
   "published": "2015-01-07T19:26:56Z",
-  "modified": "2026-02-10T04:40:51Z",
+  "modified": "2026-11-24T09:36:53Z",
   "affected": [
     {
       "package": {
@@ -52,11 +52,13 @@
               "severity": [
                 {
                   "type": "CVSS_V3",
-                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+                  "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+                  "source": "NVD"
                 },
                 {
                   "type": "Ubuntu",
-                  "score": "medium"
+                  "score": "medium",
+                  "source": "SELF"
                 }
               ]
             }
