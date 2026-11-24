@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.7.0",
+  "schema_version": "1.9.2",
   "id": "LSN-0118-1",
   "summary": "Kernel Live Patch Security Notice",
   "details": "In the Linux kernel, the following vulnerability has been\nresolved: smb: client: fix UAF in async decryption Doing an async\ndecryption (large read) crashes with a slab-use-after-free way down in the\ncrypto API.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: padata: avoid UAF for reorder_work Although the previous patch\ncan avoid ps and ps UAF for _do_serial, it can not avoid potential UAF\nissue for reorder_work.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: exfat: fix random stack corruption after get_block When get_block\nis called with a buffer_head allocated on the stack, such as\ndo_mpage_readpage, stack corruption due to buffer_head UAF may occur in the\nfollowing race condition situation.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: smb: client: fix use-after-free in crypt_message when using async\ncrypto The CVE-2024-50047 fix removed asynchronous crypto handling from\ncrypt_message(), assuming all crypto operations are synchronous.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ksmbd: fix Preauh_HashValue race condition If client send\nmultiple session setup requests to ksmbd, Preauh_HashValue race condition\ncould happen.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: io_uring/futex: ensure io_futex_wait() cleans up properly on\nfailure The io_futex_data is allocated upfront and assigned to the io_kiocb\nasync_data field, but the request isn't marked with REQ_F_ASYNC_DATA at\nthat point.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: af_unix: Initialise scc_index in unix_add_edge().",
@@ -15,7 +15,7 @@
   ],
   "related": [],
   "published": "2026-03-04T12:10:48Z",
-  "modified": "2026-06-03T10:46:32Z",
+  "modified": "2026-11-24T09:40:13Z",
   "affected": [
     {
       "package": {

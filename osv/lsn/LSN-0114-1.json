@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.7.0",
+  "schema_version": "1.9.2",
   "id": "LSN-0114-1",
   "summary": "Kernel Live Patch Security Notice",
   "details": "In the Linux kernel, the following vulnerability has been\nresolved: bfq: fix use-after-free in bfq_dispatch_request KASAN reports a\nuse-after-free report when doing normal scsi-mq test .\n\nIn the Linux kernel, the following vulnerability has been\nresolved: block, bfq: don't move oom_bfqq Our test report a UAF: .\n\nIn the Linux kernel, the following vulnerability has been\nresolved: Bluetooth: L2CAP: fix use-after-free in l2cap_conn_del() When\nl2cap_recv_frame() is invoked to receive data, and the cid is\nL2CAP_CID_A2MP, if the channel does not exist, it will create a channel.\nHowever, after a channel is created, the hold operation of the channel is\nnot performed.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: SUNRPC: Fix UAF in svc_tcp_listen_data_ready() After the listener\nsvc_sock is freed, and before invoking svc_tcp_accept() for the established\nchild sock, there is a window that the newsock retaining a freed listener\nsvc_sock in sk_user_data which cloning from parent.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ext4: aovid use-after-free in ext4_ext_insert_extent() As Ojaswin\nmentioned in Link, in ext4_ext_insert_extent(), if the path is reallocated\nin ext4_ext_create_new_leaf(), we'll use the stale path and cause UAF.\nBelow is a sample trace with dummy values: ext4_ext_insert_extent path .\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ALSA: usb-audio: Fix potential out-of-bound accesses for Extigy\nand Mbox devices A bogus device can provide a bNumConfigurations value that\nexceeds the initial value used in usb_get_configuration for allocating\ndev->config.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: ovl: fix UAF in ovl_dentry_update_reval by moving dput() in\novl_link_up The issue was caused by dput(upper) being called before\novl_dentry_update_reval(), while upper->d_flags was still accessed in\novl_dentry_remote().\n\nIn the Linux kernel, the following vulnerability has been\nresolved: RDMA/erdma: Prevent use-after-free in erdma_accept_newconn()\nAfter the erdma_cep_put(new_cep) being called, new_cep will be freed, and\nthe following dereference will cause a UAF problem.",
@@ -16,7 +16,7 @@
   ],
   "related": [],
   "published": "2025-08-18T10:14:58Z",
-  "modified": "2026-06-03T10:46:32Z",
+  "modified": "2026-11-24T09:40:12Z",
   "affected": [
     {
       "package": {

@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.7.0",
+  "schema_version": "1.9.2",
   "id": "LSN-120-1",
   "summary": "Kernel Live Patch Security Notice",
   "details": "In the Linux kernel, the following vulnerability has been\nresolved: KVM: arm64: Tear down vGIC on failed vCPU creation If\nkvm_arch_vcpu_create() fails to share the vCPU page with the hypervisor, we\npropagate the error back to the ioctl but leave the vGIC vCPU data\ninitialised.\n\nIn the Linux kernel, the following vulnerability has been\nresolved: nvmet-tcp: add bounds checks in nvmet_tcp_build_pdu_iovec\nnvmet_tcp_build_pdu_iovec() could walk past cmd->req.sg when a PDU length\nor offset exceeds sg_cnt and then use bogus sg->length/offset values,\nleading to _copy_to_iter() GPF/KASAN.\n\nIt was discovered that the Linux kernel algif_aead module did not properly\nhandle in-place cryptographic operations. This flaw is known as Copy Fail.\nA local attacker could use this to escalate privileges, or possibly escape\na container.)(CVE-2026-31431)",
@@ -11,7 +11,7 @@
   ],
   "related": [],
   "published": "2026-06-01T09:05:55Z",
-  "modified": "2026-06-01T09:05:55Z",
+  "modified": "2026-11-24T09:40:13Z",
   "affected": [
     {
       "package": {
